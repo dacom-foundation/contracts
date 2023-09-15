@@ -27,17 +27,21 @@
   active_auth.keys.emplace_back(keypermission);
 
   authority owner_auth;
+  owner_auth.threshold = 1;
+  
+  // Устанавливаем разрешение eosio.prods@active для владельца
+  permission_level_weight eosio_prods_plw{
+      {eosio::name("eosio.prods"), "active"_n},
+      1
+  };
+  owner_auth.accounts.push_back(eosio_prods_plw);
+  
   auto ram_price = eosiosystem::determine_ram_price(_ram_bytes);
   eosio::asset cpu = asset(_stake_cpu_amount, _root_symbol);
   eosio::asset net = asset(_stake_net_amount, _root_symbol);
-
   eosio::asset total_pay = cpu + net + ram_price;
-  
+
   sub_balance(_registrator, payer, total_pay, _root_contract);
-  owner_auth.threshold = 1;
-  
-  permission_level_weight eosio_prods_permission{eosio::name("eosio.prods"), "active"_n, 1}; // Add this line
-  owner_auth.accounts.emplace_back(eosio_prods_permission);  // Change this line
 
   action(permission_level(_registrator, "active"_n), "eosio"_n, "newaccount"_n,
          std::tuple(_registrator, username, owner_auth, active_auth))
@@ -67,6 +71,7 @@
     n.meta = meta;
   });
 }
+
 
 
 
