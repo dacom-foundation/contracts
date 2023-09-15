@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Документация: Действия</title>
+<title>Для разработчиков: Действия</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Документация
+   <div id="projectname">Для разработчиков
    </div>
   </td>
  </tr>
@@ -95,9 +95,9 @@ $(document).ready(function(){initNavTree('group__public__actions.html',''); init
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Функции</h2></td></tr>
-<tr class="memitem:gacdfebb1a75a61c5d88ac5c280033d5b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__public__actions.html#gacdfebb1a75a61c5d88ac5c280033d5b7">registrator::newaccount</a> (eosio::name <a class="el" href="classregistrator.html">registrator</a>, eosio::name referer, eosio::name username, eosio::public_key public_key, eosio::asset cpu, eosio::asset net, uint64_t ram_bytes, std::string meta)</td></tr>
-<tr class="memdesc:gacdfebb1a75a61c5d88ac5c280033d5b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Регистрирует новый аккаунт.  <a href="group__public__actions.html#gacdfebb1a75a61c5d88ac5c280033d5b7">Подробнее...</a><br /></td></tr>
-<tr class="separator:gacdfebb1a75a61c5d88ac5c280033d5b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad0fcb9cd1f853fb5ee1f58f76cc42355"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__public__actions.html#gad0fcb9cd1f853fb5ee1f58f76cc42355">registrator::newaccount</a> (eosio::name payer, eosio::name referer, eosio::name username, eosio::public_key public_key, std::string meta)</td></tr>
+<tr class="memdesc:gad0fcb9cd1f853fb5ee1f58f76cc42355"><td class="mdescLeft">&#160;</td><td class="mdescRight">Регистрирует новый аккаунт.  <a href="group__public__actions.html#gad0fcb9cd1f853fb5ee1f58f76cc42355">Подробнее...</a><br /></td></tr>
+<tr class="separator:gad0fcb9cd1f853fb5ee1f58f76cc42355"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga25589c2c87b594bea2a82aea5bd1112c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__public__actions.html#ga25589c2c87b594bea2a82aea5bd1112c">registrator::reguser</a> (eosio::name username, std::string profile_hash)</td></tr>
 <tr class="memdesc:ga25589c2c87b594bea2a82aea5bd1112c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Регистрация пользователя  <a href="group__public__actions.html#ga25589c2c87b594bea2a82aea5bd1112c">Подробнее...</a><br /></td></tr>
 <tr class="separator:ga25589c2c87b594bea2a82aea5bd1112c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1148,8 +1148,8 @@ $(document).ready(function(){initNavTree('group__public__actions.html',''); init
 
 </div>
 </div>
-<a id="gacdfebb1a75a61c5d88ac5c280033d5b7" name="gacdfebb1a75a61c5d88ac5c280033d5b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gacdfebb1a75a61c5d88ac5c280033d5b7">&#9670;&nbsp;</a></span>newaccount()</h2>
+<a id="gad0fcb9cd1f853fb5ee1f58f76cc42355" name="gad0fcb9cd1f853fb5ee1f58f76cc42355"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad0fcb9cd1f853fb5ee1f58f76cc42355">&#9670;&nbsp;</a></span>newaccount()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1181,24 +1181,6 @@ $(document).ready(function(){initNavTree('group__public__actions.html',''); init
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">eosio::asset&#160;</td>
-          <td class="paramname"><em>cpu</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">eosio::asset&#160;</td>
-          <td class="paramname"><em>net</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint64_t&#160;</td>
-          <td class="paramname"><em>ram_bytes</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">std::string&#160;</td>
           <td class="paramname"><em>meta</em>&#160;</td>
         </tr>
@@ -1211,16 +1193,13 @@ $(document).ready(function(){initNavTree('group__public__actions.html',''); init
 </div><div class="memdoc">
 
 <p>Регистрирует новый аккаунт. </p>
-<p >Действие позволяет создать новый аккаунт, выполнив все необходимые шаги по резервированию RAM, делегированию CPU и NET, а также регистрации пользователя в контракте. </p><dl class="section note"><dt>Заметки</dt><dd>Авторизация требуется от аккаунта: <code>payer</code> </dd></dl>
+<p >Действие позволяет создать новый аккаунт. </p><dl class="section note"><dt>Заметки</dt><dd>Авторизация требуется от аккаунта: <code>payer</code> </dd></dl>
 <dl class="params"><dt>Аргументы</dt><dd>
   <table class="params">
     <tr><td class="paramname">payer</td><td>Аккаунт, который оплачивает создание нового аккаунта. </td></tr>
     <tr><td class="paramname">referer</td><td>Реферер, который представил нового пользователя. </td></tr>
-    <tr><td class="paramname">username</td><td>Имя нового аккаунта. </td></tr>
+    <tr><td class="paramname">username</td><td>Имя нового аккаунта (от 5 до 12 символов). </td></tr>
     <tr><td class="paramname">public_key</td><td>Открытый ключ нового аккаунта. </td></tr>
-    <tr><td class="paramname">cpu</td><td>Количество AXON, делегированных на CPU для нового аккаунта. </td></tr>
-    <tr><td class="paramname">net</td><td>Количество AXON, делегированных на NET для нового аккаунта. </td></tr>
-    <tr><td class="paramname">ram_bytes</td><td>Количество RAM в байтах для нового аккаунта. </td></tr>
     <tr><td class="paramname">meta</td><td>Дополнительная мета-информация. </td></tr>
   </table>
   </dd>

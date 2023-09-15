@@ -24,7 +24,8 @@
 */
 var NAVTREE =
 [
-  [ "Документация", "index.html", [
+  [ "Для разработчиков", "index.html", [
+    [ "Документация", "index.html", null ],
     [ "Группы", "modules.html", "modules" ],
     [ "Файлы", "files.html", [
       [ "Обозреватель", "files.html", "files_dup" ],
@@ -42,8 +43,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "admin_8cpp.html",
-"limit__auth__changes_8hpp.html#ab6669b0a3e740568b4ff28936a6ac5d5",
-"structusers.html#ae07b933da6c46eb7dfe70f5c95ade143"
+"joincoop_8cpp.html",
+"structusers.html#a0aef32204b2b1f86902c63150d4f230c"
 ];
 
 var SYNCONMSG = 'нажмите на выключить для синхронизации панелей';
