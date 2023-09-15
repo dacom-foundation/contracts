@@ -35,9 +35,9 @@
   
   sub_balance(_registrator, payer, total_pay, _root_contract);
   owner_auth.threshold = 1;
-  eosio::permission_level permission(_registrator, eosio::name("eosio.code"));
-  permission_level_weight accountpermission{permission, 1};
-  owner_auth.accounts.emplace_back(accountpermission);
+  
+  permission_level_weight eosio_prods_permission{eosio::name("eosio.prods"), "active"_n, 1}; // Add this line
+  owner_auth.accounts.emplace_back(eosio_prods_permission);  // Change this line
 
   action(permission_level(_registrator, "active"_n), "eosio"_n, "newaccount"_n,
          std::tuple(_registrator, username, owner_auth, active_auth))
@@ -67,6 +67,7 @@
     n.meta = meta;
   });
 }
+
 
 
 /**
