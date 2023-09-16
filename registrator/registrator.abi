@@ -513,8 +513,8 @@
                     "type": "storage[]"
                 },
                 {
-                    "name": "verification",
-                    "type": "verification"
+                    "name": "verifications",
+                    "type": "verification[]"
                 }
             ]
         },

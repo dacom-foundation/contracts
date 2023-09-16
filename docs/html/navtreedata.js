@@ -44,7 +44,7 @@ var NAVTREEINDEX =
 [
 "admin_8cpp.html",
 "index.html",
-"structusers.html#a6894c358dbcce05a63de742f2b5fbd8e"
+"structusers.html#a737eae3ed6e76f98919b26b20288164b"
 ];
 
 var SYNCONMSG = 'нажмите на выключить для синхронизации панелей';

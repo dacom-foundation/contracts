@@ -128,9 +128,7 @@
       u.username = username;
       u.storages = storages;
     });
-
   }
-
 }
 
 
@@ -200,28 +198,28 @@
   auto account = accounts.find(username.value);
   eosio::check(account != accounts.end(), "Аккаунт не найден");
  
-  if (account -> type == "user"_n){
-    users_index users(_registrator, _registrator.value);
-    auto user = users.find(username.value);
-    eosio::check(user != users.end(), "Пользователь не найден");
-    users.modify(user, _ano, [&](auto &a){
-      a.verification.verificator = _ano;
-      a.verification.is_verified = true;
-      a.verification.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
-      a.verification.last_update = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
-    });
- } else if (account -> type == "org"_n){
-    orgs_index orgs(_registrator, _registrator.value);
-    auto org = orgs.find(username.value);
-    eosio::check(org != orgs.end(), "Организация не найдена");
+ //  if (account -> type == "user"_n){
+ //    users_index users(_registrator, _registrator.value);
+ //    auto user = users.find(username.value);
+ //    eosio::check(user != users.end(), "Пользователь не найден");
+ //    users.modify(user, _ano, [&](auto &a){
+ //      a.verification.verificator = _ano;
+ //      a.verification.is_verified = true;
+ //      a.verification.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+ //      a.verification.last_update = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+ //    });
+ // } else if (account -> type == "org"_n){
+ //    orgs_index orgs(_registrator, _registrator.value);
+ //    auto org = orgs.find(username.value);
+ //    eosio::check(org != orgs.end(), "Организация не найдена");
     
-    orgs.modify(org, _ano, [&](auto &a){
-      a.verification.verificator = _ano;
-      a.verification.is_verified = true;
-      a.verification.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
-      a.verification.last_update = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
-    });
-  }
+ //    orgs.modify(org, _ano, [&](auto &a){
+ //      a.verification.verificator = _ano;
+ //      a.verification.is_verified = true;
+ //      a.verification.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+ //      a.verification.last_update = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+ //    });
+ //  }
 }
 
 

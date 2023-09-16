@@ -248,6 +248,6 @@ var NAVTREEINDEX1 =
 "structstaff.html#aa67b206d474a4f87453bca87fda2f01b":[1,3,3,6],
 "structstaff.html#ab46bbfc312f86ec081fead61e3d01a10":[1,3,3,2],
 "structusers.html":[1,3,9],
-"structusers.html#a0aef32204b2b1f86902c63150d4f230c":[1,3,9,0],
-"structusers.html#a2752786aa29eb539056f93523777e347":[1,3,9,2]
+"structusers.html#a2752786aa29eb539056f93523777e347":[1,3,9,1],
+"structusers.html#a6894c358dbcce05a63de742f2b5fbd8e":[1,3,9,0]
 };

@@ -110,6 +110,7 @@ struct storage {
   std::string uid; ///< Идентификатор данных в хранилище
 };
 
+
 /**
  * @ingroup public_tables
  * @brief Структура, представляющая учетные записи пользователей.
@@ -117,8 +118,8 @@ struct storage {
  */
 struct [[eosio::table, eosio::contract(REGISTRATOR)]] users {
   eosio::name username; ///< Имя аккаунта пользователя.
-  std::vector<storage> storages;
-  verification verification; ///< Информация о верификации пользователя.
+  std::vector<storage> storages; ///< Хранилища персональных данных и идентификаторы данных в них.
+  std::vector<verification> verifications; ///< Информация о верификации пользователя.
 
   /**
    * @brief Возвращает первичный ключ учетной записи пользователя.
@@ -128,19 +129,9 @@ struct [[eosio::table, eosio::contract(REGISTRATOR)]] users {
     return username.value;
   } /*!< return username - primary_key */
   
-  /**
-   * @brief Возвращает ключ по статусу верификации пользователя.
-   * @return uint64_t - ключ, равный 1, если пользователь верифицирован, иначе 0.
-   */
-  uint64_t by_verified() const {
-    return verification.is_verified == true ? 1 : 0;
-  }
 };
 
-typedef eosio::multi_index<"users"_n, users,
-  eosio::indexed_by<"byverif"_n, eosio::const_mem_fun<users, uint64_t,
-                                                       &users::by_verified>>
-> users_index;
+typedef eosio::multi_index<"users"_n, users>users_index;
 
 
 /**

@@ -122,11 +122,10 @@ var group__public__tables =
       [ "username", "structaccounts.html#a05876c5415522c3ff8a3d8e8a783d6a7", null ]
     ] ],
     [ "users", "structusers.html", [
-      [ "by_verified", "structusers.html#a0aef32204b2b1f86902c63150d4f230c", null ],
       [ "primary_key", "structusers.html#a6894c358dbcce05a63de742f2b5fbd8e", null ],
       [ "storages", "structusers.html#a2752786aa29eb539056f93523777e347", null ],
       [ "username", "structusers.html#a737eae3ed6e76f98919b26b20288164b", null ],
-      [ "verification", "structusers.html#ac39df2d81bcbcf04648eab679a910044", null ]
+      [ "verifications", "structusers.html#a9b0680107bdfb2818db4b299d6b60de0", null ]
     ] ],
     [ "bank", "structbank.html", [
       [ "account", "structbank.html#ac222eff37f2528232734f3c6b4425b67", null ],

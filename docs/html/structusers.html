@@ -102,9 +102,6 @@ $(document).ready(function(){initNavTree('structusers.html',''); initResizable()
 <tr class="memitem:a6894c358dbcce05a63de742f2b5fbd8e"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structusers.html#a6894c358dbcce05a63de742f2b5fbd8e">primary_key</a> () const</td></tr>
 <tr class="memdesc:a6894c358dbcce05a63de742f2b5fbd8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает первичный ключ учетной записи пользователя.  <a href="structusers.html#a6894c358dbcce05a63de742f2b5fbd8e">Подробнее...</a><br /></td></tr>
 <tr class="separator:a6894c358dbcce05a63de742f2b5fbd8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0aef32204b2b1f86902c63150d4f230c"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structusers.html#a0aef32204b2b1f86902c63150d4f230c">by_verified</a> () const</td></tr>
-<tr class="memdesc:a0aef32204b2b1f86902c63150d4f230c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает ключ по статусу верификации пользователя.  <a href="structusers.html#a0aef32204b2b1f86902c63150d4f230c">Подробнее...</a><br /></td></tr>
-<tr class="separator:a0aef32204b2b1f86902c63150d4f230c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Открытые атрибуты</h2></td></tr>
@@ -112,43 +109,16 @@ $(document).ready(function(){initNavTree('structusers.html',''); initResizable()
 <tr class="memdesc:a737eae3ed6e76f98919b26b20288164b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Имя аккаунта пользователя.  <a href="structusers.html#a737eae3ed6e76f98919b26b20288164b">Подробнее...</a><br /></td></tr>
 <tr class="separator:a737eae3ed6e76f98919b26b20288164b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2752786aa29eb539056f93523777e347"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structstorage.html">storage</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structusers.html#a2752786aa29eb539056f93523777e347">storages</a></td></tr>
+<tr class="memdesc:a2752786aa29eb539056f93523777e347"><td class="mdescLeft">&#160;</td><td class="mdescRight">Хранилища персональных данных и идентификаторы данных в них.  <a href="structusers.html#a2752786aa29eb539056f93523777e347">Подробнее...</a><br /></td></tr>
 <tr class="separator:a2752786aa29eb539056f93523777e347"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac39df2d81bcbcf04648eab679a910044"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structverification.html">verification</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structusers.html#ac39df2d81bcbcf04648eab679a910044">verification</a></td></tr>
-<tr class="memdesc:ac39df2d81bcbcf04648eab679a910044"><td class="mdescLeft">&#160;</td><td class="mdescRight">Информация о верификации пользователя.  <a href="structusers.html#ac39df2d81bcbcf04648eab679a910044">Подробнее...</a><br /></td></tr>
-<tr class="separator:ac39df2d81bcbcf04648eab679a910044"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b0680107bdfb2818db4b299d6b60de0"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structverification.html">verification</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structusers.html#a9b0680107bdfb2818db4b299d6b60de0">verifications</a></td></tr>
+<tr class="memdesc:a9b0680107bdfb2818db4b299d6b60de0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Информация о верификации пользователя.  <a href="structusers.html#a9b0680107bdfb2818db4b299d6b60de0">Подробнее...</a><br /></td></tr>
+<tr class="separator:a9b0680107bdfb2818db4b299d6b60de0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
 <div class="textblock"><p >Структура, представляющая учетные записи пользователей. </p>
 <p >Эта структура хранит информацию о пользователях, их профилях и верификации. </p>
 </div><h2 class="groupheader">Методы</h2>
-<a id="a0aef32204b2b1f86902c63150d4f230c" name="a0aef32204b2b1f86902c63150d4f230c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0aef32204b2b1f86902c63150d4f230c">&#9670;&nbsp;</a></span>by_verified()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint64_t users::by_verified </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Возвращает ключ по статусу верификации пользователя. </p>
-<dl class="section return"><dt>Возвращает</dt><dd>uint64_t - ключ, равный 1, если пользователь верифицирован, иначе 0. </dd></dl>
-
-</div>
-</div>
 <a id="a6894c358dbcce05a63de742f2b5fbd8e" name="a6894c358dbcce05a63de742f2b5fbd8e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6894c358dbcce05a63de742f2b5fbd8e">&#9670;&nbsp;</a></span>primary_key()</h2>
 
@@ -190,6 +160,8 @@ $(document).ready(function(){initNavTree('structusers.html',''); initResizable()
       </table>
 </div><div class="memdoc">
 
+<p>Хранилища персональных данных и идентификаторы данных в них. </p>
+
 </div>
 </div>
 <a id="a737eae3ed6e76f98919b26b20288164b" name="a737eae3ed6e76f98919b26b20288164b"></a>
@@ -208,14 +180,14 @@ $(document).ready(function(){initNavTree('structusers.html',''); initResizable()
 
 </div>
 </div>
-<a id="ac39df2d81bcbcf04648eab679a910044" name="ac39df2d81bcbcf04648eab679a910044"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac39df2d81bcbcf04648eab679a910044">&#9670;&nbsp;</a></span>verification</h2>
+<a id="a9b0680107bdfb2818db4b299d6b60de0" name="a9b0680107bdfb2818db4b299d6b60de0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b0680107bdfb2818db4b299d6b60de0">&#9670;&nbsp;</a></span>verifications</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structverification.html">verification</a> users::verification</td>
+          <td class="memname">std::vector&lt;<a class="el" href="structverification.html">verification</a>&gt; users::verifications</td>
         </tr>
       </table>
 </div><div class="memdoc">
