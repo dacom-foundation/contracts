@@ -86,6 +86,7 @@ static constexpr uint64_t _ram_bytes = 16384; /*!< оперативная пам
 static constexpr uint64_t _stake_cpu_amount = 10000; /*!< оперативная память нового аккаунта */
 static constexpr uint64_t _stake_net_amount = 10000; /*!< оперативная память нового аккаунта */
 
+static constexpr uint64_t _signature_expiration = 86400 * 365 * 2;
 /**
 * @}
 */

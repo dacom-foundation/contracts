@@ -38,24 +38,20 @@ struct verification {
  */
 struct [[eosio::table, eosio::contract(REGISTRATOR)]] accounts {
   eosio::name username; ///< Имя аккаунта гостя. Имя пользователя в системе.
+  eosio::name referer; ///< Имя аккаунта, который был реферером при регистрации.
+  eosio::name registrator; ///< Имя аккаунта регистратора, который создал этот аккаунт.
+  eosio::name type; ///< Тип аккаунта: user (пользователь) | org (организация).
   eosio::name status; ///< Статус аккаунта:
+  std::string meta; ///< Дополнительная мета-информация о аккаунте.
   // "pending" - ожидание утверждения советом,
   // "active" - активный аккаунт;
   // "blocked" - заблокированный аккаунт;
   // "deleted" - удален пользователем;
-  
   uint64_t reputation; ///< Репутация аккаунта, возможно, связанная с его деятельностью.
-  eosio::name type; ///< Тип аккаунта: user (пользователь) | org (организация).
-  eosio::name registrator; ///< Имя аккаунта регистратора, который создал этот аккаунт.
-  eosio::name referer; ///< Имя аккаунта, который был реферером при регистрации.
-  
   eosio::asset registration_amount; ///< Количество токенов, которое требуется для регистрации.
-  std::string meta; ///< Дополнительная мета-информация о аккаунте.
   eosio::time_point_sec registered_at; ///< Время регистрации аккаунта.
-  eosio::time_point_sec last_update; ///< Время последнего обновления информации об аккаунте.
   eosio::time_point_sec signature_expires_at; ///< Время истечения срока действия подписи аккаунта.
-  eosio::time_point_sec signature_last_update; ///< Время последнего обновления подписи аккаунта.
-
+  
   /**
    * @brief Возвращает первичный ключ учетной записи аккаунта.
    * @return uint64_t - первичный ключ, равный значению имени аккаунта.

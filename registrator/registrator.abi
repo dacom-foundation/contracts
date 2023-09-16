@@ -12,15 +12,7 @@
                     "type": "name"
                 },
                 {
-                    "name": "status",
-                    "type": "name"
-                },
-                {
-                    "name": "reputation",
-                    "type": "uint64"
-                },
-                {
-                    "name": "type",
+                    "name": "referer",
                     "type": "name"
                 },
                 {
@@ -28,31 +20,31 @@
                     "type": "name"
                 },
                 {
-                    "name": "referer",
+                    "name": "type",
                     "type": "name"
                 },
                 {
-                    "name": "registration_amount",
-                    "type": "asset"
+                    "name": "status",
+                    "type": "name"
                 },
                 {
                     "name": "meta",
                     "type": "string"
                 },
                 {
+                    "name": "reputation",
+                    "type": "uint64"
+                },
+                {
+                    "name": "registration_amount",
+                    "type": "asset"
+                },
+                {
                     "name": "registered_at",
                     "type": "time_point_sec"
                 },
                 {
-                    "name": "last_update",
-                    "type": "time_point_sec"
-                },
-                {
                     "name": "signature_expires_at",
-                    "type": "time_point_sec"
-                },
-                {
-                    "name": "signature_last_update",
                     "type": "time_point_sec"
                 }
             ]
@@ -219,7 +211,7 @@
             "base": "",
             "fields": [
                 {
-                    "name": "payer",
+                    "name": "registrator",
                     "type": "name"
                 },
                 {
