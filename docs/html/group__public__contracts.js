@@ -7,8 +7,8 @@ var group__public__contracts =
       [ "confirmreg", "group__public__actions.html#gade0cb6032b21e1b753ec1b4f2b4bea73", null ],
       [ "joincoop", "group__public__actions.html#ga575710c03cd02b5e813816ea7e51500e", null ],
       [ "newaccount", "group__public__actions.html#gad0fcb9cd1f853fb5ee1f58f76cc42355", null ],
-      [ "regorg", "group__public__actions.html#ga917f5557795120c2e303be599030d563", null ],
-      [ "reguser", "group__public__actions.html#ga25589c2c87b594bea2a82aea5bd1112c", null ],
+      [ "regorg", "group__public__actions.html#ga8d888c02528e2537f7f6de620d1a1339", null ],
+      [ "reguser", "group__public__actions.html#gafad1a48d0cc01b4ee2869254ca674472", null ],
       [ "update", "group__public__actions.html#gac68fe89b4be51de18ac5b5921ca56eed", null ],
       [ "verificate", "group__public__actions.html#ga7bb89160d6aa3dc59c5f78daeb0a6476", null ]
     ] ],

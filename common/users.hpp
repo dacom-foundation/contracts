@@ -106,14 +106,22 @@ typedef eosio::multi_index<
 
 
 /**
+ * @ingroup public_structs
+ * @brief Структура, представляющая хранилища данных, в которых хранятся персональные данные и их идентификаторы.
+ */
+struct storage {
+  eosio::name storage_username; ///< Имя аккаунта хранилища персональных данных
+  std::string uid; ///< Идентификатор данных в хранилище
+};
+
+/**
  * @ingroup public_tables
  * @brief Структура, представляющая учетные записи пользователей.
  * @details Эта структура хранит информацию о пользователях, их профилях и верификации.
  */
 struct [[eosio::table, eosio::contract(REGISTRATOR)]] users {
   eosio::name username; ///< Имя аккаунта пользователя.
-  std::string user_data; ///< Ссылка на профиль пользователя в хранилище.
-
+  std::vector<storage> storages;
   verification verification; ///< Информация о верификации пользователя.
 
   /**
@@ -160,7 +168,6 @@ struct bank {
 * Данная структура содержит всю необходимую информацию для регистрации нового юридического лица в блокчейне.
 */
 struct org_data {
-    eosio::name username; ///< Имя аккаунта
     std::string name; ///< Полное наименование
     std::string short_name; ///< Краткое наименование
     std::string address; ///< Юридический адрес

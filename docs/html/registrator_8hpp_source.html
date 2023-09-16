@@ -115,35 +115,40 @@ $(document).ready(function(){initNavTree('registrator_8hpp_source.html',''); ini
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  [[eosio::action]] <span class="keywordtype">void</span> update(eosio::name username, std::string meta);</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  [[eosio::action]] <span class="keywordtype">void</span> confirmreg(eosio::name coop_username, eosio::name member, std::string position_title, eosio::name position);</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  [[eosio::action]] <span class="keywordtype">void</span> reguser(eosio::name username, std::string profile_hash);</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  [[eosio::action]] <span class="keywordtype">void</span> regorg(<a class="code hl_struct" href="structnew__org__struct.html">new_org_struct</a> new_org);</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  [[eosio::action]] <span class="keywordtype">void</span> joincoop(eosio::name coop_username, eosio::name username, std::string position_title, eosio::name position, std::string ricardian_data, std::string statement_hash);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  [[eosio::action]] <span class="keywordtype">void</span> reguser(</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>     eosio::name <a class="code hl_class" href="classregistrator.html">registrator</a>,</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>     eosio::name username,</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>     <a class="code hl_struct" href="structstorage.html">storage</a> <a class="code hl_struct" href="structstorage.html">storage</a></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  );</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  [[eosio::action]] <span class="keywordtype">void</span> verificate(eosio::name username);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  [[eosio::action]] <span class="keywordtype">void</span> regorg(eosio::name <a class="code hl_class" href="classregistrator.html">registrator</a>, eosio::name username, <a class="code hl_struct" href="structorg__data.html">org_data</a> new_org);</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  [[eosio::action]] <span class="keywordtype">void</span> newaccount(</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    eosio::name payer, eosio::name referer,</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    eosio::name username, eosio::public_key public_key,</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    std::string meta);</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>  [[eosio::action]] <span class="keywordtype">void</span> changekey(eosio::name username,</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                                   eosio::public_key public_key);</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classregistrator.html#a459e96e1cc7864c070000cbdcdad1d82">   61</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classregistrator.html#a459e96e1cc7864c070000cbdcdad1d82">apply</a>(uint64_t receiver, uint64_t code, uint64_t action);</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="structregistrator_1_1balances.html">   71</a></span>  <span class="keyword">struct </span>[[eosio::table, <a class="code hl_namespace" href="namespaceeosio.html">eosio</a>::contract(REGISTRATOR)]] <a class="code hl_struct" href="structregistrator_1_1balances.html">balances</a> : <a class="code hl_struct" href="structbalances__base.html">balances_base</a> {};</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>  </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>};</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  [[eosio::action]] <span class="keywordtype">void</span> joincoop(eosio::name coop_username, eosio::name username, std::string position_title, eosio::name position, std::string ricardian_data, std::string statement_hash);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  [[eosio::action]] <span class="keywordtype">void</span> verificate(eosio::name username);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>  [[eosio::action]] <span class="keywordtype">void</span> newaccount(</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    eosio::name payer, eosio::name referer,</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    eosio::name username, eosio::public_key public_key,</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    std::string meta);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  [[eosio::action]] <span class="keywordtype">void</span> changekey(eosio::name username,</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>                                   eosio::public_key public_key);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classregistrator.html#a459e96e1cc7864c070000cbdcdad1d82">   65</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classregistrator.html#a459e96e1cc7864c070000cbdcdad1d82">apply</a>(uint64_t receiver, uint64_t code, uint64_t action);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>  </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="structregistrator_1_1balances.html">   75</a></span>  <span class="keyword">struct </span>[[eosio::table, <a class="code hl_namespace" href="namespaceeosio.html">eosio</a>::contract(REGISTRATOR)]] <a class="code hl_struct" href="structregistrator_1_1balances.html">balances</a> : <a class="code hl_struct" href="structbalances__base.html">balances_base</a> {};</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>  </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>};</div>
 <div class="ttc" id="aclassregistrator_html"><div class="ttname"><a href="classregistrator.html">registrator</a></div><div class="ttdoc">Класс registrator служит воротами в блокчейн-систему для новых участников, позволяя регистрировать ак...</div><div class="ttdef"><b>Definition:</b> registrator.hpp:35</div></div>
 <div class="ttc" id="aclassregistrator_html_a459e96e1cc7864c070000cbdcdad1d82"><div class="ttname"><a href="classregistrator.html#a459e96e1cc7864c070000cbdcdad1d82">registrator::apply</a></div><div class="ttdeci">void apply(uint64_t receiver, uint64_t code, uint64_t action)</div></div>
 <div class="ttc" id="aclassregistrator_html_a5031045fe1736a84cd445be212673c0b"><div class="ttname"><a href="classregistrator.html#a5031045fe1736a84cd445be212673c0b">registrator::registrator</a></div><div class="ttdeci">registrator(eosio::name receiver, eosio::name code, eosio::datastream&lt; const char * &gt; ds)</div><div class="ttdef"><b>Definition:</b> registrator.hpp:38</div></div>
 <div class="ttc" id="aconsts_8hpp_html_ae4acce2da4b2736a1fedfa921d84e32b"><div class="ttname"><a href="consts_8hpp.html#ae4acce2da4b2736a1fedfa921d84e32b">REGISTRATOR</a></div><div class="ttdeci">#define REGISTRATOR</div><div class="ttdef"><b>Definition:</b> consts.hpp:6</div></div>
 <div class="ttc" id="anamespaceeosio_html"><div class="ttname"><a href="namespaceeosio.html">eosio</a></div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:8</div></div>
 <div class="ttc" id="astructbalances__base_html"><div class="ttname"><a href="structbalances__base.html">balances_base</a></div><div class="ttdoc">Структура таблицы баланса.</div><div class="ttdef"><b>Definition:</b> balances.hpp:9</div></div>
-<div class="ttc" id="astructnew__org__struct_html"><div class="ttname"><a href="structnew__org__struct.html">new_org_struct</a></div><div class="ttdoc">Структура данных нового юридического лица</div><div class="ttdef"><b>Definition:</b> users.hpp:162</div></div>
-<div class="ttc" id="astructregistrator_1_1balances_html"><div class="ttname"><a href="structregistrator_1_1balances.html">registrator::balances</a></div><div class="ttdoc">Таблица хранения глобальной сети партнёров@contract _me @scope _me @table partners.</div><div class="ttdef"><b>Definition:</b> registrator.hpp:71</div></div>
+<div class="ttc" id="astructorg__data_html"><div class="ttname"><a href="structorg__data.html">org_data</a></div><div class="ttdoc">Структура данных нового юридического лица</div><div class="ttdef"><b>Definition:</b> users.hpp:170</div></div>
+<div class="ttc" id="astructregistrator_1_1balances_html"><div class="ttname"><a href="structregistrator_1_1balances.html">registrator::balances</a></div><div class="ttdoc">Таблица хранения глобальной сети партнёров@contract _me @scope _me @table partners.</div><div class="ttdef"><b>Definition:</b> registrator.hpp:75</div></div>
+<div class="ttc" id="astructstorage_html"><div class="ttname"><a href="structstorage.html">storage</a></div><div class="ttdoc">Структура, представляющая хранилища данных, в которых хранятся персональные данные и их идентификатор...</div><div class="ttdef"><b>Definition:</b> users.hpp:112</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

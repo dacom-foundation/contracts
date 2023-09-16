@@ -44,7 +44,7 @@ var NAVTREEINDEX =
 [
 "admin_8cpp.html",
 "joincoop_8cpp.html",
-"structusers.html#a0aef32204b2b1f86902c63150d4f230c"
+"structusers.html#a2752786aa29eb539056f93523777e347"
 ];
 
 var SYNCONMSG = 'нажмите на выключить для синхронизации панелей';

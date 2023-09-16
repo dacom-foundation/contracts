@@ -27,5 +27,5 @@ var searchData=
   ['linkauth_5faction_24',['linkauth_action',['../classeosiobios_1_1bios.html#aa23c7a9882776e23792f72958e7e2698',1,'eosiobios::bios::linkauth_action()'],['../classeosioboot_1_1boot.html#a59658ecc01553c951f8d8126c0ec2b7d',1,'eosioboot::boot::linkauth_action()'],['../classeosiosystem_1_1native.html#a9003ba3e7e55f294f3d028f02873d5f9',1,'eosiosystem::native::linkauth_action()']]],
   ['loan_5fnum_25',['loan_num',['../structeosiosystem_1_1rex__pool.html#a95d45a7a85681d1930a62443d0fec47a',1,'eosiosystem::rex_pool::loan_num()'],['../structeosiosystem_1_1rex__loan.html#a5727e851ef16e34096c5f3864a43d994',1,'eosiosystem::rex_loan::loan_num()']]],
   ['location_26',['location',['../structeosiosystem_1_1producer__info.html#a5e543ec2f645048f754beca0fafc9daa',1,'eosiosystem::producer_info']]],
-  ['logo_27',['logo',['../structnew__org__struct.html#a12e61b3e7538ce17a6ed9aac35bfdd6b',1,'new_org_struct::logo()'],['../structorgs.html#aa2163b8b2c75dd675de51c6e44ded60c',1,'orgs::logo()']]]
+  ['logo_27',['logo',['../structorg__data.html#aaa4a0d3f350652e3ca6fb2fb10803b21',1,'org_data::logo()'],['../structorgs.html#aa2163b8b2c75dd675de51c6e44ded60c',1,'orgs::logo()']]]
 ];

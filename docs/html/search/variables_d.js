@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['ogrn_0',['ogrn',['../structnew__org__struct.html#a9e04e042f5a843d9956773a6d366dc4e',1,'new_org_struct::ogrn()'],['../structorgs.html#a3da6502bd383a53b200b7db125575b5d',1,'orgs::ogrn()']]],
+  ['ogrn_0',['ogrn',['../structorg__data.html#a6e8d5f712bd18445194db22612aeba13',1,'org_data::ogrn()'],['../structorgs.html#a3da6502bd383a53b200b7db125575b5d',1,'orgs::ogrn()']]],
   ['oldest_5fbucket_5ftime_1',['oldest_bucket_time',['../structeosiosystem_1_1rex__return__pool.html#a50d9c4534af93ce26fffc8ae21c83981',1,'eosiosystem::rex_return_pool']]],
   ['order_5ftime_2',['order_time',['../structeosiosystem_1_1rex__order.html#aea99fc69a44d35acd09707dac2af61ee',1,'eosiosystem::rex_order']]],
   ['orgs_5fcounts_3',['orgs_counts',['../structorgs.html#ac0049e14ff707d167f0484cea9b6740c',1,'orgs']]],

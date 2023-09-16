@@ -9,7 +9,7 @@ var searchData=
   ['timestamp_6',['timestamp',['../structeosiobios_1_1block__header.html#ac25070170e000a8427f2e96d0e3fd7b0',1,'eosiobios::block_header::timestamp()'],['../structeosiosystem_1_1block__header.html#a9c9c9cbc1cd8ef72b0fce4d6e81002ec',1,'eosiosystem::block_header::timestamp()']]],
   ['to_7',['to',['../structeosiosystem_1_1delegated__bandwidth.html#a45fe0c03daff4ca74728a490a1973f6d',1,'eosiosystem::delegated_bandwidth']]],
   ['token_5faccount_8',['token_account',['../classeosiosystem_1_1system__contract.html#a21c029a978b1648e8cea9d7c60a5faf3',1,'eosiosystem::system_contract']]],
-  ['token_5fcontract_9',['token_contract',['../structnew__org__struct.html#a52312c0249272b4eebc1257feda0b3b2',1,'new_org_struct::token_contract()'],['../structorgs.html#a135a3014d3e21024a2eb16b775d46a2f',1,'orgs::token_contract()']]],
+  ['token_5fcontract_9',['token_contract',['../structorg__data.html#af75acd78fa29df8f55182c0ea8854b78',1,'org_data::token_contract()'],['../structorgs.html#a135a3014d3e21024a2eb16b775d46a2f',1,'orgs::token_contract()']]],
   ['total_5factivated_5fstake_10',['total_activated_stake',['../structeosiosystem_1_1eosio__global__state.html#a08c4b026bea40e1d1ee500d289e786ad',1,'eosiosystem::eosio_global_state']]],
   ['total_5fintervals_11',['total_intervals',['../structeosiosystem_1_1rex__return__pool.html#ab3ac180090c440ff99d8183a8e069584',1,'eosiosystem::rex_return_pool']]],
   ['total_5flendable_12',['total_lendable',['../structeosiosystem_1_1rex__pool.html#a3a8999d7f7b8029e0d718f885b683737',1,'eosiosystem::rex_pool']]],

@@ -2,7 +2,7 @@ var searchData=
 [
   ['block_5finfo_0',['block_info',['../namespaceeosiosystem_1_1block__info.html',1,'eosiosystem']]],
   ['earliest_5fexec_5ftime_1',['earliest_exec_time',['../structeosio_1_1multisig_1_1proposal.html#ac8b4f63052c9089874b1a0be48bcef07',1,'eosio::multisig::proposal']]],
-  ['email_2',['email',['../structorgs.html#a959f11805a84c42797f8acdde30adecd',1,'orgs::email()'],['../structnew__org__struct.html#a409085989c8b065f4c5da0aa6ddae2f4',1,'new_org_struct::email()']]],
+  ['email_2',['email',['../structorgs.html#a959f11805a84c42797f8acdde30adecd',1,'orgs::email()'],['../structorg__data.html#a7c685b015e76f7dc7133ff3282af564e',1,'org_data::email()']]],
   ['emit_3',['emit',['../classeosiosystem_1_1system__contract.html#a139df610c139741a86ef0de91f2ad4d9',1,'eosiosystem::system_contract']]],
   ['encrypted_5fprivate_5fkey_4',['encrypted_private_key',['../structautomator.html#a94be657d9e8d176482eee2a344bb6665',1,'automator']]],
   ['eosio_5',['eosio',['../namespaceeosio.html',1,'']]],

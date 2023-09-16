@@ -10,7 +10,7 @@ var searchData=
   ['default_5fpowerup_5fdays_7',['default_powerup_days',['../structeosiosystem_1_1powerup__state.html#a7ac8f24cd2c7173d15f1919fa6aff42b',1,'eosiosystem::powerup_state']]],
   ['default_5fvotepay_5ffactor_8',['default_votepay_factor',['../namespaceeosiosystem.html#a2e07601e403e2204f93972cef556bd46',1,'eosiosystem']]],
   ['delivered_5fpieces_9',['delivered_pieces',['../structexchange.html#a425a1dc5b79cb40849e9ff1cfe24d2d1',1,'exchange']]],
-  ['description_10',['description',['../structboards.html#ae8f0825aa67789f638169abf513ce674',1,'boards::description()'],['../structdrafts.html#a2272b3e60f6641b0d1da65099f765c25',1,'drafts::description()'],['../structnew__org__struct.html#ae6c0df340a6544bb31867f376d2b6e96',1,'new_org_struct::description()'],['../structorgs.html#a9fc7273b84ea89d7e3be8189bb7de823',1,'orgs::description()']]],
+  ['description_10',['description',['../structboards.html#ae8f0825aa67789f638169abf513ce674',1,'boards::description()'],['../structdrafts.html#a2272b3e60f6641b0d1da65099f765c25',1,'drafts::description()'],['../structorg__data.html#ab791ce4e267b8c84227071ba93defee7',1,'org_data::description()'],['../structorgs.html#a9fc7273b84ea89d7e3be8189bb7de823',1,'orgs::description()']]],
   ['disallow_5fperms_11',['disallow_perms',['../structeosiosystem_1_1limit__auth__change.html#a49b0036332a792a390387813cfe20afd',1,'eosiosystem::limit_auth_change']]],
   ['dist_5finterval_12',['dist_interval',['../structeosiosystem_1_1rex__return__pool.html#ab5e1ccbb63ca2e93a4e66825d6bee245',1,'eosiosystem::rex_return_pool']]],
   ['doc_5fversion_13',['doc_version',['../structdrafts.html#a65adaeac3fa026ab46d407bb8a255e96',1,'drafts']]]

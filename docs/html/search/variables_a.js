@@ -19,5 +19,5 @@ var searchData=
   ['level_16',['level',['../structeosio_1_1multisig_1_1approval.html#a7de164e0abd4d7ecec9da2f67fe57ece',1,'eosio::multisig::approval']]],
   ['loan_5fnum_17',['loan_num',['../structeosiosystem_1_1rex__pool.html#a95d45a7a85681d1930a62443d0fec47a',1,'eosiosystem::rex_pool::loan_num()'],['../structeosiosystem_1_1rex__loan.html#a5727e851ef16e34096c5f3864a43d994',1,'eosiosystem::rex_loan::loan_num()']]],
   ['location_18',['location',['../structeosiosystem_1_1producer__info.html#a5e543ec2f645048f754beca0fafc9daa',1,'eosiosystem::producer_info']]],
-  ['logo_19',['logo',['../structnew__org__struct.html#a12e61b3e7538ce17a6ed9aac35bfdd6b',1,'new_org_struct::logo()'],['../structorgs.html#aa2163b8b2c75dd675de51c6e44ded60c',1,'orgs::logo()']]]
+  ['logo_19',['logo',['../structorg__data.html#aaa4a0d3f350652e3ca6fb2fb10803b21',1,'org_data::logo()'],['../structorgs.html#aa2163b8b2c75dd675de51c6e44ded60c',1,'orgs::logo()']]]
 ];

@@ -96,7 +96,7 @@
 [[eosio::action]] void registrator::reguser(
    eosio::name registrator,
    eosio::name username,
-   std::string user_data
+   storage storage
 ) {  
 
   eosio::check(has_auth(registrator) || has_auth(username), "Только регистратор или пользователь могут подписать эту транзакцию");
@@ -114,11 +114,14 @@
   auto user = users.find(username.value);
 
   eosio::check(user == users.end(), "Участник уже зарегистрирован");
+  std::vector<struct storage> storages;
+  storages.push_back(storage);
 
    users.emplace(payer, [&](auto &acc) {
     acc.username = username;
-    acc.user_data = user_data;
+    acc.storages = storages;
   });
+
 }
 
 

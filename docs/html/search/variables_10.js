@@ -11,7 +11,7 @@ var searchData=
   ['referer_8',['referer',['../structaccounts.html#a42c6052506d3b2d89bbbb95913591809',1,'accounts']]],
   ['refund_5fdelay_5fsec_9',['refund_delay_sec',['../namespaceeosiosystem.html#ac8dd7319fe241152601b25ac397495f9',1,'eosiosystem']]],
   ['registered_5fat_10',['registered_at',['../structaccounts.html#a5ab584c673fa71b1aebd8eb3ec4e69e5',1,'accounts']]],
-  ['registration_11',['registration',['../structnew__org__struct.html#ae9daef33b6eb5c7223306d0a548ab23d',1,'new_org_struct::registration()'],['../structorgs.html#aef9dd189590bfe100c957ce5bde967e1',1,'orgs::registration()']]],
+  ['registration_11',['registration',['../structorg__data.html#a23388020224683fd20e80b3f0f635b6d',1,'org_data::registration()'],['../structorgs.html#aef9dd189590bfe100c957ce5bde967e1',1,'orgs::registration()']]],
   ['registration_5famount_12',['registration_amount',['../structaccounts.html#a9aa73b3535b162d4dbcdb5c581146ce2',1,'accounts']]],
   ['registrator_13',['registrator',['../structaccounts.html#a432b7b14e9da714d2de1546dbbd74a7e',1,'accounts']]],
   ['remain_5fpieces_14',['remain_pieces',['../structexchange.html#a5e0edd89a689c143a9b3b890808b88a6',1,'exchange']]],

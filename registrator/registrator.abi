@@ -245,10 +245,6 @@
             "base": "",
             "fields": [
                 {
-                    "name": "username",
-                    "type": "name"
-                },
-                {
                     "name": "name",
                     "type": "string"
                 },
@@ -479,7 +475,21 @@
                     "type": "name"
                 },
                 {
-                    "name": "user_data",
+                    "name": "storage",
+                    "type": "storage"
+                }
+            ]
+        },
+        {
+            "name": "storage",
+            "base": "",
+            "fields": [
+                {
+                    "name": "storage_username",
+                    "type": "name"
+                },
+                {
+                    "name": "uid",
                     "type": "string"
                 }
             ]
@@ -507,8 +517,8 @@
                     "type": "name"
                 },
                 {
-                    "name": "user_data",
-                    "type": "string"
+                    "name": "storages",
+                    "type": "storage[]"
                 },
                 {
                     "name": "verification",

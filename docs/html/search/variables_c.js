@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['name_0',['name',['../structboards.html#ad9a12ccbc9bdbabfe1dbd5f7cffdb06f',1,'boards::name()'],['../structdrafts.html#ac5a7f4466437cdb95da8ecec0aee269a',1,'drafts::name()'],['../structnew__org__struct.html#a142d7d656f9b6c79f484aa2c8a9cb013',1,'new_org_struct::name()'],['../structorgs.html#ae3e89e39dc1dac2fa382f52c7dfa1499',1,'orgs::name()']]],
+  ['name_0',['name',['../structboards.html#ad9a12ccbc9bdbabfe1dbd5f7cffdb06f',1,'boards::name()'],['../structdrafts.html#ac5a7f4466437cdb95da8ecec0aee269a',1,'drafts::name()'],['../structorg__data.html#af006cf83cb1100943d4e4e2517215838',1,'org_data::name()'],['../structorgs.html#ae3e89e39dc1dac2fa382f52c7dfa1499',1,'orgs::name()']]],
   ['namebid_5fproceeds_1',['namebid_proceeds',['../structeosiosystem_1_1rex__pool.html#a617f0698ad272dc19fae83cd576c1dc5',1,'eosiosystem::rex_pool']]],
   ['names_5faccount_2',['names_account',['../classeosiosystem_1_1system__contract.html#a03e79dcf0584dd7fd1dbb1aa072befb1',1,'eosiosystem::system_contract']]],
   ['net_3',['net',['../structeosiosystem_1_1powerup__config.html#a1deffd1cf5b8de9c3ac49b5e4b08e65d',1,'eosiosystem::powerup_config::net()'],['../structeosiosystem_1_1powerup__state.html#a50378b359db22153b5767eebf3d5e91e',1,'eosiosystem::powerup_state::net()']]],
