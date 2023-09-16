@@ -112,7 +112,7 @@ typedef eosio::multi_index<
  */
 struct [[eosio::table, eosio::contract(REGISTRATOR)]] users {
   eosio::name username; ///< Имя аккаунта пользователя.
-  std::string profile_hash; ///< Хэш профиля пользователя.
+  std::string user_data; ///< Ссылка на профиль пользователя в хранилище.
 
   verification verification; ///< Информация о верификации пользователя.
 
@@ -159,7 +159,7 @@ struct bank {
 *
 * Данная структура содержит всю необходимую информацию для регистрации нового юридического лица в блокчейне.
 */
-struct new_org_struct {
+struct org_data {
     eosio::name username; ///< Имя аккаунта
     std::string name; ///< Полное наименование
     std::string short_name; ///< Краткое наименование

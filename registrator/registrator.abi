@@ -215,7 +215,33 @@
             ]
         },
         {
-            "name": "new_org_struct",
+            "name": "newaccount",
+            "base": "",
+            "fields": [
+                {
+                    "name": "payer",
+                    "type": "name"
+                },
+                {
+                    "name": "referer",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "public_key",
+                    "type": "public_key"
+                },
+                {
+                    "name": "meta",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "org_data",
             "base": "",
             "fields": [
                 {
@@ -305,32 +331,6 @@
                 {
                     "name": "period",
                     "type": "name?"
-                }
-            ]
-        },
-        {
-            "name": "newaccount",
-            "base": "",
-            "fields": [
-                {
-                    "name": "payer",
-                    "type": "name"
-                },
-                {
-                    "name": "referer",
-                    "type": "name"
-                },
-                {
-                    "name": "username",
-                    "type": "name"
-                },
-                {
-                    "name": "public_key",
-                    "type": "public_key"
-                },
-                {
-                    "name": "meta",
-                    "type": "string"
                 }
             ]
         },
@@ -453,8 +453,16 @@
             "base": "",
             "fields": [
                 {
+                    "name": "registrator",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
                     "name": "new_org",
-                    "type": "new_org_struct"
+                    "type": "org_data"
                 }
             ]
         },
@@ -463,11 +471,15 @@
             "base": "",
             "fields": [
                 {
+                    "name": "registrator",
+                    "type": "name"
+                },
+                {
                     "name": "username",
                     "type": "name"
                 },
                 {
-                    "name": "profile_hash",
+                    "name": "user_data",
                     "type": "string"
                 }
             ]
@@ -495,7 +507,7 @@
                     "type": "name"
                 },
                 {
-                    "name": "profile_hash",
+                    "name": "user_data",
                     "type": "string"
                 },
                 {

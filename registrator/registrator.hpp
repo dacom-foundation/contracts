@@ -42,9 +42,9 @@ public:
   [[eosio::action]] void update(eosio::name username, std::string meta);
   [[eosio::action]] void confirmreg(eosio::name coop_username, eosio::name member, std::string position_title, eosio::name position);
 
-  [[eosio::action]] void reguser(eosio::name username, std::string profile_hash);
+  [[eosio::action]] void reguser(eosio::name registrator, eosio::name username, std::string user_data);
 
-  [[eosio::action]] void regorg(new_org_struct new_org);
+  [[eosio::action]] void regorg(eosio::name registrator, eosio::name username, org_data new_org);
 
   [[eosio::action]] void joincoop(eosio::name coop_username, eosio::name username, std::string position_title, eosio::name position, std::string ricardian_data, std::string statement_hash);
 

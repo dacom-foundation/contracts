@@ -3,10 +3,10 @@
 /**
  * @brief Регистрирует новый аккаунт.
  * 
- * Действие позволяет создать новый аккаунт.
- * @note Авторизация требуется от аккаунта: @p payer
+ * Действие позволяет создать новый аккаунт. Новый аккаунт может быть создан только верифицированной организацией. 
+ * @note Авторизация требуется от аккаунта: @p registrator
  *
- * @param payer Аккаунт, который оплачивает создание нового аккаунта.
+ * @param registrator Аккаунт, который оплачивает создание нового аккаунта.
  * @param referer Реферер, который представил нового пользователя.
  * @param username Имя нового аккаунта (от 5 до 12 символов).
  * @param public_key Открытый ключ нового аккаунта.
@@ -15,12 +15,17 @@
  * @ingroup public_actions
  */
 [[eosio::action]] void registrator::newaccount(
-    eosio::name payer, eosio::name referer,
+    eosio::name registrator, eosio::name referer,
     eosio::name username, eosio::public_key public_key,
     std::string meta) {
   
-  require_auth(payer);
+  require_auth(registrator);
   
+  orgs_index orgs(_registrator, _registrator.value);
+  auto registrator_org = orgs.find(registrator.value);
+  eosio::check(registrator_org != orgs.end(), "Регистратор не найден");
+  eosio::check(registrator_org -> is_verified(),"Регистрация пользователей доступна только для верифицированных организаций");
+
   authority active_auth;
   active_auth.threshold = 1;
   key_weight keypermission{public_key, 1};
@@ -41,7 +46,7 @@
   eosio::asset net = asset(_stake_net_amount, _root_symbol);
   eosio::asset total_pay = cpu + net + ram_price;
 
-  sub_balance(_registrator, payer, total_pay, _root_contract);
+  sub_balance(_registrator, registrator, total_pay, _root_contract);
 
   action(permission_level(_registrator, "active"_n), "eosio"_n, "newaccount"_n,
          std::tuple(_registrator, username, owner_auth, active_auth))
@@ -60,10 +65,10 @@
 
   eosio::check(card == accounts.end(), "account has been already registered");
 
-  accounts.emplace(payer, [&](auto &n) {
+  accounts.emplace(registrator, [&](auto &n) {
     n.username = username;
     n.status = "pending"_n;
-    n.registrator = payer;
+    n.registrator = registrator;
     n.registration_amount = total_pay;
     n.referer = referer;
     n.registered_at =
@@ -82,28 +87,26 @@
 * Этот метод предназначен для регистрации аккаунта в качестве физического лица.
 * После регистрации пользователь получает статус "user". Принимает хэш-ссылку на зашифрованный профиль, сохраненный в IPFS.
 *
+* @param username Имя регистратора, который регистрирует (обычно, кооператив, но может быть и участником, который регистрирует свою карточку сам)
 * @param username Имя пользователя, который регистрируется
 * @param profile_hash Хэш-ссылка на зашифрованный профиль пользователя, сохраненный в IPFS
 * 
-* @note Авторизация требуется от аккаунта: @p username
+* @note Авторизация требуется от аккаунта: @p registrator
 */
 [[eosio::action]] void registrator::reguser(
+   eosio::name registrator,
    eosio::name username,
-   std::string profile_hash
+   std::string user_data
 ) {  
 
-  require_auth(username);
-
-  orgs_index orgs(_registrator, _registrator.value);
-  auto registrator_org = orgs.find(username.value);
-  eosio::check(registrator_org != orgs.end(), "Регистратор не найден");
-  eosio::check(registrator_org -> is_coop() && registrator_org -> is_verified(),"Регистрация пользователей доступна только для кооперативов");
-
+  eosio::check(has_auth(registrator) || has_auth(username), "Только регистратор или пользователь могут подписать эту транзакцию");
+  eosio::name payer = has_auth(registrator) ? registrator : username;
+    
   accounts_index accounts(_registrator, _registrator.value); 
   auto new_user = accounts.find(username.value);
-  eosio::check(new_user!= accounts.end(), "Участник не найден в картотеке");
+  eosio::check(new_user!= accounts.end(), "Участник не найден в картотеке аккаунтов");
 
-  accounts.modify(new_user, username, [&](auto &c) {
+  accounts.modify(new_user, payer, [&](auto &c) {
     c.type = "user"_n;
   });
 
@@ -112,10 +115,59 @@
 
   eosio::check(user == users.end(), "Участник уже зарегистрирован");
 
-   users.emplace(username, [&](auto &acc) {
+   users.emplace(payer, [&](auto &acc) {
     acc.username = username;
-    acc.profile_hash = profile_hash;
+    acc.user_data = user_data;
   });
+}
+
+
+
+
+/**
+\ingroup public_actions
+\brief Регистрация юридического лица
+*
+* Этот метод позволяет регистрировать аккаунт в качестве юридического лица. 
+* Все данные в карточке юридического лица публичны и хранятся в блокчейне.
+*
+* @param new_org Структура данных нового юридического лица
+* 
+* @note Авторизация требуется от одного из аккаунтов: @p registrator || username
+*/
+[[eosio::action]] void registrator::regorg(eosio::name registrator, eosio::name username, org_data new_org) {
+    require_auth(registrator);  
+
+    eosio::check(has_auth(registrator) || has_auth(username), "Только регистратор или пользователь могут подписать эту транзакцию");
+    eosio::name payer = has_auth(registrator) ? registrator : username;
+
+    orgs_index orgs(_registrator, _registrator.value);
+
+    orgs.emplace(payer, [&](auto& org) {
+      org.username = username;
+      org.name = new_org.name;
+      org.short_name = new_org.short_name;
+      org.address = new_org.address;
+      org.ogrn = new_org.ogrn;
+      org.inn = new_org.inn;
+      org.logo = new_org.logo;
+      org.phone = new_org.phone;
+      org.email = new_org.email;
+      org.registration = new_org.registration;
+      org.website = new_org.website;
+      org.accounts = new_org.accounts;
+      org.is_cooperative = new_org.is_cooperative;
+      org.coop_type = new_org.coop_type;
+      org.token_contract = new_org.token_contract;
+      org.slug = new_org.slug;
+      org.announce = new_org.announce;
+      org.description = new_org.description;
+      org.initial = new_org.initial;
+      org.minimum = new_org.minimum;
+      org.membership = new_org.membership;
+      org.period = new_org.period;
+    });   
+
 }
 
 /**
@@ -160,49 +212,6 @@
   }
 }
 
-
-/**
-\ingroup public_actions
-\brief Регистрация юридического лица
-*
-* Этот метод позволяет регистрировать аккаунт в качестве юридического лица. 
-* Все данные в карточке юридического лица публичны и хранятся в блокчейне.
-*
-* @param new_org Структура данных нового юридического лица
-* 
-* @note Авторизация требуется от аккаунта: @p new_org.username
-*/
-[[eosio::action]] void registrator::regorg(new_org_struct new_org) {
-    require_auth(new_org.username);  
-
-    orgs_index orgs(_registrator, _registrator.value);
-
-    orgs.emplace(_ano, [&](auto& org) {
-      org.username = new_org.username;
-      org.name = new_org.name;
-      org.short_name = new_org.short_name;
-      org.address = new_org.address;
-      org.ogrn = new_org.ogrn;
-      org.inn = new_org.inn;
-      org.logo = new_org.logo;
-      org.phone = new_org.phone;
-      org.email = new_org.email;
-      org.registration = new_org.registration;
-      org.website = new_org.website;
-      org.accounts = new_org.accounts;
-      org.is_cooperative = new_org.is_cooperative;
-      org.coop_type = new_org.coop_type;
-      org.token_contract = new_org.token_contract;
-      org.slug = new_org.slug;
-      org.announce = new_org.announce;
-      org.description = new_org.description;
-      org.initial = new_org.initial;
-      org.minimum = new_org.minimum;
-      org.membership = new_org.membership;
-      org.period = new_org.period;
-    });   
-
-}
 
 /**
 \ingroup public_actions
