@@ -21,11 +21,6 @@
   
   require_auth(registrator);
   
-  orgs_index orgs(_registrator, _registrator.value);
-  auto registrator_org = orgs.find(registrator.value);
-  eosio::check(registrator_org != orgs.end(), "Регистратор не найден");
-  eosio::check(registrator_org -> is_verified(),"Регистрация пользователей доступна только для верифицированных организаций");
-
   authority active_auth;
   active_auth.threshold = 1;
   key_weight keypermission{public_key, 1};
