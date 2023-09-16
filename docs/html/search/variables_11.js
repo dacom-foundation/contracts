@@ -9,14 +9,13 @@ var searchData=
   ['seconds_5fper_5fyear_6',['seconds_per_year',['../namespaceeosiosystem.html#ad9f060ae539e7622b6d65da7d0e330d1',1,'eosiosystem']]],
   ['short_5fname_7',['short_name',['../structorg__data.html#a424f6107d36bc5015a2313955549638a',1,'org_data::short_name()'],['../structorgs.html#a2856436e3f095cf78cf6d6a617c79d61',1,'orgs::short_name()']]],
   ['signature_5fexpires_5fat_8',['signature_expires_at',['../structaccounts.html#a38b262d4ca61e4cecb3f1eab1a5d3887',1,'accounts']]],
-  ['signature_5flast_5fupdate_9',['signature_last_update',['../structaccounts.html#a00f7df522967257d7bf5fd065d942241',1,'accounts']]],
-  ['slug_10',['slug',['../structorg__data.html#a32d31abcceef6707622fff94b5eed6ce',1,'org_data::slug()'],['../structorgs.html#a33846e60c8725628db622e8f5a2511dc',1,'orgs::slug()']]],
-  ['stake_5faccount_11',['stake_account',['../classeosiosystem_1_1system__contract.html#a5cde7e6a57d453cc63d509c6657355e2',1,'eosiosystem::system_contract']]],
-  ['stake_5fchange_12',['stake_change',['../structeosiosystem_1_1rex__order.html#ad648133afca5497f7e4827b65d1cc529',1,'eosiosystem::rex_order::stake_change()'],['../structeosiosystem_1_1rex__order__outcome.html#a0cede7598459d110eb4f68ea71cb1e86',1,'eosiosystem::rex_order_outcome::stake_change()']]],
-  ['staked_13',['staked',['../structeosiosystem_1_1voter__info.html#a3f1a76120b906f5f304c0c4604d4bf37',1,'eosiosystem::voter_info']]],
-  ['status_14',['status',['../structexchange.html#aa0662d5405ca80e5ff7ecde0f44f3245',1,'exchange::status()'],['../structaccounts.html#a0498f8a07ad571d52548a076370d9253',1,'accounts::status()']]],
-  ['storage_5fusername_15',['storage_username',['../structstorage.html#aac03d6540bfa034d307d826b47e4cae1',1,'storage']]],
-  ['storages_16',['storages',['../structusers.html#a2752786aa29eb539056f93523777e347',1,'users']]],
-  ['success_17',['success',['../structeosiosystem_1_1rex__order__outcome.html#aa322c7f9f86c43de4134d427543f628f',1,'eosiosystem::rex_order_outcome']]],
-  ['supply_18',['supply',['../structeosiosystem_1_1exchange__state.html#a46dd436b7c53a2cc5fb718f18176f55f',1,'eosiosystem::exchange_state::supply()'],['../structeosio_1_1token_1_1currency__stats.html#ab24e3519d9ea9063b80d74a64ec1fd73',1,'eosio::token::currency_stats::supply()']]]
+  ['slug_9',['slug',['../structorg__data.html#a32d31abcceef6707622fff94b5eed6ce',1,'org_data::slug()'],['../structorgs.html#a33846e60c8725628db622e8f5a2511dc',1,'orgs::slug()']]],
+  ['stake_5faccount_10',['stake_account',['../classeosiosystem_1_1system__contract.html#a5cde7e6a57d453cc63d509c6657355e2',1,'eosiosystem::system_contract']]],
+  ['stake_5fchange_11',['stake_change',['../structeosiosystem_1_1rex__order.html#ad648133afca5497f7e4827b65d1cc529',1,'eosiosystem::rex_order::stake_change()'],['../structeosiosystem_1_1rex__order__outcome.html#a0cede7598459d110eb4f68ea71cb1e86',1,'eosiosystem::rex_order_outcome::stake_change()']]],
+  ['staked_12',['staked',['../structeosiosystem_1_1voter__info.html#a3f1a76120b906f5f304c0c4604d4bf37',1,'eosiosystem::voter_info']]],
+  ['status_13',['status',['../structexchange.html#aa0662d5405ca80e5ff7ecde0f44f3245',1,'exchange::status()'],['../structaccounts.html#a0498f8a07ad571d52548a076370d9253',1,'accounts::status()']]],
+  ['storage_5fusername_14',['storage_username',['../structstorage.html#aac03d6540bfa034d307d826b47e4cae1',1,'storage']]],
+  ['storages_15',['storages',['../structusers.html#a2752786aa29eb539056f93523777e347',1,'users']]],
+  ['success_16',['success',['../structeosiosystem_1_1rex__order__outcome.html#aa322c7f9f86c43de4134d427543f628f',1,'eosiosystem::rex_order_outcome']]],
+  ['supply_17',['supply',['../structeosiosystem_1_1exchange__state.html#a46dd436b7c53a2cc5fb718f18176f55f',1,'eosiosystem::exchange_state::supply()'],['../structeosio_1_1token_1_1currency__stats.html#ab24e3519d9ea9063b80d74a64ec1fd73',1,'eosio::token::currency_stats::supply()']]]
 ];

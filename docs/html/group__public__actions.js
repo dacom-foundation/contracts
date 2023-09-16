@@ -19,7 +19,7 @@ var group__public__actions =
     [ "soviet::joincoop", "group__public__actions.html#gab5f3356c48b5d4ed1c048125137568e5", null ],
     [ "registrator::joincoop", "group__public__actions.html#ga575710c03cd02b5e813816ea7e51500e", null ],
     [ "marketplace::moderate", "group__public__actions.html#ga3517422842b666b51776938bcebb2e2f", null ],
-    [ "registrator::newaccount", "group__public__actions.html#gad0fcb9cd1f853fb5ee1f58f76cc42355", null ],
+    [ "registrator::newaccount", "group__public__actions.html#ga55eff3785cfb3b416b67cb5fa6f03edc", null ],
     [ "marketplace::newid", "group__public__actions.html#ga6d78c0a4a104abcae663754dc08d8da8", null ],
     [ "marketplace::offer", "group__public__actions.html#ga74c30d5573748d4cf4c5a660568b2a60", null ],
     [ "marketplace::order", "group__public__actions.html#gab643c84304eeca5b09587fa01ee7a5eb", null ],

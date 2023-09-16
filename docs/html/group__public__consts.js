@@ -13,6 +13,7 @@ var group__public__consts =
     [ "_registrator_test", "group__public__consts.html#ga2cee8e2a9c7b46a967d9f76aafc19913", null ],
     [ "_root_contract", "group__public__consts.html#ga905130dd4c8fc18bfffe9eec68f9061c", null ],
     [ "_root_symbol", "group__public__consts.html#ga6b01540b618a86e6bd5303db76e3b45f", null ],
+    [ "_signature_expiration", "group__public__consts.html#ga3c1178761f963d8c1b074a29b7d7732d", null ],
     [ "_soviet", "group__public__consts.html#gaf3f1171b99c198fbeb3ab6a3d8c091d9", null ],
     [ "_stake_cpu_amount", "group__public__consts.html#ga835d48268b6c17e01d290de412eb4c81", null ],
     [ "_stake_net_amount", "group__public__consts.html#gae58ff0a7ec09c8cfd9d7ccd76d5f2c24", null ],
