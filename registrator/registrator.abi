@@ -487,6 +487,10 @@
                 {
                     "name": "sign",
                     "type": "signature"
+                },
+                {
+                    "name": "vars",
+                    "type": "string"
                 }
             ]
         },

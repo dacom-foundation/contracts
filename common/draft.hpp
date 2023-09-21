@@ -10,7 +10,8 @@ struct signed_doc {
   // Публичный ключ (предполагаем, что используется тип ключа EOSIO)
   public_key pkey;
   // Подпись чексуммы
-  signature sign;  
+  signature sign; 
+  std::string vars; 
 };
 
 
