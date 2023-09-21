@@ -4,6 +4,26 @@
     "types": [],
     "structs": [
         {
+            "name": "approvedraft",
+            "base": "",
+            "fields": [
+                {
+                    "name": "draft_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "approvetrans",
+            "base": "",
+            "fields": [
+                {
+                    "name": "translate_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
             "name": "counts",
             "base": "counts_base",
             "fields": []
@@ -27,11 +47,11 @@
             ]
         },
         {
-            "name": "create",
+            "name": "createdraft",
             "base": "",
             "fields": [
                 {
-                    "name": "lang",
+                    "name": "creator",
                     "type": "name"
                 },
                 {
@@ -39,7 +59,15 @@
                     "type": "name"
                 },
                 {
-                    "name": "name",
+                    "name": "version",
+                    "type": "uint64"
+                },
+                {
+                    "name": "lang",
+                    "type": "name"
+                },
+                {
+                    "name": "title",
                     "type": "string"
                 },
                 {
@@ -51,15 +79,60 @@
                     "type": "string"
                 },
                 {
+                    "name": "translation_data",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "createtrans",
+            "base": "",
+            "fields": [
+                {
+                    "name": "creator",
+                    "type": "name"
+                },
+                {
+                    "name": "draft_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "lang",
+                    "type": "name"
+                },
+                {
                     "name": "data",
                     "type": "string"
                 }
             ]
         },
         {
-            "name": "del",
+            "name": "deldraft",
             "base": "",
-            "fields": []
+            "fields": [
+                {
+                    "name": "creator",
+                    "type": "name"
+                },
+                {
+                    "name": "draft_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "deltrans",
+            "base": "",
+            "fields": [
+                {
+                    "name": "creator",
+                    "type": "name"
+                },
+                {
+                    "name": "translate_id",
+                    "type": "uint64"
+                }
+            ]
         },
         {
             "name": "drafts",
@@ -70,7 +143,7 @@
                     "type": "uint64"
                 },
                 {
-                    "name": "lang",
+                    "name": "creator",
                     "type": "name"
                 },
                 {
@@ -78,7 +151,15 @@
                     "type": "name"
                 },
                 {
-                    "name": "name",
+                    "name": "version",
+                    "type": "uint64"
+                },
+                {
+                    "name": "default_translation_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "title",
                     "type": "string"
                 },
                 {
@@ -90,11 +171,11 @@
                     "type": "string"
                 },
                 {
-                    "name": "data",
-                    "type": "string"
+                    "name": "is_published",
+                    "type": "bool"
                 },
                 {
-                    "name": "is_active",
+                    "name": "is_activated",
                     "type": "bool"
                 },
                 {
@@ -102,27 +183,54 @@
                     "type": "bool"
                 },
                 {
-                    "name": "is_standart",
+                    "name": "is_standartized",
                     "type": "bool"
-                },
-                {
-                    "name": "created_at",
-                    "type": "time_point_sec"
-                },
-                {
-                    "name": "last_update",
-                    "type": "time_point_sec"
-                },
-                {
-                    "name": "doc_version",
-                    "type": "uint64"
                 }
             ]
         },
         {
-            "name": "edit",
+            "name": "editdraft",
             "base": "",
-            "fields": []
+            "fields": [
+                {
+                    "name": "creator",
+                    "type": "name"
+                },
+                {
+                    "name": "draft_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "title",
+                    "type": "string"
+                },
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "context",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "edittrans",
+            "base": "",
+            "fields": [
+                {
+                    "name": "creator",
+                    "type": "name"
+                },
+                {
+                    "name": "translate_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "data",
+                    "type": "string"
+                }
+            ]
         },
         {
             "name": "newid",
@@ -135,49 +243,117 @@
             ]
         },
         {
-            "name": "publish",
+            "name": "publishdraft",
             "base": "",
             "fields": [
                 {
-                    "name": "draft_id",
-                    "type": "uint64"
-                }
-            ]
-        },
-        {
-            "name": "replace",
-            "base": "",
-            "fields": []
-        },
-        {
-            "name": "use",
-            "base": "",
-            "fields": [
-                {
-                    "name": "coop_id",
-                    "type": "uint64"
+                    "name": "creator",
+                    "type": "name"
                 },
                 {
                     "name": "draft_id",
                     "type": "uint64"
                 }
             ]
+        },
+        {
+            "name": "publishtrans",
+            "base": "",
+            "fields": [
+                {
+                    "name": "creator",
+                    "type": "name"
+                },
+                {
+                    "name": "translate_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "standardize",
+            "base": "",
+            "fields": [
+                {
+                    "name": "draft_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "translations",
+            "base": "",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "creator",
+                    "type": "name"
+                },
+                {
+                    "name": "draft_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "lang",
+                    "type": "name"
+                },
+                {
+                    "name": "data",
+                    "type": "string"
+                },
+                {
+                    "name": "is_published",
+                    "type": "bool"
+                },
+                {
+                    "name": "is_approved",
+                    "type": "bool"
+                }
+            ]
         }
     ],
     "actions": [
         {
-            "name": "create",
-            "type": "create",
+            "name": "approvedraft",
+            "type": "approvedraft",
             "ricardian_contract": ""
         },
         {
-            "name": "del",
-            "type": "del",
+            "name": "approvetrans",
+            "type": "approvetrans",
             "ricardian_contract": ""
         },
         {
-            "name": "edit",
-            "type": "edit",
+            "name": "createdraft",
+            "type": "createdraft",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "createtrans",
+            "type": "createtrans",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "deldraft",
+            "type": "deldraft",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "deltrans",
+            "type": "deltrans",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "editdraft",
+            "type": "editdraft",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "edittrans",
+            "type": "edittrans",
             "ricardian_contract": ""
         },
         {
@@ -186,18 +362,18 @@
             "ricardian_contract": ""
         },
         {
-            "name": "publish",
-            "type": "publish",
+            "name": "publishdraft",
+            "type": "publishdraft",
             "ricardian_contract": ""
         },
         {
-            "name": "replace",
-            "type": "replace",
+            "name": "publishtrans",
+            "type": "publishtrans",
             "ricardian_contract": ""
         },
         {
-            "name": "use",
-            "type": "use",
+            "name": "standardize",
+            "type": "standardize",
             "ricardian_contract": ""
         }
     ],
@@ -212,6 +388,13 @@
         {
             "name": "drafts",
             "type": "drafts",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "translations",
+            "type": "translations",
             "index_type": "i64",
             "key_names": [],
             "key_types": []

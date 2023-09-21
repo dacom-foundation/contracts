@@ -198,6 +198,7 @@ struct [[eosio::table, eosio::contract(REGISTRATOR)]] orgs {
   std::string email; ///< Электронная почта организации.
   std::string registration; ///< Дата регистрации юридического лица.
   std::string website; ///< Веб-сайт организации.
+  std::string represented_by; ///< Представитель, который зарегистрировал организацию.
   std::vector<bank> accounts; ///< Информация о банковских счетах организации.
   bool is_cooperative = false; ///< Флаг, указывающий, является ли организация кооперативом.
   std::optional<eosio::name> coop_type; ///< Тип некоммерческой организации (если это кооператив).

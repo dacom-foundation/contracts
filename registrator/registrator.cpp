@@ -247,8 +247,10 @@
 * 
 * @note Авторизация требуется от аккаунта: @p username
 */
-[[eosio::action]] void registrator::joincoop(eosio::name coop_username, eosio::name username, std::string position_title, eosio::name position, std::string ricardian_data, std::string statement_hash){
+[[eosio::action]] void registrator::joincoop(eosio::name coop_username, eosio::name username, std::string position_title, eosio::name position, signed_doc signed_doc){
   require_auth(username);
+
+  verify(signed_doc);
 
   members_index members(_registrator, coop_username.value);
   auto member = members.find(username.value);

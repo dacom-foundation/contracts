@@ -14,7 +14,7 @@
 #include "../common/utils.hpp"
 #include "../common/balances.hpp"
 #include "../common/users.hpp"
-
+#include "../common/draft.hpp"
 
 /**
  *  \ingroup public_contracts
@@ -50,7 +50,7 @@ public:
 
   [[eosio::action]] void regorg(eosio::name registrator, eosio::name username, org_data new_org);
 
-  [[eosio::action]] void joincoop(eosio::name coop_username, eosio::name username, std::string position_title, eosio::name position, std::string ricardian_data, std::string statement_hash);
+  [[eosio::action]] void joincoop(eosio::name coop_username, eosio::name username, std::string position_title, eosio::name position, signed_doc signed_doc);
 
   [[eosio::action]] void verificate(eosio::name username);
 

@@ -9,7 +9,7 @@
 #include "../common/consts.hpp"
 #include "../common/utils.hpp"
 #include "../common/counts.hpp"
-#include "../common/drafts.hpp"
+#include "../common/draft.hpp"
 
 class [[eosio::contract(DRAFT)]] draft : public eosio::contract {
 
@@ -20,19 +20,29 @@ public:
 
   [[eosio::action]] void newid(uint64_t id);
 
-  [[eosio::action]] void create(eosio::name lang, eosio::name action_name,
-                                std::string name, std::string description,
-                                std::string context,
-                                std::string data); // used by ANO
-  
-  [[eosio::action]] void publish(uint64_t draft_id); // used by ANO or coop after USE
-  [[eosio::action]] void use(uint64_t coop_id, uint64_t draft_id);     // after publish can be used by COOP
-  [[eosio::action]] void replace();
-  // used by coop for replace doc with new version
-  [[eosio::action]] void del (); // can be used by ANO or coop before publish
-  [[eosio::action]] void edit();
-  // used by ANO and increase version, after COOP can use it by USE with
-  // new version, if not - still use old version
+  [[eosio::action]] void createdraft(eosio::name creator, eosio::name action_name, uint64_t version, eosio::name lang, std::string title, 
+                    std::string description, std::string context, std::string translation_data);
+
+  [[eosio::action]] void editdraft(eosio::name creator, uint64_t draft_id, std::string title, std::string description, std::string context);
+
+  [[eosio::action]] void publishdraft(eosio::name creator, uint64_t draft_id);
+
+  [[eosio::action]] void standardize(uint64_t draft_id);
+
+  [[eosio::action]] void approvedraft(uint64_t draft_id);
+
+  [[eosio::action]] void deldraft(eosio::name creator, uint64_t draft_id);
+
+  [[eosio::action]] void createtrans(eosio::name creator, uint64_t draft_id, eosio::name lang, std::string data);
+
+  [[eosio::action]] void deltrans(eosio::name creator, uint64_t translate_id);
+
+  [[eosio::action]] void approvetrans(uint64_t translate_id);
+
+  [[eosio::action]] void publishtrans(eosio::name creator, uint64_t translate_id);
+
+  [[eosio::action]] void edittrans(eosio::name creator, uint64_t translate_id, std::string data);
+
 
   void apply(uint64_t receiver, uint64_t code, uint64_t action);
 

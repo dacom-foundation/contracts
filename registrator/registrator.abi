@@ -151,12 +151,8 @@
                     "type": "name"
                 },
                 {
-                    "name": "ricardian_data",
-                    "type": "string"
-                },
-                {
-                    "name": "statement_hash",
-                    "type": "string"
+                    "name": "signed_doc",
+                    "type": "signed_doc"
                 }
             ]
         },
@@ -379,6 +375,10 @@
                     "type": "string"
                 },
                 {
+                    "name": "represented_by",
+                    "type": "string"
+                },
+                {
                     "name": "accounts",
                     "type": "bank[]"
                 },
@@ -469,6 +469,24 @@
                 {
                     "name": "storage",
                     "type": "storage"
+                }
+            ]
+        },
+        {
+            "name": "signed_doc",
+            "base": "",
+            "fields": [
+                {
+                    "name": "hash",
+                    "type": "checksum256"
+                },
+                {
+                    "name": "pkey",
+                    "type": "public_key"
+                },
+                {
+                    "name": "sign",
+                    "type": "signature"
                 }
             ]
         },
