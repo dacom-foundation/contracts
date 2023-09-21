@@ -6,11 +6,11 @@
 
 struct signed_doc {
   // Чексумма документа (можем использовать SHA256)
-  checksum256 hash;
+  std::string hash;
   // Публичный ключ (предполагаем, что используется тип ключа EOSIO)
-  public_key pkey;
+  std::string pkey;
   // Подпись чексуммы
-  signature sign; 
+  std::string sign; 
   std::string vars; 
 };
 
