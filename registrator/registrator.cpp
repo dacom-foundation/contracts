@@ -153,19 +153,22 @@
 
     orgs_index orgs(_registrator, _registrator.value);
 
+    //TODO 
+    // проверить поля, если это кооператив
+
     orgs.emplace(payer, [&](auto& org) {
       org.username = username;
-      org.name = new_org.name;
-      org.short_name = new_org.short_name;
-      org.address = new_org.address;
-      org.ogrn = new_org.ogrn;
-      org.inn = new_org.inn;
-      org.logo = new_org.logo;
-      org.phone = new_org.phone;
-      org.email = new_org.email;
-      org.registration = new_org.registration;
-      org.website = new_org.website;
-      org.accounts = new_org.accounts;
+      // org.name = new_org.name;
+      // org.short_name = new_org.short_name;
+      // org.address = new_org.address;
+      // org.ogrn = new_org.ogrn;
+      // org.inn = new_org.inn;
+      // org.logo = new_org.logo;
+      // org.phone = new_org.phone;
+      // org.email = new_org.email;
+      // org.registration = new_org.registration;
+      // org.website = new_org.website;
+      // org.accounts = new_org.accounts;
       org.is_cooperative = new_org.is_cooperative;
       org.coop_type = new_org.coop_type;
       org.token_contract = new_org.token_contract;

@@ -9,10 +9,11 @@
 
 #include "../common/consts.hpp"
 #include "../common/utils.hpp"
-#include "../common/admins.hpp"
+#include "../common/accounts.hpp"
 #include "../common/counts.hpp"
 #include "../common/balances.hpp"
-#include "../common/marketplace.hpp"
+#include "../common/changes.hpp"
+#include "../common/coops.hpp"
 
 /**
  *  \ingroup public_contracts

@@ -478,15 +478,15 @@
             "fields": [
                 {
                     "name": "hash",
-                    "type": "checksum256"
+                    "type": "string"
                 },
                 {
                     "name": "pkey",
-                    "type": "public_key"
+                    "type": "string"
                 },
                 {
                     "name": "sign",
-                    "type": "signature"
+                    "type": "string"
                 },
                 {
                     "name": "vars",

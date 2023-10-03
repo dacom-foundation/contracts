@@ -9,7 +9,7 @@
 #include "../common/consts.hpp"
 #include "../common/utils.hpp"
 #include "../common/counts.hpp"
-#include "../common/draft.hpp"
+#include "../common/drafts.hpp"
 
 class [[eosio::contract(DRAFT)]] draft : public eosio::contract {
 

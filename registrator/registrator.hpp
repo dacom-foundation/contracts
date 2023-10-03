@@ -13,8 +13,8 @@
 #include "../common/rammarket.hpp"
 #include "../common/utils.hpp"
 #include "../common/balances.hpp"
-#include "../common/users.hpp"
-#include "../common/draft.hpp"
+#include "../common/accounts.hpp"
+#include "../common/drafts.hpp"
 
 /**
  *  \ingroup public_contracts

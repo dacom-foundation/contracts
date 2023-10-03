@@ -21,9 +21,9 @@ using namespace eosio;
   eosio::check(change != exchange.end(), "Ордер не найден");
 
   if (change -> status == "moderation"_n) {
-    admins_index admins(_soviet, _soviet.value);
-    auto admin = admins.find(username.value);
-    eosio::check(admin != admins.end(), "У вас нет прав администратора");
+    staff_index staff(_soviet, change -> coop_username.value);
+    auto persona = staff.find(username.value);
+    eosio::check(persona -> has_right(_marketplace, "moderate"_n), "Недостаточно прав доступа");
 
     exchange.modify(change, username, [&](auto &o){
       o.status = "published"_n;
@@ -52,9 +52,9 @@ using namespace eosio;
   auto change = exchange.find(exchange_id);
   eosio::check(change != exchange.end(), "Ордер не найден");
 
-  admins_index admins(_soviet, _soviet.value);
-  auto admin = admins.find(username.value);
-  eosio::check(admin != admins.end(), "У вас нет прав администратора");
+  staff_index staff(_soviet, change -> coop_username.value);
+  auto persona = staff.find(username.value);
+  eosio::check(persona -> has_right(_marketplace, "prohibit"_n), "Недостаточно прав доступа");
 
   exchange.modify(change, username, [&](auto &o){
     o.status = "prohibit"_n;

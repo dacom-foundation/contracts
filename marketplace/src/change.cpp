@@ -68,11 +68,10 @@ using namespace eosio;
  */
 void marketplace::create (eosio::name type, const exchange_params& params) {
   orgs_index orgs(_registrator, _registrator.value);
-  auto org = orgs.find(params.coop_username.value);
-  eosio::check(org != orgs.end() && org -> is_coop(), "Кооператив не найден");
+  auto coop = orgs.find(params.coop_username.value);
+  eosio::check(coop != orgs.end() && coop -> is_coop(), "Кооператив не найден");
 
-  eosio::check(params.contract == _root_contract, "Неверный тип контракта");
-  eosio::check(params.price_for_piece.symbol == _root_symbol, "Неверный символ токен");
+  eosio::check(params.price_for_piece.symbol == coop -> initial -> symbol, "Неверный символ токен");
   eosio::check(params.pieces > 0, "Количество единиц в заявке должно быть больше нуля");
   eosio::check(params.price_for_piece.amount >= 0, "Цена не может быть отрицательной");
 
@@ -99,20 +98,26 @@ void marketplace::create_parent_order(eosio::name type, const exchange_params& p
   
   eosio::check(params.parent_id == 0, "Родительская заявка создаётся без указания родителя");
 
+  orgs_index orgs(_registrator, _registrator.value);
+  auto coop = orgs.find(params.coop_username.value);
+  eosio::check(coop != orgs.end(), "Кооператив не найден");
+  eosio::check(coop -> is_coop() == true, "Организация - не кооператив");
+  
+    
   //Специальные проверки
   if (type == "offer"_n) {
-
+    //ничего не проверяем?
   } else if(type == "order"_n) {
     eosio::asset quantity = params.price_for_piece * params.pieces;
-    sub_balance(_marketplace, params.username, quantity, params.contract);
-  }
+    sub_balance(_marketplace, params.username, quantity, *coop -> token_contract);
+  };
 
   exchange.emplace(params.username, [&](auto &i) {
     i.id = id;
     i.type = type; 
     i.username = params.username;
     i.status = "moderation"_n;
-    i.contract = params.contract;
+    i.token_contract = *coop -> token_contract;
     i.remain_pieces = params.pieces;
     i.price_for_piece = params.price_for_piece;
     i.data = params.data;
@@ -144,7 +149,12 @@ void marketplace::create_child_order(eosio::name type, const exchange_params& pa
   eosio::check(parent_change != exchange.end(), "Заявка не обнаружена");
   eosio::check(parent_change -> status == "published"_n, "Заявка не опубликована");
 
-  eosio::check(parent_change -> contract == params.contract, "Неверный контракт");
+  orgs_index orgs(_registrator, _registrator.value);
+  auto coop = orgs.find(params.coop_username.value);
+  eosio::check(coop != orgs.end(), "Кооператив не найден");
+  eosio::check(coop -> is_coop() == true, "Организация - не кооператив");
+  eosio::check(parent_change -> token_contract == coop -> token_contract, "Неверный контракт");
+
   eosio::check(parent_change -> price_for_piece.amount == params.price_for_piece.amount, "Торги запрещены");
   eosio::check(params.parent_id > 0, "Встречная заявка создаётся с указанием родителя");
   
@@ -157,7 +167,7 @@ void marketplace::create_child_order(eosio::name type, const exchange_params& pa
     //родительская заявка должна быть противоположного типа
     eosio::check(parent_change -> type == "offer"_n, "Неверный тип родительской заявки");
     eosio::asset quantity = params.price_for_piece * params.pieces;
-    sub_balance(_marketplace, params.username, quantity, parent_change -> contract);
+    sub_balance(_marketplace, params.username, quantity, parent_change -> token_contract);
   }
 
   uint64_t id = get_global_id(_marketplace, "exchange"_n);
@@ -168,7 +178,7 @@ void marketplace::create_child_order(eosio::name type, const exchange_params& pa
     i.username = params.username;
     i.parent_id = params.parent_id;
     i.status = "published"_n;
-    i.contract = params.contract;
+    i.token_contract = *coop -> token_contract;
     i.remain_pieces = params.pieces;
     i.price_for_piece = params.price_for_piece;
     i.data = params.data;
@@ -267,7 +277,7 @@ void marketplace::create_child_order(eosio::name type, const exchange_params& pa
     //возврат токенов производится только поставщику заказа, которому ранее сделали блокировку токенов
     action(
       permission_level{ _marketplace, "active"_n },
-      change -> contract, "transfer"_n,
+      change -> token_contract, "transfer"_n,
       std::make_tuple( _marketplace, change -> username, change -> price_for_piece, std::string("Возврат по заявке: " + std::to_string(exchange_id))) 
     ).send();
   }; 
@@ -333,7 +343,7 @@ void marketplace::create_child_order(eosio::name type, const exchange_params& pa
       //значит родитель - это offer, который ожидает перевода токенов в счёт оплаты
       action(
           permission_level{ _marketplace, "active"_n },
-          change -> contract, "transfer"_n,
+          change -> token_contract, "transfer"_n,
           std::make_tuple( _marketplace, parent_change -> username, quantity, std::string("Возврат по заявке: " + std::to_string(exchange_id))) 
       ).send();
 
@@ -341,7 +351,7 @@ void marketplace::create_child_order(eosio::name type, const exchange_params& pa
       //значит родитель - это order, а перевод ожидает владелец дочерней заявки
       action(
           permission_level{ _marketplace, "active"_n },
-          change -> contract, "transfer"_n,
+          change -> token_contract, "transfer"_n,
           std::make_tuple( _marketplace, change -> username, quantity, std::string("Возврат по заявке: " + std::to_string(exchange_id))) 
       ).send();
     }
@@ -434,7 +444,7 @@ void marketplace::cancel_child_order(eosio::name username, uint64_t exchange_id)
   if (change -> type == "order"_n && quantity.amount > 0) {
     action(
         permission_level{ _marketplace, "active"_n },
-        change -> contract, "transfer"_n,
+        change -> token_contract, "transfer"_n,
         std::make_tuple( _marketplace, change -> username, quantity, std::string("Возврат по заявке: " + std::to_string(exchange_id))) 
     ).send();
   }  
@@ -458,7 +468,7 @@ void marketplace::cancel_child_order(eosio::name username, uint64_t exchange_id)
   exchange_index exchange(_marketplace, _marketplace.value);
   auto change = exchange.find(exchange_id);
   eosio::check(change != exchange.end(), "Заявка на обмен не найдена");
-  eosio::check(price_for_piece.symbol == _root_symbol, "Неверный символ токен");
+  eosio::check(price_for_piece.symbol == change -> price_for_piece.symbol, "Неверный символ токен");
   eosio::check(change -> parent_id == 0, "Встречные заявки можно только отменять");
   eosio::check(change -> username == username, "У вас нет права на отмену данной заявки");
 

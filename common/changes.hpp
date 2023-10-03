@@ -9,7 +9,7 @@
  * @param type Тип обмена (покупка, продажа и т.д.)
  * @param status Статус обмена (например, "опубликовано", "на модерации" и т.д.)
  * @param username Имя пользователя, создавшего заявку
- * @param contract Имя контракта токена
+ * @param token_contract Имя контракта токена
  * @param price_for_piece Цена за единицу товара в заявке
  * @param remain_pieces Оставшееся количество товара
  * @param blocked_pieces Заблокированное количество товара
@@ -32,7 +32,7 @@ struct [[eosio::table, eosio::contract(MARKETPLACE)]] exchange {
   eosio::name type;            /*!< тип обмена */
   eosio::name status;          /*!< статус обмена */
   eosio::name username;        /*!< имя пользователя */
-  eosio::name contract;        /*!< имя контракта токена */
+  eosio::name token_contract;        /*!< имя контракта токена */
   eosio::asset price_for_piece;/*!< цена за единицу товара */
   uint64_t remain_pieces;      /*!< оставшееся количество товара */
   uint64_t blocked_pieces;     /*!< заблокированное количество товара */

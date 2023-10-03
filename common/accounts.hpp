@@ -155,20 +155,23 @@ struct bank {
 * Данная структура содержит всю необходимую информацию для регистрации нового юридического лица в блокчейне.
 */
 struct org_data {
-    std::string name; ///< Полное наименование
-    std::string short_name; ///< Краткое наименование
-    std::string address; ///< Юридический адрес
-    std::string ogrn; ///< ОГРН
-    std::string inn; ///< ИНН
-    std::string logo; ///< Логотип
-    std::string phone; ///< Номер телефона
-    std::string email; ///< Электронная почта
-    std::string registration; ///< Дата регистрации юрлица
-    std::string website; ///< Веб-сайт
-    std::vector<bank> accounts; ///< Банковские счета
+    storage storage; ///< Хранилища персональных данных и идентификаторы данных в них.
+    // TODO - то, что сохраняем в сторадже:    
+    // std::string name; ///< Полное наименование
+    // std::string short_name; ///< Краткое наименование
+    // std::string address; ///< Юридический адрес
+    // std::string ogrn; ///< ОГРН
+    // std::string inn; ///< ИНН
+    // std::string logo; ///< Логотип
+    // std::string phone; ///< Номер телефона
+    // std::string email; ///< Электронная почта
+    // std::string registration; ///< Дата регистрации юрлица
+    // std::string website; ///< Веб-сайт
+    // std::vector<bank> accounts; ///< Банковские счета
+
     bool is_cooperative = false; ///< Является ли кооперативом
     std::optional<eosio::name> coop_type; ///< Тип кооператива (union, conscoop, prodcoop, agricoop, builderscoop, nonprofitorg)
-    std::optional<eosio::name> token_contract; ///< Договор токена
+    std::optional<eosio::name> token_contract; ///< Контракт токена
     std::optional<std::string> slug; ///< ЧПУ (Человеко-понятный URL)
     std::optional<std::string> announce; ///< Анонс
     std::optional<std::string> description; ///< Описание
@@ -187,19 +190,9 @@ struct org_data {
 struct [[eosio::table, eosio::contract(REGISTRATOR)]] orgs {
   eosio::name username; ///< Имя аккаунта организации.
   eosio::name parent_username; ///< Имя родительской организации, если есть.
-  verification verification; ///< Информация о верификации организации.
-  std::string name; ///< Полное наименование организации.
-  std::string short_name; ///< Краткое наименование организации.
-  std::string address; ///< Юридический адрес организации.
-  std::string ogrn; ///< ОГРН организации.
-  std::string inn; ///< ИНН организации.
-  std::string logo; ///< Логотип организации.
-  std::string phone; ///< Контактный телефон организации.
-  std::string email; ///< Электронная почта организации.
-  std::string registration; ///< Дата регистрации юридического лица.
-  std::string website; ///< Веб-сайт организации.
-  std::string represented_by; ///< Представитель, который зарегистрировал организацию.
-  std::vector<bank> accounts; ///< Информация о банковских счетах организации.
+  std::vector<verification> verifications; ///< Информация о верификации организации.
+  std::vector<storage> storages; ///< Хранилища персональных данных и идентификаторы данных в них.
+  
   bool is_cooperative = false; ///< Флаг, указывающий, является ли организация кооперативом.
   std::optional<eosio::name> coop_type; ///< Тип некоммерческой организации (если это кооператив).
   std::optional<eosio::name> token_contract; ///< Контракт токена, связанного с организацией.
@@ -266,7 +259,12 @@ struct [[eosio::table, eosio::contract(REGISTRATOR)]] orgs {
    * @return uint64_t - ключ, равный 1, если организация верифицирована, иначе 0.
    */
   uint64_t is_verified_index() const {
-    return verification.is_verified == true ? 1 : 0;
+    for (const auto& v : verifications) {
+      if (v.is_verified) {
+        return 1;
+      }
+    }
+    return 0;
   }
 
   /**
@@ -282,7 +280,12 @@ struct [[eosio::table, eosio::contract(REGISTRATOR)]] orgs {
    * @return bool - true, если организация верифицирована, иначе false.
    */
   bool is_verified() const {
-    return verification.is_verified;
+    for (const auto& v : verifications) {
+      if (v.is_verified) {
+        return true;
+      }
+    }
+    return false;
   }
 };
 
