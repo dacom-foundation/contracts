@@ -1,5 +1,3 @@
-using namespace eosio;
-
 /**
 \ingroup public_actions
 \brief Модерация товара на маркетплейсе.
@@ -12,17 +10,18 @@ using namespace eosio;
 *
 * @note Авторизация требуется от аккаунта: @p username
 */
-[[eosio::action]] void marketplace::moderate(eosio::name username, uint64_t exchange_id) { 
+[[eosio::action]] void marketplace::moderate(eosio::name coopname, eosio::name username, uint64_t exchange_id) { 
   require_auth(username);
   
-  exchange_index exchange(_marketplace, _marketplace.value);
+  exchange_index exchange(_marketplace, coopname.value);
   
   auto change = exchange.find(exchange_id);
   eosio::check(change != exchange.end(), "Ордер не найден");
 
   if (change -> status == "moderation"_n) {
-    staff_index staff(_soviet, change -> coop_username.value);
+    staff_index staff(_soviet, coopname.value);
     auto persona = staff.find(username.value);
+    eosio::check(persona != staff.end(), "Пользователь не является членом персонала");
     eosio::check(persona -> has_right(_marketplace, "moderate"_n), "Недостаточно прав доступа");
 
     exchange.modify(change, username, [&](auto &o){
@@ -45,14 +44,14 @@ using namespace eosio;
 *
 * @note Авторизация требуется от аккаунта: @p username
 */
-[[eosio::action]] void marketplace::prohibit(eosio::name username, uint64_t exchange_id, std::string meta) { 
+[[eosio::action]] void marketplace::prohibit(eosio::name coopname, eosio::name username, uint64_t exchange_id, std::string meta) { 
   require_auth(username);
   
-  exchange_index exchange(_marketplace, _marketplace.value);
+  exchange_index exchange(_marketplace, coopname.value);
   auto change = exchange.find(exchange_id);
   eosio::check(change != exchange.end(), "Ордер не найден");
 
-  staff_index staff(_soviet, change -> coop_username.value);
+  staff_index staff(_soviet, coopname.value);
   auto persona = staff.find(username.value);
   eosio::check(persona -> has_right(_marketplace, "prohibit"_n), "Недостаточно прав доступа");
 
@@ -75,13 +74,16 @@ using namespace eosio;
 *
 * @note Авторизация требуется от аккаунта: @p username
 */
-[[eosio::action]] void marketplace::unpublish(eosio::name username, uint64_t exchange_id) { 
+[[eosio::action]] void marketplace::unpublish(eosio::name coopname, eosio::name username, uint64_t exchange_id) { 
   require_auth(username);
   
-  exchange_index exchange(_marketplace, _marketplace.value);
+  exchange_index exchange(_marketplace, coopname.value);
   auto change = exchange.find(exchange_id);
   eosio::check(change != exchange.end(), "Ордер не найден");
-  eosio::check(change->username == username, "У вас нет права на снятие данной заявки");
+
+  staff_index staff(_soviet, coopname.value);
+  auto persona = staff.find(username.value);
+  eosio::check(change->username == username || (persona != staff.end() && persona -> has_right(_marketplace, "unpublish"_n)), "У вас нет права на снятие данной заявки");
 
   exchange.modify(change, username, [&](auto &o){
     o.status = "unpublished"_n;
@@ -100,13 +102,17 @@ using namespace eosio;
 *
 * @note Авторизация требуется от аккаунта: @p username
 */
-[[eosio::action]] void marketplace::publish(eosio::name username, uint64_t exchange_id) { 
+[[eosio::action]] void marketplace::publish(eosio::name coopname, eosio::name username, uint64_t exchange_id) { 
   require_auth(username);
   
-  exchange_index exchange(_marketplace, _marketplace.value);
+  exchange_index exchange(_marketplace, coopname.value);
   auto change = exchange.find(exchange_id);
+
+  staff_index staff(_soviet, coopname.value);
+  auto persona = staff.find(username.value);
+
   eosio::check(change != exchange.end(), "Ордер не найден");
-  eosio::check(change->username == username, "У вас нет права на публикацию данной заявки");
+  eosio::check(change->username == username || (persona != staff.end() && persona -> has_right(_marketplace, "unpublish"_n)), "У вас нет права на публикацию данной заявки");
   eosio::check(change->status == "unpublished"_n, "Неверный статус для публикации");
 
   exchange.modify(change, username, [&](auto &o){

@@ -6,31 +6,33 @@ using namespace eosio;
 *
 * Этот метод вызывается контрактом registrator при поступлении заявления на вступление в кооператив. При успешном вызове формируется повестка на голосование членам совета. Повестка по вопросам регистрации аккаунтов может быть автоматизирована.
 *
-* @param coop_username Имя кооператива
+* @param coopname Имя кооператива
 * @param username Имя пользователя
 * @param position_title Заголовок должности
 * @param position Должность
 * 
 * @note Авторизация требуется от аккаунта: @p _registrator
 */
-void soviet::joincoop(eosio::name coop_username, eosio::name username, std::string position_title, eosio::name position) { 
+void soviet::joincoop(eosio::name coopname, eosio::name username, signed_doc signed_doc) { 
   require_auth(_registrator);
 
-  joincoops_index joincoops(_soviet, coop_username.value); 
-  auto card_id = get_global_id(_soviet, "joincoops"_n);
+  joincoops_index joincoops(_soviet, coopname.value); 
+  auto secondary_id = get_global_id(_soviet, "joincoops"_n);
 
   joincoops.emplace(_registrator, [&](auto &a){
-    a.id = card_id;
+    a.id = secondary_id;
     a.username = username;
     a.is_paid = false;
+    a.signed_doc = signed_doc;
   });
 
-  decisions_index decisions(_soviet, coop_username.value);
+  decisions_index decisions(_soviet, coopname.value);
   auto id = get_global_id(_soviet, "decisions"_n);
-  decisions.emplace(_soviet, [&](auto &d){
+  decisions.emplace(_registrator, [&](auto &d){
     d.id = id;
+    d.coopname = coopname;
     d.type = _regaccount_action;
-    d.card_id = card_id;
+    d.secondary_id = secondary_id;
   });
 
   action(
@@ -42,24 +44,42 @@ void soviet::joincoop(eosio::name coop_username, eosio::name username, std::stri
 };
 
 
-void soviet::joincoop_effect(eosio::name executer, eosio::name coop_username, uint64_t decision_id, uint64_t card_id) { 
+void soviet::joincoop_effect(eosio::name executer, eosio::name coopname, uint64_t decision_id, uint64_t secondary_id) { 
 
-  decisions_index decisions(_soviet, _soviet.value);
+  decisions_index decisions(_soviet, coopname.value);
   auto decision = decisions.find(decision_id);
 
-  joincoops_index joincoops(_soviet, coop_username.value); 
-  auto joincoop_action = joincoops.find(decision->card_id);
- 
+  joincoops_index joincoops(_soviet, coopname.value); 
+  auto joincoop_action = joincoops.find(decision->secondary_id);
+
+  participants_index participants(_soviet, coopname.value);
+  auto cooperative = get_cooperative_or_fail(coopname);
+
+  participants.emplace(_soviet, [&](auto &m){
+    m.username = joincoop_action -> username;
+    m.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+    m.last_update = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+    m.last_min_pay = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+    m.status = "accepted"_n;
+    m.is_initial = true;
+    m.is_minimum = true;
+    m.has_vote = true;    
+    m.available = asset(0, cooperative.initial.symbol);
+    m.blocked = asset(0, cooperative.initial.symbol);
+    m.minimum = cooperative.minimum; //TODO add minimum amount here
+  });
+
   action(
       permission_level{ _soviet, "active"_n},
       "registrator"_n,
       "confirmreg"_n,
-      std::make_tuple(joincoop_action -> username)
+      std::make_tuple(coopname, joincoop_action -> username)
   ).send();
 
   decisions.modify(decision, executer, [&](auto &d){
     d.executed = true;
   });
 
- joincoops.erase(joincoop_action);
+  joincoops.erase(joincoop_action);
+
 };

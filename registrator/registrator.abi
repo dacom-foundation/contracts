@@ -73,28 +73,6 @@
             ]
         },
         {
-            "name": "bank",
-            "base": "",
-            "fields": [
-                {
-                    "name": "account",
-                    "type": "string"
-                },
-                {
-                    "name": "created_at",
-                    "type": "time_point_sec"
-                },
-                {
-                    "name": "last_update",
-                    "type": "time_point_sec"
-                },
-                {
-                    "name": "is_active",
-                    "type": "bool"
-                }
-            ]
-        },
-        {
             "name": "changekey",
             "base": "",
             "fields": [
@@ -113,19 +91,11 @@
             "base": "",
             "fields": [
                 {
-                    "name": "coop_username",
+                    "name": "coopname",
                     "type": "name"
                 },
                 {
                     "name": "member",
-                    "type": "name"
-                },
-                {
-                    "name": "position_title",
-                    "type": "string"
-                },
-                {
-                    "name": "position",
                     "type": "name"
                 }
             ]
@@ -135,70 +105,16 @@
             "base": "",
             "fields": [
                 {
-                    "name": "coop_username",
+                    "name": "coopname",
                     "type": "name"
                 },
                 {
                     "name": "username",
-                    "type": "name"
-                },
-                {
-                    "name": "position_title",
-                    "type": "string"
-                },
-                {
-                    "name": "position",
                     "type": "name"
                 },
                 {
                     "name": "signed_doc",
                     "type": "signed_doc"
-                }
-            ]
-        },
-        {
-            "name": "members",
-            "base": "",
-            "fields": [
-                {
-                    "name": "username",
-                    "type": "name"
-                },
-                {
-                    "name": "created_at",
-                    "type": "time_point_sec"
-                },
-                {
-                    "name": "last_update",
-                    "type": "time_point_sec"
-                },
-                {
-                    "name": "last_min_pay",
-                    "type": "time_point_sec"
-                },
-                {
-                    "name": "position_title",
-                    "type": "string"
-                },
-                {
-                    "name": "position",
-                    "type": "name"
-                },
-                {
-                    "name": "is_accepted",
-                    "type": "bool"
-                },
-                {
-                    "name": "is_initial",
-                    "type": "bool"
-                },
-                {
-                    "name": "is_minimum",
-                    "type": "bool"
-                },
-                {
-                    "name": "is_voting",
-                    "type": "bool"
                 }
             ]
         },
@@ -233,48 +149,8 @@
             "base": "",
             "fields": [
                 {
-                    "name": "name",
-                    "type": "string"
-                },
-                {
-                    "name": "short_name",
-                    "type": "string"
-                },
-                {
-                    "name": "address",
-                    "type": "string"
-                },
-                {
-                    "name": "ogrn",
-                    "type": "string"
-                },
-                {
-                    "name": "inn",
-                    "type": "string"
-                },
-                {
-                    "name": "logo",
-                    "type": "string"
-                },
-                {
-                    "name": "phone",
-                    "type": "string"
-                },
-                {
-                    "name": "email",
-                    "type": "string"
-                },
-                {
-                    "name": "registration",
-                    "type": "string"
-                },
-                {
-                    "name": "website",
-                    "type": "string"
-                },
-                {
-                    "name": "accounts",
-                    "type": "bank[]"
+                    "name": "storage",
+                    "type": "storage"
                 },
                 {
                     "name": "is_cooperative",
@@ -282,39 +158,27 @@
                 },
                 {
                     "name": "coop_type",
-                    "type": "name?"
+                    "type": "name"
                 },
                 {
                     "name": "token_contract",
-                    "type": "name?"
-                },
-                {
-                    "name": "slug",
-                    "type": "string?"
+                    "type": "name"
                 },
                 {
                     "name": "announce",
-                    "type": "string?"
+                    "type": "string"
                 },
                 {
                     "name": "description",
-                    "type": "string?"
+                    "type": "string"
                 },
                 {
                     "name": "initial",
-                    "type": "asset?"
+                    "type": "asset"
                 },
                 {
                     "name": "minimum",
-                    "type": "asset?"
-                },
-                {
-                    "name": "membership",
-                    "type": "asset?"
-                },
-                {
-                    "name": "period",
-                    "type": "name?"
+                    "type": "asset"
                 }
             ]
         },
@@ -331,56 +195,16 @@
                     "type": "name"
                 },
                 {
-                    "name": "verification",
-                    "type": "verification"
+                    "name": "verifications",
+                    "type": "verification[]"
                 },
                 {
-                    "name": "name",
-                    "type": "string"
+                    "name": "storages",
+                    "type": "storage[]"
                 },
                 {
-                    "name": "short_name",
-                    "type": "string"
-                },
-                {
-                    "name": "address",
-                    "type": "string"
-                },
-                {
-                    "name": "ogrn",
-                    "type": "string"
-                },
-                {
-                    "name": "inn",
-                    "type": "string"
-                },
-                {
-                    "name": "logo",
-                    "type": "string"
-                },
-                {
-                    "name": "phone",
-                    "type": "string"
-                },
-                {
-                    "name": "email",
-                    "type": "string"
-                },
-                {
-                    "name": "registration",
-                    "type": "string"
-                },
-                {
-                    "name": "website",
-                    "type": "string"
-                },
-                {
-                    "name": "represented_by",
-                    "type": "string"
-                },
-                {
-                    "name": "accounts",
-                    "type": "bank[]"
+                    "name": "is_active",
+                    "type": "bool"
                 },
                 {
                     "name": "is_cooperative",
@@ -388,51 +212,31 @@
                 },
                 {
                     "name": "coop_type",
-                    "type": "name?"
+                    "type": "name"
                 },
                 {
                     "name": "token_contract",
-                    "type": "name?"
-                },
-                {
-                    "name": "slug",
-                    "type": "string?"
+                    "type": "name"
                 },
                 {
                     "name": "announce",
-                    "type": "string?"
+                    "type": "string"
                 },
                 {
                     "name": "description",
-                    "type": "string?"
+                    "type": "string"
                 },
                 {
                     "name": "members_count",
-                    "type": "uint64?"
-                },
-                {
-                    "name": "users_count",
-                    "type": "uint64?"
-                },
-                {
-                    "name": "orgs_counts",
-                    "type": "uint64?"
+                    "type": "uint64"
                 },
                 {
                     "name": "initial",
-                    "type": "asset?"
+                    "type": "asset"
                 },
                 {
                     "name": "minimum",
-                    "type": "asset?"
-                },
-                {
-                    "name": "membership",
-                    "type": "asset?"
-                },
-                {
-                    "name": "period",
-                    "type": "name?"
+                    "type": "asset"
                 }
             ]
         },
@@ -449,7 +253,7 @@
                     "type": "name"
                 },
                 {
-                    "name": "new_org",
+                    "name": "params",
                     "type": "org_data"
                 }
             ]
@@ -458,10 +262,6 @@
             "name": "reguser",
             "base": "",
             "fields": [
-                {
-                    "name": "registrator",
-                    "type": "name"
-                },
                 {
                     "name": "username",
                     "type": "name"
@@ -531,6 +331,10 @@
                     "type": "name"
                 },
                 {
+                    "name": "is_active",
+                    "type": "bool"
+                },
+                {
                     "name": "storages",
                     "type": "storage[]"
                 },
@@ -546,6 +350,10 @@
             "fields": [
                 {
                     "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "procedure",
                     "type": "name"
                 }
             ]
@@ -564,7 +372,7 @@
                 },
                 {
                     "name": "procedure",
-                    "type": "uint64"
+                    "type": "name"
                 },
                 {
                     "name": "created_at",
@@ -634,13 +442,6 @@
         {
             "name": "balances",
             "type": "balances",
-            "index_type": "i64",
-            "key_names": [],
-            "key_types": []
-        },
-        {
-            "name": "members",
-            "type": "members",
             "index_type": "i64",
             "key_names": [],
             "key_types": []

@@ -40,19 +40,18 @@ public:
       : eosio::contract(receiver, code, ds) {}
 
   [[eosio::action]] void update(eosio::name username, std::string meta);
-  [[eosio::action]] void confirmreg(eosio::name coop_username, eosio::name member, std::string position_title, eosio::name position);
+  [[eosio::action]] void confirmreg(eosio::name coopname, eosio::name member);
 
   [[eosio::action]] void reguser(
-     eosio::name registrator,
      eosio::name username,
      storage storage
   );
 
-  [[eosio::action]] void regorg(eosio::name registrator, eosio::name username, org_data new_org);
+  [[eosio::action]] void regorg(eosio::name registrator, eosio::name username, org_data params);
 
-  [[eosio::action]] void joincoop(eosio::name coop_username, eosio::name username, std::string position_title, eosio::name position, signed_doc signed_doc);
+  [[eosio::action]] void joincoop(eosio::name coopname, eosio::name username, signed_doc signed_doc);
 
-  [[eosio::action]] void verificate(eosio::name username);
+  [[eosio::action]] void verificate(eosio::name username, eosio::name procedure);
 
   [[eosio::action]] void newaccount(
     eosio::name registrator, eosio::name referer,
@@ -74,4 +73,65 @@ public:
   */
   struct [[eosio::table, eosio::contract(REGISTRATOR)]] balances : balances_base {};
   
+
+  static void add_balance(eosio::name source, eosio::name username, eosio::asset quantity,
+                                    eosio::name contract) {
+    // Если баланс не найден, создаем новую запись.
+    // В противном случае, увеличиваем существующий баланс.
+
+    
+    eosio::check(username != ""_n, "В поле memo должен быть указан получатель баланса");
+    balances_index balances(source, username.value);
+
+    auto balances_by_contract_and_symbol =
+        balances.template get_index<"byconsym"_n>();
+    auto contract_and_symbol_index =
+        combine_ids(contract.value, quantity.symbol.code().raw());
+
+    auto balance =
+        balances_by_contract_and_symbol.find(contract_and_symbol_index);
+
+    if (balance == balances_by_contract_and_symbol.end()) {
+      balances.emplace(source, [&](auto &b) {
+        b.id = balances.available_primary_key();
+        b.contract = contract;
+        b.quantity = quantity;
+      });
+    } else {
+      balances_by_contract_and_symbol.modify(
+          balance, source, [&](auto &b) { b.quantity += quantity; });
+    };
+  }
+
+
+  static void sub_balance(eosio::name source, eosio::name username, eosio::asset quantity,
+                                eosio::name contract) {
+    // Если после вычитания баланс равен нулю, удаляем запись.
+    // В противном случае, уменьшаем существующий баланс.
+    
+    balances_index balances(source, username.value);
+
+    auto balances_by_contract_and_symbol =
+        balances.template get_index<"byconsym"_n>();
+    auto contract_and_symbol_index =
+        combine_ids(contract.value, quantity.symbol.code().raw());
+
+    auto balance =
+        balances_by_contract_and_symbol.find(contract_and_symbol_index);
+
+    eosio::check(balance != balances_by_contract_and_symbol.end(),
+                 "Баланс не найден");
+
+    eosio::check(balance->quantity >= quantity, "Недостаточный баланс");
+
+    if (balance->quantity == quantity) {
+
+      balances_by_contract_and_symbol.erase(balance);
+
+    } else {
+
+      balances_by_contract_and_symbol.modify(
+          balance, source, [&](auto &b) { b.quantity -= quantity; });
+    }
+  }
 };

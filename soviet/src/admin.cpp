@@ -7,7 +7,7 @@ using namespace eosio;
 * Данный метод позволяет добавить в кооператив нового члена персонала с указанием определенных прав на выполнение методов действий вместо совета.
 * Авторизация для выполнения этого метода требуется только от председателя совета кооператива.
 *
-* @param coop_username Имя кооператива
+* @param coopname Имя кооператива
 * @param board_id ID совета кооператива
 * @param chairman Имя председателя совета
 * @param username Имя нового члена персонала
@@ -16,24 +16,28 @@ using namespace eosio;
 * 
 * @note Авторизация требуется от аккаунта: @p chairman
 */
-void soviet::addstaff(eosio::name coop_username, uint64_t board_id, eosio::name chairman, eosio::name username, std::vector<right> rights, std::string position_title) {
+void soviet::addstaff(eosio::name coopname, eosio::name chairman, eosio::name username, std::vector<right> rights, std::string position_title) {
   require_auth(chairman);
 
-  staff_index staff(_soviet, coop_username.value);
-  boards_index boards(_soviet, coop_username.value);
-
-  auto board = boards.find(board_id);
-  eosio::check(board != boards.end(), "Совет не найден");
-  eosio::check(board -> is_valid_chairman(chairman), "Только председатель кооператива может добавлять персонал");
+  staff_index staff(_soviet, coopname.value);
+  
+  auto board = get_board_by_type_or_fail(coopname, "soviet"_n);
+  eosio::check(board.is_valid_chairman(chairman), "Только председатель кооператива может добавлять персонал");
 
   auto persona = staff.find(username.value);
+  accounts_index accounts(_registrator, _registrator.value);
+  auto account = accounts.find(username.value);
+  eosio::check(account != accounts.end(), "Сотрудник не найден в картотеке аккаунтов");
 
-  if (persona == staff.end())
-    staff.emplace(chairman, [&](auto &a){
-      a.username = username;
-      a.position_title = position_title;
-      a.rights = rights;
-    });
+  eosio::check(persona == staff.end(), "Сотрудник уже добавлен. Отредактируйте его права или переназначьте на другую должность");
+
+  staff.emplace(chairman, [&](auto &a){
+    a.username = username;
+    a.position_title = position_title;
+    a.rights = rights;
+    a.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+    a.updated_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+  });
 
 };
 
@@ -44,22 +48,20 @@ void soviet::addstaff(eosio::name coop_username, uint64_t board_id, eosio::name 
 * Данный метод позволяет удалить члена персонала из кооператива. 
 * Авторизация для выполнения этого метода требуется только от председателя совета кооператива.
 *
-* @param coop_username Имя кооператива
+* @param coopname Имя кооператива
 * @param board_id ID совета кооператива
 * @param chairman Имя председателя совета
 * @param username Имя удаляемого члена персонала
 * 
 * @note Авторизация требуется от аккаунта: @p chairman
 */
-void soviet::rmstaff(eosio::name coop_username, uint64_t board_id, eosio::name chairman, eosio::name username) {
+void soviet::rmstaff(eosio::name coopname, eosio::name chairman, eosio::name username) {
   require_auth(chairman);
 
-  staff_index staff(_soviet, coop_username.value);
-  boards_index boards(_soviet, coop_username.value);
-
-  auto board = boards.find(board_id);
-  eosio::check(board != boards.end(), "Совет не найден");
-  eosio::check(board -> is_valid_chairman(chairman), "Только председатель кооператива может удалять персонал");
+  staff_index staff(_soviet, coopname.value);
+  
+  auto board = get_board_by_type_or_fail(coopname, "soviet"_n);
+  eosio::check(board.is_valid_chairman(chairman), "Только председатель кооператива может удалять персонал");
 
   auto persona = staff.find(username.value);
   eosio::check(persona != staff.end(), "Персона не найдена");
@@ -75,7 +77,7 @@ void soviet::rmstaff(eosio::name coop_username, uint64_t board_id, eosio::name c
 * Этот метод позволяет установить конкретные права для члена персонала в кооперативе.
 * Авторизация для выполнения этого метода требуется только от председателя совета кооператива.
 *
-* @param coop_username Имя кооператива
+* @param coopname Имя кооператива
 * @param board_id ID совета кооператива
 * @param chairman Имя председателя совета
 * @param username Имя члена персонала, для которого устанавливаются права
@@ -83,21 +85,21 @@ void soviet::rmstaff(eosio::name coop_username, uint64_t board_id, eosio::name c
 * 
 * @note Авторизация требуется от аккаунта: @p chairman
 */
-void soviet::setrights(eosio::name coop_username, uint64_t board_id, eosio::name chairman, eosio::name username, std::vector<right> rights) {
+void soviet::setrights(eosio::name coopname, eosio::name chairman, eosio::name username, std::vector<right> rights) {
   require_auth(chairman);
 
-  staff_index staff(_soviet, coop_username.value);
-  boards_index boards(_soviet, coop_username.value);
+  staff_index staff(_soviet, coopname.value);
+  boards_index boards(_soviet, coopname.value);
 
-  auto board = boards.find(board_id);
-  eosio::check(board != boards.end(), "Совет не найден");
-  eosio::check(board -> is_valid_chairman(chairman), "Только председатель кооператива может удалять персонал");
+  auto board = get_board_by_type_or_fail(coopname, "soviet"_n);
+  eosio::check(board.is_valid_chairman(chairman), "Только председатель кооператива может устанавливать права персонала");
 
   auto persona = staff.find(username.value);
   eosio::check(persona != staff.end(), "Персона не найдена");
 
   staff.modify(persona, chairman, [&](auto &a){
     a.rights = rights;
+    a.updated_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
   });  
 };
   
@@ -108,34 +110,34 @@ void soviet::setrights(eosio::name coop_username, uint64_t board_id, eosio::name
 *
 * Этот метод позволяет персоналу подтвердить поступление оплаты или провести другую форму валидации перед принятием советом какого-либо решения. 
 *
-* @param coop_username Имя кооператива
+* @param coopname Имя кооператива
 * @param board_id ID совета кооператива
 * @param username Имя члена персонала, проводящего валидацию
 * @param decision_id ID решения, которое подлежит валидации
 * 
 * @note Авторизация требуется от аккаунта: @p username
 */
-void soviet::validate(eosio::name coop_username, uint64_t board_id, eosio::name username, uint64_t decision_id) { 
+void soviet::validate(eosio::name coopname, eosio::name username, uint64_t decision_id) { 
   require_auth(username);
 
-  boards_index boards(_soviet, coop_username.value);
-  auto board = boards.find(board_id);
-  eosio::check(board != boards.end(), "Совет не найден");
-
-  staff_index staff(_soviet, coop_username.value);
-  auto persona = staff.find(username.value);
+  boards_index boards(_soviet, coopname.value);
+  auto board = get_board_by_type_or_fail(coopname, "soviet"_n);
   
+  staff_index staff(_soviet, coopname.value);
+  auto persona = staff.find(username.value);
+
+  eosio::check(persona != staff.end(), "Указанный аккаунт не является сотрудником");
   eosio::check(persona -> has_right(_soviet, "validate"_n), "Недостаточно прав доступа");
 
-  decisions_index decisions(_soviet, coop_username.value);
+  decisions_index decisions(_soviet, coopname.value);
   auto decision = decisions.find(decision_id);
   eosio::check(decision != decisions.end(), "Документ не найден");
 
   decisions.modify(decision, username, [&](auto &d){
-    d.validated = true;
+    d.validated = !decision -> validated;
   });
 
-  autosigner_index autosigner(_soviet, coop_username.value);  
+  autosigner_index autosigner(_soviet, coopname.value);  
   auto signer = autosigner.find(decision -> id);
 
   if (signer == autosigner.end())

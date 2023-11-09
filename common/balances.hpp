@@ -21,6 +21,30 @@ struct balances_base {
 typedef eosio::multi_index<"balances"_n, balances_base, eosio::indexed_by<"byconsym"_n, eosio::const_mem_fun<balances_base, uint128_t, &balances_base::byconsym>>> balances_index; /*!< Тип мультииндекса для таблицы балансов */
 
 
+struct [[eosio::table, eosio::contract(SOVIET)]] progwallets {
+  uint64_t id;
+  eosio::name coopname;
+  uint64_t program_id;
+  eosio::name username;
+  eosio::asset available;
+  eosio::asset blocked;
+
+  uint64_t primary_key() const { return id; } /*!< return id - primary_key */
+  uint64_t by_username() const { return username.value; } /*!< username - secondary_key */
+  uint64_t by_program() const { return program_id; } /*!< username - secondary_key */
+
+  uint128_t by_username_and_program() const {
+    return combine_ids(username.value, program_id);
+  } /*!< возвращает уникальный индекс, сформированный из значения username и program_id */
+};
+
+typedef eosio::multi_index<"progwallets"_n, progwallets, 
+  eosio::indexed_by<"byusername"_n, eosio::const_mem_fun<progwallets, uint64_t, &progwallets::by_username>>,
+  eosio::indexed_by<"byprogram"_n, eosio::const_mem_fun<progwallets, uint64_t, &progwallets::by_program>>,
+  eosio::indexed_by<"byuserprog"_n, eosio::const_mem_fun<progwallets, uint128_t, &progwallets::by_username_and_program>>
+> progwallets_index; /*!< Тип мультииндекса для таблицы кошелька программ */
+
+
 
 void add_balance(eosio::name source, eosio::name username, eosio::asset quantity,
                                   eosio::name contract) {
@@ -82,3 +106,4 @@ void sub_balance(eosio::name source, eosio::name username, eosio::asset quantity
         balance, source, [&](auto &b) { b.quantity -= quantity; });
   }
 }
+

@@ -41,7 +41,7 @@
   eosio::asset net = asset(_stake_net_amount, _root_symbol);
   eosio::asset total_pay = cpu + net + ram_price;
 
-  sub_balance(_registrator, registrator, total_pay, _root_contract);
+  registrator::sub_balance(_registrator, registrator, total_pay, _root_contract);
 
   action(permission_level(_registrator, "active"_n), "eosio"_n, "newaccount"_n,
          std::tuple(_registrator, username, owner_auth, active_auth))
@@ -83,20 +83,19 @@
 * Этот метод предназначен для регистрации аккаунта в качестве физического лица.
 * После регистрации пользователь получает статус "user". Принимает хэш-ссылку на зашифрованный профиль, сохраненный в IPFS.
 *
-* @param username Имя регистратора, который регистрирует (обычно, кооператив, но может быть и участником, который регистрирует свою карточку сам)
+* @param registrator Имя регистратора, который регистрирует (обычно, кооператив, но может быть и участником, который регистрирует свою карточку сам)
 * @param username Имя пользователя, который регистрируется
 * @param profile_hash Хэш-ссылка на зашифрованный профиль пользователя, сохраненный в IPFS
 * 
 * @note Авторизация требуется от аккаунта: @p registrator
 */
 [[eosio::action]] void registrator::reguser(
-   eosio::name registrator,
    eosio::name username,
    storage storage
 ) {  
 
-  eosio::check(has_auth(registrator) || has_auth(username), "Только регистратор или пользователь могут подписать эту транзакцию");
-  eosio::name payer = has_auth(registrator) ? registrator : username;
+  eosio::check(has_auth(username), "Только регистратор или пользователь могут подписать эту транзакцию");
+  eosio::name payer = username;
     
   accounts_index accounts(_registrator, _registrator.value); 
   auto new_user = accounts.find(username.value);
@@ -111,24 +110,15 @@
 
   std::vector<struct storage> storages;
 
-  if (user!= users.end()) {
+  eosio::check(user == users.end(), "Карта пользователя уже существует");
 
-    storages = user -> storages;
-    storages.push_back(storage);
-    
-    users.modify(user, payer, [&](auto &u){
-      u.storages = storages;
-    });
+  storages.push_back(storage);
+  
+  users.emplace(payer, [&](auto &u) {
+    u.username = username;
+    u.storages = storages;
+  });
 
-  } else {
-
-    storages.push_back(storage);
-
-    users.emplace(payer, [&](auto &u) {
-      u.username = username;
-      u.storages = storages;
-    });
-  }
 }
 
 
@@ -141,44 +131,52 @@
 * Этот метод позволяет регистрировать аккаунт в качестве юридического лица. 
 * Все данные в карточке юридического лица публичны и хранятся в блокчейне.
 *
-* @param new_org Структура данных нового юридического лица
+* @param params Структура данных нового юридического лица
 * 
 * @note Авторизация требуется от одного из аккаунтов: @p registrator || username
 */
-[[eosio::action]] void registrator::regorg(eosio::name registrator, eosio::name username, org_data new_org) {
-    require_auth(registrator);  
-
+[[eosio::action]] void registrator::regorg(eosio::name registrator, eosio::name username, org_data params) {
     eosio::check(has_auth(registrator) || has_auth(username), "Только регистратор или пользователь могут подписать эту транзакцию");
     eosio::name payer = has_auth(registrator) ? registrator : username;
+
+    accounts_index accounts(_registrator, _registrator.value); 
+    auto new_user = accounts.find(username.value);
+    eosio::check(new_user!= accounts.end(), "Участник не найден в картотеке аккаунтов");
+
+    accounts.modify(new_user, payer, [&](auto &c) {
+      c.type = "org"_n;
+    });
 
     orgs_index orgs(_registrator, _registrator.value);
 
     //TODO 
     // проверить поля, если это кооператив
+    std::vector<storage> storages;
+    
+    storages.push_back(params.storage);
 
     orgs.emplace(payer, [&](auto& org) {
       org.username = username;
-      // org.name = new_org.name;
-      // org.short_name = new_org.short_name;
-      // org.address = new_org.address;
-      // org.ogrn = new_org.ogrn;
-      // org.inn = new_org.inn;
-      // org.logo = new_org.logo;
-      // org.phone = new_org.phone;
-      // org.email = new_org.email;
-      // org.registration = new_org.registration;
-      // org.website = new_org.website;
-      // org.accounts = new_org.accounts;
-      org.is_cooperative = new_org.is_cooperative;
-      org.coop_type = new_org.coop_type;
-      org.token_contract = new_org.token_contract;
-      org.slug = new_org.slug;
-      org.announce = new_org.announce;
-      org.description = new_org.description;
-      org.initial = new_org.initial;
-      org.minimum = new_org.minimum;
-      org.membership = new_org.membership;
-      org.period = new_org.period;
+      org.storages = storages;
+      // org.name = params.name;
+      // org.short_name = params.short_name;
+      // org.address = params.address;
+      // org.ogrn = params.ogrn;
+      // org.inn = params.inn;
+      // org.logo = params.logo;
+      // org.phone = params.phone;
+      // org.email = params.email;
+      // org.registration = params.registration;
+      // org.website = params.website;
+      // org.accounts = params.accounts;
+      org.is_active = false;
+      org.is_cooperative = params.is_cooperative;
+      org.coop_type = params.coop_type;
+      org.token_contract = params.token_contract;
+      org.announce = params.announce;
+      org.description = params.description;
+      org.initial = params.initial;
+      org.minimum = params.minimum;
     });   
 
 }
@@ -194,37 +192,64 @@
 * 
 * @note Авторизация требуется от аккаунта: @p _ano
 */
-[[eosio::action]] void registrator::verificate(eosio::name username){
+[[eosio::action]] void registrator::verificate(eosio::name username, eosio::name procedure){
   require_auth(_ano);
+  eosio::check(procedure == "online"_n, "Только онлайн-верификация доступна сейчас");
 
   accounts_index accounts(_registrator, _registrator.value);
   auto account = accounts.find(username.value);
   eosio::check(account != accounts.end(), "Аккаунт не найден");
- 
- //  if (account -> type == "user"_n){
- //    users_index users(_registrator, _registrator.value);
- //    auto user = users.find(username.value);
- //    eosio::check(user != users.end(), "Пользователь не найден");
- //    users.modify(user, _ano, [&](auto &a){
- //      a.verification.verificator = _ano;
- //      a.verification.is_verified = true;
- //      a.verification.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
- //      a.verification.last_update = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
- //    });
- // } else if (account -> type == "org"_n){
- //    orgs_index orgs(_registrator, _registrator.value);
- //    auto org = orgs.find(username.value);
- //    eosio::check(org != orgs.end(), "Организация не найдена");
-    
- //    orgs.modify(org, _ano, [&](auto &a){
- //      a.verification.verificator = _ano;
- //      a.verification.is_verified = true;
- //      a.verification.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
- //      a.verification.last_update = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
- //    });
- //  }
-}
 
+  if (procedure == "online"_n) {
+    if (account->type == "user"_n){
+      users_index users(_registrator, _registrator.value);
+      auto user = users.find(username.value);
+      eosio::check(user != users.end(), "Пользователь не найден");
+
+      users.modify(user, _ano, [&](auto &a){
+        for (const auto& ver : a.verifications) {
+          eosio::check(ver.procedure == "online"_n, "Онлайн верификация уже проведена");
+        }
+        
+        a.is_active = true;
+
+        verification new_verification {
+          .verificator = _ano,
+          .is_verified = true,
+          .procedure = procedure,
+          .created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch()),
+          .last_update = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch()),
+          .notice = ""
+        };
+
+        a.verifications.push_back(new_verification);
+      });
+    } else if (account->type == "org"_n){
+      orgs_index orgs(_registrator, _registrator.value);
+      auto org = orgs.find(username.value);
+      eosio::check(org != orgs.end(), "Организация не найдена");
+      
+      orgs.modify(org, _ano, [&](auto &a){
+        for (const auto& ver : a.verifications) {
+          eosio::check(ver.procedure == "online"_n, "Онлайн верификация уже проведена");
+        }
+
+        a.is_active = true;
+
+        verification new_verification {
+          .verificator = _ano,
+          .is_verified = true,
+          .procedure = procedure,
+          .created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch()),
+          .last_update = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch()),
+          .notice = ""
+        };
+
+        a.verifications.push_back(new_verification);
+      });
+    }
+  }
+}
 
 /**
 \ingroup public_actions
@@ -233,7 +258,7 @@
 * Этот метод позволяет подать заявление на вступление в кооператив от имени физического или юридического лица. 
 * После подачи заявления, оно направляется на рассмотрение в совет кооператива для голосования.
 *
-* @param coop_username Имя кооператива
+* @param coopname Имя кооператива
 * @param username Имя заявителя
 * @param position_title Наименование должности заявителя
 * @param position Код должности заявителя, который может быть одним из следующего списка: 
@@ -250,17 +275,17 @@
 * 
 * @note Авторизация требуется от аккаунта: @p username
 */
-[[eosio::action]] void registrator::joincoop(eosio::name coop_username, eosio::name username, std::string position_title, eosio::name position, signed_doc signed_doc){
+[[eosio::action]] void registrator::joincoop(eosio::name coopname, eosio::name username, signed_doc signed_doc){
   require_auth(username);
 
   verify(signed_doc);
 
-  members_index members(_registrator, coop_username.value);
-  auto member = members.find(username.value);
-  eosio::check(member == members.end(), "Участник уже является членом кооператива"); 
+  participants_index participants(_soviet, coopname.value);
+  auto participant = participants.find(username.value);
+  eosio::check(participant == participants.end(), "Участник уже является членом кооператива"); 
 
   action(permission_level{_registrator, "active"_n}, _soviet, "joincoop"_n,
-         std::make_tuple(coop_username, username, position_title, position))
+         std::make_tuple(coopname, username, signed_doc))
   .send();
 };
 
@@ -339,33 +364,23 @@
 * Этот метод позволяет подтвердить регистрацию пользователя (физического или юридического лица) в качестве члена кооператива.
 * Подтверждение может быть осуществлено только аккаунтом контракта совета кооператива после принятия соответствующего решения.
 *
-* @param coop_username Имя кооператива
+* @param coopname Имя кооператива
 * @param member Имя члена кооператива
 * @param position_title Название должности
 * @param position Код должности (например, chairman, director и др.)
 * 
 * @note Авторизация требуется от аккаунта: @p _soviet
 */
-[[eosio::action]] void registrator::confirmreg(eosio::name coop_username, eosio::name member, std::string position_title, eosio::name position) {
+[[eosio::action]] void registrator::confirmreg(eosio::name coopname, eosio::name member) {
   require_auth(_soviet);
 
   accounts_index accounts(_registrator, _registrator.value);
   auto account = accounts.find(member.value);
-  eosio::check(account != accounts.end(), "account is not found");
+
+  eosio::check(account != accounts.end(), "Аккаунт не найден в картотеке");
 
   accounts.modify(account, _soviet, [&](auto &g) { g.status = "active"_n; });
 
-  members_index members(_registrator, coop_username.value);
-  members.emplace(_soviet, [&](auto &m){
-    m.username = member;
-    m.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
-    m.last_update = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
-    m.is_accepted = true;
-    m.is_initial = true;
-    m.is_minimum = true;
-    m.position_title = position_title;
-    m.position = position;
-  });
 }
 
 extern "C" {
@@ -387,14 +402,17 @@ void apply(uint64_t receiver, uint64_t code, uint64_t action) {
       execute_action(name(receiver), name(code), &registrator::changekey);
     } else if (action == "joincoop"_n.value) {
       execute_action(name(receiver), name(code), &registrator::joincoop);
+    } else if (action == "verificate"_n.value){
+      execute_action(name(receiver), name(code), &registrator::verificate);
     }
+
 } else { if (action == "transfer"_n.value) { struct transfer { eosio::name from; eosio::name to; eosio::asset quantity; std::string memo; };
       auto op = eosio::unpack_action_data<transfer>();
       if (op.to == _registrator) {
 
         eosio::name username = eosio::name(op.memo.c_str());
         
-        add_balance(_registrator, username, op.quantity, eosio::name(code));
+        registrator::add_balance(_registrator, username, op.quantity, eosio::name(code));
       }
     }
   }

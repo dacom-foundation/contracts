@@ -1,11 +1,8 @@
-
 #include "marketplace.hpp"
 #include <eosio/transaction.hpp>
 #include "src/soviet.cpp"
 #include "src/admins.cpp"
 #include "src/change.cpp"
-
-using namespace eosio;
 
 /**
  * @brief Пустой метод регистрации нового идентификатора
@@ -27,7 +24,7 @@ void apply(uint64_t receiver, uint64_t code, uint64_t action) {
     switch (action) {
       EOSIO_DISPATCH_HELPER(marketplace, (newid)
         //change
-        (offer)(order)(complete)(decline)(accept)
+        (offer)(order)(complete)(decline)(accept)(setcontrib)(update)
         //admin
         (moderate)(prohibit)(unpublish)(publish)
         //soviet
@@ -46,9 +43,9 @@ void apply(uint64_t receiver, uint64_t code, uint64_t action) {
 
       auto op = eosio::unpack_action_data<transfer>();
       // Если перевод направлен на аккаунт контракта, обновляем баланс
-      if (op.to == _marketplace) {
-        add_balance(_marketplace, op.from, op.quantity, eosio::name(code));
-      }
+      // if (op.to == _marketplace) {
+        eosio::check(false, "Контракт не принимает входящие переводы");
+      // }
     }
   }
 };

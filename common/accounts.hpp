@@ -14,16 +14,16 @@
 struct verification {
   eosio::name verificator; ///< Организация, которая произвела верификацию
   bool is_verified; ///< Флаг, указывающий, прошла ли верификация
-  uint64_t procedure; ///< Тип процедуры верификации
-    // (0, _('online')),
-    // (1, _('video call')),
-    // (2, _('qualified signature')),
-    // (3, _('gosuslugi')),
-    // (4, _('app')),   -  с помощью мобильного приложения
-    // (5, _('agent store')),     - некоторые платежные системы 
+  eosio::name procedure; ///< Тип процедуры верификации
+    // ('online')),
+    // ('video call')),
+    // ('qualified signature')),
+    // ('gosuslugi')),
+    // ('app')),   -  с помощью мобильного приложения
+    // (('agent store')),     - некоторые платежные системы 
     // проводят верификацию в Связном
-    // (6, _('bank')),    - верификация в банке
-    // (7, _('in person')), - верификация в кооперативе
+    // (('bank')),    - верификация в банке
+    // (('in person')), - верификация в кооперативе
 
   eosio::time_point_sec created_at; ///< Время создания записи
   eosio::time_point_sec last_update; ///< Время последнего обновления записи
@@ -51,7 +51,7 @@ struct [[eosio::table, eosio::contract(REGISTRATOR)]] accounts {
   eosio::asset registration_amount; ///< Количество токенов, которое требуется для регистрации.
   eosio::time_point_sec registered_at; ///< Время регистрации аккаунта.
   eosio::time_point_sec signature_expires_at; ///< Время истечения срока действия подписи аккаунта.
-  
+
   /**
    * @brief Возвращает первичный ключ учетной записи аккаунта.
    * @return uint64_t - первичный ключ, равный значению имени аккаунта.
@@ -118,6 +118,7 @@ struct storage {
  */
 struct [[eosio::table, eosio::contract(REGISTRATOR)]] users {
   eosio::name username; ///< Имя аккаунта пользователя.
+  bool is_active = false; ///< Флаг активности.
   std::vector<storage> storages; ///< Хранилища персональных данных и идентификаторы данных в них.
   std::vector<verification> verifications; ///< Информация о верификации пользователя.
 
@@ -170,15 +171,12 @@ struct org_data {
     // std::vector<bank> accounts; ///< Банковские счета
 
     bool is_cooperative = false; ///< Является ли кооперативом
-    std::optional<eosio::name> coop_type; ///< Тип кооператива (union, conscoop, prodcoop, agricoop, builderscoop, nonprofitorg)
-    std::optional<eosio::name> token_contract; ///< Контракт токена
-    std::optional<std::string> slug; ///< ЧПУ (Человеко-понятный URL)
-    std::optional<std::string> announce; ///< Анонс
-    std::optional<std::string> description; ///< Описание
-    std::optional<eosio::asset> initial; ///< Вступительный взнос
-    std::optional<eosio::asset> minimum; ///< Минимальный взнос
-    std::optional<eosio::asset> membership; ///< Членский взнос
-    std::optional<eosio::name> period; ///< Периодичность (per case, daily, weekly, monthly, quarterly, half a year, annually, onetime)
+    eosio::name coop_type; ///< Тип кооператива (union, conscoop, prodcoop, agricoop, builderscoop, nonprofitorg)
+    eosio::name token_contract; ///< Контракт токена
+    std::string announce; ///< Анонс
+    std::string description; ///< Описание
+    eosio::asset initial; ///< Вступительный взнос
+    eosio::asset minimum; ///< Минимальный взнос
 };
 
 
@@ -192,20 +190,16 @@ struct [[eosio::table, eosio::contract(REGISTRATOR)]] orgs {
   eosio::name parent_username; ///< Имя родительской организации, если есть.
   std::vector<verification> verifications; ///< Информация о верификации организации.
   std::vector<storage> storages; ///< Хранилища персональных данных и идентификаторы данных в них.
-  
+  bool is_active = true; ///< Флаг, указывающий, что организация активна.
   bool is_cooperative = false; ///< Флаг, указывающий, является ли организация кооперативом.
-  std::optional<eosio::name> coop_type; ///< Тип некоммерческой организации (если это кооператив).
-  std::optional<eosio::name> token_contract; ///< Контракт токена, связанного с организацией.
-  std::optional<std::string> slug; ///< Уникальный идентификатор организации.
-  std::optional<std::string> announce; ///< Анонс организации.
-  std::optional<std::string> description; ///< Описание организации.
-  std::optional<uint64_t> members_count; ///< Количество членов организации.
-  std::optional<uint64_t> users_count; ///< Количество пользователей организации.
-  std::optional<uint64_t> orgs_counts; ///< Количество подорганизаций.
-  std::optional<eosio::asset> initial; ///< Вступительный взнос (если применимо).
-  std::optional<eosio::asset> minimum; ///< Минимальный взнос (если применимо).
-  std::optional<eosio::asset> membership; ///< Членский взнос (если применимо).
-  std::optional<eosio::name> period; ///< Периодичность взносов.
+  eosio::name coop_type; ///< Тип некоммерческой организации (если это кооператив).
+  eosio::name token_contract; ///< Контракт токена, связанного с организацией.
+  std::string announce; ///< Анонс организации.
+  std::string description; ///< Описание организации.
+  uint64_t members_count; ///< Количество членов организации.
+  eosio::asset initial; ///< Вступительный взнос (если применимо).
+  eosio::asset minimum; ///< Минимальный взнос (если применимо).
+
   // Тип некоммерческой организации
   // (0, _('Union of Societies')),
   // (1, _('Consumer Cooperative')),
@@ -217,9 +211,24 @@ struct [[eosio::table, eosio::contract(REGISTRATOR)]] orgs {
   /**
    * @brief Возвращает первичный ключ учетной записи организации.
    * @return uint64_t - первичный ключ, равный значению имени аккаунта организации.
-   */
+  */
+  
   uint64_t primary_key() const {
     return username.value;
+  }
+
+  /**
+   * @brief Сравнивает контракт токена кооператива и представленный
+   */
+  void check_contract_or_fail(eosio::name contract) {
+    eosio::check(token_contract == contract, "Неверный контракт токена");
+  }
+
+  /**
+   * @brief Сравнивает символ токена кооператива и представленный
+   */
+  void check_symbol_or_fail(eosio::asset contribution) {
+    eosio::check(initial.symbol == contribution.symbol && minimum.symbol == contribution.symbol, "Неверный контракт токена");
   }
 
   /**
@@ -251,8 +260,9 @@ struct [[eosio::table, eosio::contract(REGISTRATOR)]] orgs {
    * @return uint64_t - ключ, равный значению типа некоммерческой организации.
    */
   uint64_t bycooptype() const {
-    return coop_type.value_or(eosio::name("")).value;
+    return coop_type.value;
   }
+
 
   /**
    * @brief Возвращает индекс для определения, является ли организация верифицированной.
@@ -298,7 +308,17 @@ eosio::indexed_by<"bycoopchilds"_n, eosio::const_mem_fun<orgs, uint128_t, &orgs:
 eosio::indexed_by<"bycooptype"_n, eosio::const_mem_fun<orgs, uint64_t, &orgs::bycooptype>>,
 eosio::indexed_by<"byverif"_n, eosio::const_mem_fun<orgs, uint64_t,
                                                        &orgs::is_verified_index>>
-
 > orgs_index;
 
+
+
+
+orgs get_cooperative_or_fail(eosio::name coopname) {
+  orgs_index orgs(_registrator, _registrator.value);
+  auto org = orgs.find(coopname.value);
+  eosio::check(org != orgs.end(), "Организация не найдена");
+  eosio::check(org -> is_coop(), "Организация - не кооператив");
+
+  return *org;
+};
 

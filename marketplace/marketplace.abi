@@ -4,6 +4,60 @@
     "types": [],
     "structs": [
         {
+            "name": "accept",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "exchange_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "addpieces",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "exchange_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "new_pieces",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "authorize",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "exchange_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
             "name": "balances",
             "base": "balances_base",
             "fields": []
@@ -23,6 +77,42 @@
                 {
                     "name": "quantity",
                     "type": "asset"
+                }
+            ]
+        },
+        {
+            "name": "cancel",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "exchange_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "complete",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "exchange_id",
+                    "type": "uint64"
                 }
             ]
         },
@@ -50,6 +140,28 @@
             ]
         },
         {
+            "name": "decline",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "exchange_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "meta",
+                    "type": "string"
+                }
+            ]
+        },
+        {
             "name": "exchange",
             "base": "",
             "fields": [
@@ -62,7 +174,15 @@
                     "type": "uint64"
                 },
                 {
-                    "name": "coop_username",
+                    "name": "program_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "contribution_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "coopname",
                     "type": "name"
                 },
                 {
@@ -78,11 +198,19 @@
                     "type": "name"
                 },
                 {
+                    "name": "parent_username",
+                    "type": "name"
+                },
+                {
                     "name": "token_contract",
                     "type": "name"
                 },
                 {
                     "name": "price_for_piece",
+                    "type": "asset"
+                },
+                {
+                    "name": "amount",
                     "type": "asset"
                 },
                 {
@@ -106,9 +234,285 @@
                     "type": "string"
                 }
             ]
+        },
+        {
+            "name": "exchange_params",
+            "base": "",
+            "fields": [
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "parent_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "program_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "pieces",
+                    "type": "uint64"
+                },
+                {
+                    "name": "price_for_piece",
+                    "type": "asset"
+                },
+                {
+                    "name": "data",
+                    "type": "string"
+                },
+                {
+                    "name": "meta",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "moderate",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "exchange_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "newid",
+            "base": "",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "type",
+                    "type": "name"
+                }
+            ]
+        },
+        {
+            "name": "offer",
+            "base": "",
+            "fields": [
+                {
+                    "name": "params",
+                    "type": "exchange_params"
+                }
+            ]
+        },
+        {
+            "name": "order",
+            "base": "",
+            "fields": [
+                {
+                    "name": "params",
+                    "type": "exchange_params"
+                }
+            ]
+        },
+        {
+            "name": "prohibit",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "exchange_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "meta",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "publish",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "exchange_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "setcontrib",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "exchange_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "contribution_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "unpublish",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "exchange_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "update",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "exchange_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "remain_pieces",
+                    "type": "uint64"
+                },
+                {
+                    "name": "price_for_piece",
+                    "type": "asset"
+                },
+                {
+                    "name": "data",
+                    "type": "string"
+                },
+                {
+                    "name": "meta",
+                    "type": "string"
+                }
+            ]
         }
     ],
-    "actions": [],
+    "actions": [
+        {
+            "name": "accept",
+            "type": "accept",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "addpieces",
+            "type": "addpieces",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "authorize",
+            "type": "authorize",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "cancel",
+            "type": "cancel",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "complete",
+            "type": "complete",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "decline",
+            "type": "decline",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "moderate",
+            "type": "moderate",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "newid",
+            "type": "newid",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "offer",
+            "type": "offer",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "order",
+            "type": "order",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "prohibit",
+            "type": "prohibit",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "publish",
+            "type": "publish",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "setcontrib",
+            "type": "setcontrib",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "unpublish",
+            "type": "unpublish",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "update",
+            "type": "update",
+            "ricardian_contract": ""
+        }
+    ],
     "tables": [
         {
             "name": "balances",

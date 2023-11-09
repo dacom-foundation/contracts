@@ -75,6 +75,15 @@ struct [[eosio::table, eosio::contract(SOVIET)]] boards {
     return false;
   }
 
+
+  bool is_valid_secretary(eosio::name secretary) const {
+    for (const auto& m : members) {
+      if (m.username == secretary && (m.position == "secretary"_n))
+        return true;
+    }
+    return false;
+  }
+
   bool has_voting_right(eosio::name member) const {
     for (const auto& m : members) {
         if (m.username == member && m.is_voting)
@@ -140,26 +149,21 @@ typedef eosio::multi_index<"staff"_n, staff> staff_index; ///< Тип мульт
  * @details Эта структура содержит информацию о членах кооператива, включая их уникальные имена, дату создания, дату последнего обновления,
  * дату последнего минимального платежа, должность, позицию, флаги их статуса и участия.
  */
-struct [[eosio::table, eosio::contract(REGISTRATOR)]] members {
+struct [[eosio::table, eosio::contract(SOVIET)]] participants {
   eosio::name username; ///< Уникальное имя члена кооператива.
   eosio::time_point_sec created_at; ///< Время создания записи о члене.
   eosio::time_point_sec last_update; ///< Время последнего обновления информации о члене.
   eosio::time_point_sec last_min_pay; ///< Время последнего минимального платежа.
-  std::string position_title; ///< Название должности члена.
-  eosio::name position; ///< Позиция члена в кооперативе:
-  // (('chairman')),
-  // (('vpchairman')),
-  // (('director')),
-  // (('vpdirector')),
-  // (('boardmember')),
-  // (('execmember')),
-  // (('votingmember')),
-  // (('assocmember')),
-  bool is_accepted; ///< Флаг, указывающий, принят ли член в кооператив.
-  bool is_initial; ///< Флаг, указывающий, является ли член начальным.
-  bool is_minimum; ///< Флаг, указывающий, является ли член членом с минимальными взносами.
-  bool is_voting; ///< Флаг, указывающий, имеет ли член право голоса.
 
+  eosio::name status; //accepted | blocked
+
+  bool is_initial; ///< Флаг, указывающий, внесен ли регистрационный взнос.
+  bool is_minimum; ///< Флаг, указывающий, внесен ли минимальный паевый взнос.
+  bool has_vote; ///< Флаг, указывающий, имеет ли член право голоса.
+
+  eosio::asset available;
+  eosio::asset blocked;
+  eosio::asset minimum;
   /**
    * @brief Возвращает первичный ключ учетной записи члена кооператива.
    * @return uint64_t - первичный ключ, равный значению имени члена кооператива.
@@ -175,11 +179,15 @@ struct [[eosio::table, eosio::contract(REGISTRATOR)]] members {
   uint64_t bylastpay() const {
     return last_min_pay.sec_since_epoch();
   }
+
+  bool is_active() const {
+    return status == "accepted"_n;
+  }
 };
 
-typedef eosio::multi_index< "members"_n, members,
-  eosio::indexed_by<"bylastpay"_n, eosio::const_mem_fun<members, uint64_t, &members::bylastpay>>
-> members_index;
+typedef eosio::multi_index< "participants"_n, participants,
+  eosio::indexed_by<"bylastpay"_n, eosio::const_mem_fun<participants, uint64_t, &participants::bylastpay>>
+> participants_index;
 
 
 /**
@@ -190,10 +198,10 @@ typedef eosio::multi_index< "members"_n, members,
  */
 struct [[eosio::table, eosio::contract(SOVIET)]] decisions {
   uint64_t id; ///< Уникальный идентификатор решения.
-  eosio::name coop_username; ///< Имя кооператива, связанного с решением.
+  eosio::name coopname; ///< Имя кооператива, связанного с решением.
   eosio::name type; ///< Тип решения:
   // openproposal | regaccount | change | contribute | withdraw
-  uint64_t card_id; ///< Идентификатор карточки, связанной с решением.
+  uint64_t secondary_id; ///< Идентификатор карточки, связанной с решением.
 
   std::vector<eosio::name> votes_for; ///< Список имен, голосовавших "за" решение.
   std::vector<eosio::name> votes_against; ///< Список имен, голосовавших "против" решения.
@@ -214,13 +222,13 @@ struct [[eosio::table, eosio::contract(SOVIET)]] decisions {
    * @brief Возвращает ключ для индексации по имени кооператива.
    * @return uint64_t - ключ, равный значению имени кооператива.
    */
-  uint64_t by_coop() const { return coop_username.value; } 
+  uint64_t by_coop() const { return coopname.value; } 
 
   /**
    * @brief Возвращает ключ для индексации по идентификатору карточки.
    * @return uint64_t - ключ, равный идентификатору карточки.
    */
-  uint64_t by_card() const { return card_id; }
+  uint64_t by_secondary() const { return secondary_id; }
 
   /**
    * @brief Возвращает ключ для индексации по типу решения.
@@ -273,7 +281,7 @@ struct [[eosio::table, eosio::contract(SOVIET)]] decisions {
 
 typedef eosio::multi_index< "decisions"_n, decisions,
   eosio::indexed_by<"bycoop"_n, eosio::const_mem_fun<decisions, uint64_t, &decisions::by_coop>>,
-  eosio::indexed_by<"bycard"_n, eosio::const_mem_fun<decisions, uint64_t, &decisions::by_card>>,
+  eosio::indexed_by<"bysecondary"_n, eosio::const_mem_fun<decisions, uint64_t, &decisions::by_secondary>>,
   eosio::indexed_by<"bytype"_n, eosio::const_mem_fun<decisions, uint64_t, &decisions::bytype>>,
   eosio::indexed_by<"byapproved"_n, eosio::const_mem_fun<decisions, uint64_t, &decisions::byapproved>>,
   eosio::indexed_by<"byvalidated"_n, eosio::const_mem_fun<decisions, uint64_t, &decisions::byvalidated>>,
@@ -284,8 +292,8 @@ typedef eosio::multi_index< "decisions"_n, decisions,
 > decisions_index;
 
 
-boards get_board_by_id(eosio::name coop_username, uint64_t board_id){
-  boards_index boards(_soviet, coop_username.value);
+boards get_board_by_id(eosio::name coopname, uint64_t board_id){
+  boards_index boards(_soviet, coopname.value);
   auto board = boards.find(board_id);
   
   eosio::check(board != boards.end(), "Совет не найден");
@@ -295,8 +303,8 @@ boards get_board_by_id(eosio::name coop_username, uint64_t board_id){
 };
 
 
-boards get_board_by_type_or_fail(eosio::name coop_username, eosio::name type){
-  boards_index boards(_soviet, coop_username.value);
+boards get_board_by_type_or_fail(eosio::name coopname, eosio::name type){
+  boards_index boards(_soviet, coopname.value);
   auto boards_by_type_index = boards.template get_index<"bytype"_n>();
   auto exist = boards_by_type_index.find(type.value);
   
@@ -306,8 +314,9 @@ boards get_board_by_type_or_fail(eosio::name coop_username, eosio::name type){
 
 };
 
-bool check_for_exist_board_by_type(eosio::name coop_username, eosio::name type){
-  boards_index boards(_soviet, coop_username.value);
+
+bool check_for_exist_board_by_type(eosio::name coopname, eosio::name type){
+  boards_index boards(_soviet, coopname.value);
 
   auto boards_by_type_index = boards.template get_index<"bytype"_n>();
 
@@ -317,4 +326,5 @@ bool check_for_exist_board_by_type(eosio::name coop_username, eosio::name type){
     return true;
   else return false;
 }
+
 

@@ -1,5 +1,3 @@
-using namespace eosio;
-
 /**
 \ingroup public_actions
 \brief Авторизация обмена советом.
@@ -12,10 +10,10 @@ using namespace eosio;
 
 @note Авторизация требуется от аккаунта: @p _soviet
 */
-[[eosio::action]] void marketplace::authorize(uint64_t exchange_id) {
+[[eosio::action]] void marketplace::authorize(eosio::name coopname, uint64_t exchange_id) {
   require_auth(_soviet);
 
-  exchange_index exchange(_marketplace, _marketplace.value);
+  exchange_index exchange(_marketplace, coopname.value);
   auto change = exchange.find(exchange_id);
 
   eosio::check(change != exchange.end(), "Ордер не найден");

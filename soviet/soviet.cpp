@@ -8,10 +8,12 @@
 #include "src/voting.cpp"
 #include "src/automator.cpp"
 #include "src/marketplace.cpp"
+#include "src/programs.cpp"
+#include "src/contributions.cpp"
 
 using namespace eosio;
 
-[[eosio::action]] void soviet::newid(uint64_t decision_id) {
+[[eosio::action]] void soviet::newid(uint64_t id) {
   require_auth(_soviet);
 };
 
@@ -22,24 +24,24 @@ using namespace eosio;
 * Этот метод позволяет исполнить решение совета. Исполнение решения включает в себя проверку, что решение существует, что оно было авторизовано, и что оно еще не было выполнено. В зависимости от типа решения, вызывается соответствующая функция для его реализации.
 *
 * @param executer Имя аккаунта, который исполняет решение
-* @param coop_username Имя кооператива
+* @param coopname Имя кооператива
 * @param decision_id Идентификатор решения для исполнения
 * 
 * @note Авторизация требуется от аккаунта: @p executer
 */
-void soviet::exec(eosio::name executer, eosio::name coop_username, uint64_t decision_id) { 
+void soviet::exec(eosio::name executer, eosio::name coopname, uint64_t decision_id) { 
   require_auth(executer);
-
-  decisions_index decisions(_soviet, _soviet.value);
+  
+  decisions_index decisions(_soviet, coopname.value);
   auto decision = decisions.find(decision_id);
   eosio::check(decision != decisions.end(),"Решение не найдено в оперативной памяти");
-  eosio::check(decision -> authorized == true, "Только авторизованное решение может быть выполнено");
+  eosio::check(decision -> authorized == true, "Только авторизованное решение может быть исполнено");
   eosio::check(decision -> executed == false, "Решение уже исполнено");
 
   if (decision -> type == _regaccount_action) {
-    soviet::joincoop_effect(executer, coop_username, decision->id, decision->card_id);
+    soviet::joincoop_effect(executer, coopname, decision->id, decision->secondary_id);
   } else if (decision -> type == _change_action){
-    soviet::change_effect(executer, coop_username, decision->id, decision->card_id);
+    soviet::change_effect(executer, coopname, decision->id, decision->secondary_id);
   }
 }
 
@@ -58,15 +60,20 @@ extern "C" {
             //ADMIN
             (addstaff)(rmstaff)(setrights)(validate)
             //CHAIRMAN
-            (authorize)(createboard)
+            (authorize)(createboard)(updateboard)
             //VOTING
             (votefor)(voteagainst)(cancelvote)
             //REGACCOUNT
             (joincoop)
             //MARKETPLACE
-            (change)
+            (change)(cancelorder)
             //AUTOMATOR
             (automate)(disautomate)
+            //PROGRAMS
+            (createprog)(editprog)(disableprog)
+            //CONTRIBUTE
+            (addcoopbal)(subcoopbal)(blockprogbal)(unblprogbal)(addbaltoprog)(subbalfrprog)
+            (contribute)(withdraw)
             )
       }
 
@@ -82,8 +89,10 @@ extern "C" {
         };
 
         auto op = eosio::unpack_action_data<transfer>();
+
         if (op.to == _soviet) {
-          eosio::check(false, "Совет не принимает взятки (входящие переводы) :))");
+          eosio::name coopname = eosio::name(op.memo.c_str());
+          soviet::deposit(coopname, op.from, eosio::name(code), op.quantity);
         }
       }
     }

@@ -4,15 +4,20 @@
     "types": [],
     "structs": [
         {
-            "name": "update",
+            "name": "newid",
             "base": "",
-            "fields": []
+            "fields": [
+                {
+                    "name": "coop_id",
+                    "type": "uint64"
+                }
+            ]
         }
     ],
     "actions": [
         {
-            "name": "update",
-            "type": "update",
+            "name": "newid",
+            "type": "newid",
             "ricardian_contract": ""
         }
     ],

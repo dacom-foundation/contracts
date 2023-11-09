@@ -1,8 +1,8 @@
 #include <eosio/asset.hpp>
-#include <eosio/contract.hpp>
-#include <eosio/crypto.hpp>
 #include <eosio/eosio.hpp>
 #include <eosio/multi_index.hpp>
+#include <eosio/contract.hpp>
+#include <eosio/crypto.hpp>
 #include <eosio/system.hpp>
 #include <eosio/time.hpp>
 

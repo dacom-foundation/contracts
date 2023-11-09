@@ -1,4 +1,34 @@
 #pragma once
+
+
+
+/**
+\ingroup public_tables
+\brief Параметры заявки на обмен.
+*
+* Эта структура предоставляет набор данных, которые требуются для создания или обновления заявки на обмен в контракте "marketplace".
+*
+* @details Следующие параметры определяют заявку:
+* - username: Имя пользователя, инициирующего или обновляющего заявку.
+* - parent_id: Идентификатор родительской заявки (если есть).
+* - coopname: Имя кооператива.
+* - pieces: Количество частей (штук) товара или услуги для обмена.
+* - price_for_piece: Цена за единицу (штуку) товара или услуги, выраженная в определенном формате asset.
+* - data: Содержит дополнительные данные, специфичные для заявки (например, условия обмена).
+* - meta: Метаданные, предоставляющие дополнительную информацию о заявке (например, описание товара или условия обмена).
+*/
+struct exchange_params {
+  eosio::name username; /*!< Имя пользователя, инициирующего или обновляющего заявку */
+  uint64_t parent_id; /*!< Идентификатор родительской заявки */
+  uint64_t program_id; /*!< Идентификатор программы */
+  eosio::name coopname; /*!< Имя кооператива */
+  uint64_t pieces; /*!< Количество частей (штук) товара или услуги */
+  eosio::asset price_for_piece; /*!< Цена за единицу (штуку) товара или услуги */
+  std::string data; /*!< Дополнительные данные, специфичные для заявки */
+  std::string meta; /*!< Метаданные о заявке */
+};
+
+
 /**
  * @brief Таблица обменов для контракта "marketplace"
  * @ingroup public_tables
@@ -21,18 +51,21 @@
  *
  * Пример использования:
  * @code
- * exchange_index exchange(_me, _me.value);
+ * exchange_index exchange(_me, coopname.value);
  * auto exchange_order = exchange.find(id);
  * @endcode
  */
 struct [[eosio::table, eosio::contract(MARKETPLACE)]] exchange {
   uint64_t id;                 /*!< идентификатор обмена */
   uint64_t parent_id;          /*!< идентификатор родительской заявки */
-  eosio::name coop_username;      /*!< имя аккаунта кооператива */
+  uint64_t program_id;         /*!< идентификатор программы */
+  uint64_t contribution_id;    /*!< идентификатор взноса */
+  eosio::name coopname;        /*!< имя аккаунта кооператива */
   eosio::name type;            /*!< тип обмена */
   eosio::name status;          /*!< статус обмена */
-  eosio::name username;        /*!< имя пользователя */
-  eosio::name token_contract;        /*!< имя контракта токена */
+  eosio::name username;        /*!< имя аккаунта владельца заявки */
+  eosio::name parent_username; /*!< имя аккаунта владельца объявления */
+  eosio::name token_contract;  /*!< имя контракта токена */
   eosio::asset price_for_piece;/*!< цена за единицу товара */
   uint64_t remain_pieces;      /*!< оставшееся количество товара */
   uint64_t blocked_pieces;     /*!< заблокированное количество товара */
@@ -41,10 +74,13 @@ struct [[eosio::table, eosio::contract(MARKETPLACE)]] exchange {
   std::string meta;            /*!< метаданные заявки */
 
   uint64_t primary_key() const { return id; } /*!< return id - primary_key */
-  uint64_t by_coop() const {return coop_username.value;} /*!< кооператив */
+  uint64_t by_coop() const {return coopname.value;} /*!< кооператив */
   uint64_t by_status() const { return status.value; } /*!< индекс по статусу */
+  uint64_t by_program() const { return program_id; } /*!< индекс по программе */
   uint64_t by_type() const { return type.value; } /*!< индекс по типу */
   uint64_t by_parent() const { return parent_id; } /*!< индекс по родительскому ID */
+  uint64_t by_username() const { return username.value;} /*!< индекс по имени аккаунта */
+  uint64_t by_parent_username() const { return parent_username.value;} /*!< индекс по имени аккаунта владельца объявления */
 };
 
 typedef eosio::multi_index<
@@ -52,7 +88,11 @@ typedef eosio::multi_index<
     eosio::indexed_by<"bycoop"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_coop>>,
     eosio::indexed_by<"bystatus"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_status>>,
     eosio::indexed_by<"bytype"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_type>>,
-    eosio::indexed_by<"byparent"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_parent>>>
+    eosio::indexed_by<"byprogram"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_program>>,
+    eosio::indexed_by<"byparent"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_parent>>,
+    eosio::indexed_by<"byusername"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_username>>,
+    eosio::indexed_by<"bypausername"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_parent_username>>
+    >
     exchange_index; /*!< Тип мультииндекса для таблицы обменов */
 
 

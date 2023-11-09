@@ -6,6 +6,7 @@ using namespace eosio;
 #define REGISTRATOR "registrator"
 #define SYSTEM "eosio"
 #define PARTNERS "part"
+#define GATEWAY "gateway"
 
 // /**
 //  * @mainpage Обзор контрактов
@@ -69,6 +70,7 @@ using namespace eosio;
 
 static constexpr uint64_t _auction_name_length_limit = 5;
 static constexpr eosio::name _ano = "ano"_n;
+static constexpr eosio::name _gateway = "gateway"_n;
 static constexpr eosio::name _draft = "draft"_n;
 static constexpr eosio::name _marketplace = "marketplace"_n; /*!< имя контракта */
 static constexpr eosio::name _soviet = "soviet"_n; /*!< дополнительная константа */
