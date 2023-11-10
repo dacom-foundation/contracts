@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['joincoop_0',['joincoop',['../group__public__actions.html#ga575710c03cd02b5e813816ea7e51500e',1,'registrator::joincoop()'],['../group__public__actions.html#gab5f3356c48b5d4ed1c048125137568e5',1,'soviet::joincoop(eosio::name coop_username, eosio::name username, std::string position_title, eosio::name position)']]],
-  ['joincoop_5feffect_1',['joincoop_effect',['../classsoviet.html#ac5ed92ff962a4e9b879b0df3984fa282',1,'soviet']]]
+  ['joincoop_0',['joincoop',['../group__public__actions.html#ga6dcf3e2e29a98c99e2046ad12156125a',1,'registrator::joincoop()'],['../group__public__actions.html#ga5967c649c6f934c264ed5759663cdc38',1,'soviet::joincoop(eosio::name coopname, eosio::name username, signed_doc signed_doc)']]],
+  ['joincoop_5feffect_1',['joincoop_effect',['../classsoviet.html#acb40751c2edd7b9d2357e0d51d55f931',1,'soviet']]]
 ];

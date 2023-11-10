@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['name_0',['name',['../structboards.html#ad9a12ccbc9bdbabfe1dbd5f7cffdb06f',1,'boards::name()'],['../structdrafts.html#ac5a7f4466437cdb95da8ecec0aee269a',1,'drafts::name()'],['../structorg__data.html#af006cf83cb1100943d4e4e2517215838',1,'org_data::name()'],['../structorgs.html#ae3e89e39dc1dac2fa382f52c7dfa1499',1,'orgs::name()']]],
+  ['name_0',['name',['../structboards.html#ad9a12ccbc9bdbabfe1dbd5f7cffdb06f',1,'boards']]],
   ['namebid_5fproceeds_1',['namebid_proceeds',['../structeosiosystem_1_1rex__pool.html#a617f0698ad272dc19fae83cd576c1dc5',1,'eosiosystem::rex_pool']]],
   ['names_5faccount_2',['names_account',['../classeosiosystem_1_1system__contract.html#a03e79dcf0584dd7fd1dbb1aa072befb1',1,'eosiosystem::system_contract']]],
   ['net_3',['net',['../structeosiosystem_1_1powerup__config.html#a1deffd1cf5b8de9c3ac49b5e4b08e65d',1,'eosiosystem::powerup_config::net()'],['../structeosiosystem_1_1powerup__state.html#a50378b359db22153b5767eebf3d5e91e',1,'eosiosystem::powerup_state::net()']]],
@@ -10,5 +10,6 @@ var searchData=
   ['new_5fram_5fper_5fblock_7',['new_ram_per_block',['../structeosiosystem_1_1eosio__global__state2.html#ad29c5ed6cc975beb7578f57aaf20c98f',1,'eosiosystem::eosio_global_state2']]],
   ['newname_8',['newname',['../structeosiosystem_1_1name__bid.html#a3463fcad67e50421775df9e215fcc6f5',1,'eosiosystem::name_bid']]],
   ['notice_9',['notice',['../structverification.html#a231be135ab1c6c218ca0ed86383d043c',1,'verification::notice()'],['../structjoincoops.html#a2aa5cf144690ce5d537aceb9e68e15cf',1,'joincoops::notice()']]],
-  ['null_5faccount_10',['null_account',['../classeosiosystem_1_1system__contract.html#a0b608cd46d931874c80e9b72c4f0d664',1,'eosiosystem::system_contract']]]
+  ['now_10',['now',['../structcntrbutions.html#a1ce1e8e1edce5519e92c343b1050fa7b',1,'cntrbutions']]],
+  ['null_5faccount_11',['null_account',['../classeosiosystem_1_1system__contract.html#a0b608cd46d931874c80e9b72c4f0d664',1,'eosiosystem::system_contract']]]
 ];

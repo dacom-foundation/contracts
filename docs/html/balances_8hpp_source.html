@@ -99,75 +99,110 @@ $(document).ready(function(){initNavTree('balances_8hpp_source.html',''); initRe
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>};</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="balances_8hpp.html#a2f044097a1d44c2a73b8f5bd7719439e">   21</a></span><span class="keyword">typedef</span> eosio::multi_index&lt;<span class="stringliteral">&quot;balances&quot;</span>_n, <a class="code hl_struct" href="structbalances__base.html">balances_base</a>, eosio::indexed_by&lt;<span class="stringliteral">&quot;byconsym&quot;</span>_n, eosio::const_mem_fun&lt;balances_base, uint128_t, &amp;balances_base::byconsym&gt;&gt;&gt; <a class="code hl_typedef" href="balances_8hpp.html#a2f044097a1d44c2a73b8f5bd7719439e">balances_index</a>; </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="balances_8hpp.html#ac392247269dae8fe58bcebe2a0b14133">   25</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="balances_8hpp.html#ac392247269dae8fe58bcebe2a0b14133">add_balance</a>(eosio::name source, eosio::name username, eosio::asset quantity,</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>                                  eosio::name contract) {</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  <span class="comment">// Если баланс не найден, создаем новую запись.</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>  <span class="comment">// В противном случае, увеличиваем существующий баланс.</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  eosio::check(username != <span class="stringliteral">&quot;&quot;</span>_n, <span class="stringliteral">&quot;В поле memo должен быть указан получатель баланса&quot;</span>);</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>  <a class="code hl_typedef" href="balances_8hpp.html#a2f044097a1d44c2a73b8f5bd7719439e">balances_index</a> balances(source, username.value);</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>  <span class="keyword">auto</span> balances_by_contract_and_symbol =</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>      balances.template get_index&lt;<span class="stringliteral">&quot;byconsym&quot;</span>_n&gt;();</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  <span class="keyword">auto</span> contract_and_symbol_index =</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>      <a class="code hl_function" href="utils_8hpp.html#a9674246df019d9c71da6884b1fd0fe39">combine_ids</a>(contract.value, quantity.symbol.code().raw());</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  <span class="keyword">auto</span> balance =</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>      balances_by_contract_and_symbol.find(contract_and_symbol_index);</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  <span class="keywordflow">if</span> (balance == balances_by_contract_and_symbol.end()) {</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    balances.emplace(source, [&amp;](<span class="keyword">auto</span> &amp;b) {</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>      b.id = balances.available_primary_key();</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>      b.contract = contract;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>      b.quantity = quantity;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    });</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    balances_by_contract_and_symbol.modify(</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        balance, source, [&amp;](<span class="keyword">auto</span> &amp;b) { b.quantity += quantity; });</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  };</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>}</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="structprogwallets.html">   24</a></span><span class="keyword">struct </span>[[eosio::table, <a class="code hl_namespace" href="namespaceeosio.html">eosio</a>::contract(SOVIET)]] <a class="code hl_struct" href="structprogwallets.html">progwallets</a> {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="structprogwallets.html#a7d1baaf6016763a42b0ffee6e00ea690">   25</a></span>  uint64_t <a class="code hl_variable" href="structprogwallets.html#a7d1baaf6016763a42b0ffee6e00ea690">id</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="structprogwallets.html#a670074d9a5dacbb811ecd82e1049f41a">   26</a></span>  eosio::name <a class="code hl_variable" href="structprogwallets.html#a670074d9a5dacbb811ecd82e1049f41a">coopname</a>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="structprogwallets.html#a0b8f5a1eae7b19cc2a35441ff1f39277">   27</a></span>  uint64_t <a class="code hl_variable" href="structprogwallets.html#a0b8f5a1eae7b19cc2a35441ff1f39277">program_id</a>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="structprogwallets.html#a8c3361a53f0b8d8124538293ee4d428a">   28</a></span>  eosio::name <a class="code hl_variable" href="structprogwallets.html#a8c3361a53f0b8d8124538293ee4d428a">username</a>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="structprogwallets.html#afdd0676819e6c70ec2a9a9fa82b3510a">   29</a></span>  eosio::asset <a class="code hl_variable" href="structprogwallets.html#afdd0676819e6c70ec2a9a9fa82b3510a">available</a>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="structprogwallets.html#a1137ca868a204439b33a3963ba0a9aef">   30</a></span>  eosio::asset <a class="code hl_variable" href="structprogwallets.html#a1137ca868a204439b33a3963ba0a9aef">blocked</a>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="structprogwallets.html#a89de991f214be871ee4baa55bc941756">   32</a></span>  uint64_t <a class="code hl_function" href="structprogwallets.html#a89de991f214be871ee4baa55bc941756">primary_key</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="structprogwallets.html#a7d1baaf6016763a42b0ffee6e00ea690">id</a>; } </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="structprogwallets.html#a4cceac2dd54374e766cb43110f8c8924">   33</a></span>  uint64_t <a class="code hl_function" href="structprogwallets.html#a4cceac2dd54374e766cb43110f8c8924">by_username</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> username.value; } </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="structprogwallets.html#a5b332d51633dbda7bb8f17e04e49e11b">   34</a></span>  uint64_t <a class="code hl_function" href="structprogwallets.html#a5b332d51633dbda7bb8f17e04e49e11b">by_program</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="structprogwallets.html#a0b8f5a1eae7b19cc2a35441ff1f39277">program_id</a>; } </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="structprogwallets.html#ad86cd689f05547c9dea842ea605542da">   36</a></span>  uint128_t <a class="code hl_function" href="structprogwallets.html#ad86cd689f05547c9dea842ea605542da">by_username_and_program</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="utils_8hpp.html#a9674246df019d9c71da6884b1fd0fe39">combine_ids</a>(username.value, program_id);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  } </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>};</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">typedef</span> eosio::multi_index&lt;<span class="stringliteral">&quot;progwallets&quot;</span>_n, <a class="code hl_struct" href="structprogwallets.html">progwallets</a>, </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  eosio::indexed_by&lt;<span class="stringliteral">&quot;byusername&quot;</span>_n, eosio::const_mem_fun&lt;progwallets, uint64_t, &amp;progwallets::by_username&gt;&gt;,</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  eosio::indexed_by&lt;<span class="stringliteral">&quot;byprogram&quot;</span>_n, eosio::const_mem_fun&lt;progwallets, uint64_t, &amp;progwallets::by_program&gt;&gt;,</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  eosio::indexed_by&lt;<span class="stringliteral">&quot;byuserprog&quot;</span>_n, eosio::const_mem_fun&lt;progwallets, uint128_t, &amp;progwallets::by_username_and_program&gt;&gt;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="balances_8hpp.html#a8a166ba6bdfbb60bb1ae58b9be1b5fc9">   45</a></span>&gt; <a class="code hl_typedef" href="balances_8hpp.html#a8a166ba6bdfbb60bb1ae58b9be1b5fc9">progwallets_index</a>; </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="balances_8hpp.html#ac392247269dae8fe58bcebe2a0b14133">   49</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="balances_8hpp.html#ac392247269dae8fe58bcebe2a0b14133">add_balance</a>(eosio::name source, eosio::name username, eosio::asset quantity,</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>                                  eosio::name contract) {</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  <span class="comment">// Если баланс не найден, создаем новую запись.</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  <span class="comment">// В противном случае, увеличиваем существующий баланс.</span></div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="balances_8hpp.html#a535cbf0e546fa5cf6eaaca63d2d1d854">   55</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="balances_8hpp.html#a535cbf0e546fa5cf6eaaca63d2d1d854">sub_balance</a>(eosio::name source, eosio::name username, eosio::asset quantity,</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                              eosio::name contract) {</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>  <span class="comment">// Если после вычитания баланс равен нулю, удаляем запись.</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>  <span class="comment">// В противном случае, уменьшаем существующий баланс.</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  <a class="code hl_typedef" href="balances_8hpp.html#a2f044097a1d44c2a73b8f5bd7719439e">balances_index</a> balances(source, username.value);</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  <span class="keyword">auto</span> balances_by_contract_and_symbol =</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>      balances.template get_index&lt;<span class="stringliteral">&quot;byconsym&quot;</span>_n&gt;();</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>  <span class="keyword">auto</span> contract_and_symbol_index =</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>      <a class="code hl_function" href="utils_8hpp.html#a9674246df019d9c71da6884b1fd0fe39">combine_ids</a>(contract.value, quantity.symbol.code().raw());</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>  <span class="keyword">auto</span> balance =</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>      balances_by_contract_and_symbol.find(contract_and_symbol_index);</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>  eosio::check(balance != balances_by_contract_and_symbol.end(),</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>               <span class="stringliteral">&quot;Баланс не найден&quot;</span>);</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>  eosio::check(balance-&gt;quantity &gt;= quantity, <span class="stringliteral">&quot;Недостаточный баланс&quot;</span>);</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  <span class="keywordflow">if</span> (balance-&gt;quantity == quantity) {</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    balances_by_contract_and_symbol.erase(balance);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  eosio::check(username != <span class="stringliteral">&quot;&quot;</span>_n, <span class="stringliteral">&quot;В поле memo должен быть указан получатель баланса&quot;</span>);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>  <a class="code hl_typedef" href="balances_8hpp.html#a2f044097a1d44c2a73b8f5bd7719439e">balances_index</a> balances(source, username.value);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>  <span class="keyword">auto</span> balances_by_contract_and_symbol =</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>      balances.template get_index&lt;<span class="stringliteral">&quot;byconsym&quot;</span>_n&gt;();</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  <span class="keyword">auto</span> contract_and_symbol_index =</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>      <a class="code hl_function" href="utils_8hpp.html#a9674246df019d9c71da6884b1fd0fe39">combine_ids</a>(contract.value, quantity.symbol.code().raw());</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>  <span class="keyword">auto</span> balance =</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>      balances_by_contract_and_symbol.find(contract_and_symbol_index);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>  <span class="keywordflow">if</span> (balance == balances_by_contract_and_symbol.end()) {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    balances.emplace(source, [&amp;](<span class="keyword">auto</span> &amp;b) {</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>      b.id = balances.available_primary_key();</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>      b.contract = contract;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>      b.quantity = quantity;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    });</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>  } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    balances_by_contract_and_symbol.modify(</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        balance, source, [&amp;](<span class="keyword">auto</span> &amp;b) { b.quantity += quantity; });</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  };</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>}</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>  } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    balances_by_contract_and_symbol.modify(</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        balance, source, [&amp;](<span class="keyword">auto</span> &amp;b) { b.quantity -= quantity; });</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>  }</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>}</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="balances_8hpp.html#a535cbf0e546fa5cf6eaaca63d2d1d854">   79</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="balances_8hpp.html#a535cbf0e546fa5cf6eaaca63d2d1d854">sub_balance</a>(eosio::name source, eosio::name username, eosio::asset quantity,</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                              eosio::name contract) {</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>  <span class="comment">// Если после вычитания баланс равен нулю, удаляем запись.</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>  <span class="comment">// В противном случае, уменьшаем существующий баланс.</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>  </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>  <a class="code hl_typedef" href="balances_8hpp.html#a2f044097a1d44c2a73b8f5bd7719439e">balances_index</a> balances(source, username.value);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>  <span class="keyword">auto</span> balances_by_contract_and_symbol =</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>      balances.template get_index&lt;<span class="stringliteral">&quot;byconsym&quot;</span>_n&gt;();</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>  <span class="keyword">auto</span> contract_and_symbol_index =</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>      <a class="code hl_function" href="utils_8hpp.html#a9674246df019d9c71da6884b1fd0fe39">combine_ids</a>(contract.value, quantity.symbol.code().raw());</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>  <span class="keyword">auto</span> balance =</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>      balances_by_contract_and_symbol.find(contract_and_symbol_index);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>  eosio::check(balance != balances_by_contract_and_symbol.end(),</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>               <span class="stringliteral">&quot;Баланс не найден&quot;</span>);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>  eosio::check(balance-&gt;quantity &gt;= quantity, <span class="stringliteral">&quot;Недостаточный баланс&quot;</span>);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>  <span class="keywordflow">if</span> (balance-&gt;quantity == quantity) {</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    balances_by_contract_and_symbol.erase(balance);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>  } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    balances_by_contract_and_symbol.modify(</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        balance, source, [&amp;](<span class="keyword">auto</span> &amp;b) { b.quantity -= quantity; });</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>  }</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>}</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
 <div class="ttc" id="abalances_8hpp_html_a2f044097a1d44c2a73b8f5bd7719439e"><div class="ttname"><a href="balances_8hpp.html#a2f044097a1d44c2a73b8f5bd7719439e">balances_index</a></div><div class="ttdeci">eosio::multi_index&lt;&quot;balances&quot;_n, balances_base, eosio::indexed_by&lt;&quot;byconsym&quot;_n, eosio::const_mem_fun&lt; balances_base, uint128_t, &amp;balances_base::byconsym &gt; &gt; &gt; balances_index</div><div class="ttdef"><b>Definition:</b> balances.hpp:21</div></div>
-<div class="ttc" id="abalances_8hpp_html_a535cbf0e546fa5cf6eaaca63d2d1d854"><div class="ttname"><a href="balances_8hpp.html#a535cbf0e546fa5cf6eaaca63d2d1d854">sub_balance</a></div><div class="ttdeci">void sub_balance(eosio::name source, eosio::name username, eosio::asset quantity, eosio::name contract)</div><div class="ttdef"><b>Definition:</b> balances.hpp:55</div></div>
-<div class="ttc" id="abalances_8hpp_html_ac392247269dae8fe58bcebe2a0b14133"><div class="ttname"><a href="balances_8hpp.html#ac392247269dae8fe58bcebe2a0b14133">add_balance</a></div><div class="ttdeci">void add_balance(eosio::name source, eosio::name username, eosio::asset quantity, eosio::name contract)</div><div class="ttdef"><b>Definition:</b> balances.hpp:25</div></div>
+<div class="ttc" id="abalances_8hpp_html_a535cbf0e546fa5cf6eaaca63d2d1d854"><div class="ttname"><a href="balances_8hpp.html#a535cbf0e546fa5cf6eaaca63d2d1d854">sub_balance</a></div><div class="ttdeci">void sub_balance(eosio::name source, eosio::name username, eosio::asset quantity, eosio::name contract)</div><div class="ttdef"><b>Definition:</b> balances.hpp:79</div></div>
+<div class="ttc" id="abalances_8hpp_html_a8a166ba6bdfbb60bb1ae58b9be1b5fc9"><div class="ttname"><a href="balances_8hpp.html#a8a166ba6bdfbb60bb1ae58b9be1b5fc9">progwallets_index</a></div><div class="ttdeci">eosio::multi_index&lt;&quot;progwallets&quot;_n, progwallets, eosio::indexed_by&lt;&quot;byusername&quot;_n, eosio::const_mem_fun&lt; progwallets, uint64_t, &amp;progwallets::by_username &gt; &gt;, eosio::indexed_by&lt;&quot;byprogram&quot;_n, eosio::const_mem_fun&lt; progwallets, uint64_t, &amp;progwallets::by_program &gt; &gt;, eosio::indexed_by&lt;&quot;byuserprog&quot;_n, eosio::const_mem_fun&lt; progwallets, uint128_t, &amp;progwallets::by_username_and_program &gt; &gt; &gt; progwallets_index</div><div class="ttdef"><b>Definition:</b> balances.hpp:45</div></div>
+<div class="ttc" id="abalances_8hpp_html_ac392247269dae8fe58bcebe2a0b14133"><div class="ttname"><a href="balances_8hpp.html#ac392247269dae8fe58bcebe2a0b14133">add_balance</a></div><div class="ttdeci">void add_balance(eosio::name source, eosio::name username, eosio::asset quantity, eosio::name contract)</div><div class="ttdef"><b>Definition:</b> balances.hpp:49</div></div>
+<div class="ttc" id="anamespaceeosio_html"><div class="ttname"><a href="namespaceeosio.html">eosio</a></div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:8</div></div>
 <div class="ttc" id="astructbalances__base_html"><div class="ttname"><a href="structbalances__base.html">balances_base</a></div><div class="ttdoc">Структура таблицы баланса.</div><div class="ttdef"><b>Definition:</b> balances.hpp:9</div></div>
 <div class="ttc" id="astructbalances__base_html_a1c3e3dfd8436a6e847dfbe620ba26c23"><div class="ttname"><a href="structbalances__base.html#a1c3e3dfd8436a6e847dfbe620ba26c23">balances_base::quantity</a></div><div class="ttdeci">eosio::asset quantity</div><div class="ttdef"><b>Definition:</b> balances.hpp:12</div></div>
 <div class="ttc" id="astructbalances__base_html_a2069a54454c59cae6ac2a977002bc8ce"><div class="ttname"><a href="structbalances__base.html#a2069a54454c59cae6ac2a977002bc8ce">balances_base::id</a></div><div class="ttdeci">uint64_t id</div><div class="ttdef"><b>Definition:</b> balances.hpp:10</div></div>
 <div class="ttc" id="astructbalances__base_html_a242d9cbeea53e487eff7eb9349327931"><div class="ttname"><a href="structbalances__base.html#a242d9cbeea53e487eff7eb9349327931">balances_base::primary_key</a></div><div class="ttdeci">uint64_t primary_key() const</div><div class="ttdef"><b>Definition:</b> balances.hpp:14</div></div>
 <div class="ttc" id="astructbalances__base_html_acebf235da280f8d16533b6913912da41"><div class="ttname"><a href="structbalances__base.html#acebf235da280f8d16533b6913912da41">balances_base::contract</a></div><div class="ttdeci">eosio::name contract</div><div class="ttdef"><b>Definition:</b> balances.hpp:11</div></div>
 <div class="ttc" id="astructbalances__base_html_af43d841c9f521f6fbbed7c943d4fd366"><div class="ttname"><a href="structbalances__base.html#af43d841c9f521f6fbbed7c943d4fd366">balances_base::byconsym</a></div><div class="ttdeci">uint128_t byconsym() const</div><div class="ttdef"><b>Definition:</b> balances.hpp:16</div></div>
+<div class="ttc" id="astructprogwallets_html"><div class="ttname"><a href="structprogwallets.html">progwallets</a></div><div class="ttdef"><b>Definition:</b> balances.hpp:24</div></div>
+<div class="ttc" id="astructprogwallets_html_a0b8f5a1eae7b19cc2a35441ff1f39277"><div class="ttname"><a href="structprogwallets.html#a0b8f5a1eae7b19cc2a35441ff1f39277">progwallets::program_id</a></div><div class="ttdeci">uint64_t program_id</div><div class="ttdef"><b>Definition:</b> balances.hpp:27</div></div>
+<div class="ttc" id="astructprogwallets_html_a1137ca868a204439b33a3963ba0a9aef"><div class="ttname"><a href="structprogwallets.html#a1137ca868a204439b33a3963ba0a9aef">progwallets::blocked</a></div><div class="ttdeci">eosio::asset blocked</div><div class="ttdef"><b>Definition:</b> balances.hpp:30</div></div>
+<div class="ttc" id="astructprogwallets_html_a4cceac2dd54374e766cb43110f8c8924"><div class="ttname"><a href="structprogwallets.html#a4cceac2dd54374e766cb43110f8c8924">progwallets::by_username</a></div><div class="ttdeci">uint64_t by_username() const</div><div class="ttdef"><b>Definition:</b> balances.hpp:33</div></div>
+<div class="ttc" id="astructprogwallets_html_a5b332d51633dbda7bb8f17e04e49e11b"><div class="ttname"><a href="structprogwallets.html#a5b332d51633dbda7bb8f17e04e49e11b">progwallets::by_program</a></div><div class="ttdeci">uint64_t by_program() const</div><div class="ttdef"><b>Definition:</b> balances.hpp:34</div></div>
+<div class="ttc" id="astructprogwallets_html_a670074d9a5dacbb811ecd82e1049f41a"><div class="ttname"><a href="structprogwallets.html#a670074d9a5dacbb811ecd82e1049f41a">progwallets::coopname</a></div><div class="ttdeci">eosio::name coopname</div><div class="ttdef"><b>Definition:</b> balances.hpp:26</div></div>
+<div class="ttc" id="astructprogwallets_html_a7d1baaf6016763a42b0ffee6e00ea690"><div class="ttname"><a href="structprogwallets.html#a7d1baaf6016763a42b0ffee6e00ea690">progwallets::id</a></div><div class="ttdeci">uint64_t id</div><div class="ttdef"><b>Definition:</b> balances.hpp:25</div></div>
+<div class="ttc" id="astructprogwallets_html_a89de991f214be871ee4baa55bc941756"><div class="ttname"><a href="structprogwallets.html#a89de991f214be871ee4baa55bc941756">progwallets::primary_key</a></div><div class="ttdeci">uint64_t primary_key() const</div><div class="ttdef"><b>Definition:</b> balances.hpp:32</div></div>
+<div class="ttc" id="astructprogwallets_html_a8c3361a53f0b8d8124538293ee4d428a"><div class="ttname"><a href="structprogwallets.html#a8c3361a53f0b8d8124538293ee4d428a">progwallets::username</a></div><div class="ttdeci">eosio::name username</div><div class="ttdef"><b>Definition:</b> balances.hpp:28</div></div>
+<div class="ttc" id="astructprogwallets_html_ad86cd689f05547c9dea842ea605542da"><div class="ttname"><a href="structprogwallets.html#ad86cd689f05547c9dea842ea605542da">progwallets::by_username_and_program</a></div><div class="ttdeci">uint128_t by_username_and_program() const</div><div class="ttdef"><b>Definition:</b> balances.hpp:36</div></div>
+<div class="ttc" id="astructprogwallets_html_afdd0676819e6c70ec2a9a9fa82b3510a"><div class="ttname"><a href="structprogwallets.html#afdd0676819e6c70ec2a9a9fa82b3510a">progwallets::available</a></div><div class="ttdeci">eosio::asset available</div><div class="ttdef"><b>Definition:</b> balances.hpp:29</div></div>
 <div class="ttc" id="autils_8hpp_html_a9674246df019d9c71da6884b1fd0fe39"><div class="ttname"><a href="utils_8hpp.html#a9674246df019d9c71da6884b1fd0fe39">combine_ids</a></div><div class="ttdeci">static uint128_t combine_ids(const uint64_t &amp;x, const uint64_t &amp;y)</div><div class="ttdef"><b>Definition:</b> utils.hpp:2</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

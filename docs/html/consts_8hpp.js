@@ -2,6 +2,7 @@ var consts_8hpp =
 [
     [ "ANO", "consts_8hpp.html#a53678aa3958110e34fce3501d7da1bdf", null ],
     [ "DRAFT", "consts_8hpp.html#a190d95586c2d20966655dbb2e51295d1", null ],
+    [ "GATEWAY", "consts_8hpp.html#a861181f1d81b4ccb482b33c7bffad5d1", null ],
     [ "MARKETPLACE", "consts_8hpp.html#a49f9e6e30c4b39068965aa387ae6bf1f", null ],
     [ "PARTNERS", "consts_8hpp.html#a00b6615022c601acf923252159f8ca5a", null ],
     [ "REGISTRATOR", "consts_8hpp.html#ae4acce2da4b2736a1fedfa921d84e32b", null ],
@@ -11,6 +12,7 @@ var consts_8hpp =
     [ "_auction_name_length_limit", "group__public__consts.html#ga7907328ea2e6a0c7528a5116b1b837c1", null ],
     [ "_change_action", "group__public__consts.html#ga4815e0ccce32e816ccd173a076751310", null ],
     [ "_draft", "group__public__consts.html#ga774dd561cf17ec65e59129b5ad8690d6", null ],
+    [ "_gateway", "group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6", null ],
     [ "_marketplace", "group__public__consts.html#gafeb0e2ab01520072c8305917005018a1", null ],
     [ "_partners", "group__public__consts.html#gaa9b7db1458d5b98cdb67071a78f9b427", null ],
     [ "_ram_bytes", "group__public__consts.html#ga8486c7b646ce00b3e04773a00cf1e5a6", null ],

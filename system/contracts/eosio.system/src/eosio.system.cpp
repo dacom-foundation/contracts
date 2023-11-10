@@ -440,7 +440,7 @@ void native::newaccount(const name& creator,
                         ignore<authority> owner, 
                         ignore<authority> active) {
     
-    check(has_auth(_registrator_test) || has_auth(_registrator) || has_auth(get_self()), "Недостаточно прав доступа");
+    check(has_auth(_registrator) || has_auth(get_self()), "Недостаточно прав доступа");
     
     std::string account_name_str = new_account_name.to_string();
     size_t name_length = account_name_str.size();

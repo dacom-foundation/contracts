@@ -86,32 +86,81 @@ $(document).ready(function(){initNavTree('drafts_8hpp.html',''); initResizable()
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Классы</a> &#124;
-<a href="#typedef-members">Определения типов</a>  </div>
+<a href="#typedef-members">Определения типов</a> &#124;
+<a href="#func-members">Функции</a>  </div>
   <div class="headertitle"><div class="title">Файл drafts.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-
+<div class="textblock"><code>#include &lt;eosio/eosio.hpp&gt;</code><br />
+<code>#include &lt;eosio/crypto.hpp&gt;</code><br />
+<code>#include &lt;eosio/contract.hpp&gt;</code><br />
+<code>#include &lt;eosio/system.hpp&gt;</code><br />
+</div>
 <p><a href="drafts_8hpp_source.html">См. исходные тексты.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Классы</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsigned__doc.html">signed_doc</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdrafts.html">drafts</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtranslations.html">translations</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Определения типов</h2></td></tr>
-<tr class="memitem:adcdee8dac166d0b65f91bde533cc38a7"><td class="memItemLeft" align="right" valign="top">typedef eosio::multi_index&lt; &quot;drafts&quot;_n, <a class="el" href="structdrafts.html">drafts</a>, eosio::indexed_by&lt;&quot;byaction&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structdrafts.html">drafts</a>, uint64_t, &amp;<a class="el" href="structdrafts.html#adf0781b4b068725e00357d6ddca4da65">drafts::by_action</a> &gt; &gt;, eosio::indexed_by&lt; &quot;byactionlang&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structdrafts.html">drafts</a>, uint128_t, &amp;<a class="el" href="structdrafts.html#a637f14ff2b136a0744523dda31611a34">drafts::by_action_lang</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="drafts_8hpp.html#adcdee8dac166d0b65f91bde533cc38a7">drafts_index</a></td></tr>
-<tr class="separator:adcdee8dac166d0b65f91bde533cc38a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedb5b418c19736eea10e498a85ad05f4"><td class="memItemLeft" align="right" valign="top">typedef eosio::multi_index&lt; &quot;drafts&quot;_n, <a class="el" href="structdrafts.html">drafts</a>, eosio::indexed_by&lt;&quot;byaction&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structdrafts.html">drafts</a>, uint64_t, &amp;<a class="el" href="structdrafts.html#adf0781b4b068725e00357d6ddca4da65">drafts::by_action</a> &gt; &gt;, eosio::indexed_by&lt; &quot;byactversion&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structdrafts.html">drafts</a>, uint128_t, &amp;<a class="el" href="structdrafts.html#a523a66d9e426224adb2d8f01a1380000">drafts::by_action_version</a> &gt; &gt;, eosio::indexed_by&lt; &quot;byactactive&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structdrafts.html">drafts</a>, uint128_t, &amp;<a class="el" href="structdrafts.html#a9c2d1eb1ca463d916430066794b23e13">drafts::by_action_active</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="drafts_8hpp.html#aedb5b418c19736eea10e498a85ad05f4">drafts_index</a></td></tr>
+<tr class="separator:aedb5b418c19736eea10e498a85ad05f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ea743bef0be2118188cffa2466a0a14"><td class="memItemLeft" align="right" valign="top">typedef eosio::multi_index&lt; &quot;translations&quot;_n, <a class="el" href="structtranslations.html">translations</a>, eosio::indexed_by&lt;&quot;bydraft&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structtranslations.html">translations</a>, uint64_t, &amp;<a class="el" href="structtranslations.html#a27121dfdce788ffd9d590ed583dc7899">translations::by_draft</a> &gt; &gt;, eosio::indexed_by&lt; &quot;bydraftlang&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structtranslations.html">translations</a>, uint128_t, &amp;<a class="el" href="structtranslations.html#a2bb68da3a95931454c65132d34acbbb6">translations::by_draft_lang</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="drafts_8hpp.html#a0ea743bef0be2118188cffa2466a0a14">translations_index</a></td></tr>
+<tr class="separator:a0ea743bef0be2118188cffa2466a0a14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:a68b89a8d531a610e9612ebc11ee8bc4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="drafts_8hpp.html#a68b89a8d531a610e9612ebc11ee8bc4b">verify</a> (const <a class="el" href="structsigned__doc.html">signed_doc</a> &amp;doc)</td></tr>
+<tr class="separator:a68b89a8d531a610e9612ebc11ee8bc4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Типы</h2>
-<a id="adcdee8dac166d0b65f91bde533cc38a7" name="adcdee8dac166d0b65f91bde533cc38a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adcdee8dac166d0b65f91bde533cc38a7">&#9670;&nbsp;</a></span>drafts_index</h2>
+<a id="aedb5b418c19736eea10e498a85ad05f4" name="aedb5b418c19736eea10e498a85ad05f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedb5b418c19736eea10e498a85ad05f4">&#9670;&nbsp;</a></span>drafts_index</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef eosio::multi_index&lt; &quot;drafts&quot;_n, <a class="el" href="structdrafts.html">drafts</a>, eosio::indexed_by&lt;&quot;byaction&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structdrafts.html">drafts</a>, uint64_t, &amp;<a class="el" href="structdrafts.html#adf0781b4b068725e00357d6ddca4da65">drafts::by_action</a>&gt; &gt;, eosio::indexed_by&lt; &quot;byactionlang&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structdrafts.html">drafts</a>, uint128_t, &amp;<a class="el" href="structdrafts.html#a637f14ff2b136a0744523dda31611a34">drafts::by_action_lang</a>&gt; &gt; &gt; <a class="el" href="drafts_8hpp.html#adcdee8dac166d0b65f91bde533cc38a7">drafts_index</a></td>
+          <td class="memname">typedef eosio::multi_index&lt; &quot;drafts&quot;_n, <a class="el" href="structdrafts.html">drafts</a>, eosio::indexed_by&lt;&quot;byaction&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structdrafts.html">drafts</a>, uint64_t, &amp;<a class="el" href="structdrafts.html#adf0781b4b068725e00357d6ddca4da65">drafts::by_action</a>&gt; &gt;, eosio::indexed_by&lt; &quot;byactversion&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structdrafts.html">drafts</a>, uint128_t, &amp;<a class="el" href="structdrafts.html#a523a66d9e426224adb2d8f01a1380000">drafts::by_action_version</a>&gt; &gt;, eosio::indexed_by&lt; &quot;byactactive&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structdrafts.html">drafts</a>, uint128_t, &amp;<a class="el" href="structdrafts.html#a9c2d1eb1ca463d916430066794b23e13">drafts::by_action_active</a>&gt; &gt;&gt; <a class="el" href="drafts_8hpp.html#aedb5b418c19736eea10e498a85ad05f4">drafts_index</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0ea743bef0be2118188cffa2466a0a14" name="a0ea743bef0be2118188cffa2466a0a14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ea743bef0be2118188cffa2466a0a14">&#9670;&nbsp;</a></span>translations_index</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef eosio::multi_index&lt; &quot;translations&quot;_n, <a class="el" href="structtranslations.html">translations</a>, eosio::indexed_by&lt;&quot;bydraft&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structtranslations.html">translations</a>, uint64_t, &amp;<a class="el" href="structtranslations.html#a27121dfdce788ffd9d590ed583dc7899">translations::by_draft</a>&gt; &gt;, eosio::indexed_by&lt; &quot;bydraftlang&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structtranslations.html">translations</a>, uint128_t, &amp;<a class="el" href="structtranslations.html#a2bb68da3a95931454c65132d34acbbb6">translations::by_draft_lang</a>&gt; &gt; &gt; <a class="el" href="drafts_8hpp.html#a0ea743bef0be2118188cffa2466a0a14">translations_index</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Функции</h2>
+<a id="a68b89a8d531a610e9612ebc11ee8bc4b" name="a68b89a8d531a610e9612ebc11ee8bc4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68b89a8d531a610e9612ebc11ee8bc4b">&#9670;&nbsp;</a></span>verify()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void verify </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structsigned__doc.html">signed_doc</a> &amp;&#160;</td>
+          <td class="paramname"><em>doc</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">

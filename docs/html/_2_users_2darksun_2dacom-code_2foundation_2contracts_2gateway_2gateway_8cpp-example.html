@@ -1,0 +1,423 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.3"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Для разработчиков: /Users/darksun/dacom-code/foundation/contracts/gateway/gateway.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Для разработчиков
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.3 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('_2_users_2darksun_2dacom-code_2foundation_2contracts_2gateway_2gateway_8cpp-example.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">/Users/darksun/dacom-code/foundation/contracts/gateway/gateway.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<p >Создает новую запись депозита в контракте <code>gateway</code>.</p>
+<p >Создает новую запись депозита в контракте <code>gateway</code>.</p>
+<p >Действие <code>dpcreate</code> позволяет пользователю <code>username</code> создать запись о депозите в указанном кооперативе по имени аккаунта <code>coopname</code> с определенными параметрами.</p>
+<dl class="section note"><dt>Заметки</dt><dd>Требуется авторизация пользователя <code>username</code>.</dd></dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">username</td><td>Имя пользователя, создающего запись. </td></tr>
+    <tr><td class="paramname">coopname</td><td>Имя аккаунта кооператива, в рамках которого создается депозит. </td></tr>
+    <tr><td class="paramname">program_id</td><td>Идентификатор программы, с которой связан депозит. </td></tr>
+    <tr><td class="paramname">purpose</td><td>Назначение платежа ('initial' или 'changeone'). </td></tr>
+    <tr><td class="paramname">secondary_id</td><td>Вторичный идентификатор, связанный с депозитом. </td></tr>
+    <tr><td class="paramname">internal_quantity</td><td>Количество во внутреннем формате. </td></tr>
+    <tr><td class="paramname">external_quantity</td><td>Количество во внешнем формате. </td></tr>
+    <tr><td class="paramname">memo</td><td>Примечание к депозиту.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>// Создание новой записи депозита через cleos cleos push action gateway dpcreate '["username", "coopaccount", 123, "initial", 456, "10.0000 SYS", "10.0000 EXT", "Депозит для программы X"]' -p username@active</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="gateway_8hpp.html">gateway.hpp</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;ctime&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;eosio/transaction.hpp&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespaceeosio.html">eosio</a>;</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> <a id="a0" name="a0"></a><a class="code hl_function" href="group__public__actions.html#gaae0d19faf55336799477b567ebf72df1">gateway::newid</a>(eosio::name username, uint64_t <span class="keywordtype">id</span>) {</div>
+<div class="line">  require_auth(<a id="a1" name="a1"></a><a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>);</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line">[[eosio::action]] <span class="keywordtype">void</span> <a id="a2" name="a2"></a><a class="code hl_function" href="classgateway.html#a192074debab7bec295f55ae9415e58f5">gateway::dpcreate</a>(eosio::name username, eosio::name coopname, uint64_t program_id, eosio::name purpose, uint64_t secondary_id, eosio::asset internal_quantity, eosio::asset external_quantity, std::string memo){</div>
+<div class="line"> </div>
+<div class="line">  require_auth(username);</div>
+<div class="line"> </div>
+<div class="line">  <a id="a3" name="a3"></a><a class="code hl_typedef" href="classgateway.html#a38355bbd1036a2db378d3d72879836a7">deposits_index</a> deposits(<a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>, <a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>.value);</div>
+<div class="line"> </div>
+<div class="line">  uint64_t <span class="keywordtype">id</span> = <a id="a4" name="a4"></a><a class="code hl_function" href="counts_8hpp.html#aeb06beaf4402f0222167ef9d12eacd5c">get_global_id</a>(<a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>, <span class="stringliteral">&quot;deposits&quot;</span>_n);</div>
+<div class="line"> </div>
+<div class="line">  <span class="keyword">auto</span> cooperative = <a id="a5" name="a5"></a><a class="code hl_function" href="accounts_8hpp.html#ab6c5b66b6e44ba641ca66bf6480bb5c5">get_cooperative_or_fail</a>(coopname);</div>
+<div class="line">  <span class="keyword">auto</span> program = <a id="a6" name="a6"></a><a class="code hl_function" href="programs_8hpp.html#a1878b037b72ae5d53b354a66569643a1">get_program_or_fail</a>(coopname, program_id);</div>
+<div class="line">  </div>
+<div class="line">  eosio::check(purpose == <span class="stringliteral">&quot;changeone&quot;</span>_n || purpose == <span class="stringliteral">&quot;initial&quot;</span>_n, <span class="stringliteral">&quot;Доступные назначения платежа - &#39;initial&#39; | &#39;changeone&#39;&quot;</span>);</div>
+<div class="line">  </div>
+<div class="line">  eosio::check(cooperative.initial.symbol == internal_quantity.symbol, <span class="stringliteral">&quot;Неверный cимвол токена&quot;</span>);</div>
+<div class="line">  eosio::check(internal_quantity.amount &gt; 0, <span class="stringliteral">&quot;Сумма ввода должна быть положительной&quot;</span>);</div>
+<div class="line">  eosio::check(external_quantity.amount &gt; 0, <span class="stringliteral">&quot;Сумма вывода должна быть положительной&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">  deposits.emplace(username, [&amp;](<span class="keyword">auto</span> &amp;d) {</div>
+<div class="line">    d.id = id;</div>
+<div class="line">    d.username = username;</div>
+<div class="line">    d.coopname = coopname;</div>
+<div class="line">    d.program_id = program_id;</div>
+<div class="line">    d.purpose = purpose; </div>
+<div class="line">    d.secondary_id = secondary_id;</div>
+<div class="line">    d.token_contract = cooperative.token_contract;</div>
+<div class="line">    d.internal_quantity = internal_quantity;</div>
+<div class="line">    d.external_quantity = external_quantity;</div>
+<div class="line">    d.status = <span class="stringliteral">&quot;&quot;</span>_n;</div>
+<div class="line">    d.memo = memo;</div>
+<div class="line">  });</div>
+<div class="line"> </div>
+<div class="line">  action(</div>
+<div class="line">    permission_level{ <a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>, <span class="stringliteral">&quot;active&quot;</span>_n},</div>
+<div class="line">    <a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>,</div>
+<div class="line">    <span class="stringliteral">&quot;newid&quot;</span>_n,</div>
+<div class="line">    std::make_tuple(username, <span class="keywordtype">id</span>)</div>
+<div class="line">  ).send();</div>
+<div class="line"> </div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> <a id="a7" name="a7"></a><a class="code hl_function" href="classgateway.html#a6bca02a1a6441ddcdfe621d892076194">gateway::dpinit</a>(uint64_t deposit_id, std::string link, std::string memo){</div>
+<div class="line"> </div>
+<div class="line">  require_auth(<a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>);</div>
+<div class="line"> </div>
+<div class="line">  <a class="code hl_typedef" href="classgateway.html#a38355bbd1036a2db378d3d72879836a7">deposits_index</a> deposits(<a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>, <a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>.value);</div>
+<div class="line">  </div>
+<div class="line">  <span class="keyword">auto</span> deposit = deposits.find(deposit_id);</div>
+<div class="line">  eosio::check(deposit != deposits.end(), <span class="stringliteral">&quot;Объект процессинга не найден&quot;</span>);</div>
+<div class="line">  deposits.modify(deposit, <a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>, [&amp;](<span class="keyword">auto</span> &amp;d){</div>
+<div class="line">    d.status = <span class="stringliteral">&quot;initiated&quot;</span>_n;</div>
+<div class="line">    d.link = link;</div>
+<div class="line">    d.memo = memo;</div>
+<div class="line">  });</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> <a id="a8" name="a8"></a><a class="code hl_function" href="classgateway.html#aa9f641a27c8f2266eabce2ba4b7dfc4a">gateway::dpupdate</a>(uint64_t deposit_id, std::string memo){</div>
+<div class="line"> </div>
+<div class="line">  require_auth(<a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>);</div>
+<div class="line"> </div>
+<div class="line">  <a class="code hl_typedef" href="classgateway.html#a38355bbd1036a2db378d3d72879836a7">deposits_index</a> deposits(<a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>, <a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>.value);</div>
+<div class="line">  </div>
+<div class="line">  <span class="keyword">auto</span> deposit = deposits.find(deposit_id);</div>
+<div class="line">  eosio::check(deposit != deposits.end(), <span class="stringliteral">&quot;Объект процессинга не найден&quot;</span>);</div>
+<div class="line">  deposits.modify(deposit, <a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>, [&amp;](<span class="keyword">auto</span> &amp;d){</div>
+<div class="line">    d.status = <span class="stringliteral">&quot;pending&quot;</span>_n;</div>
+<div class="line">    d.memo = memo;</div>
+<div class="line">  });</div>
+<div class="line">  </div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> <a id="a9" name="a9"></a><a class="code hl_function" href="classgateway.html#a59861c9232a7016e6fedc0ed9f58daeb">gateway::dpcomplete</a>(uint64_t deposit_id, std::string memo){</div>
+<div class="line"> </div>
+<div class="line">  require_auth(<a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>);</div>
+<div class="line"> </div>
+<div class="line">  <a class="code hl_typedef" href="classgateway.html#a38355bbd1036a2db378d3d72879836a7">deposits_index</a> deposits(<a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>, <a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>.value);</div>
+<div class="line">  </div>
+<div class="line">  <span class="keyword">auto</span> deposit = deposits.find(deposit_id);</div>
+<div class="line">  eosio::check(deposit != deposits.end(), <span class="stringliteral">&quot;Объект процессинга не найден&quot;</span>);</div>
+<div class="line">  deposits.modify(deposit, <a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>, [&amp;](<span class="keyword">auto</span> &amp;d){</div>
+<div class="line">    d.status = <span class="stringliteral">&quot;successed&quot;</span>_n;</div>
+<div class="line">    d.memo = memo;</div>
+<div class="line">  });</div>
+<div class="line"> </div>
+<div class="line">  action(</div>
+<div class="line">      permission_level{ <a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>, <span class="stringliteral">&quot;active&quot;</span>_n },</div>
+<div class="line">      deposit -&gt; token_contract, <span class="stringliteral">&quot;issue&quot;</span>_n,</div>
+<div class="line">      std::make_tuple( deposit -&gt; username, deposit -&gt; internal_quantity, std::string(<span class="stringliteral">&quot;id: &quot;</span>) + std::to_string(deposit-&gt;id)) </div>
+<div class="line">  ).send();</div>
+<div class="line"> </div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> <a id="a10" name="a10"></a><a class="code hl_function" href="classgateway.html#a15229194b007fede8b5c9ab27f240fea">gateway::dpfail</a>(uint64_t deposit_id, std::string memo) {</div>
+<div class="line"> </div>
+<div class="line">  require_auth(<a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>);</div>
+<div class="line"> </div>
+<div class="line">  <a class="code hl_typedef" href="classgateway.html#a38355bbd1036a2db378d3d72879836a7">deposits_index</a> deposits(<a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>, <a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>.value);</div>
+<div class="line">  </div>
+<div class="line">  <span class="keyword">auto</span> deposit = deposits.find(deposit_id);</div>
+<div class="line">  eosio::check(deposit != deposits.end(), <span class="stringliteral">&quot;Объект процессинга не найден&quot;</span>);</div>
+<div class="line">  eosio::check(deposit -&gt; status == <span class="stringliteral">&quot;pending&quot;</span>_n, <span class="stringliteral">&quot;Неверный статус для провала&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">  deposits.modify(deposit, <a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>, [&amp;](<span class="keyword">auto</span> &amp;d){</div>
+<div class="line">    d.status = <span class="stringliteral">&quot;failed&quot;</span>_n;</div>
+<div class="line">    d.memo = memo;</div>
+<div class="line">  });</div>
+<div class="line"> </div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> <a id="a11" name="a11"></a><a class="code hl_function" href="classgateway.html#a4e5e106e90c6bc9b9627d5a956a7b86d">gateway::wthdcreate</a>(eosio::name username, eosio::name coopname, eosio::asset internal_quantity, eosio::asset external_quantity, std::string memo){</div>
+<div class="line"> </div>
+<div class="line">  require_auth(username);</div>
+<div class="line"> </div>
+<div class="line">  <a id="a12" name="a12"></a><a class="code hl_typedef" href="classgateway.html#a1e64d945511ca0572b1110872bee7c5c">withdraws_index</a> withdraws(<a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>, <a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>.value);</div>
+<div class="line"> </div>
+<div class="line">  uint64_t <span class="keywordtype">id</span> = <a class="code hl_function" href="counts_8hpp.html#aeb06beaf4402f0222167ef9d12eacd5c">get_global_id</a>(<a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>, <span class="stringliteral">&quot;withdraws&quot;</span>_n);</div>
+<div class="line"> </div>
+<div class="line">  <span class="keyword">auto</span> cooperative = <a class="code hl_function" href="accounts_8hpp.html#ab6c5b66b6e44ba641ca66bf6480bb5c5">get_cooperative_or_fail</a>(coopname);</div>
+<div class="line">  </div>
+<div class="line">  eosio::check(cooperative.initial.symbol == internal_quantity.symbol, <span class="stringliteral">&quot;Неверный символ токена&quot;</span>);</div>
+<div class="line">  eosio::check(internal_quantity.amount &gt; 0, <span class="stringliteral">&quot;Сумма ввода должна быть положительной&quot;</span>);</div>
+<div class="line">  eosio::check(external_quantity.amount &gt; 0, <span class="stringliteral">&quot;Сумма вывода должна быть положительной&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">  <a id="a13" name="a13"></a><a class="code hl_function" href="balances_8hpp.html#a535cbf0e546fa5cf6eaaca63d2d1d854">sub_balance</a>(<a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>, username, internal_quantity, cooperative.token_contract);</div>
+<div class="line"> </div>
+<div class="line">  withdraws.emplace(username, [&amp;](<span class="keyword">auto</span> &amp;d){</div>
+<div class="line">    d.id = id;</div>
+<div class="line">    d.username = username;</div>
+<div class="line">    d.coopname = coopname;</div>
+<div class="line">    d.token_contract = cooperative.token_contract;</div>
+<div class="line">    d.internal_quantity = internal_quantity;</div>
+<div class="line">    d.external_quantity = external_quantity;</div>
+<div class="line">    d.status = <span class="stringliteral">&quot;&quot;</span>_n;</div>
+<div class="line">    d.memo = memo;</div>
+<div class="line">  });</div>
+<div class="line"> </div>
+<div class="line">  action(</div>
+<div class="line">    permission_level{ <a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>, <span class="stringliteral">&quot;active&quot;</span>_n},</div>
+<div class="line">    <a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>,</div>
+<div class="line">    <span class="stringliteral">&quot;newid&quot;</span>_n,</div>
+<div class="line">    std::make_tuple(username, <span class="keywordtype">id</span>)</div>
+<div class="line">  ).send();</div>
+<div class="line"> </div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> <a id="a14" name="a14"></a><a class="code hl_function" href="classgateway.html#a9e8aaf6f5bb82a150bb817051ff98f53">gateway::wthdupdate</a>(uint64_t withdraw_id, std::string memo) {</div>
+<div class="line"> </div>
+<div class="line">  require_auth(<a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>);</div>
+<div class="line"> </div>
+<div class="line">  <a class="code hl_typedef" href="classgateway.html#a1e64d945511ca0572b1110872bee7c5c">withdraws_index</a> withdraws(<a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>, <a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>.value);</div>
+<div class="line">  </div>
+<div class="line">  <span class="keyword">auto</span> withdraw = withdraws.find(withdraw_id);</div>
+<div class="line">  eosio::check(withdraw != withdraws.end(), <span class="stringliteral">&quot;Объект процессинга не найден&quot;</span>);</div>
+<div class="line">  </div>
+<div class="line">  withdraws.modify(withdraw, <a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>, [&amp;](<span class="keyword">auto</span> &amp;d){</div>
+<div class="line">    d.status = <span class="stringliteral">&quot;pending&quot;</span>_n;</div>
+<div class="line">    d.memo = memo;</div>
+<div class="line">  });</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> <a id="a15" name="a15"></a><a class="code hl_function" href="classgateway.html#a6c21419960dc26de0f8b6b58c7936169">gateway::wthdcomplete</a>(uint64_t withdraw_id, std::string memo){</div>
+<div class="line"> </div>
+<div class="line">  require_auth(<a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>);</div>
+<div class="line"> </div>
+<div class="line">  <a class="code hl_typedef" href="classgateway.html#a1e64d945511ca0572b1110872bee7c5c">withdraws_index</a> withdraws(<a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>, <a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>.value);</div>
+<div class="line">  </div>
+<div class="line">  <span class="keyword">auto</span> withdraw = withdraws.find(withdraw_id);</div>
+<div class="line">  eosio::check(withdraw != withdraws.end(), <span class="stringliteral">&quot;Объект процессинга не найден&quot;</span>);</div>
+<div class="line">  </div>
+<div class="line">  withdraws.modify(withdraw, <a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>, [&amp;](<span class="keyword">auto</span> &amp;d){</div>
+<div class="line">    d.status = <span class="stringliteral">&quot;successed&quot;</span>_n;</div>
+<div class="line">    d.memo = memo;</div>
+<div class="line">  });</div>
+<div class="line"> </div>
+<div class="line">  action(</div>
+<div class="line">      permission_level{ <a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>, <span class="stringliteral">&quot;active&quot;</span>_n },</div>
+<div class="line">      withdraw -&gt; token_contract, <span class="stringliteral">&quot;retire&quot;</span>_n,</div>
+<div class="line">      std::make_tuple( withdraw -&gt; internal_quantity, std::string(<span class="stringliteral">&quot;id: &quot;</span>) + std::to_string(withdraw_id)) </div>
+<div class="line">  ).send();</div>
+<div class="line"> </div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> <a id="a16" name="a16"></a><a class="code hl_function" href="classgateway.html#a7e3c279e10f954898000f4f6e34db828">gateway::wthdfail</a>(uint64_t withdraw_id, std::string memo) {</div>
+<div class="line"> </div>
+<div class="line">  require_auth(<a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>);</div>
+<div class="line"> </div>
+<div class="line">  <a class="code hl_typedef" href="classgateway.html#a1e64d945511ca0572b1110872bee7c5c">withdraws_index</a> withdraws(<a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>, <a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>.value);</div>
+<div class="line">  </div>
+<div class="line">  <span class="keyword">auto</span> withdraw = withdraws.find(withdraw_id);</div>
+<div class="line">  eosio::check(withdraw != withdraws.end(), <span class="stringliteral">&quot;Объект процессинга не найден&quot;</span>);</div>
+<div class="line">  eosio::check(withdraw -&gt; status == <span class="stringliteral">&quot;pending&quot;</span>_n, <span class="stringliteral">&quot;Неверный статус для провала&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">  withdraws.modify(withdraw, <a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>, [&amp;](<span class="keyword">auto</span> &amp;d){</div>
+<div class="line">    d.status = <span class="stringliteral">&quot;failed&quot;</span>_n;</div>
+<div class="line">    d.memo = memo;</div>
+<div class="line">  });</div>
+<div class="line"> </div>
+<div class="line">  action(</div>
+<div class="line">      permission_level{ <a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>, <span class="stringliteral">&quot;active&quot;</span>_n },</div>
+<div class="line">      withdraw -&gt; token_contract, <span class="stringliteral">&quot;transfer&quot;</span>_n,</div>
+<div class="line">      std::make_tuple( <a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>, withdraw -&gt; username, withdraw -&gt; internal_quantity, std::string(<span class="stringliteral">&quot;id: &quot;</span>) + std::to_string(withdraw-&gt;id)) </div>
+<div class="line">  ).send();</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> <a id="a17" name="a17"></a><a class="code hl_function" href="classgateway.html#a15a53dd0140226eed7981ac66b3e8a42">gateway::back</a>(eosio::name username, eosio::name token_contract, eosio::asset quantity) {</div>
+<div class="line"> </div>
+<div class="line">  require_auth(username);</div>
+<div class="line"> </div>
+<div class="line">  <a class="code hl_function" href="balances_8hpp.html#a535cbf0e546fa5cf6eaaca63d2d1d854">sub_balance</a>(<a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>, username, quantity, token_contract);</div>
+<div class="line"> </div>
+<div class="line">  action(</div>
+<div class="line">      permission_level{ <a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>, <span class="stringliteral">&quot;active&quot;</span>_n },</div>
+<div class="line">      token_contract, <span class="stringliteral">&quot;transfer&quot;</span>_n,</div>
+<div class="line">      std::make_tuple( <a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>, username, quantity, std::string(<span class="stringliteral">&quot;back&quot;</span>)) </div>
+<div class="line">  ).send();</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> <a id="a18" name="a18"></a><a class="code hl_function" href="registrator_8cpp.html#a569d3d0ca7b56fb8c580faaa3d73179a">apply</a>(uint64_t receiver, uint64_t code, uint64_t action) {</div>
+<div class="line">  <span class="keywordflow">if</span> (code == <a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>.value) {</div>
+<div class="line">    <span class="keywordflow">switch</span> (action) {</div>
+<div class="line">      EOSIO_DISPATCH_HELPER(</div>
+<div class="line">          <a id="_a19" name="_a19"></a><a class="code hl_class" href="classgateway.html">gateway</a>, (newid)</div>
+<div class="line">          (dpcreate)(dpinit)(dpupdate)(dpcomplete)(dpfail)</div>
+<div class="line">          (wthdcreate)(wthdupdate)(wthdcomplete)(wthdfail)</div>
+<div class="line">          (back)</div>
+<div class="line">      )</div>
+<div class="line">    }</div>
+<div class="line">  } <span class="keywordflow">else</span> {</div>
+<div class="line">    <span class="keywordflow">if</span> (action == <span class="stringliteral">&quot;transfer&quot;</span>_n.value) {</div>
+<div class="line">      <span class="keyword">struct </span>transfer {</div>
+<div class="line">        eosio::name from;</div>
+<div class="line">        eosio::name to;</div>
+<div class="line">        eosio::asset quantity;</div>
+<div class="line">        std::string memo;</div>
+<div class="line">      };</div>
+<div class="line"> </div>
+<div class="line">      <span class="keyword">auto</span> op = eosio::unpack_action_data&lt;transfer&gt;();</div>
+<div class="line"> </div>
+<div class="line">      <span class="keywordflow">if</span> (op.to == <a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>) {</div>
+<div class="line">        <span class="comment">// вызов функции-обработчика пополнения баланса</span></div>
+<div class="line">        <span class="keyword">struct </span>transfer {</div>
+<div class="line">          eosio::name from;</div>
+<div class="line">          eosio::name to;</div>
+<div class="line">          eosio::asset quantity;</div>
+<div class="line">          std::string memo;</div>
+<div class="line">        };</div>
+<div class="line"> </div>
+<div class="line">        <span class="keyword">auto</span> op = eosio::unpack_action_data&lt;transfer&gt;();</div>
+<div class="line">        <span class="keywordflow">if</span> (op.to == <a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>) {</div>
+<div class="line"> </div>
+<div class="line">          eosio::name username = eosio::name(op.memo.c_str());</div>
+<div class="line">          <a id="a20" name="a20"></a><a class="code hl_function" href="balances_8hpp.html#ac392247269dae8fe58bcebe2a0b14133">add_balance</a>(<a class="code hl_variable" href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a>, username, op.quantity, eosio::name(code));</div>
+<div class="line">        }</div>
+<div class="line">      }</div>
+<div class="line">    }</div>
+<div class="line">  }</div>
+<div class="line">};</div>
+<div class="line">};</div>
+<div class="ttc" id="aaccounts_8hpp_html_ab6c5b66b6e44ba641ca66bf6480bb5c5"><div class="ttname"><a href="accounts_8hpp.html#ab6c5b66b6e44ba641ca66bf6480bb5c5">get_cooperative_or_fail</a></div><div class="ttdeci">orgs get_cooperative_or_fail(eosio::name coopname)</div><div class="ttdef"><b>Definition:</b> accounts.hpp:316</div></div>
+<div class="ttc" id="abalances_8hpp_html_a535cbf0e546fa5cf6eaaca63d2d1d854"><div class="ttname"><a href="balances_8hpp.html#a535cbf0e546fa5cf6eaaca63d2d1d854">sub_balance</a></div><div class="ttdeci">void sub_balance(eosio::name source, eosio::name username, eosio::asset quantity, eosio::name contract)</div><div class="ttdef"><b>Definition:</b> balances.hpp:79</div></div>
+<div class="ttc" id="abalances_8hpp_html_ac392247269dae8fe58bcebe2a0b14133"><div class="ttname"><a href="balances_8hpp.html#ac392247269dae8fe58bcebe2a0b14133">add_balance</a></div><div class="ttdeci">void add_balance(eosio::name source, eosio::name username, eosio::asset quantity, eosio::name contract)</div><div class="ttdef"><b>Definition:</b> balances.hpp:49</div></div>
+<div class="ttc" id="aclassgateway_html"><div class="ttname"><a href="classgateway.html">gateway</a></div><div class="ttdoc">Класс gateway обеспечивает процессинг банковских и криптовалютных платежей в кооперативах.</div><div class="ttdef"><b>Definition:</b> gateway.hpp:42</div></div>
+<div class="ttc" id="aclassgateway_html_a15229194b007fede8b5c9ab27f240fea"><div class="ttname"><a href="classgateway.html#a15229194b007fede8b5c9ab27f240fea">gateway::dpfail</a></div><div class="ttdeci">void dpfail(uint64_t deposit_id, std::string memo)</div><div class="ttdef"><b>Definition:</b> gateway.cpp:136</div></div>
+<div class="ttc" id="aclassgateway_html_a15a53dd0140226eed7981ac66b3e8a42"><div class="ttname"><a href="classgateway.html#a15a53dd0140226eed7981ac66b3e8a42">gateway::back</a></div><div class="ttdeci">void back(eosio::name username, eosio::name token_contract, eosio::asset quantity)</div><div class="ttdef"><b>Definition:</b> gateway.cpp:256</div></div>
+<div class="ttc" id="aclassgateway_html_a192074debab7bec295f55ae9415e58f5"><div class="ttname"><a href="classgateway.html#a192074debab7bec295f55ae9415e58f5">gateway::dpcreate</a></div><div class="ttdeci">void dpcreate(eosio::name username, eosio::name coopname, uint64_t program_id, eosio::name purpose, uint64_t secondary_id, eosio::asset internal_quantity, eosio::asset external_quantity, std::string memo)</div><div class="ttdef"><b>Definition:</b> gateway.cpp:42</div></div>
+<div class="ttc" id="aclassgateway_html_a1e64d945511ca0572b1110872bee7c5c"><div class="ttname"><a href="classgateway.html#a1e64d945511ca0572b1110872bee7c5c">gateway::withdraws_index</a></div><div class="ttdeci">eosio::multi_index&lt; &quot;withdraws&quot;_n, withdraws, eosio::indexed_by&lt;&quot;byusername&quot;_n, eosio::const_mem_fun&lt; withdraws, uint64_t, &amp;withdraws::by_username &gt; &gt;, eosio::indexed_by&lt;&quot;bycoopname&quot;_n, eosio::const_mem_fun&lt; withdraws, uint64_t, &amp;withdraws::by_coopname &gt; &gt;, eosio::indexed_by&lt;&quot;bystatus&quot;_n, eosio::const_mem_fun&lt; withdraws, uint64_t, &amp;withdraws::by_status &gt; &gt; &gt; withdraws_index</div><div class="ttdef"><b>Definition:</b> gateway.hpp:125</div></div>
+<div class="ttc" id="aclassgateway_html_a38355bbd1036a2db378d3d72879836a7"><div class="ttname"><a href="classgateway.html#a38355bbd1036a2db378d3d72879836a7">gateway::deposits_index</a></div><div class="ttdeci">eosio::multi_index&lt; &quot;deposits&quot;_n, deposits, eosio::indexed_by&lt;&quot;byusername&quot;_n, eosio::const_mem_fun&lt; deposits, uint64_t, &amp;deposits::by_username &gt; &gt;, eosio::indexed_by&lt;&quot;bycoopname&quot;_n, eosio::const_mem_fun&lt; deposits, uint64_t, &amp;deposits::by_coopname &gt; &gt;, eosio::indexed_by&lt;&quot;bystatus&quot;_n, eosio::const_mem_fun&lt; deposits, uint64_t, &amp;deposits::by_status &gt; &gt; &gt; deposits_index</div><div class="ttdef"><b>Definition:</b> gateway.hpp:97</div></div>
+<div class="ttc" id="aclassgateway_html_a4e5e106e90c6bc9b9627d5a956a7b86d"><div class="ttname"><a href="classgateway.html#a4e5e106e90c6bc9b9627d5a956a7b86d">gateway::wthdcreate</a></div><div class="ttdeci">void wthdcreate(eosio::name username, eosio::name coopname, eosio::asset internal_quantity, eosio::asset external_quantity, std::string memo)</div><div class="ttdef"><b>Definition:</b> gateway.cpp:155</div></div>
+<div class="ttc" id="aclassgateway_html_a59861c9232a7016e6fedc0ed9f58daeb"><div class="ttname"><a href="classgateway.html#a59861c9232a7016e6fedc0ed9f58daeb">gateway::dpcomplete</a></div><div class="ttdeci">void dpcomplete(uint64_t deposit_id, std::string memo)</div><div class="ttdef"><b>Definition:</b> gateway.cpp:114</div></div>
+<div class="ttc" id="aclassgateway_html_a6bca02a1a6441ddcdfe621d892076194"><div class="ttname"><a href="classgateway.html#a6bca02a1a6441ddcdfe621d892076194">gateway::dpinit</a></div><div class="ttdeci">void dpinit(uint64_t deposit_id, std::string link, std::string memo)</div><div class="ttdef"><b>Definition:</b> gateway.cpp:83</div></div>
+<div class="ttc" id="aclassgateway_html_a6c21419960dc26de0f8b6b58c7936169"><div class="ttname"><a href="classgateway.html#a6c21419960dc26de0f8b6b58c7936169">gateway::wthdcomplete</a></div><div class="ttdeci">void wthdcomplete(uint64_t withdraw_id, std::string memo)</div><div class="ttdef"><b>Definition:</b> gateway.cpp:210</div></div>
+<div class="ttc" id="aclassgateway_html_a7e3c279e10f954898000f4f6e34db828"><div class="ttname"><a href="classgateway.html#a7e3c279e10f954898000f4f6e34db828">gateway::wthdfail</a></div><div class="ttdeci">void wthdfail(uint64_t withdraw_id, std::string memo)</div><div class="ttdef"><b>Definition:</b> gateway.cpp:232</div></div>
+<div class="ttc" id="aclassgateway_html_a9e8aaf6f5bb82a150bb817051ff98f53"><div class="ttname"><a href="classgateway.html#a9e8aaf6f5bb82a150bb817051ff98f53">gateway::wthdupdate</a></div><div class="ttdeci">void wthdupdate(uint64_t withdraw_id, std::string memo)</div><div class="ttdef"><b>Definition:</b> gateway.cpp:193</div></div>
+<div class="ttc" id="aclassgateway_html_aa9f641a27c8f2266eabce2ba4b7dfc4a"><div class="ttname"><a href="classgateway.html#aa9f641a27c8f2266eabce2ba4b7dfc4a">gateway::dpupdate</a></div><div class="ttdeci">void dpupdate(uint64_t deposit_id, std::string memo)</div><div class="ttdef"><b>Definition:</b> gateway.cpp:98</div></div>
+<div class="ttc" id="acounts_8hpp_html_aeb06beaf4402f0222167ef9d12eacd5c"><div class="ttname"><a href="counts_8hpp.html#aeb06beaf4402f0222167ef9d12eacd5c">get_global_id</a></div><div class="ttdeci">uint64_t get_global_id(eosio::name _me, eosio::name key)</div><div class="ttdef"><b>Definition:</b> counts.hpp:26</div></div>
+<div class="ttc" id="agateway_8hpp_html"><div class="ttname"><a href="gateway_8hpp.html">gateway.hpp</a></div></div>
+<div class="ttc" id="agroup__public__actions_html_gaae0d19faf55336799477b567ebf72df1"><div class="ttname"><a href="group__public__actions.html#gaae0d19faf55336799477b567ebf72df1">gateway::newid</a></div><div class="ttdeci">void newid(eosio::name username, uint64_t id)</div><div class="ttdoc">Пустой метод регистрации нового идентификатораЭтот метод используется для возврата информации из конт...</div><div class="ttdef"><b>Definition:</b> gateway.cpp:15</div></div>
+<div class="ttc" id="agroup__public__consts_html_ga55ba70333702ff882cdb79c9c1fcb9e6"><div class="ttname"><a href="group__public__consts.html#ga55ba70333702ff882cdb79c9c1fcb9e6">_gateway</a></div><div class="ttdeci">static constexpr eosio::name _gateway</div><div class="ttdef"><b>Definition:</b> consts.hpp:73</div></div>
+<div class="ttc" id="anamespaceeosio_html"><div class="ttname"><a href="namespaceeosio.html">eosio</a></div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:8</div></div>
+<div class="ttc" id="aprograms_8hpp_html_a1878b037b72ae5d53b354a66569643a1"><div class="ttname"><a href="programs_8hpp.html#a1878b037b72ae5d53b354a66569643a1">get_program_or_fail</a></div><div class="ttdeci">programs get_program_or_fail(eosio::name coopname, uint64_t program_id)</div><div class="ttdef"><b>Definition:</b> programs.hpp:92</div></div>
+<div class="ttc" id="aregistrator_8cpp_html_a569d3d0ca7b56fb8c580faaa3d73179a"><div class="ttname"><a href="registrator_8cpp.html#a569d3d0ca7b56fb8c580faaa3d73179a">apply</a></div><div class="ttdeci">void apply(uint64_t receiver, uint64_t code, uint64_t action)</div><div class="ttdoc">The apply method implements the dispatch of events to this contract.</div><div class="ttdef"><b>Definition:</b> registrator.cpp:389</div></div>
+</div><!-- fragment --> </div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -11,8 +11,9 @@ var searchData=
   ['bidder_8',['bidder',['../structeosiosystem_1_1bid__refund.html#ae6bd67f412850f81514ea8b5a5ad4abd',1,'eosiosystem::bid_refund']]],
   ['block_5fheight_9',['block_height',['../structeosiosystem_1_1block__info_1_1block__info__record.html#a7e0b0f4b78c5dcdff23495596e7cb488',1,'eosiosystem::block_info::block_info_record']]],
   ['block_5ftimestamp_10',['block_timestamp',['../structeosiosystem_1_1block__info_1_1block__info__record.html#afaa04cfe4be674be7f3d4d497e90c072',1,'eosiosystem::block_info::block_info_record']]],
-  ['blocked_5fpieces_11',['blocked_pieces',['../structexchange.html#ae7df4bbffa11cd7102b591f0dff45ede',1,'exchange']]],
-  ['blocks_5fper_5fday_12',['blocks_per_day',['../namespaceeosiosystem.html#a0a989239fac055dbc55e5e6bd05f8f5f',1,'eosiosystem']]],
-  ['board_5fid_13',['board_id',['../structautomator.html#af9991df3151a7d8205c4205caf993a92',1,'automator']]],
-  ['bpay_5faccount_14',['bpay_account',['../classeosiosystem_1_1system__contract.html#aeec189aa121eaf90aee0c180cd59cc26',1,'eosiosystem::system_contract']]]
+  ['blocked_11',['blocked',['../structprogwallets.html#a1137ca868a204439b33a3963ba0a9aef',1,'progwallets::blocked()'],['../structparticipants.html#aca23fbd36c49e190f8c6487138564948',1,'participants::blocked()']]],
+  ['blocked_5fpieces_12',['blocked_pieces',['../structexchange.html#ae7df4bbffa11cd7102b591f0dff45ede',1,'exchange']]],
+  ['blocks_5fper_5fday_13',['blocks_per_day',['../namespaceeosiosystem.html#a0a989239fac055dbc55e5e6bd05f8f5f',1,'eosiosystem']]],
+  ['board_5fid_14',['board_id',['../structautomator.html#af9991df3151a7d8205c4205caf993a92',1,'automator']]],
+  ['bpay_5faccount_15',['bpay_account',['../classeosiosystem_1_1system__contract.html#aeec189aa121eaf90aee0c180cd59cc26',1,'eosiosystem::system_contract']]]
 ];

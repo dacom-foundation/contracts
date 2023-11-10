@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['balances_0',['balances',['../structmarketplace_1_1balances.html',1,'marketplace::balances'],['../structregistrator_1_1balances.html',1,'registrator::balances']]],
+  ['balances_0',['balances',['../structgateway_1_1balances.html',1,'gateway::balances'],['../structmarketplace_1_1balances.html',1,'marketplace::balances'],['../structregistrator_1_1balances.html',1,'registrator::balances']]],
   ['balances_5fbase_1',['balances_base',['../structbalances__base.html',1,'']]],
   ['bank_2',['bank',['../structbank.html',1,'']]],
   ['bid_5frefund_3',['bid_refund',['../structeosiosystem_1_1bid__refund.html',1,'eosiosystem']]],

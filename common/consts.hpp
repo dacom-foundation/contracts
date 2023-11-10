@@ -1,13 +1,4 @@
 using namespace eosio;
-#define ANO "ano"
-#define DRAFT "draft"
-#define MARKETPLACE "marketplace"
-#define SOVIET "soviet"
-#define REGISTRATOR "registrator"
-#define SYSTEM "eosio"
-#define PARTNERS "part"
-#define GATEWAY "gateway"
-
 // /**
 //  * @mainpage Обзор контрактов
 //  * - _registrator - контракт регистратора аккаунтов, физических и юридических лиц
@@ -63,32 +54,78 @@ using namespace eosio;
 */
 
 
+// Определение флага IS_TESTNET
+#define IS_TESTNET true
+
+#if IS_TESTNET
+    // Дефайны для тестовой сети
+    #define ANO "ano.test"
+    #define GATEWAY "testgate"
+    #define DRAFT "drafttest"
+    #define MARKETPLACE "market.test"
+    #define SOVIET "soviet.test"
+    #define REGISTRATOR "reg.test"
+    #define SYSTEM "eosio"
+    
+
+    // Константы для тестовой сети
+    static constexpr eosio::name _ano = "ano.test"_n;
+    static constexpr eosio::name _gateway = "testgate"_n;
+    static constexpr eosio::name _draft = "drafttest"_n;
+    static constexpr eosio::name _marketplace = "market.test"_n;
+    static constexpr eosio::name _soviet = "soviet.test"_n;
+    static constexpr eosio::name _registrator = "reg.test"_n;
+    static constexpr eosio::name _system = "eosio"_n;
+    
+    static constexpr eosio::name _regaccount_action = "joincoop"_n;
+    static constexpr eosio::name _change_action = "change"_n;
+
+    static constexpr eosio::symbol _root_symbol = eosio::symbol(eosio::symbol_code("AXON"), 4); /*!< системный токен */
+    static constexpr eosio::name _root_contract = "eosio.token"_n; /*!< системный контракт */
+    static constexpr eosio::symbol RAM_symbol{"RAM", 0}; /*!< токен рынка оперативной памяти */
+    static constexpr eosio::symbol _ramcore_symbol = eosio::symbol(eosio::symbol_code("RAMCORE"),4); /*!< идентификационный токен рынка оперативной памяти */
+    static constexpr uint64_t _ram_bytes = 16384; /*!< оперативная память нового аккаунта */
+    static constexpr uint64_t _stake_cpu_amount = 10000; /*!< оперативная память нового аккаунта */
+    static constexpr uint64_t _stake_net_amount = 10000; /*!< оперативная память нового аккаунта */
+
+    static constexpr uint64_t _signature_expiration = 86400 * 365 * 2;
+#else
+    // Дефайны для основной сети
+    #define ANO "ano"
+    #define GATEWAY "gateway"
+    #define DRAFT "draft"
+    #define MARKETPLACE "marketplace"
+    #define SOVIET "soviet"
+    #define REGISTRATOR "registrator"
+    #define SYSTEM "eosio"
+    
 /**
 * @ingroup public_consts
 * @{ 
 */
+    static constexpr eosio::name _ano = "ano"_n;
+    static constexpr eosio::name _gateway = "gateway"_n;
+    static constexpr eosio::name _draft = "draft"_n;
+    static constexpr eosio::name _marketplace = "marketplace"_n;
+    static constexpr eosio::name _soviet = "soviet"_n;
+    static constexpr eosio::name _registrator = "registrator"_n;
+    static constexpr eosio::name _system = "eosio"_n;
+    
+    static constexpr eosio::name _regaccount_action = "joincoop"_n;
+    static constexpr eosio::name _change_action = "change"_n;
 
-static constexpr uint64_t _auction_name_length_limit = 5;
-static constexpr eosio::name _ano = "ano"_n;
-static constexpr eosio::name _gateway = "gateway"_n;
-static constexpr eosio::name _draft = "draft"_n;
-static constexpr eosio::name _marketplace = "marketplace"_n; /*!< имя контракта */
-static constexpr eosio::name _soviet = "soviet"_n; /*!< дополнительная константа */
-static constexpr eosio::name _registrator = "registrator"_n;
-static constexpr eosio::name _registrator_test = "reg.test"_n;
-static constexpr eosio::name _system = "eosio"_n;
-static constexpr eosio::name _partners = "part"_n; /*!< имя аккаунта контракта хранилища партнёров */
-static constexpr eosio::name _regaccount_action = "joincoop"_n;
-static constexpr eosio::name _change_action = "change"_n;
-static constexpr eosio::symbol _root_symbol = eosio::symbol(eosio::symbol_code("AXON"), 4); /*!< системный токен */
-static constexpr eosio::name _root_contract = "eosio.token"_n; /*!< системный контракт */
-static constexpr eosio::symbol RAM_symbol{"RAM", 0}; /*!< токен рынка оперативной памяти */
-static constexpr eosio::symbol _ramcore_symbol = eosio::symbol(eosio::symbol_code("RAMCORE"),4); /*!< идентификационный токен рынка оперативной памяти */
-static constexpr uint64_t _ram_bytes = 16384; /*!< оперативная память нового аккаунта */
-static constexpr uint64_t _stake_cpu_amount = 10000; /*!< оперативная память нового аккаунта */
-static constexpr uint64_t _stake_net_amount = 10000; /*!< оперативная память нового аккаунта */
+    static constexpr eosio::symbol _root_symbol = eosio::symbol(eosio::symbol_code("AXON"), 4); /*!< системный токен */
+    static constexpr eosio::name _root_contract = "eosio.token"_n; /*!< системный контракт */
+    static constexpr eosio::symbol RAM_symbol{"RAM", 0}; /*!< токен рынка оперативной памяти */
+    static constexpr eosio::symbol _ramcore_symbol = eosio::symbol(eosio::symbol_code("RAMCORE"),4); /*!< идентификационный токен рынка оперативной памяти */
+    static constexpr uint64_t _ram_bytes = 16384; /*!< оперативная память нового аккаунта */
+    static constexpr uint64_t _stake_cpu_amount = 10000; /*!< оперативная память нового аккаунта */
+    static constexpr uint64_t _stake_net_amount = 10000; /*!< оперативная память нового аккаунта */
 
-static constexpr uint64_t _signature_expiration = 86400 * 365 * 2;
+    static constexpr uint64_t _signature_expiration = 86400 * 365 * 2;
 /**
 * @}
 */
+
+
+#endif

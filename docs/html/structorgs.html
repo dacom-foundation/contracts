@@ -95,13 +95,19 @@ $(document).ready(function(){initNavTree('structorgs.html',''); initResizable();
 <p>Структура, представляющая организации.  
  <a href="structorgs.html#details">Подробнее...</a></p>
 
-<p><code>#include &lt;<a class="el" href="users_8hpp_source.html">users.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="accounts_8hpp_source.html">accounts.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Открытые члены</h2></td></tr>
 <tr class="memitem:ad63f7f770daeaf11e9960f0bb3413257"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#ad63f7f770daeaf11e9960f0bb3413257">primary_key</a> () const</td></tr>
 <tr class="memdesc:ad63f7f770daeaf11e9960f0bb3413257"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает первичный ключ учетной записи организации.  <a href="structorgs.html#ad63f7f770daeaf11e9960f0bb3413257">Подробнее...</a><br /></td></tr>
 <tr class="separator:ad63f7f770daeaf11e9960f0bb3413257"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f61fb5a23a20f8418b6a840027ee59b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#a0f61fb5a23a20f8418b6a840027ee59b">check_contract_or_fail</a> (eosio::name contract)</td></tr>
+<tr class="memdesc:a0f61fb5a23a20f8418b6a840027ee59b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сравнивает контракт токена кооператива и представленный  <a href="structorgs.html#a0f61fb5a23a20f8418b6a840027ee59b">Подробнее...</a><br /></td></tr>
+<tr class="separator:a0f61fb5a23a20f8418b6a840027ee59b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac30f7ac01496aacd2515dc474123c6f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#ac30f7ac01496aacd2515dc474123c6f2">check_symbol_or_fail</a> (eosio::asset contribution)</td></tr>
+<tr class="memdesc:ac30f7ac01496aacd2515dc474123c6f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сравнивает символ токена кооператива и представленный  <a href="structorgs.html#ac30f7ac01496aacd2515dc474123c6f2">Подробнее...</a><br /></td></tr>
+<tr class="separator:ac30f7ac01496aacd2515dc474123c6f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab88eb6ded8ef4609e0d0a013d4fcd19f"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#ab88eb6ded8ef4609e0d0a013d4fcd19f">by_parent</a> () const</td></tr>
 <tr class="memdesc:ab88eb6ded8ef4609e0d0a013d4fcd19f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает ключ по родительской организации.  <a href="structorgs.html#ab88eb6ded8ef4609e0d0a013d4fcd19f">Подробнее...</a><br /></td></tr>
 <tr class="separator:ab88eb6ded8ef4609e0d0a013d4fcd19f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -132,81 +138,39 @@ $(document).ready(function(){initNavTree('structorgs.html',''); initResizable();
 <tr class="memitem:ae6431f4f421b347e828673c17c11016a"><td class="memItemLeft" align="right" valign="top">eosio::name&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#ae6431f4f421b347e828673c17c11016a">parent_username</a></td></tr>
 <tr class="memdesc:ae6431f4f421b347e828673c17c11016a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Имя родительской организации, если есть.  <a href="structorgs.html#ae6431f4f421b347e828673c17c11016a">Подробнее...</a><br /></td></tr>
 <tr class="separator:ae6431f4f421b347e828673c17c11016a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f2292b35d32249116fbabc45ee29f90"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structverification.html">verification</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#a7f2292b35d32249116fbabc45ee29f90">verification</a></td></tr>
-<tr class="memdesc:a7f2292b35d32249116fbabc45ee29f90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Информация о верификации организации.  <a href="structorgs.html#a7f2292b35d32249116fbabc45ee29f90">Подробнее...</a><br /></td></tr>
-<tr class="separator:a7f2292b35d32249116fbabc45ee29f90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3e89e39dc1dac2fa382f52c7dfa1499"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#ae3e89e39dc1dac2fa382f52c7dfa1499">name</a></td></tr>
-<tr class="memdesc:ae3e89e39dc1dac2fa382f52c7dfa1499"><td class="mdescLeft">&#160;</td><td class="mdescRight">Полное наименование организации.  <a href="structorgs.html#ae3e89e39dc1dac2fa382f52c7dfa1499">Подробнее...</a><br /></td></tr>
-<tr class="separator:ae3e89e39dc1dac2fa382f52c7dfa1499"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2856436e3f095cf78cf6d6a617c79d61"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#a2856436e3f095cf78cf6d6a617c79d61">short_name</a></td></tr>
-<tr class="memdesc:a2856436e3f095cf78cf6d6a617c79d61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Краткое наименование организации.  <a href="structorgs.html#a2856436e3f095cf78cf6d6a617c79d61">Подробнее...</a><br /></td></tr>
-<tr class="separator:a2856436e3f095cf78cf6d6a617c79d61"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a756f0d831a24d9a4f9f52e51106f135d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#a756f0d831a24d9a4f9f52e51106f135d">address</a></td></tr>
-<tr class="memdesc:a756f0d831a24d9a4f9f52e51106f135d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Юридический адрес организации.  <a href="structorgs.html#a756f0d831a24d9a4f9f52e51106f135d">Подробнее...</a><br /></td></tr>
-<tr class="separator:a756f0d831a24d9a4f9f52e51106f135d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3da6502bd383a53b200b7db125575b5d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#a3da6502bd383a53b200b7db125575b5d">ogrn</a></td></tr>
-<tr class="memdesc:a3da6502bd383a53b200b7db125575b5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">ОГРН организации.  <a href="structorgs.html#a3da6502bd383a53b200b7db125575b5d">Подробнее...</a><br /></td></tr>
-<tr class="separator:a3da6502bd383a53b200b7db125575b5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affc82d5743aea6b5f69b447f36537cb5"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#affc82d5743aea6b5f69b447f36537cb5">inn</a></td></tr>
-<tr class="memdesc:affc82d5743aea6b5f69b447f36537cb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">ИНН организации.  <a href="structorgs.html#affc82d5743aea6b5f69b447f36537cb5">Подробнее...</a><br /></td></tr>
-<tr class="separator:affc82d5743aea6b5f69b447f36537cb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2163b8b2c75dd675de51c6e44ded60c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#aa2163b8b2c75dd675de51c6e44ded60c">logo</a></td></tr>
-<tr class="memdesc:aa2163b8b2c75dd675de51c6e44ded60c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Логотип организации.  <a href="structorgs.html#aa2163b8b2c75dd675de51c6e44ded60c">Подробнее...</a><br /></td></tr>
-<tr class="separator:aa2163b8b2c75dd675de51c6e44ded60c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abbe8d02b45decc5efbe76645d07588b7"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#abbe8d02b45decc5efbe76645d07588b7">phone</a></td></tr>
-<tr class="memdesc:abbe8d02b45decc5efbe76645d07588b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Контактный телефон организации.  <a href="structorgs.html#abbe8d02b45decc5efbe76645d07588b7">Подробнее...</a><br /></td></tr>
-<tr class="separator:abbe8d02b45decc5efbe76645d07588b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a959f11805a84c42797f8acdde30adecd"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#a959f11805a84c42797f8acdde30adecd">email</a></td></tr>
-<tr class="memdesc:a959f11805a84c42797f8acdde30adecd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Электронная почта организации.  <a href="structorgs.html#a959f11805a84c42797f8acdde30adecd">Подробнее...</a><br /></td></tr>
-<tr class="separator:a959f11805a84c42797f8acdde30adecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef9dd189590bfe100c957ce5bde967e1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#aef9dd189590bfe100c957ce5bde967e1">registration</a></td></tr>
-<tr class="memdesc:aef9dd189590bfe100c957ce5bde967e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Дата регистрации юридического лица.  <a href="structorgs.html#aef9dd189590bfe100c957ce5bde967e1">Подробнее...</a><br /></td></tr>
-<tr class="separator:aef9dd189590bfe100c957ce5bde967e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a704ac67823483cb07bb24fa5245b19aa"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#a704ac67823483cb07bb24fa5245b19aa">website</a></td></tr>
-<tr class="memdesc:a704ac67823483cb07bb24fa5245b19aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Веб-сайт организации.  <a href="structorgs.html#a704ac67823483cb07bb24fa5245b19aa">Подробнее...</a><br /></td></tr>
-<tr class="separator:a704ac67823483cb07bb24fa5245b19aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a773b57c51cda33e3e474defc180d0e7d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structbank.html">bank</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#a773b57c51cda33e3e474defc180d0e7d">accounts</a></td></tr>
-<tr class="memdesc:a773b57c51cda33e3e474defc180d0e7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Информация о банковских счетах организации.  <a href="structorgs.html#a773b57c51cda33e3e474defc180d0e7d">Подробнее...</a><br /></td></tr>
-<tr class="separator:a773b57c51cda33e3e474defc180d0e7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f2e75cd711056a893bb6f84283cf069"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structverification.html">verification</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#a2f2e75cd711056a893bb6f84283cf069">verifications</a></td></tr>
+<tr class="memdesc:a2f2e75cd711056a893bb6f84283cf069"><td class="mdescLeft">&#160;</td><td class="mdescRight">Информация о верификации организации.  <a href="structorgs.html#a2f2e75cd711056a893bb6f84283cf069">Подробнее...</a><br /></td></tr>
+<tr class="separator:a2f2e75cd711056a893bb6f84283cf069"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a018bd81cc0de74c7c0edc6cb34296b29"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structstorage.html">storage</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#a018bd81cc0de74c7c0edc6cb34296b29">storages</a></td></tr>
+<tr class="memdesc:a018bd81cc0de74c7c0edc6cb34296b29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Хранилища персональных данных и идентификаторы данных в них.  <a href="structorgs.html#a018bd81cc0de74c7c0edc6cb34296b29">Подробнее...</a><br /></td></tr>
+<tr class="separator:a018bd81cc0de74c7c0edc6cb34296b29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7a88197a80884f578161b340a42d445"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#ab7a88197a80884f578161b340a42d445">is_active</a> = true</td></tr>
+<tr class="memdesc:ab7a88197a80884f578161b340a42d445"><td class="mdescLeft">&#160;</td><td class="mdescRight">Флаг, указывающий, что организация активна.  <a href="structorgs.html#ab7a88197a80884f578161b340a42d445">Подробнее...</a><br /></td></tr>
+<tr class="separator:ab7a88197a80884f578161b340a42d445"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e106134eb289da6034239f59f8c8b00"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#a7e106134eb289da6034239f59f8c8b00">is_cooperative</a> = false</td></tr>
 <tr class="memdesc:a7e106134eb289da6034239f59f8c8b00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Флаг, указывающий, является ли организация кооперативом.  <a href="structorgs.html#a7e106134eb289da6034239f59f8c8b00">Подробнее...</a><br /></td></tr>
 <tr class="separator:a7e106134eb289da6034239f59f8c8b00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d2790457eea86c9e0e0df2afacdb52e"><td class="memItemLeft" align="right" valign="top">std::optional&lt; eosio::name &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#a5d2790457eea86c9e0e0df2afacdb52e">coop_type</a></td></tr>
-<tr class="memdesc:a5d2790457eea86c9e0e0df2afacdb52e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Тип некоммерческой организации (если это кооператив).  <a href="structorgs.html#a5d2790457eea86c9e0e0df2afacdb52e">Подробнее...</a><br /></td></tr>
-<tr class="separator:a5d2790457eea86c9e0e0df2afacdb52e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a135a3014d3e21024a2eb16b775d46a2f"><td class="memItemLeft" align="right" valign="top">std::optional&lt; eosio::name &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#a135a3014d3e21024a2eb16b775d46a2f">token_contract</a></td></tr>
-<tr class="memdesc:a135a3014d3e21024a2eb16b775d46a2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Контракт токена, связанного с организацией.  <a href="structorgs.html#a135a3014d3e21024a2eb16b775d46a2f">Подробнее...</a><br /></td></tr>
-<tr class="separator:a135a3014d3e21024a2eb16b775d46a2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33846e60c8725628db622e8f5a2511dc"><td class="memItemLeft" align="right" valign="top">std::optional&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#a33846e60c8725628db622e8f5a2511dc">slug</a></td></tr>
-<tr class="memdesc:a33846e60c8725628db622e8f5a2511dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Уникальный идентификатор организации.  <a href="structorgs.html#a33846e60c8725628db622e8f5a2511dc">Подробнее...</a><br /></td></tr>
-<tr class="separator:a33846e60c8725628db622e8f5a2511dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f04706245d1ce159961028fe3ea8265"><td class="memItemLeft" align="right" valign="top">std::optional&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#a3f04706245d1ce159961028fe3ea8265">announce</a></td></tr>
-<tr class="memdesc:a3f04706245d1ce159961028fe3ea8265"><td class="mdescLeft">&#160;</td><td class="mdescRight">Анонс организации.  <a href="structorgs.html#a3f04706245d1ce159961028fe3ea8265">Подробнее...</a><br /></td></tr>
-<tr class="separator:a3f04706245d1ce159961028fe3ea8265"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9fc7273b84ea89d7e3be8189bb7de823"><td class="memItemLeft" align="right" valign="top">std::optional&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#a9fc7273b84ea89d7e3be8189bb7de823">description</a></td></tr>
-<tr class="memdesc:a9fc7273b84ea89d7e3be8189bb7de823"><td class="mdescLeft">&#160;</td><td class="mdescRight">Описание организации.  <a href="structorgs.html#a9fc7273b84ea89d7e3be8189bb7de823">Подробнее...</a><br /></td></tr>
-<tr class="separator:a9fc7273b84ea89d7e3be8189bb7de823"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36a73688848c389a2f2626df93ce9d0d"><td class="memItemLeft" align="right" valign="top">std::optional&lt; uint64_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#a36a73688848c389a2f2626df93ce9d0d">members_count</a></td></tr>
-<tr class="memdesc:a36a73688848c389a2f2626df93ce9d0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Количество членов организации.  <a href="structorgs.html#a36a73688848c389a2f2626df93ce9d0d">Подробнее...</a><br /></td></tr>
-<tr class="separator:a36a73688848c389a2f2626df93ce9d0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae939c459ab38616d44ad9544fc499512"><td class="memItemLeft" align="right" valign="top">std::optional&lt; uint64_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#ae939c459ab38616d44ad9544fc499512">users_count</a></td></tr>
-<tr class="memdesc:ae939c459ab38616d44ad9544fc499512"><td class="mdescLeft">&#160;</td><td class="mdescRight">Количество пользователей организации.  <a href="structorgs.html#ae939c459ab38616d44ad9544fc499512">Подробнее...</a><br /></td></tr>
-<tr class="separator:ae939c459ab38616d44ad9544fc499512"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0049e14ff707d167f0484cea9b6740c"><td class="memItemLeft" align="right" valign="top">std::optional&lt; uint64_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#ac0049e14ff707d167f0484cea9b6740c">orgs_counts</a></td></tr>
-<tr class="memdesc:ac0049e14ff707d167f0484cea9b6740c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Количество подорганизаций.  <a href="structorgs.html#ac0049e14ff707d167f0484cea9b6740c">Подробнее...</a><br /></td></tr>
-<tr class="separator:ac0049e14ff707d167f0484cea9b6740c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2dd42d38888aadcd9b212d26dfd4b8e"><td class="memItemLeft" align="right" valign="top">std::optional&lt; eosio::asset &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#ad2dd42d38888aadcd9b212d26dfd4b8e">initial</a></td></tr>
-<tr class="memdesc:ad2dd42d38888aadcd9b212d26dfd4b8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вступительный взнос (если применимо).  <a href="structorgs.html#ad2dd42d38888aadcd9b212d26dfd4b8e">Подробнее...</a><br /></td></tr>
-<tr class="separator:ad2dd42d38888aadcd9b212d26dfd4b8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abdf961fb24a7135fd0a2eba44ed0d0cb"><td class="memItemLeft" align="right" valign="top">std::optional&lt; eosio::asset &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#abdf961fb24a7135fd0a2eba44ed0d0cb">minimum</a></td></tr>
-<tr class="memdesc:abdf961fb24a7135fd0a2eba44ed0d0cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Минимальный взнос (если применимо).  <a href="structorgs.html#abdf961fb24a7135fd0a2eba44ed0d0cb">Подробнее...</a><br /></td></tr>
-<tr class="separator:abdf961fb24a7135fd0a2eba44ed0d0cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4983389f1ef9ec6b722a1471031a83c7"><td class="memItemLeft" align="right" valign="top">std::optional&lt; eosio::asset &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#a4983389f1ef9ec6b722a1471031a83c7">membership</a></td></tr>
-<tr class="memdesc:a4983389f1ef9ec6b722a1471031a83c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Членский взнос (если применимо).  <a href="structorgs.html#a4983389f1ef9ec6b722a1471031a83c7">Подробнее...</a><br /></td></tr>
-<tr class="separator:a4983389f1ef9ec6b722a1471031a83c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93ab1b5c27d0b55d80651a72353beec5"><td class="memItemLeft" align="right" valign="top">std::optional&lt; eosio::name &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#a93ab1b5c27d0b55d80651a72353beec5">period</a></td></tr>
-<tr class="memdesc:a93ab1b5c27d0b55d80651a72353beec5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Периодичность взносов.  <a href="structorgs.html#a93ab1b5c27d0b55d80651a72353beec5">Подробнее...</a><br /></td></tr>
-<tr class="separator:a93ab1b5c27d0b55d80651a72353beec5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0f67a51c09138a902b4626694496810"><td class="memItemLeft" align="right" valign="top">eosio::name&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#ac0f67a51c09138a902b4626694496810">coop_type</a></td></tr>
+<tr class="memdesc:ac0f67a51c09138a902b4626694496810"><td class="mdescLeft">&#160;</td><td class="mdescRight">Тип некоммерческой организации (если это кооператив).  <a href="structorgs.html#ac0f67a51c09138a902b4626694496810">Подробнее...</a><br /></td></tr>
+<tr class="separator:ac0f67a51c09138a902b4626694496810"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0acaa1da073fa33862536db6e1335bbd"><td class="memItemLeft" align="right" valign="top">eosio::name&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#a0acaa1da073fa33862536db6e1335bbd">token_contract</a></td></tr>
+<tr class="memdesc:a0acaa1da073fa33862536db6e1335bbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Контракт токена, связанного с организацией.  <a href="structorgs.html#a0acaa1da073fa33862536db6e1335bbd">Подробнее...</a><br /></td></tr>
+<tr class="separator:a0acaa1da073fa33862536db6e1335bbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa319494d52bab5194e2ccd093d8dff5"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#aaa319494d52bab5194e2ccd093d8dff5">announce</a></td></tr>
+<tr class="memdesc:aaa319494d52bab5194e2ccd093d8dff5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Анонс организации.  <a href="structorgs.html#aaa319494d52bab5194e2ccd093d8dff5">Подробнее...</a><br /></td></tr>
+<tr class="separator:aaa319494d52bab5194e2ccd093d8dff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e5900ad7ad2c99fe7a13bd70a154cca"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#a7e5900ad7ad2c99fe7a13bd70a154cca">description</a></td></tr>
+<tr class="memdesc:a7e5900ad7ad2c99fe7a13bd70a154cca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Описание организации.  <a href="structorgs.html#a7e5900ad7ad2c99fe7a13bd70a154cca">Подробнее...</a><br /></td></tr>
+<tr class="separator:a7e5900ad7ad2c99fe7a13bd70a154cca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae08d676a2983d4497a88b5a05e5f46c6"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#ae08d676a2983d4497a88b5a05e5f46c6">members_count</a></td></tr>
+<tr class="memdesc:ae08d676a2983d4497a88b5a05e5f46c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Количество членов организации.  <a href="structorgs.html#ae08d676a2983d4497a88b5a05e5f46c6">Подробнее...</a><br /></td></tr>
+<tr class="separator:ae08d676a2983d4497a88b5a05e5f46c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac195fc7b023e954eafd20e854570a302"><td class="memItemLeft" align="right" valign="top">eosio::asset&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#ac195fc7b023e954eafd20e854570a302">initial</a></td></tr>
+<tr class="memdesc:ac195fc7b023e954eafd20e854570a302"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вступительный взнос (если применимо).  <a href="structorgs.html#ac195fc7b023e954eafd20e854570a302">Подробнее...</a><br /></td></tr>
+<tr class="separator:ac195fc7b023e954eafd20e854570a302"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1dbf728ec4dff7ca8f172bee4da901dd"><td class="memItemLeft" align="right" valign="top">eosio::asset&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structorgs.html#a1dbf728ec4dff7ca8f172bee4da901dd">minimum</a></td></tr>
+<tr class="memdesc:a1dbf728ec4dff7ca8f172bee4da901dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Минимальный взнос (если применимо).  <a href="structorgs.html#a1dbf728ec4dff7ca8f172bee4da901dd">Подробнее...</a><br /></td></tr>
+<tr class="separator:a1dbf728ec4dff7ca8f172bee4da901dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
 <div class="textblock"><p >Структура, представляющая организации. </p>
@@ -293,6 +257,62 @@ $(document).ready(function(){initNavTree('structorgs.html',''); initResizable();
 
 <p>Возвращает ключ для индекса по типу некоммерческой организации (если это кооператив). </p>
 <dl class="section return"><dt>Возвращает</dt><dd>uint64_t - ключ, равный значению типа некоммерческой организации. </dd></dl>
+
+</div>
+</div>
+<a id="a0f61fb5a23a20f8418b6a840027ee59b" name="a0f61fb5a23a20f8418b6a840027ee59b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f61fb5a23a20f8418b6a840027ee59b">&#9670;&nbsp;</a></span>check_contract_or_fail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void orgs::check_contract_or_fail </td>
+          <td>(</td>
+          <td class="paramtype">eosio::name&#160;</td>
+          <td class="paramname"><em>contract</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Сравнивает контракт токена кооператива и представленный </p>
+
+</div>
+</div>
+<a id="ac30f7ac01496aacd2515dc474123c6f2" name="ac30f7ac01496aacd2515dc474123c6f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac30f7ac01496aacd2515dc474123c6f2">&#9670;&nbsp;</a></span>check_symbol_or_fail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void orgs::check_symbol_or_fail </td>
+          <td>(</td>
+          <td class="paramtype">eosio::asset&#160;</td>
+          <td class="paramname"><em>contribution</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Сравнивает символ токена кооператива и представленный </p>
 
 </div>
 </div>
@@ -437,46 +457,14 @@ $(document).ready(function(){initNavTree('structorgs.html',''); initResizable();
 </div>
 </div>
 <h2 class="groupheader">Данные класса</h2>
-<a id="a773b57c51cda33e3e474defc180d0e7d" name="a773b57c51cda33e3e474defc180d0e7d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a773b57c51cda33e3e474defc180d0e7d">&#9670;&nbsp;</a></span>accounts</h2>
+<a id="aaa319494d52bab5194e2ccd093d8dff5" name="aaa319494d52bab5194e2ccd093d8dff5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa319494d52bab5194e2ccd093d8dff5">&#9670;&nbsp;</a></span>announce</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="structbank.html">bank</a>&gt; orgs::accounts</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Информация о банковских счетах организации. </p>
-
-</div>
-</div>
-<a id="a756f0d831a24d9a4f9f52e51106f135d" name="a756f0d831a24d9a4f9f52e51106f135d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a756f0d831a24d9a4f9f52e51106f135d">&#9670;&nbsp;</a></span>address</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string orgs::address</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Юридический адрес организации. </p>
-
-</div>
-</div>
-<a id="a3f04706245d1ce159961028fe3ea8265" name="a3f04706245d1ce159961028fe3ea8265"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f04706245d1ce159961028fe3ea8265">&#9670;&nbsp;</a></span>announce</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::optional&lt;std::string&gt; orgs::announce</td>
+          <td class="memname">std::string orgs::announce</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -485,14 +473,14 @@ $(document).ready(function(){initNavTree('structorgs.html',''); initResizable();
 
 </div>
 </div>
-<a id="a5d2790457eea86c9e0e0df2afacdb52e" name="a5d2790457eea86c9e0e0df2afacdb52e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d2790457eea86c9e0e0df2afacdb52e">&#9670;&nbsp;</a></span>coop_type</h2>
+<a id="ac0f67a51c09138a902b4626694496810" name="ac0f67a51c09138a902b4626694496810"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0f67a51c09138a902b4626694496810">&#9670;&nbsp;</a></span>coop_type</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::optional&lt;eosio::name&gt; orgs::coop_type</td>
+          <td class="memname">eosio::name orgs::coop_type</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -501,14 +489,14 @@ $(document).ready(function(){initNavTree('structorgs.html',''); initResizable();
 
 </div>
 </div>
-<a id="a9fc7273b84ea89d7e3be8189bb7de823" name="a9fc7273b84ea89d7e3be8189bb7de823"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9fc7273b84ea89d7e3be8189bb7de823">&#9670;&nbsp;</a></span>description</h2>
+<a id="a7e5900ad7ad2c99fe7a13bd70a154cca" name="a7e5900ad7ad2c99fe7a13bd70a154cca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e5900ad7ad2c99fe7a13bd70a154cca">&#9670;&nbsp;</a></span>description</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::optional&lt;std::string&gt; orgs::description</td>
+          <td class="memname">std::string orgs::description</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -517,30 +505,14 @@ $(document).ready(function(){initNavTree('structorgs.html',''); initResizable();
 
 </div>
 </div>
-<a id="a959f11805a84c42797f8acdde30adecd" name="a959f11805a84c42797f8acdde30adecd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a959f11805a84c42797f8acdde30adecd">&#9670;&nbsp;</a></span>email</h2>
+<a id="ac195fc7b023e954eafd20e854570a302" name="ac195fc7b023e954eafd20e854570a302"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac195fc7b023e954eafd20e854570a302">&#9670;&nbsp;</a></span>initial</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string orgs::email</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Электронная почта организации. </p>
-
-</div>
-</div>
-<a id="ad2dd42d38888aadcd9b212d26dfd4b8e" name="ad2dd42d38888aadcd9b212d26dfd4b8e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2dd42d38888aadcd9b212d26dfd4b8e">&#9670;&nbsp;</a></span>initial</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::optional&lt;eosio::asset&gt; orgs::initial</td>
+          <td class="memname">eosio::asset orgs::initial</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -549,19 +521,19 @@ $(document).ready(function(){initNavTree('structorgs.html',''); initResizable();
 
 </div>
 </div>
-<a id="affc82d5743aea6b5f69b447f36537cb5" name="affc82d5743aea6b5f69b447f36537cb5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#affc82d5743aea6b5f69b447f36537cb5">&#9670;&nbsp;</a></span>inn</h2>
+<a id="ab7a88197a80884f578161b340a42d445" name="ab7a88197a80884f578161b340a42d445"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7a88197a80884f578161b340a42d445">&#9670;&nbsp;</a></span>is_active</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string orgs::inn</td>
+          <td class="memname">bool orgs::is_active = true</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>ИНН организации. </p>
+<p>Флаг, указывающий, что организация активна. </p>
 
 </div>
 </div>
@@ -581,30 +553,14 @@ $(document).ready(function(){initNavTree('structorgs.html',''); initResizable();
 
 </div>
 </div>
-<a id="aa2163b8b2c75dd675de51c6e44ded60c" name="aa2163b8b2c75dd675de51c6e44ded60c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2163b8b2c75dd675de51c6e44ded60c">&#9670;&nbsp;</a></span>logo</h2>
+<a id="ae08d676a2983d4497a88b5a05e5f46c6" name="ae08d676a2983d4497a88b5a05e5f46c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae08d676a2983d4497a88b5a05e5f46c6">&#9670;&nbsp;</a></span>members_count</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string orgs::logo</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Логотип организации. </p>
-
-</div>
-</div>
-<a id="a36a73688848c389a2f2626df93ce9d0d" name="a36a73688848c389a2f2626df93ce9d0d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36a73688848c389a2f2626df93ce9d0d">&#9670;&nbsp;</a></span>members_count</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::optional&lt;uint64_t&gt; orgs::members_count</td>
+          <td class="memname">uint64_t orgs::members_count</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -613,83 +569,19 @@ $(document).ready(function(){initNavTree('structorgs.html',''); initResizable();
 
 </div>
 </div>
-<a id="a4983389f1ef9ec6b722a1471031a83c7" name="a4983389f1ef9ec6b722a1471031a83c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4983389f1ef9ec6b722a1471031a83c7">&#9670;&nbsp;</a></span>membership</h2>
+<a id="a1dbf728ec4dff7ca8f172bee4da901dd" name="a1dbf728ec4dff7ca8f172bee4da901dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1dbf728ec4dff7ca8f172bee4da901dd">&#9670;&nbsp;</a></span>minimum</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::optional&lt;eosio::asset&gt; orgs::membership</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Членский взнос (если применимо). </p>
-
-</div>
-</div>
-<a id="abdf961fb24a7135fd0a2eba44ed0d0cb" name="abdf961fb24a7135fd0a2eba44ed0d0cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abdf961fb24a7135fd0a2eba44ed0d0cb">&#9670;&nbsp;</a></span>minimum</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::optional&lt;eosio::asset&gt; orgs::minimum</td>
+          <td class="memname">eosio::asset orgs::minimum</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Минимальный взнос (если применимо). </p>
-
-</div>
-</div>
-<a id="ae3e89e39dc1dac2fa382f52c7dfa1499" name="ae3e89e39dc1dac2fa382f52c7dfa1499"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3e89e39dc1dac2fa382f52c7dfa1499">&#9670;&nbsp;</a></span>name</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string orgs::name</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Полное наименование организации. </p>
-
-</div>
-</div>
-<a id="a3da6502bd383a53b200b7db125575b5d" name="a3da6502bd383a53b200b7db125575b5d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3da6502bd383a53b200b7db125575b5d">&#9670;&nbsp;</a></span>ogrn</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string orgs::ogrn</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>ОГРН организации. </p>
-
-</div>
-</div>
-<a id="ac0049e14ff707d167f0484cea9b6740c" name="ac0049e14ff707d167f0484cea9b6740c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac0049e14ff707d167f0484cea9b6740c">&#9670;&nbsp;</a></span>orgs_counts</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::optional&lt;uint64_t&gt; orgs::orgs_counts</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Количество подорганизаций. </p>
 
 </div>
 </div>
@@ -709,94 +601,30 @@ $(document).ready(function(){initNavTree('structorgs.html',''); initResizable();
 
 </div>
 </div>
-<a id="a93ab1b5c27d0b55d80651a72353beec5" name="a93ab1b5c27d0b55d80651a72353beec5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a93ab1b5c27d0b55d80651a72353beec5">&#9670;&nbsp;</a></span>period</h2>
+<a id="a018bd81cc0de74c7c0edc6cb34296b29" name="a018bd81cc0de74c7c0edc6cb34296b29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a018bd81cc0de74c7c0edc6cb34296b29">&#9670;&nbsp;</a></span>storages</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::optional&lt;eosio::name&gt; orgs::period</td>
+          <td class="memname">std::vector&lt;<a class="el" href="structstorage.html">storage</a>&gt; orgs::storages</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Периодичность взносов. </p>
+<p>Хранилища персональных данных и идентификаторы данных в них. </p>
 
 </div>
 </div>
-<a id="abbe8d02b45decc5efbe76645d07588b7" name="abbe8d02b45decc5efbe76645d07588b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abbe8d02b45decc5efbe76645d07588b7">&#9670;&nbsp;</a></span>phone</h2>
+<a id="a0acaa1da073fa33862536db6e1335bbd" name="a0acaa1da073fa33862536db6e1335bbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0acaa1da073fa33862536db6e1335bbd">&#9670;&nbsp;</a></span>token_contract</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string orgs::phone</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Контактный телефон организации. </p>
-
-</div>
-</div>
-<a id="aef9dd189590bfe100c957ce5bde967e1" name="aef9dd189590bfe100c957ce5bde967e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef9dd189590bfe100c957ce5bde967e1">&#9670;&nbsp;</a></span>registration</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string orgs::registration</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Дата регистрации юридического лица. </p>
-
-</div>
-</div>
-<a id="a2856436e3f095cf78cf6d6a617c79d61" name="a2856436e3f095cf78cf6d6a617c79d61"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2856436e3f095cf78cf6d6a617c79d61">&#9670;&nbsp;</a></span>short_name</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string orgs::short_name</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Краткое наименование организации. </p>
-
-</div>
-</div>
-<a id="a33846e60c8725628db622e8f5a2511dc" name="a33846e60c8725628db622e8f5a2511dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a33846e60c8725628db622e8f5a2511dc">&#9670;&nbsp;</a></span>slug</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::optional&lt;std::string&gt; orgs::slug</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Уникальный идентификатор организации. </p>
-
-</div>
-</div>
-<a id="a135a3014d3e21024a2eb16b775d46a2f" name="a135a3014d3e21024a2eb16b775d46a2f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a135a3014d3e21024a2eb16b775d46a2f">&#9670;&nbsp;</a></span>token_contract</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::optional&lt;eosio::name&gt; orgs::token_contract</td>
+          <td class="memname">eosio::name orgs::token_contract</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -821,30 +649,14 @@ $(document).ready(function(){initNavTree('structorgs.html',''); initResizable();
 
 </div>
 </div>
-<a id="ae939c459ab38616d44ad9544fc499512" name="ae939c459ab38616d44ad9544fc499512"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae939c459ab38616d44ad9544fc499512">&#9670;&nbsp;</a></span>users_count</h2>
+<a id="a2f2e75cd711056a893bb6f84283cf069" name="a2f2e75cd711056a893bb6f84283cf069"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f2e75cd711056a893bb6f84283cf069">&#9670;&nbsp;</a></span>verifications</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::optional&lt;uint64_t&gt; orgs::users_count</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Количество пользователей организации. </p>
-
-</div>
-</div>
-<a id="a7f2292b35d32249116fbabc45ee29f90" name="a7f2292b35d32249116fbabc45ee29f90"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f2292b35d32249116fbabc45ee29f90">&#9670;&nbsp;</a></span>verification</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structverification.html">verification</a> orgs::verification</td>
+          <td class="memname">std::vector&lt;<a class="el" href="structverification.html">verification</a>&gt; orgs::verifications</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -853,24 +665,8 @@ $(document).ready(function(){initNavTree('structorgs.html',''); initResizable();
 
 </div>
 </div>
-<a id="a704ac67823483cb07bb24fa5245b19aa" name="a704ac67823483cb07bb24fa5245b19aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a704ac67823483cb07bb24fa5245b19aa">&#9670;&nbsp;</a></span>website</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string orgs::website</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Веб-сайт организации. </p>
-
-</div>
-</div>
 <hr/>Объявления и описания членов структуры находятся в файле:<ul>
-<li>common/<a class="el" href="users_8hpp_source.html">users.hpp</a></li>
+<li>common/<a class="el" href="accounts_8hpp_source.html">accounts.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

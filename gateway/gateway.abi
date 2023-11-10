@@ -4,20 +4,258 @@
     "types": [],
     "structs": [
         {
+            "name": "back",
+            "base": "",
+            "fields": [
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "token_contract",
+                    "type": "name"
+                },
+                {
+                    "name": "quantity",
+                    "type": "asset"
+                }
+            ]
+        },
+        {
+            "name": "dpcomplete",
+            "base": "",
+            "fields": [
+                {
+                    "name": "deposit_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "memo",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "dpcreate",
+            "base": "",
+            "fields": [
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "program_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "purpose",
+                    "type": "name"
+                },
+                {
+                    "name": "secondary_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "internal_quantity",
+                    "type": "asset"
+                },
+                {
+                    "name": "external_quantity",
+                    "type": "asset"
+                },
+                {
+                    "name": "memo",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "dpfail",
+            "base": "",
+            "fields": [
+                {
+                    "name": "deposit_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "memo",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "dpinit",
+            "base": "",
+            "fields": [
+                {
+                    "name": "deposit_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "link",
+                    "type": "string"
+                },
+                {
+                    "name": "memo",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "dpupdate",
+            "base": "",
+            "fields": [
+                {
+                    "name": "deposit_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "memo",
+                    "type": "string"
+                }
+            ]
+        },
+        {
             "name": "newid",
             "base": "",
             "fields": [
                 {
-                    "name": "coop_id",
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "id",
                     "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "wthdcomplete",
+            "base": "",
+            "fields": [
+                {
+                    "name": "withdraw_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "memo",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "wthdcreate",
+            "base": "",
+            "fields": [
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "internal_quantity",
+                    "type": "asset"
+                },
+                {
+                    "name": "external_quantity",
+                    "type": "asset"
+                },
+                {
+                    "name": "memo",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "wthdfail",
+            "base": "",
+            "fields": [
+                {
+                    "name": "withdraw_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "memo",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "wthdupdate",
+            "base": "",
+            "fields": [
+                {
+                    "name": "withdraw_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "memo",
+                    "type": "string"
                 }
             ]
         }
     ],
     "actions": [
         {
+            "name": "back",
+            "type": "back",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "dpcomplete",
+            "type": "dpcomplete",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "dpcreate",
+            "type": "dpcreate",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "dpfail",
+            "type": "dpfail",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "dpinit",
+            "type": "dpinit",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "dpupdate",
+            "type": "dpupdate",
+            "ricardian_contract": ""
+        },
+        {
             "name": "newid",
             "type": "newid",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "wthdcomplete",
+            "type": "wthdcomplete",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "wthdcreate",
+            "type": "wthdcreate",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "wthdfail",
+            "type": "wthdfail",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "wthdupdate",
+            "type": "wthdupdate",
             "ricardian_contract": ""
         }
     ],

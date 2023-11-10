@@ -29,8 +29,6 @@
  *  
  *  \note Контракт маркетплейса является центральной точкой экономической активности на платформе.
  */       
-
-
 class [[eosio::contract(MARKETPLACE)]] marketplace : public eosio::contract {
 
 public:
@@ -40,8 +38,6 @@ public:
 
 
   void apply(uint64_t receiver, uint64_t code, uint64_t action);
-
-
 
   // ... определение методов контракта ...
   

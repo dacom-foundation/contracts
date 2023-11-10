@@ -1,18 +1,18 @@
 var searchData=
 [
-  ['lang_0',['lang',['../structdrafts.html#a9f0325c5ceef01e0a024fb5d757fb9e5',1,'drafts']]],
+  ['lang_0',['lang',['../structtranslations.html#abdd9ea697a2e94844c11ec157c51c39b',1,'translations']]],
   ['last_5fbid_5ftime_1',['last_bid_time',['../structeosiosystem_1_1name__bid.html#aaf689933142cde0cc33c8a945d5e1dde',1,'eosiosystem::name_bid']]],
   ['last_5fblock_5fnum_2',['last_block_num',['../structeosiosystem_1_1eosio__global__state2.html#a5efff2639a098649fc9f3478a5e7115a',1,'eosiosystem::eosio_global_state2']]],
   ['last_5fclaim_5ftime_3',['last_claim_time',['../structeosiosystem_1_1producer__info.html#a2c0ee0458d7b6b5629bab41d2f94a156',1,'eosiosystem::producer_info']]],
   ['last_5fdist_5ftime_4',['last_dist_time',['../structeosiosystem_1_1rex__return__pool.html#a6bcacb0d59cb8951b83f089e2dee3bed',1,'eosiosystem::rex_return_pool']]],
   ['last_5finvalidation_5ftime_5',['last_invalidation_time',['../structeosio_1_1multisig_1_1invalidation.html#a767f677a40d58d61189e2bfd2bbdff1f',1,'eosio::multisig::invalidation']]],
-  ['last_5fmin_5fpay_6',['last_min_pay',['../structmembers.html#acae55fdc8bdd745b39e2ec2633f4f2a6',1,'members']]],
+  ['last_5fmin_5fpay_6',['last_min_pay',['../structparticipants.html#acb3931363302e336cfb0c62e3a2d9abc',1,'participants']]],
   ['last_5fname_5fclose_7',['last_name_close',['../structeosiosystem_1_1eosio__global__state.html#aa4f0ee20aedd1f86a3f984c57270bfd7',1,'eosiosystem::eosio_global_state']]],
   ['last_5fpervote_5fbucket_5ffill_8',['last_pervote_bucket_fill',['../structeosiosystem_1_1eosio__global__state.html#afabbd0323315bef9ad7b5d2f953a0340',1,'eosiosystem::eosio_global_state']]],
   ['last_5fproducer_5fschedule_5fsize_9',['last_producer_schedule_size',['../structeosiosystem_1_1eosio__global__state.html#a4e768096f99af94ce4048446c90075a8',1,'eosiosystem::eosio_global_state']]],
   ['last_5fproducer_5fschedule_5fupdate_10',['last_producer_schedule_update',['../structeosiosystem_1_1eosio__global__state.html#a00d9962c27103495ffdae8b14ca89fb4',1,'eosiosystem::eosio_global_state']]],
   ['last_5fram_5fincrease_11',['last_ram_increase',['../structeosiosystem_1_1eosio__global__state2.html#a7b233e1f64b6da410d227d5891ca399c',1,'eosiosystem::eosio_global_state2']]],
-  ['last_5fupdate_12',['last_update',['../structdrafts.html#a9d670530c00e8a4e1dd824630a3be354',1,'drafts::last_update()'],['../structbank.html#a9d3a91fdf7922097c93148ffdf4c815d',1,'bank::last_update()'],['../structboards.html#acaad31053c6dc00a9b99faaece7213bc',1,'boards::last_update()'],['../structmembers.html#a5b35eec3e9a4c95b0fa41528817913ca',1,'members::last_update()'],['../structverification.html#a674206f7442d3ba3319ce4b22d542b04',1,'verification::last_update()']]],
+  ['last_5fupdate_12',['last_update',['../structboards.html#acaad31053c6dc00a9b99faaece7213bc',1,'boards::last_update()'],['../structcntrbutions.html#a6802186946c65818f4513d50b9bba958',1,'cntrbutions::last_update()'],['../structverification.html#a674206f7442d3ba3319ce4b22d542b04',1,'verification::last_update()'],['../structbank.html#a9d3a91fdf7922097c93148ffdf4c815d',1,'bank::last_update()'],['../structprograms.html#ad42666167c9ae4442055e6c5e0286ece',1,'programs::last_update()'],['../structparticipants.html#a4f914f47ab6ea9ff77135d13f71f361d',1,'participants::last_update()']]],
   ['last_5fvote_5fweight_13',['last_vote_weight',['../structeosiosystem_1_1voter__info.html#aa60bfb8489e47d8514efd230cd18288e',1,'eosiosystem::voter_info']]],
   ['last_5fvotepay_5fshare_5fupdate_14',['last_votepay_share_update',['../structeosiosystem_1_1producer__info2.html#ae6771ab3b619d7cc3a354baf05336e96',1,'eosiosystem::producer_info2']]],
   ['last_5fvpay_5fstate_5fupdate_15',['last_vpay_state_update',['../structeosiosystem_1_1eosio__global__state3.html#accd351e80b36cfc0ed6db8eebef527d2',1,'eosiosystem::eosio_global_state3']]],
@@ -23,9 +23,9 @@ var searchData=
   ['limit_5fauth_5fchanges_2ecpp_20',['limit_auth_changes.cpp',['../limit__auth__changes_8cpp.html',1,'']]],
   ['limit_5fauth_5fchanges_2ehpp_21',['limit_auth_changes.hpp',['../limit__auth__changes_8hpp.html',1,'']]],
   ['limitauthchg_22',['limitauthchg',['../classeosiosystem_1_1system__contract.html#ab940f454d4d3d0018f22bf472caf3b52',1,'eosiosystem::system_contract']]],
-  ['linkauth_23',['linkauth',['../classeosiobios_1_1bios.html#ac88e1fbb2bf9f23fcf351ab4f02bcf23',1,'eosiobios::bios::linkauth()'],['../classeosioboot_1_1boot.html#a5a8b5601405f5d4e42df1a11344ff852',1,'eosioboot::boot::linkauth()'],['../classeosiosystem_1_1native.html#a35b93b9e7ae3eaa60619189c7694499e',1,'eosiosystem::native::linkauth()']]],
-  ['linkauth_5faction_24',['linkauth_action',['../classeosiobios_1_1bios.html#aa23c7a9882776e23792f72958e7e2698',1,'eosiobios::bios::linkauth_action()'],['../classeosioboot_1_1boot.html#a59658ecc01553c951f8d8126c0ec2b7d',1,'eosioboot::boot::linkauth_action()'],['../classeosiosystem_1_1native.html#a9003ba3e7e55f294f3d028f02873d5f9',1,'eosiosystem::native::linkauth_action()']]],
-  ['loan_5fnum_25',['loan_num',['../structeosiosystem_1_1rex__pool.html#a95d45a7a85681d1930a62443d0fec47a',1,'eosiosystem::rex_pool::loan_num()'],['../structeosiosystem_1_1rex__loan.html#a5727e851ef16e34096c5f3864a43d994',1,'eosiosystem::rex_loan::loan_num()']]],
-  ['location_26',['location',['../structeosiosystem_1_1producer__info.html#a5e543ec2f645048f754beca0fafc9daa',1,'eosiosystem::producer_info']]],
-  ['logo_27',['logo',['../structorg__data.html#aaa4a0d3f350652e3ca6fb2fb10803b21',1,'org_data::logo()'],['../structorgs.html#aa2163b8b2c75dd675de51c6e44ded60c',1,'orgs::logo()']]]
+  ['link_23',['link',['../structgateway_1_1deposits.html#a5fb0934e42de9506dad6fd8c7f0b34c5',1,'gateway::deposits']]],
+  ['linkauth_24',['linkauth',['../classeosiobios_1_1bios.html#ac88e1fbb2bf9f23fcf351ab4f02bcf23',1,'eosiobios::bios::linkauth()'],['../classeosioboot_1_1boot.html#a5a8b5601405f5d4e42df1a11344ff852',1,'eosioboot::boot::linkauth()'],['../classeosiosystem_1_1native.html#a35b93b9e7ae3eaa60619189c7694499e',1,'eosiosystem::native::linkauth()']]],
+  ['linkauth_5faction_25',['linkauth_action',['../classeosiobios_1_1bios.html#aa23c7a9882776e23792f72958e7e2698',1,'eosiobios::bios::linkauth_action()'],['../classeosioboot_1_1boot.html#a59658ecc01553c951f8d8126c0ec2b7d',1,'eosioboot::boot::linkauth_action()'],['../classeosiosystem_1_1native.html#a9003ba3e7e55f294f3d028f02873d5f9',1,'eosiosystem::native::linkauth_action()']]],
+  ['loan_5fnum_26',['loan_num',['../structeosiosystem_1_1rex__pool.html#a95d45a7a85681d1930a62443d0fec47a',1,'eosiosystem::rex_pool::loan_num()'],['../structeosiosystem_1_1rex__loan.html#a5727e851ef16e34096c5f3864a43d994',1,'eosiosystem::rex_loan::loan_num()']]],
+  ['location_27',['location',['../structeosiosystem_1_1producer__info.html#a5e543ec2f645048f754beca0fafc9daa',1,'eosiosystem::producer_info']]]
 ];

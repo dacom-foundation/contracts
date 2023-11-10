@@ -9,5 +9,5 @@ var searchData=
   ['updaterex_5faction_6',['updaterex_action',['../classeosiosystem_1_1system__contract.html#a3b0c64a9fcbc3446a2ca563ffcbce106',1,'eosiosystem::system_contract']]],
   ['updtrevision_5faction_7',['updtrevision_action',['../classeosiosystem_1_1system__contract.html#a56315050770b4f79af95042a95b58507',1,'eosiosystem::system_contract']]],
   ['user_5fresources_5ftable_8',['user_resources_table',['../namespaceeosiosystem.html#a392bb6f33cd89eca7b90ee378a7ac8e3',1,'eosiosystem']]],
-  ['users_5findex_9',['users_index',['../users_8hpp.html#a293e036322f4f7dbcabd55b988f73238',1,'users.hpp']]]
+  ['users_5findex_9',['users_index',['../accounts_8hpp.html#a293e036322f4f7dbcabd55b988f73238',1,'accounts.hpp']]]
 ];
