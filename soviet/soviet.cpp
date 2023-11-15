@@ -13,7 +13,7 @@
 
 using namespace eosio;
 
-[[eosio::action]] void soviet::newid(uint64_t id) {
+[[eosio::action]] void soviet::newid(uint64_t id, uint64_t seed) {
   require_auth(_soviet);
 };
 

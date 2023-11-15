@@ -58,29 +58,6 @@
             ]
         },
         {
-            "name": "balances",
-            "base": "balances_base",
-            "fields": []
-        },
-        {
-            "name": "balances_base",
-            "base": "",
-            "fields": [
-                {
-                    "name": "id",
-                    "type": "uint64"
-                },
-                {
-                    "name": "contract",
-                    "type": "name"
-                },
-                {
-                    "name": "quantity",
-                    "type": "asset"
-                }
-            ]
-        },
-        {
             "name": "cancel",
             "base": "",
             "fields": [
@@ -112,29 +89,6 @@
                 },
                 {
                     "name": "exchange_id",
-                    "type": "uint64"
-                }
-            ]
-        },
-        {
-            "name": "counts",
-            "base": "counts_base",
-            "fields": []
-        },
-        {
-            "name": "counts_base",
-            "base": "",
-            "fields": [
-                {
-                    "name": "key",
-                    "type": "name"
-                },
-                {
-                    "name": "secondary_key",
-                    "type": "name"
-                },
-                {
-                    "name": "value",
                     "type": "uint64"
                 }
             ]
@@ -514,20 +468,6 @@
         }
     ],
     "tables": [
-        {
-            "name": "balances",
-            "type": "balances",
-            "index_type": "i64",
-            "key_names": [],
-            "key_types": []
-        },
-        {
-            "name": "counts",
-            "type": "counts",
-            "index_type": "i64",
-            "key_names": [],
-            "key_types": []
-        },
         {
             "name": "exchange",
             "type": "exchange",

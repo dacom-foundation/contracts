@@ -13,7 +13,7 @@ void draft::edittrans(eosio::name creator, uint64_t translate_id, std::string da
   eosio::check(trans != translations.end(), "Перевод не найден");
   eosio::check(trans -> creator == creator, "Только создатель перевода может его опубликовать"); 
   
-  translations.modify(trans, _ano, [&](auto &t){
+  translations.modify(trans, _draft, [&](auto &t){
     t.data = data;
   });
 
@@ -27,20 +27,20 @@ void draft::publishtrans(eosio::name creator, uint64_t translate_id) {
   eosio::check(trans != translations.end(), "Перевод не найден");
   eosio::check(trans -> creator == creator, "Только создатель перевода может его опубликовать"); 
   
-  translations.modify(trans, _ano, [&](auto &t){
+  translations.modify(trans, _draft, [&](auto &t){
     t.is_published = true;
   });
 
 };
 
 void draft::approvetrans(uint64_t translate_id) {
-  require_auth(_ano);
+  require_auth(_draft);
 
   translations_index translations(_draft, _draft.value);
   auto trans = translations.find(translate_id);
   eosio::check(trans != translations.end(), "Перевод не найден");
 
-  translations.modify(trans, _ano, [&](auto &t){
+  translations.modify(trans, _draft, [&](auto &t){
     t.is_approved = true;
   });
 
@@ -98,12 +98,12 @@ void draft::deldraft(eosio::name creator, uint64_t draft_id) {
 
 
 void draft::approvedraft(uint64_t draft_id) {
-  require_auth(_ano);
+  require_auth(_draft);
 
   drafts_index drafts(_draft, _draft.value);
   auto draft = drafts.find(draft_id);
   eosio::check(draft != drafts.end(), "Шаблон не найден");
-  drafts.modify(draft, _ano, [&](auto &d){
+  drafts.modify(draft, _draft, [&](auto &d){
     d.is_approved = true;
   });
 
@@ -111,12 +111,12 @@ void draft::approvedraft(uint64_t draft_id) {
 
 
 void draft::standardize(uint64_t draft_id){
-  require_auth(_ano);
+  require_auth(_draft);
 
   drafts_index drafts(_draft, _draft.value);
   auto draft = drafts.find(draft_id);
   eosio::check(draft != drafts.end(), "Шаблон не найден");
-  drafts.modify(draft, _ano, [&](auto &d){
+  drafts.modify(draft, _draft, [&](auto &d){
     d.is_standartized = true;
   });  
 };

@@ -75,12 +75,13 @@ void soviet::createprog(eosio::name coopname, eosio::name chairman, std::string 
     pr.maximum = maximum;
   });
 
+  uint64_t seed = generate();
 
   action(
     permission_level{ _soviet, "active"_n},
     _soviet,
     "newid"_n,
-    std::make_tuple(id)
+    std::make_tuple(id, seed)
   ).send();
 
 };

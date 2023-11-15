@@ -126,6 +126,7 @@ void marketplace::create_parent(eosio::name type, const exchange_params& params)
     i.token_contract = coop -> token_contract;
     i.remain_pieces = params.pieces;
     i.price_for_piece = params.price_for_piece;
+    i.amount = params.price_for_piece * params.pieces;
     i.data = params.data;
     i.meta = params.meta;
   });
@@ -206,6 +207,7 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
     i.token_contract = coop -> token_contract;
     i.remain_pieces = params.pieces;
     i.price_for_piece = params.price_for_piece;
+    i.amount = params.price_for_piece * params.pieces;
     i.data = params.data;
     //TODO enable it
     // i.published_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
@@ -249,6 +251,7 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
   
   exchange.modify(parent_change, username, [&](auto &i) {
     i.remain_pieces -= change -> remain_pieces;
+    i.amount = (parent_change -> remain_pieces - change -> remain_pieces ) * parent_change -> price_for_piece;
     i.blocked_pieces += change -> remain_pieces;
   });
 
@@ -296,12 +299,12 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
   eosio::check(parent_change != exchange.end(), "Родительская заявка не найдена");
   eosio::check(change -> status == "published"_n, "Только заявка в статусе ожидания может быть отклонена");
 
+  // exchange.erase(change);
+  
   exchange.modify(change, username, [&](auto &o){
     o.status = "declined"_n;
     o.meta = meta;
   });
-
-  // exchange.erase(change);
 
   if (change -> type == "order"_n && change -> amount.amount > 0) {
     action(
@@ -346,7 +349,8 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
   exchange.modify(parent_change, username, [&](auto &i) {
     i.delivered_pieces += change -> blocked_pieces;
     i.blocked_pieces -= change -> blocked_pieces; 
-    
+    i.amount -= change -> amount;
+
     if (i.blocked_pieces + parent_change -> remain_pieces == 0) {
       i.status = "unpublished"_n; //снимаем родительскую заявку с публикации, если она исполнена
     }; 
@@ -515,6 +519,7 @@ void marketplace::cancel_child(eosio::name coopname, eosio::name username, uint6
     exchange.modify(parent_change, username, [&](auto &e) {
       e.remain_pieces += change -> blocked_pieces;
       e.blocked_pieces -= change -> blocked_pieces;
+      e.amount += change -> amount;
     });
 
     //удаляем дочернюю заявку
@@ -589,6 +594,7 @@ void marketplace::cancel_child(eosio::name coopname, eosio::name username, uint6
 
   exchange.modify(change, username, [&](auto &c){
     c.remain_pieces += new_pieces;
+    c.amount = (change -> remain_pieces + new_pieces) * change -> price_for_piece;
   });
   
 };

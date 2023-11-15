@@ -38,7 +38,7 @@ public:
   using contract::contract;
    //soviet.cpp
   [[eosio::action]] void exec(eosio::name executer, eosio::name coopname, uint64_t decision_id);
-  [[eosio::action]] void newid(uint64_t id);
+  [[eosio::action]] void newid(uint64_t id, uint64_t seed);
 
   //admin.cpp
   [[eosio::action]] void addstaff(eosio::name coopname, eosio::name chairman, eosio::name username, std::vector<right> rights, std::string position_title);

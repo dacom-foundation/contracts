@@ -35,11 +35,13 @@ void soviet::joincoop(eosio::name coopname, eosio::name username, signed_doc sig
     d.secondary_id = secondary_id;
   });
 
+  uint64_t seed = generate();
+
   action(
     permission_level{ _soviet, "active"_n},
     _soviet,
     "newid"_n,
-    std::make_tuple(id)
+    std::make_tuple(id, seed)
   ).send();
 };
 

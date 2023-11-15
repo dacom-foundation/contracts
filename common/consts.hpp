@@ -59,22 +59,22 @@ using namespace eosio;
 
 #if IS_TESTNET
     // Дефайны для тестовой сети
-    #define ANO "ano.test"
-    #define GATEWAY "testgate"
+    #define ANO "anotest"
+    #define GATEWAY "gatetest"
     #define DRAFT "drafttest"
-    #define MARKETPLACE "market.test"
-    #define SOVIET "soviet.test"
-    #define REGISTRATOR "reg.test"
+    #define MARKETPLACE "markettest"
+    #define SOVIET "soviettest"
+    #define REGISTRATOR "registrator"
     #define SYSTEM "eosio"
     
 
     // Константы для тестовой сети
-    static constexpr eosio::name _ano = "ano.test"_n;
-    static constexpr eosio::name _gateway = "testgate"_n;
+    static constexpr eosio::name _ano = "anotest"_n;
+    static constexpr eosio::name _gateway = "gatetest"_n;
     static constexpr eosio::name _draft = "drafttest"_n;
-    static constexpr eosio::name _marketplace = "market.test"_n;
-    static constexpr eosio::name _soviet = "soviet.test"_n;
-    static constexpr eosio::name _registrator = "reg.test"_n;
+    static constexpr eosio::name _marketplace = "markettest"_n;
+    static constexpr eosio::name _soviet = "soviettest"_n;
+    static constexpr eosio::name _registrator = "registrator"_n;
     static constexpr eosio::name _system = "eosio"_n;
     
     static constexpr eosio::name _regaccount_action = "joincoop"_n;

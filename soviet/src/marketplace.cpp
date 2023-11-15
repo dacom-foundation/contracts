@@ -37,12 +37,13 @@ void soviet::change(eosio::name coopname, uint64_t program_id, uint64_t exchange
     d.secondary_id = change_id;
   });
 
+  uint64_t seed = generate();
 
   action(
     permission_level{ _soviet, "active"_n},
     _soviet,
     "newid"_n,
-    std::make_tuple(id)
+    std::make_tuple(id, seed)
   ).send();
   
 };

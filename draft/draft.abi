@@ -400,12 +400,7 @@
             "key_types": []
         }
     ],
-    "ricardian_clauses": [
-        {
-            "id": "UserAgreement",
-            "body": "User agreement for the chain can go here."
-        }
-    ],
+    "ricardian_clauses": [],
     "variants": [],
     "action_results": []
 }

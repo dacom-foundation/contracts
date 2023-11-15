@@ -1,3 +1,5 @@
+#include <eosio/eosio.hpp>
+#include <eosio/transaction.hpp>
 
 static uint128_t combine_ids(const uint64_t &x, const uint64_t &y) {
   return (uint128_t{x} << 64) | y;
@@ -33,4 +35,18 @@ uint64_t hash64(const char *buf, size_t len) {
 
 uint64_t hash64(const std::string &arg) {
   return hash64(arg.c_str(), arg.size());
+}
+
+uint64_t generate() {
+    auto size = transaction_size();
+    char buf[size];
+    uint32_t read = read_transaction(buf, size);
+    eosio::check(size == read, "read_transaction failed");
+
+    uint64_t seed = eosio::current_time_point().sec_since_epoch();
+    for (int i = 0; i < size; i++) {
+        seed ^= ((uint64_t)buf[i] << (i % 8));
+    }
+
+    return seed;
 }

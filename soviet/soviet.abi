@@ -727,6 +727,10 @@
                 {
                     "name": "id",
                     "type": "uint64"
+                },
+                {
+                    "name": "seed",
+                    "type": "uint64"
                 }
             ]
         },
