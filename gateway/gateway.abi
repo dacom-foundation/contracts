@@ -22,6 +22,114 @@
             ]
         },
         {
+            "name": "balances",
+            "base": "balances_base",
+            "fields": []
+        },
+        {
+            "name": "balances_base",
+            "base": "",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "contract",
+                    "type": "name"
+                },
+                {
+                    "name": "quantity",
+                    "type": "asset"
+                }
+            ]
+        },
+        {
+            "name": "counts",
+            "base": "counts_base",
+            "fields": []
+        },
+        {
+            "name": "counts_base",
+            "base": "",
+            "fields": [
+                {
+                    "name": "key",
+                    "type": "name"
+                },
+                {
+                    "name": "secondary_key",
+                    "type": "name"
+                },
+                {
+                    "name": "value",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "deposits",
+            "base": "",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "creator",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "program_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "type",
+                    "type": "name"
+                },
+                {
+                    "name": "batch_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "token_contract",
+                    "type": "name"
+                },
+                {
+                    "name": "internal_quantity",
+                    "type": "asset"
+                },
+                {
+                    "name": "external_quantity",
+                    "type": "asset"
+                },
+                {
+                    "name": "status",
+                    "type": "name"
+                },
+                {
+                    "name": "link",
+                    "type": "string"
+                },
+                {
+                    "name": "memo",
+                    "type": "string"
+                },
+                {
+                    "name": "expired_at",
+                    "type": "time_point_sec"
+                }
+            ]
+        },
+        {
             "name": "dpcomplete",
             "base": "",
             "fields": [
@@ -40,6 +148,10 @@
             "base": "",
             "fields": [
                 {
+                    "name": "creator",
+                    "type": "name"
+                },
+                {
                     "name": "username",
                     "type": "name"
                 },
@@ -52,11 +164,11 @@
                     "type": "uint64"
                 },
                 {
-                    "name": "purpose",
+                    "name": "type",
                     "type": "name"
                 },
                 {
-                    "name": "secondary_id",
+                    "name": "batch_id",
                     "type": "uint64"
                 },
                 {
@@ -66,34 +178,6 @@
                 {
                     "name": "external_quantity",
                     "type": "asset"
-                },
-                {
-                    "name": "memo",
-                    "type": "string"
-                }
-            ]
-        },
-        {
-            "name": "dpfail",
-            "base": "",
-            "fields": [
-                {
-                    "name": "deposit_id",
-                    "type": "uint64"
-                },
-                {
-                    "name": "memo",
-                    "type": "string"
-                }
-            ]
-        },
-        {
-            "name": "dpinit",
-            "base": "",
-            "fields": [
-                {
-                    "name": "deposit_id",
-                    "type": "uint64"
                 },
                 {
                     "name": "link",
@@ -106,7 +190,7 @@
             ]
         },
         {
-            "name": "dpupdate",
+            "name": "dpfail",
             "base": "",
             "fields": [
                 {
@@ -130,6 +214,44 @@
                 {
                     "name": "id",
                     "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "withdrawals",
+            "base": "",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "token_contract",
+                    "type": "name"
+                },
+                {
+                    "name": "internal_quantity",
+                    "type": "asset"
+                },
+                {
+                    "name": "external_quantity",
+                    "type": "asset"
+                },
+                {
+                    "name": "status",
+                    "type": "name"
+                },
+                {
+                    "name": "memo",
+                    "type": "string"
                 }
             ]
         },
@@ -224,16 +346,6 @@
             "ricardian_contract": ""
         },
         {
-            "name": "dpinit",
-            "type": "dpinit",
-            "ricardian_contract": ""
-        },
-        {
-            "name": "dpupdate",
-            "type": "dpupdate",
-            "ricardian_contract": ""
-        },
-        {
             "name": "newid",
             "type": "newid",
             "ricardian_contract": ""
@@ -259,7 +371,36 @@
             "ricardian_contract": ""
         }
     ],
-    "tables": [],
+    "tables": [
+        {
+            "name": "balances",
+            "type": "balances",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "counts",
+            "type": "counts",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "deposits",
+            "type": "deposits",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "withdrawals",
+            "type": "withdrawals",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        }
+    ],
     "ricardian_clauses": [],
     "variants": [],
     "action_results": []

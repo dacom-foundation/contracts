@@ -4,18 +4,18 @@
 #include <eosio/system.hpp>
 
 
-struct signed_doc {
+struct document {
   // Чексумма документа (можем использовать SHA256)
   std::string hash;
   // Публичный ключ (предполагаем, что используется тип ключа EOSIO)
   std::string pkey;
   // Подпись чексуммы
   std::string sign; 
-  std::string vars; 
+  std::string meta; 
 };
 
 
-void verify(const signed_doc& doc) {
+void verify(const document& doc) {
     // Проверка подписи
     
     // assert_recover_key(doc.hash, doc.sign, doc.pkey);
@@ -33,6 +33,8 @@ struct [[eosio::table, eosio::contract(DRAFT)]] drafts {
   std::string title;
   std::string description;
   std::string context;
+  std::string model;
+  
   bool is_published;
   bool is_activated;
   bool is_approved;

@@ -83,6 +83,11 @@ struct [[eosio::table, eosio::contract(REGISTRATOR)]] accounts {
    * @return uint64_t - ключ, равный значению имени регистратора.
    */
   uint64_t by_registr() const { return registrator.value; }
+
+  uint64_t by_registered_at() const {
+    return registered_at.sec_since_epoch();
+  }
+
 };
 
 typedef eosio::multi_index<
@@ -97,7 +102,11 @@ typedef eosio::multi_index<
         eosio::const_mem_fun<accounts, uint64_t, &accounts::by_status>>,
     eosio::indexed_by<
         "byregistr"_n,
-        eosio::const_mem_fun<accounts, uint64_t, &accounts::by_registr>>>
+        eosio::const_mem_fun<accounts, uint64_t, &accounts::by_registr>>,
+    eosio::indexed_by<
+        "byregistred"_n,
+        eosio::const_mem_fun<accounts, uint64_t, &accounts::by_registered_at>>
+        >
     accounts_index;
 
 
@@ -107,7 +116,6 @@ typedef eosio::multi_index<
  */
 struct storage {
   eosio::name storage_username; ///< Имя аккаунта хранилища персональных данных
-  std::string uid; ///< Идентификатор данных в хранилище
 };
 
 
@@ -121,7 +129,7 @@ struct [[eosio::table, eosio::contract(REGISTRATOR)]] users {
   bool is_active = false; ///< Флаг активности.
   std::vector<storage> storages; ///< Хранилища персональных данных и идентификаторы данных в них.
   std::vector<verification> verifications; ///< Информация о верификации пользователя.
-
+  
   /**
    * @brief Возвращает первичный ключ учетной записи пользователя.
    * @return uint64_t - первичный ключ, равный значению имени аккаунта пользователя.
@@ -190,16 +198,16 @@ struct [[eosio::table, eosio::contract(REGISTRATOR)]] orgs {
   eosio::name parent_username; ///< Имя родительской организации, если есть.
   std::vector<verification> verifications; ///< Информация о верификации организации.
   std::vector<storage> storages; ///< Хранилища персональных данных и идентификаторы данных в них.
-  bool is_active = true; ///< Флаг, указывающий, что организация активна.
   bool is_cooperative = false; ///< Флаг, указывающий, является ли организация кооперативом.
+  bool is_active = false; ///< Флаг, указывающий, что организация активна.
   eosio::name coop_type; ///< Тип некоммерческой организации (если это кооператив).
+  
   eosio::name token_contract; ///< Контракт токена, связанного с организацией.
   std::string announce; ///< Анонс организации.
   std::string description; ///< Описание организации.
-  uint64_t members_count; ///< Количество членов организации.
   eosio::asset initial; ///< Вступительный взнос (если применимо).
   eosio::asset minimum; ///< Минимальный взнос (если применимо).
-
+  
   // Тип некоммерческой организации
   // (0, _('Union of Societies')),
   // (1, _('Consumer Cooperative')),

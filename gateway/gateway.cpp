@@ -29,7 +29,7 @@ void gateway::newid(eosio::name username, uint64_t id) {
  * @param coopname Имя аккаунта кооператива, в рамках которого создается депозит.
  * @param program_id Идентификатор программы, с которой связан депозит.
  * @param purpose Назначение платежа ('initial' или 'changeone').
- * @param secondary_id Вторичный идентификатор, связанный с депозитом.
+ * @param batch_id Вторичный идентификатор, связанный с депозитом.
  * @param internal_quantity Количество во внутреннем формате.
  * @param external_quantity Количество во внешнем формате.
  * @param memo Примечание к депозиту.
@@ -38,35 +38,40 @@ void gateway::newid(eosio::name username, uint64_t id) {
  * 
  * cleos push action gateway dpcreate '["username", "coopaccount", 123, "initial", 456, "10.0000 SYS", "10.0000 EXT", "Депозит для программы X"]' -p username@active
  */
-[[eosio::action]] void gateway::dpcreate(eosio::name username, eosio::name coopname, uint64_t program_id, eosio::name purpose, uint64_t secondary_id, eosio::asset internal_quantity, eosio::asset external_quantity, std::string memo){
+[[eosio::action]] void gateway::dpcreate(eosio::name creator, eosio::name username, eosio::name coopname, uint64_t program_id, eosio::name type, uint64_t batch_id, eosio::asset internal_quantity, eosio::asset external_quantity, std::string link, std::string memo){
 
-  require_auth(username);
+  require_auth(creator);
 
   deposits_index deposits(_gateway, _gateway.value);
 
   uint64_t id = get_global_id(_gateway, "deposits"_n);
 
   auto cooperative = get_cooperative_or_fail(coopname);
-  auto program = get_program_or_fail(coopname, program_id);
   
-  eosio::check(purpose == "changeone"_n || purpose == "initial"_n, "Доступные назначения платежа - 'initial' | 'changeone'");
+  if (program_id > 0)
+    auto program = get_program_or_fail(coopname, program_id);
+  
+  eosio::check(type == "change"_n || type == "initial"_n, "Доступные назначения платежа - 'initial' | 'changeone'");
   
   eosio::check(cooperative.initial.symbol == internal_quantity.symbol, "Неверный cимвол токена");
   eosio::check(internal_quantity.amount > 0, "Сумма ввода должна быть положительной");
   eosio::check(external_quantity.amount > 0, "Сумма вывода должна быть положительной");
 
-  deposits.emplace(username, [&](auto &d) {
+  deposits.emplace(creator, [&](auto &d) {
     d.id = id;
+    d.creator = creator;
     d.username = username;
     d.coopname = coopname;
     d.program_id = program_id;
-    d.purpose = purpose; 
-    d.secondary_id = secondary_id;
+    d.type = type; 
+    d.batch_id = batch_id;
     d.token_contract = cooperative.token_contract;
     d.internal_quantity = internal_quantity;
     d.external_quantity = external_quantity;
-    d.status = ""_n;
+    d.status = "waiting"_n;
     d.memo = memo;
+    d.link = link;
+    d.expired_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch() + 3600);
   });
 
   action(
@@ -76,69 +81,6 @@ void gateway::newid(eosio::name username, uint64_t id) {
     std::make_tuple(username, id)
   ).send();
 
-}
-
-/**
- * @brief Инициирует процессинг депозита в контракте `gateway`.
- *
- * @details Действие `dpinit` используется для инициирования процессинга депозита по его идентификатору. 
- * Оно обновляет статус депозита на 'initiated' и добавляет ссылку и заметку к записи.
- *
- * @note Требуется авторизация аккаунта контракта `gateway`.
- * @ingroup public_actions
- *
- * @param deposit_id Идентификатор депозита, который инициируется.
- * @param link Ссылка, связанная с процессингом депозита.
- * @param memo Примечание к инициированному депозиту.
- *
- * Инициирование процессинга депозита через cleos
- *
- * cleos push action gateway dpinit '[123, "http://example.com/link", "Примечание к депозиту"]' -p gateway@active
- */
-void gateway::dpinit(uint64_t deposit_id, std::string link, std::string memo){
-
-  require_auth(_gateway);
-
-  deposits_index deposits(_gateway, _gateway.value);
-  
-  auto deposit = deposits.find(deposit_id);
-  eosio::check(deposit != deposits.end(), "Объект процессинга не найден");
-  deposits.modify(deposit, _gateway, [&](auto &d){
-    d.status = "initiated"_n;
-    d.link = link;
-    d.memo = memo;
-  });
-}
-
-/**
- * @brief Обновляет статус и заметку депозита в контракте `gateway`.
- *
- * @details Действие `dpupdate` используется для обновления статуса депозита на 'pending' и изменения его заметки. 
- * Это действие предназначено для обновления информации о депозите в процессе его обработки.
- *
- * @note Требуется авторизация аккаунта контракта `gateway`.
- * @ingroup public_actions
- *
- * @param deposit_id Идентификатор депозита, который обновляется.
- * @param memo Новая заметка, связанная с депозитом.
- *
- * Обновление информации депозита через cleos
- *
- * cleos push action gateway dpupdate '[123, "Новая заметка к депозиту"]' -p gateway@active
- */
-void gateway::dpupdate(uint64_t deposit_id, std::string memo){
-
-  require_auth(_gateway);
-
-  deposits_index deposits(_gateway, _gateway.value);
-  
-  auto deposit = deposits.find(deposit_id);
-  eosio::check(deposit != deposits.end(), "Объект процессинга не найден");
-  deposits.modify(deposit, _gateway, [&](auto &d){
-    d.status = "pending"_n;
-    d.memo = memo;
-  });
-  
 }
 
 /**
@@ -157,25 +99,22 @@ void gateway::dpupdate(uint64_t deposit_id, std::string memo){
  *
  * cleos push action gateway dpcomplete '[123, "Заметка к завершенному депозиту"]' -p gateway@active
  */
-void gateway::dpcomplete(uint64_t deposit_id, std::string memo){
-
-  require_auth(_gateway);
+void gateway::dpcomplete(uint64_t deposit_id, std::string memo) {
 
   deposits_index deposits(_gateway, _gateway.value);
-  
   auto deposit = deposits.find(deposit_id);
+  
   eosio::check(deposit != deposits.end(), "Объект процессинга не найден");
-  deposits.modify(deposit, _gateway, [&](auto &d){
-    d.status = "successed"_n;
-    d.memo = memo;
-  });
+  
+  require_auth(deposit -> creator);
 
-  action(
-      permission_level{ _gateway, "active"_n },
-      deposit -> token_contract, "issue"_n,
-      std::make_tuple( deposit -> username, deposit -> internal_quantity, std::string("id: ") + std::to_string(deposit->id)) 
-  ).send();
+  // action(
+  //     permission_level{ _gateway, "active"_n },
+  //     deposit -> token_contract, "issue"_n,
+  //     std::make_tuple( deposit -> username, deposit -> internal_quantity, std::string("id: ") + std::to_string(deposit->id)) 
+  // ).send();
 
+  deposits.erase(deposit);
 }
 
 /**
@@ -195,18 +134,13 @@ void gateway::dpcomplete(uint64_t deposit_id, std::string memo){
  */
 void gateway::dpfail(uint64_t deposit_id, std::string memo) {
 
-  require_auth(_gateway);
-
   deposits_index deposits(_gateway, _gateway.value);
-  
   auto deposit = deposits.find(deposit_id);
-  eosio::check(deposit != deposits.end(), "Объект процессинга не найден");
-  eosio::check(deposit -> status == "pending"_n, "Неверный статус для провала");
 
-  deposits.modify(deposit, _gateway, [&](auto &d){
-    d.status = "failed"_n;
-    d.memo = memo;
-  });
+  require_auth(deposit -> creator);
+  eosio::check(deposit != deposits.end(), "Объект процессинга не найден");
+  
+  deposits.erase(deposit);
 
 }
 
@@ -233,9 +167,9 @@ void gateway::wthdcreate(eosio::name username, eosio::name coopname, eosio::asse
 
   require_auth(username);
 
-  withdraws_index withdraws(_gateway, _gateway.value);
+  withdrawals_index withdrawals(_gateway, _gateway.value);
 
-  uint64_t id = get_global_id(_gateway, "withdraws"_n);
+  uint64_t id = get_global_id(_gateway, "withdrawals"_n);
 
   auto cooperative = get_cooperative_or_fail(coopname);
   
@@ -245,7 +179,7 @@ void gateway::wthdcreate(eosio::name username, eosio::name coopname, eosio::asse
 
   sub_balance(_gateway, username, internal_quantity, cooperative.token_contract);
 
-  withdraws.emplace(username, [&](auto &d){
+  withdrawals.emplace(username, [&](auto &d){
     d.id = id;
     d.username = username;
     d.coopname = coopname;
@@ -283,12 +217,12 @@ void gateway::wthdupdate(uint64_t withdraw_id, std::string memo) {
 
   require_auth(_gateway);
 
-  withdraws_index withdraws(_gateway, _gateway.value);
+  withdrawals_index withdrawals(_gateway, _gateway.value);
   
-  auto withdraw = withdraws.find(withdraw_id);
-  eosio::check(withdraw != withdraws.end(), "Объект процессинга не найден");
+  auto withdraw = withdrawals.find(withdraw_id);
+  eosio::check(withdraw != withdrawals.end(), "Объект процессинга не найден");
   
-  withdraws.modify(withdraw, _gateway, [&](auto &d){
+  withdrawals.modify(withdraw, _gateway, [&](auto &d){
     d.status = "pending"_n;
     d.memo = memo;
   });
@@ -312,12 +246,12 @@ void gateway::wthdcomplete(uint64_t withdraw_id, std::string memo){
 
   require_auth(_gateway);
 
-  withdraws_index withdraws(_gateway, _gateway.value);
+  withdrawals_index withdrawals(_gateway, _gateway.value);
   
-  auto withdraw = withdraws.find(withdraw_id);
-  eosio::check(withdraw != withdraws.end(), "Объект процессинга не найден");
+  auto withdraw = withdrawals.find(withdraw_id);
+  eosio::check(withdraw != withdrawals.end(), "Объект процессинга не найден");
   
-  withdraws.modify(withdraw, _gateway, [&](auto &d){
+  withdrawals.modify(withdraw, _gateway, [&](auto &d){
     d.status = "successed"_n;
     d.memo = memo;
   });
@@ -348,13 +282,13 @@ void gateway::wthdfail(uint64_t withdraw_id, std::string memo) {
 
   require_auth(_gateway);
 
-  withdraws_index withdraws(_gateway, _gateway.value);
+  withdrawals_index withdrawals(_gateway, _gateway.value);
   
-  auto withdraw = withdraws.find(withdraw_id);
-  eosio::check(withdraw != withdraws.end(), "Объект процессинга не найден");
+  auto withdraw = withdrawals.find(withdraw_id);
+  eosio::check(withdraw != withdrawals.end(), "Объект процессинга не найден");
   eosio::check(withdraw -> status == "pending"_n, "Неверный статус для провала");
 
-  withdraws.modify(withdraw, _gateway, [&](auto &d){
+  withdrawals.modify(withdraw, _gateway, [&](auto &d){
     d.status = "failed"_n;
     d.memo = memo;
   });
@@ -403,7 +337,7 @@ void apply(uint64_t receiver, uint64_t code, uint64_t action) {
     switch (action) {
       EOSIO_DISPATCH_HELPER(
           gateway, (newid)
-          (dpcreate)(dpinit)(dpupdate)(dpcomplete)(dpfail)
+          (dpcreate)(dpcomplete)(dpfail)
           (wthdcreate)(wthdupdate)(wthdcomplete)(wthdfail)
           (back)
       )

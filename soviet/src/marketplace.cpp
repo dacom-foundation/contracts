@@ -14,49 +14,62 @@ using namespace eosio;
 * 
 * @note Авторизация требуется от аккаунта: @p _marketplace
 */
-void soviet::change(eosio::name coopname, uint64_t program_id, uint64_t exchange_id) { 
+void soviet::change(eosio::name coopname, eosio::name username, uint64_t program_id, uint64_t exchange_id) { 
   require_auth(_marketplace);  
 
   decisions_index decisions(_soviet, coopname.value);
-  auto id = get_global_id(_soviet, "decisions"_n);
+  auto decision_id = get_global_id(_soviet, "decisions"_n);
  
   changes_index changes(_soviet, coopname.value);
-  auto change_id = get_global_id(_soviet, "change"_n);
+  auto batch_id = get_global_id(_soviet, "change"_n);
 
-  changes.emplace(_marketplace, [&](auto &c){
-    c.id = change_id;
+  changes.emplace(_marketplace, [&](auto &c) {
+    c.id = batch_id;
     c.program_id = program_id;
     c.exchange_id = exchange_id;
     
-    //TODO add signature information
+    //add type on the top
+    //calculate who is money or property giver by type
+    
+    // 1 часть пачки (решение №1)
+    // c.money_contributor = //заказчик
+    // c.product_return_statement =   //заявление на возврат продуктом
+    // c.product_receipt_transfer_act_from_cooperative =  //подпись заказчика на акте приёма-передачи продукта от кооператива
+    // c.product_receipt_transfer_act_validation_from_cooperative = //подпись администратора на акте приёма-передачи от кооператива
+    
+    // 2 часть пачки (решение №2)
+    // c.product_contributor = //поставщик
+    // c.product_contribution_statement = //заявление на взнос продуктом
+    // c.product_receipt_transfer_act_to_cooperative =  //подпись поставщика на акте приёма-передачи продукта кооперативу
+    // c.product_receipt_transfer_act_validation_to_cooperative = //подпись администратора на акте приёма-передачи кооперативу
+    
+    
   });
 
   decisions.emplace(_soviet, [&](auto &d){
-    d.id = id;
+    d.id = decision_id;
     d.type = _change_action;
-    d.secondary_id = change_id;
+    d.batch_id = batch_id;
   });
-
-  uint64_t seed = generate();
 
   action(
     permission_level{ _soviet, "active"_n},
     _soviet,
-    "newid"_n,
-    std::make_tuple(id, seed)
+    "draft"_n,
+    std::make_tuple(coopname, username, decision_id, batch_id)
   ).send();
   
 };
 
 
-void soviet::change_effect(eosio::name executer, eosio::name coopname, uint64_t decision_id, uint64_t secondary_id) { 
+void soviet::change_effect(eosio::name executer, eosio::name coopname, uint64_t decision_id, uint64_t batch_id) { 
   decisions_index decisions(_soviet, coopname.value);
   auto decision = decisions.find(decision_id);
   
   eosio::check(decision != decisions.end(), "Решение не найдено");
 
   changes_index changes(_soviet, coopname.value);
-  auto change = changes.find(secondary_id);
+  auto change = changes.find(batch_id);
   eosio::check(change != changes.end(), "Объект обмена не найден");
 
   action(
@@ -65,10 +78,45 @@ void soviet::change_effect(eosio::name executer, eosio::name coopname, uint64_t 
       "authorize"_n,
       std::make_tuple(coopname, change -> exchange_id)
   ).send();
+
+  action(
+      permission_level{ _soviet, "active"_n},
+      _soviet,
+      "statement"_n,
+      std::make_tuple(coopname, change -> money_contributor, _change_action, decision_id, decision->batch_id, change -> product_return_statement)
+  ).send();
   
-  decisions.modify(decision, executer, [&](auto &d){
-    d.executed = true;
-  });
+  action(
+      permission_level{ _soviet, "active"_n},
+      _soviet,
+      "statement"_n,
+      std::make_tuple(coopname, change -> product_contributor, _change_action, decision_id, decision->batch_id, change -> product_contribution_statement)
+  ).send();
+  
+  action(
+      permission_level{ _soviet, "active"_n},
+      _soviet,
+      "act"_n,
+      std::make_tuple(coopname, change -> money_contributor, _change_action, decision_id, decision->batch_id, change -> product_receipt_transfer_act_from_cooperative)
+  ).send();
+  
+  action(
+      permission_level{ _soviet, "active"_n},
+      _soviet,
+      "act"_n,
+      std::make_tuple(coopname, change -> product_contributor, _change_action, decision_id, decision->batch_id, change -> product_receipt_transfer_act_to_cooperative)
+  ).send();
+  
+  action(
+      permission_level{ _soviet, "active"_n},
+      _soviet,
+      "batch"_n,
+      std::make_tuple(coopname, _change_action, decision->batch_id)
+  ).send();
+
+
+  decisions.erase(decision);
+  changes.erase(change);
 
 };
 

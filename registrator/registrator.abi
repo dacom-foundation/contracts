@@ -101,6 +101,28 @@
             ]
         },
         {
+            "name": "document",
+            "base": "",
+            "fields": [
+                {
+                    "name": "hash",
+                    "type": "string"
+                },
+                {
+                    "name": "pkey",
+                    "type": "string"
+                },
+                {
+                    "name": "sign",
+                    "type": "string"
+                },
+                {
+                    "name": "meta",
+                    "type": "string"
+                }
+            ]
+        },
+        {
             "name": "joincoop",
             "base": "",
             "fields": [
@@ -113,8 +135,8 @@
                     "type": "name"
                 },
                 {
-                    "name": "signed_doc",
-                    "type": "signed_doc"
+                    "name": "document",
+                    "type": "document"
                 }
             ]
         },
@@ -137,6 +159,10 @@
                 {
                     "name": "public_key",
                     "type": "public_key"
+                },
+                {
+                    "name": "signature_hash",
+                    "type": "string"
                 },
                 {
                     "name": "meta",
@@ -245,7 +271,7 @@
             "base": "",
             "fields": [
                 {
-                    "name": "registrator",
+                    "name": "coopname",
                     "type": "name"
                 },
                 {
@@ -263,6 +289,10 @@
             "base": "",
             "fields": [
                 {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
                     "name": "username",
                     "type": "name"
                 },
@@ -273,38 +303,12 @@
             ]
         },
         {
-            "name": "signed_doc",
-            "base": "",
-            "fields": [
-                {
-                    "name": "hash",
-                    "type": "string"
-                },
-                {
-                    "name": "pkey",
-                    "type": "string"
-                },
-                {
-                    "name": "sign",
-                    "type": "string"
-                },
-                {
-                    "name": "vars",
-                    "type": "string"
-                }
-            ]
-        },
-        {
             "name": "storage",
             "base": "",
             "fields": [
                 {
                     "name": "storage_username",
                     "type": "name"
-                },
-                {
-                    "name": "uid",
-                    "type": "string"
                 }
             ]
         },

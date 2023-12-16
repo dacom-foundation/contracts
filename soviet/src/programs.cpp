@@ -25,7 +25,7 @@ using namespace eosio;
 */
 void soviet::createprog(eosio::name coopname, eosio::name chairman, std::string title, std::string announce, std::string description, std::string preview, std::string images, eosio::asset initial, eosio::asset minimum, eosio::asset maximum, eosio::asset share_contribution, eosio::asset membership_contribution, eosio::name period, eosio::name category, eosio::name calculation_type, uint64_t membership_percent_fee) { 
   require_auth(chairman);
-
+  print("on create prog");
   auto board = get_board_by_type_or_fail(coopname, "soviet"_n);
   
   eosio::check(board.is_valid_chairman(chairman), "Только председатель совета может создать программу");
@@ -33,7 +33,7 @@ void soviet::createprog(eosio::name coopname, eosio::name chairman, std::string 
 
   programs_index programs(_soviet, coopname.value);
   
-  auto id = get_global_id(_soviet, "programs"_n);
+  auto program_id = get_global_id(_soviet, "programs"_n);
 
   eosio::check(period == "percase"_n, "Только не периодические взносы от суммы взноса сейчас доступны");
   
@@ -55,7 +55,7 @@ void soviet::createprog(eosio::name coopname, eosio::name chairman, std::string 
   //TODO check minimum and maximum symbols
 
   programs.emplace(chairman, [&](auto &pr) {
-    pr.id = id;
+    pr.id = program_id;
     pr.coopname = coopname;
     pr.title = title;
     pr.announce = announce;
@@ -75,14 +75,16 @@ void soviet::createprog(eosio::name coopname, eosio::name chairman, std::string 
     pr.maximum = maximum;
   });
 
-  uint64_t seed = generate();
+  print("here!");
 
   action(
     permission_level{ _soviet, "active"_n},
     _soviet,
-    "newid"_n,
-    std::make_tuple(id, seed)
+    "program"_n,
+    std::make_tuple(coopname, program_id)
   ).send();
+
+  print("after here!");
 
 };
 
@@ -124,6 +126,14 @@ void soviet::editprog(eosio::name coopname, uint64_t id, std::string title, std:
     pr.images = images;
     pr.category = category;
   });
+
+  action(
+    permission_level{ _soviet, "active"_n},
+    _soviet,
+    "program"_n,
+    std::make_tuple(coopname, id)
+  ).send();
+
 }
 
 
@@ -148,5 +158,13 @@ void soviet::disableprog(eosio::name coopname, uint64_t id) {
   programs.modify(existing_program, coopname, [&](auto& pr) {
     pr.is_active = false;
   });
+
+  action(
+    permission_level{ _soviet, "active"_n},
+    _soviet,
+    "program"_n,
+    std::make_tuple(coopname, id)
+  ).send();
+  
 }
 

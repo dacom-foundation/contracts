@@ -8,6 +8,7 @@
 
 #include "../common/consts.hpp"
 #include "../common/utils.hpp"
+#include "../common/drafts.hpp"
 #include "../common/accounts.hpp"
 #include "../common/counts.hpp"
 #include "../common/balances.hpp"

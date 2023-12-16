@@ -4,6 +4,36 @@
     "types": [],
     "structs": [
         {
+            "name": "act",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "action",
+                    "type": "name"
+                },
+                {
+                    "name": "decision_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "batch_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "act",
+                    "type": "document"
+                }
+            ]
+        },
+        {
             "name": "addbaltoprog",
             "base": "",
             "fields": [
@@ -84,6 +114,10 @@
                 {
                     "name": "decision_id",
                     "type": "uint64"
+                },
+                {
+                    "name": "document",
+                    "type": "document"
                 }
             ]
         },
@@ -157,6 +191,24 @@
             "fields": [
                 {
                     "name": "decision_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "batch",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "action",
+                    "type": "name"
+                },
+                {
+                    "name": "batch_id",
                     "type": "uint64"
                 }
             ]
@@ -296,6 +348,10 @@
                     "type": "name"
                 },
                 {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
                     "name": "program_id",
                     "type": "uint64"
                 },
@@ -330,8 +386,36 @@
                     "type": "bool"
                 },
                 {
-                    "name": "is_withdrawed",
-                    "type": "bool"
+                    "name": "money_contributor",
+                    "type": "name"
+                },
+                {
+                    "name": "product_return_statement",
+                    "type": "document"
+                },
+                {
+                    "name": "product_receipt_transfer_act_from_cooperative",
+                    "type": "document"
+                },
+                {
+                    "name": "product_receipt_transfer_act_validation_from_cooperative",
+                    "type": "document"
+                },
+                {
+                    "name": "product_contributor",
+                    "type": "name"
+                },
+                {
+                    "name": "product_contribution_statement",
+                    "type": "document"
+                },
+                {
+                    "name": "product_receipt_transfer_act_to_cooperative",
+                    "type": "document"
+                },
+                {
+                    "name": "product_receipt_transfer_act_validation_to_cooperative",
+                    "type": "document"
                 }
             ]
         },
@@ -356,7 +440,7 @@
                     "type": "uint64"
                 },
                 {
-                    "name": "secondary_id",
+                    "name": "batch_id",
                     "type": "uint64"
                 },
                 {
@@ -406,7 +490,7 @@
                     "type": "name"
                 },
                 {
-                    "name": "secondary_id",
+                    "name": "batch_id",
                     "type": "uint64"
                 }
             ]
@@ -535,6 +619,36 @@
             ]
         },
         {
+            "name": "decision",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "action",
+                    "type": "name"
+                },
+                {
+                    "name": "decision_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "batch_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "decision",
+                    "type": "document"
+                }
+            ]
+        },
+        {
             "name": "decisions",
             "base": "",
             "fields": [
@@ -547,11 +661,15 @@
                     "type": "name"
                 },
                 {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
                     "name": "type",
                     "type": "name"
                 },
                 {
-                    "name": "secondary_id",
+                    "name": "batch_id",
                     "type": "uint64"
                 },
                 {
@@ -563,11 +681,11 @@
                     "type": "name[]"
                 },
                 {
-                    "name": "approved",
+                    "name": "validated",
                     "type": "bool"
                 },
                 {
-                    "name": "validated",
+                    "name": "approved",
                     "type": "bool"
                 },
                 {
@@ -575,12 +693,12 @@
                     "type": "bool"
                 },
                 {
-                    "name": "certified",
-                    "type": "bool"
+                    "name": "authorization",
+                    "type": "document"
                 },
                 {
-                    "name": "executed",
-                    "type": "bool"
+                    "name": "created_at",
+                    "type": "time_point_sec"
                 }
             ]
         },
@@ -616,6 +734,50 @@
                 },
                 {
                     "name": "automation_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "document",
+            "base": "",
+            "fields": [
+                {
+                    "name": "hash",
+                    "type": "string"
+                },
+                {
+                    "name": "pkey",
+                    "type": "string"
+                },
+                {
+                    "name": "sign",
+                    "type": "string"
+                },
+                {
+                    "name": "meta",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "draft",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "decision_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "batch_id",
                     "type": "uint64"
                 }
             ]
@@ -689,8 +851,8 @@
                     "type": "name"
                 },
                 {
-                    "name": "signed_doc",
-                    "type": "signed_doc"
+                    "name": "document",
+                    "type": "document"
                 }
             ]
         },
@@ -711,26 +873,16 @@
                     "type": "bool"
                 },
                 {
-                    "name": "signed_doc",
-                    "type": "signed_doc"
+                    "name": "statement",
+                    "type": "document"
+                },
+                {
+                    "name": "authorization",
+                    "type": "document"
                 },
                 {
                     "name": "notice",
                     "type": "string"
-                }
-            ]
-        },
-        {
-            "name": "newid",
-            "base": "",
-            "fields": [
-                {
-                    "name": "id",
-                    "type": "uint64"
-                },
-                {
-                    "name": "seed",
-                    "type": "uint64"
                 }
             ]
         },
@@ -781,6 +933,20 @@
                 {
                     "name": "minimum",
                     "type": "asset"
+                }
+            ]
+        },
+        {
+            "name": "program",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "program_id",
+                    "type": "uint64"
                 }
             ]
         },
@@ -963,28 +1129,6 @@
             ]
         },
         {
-            "name": "signed_doc",
-            "base": "",
-            "fields": [
-                {
-                    "name": "hash",
-                    "type": "string"
-                },
-                {
-                    "name": "pkey",
-                    "type": "string"
-                },
-                {
-                    "name": "sign",
-                    "type": "string"
-                },
-                {
-                    "name": "vars",
-                    "type": "string"
-                }
-            ]
-        },
-        {
             "name": "staff",
             "base": "",
             "fields": [
@@ -997,6 +1141,10 @@
                     "type": "string"
                 },
                 {
+                    "name": "roles",
+                    "type": "name[]"
+                },
+                {
                     "name": "rights",
                     "type": "right[]"
                 },
@@ -1007,6 +1155,36 @@
                 {
                     "name": "updated_at",
                     "type": "time_point_sec"
+                }
+            ]
+        },
+        {
+            "name": "statement",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "action",
+                    "type": "name"
+                },
+                {
+                    "name": "decision_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "batch_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "statement",
+                    "type": "document"
                 }
             ]
         },
@@ -1177,6 +1355,11 @@
     ],
     "actions": [
         {
+            "name": "act",
+            "type": "act",
+            "ricardian_contract": ""
+        },
+        {
             "name": "addbaltoprog",
             "type": "addbaltoprog",
             "ricardian_contract": ""
@@ -1199,6 +1382,11 @@
         {
             "name": "automate",
             "type": "automate",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "batch",
+            "type": "batch",
             "ricardian_contract": ""
         },
         {
@@ -1237,6 +1425,11 @@
             "ricardian_contract": ""
         },
         {
+            "name": "decision",
+            "type": "decision",
+            "ricardian_contract": ""
+        },
+        {
             "name": "disableprog",
             "type": "disableprog",
             "ricardian_contract": ""
@@ -1244,6 +1437,11 @@
         {
             "name": "disautomate",
             "type": "disautomate",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "draft",
+            "type": "draft",
             "ricardian_contract": ""
         },
         {
@@ -1262,8 +1460,8 @@
             "ricardian_contract": ""
         },
         {
-            "name": "newid",
-            "type": "newid",
+            "name": "program",
+            "type": "program",
             "ricardian_contract": ""
         },
         {
@@ -1274,6 +1472,11 @@
         {
             "name": "setrights",
             "type": "setrights",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "statement",
+            "type": "statement",
             "ricardian_contract": ""
         },
         {

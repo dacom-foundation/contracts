@@ -122,8 +122,8 @@ struct right {
 struct [[eosio::table, eosio::contract(SOVIET)]] staff {
   eosio::name username; ///< Уникальное имя администратора.
   std::string position_title; ///< Название должности администратора.
+  std::vector<eosio::name> roles; ///< Список ролей.
   std::vector<right> rights; ///< Список прав администратора.
-
   eosio::time_point_sec created_at; ///< Время создания записи об администраторе.
   eosio::time_point_sec updated_at; ///< Время последнего обновления информации об администраторе.
 
@@ -180,13 +180,22 @@ struct [[eosio::table, eosio::contract(SOVIET)]] participants {
     return last_min_pay.sec_since_epoch();
   }
 
+  /**
+   * @brief Возвращает ключ для индексации по времени создания
+   * @return uint64_t - ключ, равный количеству секунд с начала эпохи Unix.
+   */
+  uint64_t by_created_at() const {
+    return created_at.sec_since_epoch();
+  }
+
   bool is_active() const {
     return status == "accepted"_n;
   }
 };
 
 typedef eosio::multi_index< "participants"_n, participants,
-  eosio::indexed_by<"bylastpay"_n, eosio::const_mem_fun<participants, uint64_t, &participants::bylastpay>>
+  eosio::indexed_by<"bylastpay"_n, eosio::const_mem_fun<participants, uint64_t, &participants::bylastpay>>,
+  eosio::indexed_by<"createdat"_n, eosio::const_mem_fun<participants, uint64_t, &participants::by_created_at>>
 > participants_index;
 
 
@@ -199,18 +208,21 @@ typedef eosio::multi_index< "participants"_n, participants,
 struct [[eosio::table, eosio::contract(SOVIET)]] decisions {
   uint64_t id; ///< Уникальный идентификатор решения.
   eosio::name coopname; ///< Имя кооператива, связанного с решением.
-  eosio::name type; ///< Тип решения:
-  // openproposal | regaccount | change | contribute | withdraw
-  uint64_t secondary_id; ///< Идентификатор карточки, связанной с решением.
+  eosio::name username; ///< Имя пользователя, связанного с решением.
+  
+  eosio::name type; ///< Тип решения: // joincoop | change | ...
+  uint64_t batch_id; ///< Идентификатор карточки, связанной с типом решения.
 
   std::vector<eosio::name> votes_for; ///< Список имен, голосовавших "за" решение.
   std::vector<eosio::name> votes_against; ///< Список имен, голосовавших "против" решения.
   
-  bool approved = false; ///< Сигнальный флаг, указывающий, что решение советом принято.
   bool validated = false; ///< Сигнальный флаг, указывающий, что администратор подтверждает валидность решения.
+  bool approved = false; ///< Сигнальный флаг, указывающий, что решение советом принято.
   bool authorized = false; ///< Флаг, указывающий, что получена авторизация председателя после голосования и валидации до исполнения.
-  bool certified = false; ///< Флаг, указывающий, что получено сертификация секретаря.
-  bool executed = false; ///< Сигнальный флаг, указывающий, что решение будет исполнено.
+  
+  document authorization; ///< Документ подписанного решения председателем
+
+  eosio::time_point_sec created_at; ///< Время создания карточки решения.
 
   /**
    * @brief Возвращает первичный ключ решения.
@@ -219,16 +231,10 @@ struct [[eosio::table, eosio::contract(SOVIET)]] decisions {
   uint64_t primary_key() const { return id; }
 
   /**
-   * @brief Возвращает ключ для индексации по имени кооператива.
-   * @return uint64_t - ключ, равный значению имени кооператива.
-   */
-  uint64_t by_coop() const { return coopname.value; } 
-
-  /**
    * @brief Возвращает ключ для индексации по идентификатору карточки.
    * @return uint64_t - ключ, равный идентификатору карточки.
    */
-  uint64_t by_secondary() const { return secondary_id; }
+  uint64_t by_secondary() const { return batch_id; }
 
   /**
    * @brief Возвращает ключ для индексации по типу решения.
@@ -254,17 +260,6 @@ struct [[eosio::table, eosio::contract(SOVIET)]] decisions {
    */
   uint64_t byauthorized() const { return authorized; }
 
-  /**
-   * @brief Возвращает ключ для индексации по статусу "сертифицировано".
-   * @return uint64_t - ключ, равный статусу "сертифицировано" (1, если решение сертифицировано, иначе 0).
-   */
-  uint64_t bycertified() const { return certified; }
-
-  /**
-   * @brief Возвращает ключ для индексации по статусу "исполнено".
-   * @return uint64_t - ключ, равный статусу "исполнено" (1, если решение исполнено, иначе 0).
-   */
-  uint64_t byexecuted() const { return executed; }
 
   void check_for_any_vote_exist(eosio::name member) const {
     // Проверяем, есть ли имя участника в голосах за
@@ -280,15 +275,11 @@ struct [[eosio::table, eosio::contract(SOVIET)]] decisions {
 };
 
 typedef eosio::multi_index< "decisions"_n, decisions,
-  eosio::indexed_by<"bycoop"_n, eosio::const_mem_fun<decisions, uint64_t, &decisions::by_coop>>,
   eosio::indexed_by<"bysecondary"_n, eosio::const_mem_fun<decisions, uint64_t, &decisions::by_secondary>>,
   eosio::indexed_by<"bytype"_n, eosio::const_mem_fun<decisions, uint64_t, &decisions::bytype>>,
   eosio::indexed_by<"byapproved"_n, eosio::const_mem_fun<decisions, uint64_t, &decisions::byapproved>>,
   eosio::indexed_by<"byvalidated"_n, eosio::const_mem_fun<decisions, uint64_t, &decisions::byvalidated>>,
-  eosio::indexed_by<"byauthorized"_n, eosio::const_mem_fun<decisions, uint64_t, &decisions::byauthorized>>,
-  eosio::indexed_by<"bycertified"_n, eosio::const_mem_fun<decisions, uint64_t, &decisions::bycertified>>,
-  eosio::indexed_by<"byexecuted"_n, eosio::const_mem_fun<decisions, uint64_t, &decisions::byexecuted>>
-
+  eosio::indexed_by<"byauthorized"_n, eosio::const_mem_fun<decisions, uint64_t, &decisions::byauthorized>>
 > decisions_index;
 
 

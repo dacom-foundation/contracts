@@ -38,9 +38,9 @@ uint64_t hash64(const std::string &arg) {
 }
 
 uint64_t generate() {
-    auto size = transaction_size();
+    auto size = eosio::transaction_size();
     char buf[size];
-    uint32_t read = read_transaction(buf, size);
+    uint32_t read = eosio::read_transaction(buf, size);
     eosio::check(size == read, "read_transaction failed");
 
     uint64_t seed = eosio::current_time_point().sec_since_epoch();

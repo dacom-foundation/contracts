@@ -265,7 +265,7 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
     permission_level{ _marketplace, "active"_n},
     _soviet,
     "change"_n,
-    std::make_tuple(change -> coopname, change -> program_id, exchange_id)
+    std::make_tuple(change -> coopname, username, change -> program_id, exchange_id)
   ).send();
 
 }

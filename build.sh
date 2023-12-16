@@ -27,7 +27,7 @@ if [ "$2" = "prod" ]; then
 elif [ "$2" = "test" ]; then
     contract_params=("${(@kv)contract_params_test}")
 else
-    contract_params=("${(@kv)contract_params_prod}")
+    contract_params=("${(@kv)contract_params_test}")
 fi
 
 # Форматирование строки для переменной окружения

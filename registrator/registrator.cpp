@@ -16,7 +16,7 @@
  */
 [[eosio::action]] void registrator::newaccount(
     eosio::name registrator, eosio::name referer,
-    eosio::name username, eosio::public_key public_key,
+    eosio::name username, eosio::public_key public_key, std::string signature_hash,
     std::string meta) {
   
   require_auth(registrator);
@@ -90,13 +90,17 @@
 * @note Авторизация требуется от аккаунта: @p registrator
 */
 [[eosio::action]] void registrator::reguser(
+   eosio::name coopname,
    eosio::name username,
    storage storage
 ) {  
 
-  eosio::check(has_auth(username), "Только регистратор или пользователь могут подписать эту транзакцию");
-  eosio::name payer = username;
-    
+  eosio::check(has_auth(coopname), "Только регистратор может подписать эту транзакцию");
+  eosio::name payer = coopname;
+  
+  if (coopname != _ano)
+    auto cooperative = get_cooperative_or_fail(coopname);
+
   accounts_index accounts(_registrator, _registrator.value); 
   auto new_user = accounts.find(username.value);
   eosio::check(new_user!= accounts.end(), "Участник не найден в картотеке аккаунтов");
@@ -133,11 +137,11 @@
 *
 * @param params Структура данных нового юридического лица
 * 
-* @note Авторизация требуется от одного из аккаунтов: @p registrator || username
+* @note Авторизация требуется от одного из аккаунтов: @p coopname || username
 */
-[[eosio::action]] void registrator::regorg(eosio::name registrator, eosio::name username, org_data params) {
-    eosio::check(has_auth(registrator) || has_auth(username), "Только регистратор или пользователь могут подписать эту транзакцию");
-    eosio::name payer = has_auth(registrator) ? registrator : username;
+[[eosio::action]] void registrator::regorg(eosio::name coopname, eosio::name username, org_data params) {
+    has_auth(coopname);
+    eosio::name payer = coopname;
 
     accounts_index accounts(_registrator, _registrator.value); 
     auto new_user = accounts.find(username.value);
@@ -158,17 +162,6 @@
     orgs.emplace(payer, [&](auto& org) {
       org.username = username;
       org.storages = storages;
-      // org.name = params.name;
-      // org.short_name = params.short_name;
-      // org.address = params.address;
-      // org.ogrn = params.ogrn;
-      // org.inn = params.inn;
-      // org.logo = params.logo;
-      // org.phone = params.phone;
-      // org.email = params.email;
-      // org.registration = params.registration;
-      // org.website = params.website;
-      // org.accounts = params.accounts;
       org.is_active = false;
       org.is_cooperative = params.is_cooperative;
       org.coop_type = params.coop_type;
@@ -275,17 +268,17 @@
 * 
 * @note Авторизация требуется от аккаунта: @p username
 */
-[[eosio::action]] void registrator::joincoop(eosio::name coopname, eosio::name username, signed_doc signed_doc){
-  require_auth(username);
+[[eosio::action]] void registrator::joincoop(eosio::name coopname, eosio::name username, document document){
+  require_auth(coopname);
 
-  verify(signed_doc);
+  verify(document);
 
   participants_index participants(_soviet, coopname.value);
   auto participant = participants.find(username.value);
   eosio::check(participant == participants.end(), "Участник уже является членом кооператива"); 
 
   action(permission_level{_registrator, "active"_n}, _soviet, "joincoop"_n,
-         std::make_tuple(coopname, username, signed_doc))
+         std::make_tuple(coopname, username, document))
   .send();
 };
 

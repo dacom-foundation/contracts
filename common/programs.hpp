@@ -64,7 +64,7 @@ struct [[eosio::table, eosio::contract(SOVIET)]] cntrbutions {
   eosio::name coopname;
   eosio::name type; ///< change | invest | share
   uint64_t program_id;
-  uint64_t secondary_id;
+  uint64_t batch_id;
   eosio::name username;
   eosio::asset initial;
   eosio::asset now;
@@ -75,8 +75,8 @@ struct [[eosio::table, eosio::contract(SOVIET)]] cntrbutions {
   uint64_t by_username() const { return username.value; } /*!< индекс по пользователю */
   
   uint128_t by_username_and_secondary() const {
-    return combine_ids(username.value, secondary_id);
-  } /*!< возвращает уникальный индекс, сформированный из значения username и secondary_id */
+    return combine_ids(username.value, batch_id);
+  } /*!< возвращает уникальный индекс, сформированный из значения username и batch_id */
 };
 
 

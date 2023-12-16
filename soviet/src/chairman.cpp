@@ -5,7 +5,7 @@ using namespace eosio;
 \ingroup public_actions
 \brief Авторизация принятого решения советом
 *
-* Этот метод позволяет председателю совета авторизовать принятое решение совета. 
+* Этот метод позволяет председателю совета утвердить принятое решение совета. 
 *
 * @param coopname Имя кооператива
 * @param chairman Имя председателя совета кооператива
@@ -13,7 +13,7 @@ using namespace eosio;
 * 
 * @note Авторизация требуется от аккаунта: @p chairman
 */
-void soviet::authorize(eosio::name coopname, eosio::name chairman, uint64_t decision_id) { 
+void soviet::authorize(eosio::name coopname, eosio::name chairman, uint64_t decision_id, document document) { 
   require_auth(chairman);
 
   boards_index boards(_soviet, coopname.value);
@@ -23,13 +23,23 @@ void soviet::authorize(eosio::name coopname, eosio::name chairman, uint64_t deci
   auto decision = decisions.find(decision_id);
   eosio::check(decision != decisions.end(), "Документ не найден");
   auto board = get_board_by_type_or_fail(coopname, "soviet"_n);
-  eosio::check(board.is_valid_chairman(chairman), "Только председатель совета может авторизовать решение");
+  eosio::check(board.is_valid_chairman(chairman), "Только председатель совета может утвердить решение");
   
+  eosio::check(decision -> approved == true, "Консенсус совета по решению не достигнут");
+
+  struct document clean;
+
   decisions.modify(decision, chairman, [&](auto &d){
     d.authorized = !decision -> authorized;
+    
+    if (d.authorized == true)
+      d.authorization = document;
+    else d.authorization = clean;
   });
 
+
   auto signer = autosigner.find(decision -> id);
+  
   if (signer != autosigner.end())
     autosigner.erase(signer);
 
@@ -69,8 +79,12 @@ void soviet::createboard(eosio::name coopname, eosio::name chairman, eosio::name
     eosio::check(is_exist == false, "Совет кооператива уже создан");
     
     bool has_chairman = false;
+    std::set<eosio::name> usernames;
+
     // Проверка на наличие председателя в списке членов совета
     for (const auto& m : members) {
+        eosio::check(usernames.insert(m.username).second, "Обнаружено повторение username");
+
         if (m.position == "chairman"_n) {
             eosio::check(m.username == chairman, "Только председатель может создать совет кооператива");
             has_chairman = true;
@@ -155,7 +169,12 @@ void soviet::updateboard(eosio::name coopname, eosio::name chairman, uint64_t bo
 
   if (board -> type == "soviet"_n) {
     bool has_chairman = false;
+    std::set<eosio::name> usernames;
+
+
     for (const auto& m : members) {
+        eosio::check(usernames.insert(m.username).second, "Обнаружено повторение username");
+
         if (m.position == "chairman"_n) {
             eosio::check(m.username == chairman, "Только председатель может создать совет кооператива");
             has_chairman = true;

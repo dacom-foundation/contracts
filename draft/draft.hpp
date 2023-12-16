@@ -21,9 +21,9 @@ public:
   [[eosio::action]] void newid(uint64_t id);
 
   [[eosio::action]] void createdraft(eosio::name creator, eosio::name action_name, uint64_t version, eosio::name lang, std::string title, 
-                    std::string description, std::string context, std::string translation_data);
+                    std::string description, std::string context, std::string model, std::string translation_data);
 
-  [[eosio::action]] void editdraft(eosio::name creator, uint64_t draft_id, std::string title, std::string description, std::string context);
+  [[eosio::action]] void editdraft(eosio::name creator, uint64_t draft_id, std::string title, std::string description, std::string context, std::string model);
 
   [[eosio::action]] void publishdraft(eosio::name creator, uint64_t draft_id);
 

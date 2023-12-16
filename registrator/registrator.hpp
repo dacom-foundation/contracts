@@ -6,15 +6,15 @@
 #include <eosio/system.hpp>
 #include <eosio/time.hpp>
 
-
+#include "../common/utils.hpp"
 #include "../common/consts.hpp"
+#include "../common/drafts.hpp"
 #include "../common/coops.hpp"
 #include "../common/permissions.hpp"
 #include "../common/rammarket.hpp"
-#include "../common/utils.hpp"
 #include "../common/balances.hpp"
 #include "../common/accounts.hpp"
-#include "../common/drafts.hpp"
+
 
 /**
  *  \ingroup public_contracts
@@ -43,19 +43,20 @@ public:
   [[eosio::action]] void confirmreg(eosio::name coopname, eosio::name member);
 
   [[eosio::action]] void reguser(
+    eosio::name coopname,
      eosio::name username,
      storage storage
   );
 
-  [[eosio::action]] void regorg(eosio::name registrator, eosio::name username, org_data params);
+  [[eosio::action]] void regorg(eosio::name coopname, eosio::name username, org_data params);
 
-  [[eosio::action]] void joincoop(eosio::name coopname, eosio::name username, signed_doc signed_doc);
+  [[eosio::action]] void joincoop(eosio::name coopname, eosio::name username, document document);
 
   [[eosio::action]] void verificate(eosio::name username, eosio::name procedure);
 
   [[eosio::action]] void newaccount(
     eosio::name registrator, eosio::name referer,
-    eosio::name username, eosio::public_key public_key,
+    eosio::name username, eosio::public_key public_key, std::string signature_hash,
     std::string meta);
 
   [[eosio::action]] void changekey(eosio::name username,

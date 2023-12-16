@@ -13,46 +13,48 @@ using namespace eosio;
 * 
 * @note Авторизация требуется от аккаунта: @p _registrator
 */
-void soviet::joincoop(eosio::name coopname, eosio::name username, signed_doc signed_doc) { 
+void soviet::joincoop(eosio::name coopname, eosio::name username, document document) { 
   require_auth(_registrator);
-
+  
   joincoops_index joincoops(_soviet, coopname.value); 
-  auto secondary_id = get_global_id(_soviet, "joincoops"_n);
+  auto batch_id = get_global_id(_soviet, "joincoops"_n);
 
   joincoops.emplace(_registrator, [&](auto &a){
-    a.id = secondary_id;
+    a.id = batch_id;
     a.username = username;
     a.is_paid = false;
-    a.signed_doc = signed_doc;
+    a.statement = document;
   });
-
+  
   decisions_index decisions(_soviet, coopname.value);
-  auto id = get_global_id(_soviet, "decisions"_n);
+  auto decision_id = get_global_id(_soviet, "decisions"_n);
+  
   decisions.emplace(_registrator, [&](auto &d){
-    d.id = id;
+    d.id = decision_id;
     d.coopname = coopname;
+    d.username = username;
     d.type = _regaccount_action;
-    d.secondary_id = secondary_id;
+    d.batch_id = batch_id;
+    d.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
   });
-
-  uint64_t seed = generate();
-
+  
   action(
     permission_level{ _soviet, "active"_n},
     _soviet,
-    "newid"_n,
-    std::make_tuple(id, seed)
+    "draft"_n,
+    std::make_tuple(coopname, username, decision_id, batch_id)
   ).send();
+  
 };
 
 
-void soviet::joincoop_effect(eosio::name executer, eosio::name coopname, uint64_t decision_id, uint64_t secondary_id) { 
+void soviet::joincoop_effect(eosio::name executer, eosio::name coopname, uint64_t decision_id, uint64_t batch_id) { 
 
   decisions_index decisions(_soviet, coopname.value);
   auto decision = decisions.find(decision_id);
 
   joincoops_index joincoops(_soviet, coopname.value); 
-  auto joincoop_action = joincoops.find(decision->secondary_id);
+  auto joincoop_action = joincoops.find(decision->batch_id);
 
   participants_index participants(_soviet, coopname.value);
   auto cooperative = get_cooperative_or_fail(coopname);
@@ -73,15 +75,33 @@ void soviet::joincoop_effect(eosio::name executer, eosio::name coopname, uint64_
 
   action(
       permission_level{ _soviet, "active"_n},
-      "registrator"_n,
+      _registrator,
       "confirmreg"_n,
       std::make_tuple(coopname, joincoop_action -> username)
   ).send();
+  
+  action(
+      permission_level{ _soviet, "active"_n},
+      _soviet,
+      "statement"_n,
+      std::make_tuple(coopname, joincoop_action -> username, _regaccount_action, decision_id, decision->batch_id, joincoop_action -> statement)
+  ).send();
+  
+  action(
+      permission_level{ _soviet, "active"_n},
+      _soviet,
+      "decision"_n,
+      std::make_tuple(coopname, joincoop_action -> username, _regaccount_action, decision_id, decision->batch_id, joincoop_action -> authorization)
+  ).send();
 
-  decisions.modify(decision, executer, [&](auto &d){
-    d.executed = true;
-  });
+  action(
+      permission_level{ _soviet, "active"_n},
+      _soviet,
+      "batch"_n,
+      std::make_tuple(coopname, _regaccount_action, decision -> batch_id)
+  ).send();
 
+  decisions.erase(decision);
   joincoops.erase(joincoop_action);
 
 };

@@ -13,8 +13,54 @@
 
 using namespace eosio;
 
-[[eosio::action]] void soviet::newid(uint64_t id, uint64_t seed) {
+[[eosio::action]] void soviet::draft(eosio::name coopname, eosio::name username, uint64_t decision_id, uint64_t batch_id) {
   require_auth(_soviet);
+
+  require_recipient(coopname);
+  require_recipient(username);
+
+};
+
+[[eosio::action]] void soviet::statement(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, uint64_t batch_id, document statement) {
+  require_auth(_soviet);
+
+  require_recipient(coopname);
+  require_recipient(username);
+
+};
+
+
+[[eosio::action]] void soviet::act(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, uint64_t batch_id, document act) {
+  require_auth(_soviet);
+
+  require_recipient(coopname);
+  require_recipient(username);
+
+};
+
+
+[[eosio::action]] void soviet::decision(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, uint64_t batch_id, document decision) {
+  require_auth(_soviet);
+
+  require_recipient(coopname);
+  require_recipient(username);
+
+};
+
+
+[[eosio::action]] void soviet::batch(eosio::name coopname, eosio::name action, uint64_t batch_id) {
+  require_auth(_soviet);
+
+  require_recipient(coopname);
+};
+
+
+
+
+[[eosio::action]] void soviet::program(eosio::name coopname, uint64_t program_id) {
+  require_auth(_soviet);
+
+  require_recipient(coopname);
 };
 
 /**
@@ -36,14 +82,14 @@ void soviet::exec(eosio::name executer, eosio::name coopname, uint64_t decision_
   auto decision = decisions.find(decision_id);
   eosio::check(decision != decisions.end(),"Решение не найдено в оперативной памяти");
   eosio::check(decision -> authorized == true, "Только авторизованное решение может быть исполнено");
-  eosio::check(decision -> executed == false, "Решение уже исполнено");
-
+  
   if (decision -> type == _regaccount_action) {
-    soviet::joincoop_effect(executer, coopname, decision->id, decision->secondary_id);
+    soviet::joincoop_effect(executer, coopname, decision->id, decision->batch_id);
   } else if (decision -> type == _change_action){
-    soviet::change_effect(executer, coopname, decision->id, decision->secondary_id);
+    soviet::change_effect(executer, coopname, decision->id, decision->batch_id);
   }
 }
+
 
 extern "C" {
 
@@ -56,25 +102,64 @@ extern "C" {
         EOSIO_DISPATCH_HELPER (
             soviet, 
             //main
-            (exec)(newid)
+            (exec)(draft)(statement)(act)(decision)(batch)(program)
+        )
+
+
+        EOSIO_DISPATCH_HELPER (
+            soviet, 
             //ADMIN
             (addstaff)(rmstaff)(setrights)(validate)
+        )
+
+
+        EOSIO_DISPATCH_HELPER (
+            soviet, 
             //CHAIRMAN
             (authorize)(createboard)(updateboard)
+        )
+
+        EOSIO_DISPATCH_HELPER (
+            soviet, 
             //VOTING
             (votefor)(voteagainst)(cancelvote)
+        )
+
+
+        EOSIO_DISPATCH_HELPER (
+            soviet, 
             //REGACCOUNT
             (joincoop)
+        )
+
+
+        EOSIO_DISPATCH_HELPER (
+            soviet, 
             //MARKETPLACE
             (change)(cancelorder)
+        )
+
+        EOSIO_DISPATCH_HELPER (
+            soviet, 
             //AUTOMATOR
             (automate)(disautomate)
+        )
+
+
+        EOSIO_DISPATCH_HELPER (
+            soviet, 
             //PROGRAMS
             (createprog)(editprog)(disableprog)
+        )
+
+        EOSIO_DISPATCH_HELPER (
+            soviet, 
             //CONTRIBUTE
             (addcoopbal)(subcoopbal)(blockprogbal)(unblprogbal)(addbaltoprog)(subbalfrprog)
             (contribute)(withdraw)
-            )
+        )
+
+
       }
 
     } else {
@@ -99,3 +184,4 @@ extern "C" {
   };
 
 };
+

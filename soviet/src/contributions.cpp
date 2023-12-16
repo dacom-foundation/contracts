@@ -168,7 +168,7 @@ void soviet::addcoopbal(eosio::name coopname, eosio::name username, eosio::asset
   });
 }
 
-void soviet::contribute(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity, eosio::name type, uint64_t secondary_id) { 
+void soviet::contribute(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity, eosio::name type, uint64_t batch_id) { 
   eosio::check(has_auth(_marketplace) || has_auth(username), "Недостаточно прав доступа");
   eosio::name payer = has_auth(_marketplace) ? _marketplace : username;
   
@@ -184,7 +184,7 @@ void soviet::contribute(eosio::name coopname, eosio::name username, uint64_t pro
   contributions.emplace(payer, [&](auto &c) {
     c.id = contribution_id;
     c.type = type;
-    c.secondary_id = secondary_id;
+    c.batch_id = batch_id;
     c.coopname = coopname;
     c.program_id = program_id;
     c.username = username;
@@ -228,7 +228,7 @@ void soviet::contribute(eosio::name coopname, eosio::name username, uint64_t pro
       permission_level{ _soviet, "active"_n},
       _marketplace,
       "setcontrib"_n,
-      std::make_tuple(coopname, secondary_id, contribution_id)
+      std::make_tuple(coopname, batch_id, contribution_id)
     ).send();
   }
 };

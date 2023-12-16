@@ -50,9 +50,7 @@ public:
 
   void apply(uint64_t receiver, uint64_t code, uint64_t action);
 
-  [[eosio::action]] void dpcreate(eosio::name username, eosio::name coopname, uint64_t program_id, eosio::name purpose, uint64_t secondary_id, eosio::asset internal_quantity, eosio::asset external_quantity, std::string memo);
-  [[eosio::action]] void dpinit(uint64_t deposit_id, std::string link, std::string memo);
-  [[eosio::action]] void dpupdate(uint64_t deposit_id, std::string memo);
+  [[eosio::action]] void dpcreate(eosio::name creator, eosio::name username, eosio::name coopname, uint64_t program_id, eosio::name type, uint64_t batch_id, eosio::asset internal_quantity, eosio::asset external_quantity, std::string link, std::string memo);
   [[eosio::action]] void dpcomplete(uint64_t deposit_id, std::string memo);
   [[eosio::action]] void dpfail(uint64_t deposit_id, std::string memo);
 
@@ -69,39 +67,45 @@ public:
  * @brief Таблица `deposits` отслеживает депозиты в контракте GATEWAY.
  */
 
-struct [[eosio::table, eosio::contract("GATEWAY")]] deposits {
+struct [[eosio::table, eosio::contract(GATEWAY)]] deposits {
     uint64_t id; /*!< Уникальный идентификатор записи депозита */
+    eosio::name creator; /*!< Имя аккаунта пользователя, создавшего ордер */
     eosio::name username; /*!< Имя аккаунта пользователя, совершившего депозит */
     eosio::name coopname; /*!< Имя аккаунта кооператива, в контексте которого совершается депозит */
     uint64_t program_id; /*!< Идентификатор целевой программы  */
-    eosio::name purpose; /*!< Цель депозита, например 'changeone' или 'initial' */
-    uint64_t secondary_id; /*!< Вторичный идентификатор, связанный с депозитом и целью */
+    eosio::name type; /*!< Цель депозита, например 'changeone' или 'initial' */
+    uint64_t batch_id; /*!< Вторичный идентификатор, связанный с депозитом и целью */
     eosio::name token_contract; /*!< Имя аккаунта контракта токена для депозита */
     eosio::asset internal_quantity; /*!< Количество средств во внутренней валюте */
     eosio::asset external_quantity; /*!< Количество средств во внешней валюте */
     eosio::name status; /*!< Статус депозита */
     std::string link; /*!< Ссылка на дополнительную информацию или внешние данные */
     std::string memo; /*!< Примечание к депозиту */
+    eosio::time_point_sec expired_at; ///< Время истечения срока давности
 
     uint64_t primary_key() const { return id; } /*!< Возвращает id как первичный ключ */
     uint64_t by_coopname() const { return coopname.value; } /*!< Индекс по названию кооператива */
     uint64_t by_username() const { return username.value; } /*!< Индекс по имени пользователя */
+    uint64_t by_creator() const { return creator.value; } /*!< Индекс по имени пользователя */
     uint64_t by_status() const { return status.value; } /*!< Индекс по статусу депозита */
+    uint64_t by_expired() const { return expired_at.sec_since_epoch(); } /*!< Индекс по статусу депозита */
 };
 
 typedef eosio::multi_index<
     "deposits"_n, deposits,
     eosio::indexed_by<"byusername"_n, eosio::const_mem_fun<deposits, uint64_t, &deposits::by_username>>,
     eosio::indexed_by<"bycoopname"_n, eosio::const_mem_fun<deposits, uint64_t, &deposits::by_coopname>>,
-    eosio::indexed_by<"bystatus"_n, eosio::const_mem_fun<deposits, uint64_t, &deposits::by_status>>
+    eosio::indexed_by<"bycreator"_n, eosio::const_mem_fun<deposits, uint64_t, &deposits::by_creator>>,
+    eosio::indexed_by<"bystatus"_n, eosio::const_mem_fun<deposits, uint64_t, &deposits::by_status>>,
+    eosio::indexed_by<"byexpired"_n, eosio::const_mem_fun<deposits, uint64_t, &deposits::by_expired>>
 > deposits_index; /*!< Мультииндекс для доступа и манипуляции данными таблицы `deposits` */
 
 
 /**
  * @ingroup public_tables
- * @brief Таблица `withdraws` отслеживает операции вывода средств в контракте GATEWAY.
+ * @brief Таблица `withdrawals` отслеживает операции вывода средств в контракте GATEWAY.
  */
-struct [[eosio::table, eosio::contract("GATEWAY")]] withdraws {
+struct [[eosio::table, eosio::contract(GATEWAY)]] withdrawals {
     uint64_t id; /*!< Уникальный идентификатор записи вывода */
     eosio::name username; /*!< Имя пользователя, осуществляющего вывод средств */
     eosio::name coopname; /*!< Имя аккаунта кооператива, в рамках которого осуществляется вывод */
@@ -118,19 +122,19 @@ struct [[eosio::table, eosio::contract("GATEWAY")]] withdraws {
 };
 
   typedef eosio::multi_index<
-    "withdraws"_n, withdraws,
-    eosio::indexed_by<"byusername"_n, eosio::const_mem_fun<withdraws, uint64_t, &withdraws::by_username>>,
-    eosio::indexed_by<"bycoopname"_n, eosio::const_mem_fun<withdraws, uint64_t, &withdraws::by_coopname>>,
-    eosio::indexed_by<"bystatus"_n, eosio::const_mem_fun<withdraws, uint64_t, &withdraws::by_status>>
-    > withdraws_index; /*!< Мультииндекс для доступа и манипуляции данными таблицы `withdraws` */
+    "withdrawals"_n, withdrawals,
+    eosio::indexed_by<"byusername"_n, eosio::const_mem_fun<withdrawals, uint64_t, &withdrawals::by_username>>,
+    eosio::indexed_by<"bycoopname"_n, eosio::const_mem_fun<withdrawals, uint64_t, &withdrawals::by_coopname>>,
+    eosio::indexed_by<"bystatus"_n, eosio::const_mem_fun<withdrawals, uint64_t, &withdrawals::by_status>>
+    > withdrawals_index; /*!< Мультииндекс для доступа и манипуляции данными таблицы `withdrawals` */
 
 
-  struct [[eosio::table, eosio::contract(ANO)]] counts : counts_base {};
+  struct [[eosio::table, eosio::contract(GATEWAY)]] counts : counts_base {};
 
 
   /**
    * @ingroup public_tables
    * @brief Таблица `balances` отслеживает внутренние балансы пользователей в контракте GATEWAY.
    */
-  struct [[eosio::table, eosio::contract(ANO)]] balances : balances_base {};
+  struct [[eosio::table, eosio::contract(GATEWAY)]] balances : balances_base {};
 };
