@@ -123,6 +123,8 @@ void soviet::cancelvote(eosio::name coopname, eosio::name member, uint64_t decis
     require_auth(member);
   }
 
+  eosio::check(false, "Отмена голоса запрещена");
+  
   decisions_index decisions(_soviet, coopname.value); 
   auto decision = decisions.find(decision_id);
   eosio::check(decision != decisions.end(), "Документ не найден");

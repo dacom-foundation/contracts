@@ -68,6 +68,7 @@ public:
   [[eosio::action]] void update(eosio::name coopname, eosio::name username, uint64_t exchange_id, uint64_t remain_pieces, eosio::asset price_for_piece, std::string data, std::string meta);
   [[eosio::action]] void addpieces(eosio::name coopname, eosio::name username, uint64_t exchange_id, uint64_t new_pieces);
   [[eosio::action]] void setcontrib(eosio::name coopname, uint64_t exchange_id, uint64_t contribution_id);
+  [[eosio::action]] void setdecision(eosio::name coopname, uint64_t exchange_id, uint64_t decision_id);
 
   //admins.cpp
   [[eosio::action]] void moderate(eosio::name coopname, eosio::name username, uint64_t exchange_id);

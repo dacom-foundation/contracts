@@ -37,8 +37,10 @@ deploy_contract() {
 	local account_name=$3
 	echo "Устанавливаем контракт $contract на аккаунт $account_name..."
 	if [ -z "$account_name_param" ]; then
+            echo ./cleos.sh $network_param set contract $account_name $dir -p $account_name
 	    ./cleos.sh $network_param set contract $account_name $dir -p $account_name
 	else
+            echo ./cleos.sh $network_param set contract $account_name_param $dir -p $account_name_param
 	    ./cleos.sh $network_param set contract $account_name_param $dir -p $account_name_param
 	fi
 }

@@ -74,6 +74,90 @@
             ]
         },
         {
+            "name": "address",
+            "base": "",
+            "fields": [
+                {
+                    "name": "latitude",
+                    "type": "string"
+                },
+                {
+                    "name": "longitude",
+                    "type": "string"
+                },
+                {
+                    "name": "country",
+                    "type": "string"
+                },
+                {
+                    "name": "state",
+                    "type": "string"
+                },
+                {
+                    "name": "city",
+                    "type": "string"
+                },
+                {
+                    "name": "district",
+                    "type": "string"
+                },
+                {
+                    "name": "street",
+                    "type": "string"
+                },
+                {
+                    "name": "house_number",
+                    "type": "string"
+                },
+                {
+                    "name": "building_section",
+                    "type": "string"
+                },
+                {
+                    "name": "unit_number",
+                    "type": "string"
+                },
+                {
+                    "name": "directions",
+                    "type": "string"
+                },
+                {
+                    "name": "phone_number",
+                    "type": "string"
+                },
+                {
+                    "name": "business_hours",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "addresses",
+            "base": "",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "cooplate",
+                    "type": "name"
+                },
+                {
+                    "name": "data",
+                    "type": "address"
+                },
+                {
+                    "name": "meta",
+                    "type": "string"
+                }
+            ]
+        },
+        {
             "name": "addstaff",
             "base": "",
             "fields": [
@@ -348,16 +432,24 @@
                     "type": "name"
                 },
                 {
+                    "name": "parent_username",
+                    "type": "name"
+                },
+                {
                     "name": "username",
                     "type": "name"
+                },
+                {
+                    "name": "exchange_id",
+                    "type": "uint64"
                 },
                 {
                     "name": "program_id",
                     "type": "uint64"
                 },
                 {
-                    "name": "exchange_id",
-                    "type": "uint64"
+                    "name": "type",
+                    "type": "name"
                 }
             ]
         },
@@ -367,6 +459,10 @@
             "fields": [
                 {
                     "name": "id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "cooplate",
                     "type": "uint64"
                 },
                 {
@@ -390,15 +486,15 @@
                     "type": "name"
                 },
                 {
-                    "name": "product_return_statement",
+                    "name": "product_get_statement",
                     "type": "document"
                 },
                 {
-                    "name": "product_receipt_transfer_act_from_cooperative",
+                    "name": "product_get_act",
                     "type": "document"
                 },
                 {
-                    "name": "product_receipt_transfer_act_validation_from_cooperative",
+                    "name": "product_get_validated_act",
                     "type": "document"
                 },
                 {
@@ -406,15 +502,15 @@
                     "type": "name"
                 },
                 {
-                    "name": "product_contribution_statement",
+                    "name": "product_give_statement",
                     "type": "document"
                 },
                 {
-                    "name": "product_receipt_transfer_act_to_cooperative",
+                    "name": "product_give_act",
                     "type": "document"
                 },
                 {
-                    "name": "product_receipt_transfer_act_validation_to_cooperative",
+                    "name": "product_give_validated_act",
                     "type": "document"
                 }
             ]
@@ -515,6 +611,32 @@
                 {
                     "name": "value",
                     "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "creaddress",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "chairman",
+                    "type": "name"
+                },
+                {
+                    "name": "cooplate",
+                    "type": "name"
+                },
+                {
+                    "name": "data",
+                    "type": "address"
+                },
+                {
+                    "name": "meta",
+                    "type": "string"
                 }
             ]
         },
@@ -703,6 +825,24 @@
             ]
         },
         {
+            "name": "deladdress",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "chairman",
+                    "type": "name"
+                },
+                {
+                    "name": "address_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
             "name": "disableprog",
             "base": "",
             "fields": [
@@ -779,6 +919,36 @@
                 {
                     "name": "batch_id",
                     "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "editaddress",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "chairman",
+                    "type": "name"
+                },
+                {
+                    "name": "address_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "cooplate",
+                    "type": "name"
+                },
+                {
+                    "name": "data",
+                    "type": "address"
+                },
+                {
+                    "name": "meta",
+                    "type": "string"
                 }
             ]
         },
@@ -877,10 +1047,6 @@
                     "type": "document"
                 },
                 {
-                    "name": "authorization",
-                    "type": "document"
-                },
-                {
                     "name": "notice",
                     "type": "string"
                 }
@@ -933,6 +1099,94 @@
                 {
                     "name": "minimum",
                     "type": "asset"
+                }
+            ]
+        },
+        {
+            "name": "pgetact",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "decision_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "product_get_act",
+                    "type": "document"
+                }
+            ]
+        },
+        {
+            "name": "pgetstate",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "decision_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "product_get_statement",
+                    "type": "document"
+                }
+            ]
+        },
+        {
+            "name": "pgiveact",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "decision_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "product_give_act",
+                    "type": "document"
+                }
+            ]
+        },
+        {
+            "name": "pgivestate",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "decision_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "product_give_statement",
+                    "type": "document"
                 }
             ]
         },
@@ -1299,6 +1553,50 @@
             ]
         },
         {
+            "name": "valpgetact",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "decision_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "product_get_validated_act",
+                    "type": "document"
+                }
+            ]
+        },
+        {
+            "name": "valpgiveact",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "decision_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "product_give_validated_act",
+                    "type": "document"
+                }
+            ]
+        },
+        {
             "name": "voteagainst",
             "base": "",
             "fields": [
@@ -1415,6 +1713,11 @@
             "ricardian_contract": ""
         },
         {
+            "name": "creaddress",
+            "type": "creaddress",
+            "ricardian_contract": ""
+        },
+        {
             "name": "createboard",
             "type": "createboard",
             "ricardian_contract": ""
@@ -1427,6 +1730,11 @@
         {
             "name": "decision",
             "type": "decision",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "deladdress",
+            "type": "deladdress",
             "ricardian_contract": ""
         },
         {
@@ -1445,6 +1753,11 @@
             "ricardian_contract": ""
         },
         {
+            "name": "editaddress",
+            "type": "editaddress",
+            "ricardian_contract": ""
+        },
+        {
             "name": "editprog",
             "type": "editprog",
             "ricardian_contract": ""
@@ -1457,6 +1770,26 @@
         {
             "name": "joincoop",
             "type": "joincoop",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "pgetact",
+            "type": "pgetact",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "pgetstate",
+            "type": "pgetstate",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "pgiveact",
+            "type": "pgiveact",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "pgivestate",
+            "type": "pgivestate",
             "ricardian_contract": ""
         },
         {
@@ -1505,6 +1838,16 @@
             "ricardian_contract": ""
         },
         {
+            "name": "valpgetact",
+            "type": "valpgetact",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "valpgiveact",
+            "type": "valpgiveact",
+            "ricardian_contract": ""
+        },
+        {
             "name": "voteagainst",
             "type": "voteagainst",
             "ricardian_contract": ""
@@ -1521,6 +1864,13 @@
         }
     ],
     "tables": [
+        {
+            "name": "addresses",
+            "type": "addresses",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
         {
             "name": "automator",
             "type": "automator",

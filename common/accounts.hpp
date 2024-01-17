@@ -189,6 +189,19 @@ struct org_data {
 
 
 /**
+\ingroup public_tables
+\brief Структура данных нового юридического лица
+*
+* Данная структура содержит всю необходимую информацию для регистрации нового юридического лица в блокчейне.
+*/
+struct plot_data {
+    storage storage; ///< Хранилища персональных данных и идентификаторы данных в них.
+    std::string announce; ///< Анонс
+    std::string description; ///< Описание
+};
+
+
+/**
  * @ingroup public_tables
  * @brief Структура, представляющая организации.
  * @details Эта структура содержит информацию о юридических лицах (организациях), их верификации и других параметрах.
@@ -330,3 +343,18 @@ orgs get_cooperative_or_fail(eosio::name coopname) {
   return *org;
 };
 
+
+orgs get_cooplate_or_fail(eosio::name coopname, eosio::name cooplate) {
+  orgs_index orgs(_registrator, _registrator.value);
+  auto org = orgs.find(coopname.value);
+  eosio::check(org != orgs.end(), "Организация не найдена");
+  eosio::check(org -> is_coop(), "Организация - не кооператив");
+
+  auto org2 = orgs.find(cooplate.value);
+  eosio::check(org2 != orgs.end(), "Организация не найдена");
+  eosio::check(org2 -> is_coop(), "Организация - не кооператив");
+
+  eosio::check(org2 -> parent_username == coopname, "Кооперативный участок не принадлежит к указанному кооперативу");
+
+  return *org2;
+};

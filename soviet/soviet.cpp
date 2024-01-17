@@ -10,6 +10,7 @@
 #include "src/marketplace.cpp"
 #include "src/programs.cpp"
 #include "src/contributions.cpp"
+#include "src/addresses.cpp"
 
 using namespace eosio;
 
@@ -80,6 +81,7 @@ void soviet::exec(eosio::name executer, eosio::name coopname, uint64_t decision_
   
   decisions_index decisions(_soviet, coopname.value);
   auto decision = decisions.find(decision_id);
+  
   eosio::check(decision != decisions.end(),"Решение не найдено в оперативной памяти");
   eosio::check(decision -> authorized == true, "Только авторизованное решение может быть исполнено");
   
@@ -137,6 +139,7 @@ extern "C" {
             soviet, 
             //MARKETPLACE
             (change)(cancelorder)
+            (pgivestate)(pgetstate)(pgiveact)(valpgiveact)(pgetact)(valpgetact)
         )
 
         EOSIO_DISPATCH_HELPER (
@@ -159,6 +162,13 @@ extern "C" {
             (contribute)(withdraw)
         )
 
+        EOSIO_DISPATCH_HELPER (
+            soviet, 
+            //addresses
+            (creaddress)(deladdress)(editaddress)
+        )
+
+        
 
       }
 

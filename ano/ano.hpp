@@ -5,7 +5,7 @@
 #include <eosio/multi_index.hpp>
 #include <eosio/system.hpp>
 #include <eosio/time.hpp>
-
+#include "../common/drafts.hpp"
 #include "../common/consts.hpp"
 #include "../common/utils.hpp"
 #include "../common/coops.hpp"

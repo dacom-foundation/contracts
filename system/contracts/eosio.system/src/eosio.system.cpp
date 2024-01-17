@@ -450,7 +450,7 @@ void native::newaccount(const name& creator,
     int dot_count = std::count(account_name_str.begin(), account_name_str.end(), '.');
     check(dot_count <= 1, "Account name can contain only one dot.");
 
-    if (name_length <= _auction_name_length_limit) {
+    if (name_length < _auction_name_length_limit) {
         // Не должны содержать точку
         check(dot_position == std::string::npos, "Short domain names should not contain a dot.");
         
@@ -461,7 +461,7 @@ void native::newaccount(const name& creator,
         check(current->high_bidder == creator, "only highest bidder can claim");
         check(current->high_bid < 0, "auction for name is not closed yet");
         bids.erase(current);
-    } else if (name_length > _auction_name_length_limit && name_length < 12) {
+    } else if (name_length >= _auction_name_length_limit && name_length < 12) {
         // Регистрация возможна только при наличии подписи аккаунта `_registrator`
         check(dot_position == std::string::npos, "Names from 6 to 11 characters cannot have dots.");
     }

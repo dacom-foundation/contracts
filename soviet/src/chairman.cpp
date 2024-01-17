@@ -31,12 +31,11 @@ void soviet::authorize(eosio::name coopname, eosio::name chairman, uint64_t deci
 
   decisions.modify(decision, chairman, [&](auto &d){
     d.authorized = !decision -> authorized;
-    
-    if (d.authorized == true)
-      d.authorization = document;
-    else d.authorization = clean;
+    d.authorization = document;
+    // if (!decision -> authorized == true)
+    //   d.authorization = document;
+    // else d.authorization = clean;
   });
-
 
   auto signer = autosigner.find(decision -> id);
   
@@ -96,7 +95,6 @@ void soviet::createboard(eosio::name coopname, eosio::name chairman, eosio::name
     //Добавляем председателя в пайщики кооператива автоматически
     participants_index participants(_soviet, coopname.value);
     auto cooperative = get_cooperative_or_fail(coopname);
-
     participants.emplace(_soviet, [&](auto &m){
       m.username = chairman;
       m.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
@@ -106,6 +104,7 @@ void soviet::createboard(eosio::name coopname, eosio::name chairman, eosio::name
       m.is_initial = true;
       m.is_minimum = true;
       m.has_vote = true;    
+
       m.available = asset(0, cooperative.initial.symbol);
       m.blocked = asset(0, cooperative.initial.symbol);
       m.minimum = cooperative.minimum; 
@@ -113,6 +112,7 @@ void soviet::createboard(eosio::name coopname, eosio::name chairman, eosio::name
 
 
   } else {
+    
     auto soviet = get_board_by_type_or_fail(coopname, "soviet"_n);
     eosio::check(soviet.is_valid_chairman(chairman), "Только председатель кооператива может создать совет");
   }

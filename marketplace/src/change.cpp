@@ -49,7 +49,7 @@
 */
 [[eosio::action]] void marketplace::offer (const exchange_params& params) {
   require_auth(params.username);
-  print("start: ");
+  
   marketplace::create("offer"_n, params);
   
 };
@@ -127,6 +127,7 @@ void marketplace::create_parent(eosio::name type, const exchange_params& params)
     i.remain_pieces = params.pieces;
     i.price_for_piece = params.price_for_piece;
     i.amount = params.price_for_piece * params.pieces;
+        
     i.data = params.data;
     i.meta = params.meta;
   });
@@ -212,6 +213,16 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
     //TODO enable it
     // i.published_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
     // i.last_update = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+    // 
+
+
+    // TODO !!! НАРИСОВАТЬ КАРТУ ПРОЦЕССА И ПРОВЕРИТЬ ЭТИ ВЫРАЖЕНИЯ !!!
+    if (type == "order"_n) {
+      i.return_product_statement = document;
+    } else if (type == "offer") {
+      i.contribute_product_statement = document;
+    };      
+
   });
 
   action(
@@ -235,7 +246,7 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
  
 @note Авторизация требуется от аккаунта: @p username
 */
-[[eosio::action]] void marketplace::accept(eosio::name coopname, eosio::name username, uint64_t exchange_id) { 
+[[eosio::action]] void marketplace::accept(eosio::name coopname, eosio::name username, uint64_t exchange_id, document document) { 
   require_auth(username);
  
   //TODO проверка на членство
@@ -259,16 +270,96 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
     o.status = "accepted"_n;
     o.blocked_pieces += change -> remain_pieces;
     o.remain_pieces = 0;
+
+    //проверить это, построив карту!
+    if (change -> type == "order"_n) {
+      o.contribute_product_statement = document;
+    } else if (change -> type == "offer"_n) {
+      o.return_product_statement = document;
+    };
+
   });
 
   action(
     permission_level{ _marketplace, "active"_n},
     _soviet,
     "change"_n,
-    std::make_tuple(change -> coopname, username, change -> program_id, exchange_id)
+    std::make_tuple(change -> coopname, username, change -> username, exchange_id, change -> program_id, change -> type)
   ).send();
-
 }
+
+
+
+
+/**
+\ingroup public_actions
+\brief Отказ от предложения.
+**/
+
+[[eosio::action]] void marketplace::supply(eosio::name coopname, eosio::name username, uint64_t exchange_id, document document) { 
+  require_auth(username);
+
+  //проверить кто подписал транзакцию: это должен быть председатель или поставщик
+
+  exchange_index exchange(_marketplace, coopname.value);
+  auto change = exchange.find(exchange_id);
+  eosio::check(change != exchange.end(), "Заявка не найдена");
+  eosio::check(change -> parent_id > 0, "Только продукт по встречной заявке может быть поставлен");
+
+  eosio::check(change -> status == "published"_n, "Продукт может быть поставлен только по заявке в статусе ожидания");
+
+  auto soviet = get_board_by_type_or_fail(coopname, "soviet"_n);
+  auto chairman = soviet.get_chairman();
+  
+  if (change -> type == "order"_n) { //если указанная заявка - это заказ продукта
+    //то поставку продукта может осуществить только встречный пользователь из parent_username
+    eosio::check(change -> parent_username == username || username == chairman, "Недостачно прав доступа для совершения поставки");
+
+    if (change -> parent_username == username) {
+      //подписываем акт приёма-передачи кооперативу пайщиком
+
+      exchange.modify(change, username, [&](auto &ch){
+        ch.product_contribution_act = document;
+      });
+
+    } else {
+      //подписываем акт приёма-передачи кооперативу председателем
+      exchange.modify(change, username, [&](auto &ch){
+        ch.product_contribution_act_validation = document;
+      });
+
+    }
+
+  } else { //если указанная заявка - это поставка продукта
+    //то поставку может осуществить только пользователь username в этой заявке
+    eosio::check(change -> username == username || username == chairman, "Недостаточно прав доступа для совершения поставки");
+
+    if (change -> username == username) {
+      //подписываем акт
+      exchange.modify(change, username, [&](auto &ch){
+        ch.product_contribution_act = document;
+      });
+      
+    } else {
+      //валидируем акт председателем
+      exchange.modify(change, username, [&](auto &ch){
+        ch.product_contribution_act_validation = document;
+      });
+    }
+
+
+
+  };
+
+  //А ТЕПЕРЬ НЕОБХОДИМО УСТРАНИТЬ ОБЪЕКТ CHANGE и ИЗЛИШНИЕ ПЕТЛИ ОБРАТНОЙ СВЯЗИ
+}
+
+
+
+
+
+
+
 
 /**
 \ingroup public_actions
@@ -614,4 +705,18 @@ void marketplace::cancel_child(eosio::name coopname, eosio::name username, uint6
   });
   
 };
+
+
+[[eosio::action]] void marketplace::setdecision(eosio::name coopname, uint64_t exchange_id, uint64_t decision_id) {
+  require_auth(_soviet);
+    
+  exchange_index exchange(_marketplace, coopname.value);
+  auto change = exchange.find(exchange_id);
+  
+  exchange.modify(change, _soviet, [&](auto &c){
+    c.decision_id = decision_id;
+  });
+  
+};
+
 

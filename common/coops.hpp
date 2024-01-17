@@ -1,5 +1,4 @@
 #pragma once
-
 /**
  * @ingroup public_tables
  * @brief Структура, представляющая членов доски.
@@ -18,6 +17,7 @@ struct board_member {
   // (MEMBER, _('member')),
   // (INVITED, _(‘invited')),
 };
+
 /**
  * @ingroup public_tables
  * @brief Структура советов кооперативов
@@ -75,6 +75,13 @@ struct [[eosio::table, eosio::contract(SOVIET)]] boards {
     return false;
   }
 
+  eosio::name get_chairman() const {
+    for (const auto& m : members) {
+      if (m.position == "chairman"_n)
+        return m.username;
+    }
+    return ""_n;
+  };
 
   bool is_valid_secretary(eosio::name secretary) const {
     for (const auto& m : members) {
@@ -274,6 +281,7 @@ struct [[eosio::table, eosio::contract(SOVIET)]] decisions {
   };
 };
 
+
 typedef eosio::multi_index< "decisions"_n, decisions,
   eosio::indexed_by<"bysecondary"_n, eosio::const_mem_fun<decisions, uint64_t, &decisions::by_secondary>>,
   eosio::indexed_by<"bytype"_n, eosio::const_mem_fun<decisions, uint64_t, &decisions::bytype>>,
@@ -319,3 +327,38 @@ bool check_for_exist_board_by_type(eosio::name coopname, eosio::name type){
 }
 
 
+struct address { 
+  std::string latitude;
+  std::string longitude;
+  std::string country;
+  std::string state;
+  std::string city;
+  std::string district;
+  std::string street;
+  std::string house_number;
+  std::string building_section;
+  std::string unit_number;
+  std::string directions; //как добраться
+  std::string phone_number;
+  std::string business_hours;  
+};
+
+/**
+ * @ingroup public_tables
+ * @brief Структура, представляющая адреса кооператива.
+ * @details Эта структура содержит информацию о адресах кооператива, которые используются как точки приёма-выдачи товаров на кооплейсе.
+ */
+struct [[eosio::table, eosio::contract(SOVIET)]] addresses {
+  uint64_t id;
+  eosio::name coopname;
+  eosio::name cooplate; //юзернейм организации кооперативного участка, если есть
+  address data;
+  std::string meta;
+  uint64_t primary_key() const { return id; }
+  uint64_t bycooplate() const { return cooplate.value; }
+};
+
+
+typedef eosio::multi_index< "addresses"_n, addresses,
+  eosio::indexed_by<"bycooplate"_n, eosio::const_mem_fun<addresses, uint64_t, &addresses::bycooplate>>
+> addresses_index;

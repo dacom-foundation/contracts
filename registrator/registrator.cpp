@@ -95,7 +95,7 @@
    storage storage
 ) {  
 
-  eosio::check(has_auth(coopname), "Только регистратор может подписать эту транзакцию");
+  require_auth(coopname);
   eosio::name payer = coopname;
   
   if (coopname != _ano)
@@ -140,7 +140,7 @@
 * @note Авторизация требуется от одного из аккаунтов: @p coopname || username
 */
 [[eosio::action]] void registrator::regorg(eosio::name coopname, eosio::name username, org_data params) {
-    has_auth(coopname);
+    require_auth(coopname);
     eosio::name payer = coopname;
 
     accounts_index accounts(_registrator, _registrator.value); 
@@ -173,6 +173,60 @@
     });   
 
 }
+
+
+
+
+/**
+\ingroup public_actions
+\brief Регистрация юридического лица
+*
+* Этот метод позволяет регистрировать аккаунт в качестве юридического лица. 
+* Все данные в карточке юридического лица публичны и хранятся в блокчейне.
+*
+* @param params Структура данных нового юридического лица
+* 
+* @note Авторизация требуется от одного из аккаунтов: @p coopname || username
+*/
+[[eosio::action]] void registrator::regplot(eosio::name coopname, eosio::name username, plot_data params) {
+    require_auth(coopname);
+    eosio::name payer = coopname;
+
+    accounts_index accounts(_registrator, _registrator.value); 
+    auto new_plot_account = accounts.find(username.value);
+    eosio::check(new_plot_account!= accounts.end(), "Участник не найден в картотеке аккаунтов");
+    eosio::check(new_plot_account -> type == ""_n, "Только новый аккаунт может быть использован для создания участка");
+
+    accounts.modify(new_plot_account, payer, [&](auto &c) {
+      c.type = "org"_n;
+    });
+
+    orgs_index orgs(_registrator, _registrator.value);
+    auto parent_org = orgs.find(coopname.value);
+    eosio::check(parent_org == orgs.end(), "Организация не найдена");
+
+    //TODO 
+    // проверить поля, если это кооператив
+    std::vector<storage> storages;
+    
+    storages.push_back(params.storage);
+
+    orgs.emplace(payer, [&](auto& org) {
+      org.username = username;
+      org.parent_username = coopname;
+      org.storages = storages;
+      org.is_active = false;
+      org.is_cooperative = parent_org -> is_cooperative;
+      org.coop_type = parent_org -> coop_type;
+      org.token_contract = parent_org -> token_contract;
+      org.announce = params.announce;
+      org.description = params.description;
+      org.initial = asset(0, parent_org -> initial.symbol);
+      org.minimum = asset(0, parent_org -> minimum.symbol);
+    });   
+
+}
+
 
 /**
 \ingroup public_actions

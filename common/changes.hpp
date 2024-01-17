@@ -24,6 +24,7 @@ struct exchange_params {
   eosio::name coopname; /*!< Имя кооператива */
   uint64_t pieces; /*!< Количество частей (штук) товара или услуги */
   eosio::asset price_for_piece; /*!< Цена за единицу (штуку) товара или услуги */
+  document document; /*!< Сопутствующий подписанный документ на взнос или возврат взноса */
   std::string data; /*!< Дополнительные данные, специфичные для заявки */
   std::string meta; /*!< Метаданные о заявке */
 };
@@ -55,11 +56,13 @@ struct exchange_params {
  * auto exchange_order = exchange.find(id);
  * @endcode
  */
+
 struct [[eosio::table, eosio::contract(MARKETPLACE)]] exchange {
   uint64_t id;                 /*!< идентификатор обмена */
   uint64_t parent_id;          /*!< идентификатор родительской заявки */
   uint64_t program_id;         /*!< идентификатор программы */
   uint64_t contribution_id;    /*!< идентификатор взноса */
+  uint64_t decision_id;        /*!< идентификатор решения */
   eosio::name coopname;        /*!< имя аккаунта кооператива */
   eosio::name type;            /*!< тип обмена */
   eosio::name status;          /*!< статус обмена */
@@ -78,6 +81,7 @@ struct [[eosio::table, eosio::contract(MARKETPLACE)]] exchange {
   uint64_t by_coop() const {return coopname.value;} /*!< кооператив */
   uint64_t by_status() const { return status.value; } /*!< индекс по статусу */
   uint64_t by_program() const { return program_id; } /*!< индекс по программе */
+  uint64_t by_decision() const { return decision_id; } /*!< индекс по решению */
   uint64_t by_type() const { return type.value; } /*!< индекс по типу */
   uint64_t by_parent() const { return parent_id; } /*!< индекс по родительскому ID */
   uint64_t by_username() const { return username.value;} /*!< индекс по имени аккаунта */
@@ -90,6 +94,7 @@ typedef eosio::multi_index<
     eosio::indexed_by<"bystatus"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_status>>,
     eosio::indexed_by<"bytype"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_type>>,
     eosio::indexed_by<"byprogram"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_program>>,
+    eosio::indexed_by<"bydecision"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_decision>>,
     eosio::indexed_by<"byparent"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_parent>>,
     eosio::indexed_by<"byusername"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_username>>,
     eosio::indexed_by<"bypausername"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_parent_username>>

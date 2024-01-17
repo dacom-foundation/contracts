@@ -79,6 +79,10 @@
                     "type": "string"
                 },
                 {
+                    "name": "model",
+                    "type": "string"
+                },
+                {
                     "name": "translation_data",
                     "type": "string"
                 }
@@ -171,6 +175,10 @@
                     "type": "string"
                 },
                 {
+                    "name": "model",
+                    "type": "string"
+                },
+                {
                     "name": "is_published",
                     "type": "bool"
                 },
@@ -210,6 +218,10 @@
                 },
                 {
                     "name": "context",
+                    "type": "string"
+                },
+                {
+                    "name": "model",
                     "type": "string"
                 }
             ]

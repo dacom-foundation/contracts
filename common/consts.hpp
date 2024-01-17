@@ -59,22 +59,22 @@ using namespace eosio;
 
 #if IS_TESTNET
     // Дефайны для тестовой сети
-    #define ANO "anotest"
-    #define GATEWAY "gatetest"
-    #define DRAFT "drafttest"
-    #define MARKETPLACE "markettest"
-    #define SOVIET "soviettest"
-    #define REGISTRATOR "registrator"
+    #define ANO "anotest1"
+    #define GATEWAY "gatetest1"
+    #define DRAFT "drafttest1"
+    #define MARKETPLACE "markettest1"
+    #define SOVIET "soviettest1"
+    #define REGISTRATOR "regtest1"
     #define SYSTEM "eosio"
     
 
     // Константы для тестовой сети
-    static constexpr eosio::name _ano = "anotest"_n;
-    static constexpr eosio::name _gateway = "gatetest"_n;
-    static constexpr eosio::name _draft = "drafttest"_n;
-    static constexpr eosio::name _marketplace = "markettest"_n;
-    static constexpr eosio::name _soviet = "soviettest"_n;
-    static constexpr eosio::name _registrator = "registrator"_n;
+    static constexpr eosio::name _ano = "anotest1"_n;
+    static constexpr eosio::name _gateway = "gatetest1"_n;
+    static constexpr eosio::name _draft = "drafttest1"_n;
+    static constexpr eosio::name _marketplace = "markettest1"_n;
+    static constexpr eosio::name _soviet = "soviettest1"_n;
+    static constexpr eosio::name _registrator = "regtest1"_n;
     static constexpr eosio::name _system = "eosio"_n;
     
     static constexpr eosio::name _regaccount_action = "joincoop"_n;
@@ -89,6 +89,8 @@ using namespace eosio;
     static constexpr uint64_t _stake_net_amount = 10000; /*!< оперативная память нового аккаунта */
 
     static constexpr uint64_t _signature_expiration = 86400 * 365 * 2;
+    static constexpr uint64_t _auction_name_length_limit = 6;
+    
 #else
     // Дефайны для основной сети
     #define ANO "ano"
@@ -123,6 +125,7 @@ using namespace eosio;
     static constexpr uint64_t _stake_net_amount = 10000; /*!< оперативная память нового аккаунта */
 
     static constexpr uint64_t _signature_expiration = 86400 * 365 * 2;
+    static constexpr uint64_t _auction_name_length_limit = 6;
 /**
 * @}
 */

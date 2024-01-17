@@ -49,6 +49,7 @@ public:
   );
 
   [[eosio::action]] void regorg(eosio::name coopname, eosio::name username, org_data params);
+  [[eosio::action]] void regplot(eosio::name coopname, eosio::name username, plot_data params);
 
   [[eosio::action]] void joincoop(eosio::name coopname, eosio::name username, document document);
 

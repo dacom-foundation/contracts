@@ -10,7 +10,7 @@ void soviet::subcoopbal(eosio::name coopname, eosio::name username, eosio::asset
   participants_index participants(_soviet, coopname.value);
   auto participant = participants.find(username.value);
 
-  eosio::check(participant != participants.end(), "Участник не найден");
+  eosio::check(participant != participants.end(), "Вы не являетесь членом указанного кооператива");
   
   eosio::check(participant -> available >= quantity, "Недостаточно средств на балансе");
 
@@ -29,7 +29,7 @@ void soviet::unblprogbal(eosio::name coopname, eosio::name username, uint64_t pr
   participants_index participants(_soviet, coopname.value);
   auto participant = participants.find(username.value);
 
-  eosio::check(participant != participants.end(), "Участник не найден");
+  eosio::check(participant != participants.end(), "Вы не являетесь членом указанного кооператива");
   
   progwallets_index progwallets(_soviet, coopname.value);
 
@@ -58,7 +58,7 @@ void soviet::addbaltoprog(eosio::name coopname, eosio::name username, uint64_t p
   participants_index participants(_soviet, coopname.value);
   auto participant = participants.find(username.value);
 
-  eosio::check(participant != participants.end(), "Участник не найден");
+  eosio::check(participant != participants.end(), "Вы не являетесь членом указанного кооператива");
   
   progwallets_index progwallets(_soviet, coopname.value);
 
@@ -95,7 +95,7 @@ void soviet::blockprogbal(eosio::name coopname, eosio::name username, uint64_t p
   participants_index participants(_soviet, coopname.value);
   auto participant = participants.find(username.value);
 
-  eosio::check(participant != participants.end(), "Участник не найден");
+  eosio::check(participant != participants.end(), "Вы не являетесь членом указанного кооператива");
 
   progwallets_index progwallets(_soviet, coopname.value);
 
@@ -132,7 +132,7 @@ void soviet::subbalfrprog(eosio::name coopname, eosio::name username, uint64_t p
   participants_index participants(_soviet, coopname.value);
   auto participant = participants.find(username.value);
 
-  eosio::check(participant != participants.end(), "Участник не найден");
+  eosio::check(participant != participants.end(), "Вы не являетесь членом указанного кооператива");
   
   progwallets_index progwallets(_soviet, coopname.value);
 
@@ -161,7 +161,7 @@ void soviet::addcoopbal(eosio::name coopname, eosio::name username, eosio::asset
   participants_index participants(_soviet, coopname.value);
   auto participant = participants.find(username.value);
 
-  eosio::check(participant != participants.end(), "Участник не найден");
+  eosio::check(participant != participants.end(), "Вы не являетесь членом указанного кооператива");
   
   participants.modify(participant, payer, [&](auto &p) {
     p.available += quantity;
@@ -198,8 +198,8 @@ void soviet::contribute(eosio::name coopname, eosio::name username, uint64_t pro
   auto participant = participants.find(username.value);
   print("available2: ", participant -> available);
 
-  eosio::check(participant != participants.end(), "Участник не найден");
-  eosio::check(participant -> is_active(), "Участник не активен");
+  eosio::check(participant != participants.end(), "Вы не являетесь членом указанного кооператива");
+  eosio::check(participant -> is_active(), "Ваш аккаунт не активен в указанном кооперативе");
   eosio::check(participant -> available >= quantity, "Недостаточно средств для взноса");
 
   action(
@@ -244,8 +244,8 @@ void soviet::deposit(eosio::name coopname, eosio::name username, eosio::name con
   participants_index participants(_soviet, coopname.value);
   auto participant = participants.find(username.value);
 
-  eosio::check(participant != participants.end(), "Участник не найден");
-  eosio::check(participant -> is_active(), "Участник не активен");
+  eosio::check(participant != participants.end(), "Вы не являетесь членом указанного кооператива");
+  eosio::check(participant -> is_active(), "Ваш аккаунт не активен в указанном кооперативе");
   
   action(
     permission_level{ _soviet, "active"_n},
@@ -266,8 +266,8 @@ void soviet::withdraw(eosio::name coopname, eosio::name username, eosio::asset q
   participants_index participants(_soviet, coopname.value);
   auto participant = participants.find(username.value);
 
-  eosio::check(participant != participants.end(), "Участник не найден");
-  eosio::check(participant -> is_active(), "Участник не активен");
+  eosio::check(participant != participants.end(), "Вы не являетесь членом указанного кооператива");
+  eosio::check(participant -> is_active(), "Ваш аккаунт не активен в указанном кооперативе");
   eosio::check(participant -> available >= quantity, "Недостаточно доступных средств на балансе кошелька для списания");
 
   action(
@@ -298,8 +298,8 @@ void soviet::withdraw(eosio::name coopname, eosio::name username, eosio::asset q
   // participants_index participants(_soviet, coopname.value);
   // auto participant = participants.find(username.value);
 
-  // eosio::check(participant != participants.end(), "Участник не найден");
-  // eosio::check(participant -> is_active(), "Участник не активен");
+  // eosio::check(participant != participants.end(), "Вы не являетесь членом указанного кооператива");
+  // eosio::check(participant -> is_active(), "Ваш аккаунт не активен в указанном кооперативе");
   // eosio::check(participant -> available >= quantity, "Недостаточно доступных средств на балансе для списания");
 
   // action(

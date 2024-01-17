@@ -91,7 +91,7 @@ void soviet::joincoop_effect(eosio::name executer, eosio::name coopname, uint64_
       permission_level{ _soviet, "active"_n},
       _soviet,
       "decision"_n,
-      std::make_tuple(coopname, joincoop_action -> username, _regaccount_action, decision_id, decision->batch_id, joincoop_action -> authorization)
+      std::make_tuple(coopname, joincoop_action -> username, _regaccount_action, decision_id, decision->batch_id, decision -> authorization)
   ).send();
 
   action(
