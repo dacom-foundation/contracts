@@ -45,8 +45,9 @@ void token::issue( const name& to, const asset& quantity, const string& memo )
     statstable.modify( st, same_payer, [&]( auto& s ) {
        s.supply += quantity;
     });
-
-    add_balance( st.issuer, quantity, st.issuer );
+   
+    //временно для тестов выпускаем на to. Потом сменим выпуск строго на эмитента (ANO)
+    add_balance( to, quantity, st.issuer );
 }
 
 void token::retire( const asset& quantity, const string& memo )

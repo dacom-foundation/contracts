@@ -18,6 +18,10 @@
                 {
                     "name": "exchange_id",
                     "type": "uint64"
+                },
+                {
+                    "name": "document",
+                    "type": "document"
                 }
             ]
         },
@@ -54,6 +58,22 @@
                 {
                     "name": "exchange_id",
                     "type": "uint64"
+                },
+                {
+                    "name": "contribution_product_decision_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "contribution_product_authorization",
+                    "type": "document"
+                },
+                {
+                    "name": "return_product_decision_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "return_product_authorization",
+                    "type": "document"
                 }
             ]
         },
@@ -116,6 +136,46 @@
             ]
         },
         {
+            "name": "delivered",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "exchange_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "document",
+            "base": "",
+            "fields": [
+                {
+                    "name": "hash",
+                    "type": "string"
+                },
+                {
+                    "name": "pkey",
+                    "type": "string"
+                },
+                {
+                    "name": "sign",
+                    "type": "string"
+                },
+                {
+                    "name": "meta",
+                    "type": "string"
+                }
+            ]
+        },
+        {
             "name": "exchange",
             "base": "",
             "fields": [
@@ -133,6 +193,10 @@
                 },
                 {
                     "name": "contribution_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "decision_id",
                     "type": "uint64"
                 },
                 {
@@ -186,6 +250,66 @@
                 {
                     "name": "meta",
                     "type": "string"
+                },
+                {
+                    "name": "money_contributor",
+                    "type": "name"
+                },
+                {
+                    "name": "product_contributor",
+                    "type": "name"
+                },
+                {
+                    "name": "contribute_product_statement",
+                    "type": "document"
+                },
+                {
+                    "name": "return_product_statement",
+                    "type": "document"
+                },
+                {
+                    "name": "contribution_product_decision_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "contribution_product_authorization",
+                    "type": "document"
+                },
+                {
+                    "name": "return_product_decision_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "return_product_authorization",
+                    "type": "document"
+                },
+                {
+                    "name": "product_contribution_act_validation",
+                    "type": "document"
+                },
+                {
+                    "name": "product_contribution_act",
+                    "type": "document"
+                },
+                {
+                    "name": "product_recieve_act",
+                    "type": "document"
+                },
+                {
+                    "name": "product_recieve_act_validation",
+                    "type": "document"
+                },
+                {
+                    "name": "product_lifecycle_secs",
+                    "type": "uint64"
+                },
+                {
+                    "name": "warranty_delay_until",
+                    "type": "time_point_sec"
+                },
+                {
+                    "name": "deadline_for_receipt",
+                    "type": "time_point_sec"
                 }
             ]
         },
@@ -216,6 +340,14 @@
                 {
                     "name": "price_for_piece",
                     "type": "asset"
+                },
+                {
+                    "name": "product_lifecycle_secs",
+                    "type": "uint64"
+                },
+                {
+                    "name": "document",
+                    "type": "document"
                 },
                 {
                     "name": "data",
@@ -320,7 +452,7 @@
             ]
         },
         {
-            "name": "setcontrib",
+            "name": "recieve",
             "base": "",
             "fields": [
                 {
@@ -328,12 +460,82 @@
                     "type": "name"
                 },
                 {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
                     "name": "exchange_id",
                     "type": "uint64"
                 },
                 {
-                    "name": "contribution_id",
+                    "name": "document",
+                    "type": "document"
+                }
+            ]
+        },
+        {
+            "name": "recievecnfrm",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "exchange_id",
                     "type": "uint64"
+                },
+                {
+                    "name": "document",
+                    "type": "document"
+                }
+            ]
+        },
+        {
+            "name": "supply",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "exchange_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "document",
+                    "type": "document"
+                }
+            ]
+        },
+        {
+            "name": "supplycnfrm",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "exchange_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "document",
+                    "type": "document"
                 }
             ]
         },
@@ -422,6 +624,11 @@
             "ricardian_contract": ""
         },
         {
+            "name": "delivered",
+            "type": "delivered",
+            "ricardian_contract": ""
+        },
+        {
             "name": "moderate",
             "type": "moderate",
             "ricardian_contract": ""
@@ -452,8 +659,23 @@
             "ricardian_contract": ""
         },
         {
-            "name": "setcontrib",
-            "type": "setcontrib",
+            "name": "recieve",
+            "type": "recieve",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "recievecnfrm",
+            "type": "recievecnfrm",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "supply",
+            "type": "supply",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "supplycnfrm",
+            "type": "supplycnfrm",
             "ricardian_contract": ""
         },
         {

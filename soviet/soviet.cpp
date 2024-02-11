@@ -14,24 +14,15 @@
 
 using namespace eosio;
 
-[[eosio::action]] void soviet::draft(eosio::name coopname, eosio::name username, uint64_t decision_id, uint64_t batch_id) {
-  require_auth(_soviet);
+[[eosio::action]] void soviet::draft(eosio::name coopname, eosio::name username, uint64_t decision_id) {
+  // require_auth(_soviet);
 
-  require_recipient(coopname);
-  require_recipient(username);
-
-};
-
-[[eosio::action]] void soviet::statement(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, uint64_t batch_id, document statement) {
-  require_auth(_soviet);
-
-  require_recipient(coopname);
-  require_recipient(username);
+  // require_recipient(coopname);
+  // require_recipient(username);
 
 };
 
-
-[[eosio::action]] void soviet::act(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, uint64_t batch_id, document act) {
+[[eosio::action]] void soviet::statement(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, document document) {
   require_auth(_soviet);
 
   require_recipient(coopname);
@@ -40,7 +31,16 @@ using namespace eosio;
 };
 
 
-[[eosio::action]] void soviet::decision(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, uint64_t batch_id, document decision) {
+[[eosio::action]] void soviet::act(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, document document) {
+  require_auth(_soviet);
+
+  require_recipient(coopname);
+  require_recipient(username);
+
+};
+
+
+[[eosio::action]] void soviet::decision(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, document document) {
   require_auth(_soviet);
 
   require_recipient(coopname);
@@ -138,8 +138,7 @@ extern "C" {
         EOSIO_DISPATCH_HELPER (
             soviet, 
             //MARKETPLACE
-            (change)(cancelorder)
-            (pgivestate)(pgetstate)(pgiveact)(valpgiveact)(pgetact)(valpgetact)
+            (change)(cancelorder)(completed)(recieved)
         )
 
         EOSIO_DISPATCH_HELPER (
@@ -158,8 +157,8 @@ extern "C" {
         EOSIO_DISPATCH_HELPER (
             soviet, 
             //CONTRIBUTE
-            (addcoopbal)(subcoopbal)(blockprogbal)(unblprogbal)(addbaltoprog)(subbalfrprog)
-            (contribute)(withdraw)
+            (addbalance)(subbalance)(blockbal)(unblockbal)(addprogbal)(subprogbal)
+            (mcontribute)(pcontribute)(withdraw)
         )
 
         EOSIO_DISPATCH_HELPER (

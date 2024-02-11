@@ -24,7 +24,13 @@ void apply(uint64_t receiver, uint64_t code, uint64_t action) {
     switch (action) {
       EOSIO_DISPATCH_HELPER(marketplace, (newid)
         //change
-        (offer)(order)(complete)(decline)(accept)(setcontrib)(update)
+        (offer)(order)
+        (accept)(decline)
+        (supply)(supplycnfrm)
+        (delivered)
+        (recieve)(recievecnfrm)
+        (complete)
+        (update)
         //admin
         (moderate)(prohibit)(unpublish)(publish)
         //soviet

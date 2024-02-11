@@ -13,6 +13,7 @@
 #include "../common/accounts.hpp"
 #include "../common/drafts.hpp"
 #include "../common/coops.hpp"
+#include "../common/changes.hpp"
 #include "../common/counts.hpp"
 #include "../common/admins.hpp"
 #include "../common/programs.hpp"
@@ -43,15 +44,15 @@ public:
   //ниже реестр хранилища документов
   
   //черновик пачки
-  [[eosio::action]] void draft(eosio::name coopname, eosio::name username, uint64_t decision_id, uint64_t batch_id);
+  [[eosio::action]] void draft(eosio::name coopname, eosio::name username, uint64_t decision_id);
   
   //программа
   [[eosio::action]] void program(eosio::name coopname, uint64_t program_id);
 
   //документ
-  [[eosio::action]] void statement(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, uint64_t batch_id, document statement);
-  [[eosio::action]] void act(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, uint64_t batch_id, document act);
-  [[eosio::action]] void decision(eosio::name coopname, eosio::name username,  eosio::name action, uint64_t decision_id, uint64_t batch_id, document decision);
+  [[eosio::action]] void statement(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, document document);
+  [[eosio::action]] void act(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, document document);
+  [[eosio::action]] void decision(eosio::name coopname, eosio::name username,  eosio::name action, uint64_t decision_id, document document);
   [[eosio::action]] void batch(eosio::name coopname, eosio::name action, uint64_t batch_id);
   //___
 
@@ -82,16 +83,10 @@ public:
   [[eosio::action]] void cancelvote(eosio::name coopname, eosio::name member, uint64_t decision_id);
 
   //marketplace.cpp
-  [[eosio::action]] void change(eosio::name coopname, eosio::name parent_username, eosio::name username, uint64_t exchange_id, uint64_t program_id, eosio::name type);
-  [[eosio::action]] void pgivestate(eosio::name coopname, eosio::name username, uint64_t decision_id, document product_give_statement);
-  [[eosio::action]] void pgetstate(eosio::name coopname, eosio::name username, uint64_t decision_id, document product_get_statement);
-  [[eosio::action]] void pgiveact(eosio::name coopname, eosio::name username, uint64_t decision_id, document product_give_act);
-  [[eosio::action]] void valpgiveact(eosio::name coopname, eosio::name username, uint64_t decision_id, document product_give_validated_act);
-  [[eosio::action]] void pgetact(eosio::name coopname, eosio::name username, uint64_t decision_id, document product_get_act);
-  [[eosio::action]] void valpgetact(eosio::name coopname, eosio::name username, uint64_t decision_id, document product_get_validated_act);
-
-
-
+  [[eosio::action]] void change(eosio::name coopname, eosio::name parent_username, eosio::name username, uint64_t exchange_id, eosio::name money_contributor, eosio::name product_contributor);
+  
+  [[eosio::action]] void recieved (eosio::name coopname, uint64_t exchange_id);
+  [[eosio::action]] void completed(eosio::name coopname, uint64_t exchange_id);
 
 
   static void change_effect(eosio::name executer, eosio::name coopname, uint64_t decision_id, uint64_t batch_id);
@@ -106,14 +101,15 @@ public:
   //contributions.cpp
   static void deposit(eosio::name coopname, eosio::name username, eosio::name contract, eosio::asset quantity);
   [[eosio::action]] void withdraw(eosio::name coopname, eosio::name username, eosio::asset quantity);
-  [[eosio::action]] void contribute(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity, eosio::name type, uint64_t batch_id);
-  [[eosio::action]] void addcoopbal(eosio::name coopname, eosio::name username, eosio::asset quantity);
-  [[eosio::action]] void subcoopbal(eosio::name coopname, eosio::name username, eosio::asset quantity);
-  [[eosio::action]] void blockprogbal(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity);
-  [[eosio::action]] void unblprogbal(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity);
-  [[eosio::action]] void addbaltoprog(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity);
-  [[eosio::action]] void subbalfrprog(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity);
+  [[eosio::action]] void mcontribute(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::name type, uint64_t secondary_id);
+  [[eosio::action]] void pcontribute(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::name type, uint64_t secondary_id);
 
+  [[eosio::action]] void addbalance(eosio::name coopname, eosio::name username, eosio::asset quantity);
+  [[eosio::action]] void subbalance(eosio::name coopname, eosio::name username, eosio::asset quantity);
+  [[eosio::action]] void blockbal(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity);
+  [[eosio::action]] void unblockbal(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity);
+  [[eosio::action]] void addprogbal(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity);
+  [[eosio::action]] void subprogbal(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity);
 
   //addresses.cpp
   [[eosio::action]] void creaddress(eosio::name coopname, eosio::name chairman, eosio::name cooplate, address data, std::string meta);
@@ -181,29 +177,13 @@ struct [[eosio::table, eosio::contract(SOVIET)]] automator {
 
   struct [[eosio::table, eosio::contract(SOVIET)]] changes {
     uint64_t id;
-    uint64_t cooplate; //""_n if coopname ???
-    uint64_t program_id;
-    uint64_t exchange_id; //идентификатор обмена в контракте marketplace
-    bool is_paid; //деньги получены на счёт кооператива  
-    bool is_recieved; //товар получен плательщиком
-    eosio::name money_contributor; //заказчик
-    document product_get_statement;   //заявление на возврат продуктом
-    document product_get_act; //подпись заказчика на акте приёма-передачи продукта от кооператива
-    document product_get_validated_act; //подпись администратора на акте приёма-передачи от кооператива
-    
-    
-    eosio::name product_contributor; //поставщик
-    document product_give_statement; //заявление на взнос продуктом
-    document product_give_act; //подпись поставщика на акте приёма-передачи продукта кооперативу
-    document product_give_validated_act; //подпись администратора на акте приёма-передачи кооперативу
-    
+    uint64_t exchange_id; // идентификатор обмена в контракте marketplace
+    uint64_t contribution_product_decision_id;
+    uint64_t return_product_decision_id;
+
 
     uint64_t primary_key() const {
       return id; 
-    };
-
-    uint64_t byprogram() const {
-      return program_id;
     };
 
     uint64_t byexchange() const {
@@ -212,7 +192,6 @@ struct [[eosio::table, eosio::contract(SOVIET)]] automator {
   };
 
   typedef eosio::multi_index<"changes"_n, changes,
-    eosio::indexed_by<"byprogram"_n, eosio::const_mem_fun<changes, uint64_t, &changes::byprogram>>,
     eosio::indexed_by<"byexchange"_n, eosio::const_mem_fun<changes, uint64_t, &changes::byexchange>>
   > changes_index;
 

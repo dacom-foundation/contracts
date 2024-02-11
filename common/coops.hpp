@@ -198,6 +198,7 @@ struct [[eosio::table, eosio::contract(SOVIET)]] participants {
   bool is_active() const {
     return status == "accepted"_n;
   }
+    
 };
 
 typedef eosio::multi_index< "participants"_n, participants,

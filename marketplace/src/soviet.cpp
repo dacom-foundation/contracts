@@ -10,7 +10,7 @@
 
 @note Авторизация требуется от аккаунта: @p _soviet
 */
-[[eosio::action]] void marketplace::authorize(eosio::name coopname, uint64_t exchange_id) {
+[[eosio::action]] void marketplace::authorize(eosio::name coopname, uint64_t exchange_id, uint64_t contribution_product_decision_id, document contribution_product_authorization, uint64_t return_product_decision_id, document return_product_authorization) {
   require_auth(_soviet);
 
   exchange_index exchange(_marketplace, coopname.value);
@@ -20,6 +20,13 @@
   
   exchange.modify(change, _soviet, [&](auto &o) { 
     o.status = "authorized"_n; 
+    
+    o.contribution_product_decision_id = contribution_product_decision_id;
+    o.contribution_product_authorization = contribution_product_authorization;
+    
+    o.return_product_decision_id = return_product_decision_id;
+    o.return_product_authorization = return_product_authorization;
+
   });
 
 };

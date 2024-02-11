@@ -1,139 +1,115 @@
 using namespace eosio;
 
-//заявление на взнос продуктом
-void soviet::pgivestate (eosio::name coopname, eosio::name username, uint64_t decision_id, document product_give_statement) {
-  require_auth(_soviet);
 
-  decisions_index decisions(_soviet, coopname.value);
-  auto decision = decisions.find(decision_id);
-  eosio::check(decision != decisions.end(), "Решение не найдено");
-  eosio::check(decision -> type == "productcontr"_n || decision -> type == "moneycontr"_n, "Неверный тип черновика решения совета");
+//это должно срабатывать при завершении цикла обмена в маркетплейсе (когда срок гарантии вышел и время разморозить / списать балансы)
+void soviet::completed(eosio::name coopname, uint64_t exchange_id) {
+  require_auth(_marketplace);
+  print("coopname: ", coopname);
+  print("exchange_id: ", exchange_id);
   
-  changes_index changes(_soviet, coopname.value);
-  auto change = changes.find(decision -> batch_id);
+  exchange_index exchange(_marketplace, coopname.value);
+  auto request = exchange.find(exchange_id);
+  eosio::check(request != exchange.end(), "Заявка не обнаружена");
+
+  //Заказчику уменьшаем баланс ЦПП не кошелька, разблокируем баланс ЦПП кошелька и списываем его  
+  action(
+    permission_level{ _soviet, "active"_n},
+    _soviet,
+    "subprogbal"_n,
+    std::make_tuple(coopname, request -> money_contributor, request -> program_id, request -> amount)
+  ).send();
   
-  eosio::check(change != changes.end(), "Объект обмена не найден");
-  eosio::check(change -> product_contributor == username, "Пользователь не является тем, кто вносит продукт");
+  action(
+    permission_level{ _soviet, "active"_n},
+    _soviet,
+    "unblockbal"_n,
+    std::make_tuple(coopname, request -> money_contributor, request -> program_id, request -> amount)
+  ).send();
 
-  changes.modify(change, _soviet, [&](auto &c){
-    c.product_give_statement = product_give_statement;
-  });
 
-};
+  action(
+    permission_level{ _soviet, "active"_n},
+    _soviet,
+    "subbalance"_n,
+    std::make_tuple(coopname, request -> money_contributor, request -> amount)
+  ).send();
 
-//заявление на возврат продуктом
-void soviet::pgetstate (eosio::name coopname, eosio::name username, uint64_t decision_id, document product_get_statement) {
-  require_auth(_soviet); 
 
-  decisions_index decisions(_soviet, coopname.value);
-  auto decision = decisions.find(decision_id);
-  eosio::check(decision != decisions.end(), "Решение не найдено");
-  eosio::check(decision -> type == "productcontr"_n || decision -> type == "moneycontr"_n, "Неверный тип черновика решения совета");
-  
-  changes_index changes(_soviet, coopname.value);
-  auto change = changes.find(decision -> batch_id);
-  
-  eosio::check(change != changes.end(), "Объект обмена не найден");
-  eosio::check(change -> money_contributor == username, "Пользователь не является тем, кто получает продукт");
+  //Поставщику уменьшаем баланс ЦПП не кошелька и разблокируем баланс ЦПП кошелька
+  action(
+    permission_level{ _soviet, "active"_n},
+    _soviet,
+    "subprogbal"_n,
+    std::make_tuple(coopname, request -> product_contributor, request -> program_id, request -> amount)
+  ).send();
 
-  changes.modify(change, _soviet, [&](auto &c) {
-    c.product_get_statement = product_get_statement;
-  });
+  action(
+    permission_level{ _soviet, "active"_n},
+    _soviet,
+    "unblockbal"_n,
+    std::make_tuple(coopname, request -> product_contributor, request -> program_id, request -> amount)
+  ).send();
 
-};
+}
 
-//акт приёма-передачи продукта кооперативу
-void soviet::pgiveact (eosio::name coopname, eosio::name username, uint64_t decision_id, document product_give_act) {
-  require_auth(_marketplace);  
 
-  decisions_index decisions(_soviet, coopname.value);
-  auto decision = decisions.find(decision_id);
-  eosio::check(decision != decisions.end(), "Решение не найдено");
-  eosio::check(decision -> type == "productcontr"_n || decision -> type == "moneycontr"_n, "Неверный тип черновика решения совета");
-  
-  changes_index changes(_soviet, coopname.value);
-  auto change = changes.find(decision -> batch_id);
-  
-  eosio::check(change != changes.end(), "Объект обмена не найден");
-  
-  eosio::check(change -> product_contributor == username, "Пользователь не является поставщиком продукта");
-
-  changes.modify(change, _marketplace, [&](auto &c) {
-    c.product_give_act = product_give_act;
-  });  
-
-};
-
-//удостоверить акт приёма-передачи представителем
-void soviet::valpgiveact (eosio::name coopname, eosio::name username, uint64_t decision_id, document product_give_validated_act) {
+// удостоверить акт приёма-передачи от кооператива
+// это должно срабатывать на выдаче имущества заказчику для формирования закрывающего списка документов
+void soviet::recieved (eosio::name coopname, uint64_t exchange_id) {
   require_auth(_marketplace);
 
-  decisions_index decisions(_soviet, coopname.value);
-  auto decision = decisions.find(decision_id);
-  eosio::check(decision != decisions.end(), "Решение не найдено");
-  eosio::check(decision -> type == "productcontr"_n || decision -> type == "moneycontr"_n, "Неверный тип черновика решения совета");
+  //TODO CHANGE DECISION_ID PROBLEM
+
+  exchange_index exchange(_marketplace, coopname.value);
+  auto request = exchange.find(exchange_id);
+  eosio::check(request != exchange.end(), "Заявка не обнаружена");
+  eosio::check(request -> parent_id > 0, "Только встречная заявка может быть обработана");
+
+  //TODO control decision params
+  action(
+      permission_level{ _soviet, "active"_n},
+      _soviet,
+      "decision"_n,
+      std::make_tuple(coopname, request -> money_contributor, _product_return_action, request -> return_product_decision_id, request -> return_product_authorization)
+  ).send();
+
+  action(
+      permission_level{ _soviet, "active"_n},
+      _soviet,
+      "statement"_n,
+      std::make_tuple(coopname, request -> money_contributor, _product_return_action, request -> return_product_decision_id, request -> return_product_statement)
+  ).send();
   
-  changes_index changes(_soviet, coopname.value);
-  auto change = changes.find(decision -> batch_id);
+  action(
+      permission_level{ _soviet, "active"_n},
+      _soviet,
+      "act"_n,
+      std::make_tuple(coopname, request -> money_contributor, _product_return_action, request -> return_product_decision_id, request -> product_recieve_act_validation)
+  ).send();
   
-  eosio::check(change != changes.end(), "Объект обмена не найден");
+
   
-  auto soviet = get_board_by_type_or_fail(coopname, "soviet"_n);
-  auto chairman = soviet.get_chairman();
+  action(
+      permission_level{ _soviet, "active"_n},
+      _soviet,
+      "decision"_n,
+      std::make_tuple(coopname, request -> product_contributor, _product_contribution_action, request -> contribution_product_decision_id, request -> contribution_product_authorization)
+  ).send();
+
+  action(
+      permission_level{ _soviet, "active"_n},
+      _soviet,
+      "statement"_n,
+      std::make_tuple(coopname, request -> product_contributor, _product_contribution_action, request -> contribution_product_decision_id, request -> contribute_product_statement)
+  ).send();
   
-  eosio::check(chairman == username, "Пользователь не является упомолномоченным для валидации акта");
-
-  changes.modify(change, _marketplace, [&](auto &c) {
-    c.product_give_validated_act = product_give_validated_act;
-  });
-
-};
-
-//акт приёма-передачи пайщику от кооператива
-void soviet::pgetact(eosio::name coopname, eosio::name username, uint64_t decision_id, document product_get_act) {
-  require_auth(_marketplace);  
-
-  decisions_index decisions(_soviet, coopname.value);
-  auto decision = decisions.find(decision_id);
-  eosio::check(decision != decisions.end(), "Решение не найдено");
-  eosio::check(decision -> type == "productcontr"_n || decision -> type == "moneycontr"_n, "Неверный тип черновика решения совета");
   
-  changes_index changes(_soviet, coopname.value);
-  auto change = changes.find(decision -> batch_id);
-  
-  eosio::check(change != changes.end(), "Объект обмена не найден");
-  
-  eosio::check(change -> money_contributor == username, "Пользователь не является заказчиком продукта");
-
-  changes.modify(change, _marketplace, [&](auto &c) {
-    c.product_get_act = product_get_act;
-  });  
-
-
-};
-
-//удостоверить акт приёма-передачи от кооператива
-void soviet::valpgetact (eosio::name coopname, eosio::name username, uint64_t decision_id, document product_get_validated_act) {
-  require_auth(_marketplace);
-
-  decisions_index decisions(_soviet, coopname.value);
-  auto decision = decisions.find(decision_id);
-  eosio::check(decision != decisions.end(), "Решение не найдено");
-  eosio::check(decision -> type == "productcontr"_n || decision -> type == "moneycontr"_n, "Неверный тип черновика решения совета");
-  
-  changes_index changes(_soviet, coopname.value);
-  auto change = changes.find(decision -> batch_id);
-  
-  eosio::check(change != changes.end(), "Объект обмена не найден");
-  
-  auto soviet = get_board_by_type_or_fail(coopname, "soviet"_n);
-  auto chairman = soviet.get_chairman();
-
-  eosio::check(chairman == username, "Пользователь не является упомолномоченным для валидации акта");
-
-  changes.modify(change, _marketplace, [&](auto &c) {
-    c.product_get_validated_act = product_get_validated_act;
-  });  
+  action(
+      permission_level{ _soviet, "active"_n},
+      _soviet,
+      "act"_n,
+      std::make_tuple(coopname, request -> product_contributor, _product_contribution_action, request -> contribution_product_decision_id, request -> product_contribution_act_validation)
+  ).send();
 
 };
 
@@ -153,7 +129,7 @@ void soviet::valpgetact (eosio::name coopname, eosio::name username, uint64_t de
 * 
 * @note Авторизация требуется от аккаунта: @p _marketplace
 */
-void soviet::change(eosio::name coopname, eosio::name parent_username, eosio::name username, uint64_t exchange_id, uint64_t program_id, eosio::name type) { 
+void soviet::change(eosio::name coopname, eosio::name parent_username, eosio::name username, uint64_t exchange_id, eosio::name money_contributor, eosio::name product_contributor) { 
   require_auth(_marketplace);  
 
   decisions_index decisions(_soviet, coopname.value);
@@ -163,37 +139,28 @@ void soviet::change(eosio::name coopname, eosio::name parent_username, eosio::na
   changes_index changes(_soviet, coopname.value);
   auto batch_id = get_global_id(_soviet, "change"_n);
 
-  eosio::name money_contributor = type == "order"_n ? username : parent_username;
-  eosio::name product_contributor = type == "order"_n ? parent_username : username;
-  
+  exchange_index exchange(_marketplace, coopname.value);
+  auto change = exchange.find(exchange_id);
+  eosio::check(change != exchange.end(), "Заявка не обнаружена");
+
   changes.emplace(_marketplace, [&](auto &c) {
     c.id = batch_id;
-    c.program_id = program_id;
     c.exchange_id = exchange_id;
-    // 1 часть пачки (решение №1)
-    c.money_contributor = money_contributor; //заказчик
-    // c.product_get_statement =   //заявление на возврат продуктом
-    // c.product_get_act =  //подпись заказчика на акте приёма-передачи продукта от кооператива
-    // c.product_get_validated_act = //подпись администратора на акте приёма-передачи от кооператива
-    
-    // 2 часть пачки (решение №2)
-    c.product_contributor = product_contributor;//поставщик
-    // c.product_give_statement = //заявление на взнос продуктом
-    // c.product_give_act =  //подпись поставщика на акте приёма-передачи продукта кооперативу
-    // c.product_give_validated_act = //подпись администратора на акте приёма-передачи кооперативу
+    c.contribution_product_decision_id = decision_id_1;
+    c.return_product_decision_id = decision_id_2;
   });
 
-  decisions.emplace(_soviet, [&](auto &d){
+  decisions.emplace(_soviet, [&](auto &d) {
     d.id = decision_id_1;
-    d.type = "productcontr"_n;
+    d.type = _change_action;
     d.batch_id = batch_id;
     d.coopname = coopname;
     d.username = product_contributor;  
   });
-
+  
   decisions.emplace(_soviet, [&](auto &d){
     d.id = decision_id_2;
-    d.type = "moneycontr"_n;
+    d.type = _change_action;
     d.batch_id = batch_id;
     d.coopname = coopname;
     d.username = money_contributor;  
@@ -202,163 +169,87 @@ void soviet::change(eosio::name coopname, eosio::name parent_username, eosio::na
   action(
     permission_level{ _soviet, "active"_n},
     _soviet,
-    "setdecision"_n,
-    std::make_tuple(coopname, exchange_id, decision_id_1)
-  ).send();
-
-  action(
-    permission_level{ _soviet, "active"_n},
-    _soviet,
     "draft"_n,
-    std::make_tuple(coopname, product_contributor, decision_id_1, batch_id)
+    std::make_tuple(coopname, product_contributor, decision_id_1)
   ).send();
   
   action(
     permission_level{ _soviet, "active"_n},
     _soviet,
     "draft"_n,
-    std::make_tuple(coopname, money_contributor, decision_id_2, batch_id)
+    std::make_tuple(coopname, money_contributor, decision_id_2)
   ).send();
-
-
-  exchange_index exchange(_marketplace, coopname.value);
-  auto change = exchange.find(exchange_id);
-  eosio::check(change != exchange.end(), "Заявка не обнаружена");
-
-  //переносим заявления в совет для утверждения
-  if (type == "order"_n) {
-
-    action(
-      permission_level{ _soviet, "active"_n},
-      _soviet,
-      "pgetstate"_n,
-      std::make_tuple(change -> coopname, username, decision_id_2, change -> return_product_statement)
-    ).send();
-
-    action(
-      permission_level{ _soviet, "active"_n},
-      _soviet,
-      "pgivestate"_n,
-      std::make_tuple(change -> coopname, username, decision_id_1, change -> contribute_product_statement)
-    ).send();
-
-  } else {
-
-    eosio::check(false, "Обратные заказы временно не обслуживаются");
-
-  }
   
+
+  action(
+    permission_level{ _soviet, "active"_n},
+    _soviet,
+    "batch"_n,
+    std::make_tuple(coopname, _change_action, batch_id)
+  ).send();
 
 };
 
-// ЭТО ДОЛЖНО СРАБОТАТЬ ПРИ ЗАВЕРШЕНИИ ОБМЕНА
-// void soviet complete_change(){
-
-  // action(
-  //     permission_level{ _soviet, "active"_n},
-  //     _soviet,
-  //     "statement"_n,
-  //     std::make_tuple(coopname, change -> money_contributor, _change_action, decision_id, decision->batch_id, change -> product_get_statement)
-  // ).send();
-  
-  // action(
-  //     permission_level{ _soviet, "active"_n},
-  //     _soviet,
-  //     "statement"_n,
-  //     std::make_tuple(coopname, change -> product_contributor, _change_action, decision_id, decision->batch_id, change -> product_contribution_statement)
-  // ).send();
-  
-  // action(
-  //     permission_level{ _soviet, "active"_n},
-  //     _soviet,
-  //     "act"_n,
-  //     std::make_tuple(coopname, change -> money_contributor, _change_action, decision_id, decision->batch_id, change -> product_receipt_transfer_act_from_cooperative)
-  // ).send();
-  
-  // action(
-  //     permission_level{ _soviet, "active"_n},
-  //     _soviet,
-  //     "act"_n,
-  //     std::make_tuple(coopname, change -> product_contributor, _change_action, decision_id, decision->batch_id, change -> product_receipt_transfer_act_to_cooperative)
-  // ).send();
-  
-  // action(
-  //     permission_level{ _soviet, "active"_n},
-  //     _soviet,
-  //     "batch"_n,
-  //     std::make_tuple(coopname, _change_action, decision->batch_id)
-  // ).send();
-
-
-// }
 
 
 void soviet::change_effect(eosio::name executer, eosio::name coopname, uint64_t decision_id, uint64_t batch_id) { 
   decisions_index decisions(_soviet, coopname.value);
   auto decision = decisions.find(decision_id);
   
-  // TODO обмен должен завершаться в момент подписи крайнего акта
-  // т.е. здесь надо просто удалять, а завершать надо отдельным вызовом параллельно с complete в маркетплейсе
-
   eosio::check(decision != decisions.end(), "Решение не найдено");
 
   changes_index changes(_soviet, coopname.value);
   auto change = changes.find(batch_id);
   eosio::check(change != changes.end(), "Объект обмена не найден");
+  
+  auto contribution_product_decision = decisions.find(change -> contribution_product_decision_id);
+  auto return_product_decision = decisions.find(change -> return_product_decision_id);
 
-  action(
+  eosio::check(contribution_product_decision != decisions.end(), "Черновик решения о приёме имущества не найден");
+  eosio::check(return_product_decision != decisions.end(), "Черновик решения о возврате взноса не найден");
+
+  if (contribution_product_decision -> authorized == true && return_product_decision -> authorized == true){
+    // если принимается второе решение, то эффект должен оповестить контракт кооплейса
+    
+    action(
       permission_level{ _soviet, "active"_n},
-      "marketplace"_n,
+      _marketplace,
       "authorize"_n,
-      std::make_tuple(coopname, change -> exchange_id)
-  ).send();
+      std::make_tuple(coopname, change -> exchange_id, contribution_product_decision -> id, contribution_product_decision -> authorization, return_product_decision -> id, return_product_decision -> authorization)
+    ).send();
 
-  decisions.erase(decision);
-  changes.erase(change);
+    decisions.erase(contribution_product_decision);
+    decisions.erase(return_product_decision);
+    changes.erase(change);
+
+  } else {
+    print("Ожидаем получение второго решения");
+    // если принимается первое решение, то эффекта при обмене не должно быть
+    // просто ждём второе решение
+  }
+
+
 
 };
-
 
 void soviet::cancelorder(eosio::name coopname, eosio::name username, uint64_t program_id, uint64_t exchange_id, uint64_t contribution_id, eosio::asset quantity) { 
   require_auth(_marketplace);
 
-  //TODO delete decisions and change
-
-  cntrbutions_index contributions(_soviet, coopname.value);  
-  auto contribution = contributions.find(contribution_id);
-  contributions.erase(contribution);
-
+  //?
+  //TODO балансы уменьшаются здесь на основе входных данных, а уменьшать надо на основе заявки, после чего, отправлять сигнал на удаление. Т.е. удаление заявки из контракта кооплейса необходимо запретить и делать это только по обратной связи из совета.  
   action(
     permission_level{ _soviet, "active"_n},
     _soviet,
-    "unblprogbal"_n,
+    "subprogbal"_n,
     std::make_tuple(coopname, username, program_id, quantity)
   ).send();
 
-
   action(
     permission_level{ _soviet, "active"_n},
     _soviet,
-    "subbalfrprog"_n,
+    "unblockbal"_n,
     std::make_tuple(coopname, username, program_id, quantity)
   ).send();
-
-
-  action(
-    permission_level{ _soviet, "active"_n},
-    _soviet,
-    "addcoopbal"_n,
-    std::make_tuple(coopname, username, quantity)
-  ).send();
-
-
-  action(
-    permission_level{ _soviet, "active"_n},
-    _soviet,
-    "withdraw"_n,
-    std::make_tuple(coopname, username, quantity)
-  ).send();
-
 
 }
 

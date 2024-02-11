@@ -79,6 +79,8 @@ using namespace eosio;
     
     static constexpr eosio::name _regaccount_action = "joincoop"_n;
     static constexpr eosio::name _change_action = "change"_n;
+    static constexpr eosio::name _product_contribution_action = "productcntr"_n;
+    static constexpr eosio::name _product_return_action = "productrtrn"_n;
 
     static constexpr eosio::symbol _root_symbol = eosio::symbol(eosio::symbol_code("AXON"), 4); /*!< системный токен */
     static constexpr eosio::name _root_contract = "eosio.token"_n; /*!< системный контракт */

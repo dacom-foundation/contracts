@@ -25,7 +25,7 @@ using namespace eosio;
 */
 void soviet::createprog(eosio::name coopname, eosio::name chairman, std::string title, std::string announce, std::string description, std::string preview, std::string images, eosio::asset initial, eosio::asset minimum, eosio::asset maximum, eosio::asset share_contribution, eosio::asset membership_contribution, eosio::name period, eosio::name category, eosio::name calculation_type, uint64_t membership_percent_fee) { 
   require_auth(chairman);
-  print("on create prog");
+  
   auto board = get_board_by_type_or_fail(coopname, "soviet"_n);
   
   eosio::check(board.is_valid_chairman(chairman), "Только председатель совета может создать программу");
@@ -69,13 +69,10 @@ void soviet::createprog(eosio::name coopname, eosio::name chairman, std::string 
     pr.share_contribution = share_contribution;
     pr.membership_contribution = membership_contribution;  /*!< Членский взнос */
     pr.membership_percent_fee = membership_percent_fee;
-    
     pr.period = period;     /*!< Периодичность *///  (percase, daily, weekly, monthly, quarterly, halfayear, annually)
     pr.minimum = minimum;
     pr.maximum = maximum;
   });
-
-  print("here!");
 
   action(
     permission_level{ _soviet, "active"_n},
@@ -83,8 +80,6 @@ void soviet::createprog(eosio::name coopname, eosio::name chairman, std::string 
     "program"_n,
     std::make_tuple(coopname, program_id)
   ).send();
-
-  print("after here!");
 
 };
 

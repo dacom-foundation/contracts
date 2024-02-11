@@ -21,14 +21,13 @@ struct balances_base {
 typedef eosio::multi_index<"balances"_n, balances_base, eosio::indexed_by<"byconsym"_n, eosio::const_mem_fun<balances_base, uint128_t, &balances_base::byconsym>>> balances_index; /*!< Тип мультииндекса для таблицы балансов */
 
 
-struct [[eosio::table, eosio::contract(SOVIET)]] progwallets {
+struct [[eosio::table, eosio::contract(SOVIET)]] wallets {
   uint64_t id;
   eosio::name coopname;
   uint64_t program_id;
   eosio::name username;
   eosio::asset available;
-  eosio::asset blocked;
-
+  
   uint64_t primary_key() const { return id; } /*!< return id - primary_key */
   uint64_t by_username() const { return username.value; } /*!< username - secondary_key */
   uint64_t by_program() const { return program_id; } /*!< username - secondary_key */
@@ -38,11 +37,11 @@ struct [[eosio::table, eosio::contract(SOVIET)]] progwallets {
   } /*!< возвращает уникальный индекс, сформированный из значения username и program_id */
 };
 
-typedef eosio::multi_index<"progwallets"_n, progwallets, 
-  eosio::indexed_by<"byusername"_n, eosio::const_mem_fun<progwallets, uint64_t, &progwallets::by_username>>,
-  eosio::indexed_by<"byprogram"_n, eosio::const_mem_fun<progwallets, uint64_t, &progwallets::by_program>>,
-  eosio::indexed_by<"byuserprog"_n, eosio::const_mem_fun<progwallets, uint128_t, &progwallets::by_username_and_program>>
-> progwallets_index; /*!< Тип мультииндекса для таблицы кошелька программ */
+typedef eosio::multi_index<"wallets"_n, wallets, 
+  eosio::indexed_by<"byusername"_n, eosio::const_mem_fun<wallets, uint64_t, &wallets::by_username>>,
+  eosio::indexed_by<"byprogram"_n, eosio::const_mem_fun<wallets, uint64_t, &wallets::by_program>>,
+  eosio::indexed_by<"byuserprog"_n, eosio::const_mem_fun<wallets, uint128_t, &wallets::by_username_and_program>>
+> wallets_index; /*!< Тип мультииндекса для таблицы кошелька программ */
 
 
 

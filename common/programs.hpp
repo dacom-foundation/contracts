@@ -11,7 +11,6 @@ struct [[eosio::table, eosio::contract(SOVIET)]] programs {
   std::string preview;
   std::string images;
   eosio::name category;
-  
   // ('management', _('Management')),  # Управление
   // ('legal', _('Legal services')),   # Юридические услуги
   // ('accounting', _('Accounting')),    # Бухгалтерия и учет
@@ -23,6 +22,9 @@ struct [[eosio::table, eosio::contract(SOVIET)]] programs {
   // ('coopfunding', _('Coopfunding')),  # КоопФандинг
   // ('services', _('Services')),    # Услуги
   
+  uint64_t warranty_delay_secs = 30 * 86400;
+  uint64_t deadline_for_receipt_secs = 86400;
+
   eosio::name calculation_type; /*! тип настройки платежей по программе ( absolute | relative ) */
   uint64_t membership_percent_fee;
 
@@ -58,33 +60,33 @@ programs_index; /*!< Тип мультииндекса для таблицы ц�
 
 
 
-//scope @coopname
-struct [[eosio::table, eosio::contract(SOVIET)]] cntrbutions {
-  uint64_t id;
-  eosio::name coopname;
-  eosio::name type; ///< change | invest | share
-  uint64_t program_id;
-  uint64_t batch_id;
-  eosio::name username;
-  eosio::asset initial;
-  eosio::asset now;
-  eosio::time_point_sec created_at; ///< Время создания взноса.
-  eosio::time_point_sec last_update; ///< Время обновления взноса.
+// //scope @coopname
+// struct [[eosio::table, eosio::contract(SOVIET)]] contribs {
+//   uint64_t id;
+//   eosio::name coopname;
+//   eosio::name type; ///< change | invest | share
+//   uint64_t program_id;
+//   uint64_t secondary_id;
+//   eosio::name username;
+//   eosio::asset initial;
+//   eosio::asset now;
+//   eosio::time_point_sec created_at; ///< Время создания взноса.
+//   eosio::time_point_sec last_update; ///< Время обновления взноса.
 
-  uint64_t primary_key() const { return id; } /*!< return id - primary_key */
-  uint64_t by_username() const { return username.value; } /*!< индекс по пользователю */
+//   uint64_t primary_key() const { return id; } /*!< return id - primary_key */
+//   uint64_t by_username() const { return username.value; } /*!< индекс по пользователю */
   
-  uint128_t by_username_and_secondary() const {
-    return combine_ids(username.value, batch_id);
-  } /*!< возвращает уникальный индекс, сформированный из значения username и batch_id */
-};
+//   uint128_t by_username_and_secondary() const {
+//     return combine_ids(username.value, secondary_id);
+//   } /*!< возвращает уникальный индекс, сформированный из значения username и secondary_id */
+// };
 
 
-typedef eosio::multi_index<
-    "cntrbutions"_n, cntrbutions,
-    eosio::indexed_by<"byusername"_n, eosio::const_mem_fun<cntrbutions, uint64_t, &cntrbutions::by_username>>,
-    eosio::indexed_by<"byusersecond"_n, eosio::const_mem_fun<cntrbutions, uint128_t, &cntrbutions::by_username_and_secondary>>>
-cntrbutions_index; /*!< Тип мультииндекса для таблицы взносов в целевые программы */
+// typedef eosio::multi_index<
+//     "contribs"_n, contribs,
+//     eosio::indexed_by<"byusername"_n, eosio::const_mem_fun<contribs, uint64_t, &contribs::by_username>>,
+//     eosio::indexed_by<"byusersecond"_n, eosio::const_mem_fun<contribs, uint128_t, &contribs::by_username_and_secondary>>>
+// contribs_index; /*!< Тип мультииндекса для таблицы взносов в целевые программы */
 
 
 

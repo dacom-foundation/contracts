@@ -24,6 +24,7 @@ struct exchange_params {
   eosio::name coopname; /*!< Имя кооператива */
   uint64_t pieces; /*!< Количество частей (штук) товара или услуги */
   eosio::asset price_for_piece; /*!< Цена за единицу (штуку) товара или услуги */
+  uint64_t product_lifecycle_secs; /*!< Время жизни продукта, заявляемое поставщиком */
   document document; /*!< Сопутствующий подписанный документ на взнос или возврат взноса */
   std::string data; /*!< Дополнительные данные, специфичные для заявки */
   std::string meta; /*!< Метаданные о заявке */
@@ -76,6 +77,29 @@ struct [[eosio::table, eosio::contract(MARKETPLACE)]] exchange {
   uint64_t delivered_pieces;   /*!< количество доставленного товара */
   std::string data;            /*!< дополнительные данные */
   std::string meta;            /*!< метаданные заявки */
+
+  eosio::name money_contributor;
+  eosio::name product_contributor;
+
+  document contribute_product_statement;
+  document return_product_statement;
+  
+  uint64_t contribution_product_decision_id;
+  document contribution_product_authorization;
+  
+  uint64_t return_product_decision_id;
+  document return_product_authorization;
+  
+  document product_contribution_act_validation;
+  document product_contribution_act;  
+
+  document product_recieve_act;  
+  document product_recieve_act_validation;
+  
+  uint64_t product_lifecycle_secs;
+  
+  eosio::time_point_sec warranty_delay_until;
+  eosio::time_point_sec deadline_for_receipt;
 
   uint64_t primary_key() const { return id; } /*!< return id - primary_key */
   uint64_t by_coop() const {return coopname.value;} /*!< кооператив */

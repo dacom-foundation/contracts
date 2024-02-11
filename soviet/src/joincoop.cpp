@@ -42,7 +42,7 @@ void soviet::joincoop(eosio::name coopname, eosio::name username, document docum
     permission_level{ _soviet, "active"_n},
     _soviet,
     "draft"_n,
-    std::make_tuple(coopname, username, decision_id, batch_id)
+    std::make_tuple(coopname, username, decision_id)
   ).send();
   
 };
@@ -84,22 +84,22 @@ void soviet::joincoop_effect(eosio::name executer, eosio::name coopname, uint64_
       permission_level{ _soviet, "active"_n},
       _soviet,
       "statement"_n,
-      std::make_tuple(coopname, joincoop_action -> username, _regaccount_action, decision_id, decision->batch_id, joincoop_action -> statement)
+      std::make_tuple(coopname, joincoop_action -> username, _regaccount_action, decision_id, joincoop_action -> statement)
   ).send();
   
   action(
       permission_level{ _soviet, "active"_n},
       _soviet,
       "decision"_n,
-      std::make_tuple(coopname, joincoop_action -> username, _regaccount_action, decision_id, decision->batch_id, decision -> authorization)
+      std::make_tuple(coopname, joincoop_action -> username, _regaccount_action, decision_id, decision -> authorization)
   ).send();
 
-  action(
-      permission_level{ _soviet, "active"_n},
-      _soviet,
-      "batch"_n,
-      std::make_tuple(coopname, _regaccount_action, decision -> batch_id)
-  ).send();
+  // action(
+  //     permission_level{ _soviet, "active"_n},
+  //     _soviet,
+  //     "batch"_n,
+  //     std::make_tuple(coopname, _regaccount_action, decision -> batch_id)
+  // ).send();
 
   decisions.erase(decision);
   joincoops.erase(joincoop_action);

@@ -10,6 +10,9 @@ account_name_param=""
 # Получаем имя контракта (первый аргумент)
 contract_name=$1
 
+rm /Users/darksun/testnet/wallet/keosd.sock
+./kill.sh
+
 # Проверяем наличие параметра -n и устанавливаем соответствующую сеть
 if [[ "$@" == *"-n prod"* ]]; then
     network_param=$prod
