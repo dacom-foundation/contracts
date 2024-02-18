@@ -3,53 +3,15 @@ using namespace eosio;
 
 //это должно срабатывать при завершении цикла обмена в маркетплейсе (когда срок гарантии вышел и время разморозить / списать балансы)
 void soviet::completed(eosio::name coopname, uint64_t exchange_id) {
-  require_auth(_marketplace);
-  print("coopname: ", coopname);
-  print("exchange_id: ", exchange_id);
+  // require_auth(_marketplace);
+  // print("coopname: ", coopname);
+  // print("exchange_id: ", exchange_id);
   
-  exchange_index exchange(_marketplace, coopname.value);
-  auto request = exchange.find(exchange_id);
-  eosio::check(request != exchange.end(), "Заявка не обнаружена");
+  // exchange_index exchange(_marketplace, coopname.value);
+  // auto request = exchange.find(exchange_id);
+  // eosio::check(request != exchange.end(), "Заявка не обнаружена");
 
-  //Заказчику уменьшаем баланс ЦПП не кошелька, разблокируем баланс ЦПП кошелька и списываем его  
-  action(
-    permission_level{ _soviet, "active"_n},
-    _soviet,
-    "subprogbal"_n,
-    std::make_tuple(coopname, request -> money_contributor, request -> program_id, request -> amount)
-  ).send();
   
-  action(
-    permission_level{ _soviet, "active"_n},
-    _soviet,
-    "unblockbal"_n,
-    std::make_tuple(coopname, request -> money_contributor, request -> program_id, request -> amount)
-  ).send();
-
-
-  action(
-    permission_level{ _soviet, "active"_n},
-    _soviet,
-    "subbalance"_n,
-    std::make_tuple(coopname, request -> money_contributor, request -> amount)
-  ).send();
-
-
-  //Поставщику уменьшаем баланс ЦПП не кошелька и разблокируем баланс ЦПП кошелька
-  action(
-    permission_level{ _soviet, "active"_n},
-    _soviet,
-    "subprogbal"_n,
-    std::make_tuple(coopname, request -> product_contributor, request -> program_id, request -> amount)
-  ).send();
-
-  action(
-    permission_level{ _soviet, "active"_n},
-    _soviet,
-    "unblockbal"_n,
-    std::make_tuple(coopname, request -> product_contributor, request -> program_id, request -> amount)
-  ).send();
-
 }
 
 
@@ -232,24 +194,124 @@ void soviet::change_effect(eosio::name executer, eosio::name coopname, uint64_t 
 
 };
 
-void soviet::cancelorder(eosio::name coopname, eosio::name username, uint64_t program_id, uint64_t exchange_id, uint64_t contribution_id, eosio::asset quantity) { 
+
+
+
+
+
+
+void soviet::cancelorder(eosio::name coopname, eosio::name username, uint64_t exchange_id) { 
   require_auth(_marketplace);
+  //username здесь - это аккаунт, который инициировал отмену (ему и штраф платить)
 
-  //?
-  //TODO балансы уменьшаются здесь на основе входных данных, а уменьшать надо на основе заявки, после чего, отправлять сигнал на удаление. Т.е. удаление заявки из контракта кооплейса необходимо запретить и делать это только по обратной связи из совета.  
-  action(
-    permission_level{ _soviet, "active"_n},
-    _soviet,
-    "subprogbal"_n,
-    std::make_tuple(coopname, username, program_id, quantity)
-  ).send();
+  // exchange_index exchange(_marketplace, coopname.value);
+  // auto request = exchange.find(exchange_id);
+  // eosio::check(request != exchange.end(), "Заявка не обнаружена");
+  // eosio::check(request -> parent_id == 0, "Только встречная заявка требует оповещения совета");
 
-  action(
-    permission_level{ _soviet, "active"_n},
-    _soviet,
-    "unblockbal"_n,
-    std::make_tuple(coopname, username, program_id, quantity)
-  ).send();
+
+  // if (request -> type == "order"_n) {
+    
+  //   action(
+  //     permission_level{ _soviet, "active"_n},
+  //     _soviet,
+  //     "subprogbal"_n,
+  //     std::make_tuple(coopname, username, request-> program_id, request-> amount)
+  //   ).send();
+
+  //   action(
+  //     permission_level{ _soviet, "active"_n},
+  //     _soviet,
+  //     "unblockbal"_n,
+  //     std::make_tuple(coopname, username, request-> amount)
+  //   ).send();
+
+  // }
+
 
 }
 
+
+void soviet::mcontribute(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::name type, uint64_t secondary_id) { 
+  // eosio::check(has_auth(_marketplace) || has_auth(username), "Недостаточно прав доступа");
+  // eosio::name payer = has_auth(_marketplace) ? _marketplace : username;
+  
+  // programs_index programs(_soviet, coopname.value);
+  // auto existing_program = programs.find(program_id);
+
+  // exchange_index exchange(_marketplace, coopname.value);
+  // auto request = exchange.find(secondary_id);
+  // eosio::check(request != exchange.end(), "Заявка не обнаружена");
+
+  // eosio::check(existing_program != programs.end(), "Программа не найдена.");
+  // eosio::check(type == "change"_n, "Неподдерживаемый тип операции");
+
+  // participants_index participants(_soviet, coopname.value);
+  // auto participant = participants.find(username.value);
+  
+  // eosio::check(participant != participants.end(), "Вы не являетесь пайщиком указанного кооператива");
+  // eosio::check(participant -> is_active(), "Ваш аккаунт не активен в указанном кооперативе");
+  
+  // action(
+  //   permission_level{ _soviet, "active"_n},
+  //   _soviet,
+  //   "blockbal"_n,
+  //   std::make_tuple(coopname, username, request -> amount)
+  // ).send();
+
+  // action(
+  //   permission_level{ _soviet, "active"_n},
+  //   _soviet,
+  //   "addprogbal"_n,
+  //   std::make_tuple(coopname, username, program_id, request -> amount)
+  // ).send();
+
+};
+
+
+//Вызвать при совершении взноса имуществом поставщиком из кооплейса для выдачи заблокированного баланса в ЦПП кошелька и добавление баланса к ЦПП не кошелька
+void soviet::pcontribute(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::name type, uint64_t secondary_id) {
+  require_auth(_marketplace);
+
+  // print("on soviet contribute");
+  // programs_index programs(_soviet, coopname.value);
+  // auto existing_program = programs.find(program_id);
+
+  // eosio::check(existing_program != programs.end(), "Программа не найдена.");
+  // eosio::check(type == "change"_n, "Неподдерживаемый тип операции");
+
+  // exchange_index exchange(_marketplace, coopname.value);
+  // auto request = exchange.find(secondary_id);
+  // eosio::check(request != exchange.end(), "Заявка не обнаружена");
+
+  // participants_index participants(_soviet, coopname.value);
+  // auto participant = participants.find(username.value);
+
+  // eosio::check(participant != participants.end(), "Вы не являетесь пайщиком указанного кооператива");
+  // eosio::check(participant -> is_active(), "Ваш аккаунт не активен в указанном кооперативе");
+  
+
+  // action(
+  //   permission_level{ _soviet, "active"_n},
+  //   _soviet,
+  //   "addbalance"_n,
+  //   std::make_tuple(coopname, username, request -> amount)
+  // ).send();
+
+
+  // action(
+  //   permission_level{ _soviet, "active"_n},
+  //   _soviet,
+  //   "blockbal"_n,
+  //   std::make_tuple(coopname, username, request -> amount)
+  // ).send();
+
+
+  // action(
+  //   permission_level{ _soviet, "active"_n},
+  //   _soviet,
+  //   "addprogbal"_n,
+  //   std::make_tuple(coopname, username, program_id, request -> amount)
+  // ).send();
+
+}

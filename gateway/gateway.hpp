@@ -15,6 +15,7 @@
 #include "../common/balances.hpp"
 #include "../common/accounts.hpp"
 #include "../common/programs.hpp"
+#include "../common/admins.hpp"
 
 /**
  *  \ingroup public_contracts
@@ -47,87 +48,23 @@ public:
       eosio::datastream<const char *> ds)
       : eosio::contract(receiver, code, ds) {}
 
-  [[eosio::action]] void newid(eosio::name username, uint64_t id);
+  [[eosio::action]] void newdepositid(eosio::name username, uint64_t id);
+  [[eosio::action]] void newwithdrid(eosio::name username, uint64_t id);
 
   void apply(uint64_t receiver, uint64_t code, uint64_t action);
 
-  [[eosio::action]] void dpcreate(eosio::name creator, eosio::name username, eosio::name coopname, uint64_t program_id, eosio::name type, uint64_t batch_id, eosio::asset internal_quantity, eosio::asset external_quantity, std::string link, std::string memo);
-  [[eosio::action]] void dpcomplete(uint64_t deposit_id, std::string memo);
-  [[eosio::action]] void dpfail(uint64_t deposit_id, std::string memo);
+  [[eosio::action]] void deposit(eosio::name coopname, eosio::name username, eosio::asset quantity);
+  [[eosio::action]] void dpcomplete(eosio::name coopname, eosio::name admin, uint64_t deposit_id, std::string memo);
+  [[eosio::action]] void dpfail(eosio::name coopname, eosio::name admin, uint64_t deposit_id, std::string memo);
 
-  [[eosio::action]] void wthdcreate(eosio::name username, eosio::name coopname, eosio::asset internal_quantity, eosio::asset external_quantity, std::string memo);
-  [[eosio::action]] void wthdupdate(uint64_t withdraw_id, std::string memo);
-  [[eosio::action]] void wthdcomplete(uint64_t withdraw_id, std::string memo);
-  [[eosio::action]] void wthdfail(uint64_t withdraw_id, std::string memo);
+  [[eosio::action]] void withdrawauth(eosio::name coopname, uint64_t withdraw_id);
+
+  [[eosio::action]] void withdraw(eosio::name coopname, eosio::name username, eosio::asset quantity, document document, std::string bank_data_id, std::string memo);
+  [[eosio::action]] void wthdcomplete(eosio::name coopname, eosio::name admin, uint64_t withdraw_id, std::string memo);
+  [[eosio::action]] void wthdfail(eosio::name coopname, eosio::name admin, uint64_t withdraw_id, std::string memo);
   
-  [[eosio::action]] void back(eosio::name username, eosio::name token_contract, eosio::asset quantity);
+  // [[eosio::action]] void back(eosio::name username, eosio::name token_contract, eosio::asset quantity);
 
-
-/**
- * @ingroup public_tables
- * @brief Таблица `deposits` отслеживает депозиты в контракте GATEWAY.
- */
-
-struct [[eosio::table, eosio::contract(GATEWAY)]] deposits {
-    uint64_t id; /*!< Уникальный идентификатор записи депозита */
-    eosio::name creator; /*!< Имя аккаунта пользователя, создавшего ордер */
-    eosio::name username; /*!< Имя аккаунта пользователя, совершившего депозит */
-    eosio::name coopname; /*!< Имя аккаунта кооператива, в контексте которого совершается депозит */
-    uint64_t program_id; /*!< Идентификатор целевой программы  */
-    eosio::name type; /*!< Цель депозита, например 'changeone' или 'initial' */
-    uint64_t batch_id; /*!< Вторичный идентификатор, связанный с депозитом и целью */
-    eosio::name token_contract; /*!< Имя аккаунта контракта токена для депозита */
-    eosio::asset internal_quantity; /*!< Количество средств во внутренней валюте */
-    eosio::asset external_quantity; /*!< Количество средств во внешней валюте */
-    eosio::name status; /*!< Статус депозита */
-    std::string link; /*!< Ссылка на дополнительную информацию или внешние данные */
-    std::string memo; /*!< Примечание к депозиту */
-    eosio::time_point_sec expired_at; ///< Время истечения срока давности
-
-    uint64_t primary_key() const { return id; } /*!< Возвращает id как первичный ключ */
-    uint64_t by_coopname() const { return coopname.value; } /*!< Индекс по названию кооператива */
-    uint64_t by_username() const { return username.value; } /*!< Индекс по имени пользователя */
-    uint64_t by_creator() const { return creator.value; } /*!< Индекс по имени пользователя */
-    uint64_t by_status() const { return status.value; } /*!< Индекс по статусу депозита */
-    uint64_t by_expired() const { return expired_at.sec_since_epoch(); } /*!< Индекс по статусу депозита */
-};
-
-typedef eosio::multi_index<
-    "deposits"_n, deposits,
-    eosio::indexed_by<"byusername"_n, eosio::const_mem_fun<deposits, uint64_t, &deposits::by_username>>,
-    eosio::indexed_by<"bycoopname"_n, eosio::const_mem_fun<deposits, uint64_t, &deposits::by_coopname>>,
-    eosio::indexed_by<"bycreator"_n, eosio::const_mem_fun<deposits, uint64_t, &deposits::by_creator>>,
-    eosio::indexed_by<"bystatus"_n, eosio::const_mem_fun<deposits, uint64_t, &deposits::by_status>>,
-    eosio::indexed_by<"byexpired"_n, eosio::const_mem_fun<deposits, uint64_t, &deposits::by_expired>>
-> deposits_index; /*!< Мультииндекс для доступа и манипуляции данными таблицы `deposits` */
-
-
-/**
- * @ingroup public_tables
- * @brief Таблица `withdrawals` отслеживает операции вывода средств в контракте GATEWAY.
- */
-struct [[eosio::table, eosio::contract(GATEWAY)]] withdrawals {
-    uint64_t id; /*!< Уникальный идентификатор записи вывода */
-    eosio::name username; /*!< Имя пользователя, осуществляющего вывод средств */
-    eosio::name coopname; /*!< Имя аккаунта кооператива, в рамках которого осуществляется вывод */
-    eosio::name token_contract; /*!< Имя контракта контракта токена для вывода */
-    eosio::asset internal_quantity; /*!< Количество средств для вывода во внутренней валюте */
-    eosio::asset external_quantity; /*!< Количество средств для вывода во внешней валюте */
-    eosio::name status; /*!< Статус операции вывода */
-    std::string memo; /*!< Примечание к операции вывода */
-
-    uint64_t primary_key() const { return id; } /*!< Возвращает id как первичный ключ */
-    uint64_t by_coopname() const { return coopname.value; } /*!< Индекс по имени кооператива */
-    uint64_t by_username() const { return username.value; } /*!< Индекс по имени пользователя */
-    uint64_t by_status() const { return status.value; } /*!< Индекс по статусу операции вывода */
-};
-
-  typedef eosio::multi_index<
-    "withdrawals"_n, withdrawals,
-    eosio::indexed_by<"byusername"_n, eosio::const_mem_fun<withdrawals, uint64_t, &withdrawals::by_username>>,
-    eosio::indexed_by<"bycoopname"_n, eosio::const_mem_fun<withdrawals, uint64_t, &withdrawals::by_coopname>>,
-    eosio::indexed_by<"bystatus"_n, eosio::const_mem_fun<withdrawals, uint64_t, &withdrawals::by_status>>
-    > withdrawals_index; /*!< Мультииндекс для доступа и манипуляции данными таблицы `withdrawals` */
 
 
   struct [[eosio::table, eosio::contract(GATEWAY)]] counts : counts_base {};

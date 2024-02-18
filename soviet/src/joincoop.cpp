@@ -68,9 +68,9 @@ void soviet::joincoop_effect(eosio::name executer, eosio::name coopname, uint64_
     m.is_initial = true;
     m.is_minimum = true;
     m.has_vote = true;    
-    m.available = asset(0, cooperative.initial.symbol);
-    m.blocked = asset(0, cooperative.initial.symbol);
-    m.minimum = cooperative.minimum; //TODO add minimum amount here
+    m.wallet.available = asset(0, cooperative.initial.symbol);
+    m.wallet.blocked = asset(0, cooperative.initial.symbol);
+    m.wallet.minimum = cooperative.minimum; //TODO add minimum amount here
   });
 
   action(

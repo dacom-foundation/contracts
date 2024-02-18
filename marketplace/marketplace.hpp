@@ -76,7 +76,7 @@ public:
   [[eosio::action]] void addpieces(eosio::name coopname, eosio::name username, uint64_t exchange_id, uint64_t new_pieces);
   
   //admins.cpp
-  [[eosio::action]] void moderate(eosio::name coopname, eosio::name username, uint64_t exchange_id);
+  [[eosio::action]] void moderate(eosio::name coopname, eosio::name username, uint64_t exchange_id, uint64_t cancellation_fee);
   [[eosio::action]] void prohibit(eosio::name coopname, eosio::name username, uint64_t exchange_id, std::string meta);
   [[eosio::action]] void unpublish(eosio::name coopname, eosio::name username, uint64_t exchange_id);
   [[eosio::action]] void publish(eosio::name coopname, eosio::name username, uint64_t exchange_id);

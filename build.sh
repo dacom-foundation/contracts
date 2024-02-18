@@ -10,6 +10,7 @@ contract_params_test=(
   [soviet]="soviettest1"
   [registrator]="regtest1"
   [system]="eosio"
+  [fund]="fundtest1"
 )
 contract_params_prod=(
   [ano]="ano"
@@ -19,6 +20,7 @@ contract_params_prod=(
   [soviet]="soviet"
   [registrator]="registrator"
   [system]="eosio"
+  [fund]="fund"
 )
 
 # Выбор массива параметров в зависимости от входящего аргумента

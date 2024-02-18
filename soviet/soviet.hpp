@@ -9,14 +9,15 @@
 
 #include "../common/consts.hpp"
 #include "../common/utils.hpp"
+#include "../common/drafts.hpp"
 #include "../common/balances.hpp"
 #include "../common/accounts.hpp"
-#include "../common/drafts.hpp"
 #include "../common/coops.hpp"
 #include "../common/changes.hpp"
 #include "../common/counts.hpp"
 #include "../common/admins.hpp"
 #include "../common/programs.hpp"
+#include "../common/funds.hpp"
 
 
 
@@ -90,7 +91,7 @@ public:
 
 
   static void change_effect(eosio::name executer, eosio::name coopname, uint64_t decision_id, uint64_t batch_id);
-  [[eosio::action]] void cancelorder(eosio::name coopname, eosio::name username, uint64_t program_id, uint64_t exchange_id, uint64_t contribution_id, eosio::asset quantity);
+  [[eosio::action]] void cancelorder(eosio::name coopname, eosio::name username, uint64_t exchange_id);
 
   //programs.cpp
   [[eosio::action]] void createprog(eosio::name coopname, eosio::name chairman, std::string title, std::string announce, std::string description, std::string preview, std::string images, eosio::asset initial, eosio::asset minimum, eosio::asset maximum, eosio::asset share_contribution, eosio::asset membership_contribution, eosio::name period, eosio::name category, eosio::name calculation_type, uint64_t membership_percent_fee);
@@ -99,24 +100,28 @@ public:
   [[eosio::action]] void disableprog(eosio::name coopname, uint64_t id);
 
   //contributions.cpp
-  static void deposit(eosio::name coopname, eosio::name username, eosio::name contract, eosio::asset quantity);
-  [[eosio::action]] void withdraw(eosio::name coopname, eosio::name username, eosio::asset quantity);
+  [[eosio::action]] void withdraw(eosio::name coopname, eosio::name username, uint64_t withdraw_id);
   [[eosio::action]] void mcontribute(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::name type, uint64_t secondary_id);
   [[eosio::action]] void pcontribute(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::name type, uint64_t secondary_id);
 
   [[eosio::action]] void addbalance(eosio::name coopname, eosio::name username, eosio::asset quantity);
   [[eosio::action]] void subbalance(eosio::name coopname, eosio::name username, eosio::asset quantity);
-  [[eosio::action]] void blockbal(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity);
-  [[eosio::action]] void unblockbal(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity);
+  [[eosio::action]] void blockbal(eosio::name coopname, eosio::name username, eosio::asset quantity);
+  [[eosio::action]] void unblockbal(eosio::name coopname, eosio::name username, eosio::asset quantity);
   [[eosio::action]] void addprogbal(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity);
   [[eosio::action]] void subprogbal(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity);
+  void withdraw_effect(eosio::name executer, eosio::name coopname, uint64_t decision_id, uint64_t batch_id);
+
+
 
   //addresses.cpp
   [[eosio::action]] void creaddress(eosio::name coopname, eosio::name chairman, eosio::name cooplate, address data, std::string meta);
   [[eosio::action]] void deladdress(eosio::name coopname, eosio::name chairman, uint64_t address_id); 
   [[eosio::action]] void editaddress(eosio::name coopname, eosio::name chairman, uint64_t address_id, eosio::name cooplate, address data, std::string meta);
 
-
+  //fund.cpp
+  void subaccum_effect(eosio::name executer, eosio::name coopname, uint64_t decision_id, uint64_t secondary_id);
+  [[eosio::action]] void fundwithdraw(eosio::name coopname, eosio::name username, eosio::name type, uint64_t withdraw_id, document document);
 };
   
 

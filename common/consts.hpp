@@ -54,6 +54,19 @@ using namespace eosio;
 */
 
 
+
+static constexpr eosio::name _regaccount_action = "joincoop"_n;
+static constexpr eosio::name _change_action = "change"_n;
+static constexpr eosio::name _product_contribution_action = "productcntr"_n;
+static constexpr eosio::name _product_return_action = "productrtrn"_n;
+static constexpr eosio::name _deposit_action = "deposit"_n;
+static constexpr eosio::name _withdraw_action = "withdraw"_n;
+static constexpr eosio::name _afund_withdraw_action = "subaccum"_n;
+static constexpr eosio::name _efund_withdraw_action = "subexp"_n;
+
+#define HUNDR_PERCENTS 1000000
+#define ONE_PERCENT 10000
+
 // Определение флага IS_TESTNET
 #define IS_TESTNET true
 
@@ -66,6 +79,7 @@ using namespace eosio;
     #define SOVIET "soviettest1"
     #define REGISTRATOR "regtest1"
     #define SYSTEM "eosio"
+    #define FUND "fundtest1"
     
 
     // Константы для тестовой сети
@@ -76,11 +90,7 @@ using namespace eosio;
     static constexpr eosio::name _soviet = "soviettest1"_n;
     static constexpr eosio::name _registrator = "regtest1"_n;
     static constexpr eosio::name _system = "eosio"_n;
-    
-    static constexpr eosio::name _regaccount_action = "joincoop"_n;
-    static constexpr eosio::name _change_action = "change"_n;
-    static constexpr eosio::name _product_contribution_action = "productcntr"_n;
-    static constexpr eosio::name _product_return_action = "productrtrn"_n;
+    static constexpr eosio::name _fund = "fund"_n;
 
     static constexpr eosio::symbol _root_symbol = eosio::symbol(eosio::symbol_code("AXON"), 4); /*!< системный токен */
     static constexpr eosio::name _root_contract = "eosio.token"_n; /*!< системный контракт */
@@ -93,6 +103,10 @@ using namespace eosio;
     static constexpr uint64_t _signature_expiration = 86400 * 365 * 2;
     static constexpr uint64_t _auction_name_length_limit = 6;
     
+    static constexpr uint64_t _deposit_expiration_seconds = 3600;
+    
+    
+    
 #else
     // Дефайны для основной сети
     #define ANO "ano"
@@ -102,6 +116,7 @@ using namespace eosio;
     #define SOVIET "soviet"
     #define REGISTRATOR "registrator"
     #define SYSTEM "eosio"
+    #define FUND "fund"
     
 /**
 * @ingroup public_consts
@@ -114,9 +129,7 @@ using namespace eosio;
     static constexpr eosio::name _soviet = "soviet"_n;
     static constexpr eosio::name _registrator = "registrator"_n;
     static constexpr eosio::name _system = "eosio"_n;
-    
-    static constexpr eosio::name _regaccount_action = "joincoop"_n;
-    static constexpr eosio::name _change_action = "change"_n;
+    static constexpr eosio::name _fund = "fund"_n;
 
     static constexpr eosio::symbol _root_symbol = eosio::symbol(eosio::symbol_code("AXON"), 4); /*!< системный токен */
     static constexpr eosio::name _root_contract = "eosio.token"_n; /*!< системный контракт */
@@ -128,6 +141,9 @@ using namespace eosio;
 
     static constexpr uint64_t _signature_expiration = 86400 * 365 * 2;
     static constexpr uint64_t _auction_name_length_limit = 6;
+
+    static constexpr uint64_t _deposit_expiration_seconds = 3600;
+    
 /**
 * @}
 */

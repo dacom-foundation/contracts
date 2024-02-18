@@ -11,6 +11,7 @@
 #include "src/programs.cpp"
 #include "src/contributions.cpp"
 #include "src/addresses.cpp"
+#include "src/fund.cpp"
 
 using namespace eosio;
 
@@ -89,6 +90,10 @@ void soviet::exec(eosio::name executer, eosio::name coopname, uint64_t decision_
     soviet::joincoop_effect(executer, coopname, decision->id, decision->batch_id);
   } else if (decision -> type == _change_action){
     soviet::change_effect(executer, coopname, decision->id, decision->batch_id);
+  } else if (decision -> type == _withdraw_action){
+    soviet::withdraw_effect(executer, coopname, decision->id, decision->batch_id);
+  } else if (decision -> type == _afund_withdraw_action) {
+    soviet::subaccum_effect(executer, coopname, decision->id, decision->batch_id);
   }
 }
 
@@ -167,6 +172,11 @@ extern "C" {
             (creaddress)(deladdress)(editaddress)
         )
 
+        EOSIO_DISPATCH_HELPER (
+            soviet, 
+            //fund
+            (fundwithdraw)
+        )       
         
 
       }
@@ -185,8 +195,7 @@ extern "C" {
         auto op = eosio::unpack_action_data<transfer>();
 
         if (op.to == _soviet) {
-          eosio::name coopname = eosio::name(op.memo.c_str());
-          soviet::deposit(coopname, op.from, eosio::name(code), op.quantity);
+          
         }
       }
     }

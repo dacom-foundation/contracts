@@ -306,10 +306,6 @@
                     "type": "name"
                 },
                 {
-                    "name": "program_id",
-                    "type": "uint64"
-                },
-                {
                     "name": "quantity",
                     "type": "asset"
                 }
@@ -384,20 +380,8 @@
                     "type": "name"
                 },
                 {
-                    "name": "program_id",
-                    "type": "uint64"
-                },
-                {
                     "name": "exchange_id",
                     "type": "uint64"
-                },
-                {
-                    "name": "contribution_id",
-                    "type": "uint64"
-                },
-                {
-                    "name": "quantity",
-                    "type": "asset"
                 }
             ]
         },
@@ -895,6 +879,32 @@
             ]
         },
         {
+            "name": "fundwithdraw",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "type",
+                    "type": "name"
+                },
+                {
+                    "name": "withdraw_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "document",
+                    "type": "document"
+                }
+            ]
+        },
+        {
             "name": "joincoop",
             "base": "",
             "fields": [
@@ -1001,16 +1011,8 @@
                     "type": "bool"
                 },
                 {
-                    "name": "available",
-                    "type": "asset"
-                },
-                {
-                    "name": "blocked",
-                    "type": "asset"
-                },
-                {
-                    "name": "minimum",
-                    "type": "asset"
+                    "name": "wallet",
+                    "type": "wallet"
                 }
             ]
         },
@@ -1333,10 +1335,6 @@
                     "type": "name"
                 },
                 {
-                    "name": "program_id",
-                    "type": "uint64"
-                },
-                {
                     "name": "quantity",
                     "type": "asset"
                 }
@@ -1427,6 +1425,24 @@
             ]
         },
         {
+            "name": "wallet",
+            "base": "",
+            "fields": [
+                {
+                    "name": "available",
+                    "type": "asset"
+                },
+                {
+                    "name": "blocked",
+                    "type": "asset"
+                },
+                {
+                    "name": "minimum",
+                    "type": "asset"
+                }
+            ]
+        },
+        {
             "name": "wallets",
             "base": "",
             "fields": [
@@ -1465,8 +1481,8 @@
                     "type": "name"
                 },
                 {
-                    "name": "quantity",
-                    "type": "asset"
+                    "name": "withdraw_id",
+                    "type": "uint64"
                 }
             ]
         }
@@ -1585,6 +1601,11 @@
         {
             "name": "exec",
             "type": "exec",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "fundwithdraw",
+            "type": "fundwithdraw",
             "ricardian_contract": ""
         },
         {

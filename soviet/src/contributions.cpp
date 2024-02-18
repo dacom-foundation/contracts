@@ -1,8 +1,7 @@
 using namespace eosio;
 
 void soviet::addbalance(eosio::name coopname, eosio::name username, eosio::asset quantity) {
-  print("on add balance");
-  eosio::check(has_auth(_marketplace) || has_auth(_soviet), "Недостаточно прав доступа");
+  eosio::check(has_auth(_marketplace) || has_auth(_gateway) || has_auth(_soviet), "Недостаточно прав доступа");
   eosio::name payer = has_auth(_marketplace) ? _marketplace : _soviet;
 
   auto cooperative = get_cooperative_or_fail(coopname);  
@@ -13,13 +12,12 @@ void soviet::addbalance(eosio::name coopname, eosio::name username, eosio::asset
   eosio::check(participant != participants.end(), "Вы не являетесь пайщиком указанного кооператива");
   
   participants.modify(participant, payer, [&](auto &p) {
-    p.available += quantity;
+    p.wallet.available += quantity;
   });
 }
 
 void soviet::subbalance(eosio::name coopname, eosio::name username, eosio::asset quantity) {
-  print("on sub balance");
-  eosio::check(has_auth(_marketplace) || has_auth(_soviet), "Недостаточно прав доступа");
+  eosio::check(has_auth(_marketplace) || has_auth(_gateway) || has_auth(_soviet), "Недостаточно прав доступа");
   eosio::name payer = has_auth(_marketplace) ? _marketplace : _soviet;
 
   auto cooperative = get_cooperative_or_fail(coopname);  
@@ -29,19 +27,17 @@ void soviet::subbalance(eosio::name coopname, eosio::name username, eosio::asset
 
   eosio::check(participant != participants.end(), "Вы не являетесь пайщиком указанного кооператива");
   
-  eosio::check(participant -> available >= quantity, "Недостаточно средств на балансе");
+  eosio::check(participant -> wallet.available >= quantity, "Недостаточно средств на балансе");
 
   participants.modify(participant, payer, [&](auto &p) {
-    p.available -= quantity;
+    p.wallet.available -= quantity;
   });
 }
 
 
 
-void soviet::blockbal(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity) {
-  print("on blockbal");
-
-  eosio::check(has_auth(_marketplace) || has_auth(_soviet), "Недостаточно прав доступа");
+void soviet::blockbal(eosio::name coopname, eosio::name username, eosio::asset quantity) {
+  eosio::check(has_auth(_marketplace) || has_auth(_gateway) || has_auth(_soviet), "Недостаточно прав доступа");
   eosio::name payer = has_auth(_marketplace) ? _marketplace : _soviet;
 
   auto cooperative = get_cooperative_or_fail(coopname);  
@@ -50,49 +46,22 @@ void soviet::blockbal(eosio::name coopname, eosio::name username, uint64_t progr
   participants_index participants(_soviet, coopname.value);
 
   auto participant = participants.find(username.value);
+  
+  eosio::check(participant != participants.end(), "Участник не найден");
 
-  eosio::check(participant -> available >= quantity, "Недостаточно средств в блокировке");
+  eosio::check(participant -> wallet.available >= quantity, "Недостаточно средств в блокировке");
 
   participants.modify(participant, payer, [&](auto& p) {
-      p.available -= quantity;
-      p.blocked += quantity;
+      p.wallet.available -= quantity;
+      p.wallet.blocked += quantity;
   });
 
-  // participants_index participants(_soviet, coopname.value);
-  // auto participant = participants.find(username.value);
-
-  // eosio::check(participant != participants.end(), "Вы не являетесь пайщиком указанного кооператива");
-
-  // wallets_index wallets(_soviet, coopname.value);
-
-  // auto balances_by_username_and_program = wallets.template get_index<"byuserprog"_n>();
-  // auto username_and_program_index = combine_ids(username.value, program_id);
-  // auto balance = balances_by_username_and_program.find(username_and_program_index);
-  // eosio::check(balance -> available >= quantity, "Недостаточный баланс");
-
-  // if (balance == balances_by_username_and_program.end()) {
-  //   wallets.emplace(payer, [&](auto &b) {
-  //     b.id = wallets.available_primary_key();
-  //     b.available = asset(0, quantity.symbol);
-  //     b.blocked = quantity;
-  //     b.program_id = program_id;
-  //     b.coopname = coopname;
-  //     b.username = username;
-  //   });
-
-  // } else {
-  //   balances_by_username_and_program.modify(balance, payer, [&](auto &b) { 
-  //     b.available -= quantity; 
-  //     b.blocked += quantity; 
-  //   });
-  // };
 }
 
 
 
-void soviet::unblockbal(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity) {
-  print("on unblockbal");
-  eosio::check(has_auth(_marketplace) || has_auth(_soviet), "Недостаточно прав доступа");
+void soviet::unblockbal(eosio::name coopname, eosio::name username, eosio::asset quantity) {
+  eosio::check(has_auth(_marketplace) || has_auth(_gateway) || has_auth(_soviet), "Недостаточно прав доступа");
   eosio::name payer = has_auth(_marketplace) ? _marketplace : _soviet;
 
   auto cooperative = get_cooperative_or_fail(coopname);  
@@ -101,38 +70,21 @@ void soviet::unblockbal(eosio::name coopname, eosio::name username, uint64_t pro
   participants_index participants(_soviet, coopname.value);
 
   auto participant = participants.find(username.value);
+  eosio::check(participant != participants.end(), "Участник не найден");
 
-  eosio::check(participant -> blocked >= quantity, "Недостаточно средств в блокировке");
+  eosio::check(participant -> wallet.blocked >= quantity, "Недостаточно средств в блокировке");
 
   participants.modify(participant, payer, [&](auto& p) {
-      p.available += quantity;
-      p.blocked -= quantity;
+      p.wallet.available += quantity;
+      p.wallet.blocked -= quantity;
   });
-  // participants_index participants(_soviet, coopname.value);
-  // auto participant = participants.find(username.value);
 
-  // eosio::check(participant != participants.end(), "Вы не являетесь пайщиком указанного кооператива");
-  
-  // wallets_index wallets(_soviet, coopname.value);
-
-  // auto balances_by_username_and_program = wallets.template get_index<"byuserprog"_n>();
-  // auto username_and_program_index = combine_ids(username.value, program_id);
-  // auto balance = balances_by_username_and_program.find(username_and_program_index);
-
-  // eosio::check(balance != balances_by_username_and_program.end(), "Баланс программы не обнаружен");
-  // eosio::check(balance -> blocked >= quantity, "Недостаточно средств на балансе");
-
-  // balances_by_username_and_program.modify(balance, payer, [&](auto &b) { 
-  //   b.available += quantity; 
-  //   b.blocked -= quantity; 
-  // });
 
 }
 
 
 
 void soviet::addprogbal(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity) {
-  print("on addprogbal");
   eosio::check(has_auth(_marketplace) || has_auth(_soviet), "Недостаточно прав доступа");
   eosio::name payer = has_auth(_marketplace) ? _marketplace : _soviet;
 
@@ -169,7 +121,6 @@ void soviet::addprogbal(eosio::name coopname, eosio::name username, uint64_t pro
 
 
 void soviet::subprogbal(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity) {
-  print("on subprogbal");
   eosio::check(has_auth(_marketplace) || has_auth(_soviet), "Недостаточно прав доступа");
   eosio::name payer = has_auth(_marketplace) ? _marketplace : _soviet;
 
@@ -188,7 +139,7 @@ void soviet::subprogbal(eosio::name coopname, eosio::name username, uint64_t pro
 
   eosio::check(balance != balances_by_username_and_program.end(), "Баланс не найден");
 
-  eosio::check(balance -> available >= quantity, "Недостаточный баланс");
+  eosio::check(balance ->available >= quantity, "Недостаточный баланс");
 
   if (balance -> available > quantity) {
     
@@ -204,138 +155,86 @@ void soviet::subprogbal(eosio::name coopname, eosio::name username, uint64_t pro
 }
 
 
+//TODO 
+// здесь вместо перевода на баланс должна быть инициализация возврата денег по заявлению  
+void soviet::withdraw(eosio::name coopname, eosio::name username, uint64_t withdraw_id) { 
 
-void soviet::mcontribute(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::name type, uint64_t secondary_id) { 
-  eosio::check(has_auth(_marketplace) || has_auth(username), "Недостаточно прав доступа");
-  eosio::name payer = has_auth(_marketplace) ? _marketplace : username;
+  require_auth(_gateway);
+
+  auto cooperative = get_cooperative_or_fail(coopname);  
   
-  programs_index programs(_soviet, coopname.value);
-  auto existing_program = programs.find(program_id);
+  decisions_index decisions(_soviet, coopname.value);
+  auto decision_id = get_global_id(_soviet, "decisions"_n);
 
-  exchange_index exchange(_marketplace, coopname.value);
-  auto request = exchange.find(secondary_id);
-  eosio::check(request != exchange.end(), "Заявка не обнаружена");
-
-  eosio::check(existing_program != programs.end(), "Программа не найдена.");
-  eosio::check(type == "change"_n, "Неподдерживаемый тип операции");
-
-  participants_index participants(_soviet, coopname.value);
-  auto participant = participants.find(username.value);
-  
-  eosio::check(participant != participants.end(), "Вы не являетесь пайщиком указанного кооператива");
-  eosio::check(participant -> is_active(), "Ваш аккаунт не активен в указанном кооперативе");
-  
-  action(
-    permission_level{ _soviet, "active"_n},
-    _soviet,
-    "blockbal"_n,
-    std::make_tuple(coopname, username, program_id, request -> amount)
-  ).send();
+  decisions.emplace(_gateway, [&](auto &d){
+    d.id = decision_id;
+    d.coopname = coopname;
+    d.username = username;
+    d.type = _withdraw_action;
+    d.batch_id = withdraw_id;
+    d.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+  });
 
   action(
     permission_level{ _soviet, "active"_n},
     _soviet,
-    "addprogbal"_n,
-    std::make_tuple(coopname, username, program_id, request -> amount)
+    "draft"_n,
+    std::make_tuple(coopname, username, decision_id)
   ).send();
-
+  
 };
 
 
-//Вызвать при совершении взноса имуществом поставщиком из кооплейса для выдачи заблокированного баланса в ЦПП кошелька и добавление баланса к ЦПП не кошелька
-void soviet::pcontribute(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::name type, uint64_t secondary_id) {
-  require_auth(_marketplace);
+void soviet::withdraw_effect(eosio::name executer, eosio::name coopname, uint64_t decision_id, uint64_t batch_id) { 
 
-  print("on soviet contribute");
-  programs_index programs(_soviet, coopname.value);
-  auto existing_program = programs.find(program_id);
+  decisions_index decisions(_soviet, coopname.value);
+  auto decision = decisions.find(decision_id);
+  eosio::check(decision != decisions.end(), "Решение не найдено");
 
-  eosio::check(existing_program != programs.end(), "Программа не найдена.");
-  eosio::check(type == "change"_n, "Неподдерживаемый тип операции");
+  withdraws_index withdraws(_gateway, coopname.value);
+  auto withdraw = withdraws.find(batch_id);
+  eosio::check(withdraw != withdraws.end(), "Вывод не найден");
 
-  exchange_index exchange(_marketplace, coopname.value);
-  auto request = exchange.find(secondary_id);
-  eosio::check(request != exchange.end(), "Заявка не обнаружена");
-
-  participants_index participants(_soviet, coopname.value);
-  auto participant = participants.find(username.value);
-
-  eosio::check(participant != participants.end(), "Вы не являетесь пайщиком указанного кооператива");
-  eosio::check(participant -> is_active(), "Ваш аккаунт не активен в указанном кооперативе");
+  action(
+      permission_level{ _soviet, "active"_n},
+      _gateway,
+      "withdrawauth"_n,
+      std::make_tuple(coopname, batch_id)
+  ).send();
   
-
   action(
-    permission_level{ _soviet, "active"_n},
-    _soviet,
-    "addbalance"_n,
-    std::make_tuple(coopname, username, request -> amount)
+      permission_level{ _soviet, "active"_n},
+      _soviet,
+      "statement"_n,
+      std::make_tuple(coopname, decision -> username, _withdraw_action, decision_id, withdraw -> document)
+  ).send();
+  
+  action(
+      permission_level{ _soviet, "active"_n},
+      _soviet,
+      "decision"_n,
+      std::make_tuple(coopname, decision -> username, _withdraw_action, decision_id, decision -> authorization)
   ).send();
 
-
-  action(
-    permission_level{ _soviet, "active"_n},
-    _soviet,
-    "blockbal"_n,
-    std::make_tuple(coopname, username, program_id, request -> amount)
-  ).send();
-
-
-  action(
-    permission_level{ _soviet, "active"_n},
-    _soviet,
-    "addprogbal"_n,
-    std::make_tuple(coopname, username, program_id, request -> amount)
-  ).send();
-
+  decisions.erase(decision);
+  
 }
 
 
-void soviet::deposit(eosio::name coopname, eosio::name username, eosio::name contract, eosio::asset quantity) {
-  require_auth(username);
-
-  //этот метод должен вызываться советом после принятия взноса (exec)
-
-  auto cooperative = get_cooperative_or_fail(coopname);  
-  cooperative.check_contract_or_fail(contract);
-
-  participants_index participants(_soviet, coopname.value);
-  auto participant = participants.find(username.value);
-
-  eosio::check(participant != participants.end(), "Вы не являетесь пайщиком указанного кооператива");
-  eosio::check(participant -> is_active(), "Ваш аккаунт не активен в указанном кооперативе");
-  
-  action(
-    permission_level{ _soviet, "active"_n},
-    _soviet,
-    "addbalance"_n,
-    std::make_tuple(coopname, username, quantity)
-  ).send();
-
-};
 
 
 
-//TODO 
-// здесь вместо перевода на баланс должна быть инициализация возврата денег по заявлению  
-void soviet::withdraw(eosio::name coopname, eosio::name username, eosio::asset quantity) { 
 
-  eosio::check(has_auth(_soviet) || has_auth(_marketplace) || has_auth(username), "Недостаточно прав доступа");
 
-  auto cooperative = get_cooperative_or_fail(coopname);  
-  
-  participants_index participants(_soviet, coopname.value);
-  auto participant = participants.find(username.value);
 
-  eosio::check(participant != participants.end(), "Вы не являетесь пайщиком указанного кооператива");
-  eosio::check(participant -> is_active(), "Ваш аккаунт не активен в указанном кооперативе");
-  eosio::check(participant -> available >= quantity, "Недостаточно доступных средств на балансе кошелька для списания");
 
-  action(
-    permission_level{ _soviet, "active"_n},
-    _soviet,
-    "subbalance"_n,
-    std::make_tuple(coopname, username, quantity)
-  ).send();
 
-};
+
+
+
+
+
+
+
+
 

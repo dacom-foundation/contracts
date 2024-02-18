@@ -105,9 +105,9 @@ void soviet::createboard(eosio::name coopname, eosio::name chairman, eosio::name
       m.is_minimum = true;
       m.has_vote = true;    
 
-      m.available = asset(0, cooperative.initial.symbol);
-      m.blocked = asset(0, cooperative.initial.symbol);
-      m.minimum = cooperative.minimum; 
+      m.wallet.available = asset(0, cooperative.initial.symbol);
+      m.wallet.blocked = asset(0, cooperative.initial.symbol);
+      m.wallet.minimum = cooperative.minimum; 
     });
 
 

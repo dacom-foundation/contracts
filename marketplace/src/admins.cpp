@@ -10,7 +10,7 @@
 *
 * @note Авторизация требуется от аккаунта: @p username
 */
-[[eosio::action]] void marketplace::moderate(eosio::name coopname, eosio::name username, uint64_t exchange_id) { 
+[[eosio::action]] void marketplace::moderate(eosio::name coopname, eosio::name username, uint64_t exchange_id, uint64_t cancellation_fee) { 
   require_auth(username);
   
   exchange_index exchange(_marketplace, coopname.value);
@@ -23,9 +23,14 @@
     auto persona = staff.find(username.value);
     eosio::check(persona != staff.end(), "Пользователь не является членом персонала");
     eosio::check(persona -> has_right(_marketplace, "moderate"_n), "Недостаточно прав доступа");
+    
+    eosio::check(cancellation_fee >= 0 && cancellation_fee < 100, "Комиссия отмены должна быть от 0 до 100 процентов");
+    eosio::asset cancellation_fee_amount = change -> amount * cancellation_fee / 100;
 
     exchange.modify(change, username, [&](auto &o){
       o.status = "published"_n;
+      o.cancellation_fee = cancellation_fee;
+      o.cancellation_fee_amount = cancellation_fee_amount;
     });
   }
 };

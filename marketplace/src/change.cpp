@@ -65,6 +65,7 @@
  * Общая функция для создания как родительских, так и дочерних заявок.
  */
 void marketplace::create (eosio::name type, const exchange_params& params) {
+  print("on create child");
   orgs_index orgs(_registrator, _registrator.value);
   auto coop = orgs.find(params.coopname.value);
   eosio::check(coop != orgs.end() && coop -> is_coop(), "Кооператив не найден");
@@ -112,13 +113,21 @@ void marketplace::create_parent(eosio::name type, const exchange_params& params)
 
   } else if(type == "order"_n) {
     eosio::asset quantity = params.price_for_piece * params.pieces;
-    
+
     action(
       permission_level{ _marketplace, "active"_n},
       _soviet,
-      "mcontribute"_n,
-      std::make_tuple(params.coopname, params.username, params.program_id, _change_action, id)
+      "blockbal"_n,
+      std::make_tuple(params.coopname, params.username, quantity)
     ).send();
+
+    action(
+      permission_level{ _marketplace, "active"_n},
+      _soviet,
+      "addprogbal"_n,
+      std::make_tuple(params.coopname, params.username, params.program_id, quantity)
+    ).send();
+
 
   };
   
@@ -136,7 +145,8 @@ void marketplace::create_parent(eosio::name type, const exchange_params& params)
     i.product_lifecycle_secs = params.product_lifecycle_secs;
     i.data = params.data;
     i.meta = params.meta;
-
+    i.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+    i.cancellation_fee_amount = asset(0, params.price_for_piece.symbol);
   });
   
   action(
@@ -198,13 +208,18 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
     action(
       permission_level{ _marketplace, "active"_n},
       _soviet,
-      "mcontribute"_n,
-      std::make_tuple(params.coopname, params.username, params.program_id, _change_action, id)
+      "blockbal"_n,
+      std::make_tuple(params.coopname, params.username, quantity)
+    ).send();
+
+    action(
+      permission_level{ _marketplace, "active"_n},
+      _soviet,
+      "addprogbal"_n,
+      std::make_tuple(params.coopname, params.username, params.program_id, quantity)
     ).send();
 
   }
-
-  print("on create child");
   
   exchange.emplace(params.username, [&](auto &i) {
     i.id = id;
@@ -220,6 +235,8 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
     i.price_for_piece = params.price_for_piece;
     i.amount = params.price_for_piece * params.pieces;
     i.data = params.data;
+    i.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+    i.cancellation_fee_amount = asset(0, params.price_for_piece.symbol);
 
     if (type == "order"_n) {
       print("on create child order");
@@ -282,6 +299,7 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
     o.status = "accepted"_n;
     o.blocked_pieces += change -> remain_pieces;
     o.remain_pieces = 0;
+    o.accepted_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
 
     if (change -> type == "order"_n) {
       o.contribute_product_statement = document;
@@ -317,6 +335,7 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
   eosio::check(username == chairman, "Недостаточно прав доступа для подтверждения поставки");
 
   exchange.modify(change, username, [&](auto &ch) {
+    ch.supplied_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
     ch.status = "supplied1"_n;
     ch.product_contribution_act_validation = document;
   });
@@ -350,13 +369,27 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
     ch.product_contribution_act = document;
   });
 
-  print("on supply market");
+  action(
+    permission_level{ _marketplace, "active"_n},
+    _soviet,
+    "addbalance"_n,
+    std::make_tuple(coopname, change -> product_contributor, change -> amount)
+  ).send();
+
 
   action(
     permission_level{ _marketplace, "active"_n},
     _soviet,
-    "pcontribute"_n,
-    std::make_tuple(coopname, change -> product_contributor, change -> program_id, _change_action, change -> id)
+    "blockbal"_n,
+    std::make_tuple(coopname, change -> product_contributor, change -> amount)
+  ).send();
+
+
+  action(
+    permission_level{ _marketplace, "active"_n},
+    _soviet,
+    "addprogbal"_n,
+    std::make_tuple(coopname, change -> product_contributor, change -> program_id, change -> amount)
   ).send();
 
 }
@@ -384,6 +417,7 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
 
   exchange.modify(change, username, [&](auto &ch) {
     ch.status = "delivered"_n;
+    ch.delivered_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
     ch.deadline_for_receipt = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch() + change -> product_lifecycle_secs / 4);
   });
 }
@@ -425,6 +459,7 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
     //подписываем акт приёма-передачи кооперативу пайщиком
   exchange.modify(change, username, [&](auto &ch){
     ch.status = "recieved1"_n;
+    ch.recieved_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
     ch.warranty_delay_until = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch() + change -> product_lifecycle_secs / 4);
     ch.product_recieve_act = document;
   });
@@ -519,13 +554,53 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
     o.status = "completed"_n;
     o.delivered_pieces += change -> blocked_pieces;
     o.blocked_pieces = 0;
+    o.completed_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
   });
+
+  // action(
+  //   permission_level{ _marketplace, "active"_n},
+  //   _soviet,
+  //   "completed"_n,
+  //   std::make_tuple(coopname, exchange_id)
+  // ).send();
+
+  //Заказчику уменьшаем баланс ЦПП не кошелька, разблокируем баланс ЦПП кошелька и списываем его  
+  action(
+    permission_level{ _marketplace, "active"_n},
+    _soviet,
+    "subprogbal"_n,
+    std::make_tuple(coopname, change -> money_contributor, change -> program_id, change -> amount)
+  ).send();
+  
+  action(
+    permission_level{ _marketplace, "active"_n},
+    _soviet,
+    "unblockbal"_n,
+    std::make_tuple(coopname, change -> money_contributor, change -> amount)
+  ).send();
+
 
   action(
     permission_level{ _marketplace, "active"_n},
     _soviet,
-    "completed"_n,
-    std::make_tuple(coopname, exchange_id)
+    "subbalance"_n,
+    std::make_tuple(coopname, change -> money_contributor, change -> amount)
+  ).send();
+
+
+  //Поставщику уменьшаем баланс ЦПП не кошелька и разблокируем баланс ЦПП кошелька
+  action(
+    permission_level{ _marketplace, "active"_n},
+    _soviet,
+    "subprogbal"_n,
+    std::make_tuple(coopname, change -> product_contributor, change -> program_id, change -> amount)
+  ).send();
+
+  action(
+    permission_level{ _marketplace, "active"_n},
+    _soviet,
+    "unblockbal"_n,
+    std::make_tuple(coopname, change -> product_contributor, change -> amount)
   ).send();
 
 }
@@ -565,16 +640,27 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
 
   exchange.modify(change, username, [&](auto &o){
     o.status = "declined"_n;
+    o.declined_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
     o.meta = meta;
   });
 
   if (change -> type == "order"_n) {
+
     action(
       permission_level{ _marketplace, "active"_n},
       _soviet,
-      "cancelorder"_n,
-      std::make_tuple(change -> coopname, change -> username, change -> program_id, change -> id, change -> contribution_id, change -> amount)
+      "subprogbal"_n,
+      std::make_tuple(coopname, username, change -> program_id, change -> amount)
     ).send();
+
+    action(
+      permission_level{ _marketplace, "active"_n},
+      _soviet,
+      "unblockbal"_n,
+      std::make_tuple(coopname, username, change -> amount)
+    ).send();
+
+
   }; 
   
 }
@@ -648,9 +734,17 @@ void marketplace::cancel_child(eosio::name coopname, eosio::name username, uint6
     action(
       permission_level{ _marketplace, "active"_n},
       _soviet,
-      "cancelorder"_n,
-      std::make_tuple(change -> coopname, change -> username, change -> program_id, change -> id, change -> contribution_id, change -> amount)
+      "subprogbal"_n,
+      std::make_tuple(coopname, username, change -> program_id, change -> amount)
     ).send();
+
+    action(
+      permission_level{ _marketplace, "active"_n},
+      _soviet,
+      "unblockbal"_n,
+      std::make_tuple(coopname, username, change -> amount)
+    ).send();
+
   };  
 
   if (change -> status == "authorized"_n) {
@@ -661,11 +755,22 @@ void marketplace::cancel_child(eosio::name coopname, eosio::name username, uint6
       e.amount += change -> amount;
     });
 
+    exchange.modify(change, username, [&](auto &c){
+      c.status = "canceled"_n;
+      c.canceled_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+    });
+
     //удаляем дочернюю заявку
-    exchange.erase(change);
+    // exchange.erase(change);
   } else if (change -> status == "published"_n) {
+
+    exchange.modify(change, username, [&](auto &c){
+      c.status = "canceled"_n;
+      c.canceled_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+    });
+
     //удаляем дочернюю заявку
-    exchange.erase(change);
+    // exchange.erase(change);
   } else {
     //TODO здесь должно быть допустимо, но для каждого статуса по-своему
     eosio::check(false, "Заявка находится в недопустимом статусе для отмены");

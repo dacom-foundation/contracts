@@ -62,8 +62,6 @@ struct [[eosio::table, eosio::contract(MARKETPLACE)]] exchange {
   uint64_t id;                 /*!< идентификатор обмена */
   uint64_t parent_id;          /*!< идентификатор родительской заявки */
   uint64_t program_id;         /*!< идентификатор программы */
-  uint64_t contribution_id;    /*!< идентификатор взноса */
-  uint64_t decision_id;        /*!< идентификатор решения */
   eosio::name coopname;        /*!< имя аккаунта кооператива */
   eosio::name type;            /*!< тип обмена */
   eosio::name status;          /*!< статус обмена */
@@ -97,7 +95,18 @@ struct [[eosio::table, eosio::contract(MARKETPLACE)]] exchange {
   document product_recieve_act_validation;
   
   uint64_t product_lifecycle_secs;
-  
+  uint64_t cancellation_fee; //up to 100
+  eosio::asset cancellation_fee_amount; 
+
+  eosio::time_point_sec created_at;
+  eosio::time_point_sec accepted_at;
+  eosio::time_point_sec supplied_at;
+  eosio::time_point_sec delivered_at;
+  eosio::time_point_sec recieved_at;
+  eosio::time_point_sec completed_at;
+  eosio::time_point_sec declined_at;
+  eosio::time_point_sec canceled_at;
+
   eosio::time_point_sec warranty_delay_until;
   eosio::time_point_sec deadline_for_receipt;
 
@@ -105,11 +114,17 @@ struct [[eosio::table, eosio::contract(MARKETPLACE)]] exchange {
   uint64_t by_coop() const {return coopname.value;} /*!< кооператив */
   uint64_t by_status() const { return status.value; } /*!< индекс по статусу */
   uint64_t by_program() const { return program_id; } /*!< индекс по программе */
-  uint64_t by_decision() const { return decision_id; } /*!< индекс по решению */
   uint64_t by_type() const { return type.value; } /*!< индекс по типу */
   uint64_t by_parent() const { return parent_id; } /*!< индекс по родительскому ID */
   uint64_t by_username() const { return username.value;} /*!< индекс по имени аккаунта */
   uint64_t by_parent_username() const { return parent_username.value;} /*!< индекс по имени аккаунта владельца объявления */
+
+  uint64_t by_created() const { return created_at.sec_since_epoch();}
+  uint64_t by_completed() const { return completed_at.sec_since_epoch();}
+  uint64_t by_declined() const { return declined_at.sec_since_epoch();}
+
+  uint64_t by_canceled() const { return canceled_at.sec_since_epoch();}
+
 };
 
 typedef eosio::multi_index<
@@ -118,10 +133,15 @@ typedef eosio::multi_index<
     eosio::indexed_by<"bystatus"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_status>>,
     eosio::indexed_by<"bytype"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_type>>,
     eosio::indexed_by<"byprogram"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_program>>,
-    eosio::indexed_by<"bydecision"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_decision>>,
     eosio::indexed_by<"byparent"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_parent>>,
     eosio::indexed_by<"byusername"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_username>>,
-    eosio::indexed_by<"bypausername"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_parent_username>>
+    eosio::indexed_by<"bypausername"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_parent_username>>,
+
+    eosio::indexed_by<"bycreated"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_created>>,
+    eosio::indexed_by<"bycompleted"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_completed>>,
+    eosio::indexed_by<"bydeclined"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_declined>>,
+    eosio::indexed_by<"bycanceled"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_canceled>>
+
     >
     exchange_index; /*!< Тип мультииндекса для таблицы обменов */
 

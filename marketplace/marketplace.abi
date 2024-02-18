@@ -192,14 +192,6 @@
                     "type": "uint64"
                 },
                 {
-                    "name": "contribution_id",
-                    "type": "uint64"
-                },
-                {
-                    "name": "decision_id",
-                    "type": "uint64"
-                },
-                {
                     "name": "coopname",
                     "type": "name"
                 },
@@ -304,6 +296,46 @@
                     "type": "uint64"
                 },
                 {
+                    "name": "cancellation_fee",
+                    "type": "uint64"
+                },
+                {
+                    "name": "cancellation_fee_amount",
+                    "type": "asset"
+                },
+                {
+                    "name": "created_at",
+                    "type": "time_point_sec"
+                },
+                {
+                    "name": "accepted_at",
+                    "type": "time_point_sec"
+                },
+                {
+                    "name": "supplied_at",
+                    "type": "time_point_sec"
+                },
+                {
+                    "name": "delivered_at",
+                    "type": "time_point_sec"
+                },
+                {
+                    "name": "recieved_at",
+                    "type": "time_point_sec"
+                },
+                {
+                    "name": "completed_at",
+                    "type": "time_point_sec"
+                },
+                {
+                    "name": "declined_at",
+                    "type": "time_point_sec"
+                },
+                {
+                    "name": "canceled_at",
+                    "type": "time_point_sec"
+                },
+                {
                     "name": "warranty_delay_until",
                     "type": "time_point_sec"
                 },
@@ -373,6 +405,10 @@
                 },
                 {
                     "name": "exchange_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "cancellation_fee",
                     "type": "uint64"
                 }
             ]

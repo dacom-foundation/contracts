@@ -12,7 +12,11 @@ using namespace eosio;
  * @param id идентификатор
  * @param type тип идентификатора
  */
-void gateway::newid(eosio::name username, uint64_t id) {
+void gateway::newdepositid(eosio::name username, uint64_t id) {
+  require_auth(_gateway);
+};
+
+void gateway::newwithdrid(eosio::name username, uint64_t id) {
   require_auth(_gateway);
 };
 
@@ -38,46 +42,39 @@ void gateway::newid(eosio::name username, uint64_t id) {
  * 
  * cleos push action gateway dpcreate '["username", "coopaccount", 123, "initial", 456, "10.0000 SYS", "10.0000 EXT", "Депозит для программы X"]' -p username@active
  */
-[[eosio::action]] void gateway::dpcreate(eosio::name creator, eosio::name username, eosio::name coopname, uint64_t program_id, eosio::name type, uint64_t batch_id, eosio::asset internal_quantity, eosio::asset external_quantity, std::string link, std::string memo){
 
-  require_auth(creator);
+[[eosio::action]] void gateway::deposit(eosio::name coopname, eosio::name username, eosio::asset quantity) {
 
-  deposits_index deposits(_gateway, _gateway.value);
+  require_auth(username);
+
+  deposits_index deposits(_gateway, coopname.value);
 
   uint64_t id = get_global_id(_gateway, "deposits"_n);
 
   auto cooperative = get_cooperative_or_fail(coopname);
   
-  if (program_id > 0)
-    auto program = get_program_or_fail(coopname, program_id);
-  
-  eosio::check(type == "change"_n || type == "initial"_n, "Доступные назначения платежа - 'initial' | 'changeone'");
-  
-  eosio::check(cooperative.initial.symbol == internal_quantity.symbol, "Неверный cимвол токена");
-  eosio::check(internal_quantity.amount > 0, "Сумма ввода должна быть положительной");
-  eosio::check(external_quantity.amount > 0, "Сумма вывода должна быть положительной");
+  participants_index participants(_soviet, coopname.value);
+  auto participant = participants.find(username.value);
 
-  deposits.emplace(creator, [&](auto &d) {
+  eosio::check(participant != participants.end(), "Вы не являетесь пайщиком указанного кооператива");
+  eosio::check(participant -> is_active(), "Ваш аккаунт не активен в указанном кооперативе");
+  
+  eosio::check(quantity.amount > 0, "Сумма ввода должна быть положительной");
+  
+  deposits.emplace(username, [&](auto &d) {
     d.id = id;
-    d.creator = creator;
     d.username = username;
     d.coopname = coopname;
-    d.program_id = program_id;
-    d.type = type; 
-    d.batch_id = batch_id;
     d.token_contract = cooperative.token_contract;
-    d.internal_quantity = internal_quantity;
-    d.external_quantity = external_quantity;
-    d.status = "waiting"_n;
-    d.memo = memo;
-    d.link = link;
-    d.expired_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch() + 3600);
+    d.quantity = quantity;
+    d.status = "pending"_n;
+    d.expired_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch() + _deposit_expiration_seconds);
   });
 
   action(
     permission_level{ _gateway, "active"_n},
     _gateway,
-    "newid"_n,
+    "newdepositid"_n,
     std::make_tuple(username, id)
   ).send();
 
@@ -86,7 +83,7 @@ void gateway::newid(eosio::name username, uint64_t id) {
 /**
  * @brief Завершает обработку депозита в контракте `gateway`.
  *
- * @details Действие `dpcomplete` используется для установки статуса депозита в 'successed' и обновления его заметки.
+ * @details Действие `dpcomplete` используется для установки статуса депозита в 'completed' и обновления его заметки.
  * Это действие также инициирует выпуск токенов соответствующему пользователю, основываясь на данных депозита.
  *
  * @note Требуется авторизация аккаунта контракта `gateway`.
@@ -99,22 +96,33 @@ void gateway::newid(eosio::name username, uint64_t id) {
  *
  * cleos push action gateway dpcomplete '[123, "Заметка к завершенному депозиту"]' -p gateway@active
  */
-void gateway::dpcomplete(uint64_t deposit_id, std::string memo) {
+void gateway::dpcomplete(eosio::name coopname, eosio::name admin, uint64_t deposit_id, std::string memo) {
 
-  deposits_index deposits(_gateway, _gateway.value);
+  require_auth(admin);
+  check_auth_or_fail(coopname, admin, "dpcomplete"_n);
+
+  deposits_index deposits(_gateway, coopname.value);
   auto deposit = deposits.find(deposit_id);
-  
+
   eosio::check(deposit != deposits.end(), "Объект процессинга не найден");
-  
-  require_auth(deposit -> creator);
+  eosio::check(deposit -> coopname == coopname, "Указан не верный кооператив");
+  eosio::check(deposit -> status == "pending"_n, "Статус депозита должен быть pending");
 
-  // action(
-  //     permission_level{ _gateway, "active"_n },
-  //     deposit -> token_contract, "issue"_n,
-  //     std::make_tuple( deposit -> username, deposit -> internal_quantity, std::string("id: ") + std::to_string(deposit->id)) 
-  // ).send();
+  auto cooperative = get_cooperative_or_fail(coopname);  
+  cooperative.check_symbol_or_fail(deposit -> quantity);
 
-  deposits.erase(deposit);
+  deposits.modify(deposit, admin, [&](auto &d){
+    d.status = "completed"_n;
+    d.expired_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch() + _deposit_expiration_seconds);
+  });
+
+  action(
+    permission_level{ _gateway, "active"_n},
+    _soviet,
+    "addbalance"_n,
+    std::make_tuple(coopname, deposit -> username, deposit -> quantity)
+  ).send();
+   
 }
 
 /**
@@ -132,15 +140,21 @@ void gateway::dpcomplete(uint64_t deposit_id, std::string memo) {
  *
  * cleos push action gateway dpfail '[123, "Заметка к неудачному депозиту"]' -p gateway@active
  */
-void gateway::dpfail(uint64_t deposit_id, std::string memo) {
+void gateway::dpfail(eosio::name coopname, eosio::name admin, uint64_t deposit_id, std::string memo) {
+  require_auth(admin);
 
-  deposits_index deposits(_gateway, _gateway.value);
+  check_auth_or_fail(coopname, admin, "dpfail"_n);
+
+  deposits_index deposits(_gateway, coopname.value);
   auto deposit = deposits.find(deposit_id);
-
-  require_auth(deposit -> creator);
+  eosio::check(deposit -> coopname == coopname, "Указан не верный кооператив");
+ 
   eosio::check(deposit != deposits.end(), "Объект процессинга не найден");
   
-  deposits.erase(deposit);
+  deposits.modify(deposit, admin, [&](auto &d){
+    d.status = "fail"_n;
+    d.expired_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch() + _deposit_expiration_seconds);
+  }); 
 
 }
 
@@ -163,76 +177,80 @@ void gateway::dpfail(uint64_t deposit_id, std::string memo) {
  * 
  * cleos push action gateway wthdcreate '["username", "coopname", "10.0000 SYS", "10.00 USD", "Заметка к выводу"]' -p username@active
  */
-void gateway::wthdcreate(eosio::name username, eosio::name coopname, eosio::asset internal_quantity, eosio::asset external_quantity, std::string memo){
+void gateway::withdraw(eosio::name coopname, eosio::name username, eosio::asset quantity, document document, std::string bank_data_id, std::string memo){
 
   require_auth(username);
 
-  withdrawals_index withdrawals(_gateway, _gateway.value);
+  withdraws_index withdraws(_gateway, coopname.value);
 
-  uint64_t id = get_global_id(_gateway, "withdrawals"_n);
+  uint64_t id = get_global_id(_gateway, "withdraws"_n);
 
   auto cooperative = get_cooperative_or_fail(coopname);
+  cooperative.check_symbol_or_fail(quantity);
+
+  eosio::check(quantity.amount > 0, "Сумма вывода должна быть положительной");
   
-  eosio::check(cooperative.initial.symbol == internal_quantity.symbol, "Неверный символ токена");
-  eosio::check(internal_quantity.amount > 0, "Сумма ввода должна быть положительной");
-  eosio::check(external_quantity.amount > 0, "Сумма вывода должна быть положительной");
-
-  sub_balance(_gateway, username, internal_quantity, cooperative.token_contract);
-
-  withdrawals.emplace(username, [&](auto &d){
+  withdraws.emplace(username, [&](auto &d){
     d.id = id;
     d.username = username;
     d.coopname = coopname;
+    d.bank_data_id = bank_data_id;
     d.token_contract = cooperative.token_contract;
-    d.internal_quantity = internal_quantity;
-    d.external_quantity = external_quantity;
-    d.status = ""_n;
-    d.memo = memo;
+    d.document = document;
+    d.quantity = quantity;
+    d.status = "pending"_n;    
+    d.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
   });
+
+
+  //TODO здесь необходимо запросить авторизацию совета и там и заблокировать баланс кошелька
+  action(
+    permission_level{ _gateway, "active"_n},
+    _soviet,
+    "withdraw"_n,
+    std::make_tuple(coopname, username, id)
+  ).send();
+
+  action(
+    permission_level{ _gateway, "active"_n},
+    _soviet,
+    "blockbal"_n,
+    std::make_tuple(coopname, username, quantity)
+  ).send();
+
 
   action(
     permission_level{ _gateway, "active"_n},
     _gateway,
-    "newid"_n,
+    "newwithdrid"_n,
     std::make_tuple(username, id)
   ).send();
 
 };
 
 
-/**
- * @brief Обновляет статус запроса на вывод средств в контракте `gateway`.
- *
- * @details Действие `wthdupdate` используется для обновления статуса существующего запроса на вывод средств, устанавливая его в "pending" и обновляя связанную заметку.
- *
- * @note Требуется авторизация аккаунта контракта `gateway`.
- * @ingroup public_actions
- *
- * @param withdraw_id Уникальный идентификатор запроса на вывод средств.
- * @param memo Обновлённая заметка, связанная с запросом на вывод.
- *
- * cleos push action gateway wthdupdate '["12345", "Обновлённая заметка"]' -p gateway@active
- */
-void gateway::wthdupdate(uint64_t withdraw_id, std::string memo) {
 
-  require_auth(_gateway);
+void gateway::withdrawauth(eosio::name coopname, uint64_t withdraw_id) {
 
-  withdrawals_index withdrawals(_gateway, _gateway.value);
+  require_auth(_soviet);
+
+  withdraws_index withdraws(_gateway, coopname.value);
   
-  auto withdraw = withdrawals.find(withdraw_id);
-  eosio::check(withdraw != withdrawals.end(), "Объект процессинга не найден");
+  auto withdraw = withdraws.find(withdraw_id);
+  eosio::check(withdraw != withdraws.end(), "Объект процессинга не найден");
   
-  withdrawals.modify(withdraw, _gateway, [&](auto &d){
-    d.status = "pending"_n;
-    d.memo = memo;
+  withdraws.modify(withdraw, _soviet, [&](auto &d){
+    d.status = "authorized"_n;
   });
+
+
 }
 
 
 /**
  * @brief Завершает процесс вывода средств в контракте `gateway`.
  *
- * @details Действие `wthdcomplete` используется для обозначения успешного завершения запроса на вывод средств. Оно обновляет статус запроса на "successed" и обновляет заметку.
+ * @details Действие `wthdcomplete` используется для обозначения успешного завершения запроса на вывод средств. Оно обновляет статус запроса на "completed" и обновляет заметку.
  *
  * @note Требуется авторизация аккаунта контракта `gateway`.
  * @ingroup public_actions
@@ -242,25 +260,38 @@ void gateway::wthdupdate(uint64_t withdraw_id, std::string memo) {
  *
  * cleos push action gateway wthdcomplete '["12345", "Успешное завершение"]' -p gateway@active
  */
-void gateway::wthdcomplete(uint64_t withdraw_id, std::string memo){
+void gateway::wthdcomplete(eosio::name coopname, eosio::name admin, uint64_t withdraw_id, std::string memo){
 
-  require_auth(_gateway);
+  require_auth(admin);
 
-  withdrawals_index withdrawals(_gateway, _gateway.value);
+  check_auth_or_fail(coopname, admin, "wthdcomplete"_n);
   
-  auto withdraw = withdrawals.find(withdraw_id);
-  eosio::check(withdraw != withdrawals.end(), "Объект процессинга не найден");
+  withdraws_index withdraws(_gateway, coopname.value);
   
-  withdrawals.modify(withdraw, _gateway, [&](auto &d){
-    d.status = "successed"_n;
+  auto withdraw = withdraws.find(withdraw_id);
+  eosio::check(withdraw != withdraws.end(), "Объект процессинга не найден");
+  eosio::check(withdraw -> status == "authorized"_n, "Только принятые заявления на вывод могут быть обработаны");
+
+  withdraws.modify(withdraw, admin, [&](auto &d){
+    d.status = "completed"_n;
     d.memo = memo;
   });
 
   action(
-      permission_level{ _gateway, "active"_n },
-      withdraw -> token_contract, "retire"_n,
-      std::make_tuple( withdraw -> internal_quantity, std::string("id: ") + std::to_string(withdraw_id)) 
+    permission_level{ _gateway, "active"_n},
+    _soviet,
+    "unblockbal"_n,
+    std::make_tuple(coopname, withdraw -> username, withdraw -> quantity)
   ).send();
+
+
+  action(
+    permission_level{ _gateway, "active"_n},
+    _soviet,
+    "subbalance"_n,
+    std::make_tuple(coopname, withdraw -> username, withdraw -> quantity)
+  ).send();
+
 
 }
 
@@ -278,55 +309,33 @@ void gateway::wthdcomplete(uint64_t withdraw_id, std::string memo){
  *
  * cleos push action gateway wthdfail '["12345", "Отмена из-за ошибки"]' -p gateway@active
  */
-void gateway::wthdfail(uint64_t withdraw_id, std::string memo) {
+void gateway::wthdfail(eosio::name coopname, eosio::name admin, uint64_t withdraw_id, std::string memo) {
 
-  require_auth(_gateway);
+  require_auth(admin);
 
-  withdrawals_index withdrawals(_gateway, _gateway.value);
-  
-  auto withdraw = withdrawals.find(withdraw_id);
-  eosio::check(withdraw != withdrawals.end(), "Объект процессинга не найден");
+  check_auth_or_fail(coopname, admin, "wthdfail"_n);
+
+  withdraws_index withdraws(_gateway, coopname.value);
+  auto withdraw = withdraws.find(withdraw_id);
+  eosio::check(withdraw != withdraws.end(), "Объект процессинга не найден");
   eosio::check(withdraw -> status == "pending"_n, "Неверный статус для провала");
 
-  withdrawals.modify(withdraw, _gateway, [&](auto &d){
+  withdraws.modify(withdraw, _gateway, [&](auto &d){
     d.status = "failed"_n;
     d.memo = memo;
   });
 
   action(
-      permission_level{ _gateway, "active"_n },
-      withdraw -> token_contract, "transfer"_n,
-      std::make_tuple( _gateway, withdraw -> username, withdraw -> internal_quantity, std::string("id: ") + std::to_string(withdraw->id)) 
+    permission_level{ _gateway, "active"_n},
+    _soviet,
+    "unblockbal"_n,
+    std::make_tuple(coopname, withdraw -> username, withdraw -> quantity)
   ).send();
+
 }
 
 
-/**
- * @brief Возвращает средства пользователю в контракте `gateway`.
- *
- * @details Действие `back` используется для возврата средств пользователю. Оно уменьшает баланс пользователя в контракте и переводит указанную сумму средств обратно на его счет.
- *
- * @note Требуется авторизация со стороны пользователя.
- * @ingroup public_actions
- *
- * @param username Имя пользователя, который запрашивает возврат средств.
- * @param token_contract Контракт токена, с которого будут возвращены средства.
- * @param quantity Количество средств для возврата.
- *
- * cleos push action gateway back '["useraccount", "eosiotoken", "10.0000 EOS"]' -p useraccount@active
- */
-void gateway::back(eosio::name username, eosio::name token_contract, eosio::asset quantity) {
 
-  require_auth(username);
-
-  sub_balance(_gateway, username, quantity, token_contract);
-
-  action(
-      permission_level{ _gateway, "active"_n },
-      token_contract, "transfer"_n,
-      std::make_tuple( _gateway, username, quantity, std::string("back")) 
-  ).send();
-}
 
 
 extern "C" {
@@ -336,10 +345,10 @@ void apply(uint64_t receiver, uint64_t code, uint64_t action) {
   if (code == _gateway.value) {
     switch (action) {
       EOSIO_DISPATCH_HELPER(
-          gateway, (newid)
-          (dpcreate)(dpcomplete)(dpfail)
-          (wthdcreate)(wthdupdate)(wthdcomplete)(wthdfail)
-          (back)
+          gateway, (newdepositid)(newwithdrid)
+
+          (deposit)(dpcomplete)(dpfail)
+          (withdraw)(withdrawauth)(wthdcomplete)(wthdfail)
       )
     }
   } else {
@@ -363,10 +372,11 @@ void apply(uint64_t receiver, uint64_t code, uint64_t action) {
         };
 
         auto op = eosio::unpack_action_data<transfer>();
+        
         if (op.to == _gateway) {
 
-          eosio::name username = eosio::name(op.memo.c_str());
-          add_balance(_gateway, username, op.quantity, eosio::name(code));
+          //nothing
+
         }
       }
     }
