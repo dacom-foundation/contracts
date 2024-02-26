@@ -535,7 +535,7 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
   auto parent_change = exchange.find(change -> parent_id);
   eosio::check(parent_change != exchange.end(), "Родительская заявка не найдена");
   
-  eosio::check(change -> username == username, "Вы не можете подтвердить исполнение заявки");
+  // eosio::check(change -> username == username, "Вы не можете подтвердить исполнение заявки");
   eosio::check(change -> status == "recieved2"_n, "Заявка находится в неверном статусе для утверждения обмена");
   
   eosio::check(change -> warranty_delay_until.sec_since_epoch() < eosio::current_time_point().sec_since_epoch(), "Время гарантийной задержки еще не истекло");
@@ -557,13 +557,20 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
     o.completed_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
   });
 
-  // action(
-  //   permission_level{ _marketplace, "active"_n},
-  //   _soviet,
-  //   "completed"_n,
-  //   std::make_tuple(coopname, exchange_id)
-  // ).send();
+  auto program = get_program_or_fail(coopname, change -> program_id);
+  eosio::asset amount_to_back;
+  eosio::asset amount_to_spread;
 
+  if (program.calculation_type == "absolute"_n) {
+    amount_to_spread = program.fixed_membership_contribution;
+    eosio::check(amount_to_spread <= change -> amount, "Недостаточно средств членского взноса для распределения");
+  } else {
+    amount_to_spread = change -> amount * program.membership_percent_fee / HUNDR_PERCENTS;
+  };
+
+  amount_to_back = change -> amount - amount_to_spread;
+    
+  
   //Заказчику уменьшаем баланс ЦПП не кошелька, разблокируем баланс ЦПП кошелька и списываем его  
   action(
     permission_level{ _marketplace, "active"_n},
@@ -602,6 +609,25 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
     "unblockbal"_n,
     std::make_tuple(coopname, change -> product_contributor, change -> amount)
   ).send();
+
+  //списываем с поставщика членский взнос
+  action(
+    permission_level{ _marketplace, "active"_n},
+    _soviet,
+    "subbalance"_n,
+    std::make_tuple(coopname, change -> product_contributor, amount_to_spread)
+  ).send();
+
+
+
+  if (amount_to_spread.amount > 0){
+    action(
+      permission_level{ _marketplace, "active"_n},
+      _fund,
+      "spreadamount"_n,
+      std::make_tuple(coopname, amount_to_spread)
+    ).send();
+  }
 
 }
 

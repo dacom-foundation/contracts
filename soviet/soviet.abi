@@ -581,36 +581,12 @@
                     "type": "string"
                 },
                 {
-                    "name": "initial",
-                    "type": "asset"
-                },
-                {
-                    "name": "minimum",
-                    "type": "asset"
-                },
-                {
-                    "name": "maximum",
-                    "type": "asset"
-                },
-                {
-                    "name": "share_contribution",
-                    "type": "asset"
-                },
-                {
-                    "name": "membership_contribution",
-                    "type": "asset"
-                },
-                {
-                    "name": "period",
-                    "type": "name"
-                },
-                {
-                    "name": "category",
-                    "type": "name"
-                },
-                {
                     "name": "calculation_type",
                     "type": "name"
+                },
+                {
+                    "name": "fixed_membership_contribution",
+                    "type": "asset"
                 },
                 {
                     "name": "membership_percent_fee",
@@ -853,10 +829,6 @@
                 {
                     "name": "images",
                     "type": "string"
-                },
-                {
-                    "name": "category",
-                    "type": "name"
                 }
             ]
         },
@@ -1043,21 +1015,7 @@
             ]
         },
         {
-            "name": "program",
-            "base": "",
-            "fields": [
-                {
-                    "name": "coopname",
-                    "type": "name"
-                },
-                {
-                    "name": "program_id",
-                    "type": "uint64"
-                }
-            ]
-        },
-        {
-            "name": "programs",
+            "name": "progcomarket",
             "base": "",
             "fields": [
                 {
@@ -1093,16 +1051,8 @@
                     "type": "string"
                 },
                 {
-                    "name": "category",
-                    "type": "name"
-                },
-                {
-                    "name": "warranty_delay_secs",
-                    "type": "uint64"
-                },
-                {
-                    "name": "deadline_for_receipt_secs",
-                    "type": "uint64"
+                    "name": "meta",
+                    "type": "string"
                 },
                 {
                     "name": "calculation_type",
@@ -1113,48 +1063,22 @@
                     "type": "uint64"
                 },
                 {
-                    "name": "share_contribution",
+                    "name": "fixed_membership_contribution",
                     "type": "asset"
-                },
+                }
+            ]
+        },
+        {
+            "name": "program",
+            "base": "",
+            "fields": [
                 {
-                    "name": "membership_contribution",
-                    "type": "asset"
-                },
-                {
-                    "name": "total",
-                    "type": "asset"
-                },
-                {
-                    "name": "minimum",
-                    "type": "asset"
-                },
-                {
-                    "name": "maximum",
-                    "type": "asset"
-                },
-                {
-                    "name": "period",
+                    "name": "coopname",
                     "type": "name"
                 },
                 {
-                    "name": "meta",
-                    "type": "string"
-                },
-                {
-                    "name": "created_at",
-                    "type": "time_point_sec"
-                },
-                {
-                    "name": "last_update",
-                    "type": "time_point_sec"
-                },
-                {
-                    "name": "total_collected",
-                    "type": "asset"
-                },
-                {
-                    "name": "total_withdrawed",
-                    "type": "asset"
+                    "name": "program_id",
+                    "type": "uint64"
                 }
             ]
         },
@@ -1754,8 +1678,8 @@
             "key_types": []
         },
         {
-            "name": "programs",
-            "type": "programs",
+            "name": "progcomarket",
+            "type": "progcomarket",
             "index_type": "i64",
             "key_names": [],
             "key_types": []

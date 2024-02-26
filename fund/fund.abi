@@ -50,10 +50,6 @@
                     "type": "name"
                 },
                 {
-                    "name": "contract",
-                    "type": "name"
-                },
-                {
                     "name": "fund_id",
                     "type": "uint64"
                 },
@@ -72,10 +68,6 @@
                     "type": "name"
                 },
                 {
-                    "name": "contract",
-                    "type": "name"
-                },
-                {
                     "name": "quantity",
                     "type": "asset"
                 }
@@ -87,10 +79,6 @@
             "fields": [
                 {
                     "name": "coopname",
-                    "type": "name"
-                },
-                {
-                    "name": "contract",
                     "type": "name"
                 },
                 {
@@ -116,7 +104,7 @@
                     "type": "name"
                 },
                 {
-                    "name": "secondary_id",
+                    "name": "withdraw_id",
                     "type": "uint64"
                 }
             ]
@@ -134,11 +122,7 @@
                     "type": "name"
                 },
                 {
-                    "name": "type",
-                    "type": "name"
-                },
-                {
-                    "name": "secondary_id",
+                    "name": "withdraw_id",
                     "type": "uint64"
                 }
             ]
@@ -405,6 +389,10 @@
                     "type": "name"
                 },
                 {
+                    "name": "type",
+                    "type": "name"
+                },
+                {
                     "name": "fund_id",
                     "type": "uint64"
                 },
@@ -433,6 +421,10 @@
                 {
                     "name": "coopname",
                     "type": "name"
+                },
+                {
+                    "name": "initial",
+                    "type": "asset"
                 }
             ]
         },
@@ -481,10 +473,6 @@
                     "type": "name"
                 },
                 {
-                    "name": "contract",
-                    "type": "name"
-                },
-                {
                     "name": "quantity",
                     "type": "asset"
                 }
@@ -496,10 +484,6 @@
             "fields": [
                 {
                     "name": "coopname",
-                    "type": "name"
-                },
-                {
-                    "name": "contract",
                     "type": "name"
                 },
                 {
@@ -518,10 +502,6 @@
             "fields": [
                 {
                     "name": "coopname",
-                    "type": "name"
-                },
-                {
-                    "name": "contract",
                     "type": "name"
                 },
                 {

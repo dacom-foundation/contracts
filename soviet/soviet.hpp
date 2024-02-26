@@ -20,7 +20,6 @@
 #include "../common/funds.hpp"
 
 
-
 /**
  *  \ingroup public_contracts
  *
@@ -94,9 +93,9 @@ public:
   [[eosio::action]] void cancelorder(eosio::name coopname, eosio::name username, uint64_t exchange_id);
 
   //programs.cpp
-  [[eosio::action]] void createprog(eosio::name coopname, eosio::name chairman, std::string title, std::string announce, std::string description, std::string preview, std::string images, eosio::asset initial, eosio::asset minimum, eosio::asset maximum, eosio::asset share_contribution, eosio::asset membership_contribution, eosio::name period, eosio::name category, eosio::name calculation_type, uint64_t membership_percent_fee);
+  [[eosio::action]] void createprog(eosio::name coopname, eosio::name chairman, std::string title, std::string announce, std::string description, std::string preview, std::string images, eosio::name calculation_type, eosio::asset fixed_membership_contribution, uint64_t membership_percent_fee);
 
-  [[eosio::action]] void editprog(eosio::name coopname, uint64_t id, std::string title, std::string announce, std::string description, std::string preview, std::string images, eosio::name category);
+  [[eosio::action]] void editprog(eosio::name coopname, uint64_t id, std::string title, std::string announce, std::string description, std::string preview, std::string images);
   [[eosio::action]] void disableprog(eosio::name coopname, uint64_t id);
 
   //contributions.cpp

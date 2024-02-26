@@ -56,6 +56,7 @@ struct [[eosio::table, eosio::contract(FUND)]] fwithdraws { //таблица о�
   eosio::name coopname;
   eosio::name username;
   eosio::name status;
+  eosio::name type;
   uint64_t fund_id;
   eosio::asset quantity;
   document document;

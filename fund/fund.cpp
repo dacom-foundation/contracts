@@ -29,12 +29,10 @@ using namespace eosio;
 
 
 
-  [[eosio::action]] void fund::init(eosio::name coopname) {
+  [[eosio::action]] void fund::init(eosio::name coopname, eosio::asset initial) {
     //вызывается при запуске кооператива для создания кооперативного кошелька и некоторых фондов
     require_auth(_soviet);
 
-    auto cooperative = get_cooperative_or_fail(coopname);
-    
     fundwallet_index fundwallet(_fund, coopname.value);
     accfunds_index accfunds(_fund, coopname.value);
     expfunds_index expfunds(_fund, coopname.value);
@@ -43,51 +41,51 @@ using namespace eosio;
     fundwallet.emplace(_soviet, [&](auto &w){
       w.id = 0;
       w.coopname = coopname;
-      w.circulating = asset(0, cooperative.initial.symbol);;
-      w.membership = asset(0, cooperative.initial.symbol);;
-      w.accumulated = asset(0, cooperative.initial.symbol);;
-      w.withdrawed = asset(0, cooperative.initial.symbol);;
-      w.available = asset(0, cooperative.initial.symbol);;
-      w.expended = asset(0, cooperative.initial.symbol);;
+      w.circulating = asset(0, initial.symbol);
+      w.membership = asset(0, initial.symbol);
+      w.accumulated = asset(0, initial.symbol);
+      w.withdrawed = asset(0, initial.symbol);
+      w.available = asset(0, initial.symbol);
+      w.expended = asset(0, initial.symbol);
     });
 
-    auto a_id = accfunds.available_primary_key();
+    
 
     //неделимый 
     accfunds.emplace(_soviet, [&](auto &a) {
-      a.id = a_id;
+      a.id = get_global_id(_fund, "funds"_n);
       a.coopname = coopname;
       a.contract = ""_n;
       a.name = "Неделимый фонд";
       a.description = "";
       a.percent = 1 * ONE_PERCENT;
-      a.available = asset(0, cooperative.initial.symbol);
-      a.withdrawed = asset(0, cooperative.initial.symbol);
+      a.available = asset(0, initial.symbol);
+      a.withdrawed = asset(0, initial.symbol);
     });
 
     //резервный
     accfunds.emplace(_soviet, [&](auto &a) {
-      a.id = a_id + 1;
+      a.id = get_global_id(_fund, "funds"_n);
       a.coopname = coopname;
       a.contract = ""_n;
       a.name = "Резервный фонд";
       a.description = "";
       a.percent = 15 * ONE_PERCENT;
-      a.available = asset(0, cooperative.initial.symbol);
-      a.withdrawed = asset(0, cooperative.initial.symbol);
+      a.available = asset(0, initial.symbol);
+      a.withdrawed = asset(0, initial.symbol);
     });
 
 
     //развития
     accfunds.emplace(_soviet, [&](auto &a) {
-      a.id = a_id + 2;
+      a.id = get_global_id(_fund, "funds"_n);
       a.coopname = coopname;
       a.contract = ""_n;
       a.name = "Фонд развития кооперации";
       a.description = "";
       a.percent = 5 * ONE_PERCENT;
-      a.available = asset(0, cooperative.initial.symbol);
-      a.withdrawed = asset(0, cooperative.initial.symbol);
+      a.available = asset(0, initial.symbol);
+      a.withdrawed = asset(0, initial.symbol);
     });
 
 
@@ -95,22 +93,22 @@ using namespace eosio;
   
     //хозяйственный
     expfunds.emplace(_soviet, [&](auto &e){
-      e.id = e_id;
+      e.id = get_global_id(_fund, "funds"_n);
       e.coopname = coopname;
       e.contract = ""_n;
       e.name = "Хозяйственный фонд";
       e.description = "";
-      e.expended = asset(0, cooperative.initial.symbol);
+      e.expended = asset(0, initial.symbol);
     });
 
     //взаимный
     expfunds.emplace(_soviet, [&](auto &e){
-      e.id = e_id;
+      e.id = get_global_id(_fund, "funds"_n);
       e.coopname = coopname;
       e.contract = ""_n;
       e.name = "Фонд взаимного обеспечения";
       e.description = "";
-      e.expended = asset(0, cooperative.initial.symbol);
+      e.expended = asset(0, initial.symbol);
     });
 
     
@@ -146,9 +144,9 @@ using namespace eosio;
 
       //сумма не должна превышать 100%
       check(total_percent <= HUNDR_PERCENTS, "Сумма всех процентов превышает 100% (1 000 000)");
-      id = accfunds.available_primary_key();
+      id = get_global_id(_fund, "funds"_n);
       accfunds.emplace(username, [&](auto &a){
-        a.id = id;
+        a.id = get_global_id(_fund, "funds"_n);
         a.coopname = coopname;
         a.contract = contract;
         a.name = name;
@@ -163,7 +161,7 @@ using namespace eosio;
       eosio::check(percent == 0, "Процент для фонда списания должен быть равен нулю (не используется)");
       
       expfunds_index expfunds(_fund, coopname.value);
-      id = expfunds.available_primary_key();
+      id = get_global_id(_fund, "funds"_n);
       
       expfunds.emplace(username, [&](auto &e){
         e.id = id;
@@ -291,7 +289,7 @@ using namespace eosio;
 
   //атомарные транзакции фондового кошелька
     //паевый фонд
-  [[eosio::action]] void fund::addcirculate(eosio::name coopname, eosio::name contract, eosio::asset quantity) /// < добавить сумму в паевый фонд
+  [[eosio::action]] void fund::addcirculate(eosio::name coopname, eosio::asset quantity) /// < добавить сумму в паевый фонд
   {
     //Только контракт шлюза может добавлять оборотные средства в фонд
     require_auth(_gateway);
@@ -304,7 +302,7 @@ using namespace eosio;
 
     eosio::check(wal != fundwallet.end(), "Фондовый кошелёк не найден");
 
-    fundwallet.modify(wal, contract, [&](auto &w){
+    fundwallet.modify(wal, _gateway, [&](auto &w){
       w.circulating += quantity;
     });
 
@@ -312,7 +310,7 @@ using namespace eosio;
 
 
 
-  [[eosio::action]] void fund::subcirculate(eosio::name coopname, eosio::name contract, eosio::asset quantity) /// < списать сумму из паевого фонда
+  [[eosio::action]] void fund::subcirculate(eosio::name coopname, eosio::asset quantity) /// < списать сумму из паевого фонда
   {
     //Только контракт шлюза может списывать оборотные средства из фонда
     require_auth(_gateway);
@@ -327,7 +325,7 @@ using namespace eosio;
 
     eosio::check(wal -> circulating >= quantity, "Недостаточно средств для списания в фонде");
 
-    fundwallet.modify(wal, contract, [&](auto &w) {
+    fundwallet.modify(wal, _gateway, [&](auto &w) {
       w.circulating -= quantity;
     });
 
@@ -337,7 +335,7 @@ using namespace eosio;
 
 
   //фонды накопления
-  [[eosio::action]] void fund::addaccum( eosio::name coopname, eosio::name contract, uint64_t fund_id, eosio::asset quantity) {
+  [[eosio::action]] void fund::addaccum( eosio::name coopname, uint64_t fund_id, eosio::asset quantity) {
     require_auth(_fund);
 
     fundwallet_index fundwallet(_fund, coopname.value);
@@ -361,7 +359,7 @@ using namespace eosio;
   };
 
 
-  [[eosio::action]] void fund::subaccum( eosio::name coopname, eosio::name contract, uint64_t fund_id, eosio::asset quantity){
+  [[eosio::action]] void fund::subaccum( eosio::name coopname, uint64_t fund_id, eosio::asset quantity){
     //списать можно только с помощью вызова метода withdraw смарт-контракта
     require_auth(_fund);
 
@@ -390,7 +388,7 @@ using namespace eosio;
 
 
   //фонды списания
-  [[eosio::action]] void fund::addexpense( eosio::name coopname, eosio::name contract, uint64_t fund_id, eosio::asset quantity){
+  [[eosio::action]] void fund::addexpense( eosio::name coopname, uint64_t fund_id, eosio::asset quantity){
     require_auth(_fund);
 
     fundwallet_index fundwallet(_fund, coopname.value);
@@ -417,7 +415,7 @@ using namespace eosio;
   
   
   //метод распределения членской части взноса по фондам накопления с остатком в кошельке для распределения по фондам списания
-  [[eosio::action]] void fund::spreadamount( eosio::name coopname, eosio::name contract, eosio::asset quantity) {
+  [[eosio::action]] void fund::spreadamount( eosio::name coopname, eosio::asset quantity) {
     /// < распределить членские взносы по фондам накопления, положив остаток в фондовый кошелёк для дальнейшего списания 
     //на входе мы получаем общую членскую часть
     
@@ -443,7 +441,7 @@ using namespace eosio;
         permission_level{ _fund, "active"_n},
         _fund,
         "addaccum"_n,
-        std::make_tuple(coopname, _marketplace, it -> id, fund_quantity)
+        std::make_tuple(coopname, it -> id, fund_quantity)
       ).send();
     }
 
@@ -453,6 +451,7 @@ using namespace eosio;
     //начисляем в кошелёк для дальнейшего списания
     fundwallet.modify(wal, _marketplace, [&](auto &w) {
       w.available += remain_amount;
+      w.membership += remain_amount;
     });
 
   };
@@ -495,6 +494,7 @@ using namespace eosio;
 
     fundwithdraws.emplace(payer, [&](auto &s){
       s.id = fundwithdraw_id;
+      s.type = type;
       s.status = "pending"_n;
       s.coopname = coopname;
       s.username = username;
@@ -523,11 +523,11 @@ using namespace eosio;
 
 
 
-  [[eosio::action]] void fund::authorize(eosio::name coopname, eosio::name type, uint64_t secondary_id) {
+  [[eosio::action]] void fund::authorize(eosio::name coopname, eosio::name type, uint64_t withdraw_id) {
     require_auth(_soviet);
 
     fundwithdraws_index fundwithdraws(_fund, coopname.value);
-    auto withdraw = fundwithdraws.find(secondary_id);
+    auto withdraw = fundwithdraws.find(withdraw_id);
     eosio::check(withdraw != fundwithdraws.end(), "Вывод не найден");
 
     fundwithdraws.modify(withdraw, _soviet, [&](auto &s) {
@@ -537,7 +537,7 @@ using namespace eosio;
   };
 
 
-  [[eosio::action ]] void fund::complete(eosio::name coopname, eosio::name username, eosio::name type, uint64_t secondary_id){
+  [[eosio::action ]] void fund::complete(eosio::name coopname, eosio::name username, uint64_t withdraw_id){
     require_auth(username);
     //todo check rights for username
 
@@ -548,13 +548,38 @@ using namespace eosio;
     eosio::check(persona -> has_right(_soviet, "complete"_n), "Недостаточно прав доступа");
 
     fundwithdraws_index fundwithdraws(_fund, coopname.value);
-    auto withdraw = fundwithdraws.find(secondary_id);
+    auto withdraw = fundwithdraws.find(withdraw_id);
     eosio::check(withdraw != fundwithdraws.end(), "Вывод не найден");
 
     fundwithdraws.modify(withdraw, _soviet, [&](auto &s) {
       s.status = "completed"_n;
       s.expired_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch() + 30 * 86400);
     });
+
+    if (withdraw -> type == _afund_withdraw_action) {
+      accfunds_index accfunds(_fund, coopname.value);
+      auto afund = accfunds.find(withdraw -> fund_id);
+      eosio::check(afund != accfunds.end(), "Фонд не найден");
+
+      action(
+        permission_level{ _fund, "active"_n},
+        _fund,
+        "subaccum"_n,
+        std::make_tuple(coopname, withdraw -> fund_id, withdraw -> quantity)
+      ).send();
+
+    } else if (withdraw -> type == _efund_withdraw_action) {
+      expfunds_index expfunds(_fund, coopname.value);
+      auto efund = expfunds.find(withdraw -> fund_id);
+      eosio::check(efund != expfunds.end(), "Фонд не найден");
+
+      action(
+        permission_level{ _fund, "active"_n},
+        _fund,
+        "addexpense"_n,
+        std::make_tuple(coopname, withdraw -> fund_id, withdraw -> quantity)
+      ).send();
+    }
 
   };
 

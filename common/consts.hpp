@@ -90,7 +90,7 @@ static constexpr eosio::name _efund_withdraw_action = "subexp"_n;
     static constexpr eosio::name _soviet = "soviettest1"_n;
     static constexpr eosio::name _registrator = "regtest1"_n;
     static constexpr eosio::name _system = "eosio"_n;
-    static constexpr eosio::name _fund = "fund"_n;
+    static constexpr eosio::name _fund = "fundtest1"_n;
 
     static constexpr eosio::symbol _root_symbol = eosio::symbol(eosio::symbol_code("AXON"), 4); /*!< системный токен */
     static constexpr eosio::name _root_contract = "eosio.token"_n; /*!< системный контракт */

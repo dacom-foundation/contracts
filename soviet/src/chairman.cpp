@@ -111,6 +111,13 @@ void soviet::createboard(eosio::name coopname, eosio::name chairman, eosio::name
     });
 
 
+    action(
+      permission_level{ _soviet, "active"_n},
+      _fund,
+      "init"_n,
+      std::make_tuple(coopname, cooperative.initial)
+    ).send();
+
   } else {
     
     auto soviet = get_board_by_type_or_fail(coopname, "soviet"_n);

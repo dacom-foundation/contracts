@@ -236,7 +236,7 @@ void soviet::mcontribute(eosio::name coopname, eosio::name username, uint64_t pr
   // eosio::check(has_auth(_marketplace) || has_auth(username), "Недостаточно прав доступа");
   // eosio::name payer = has_auth(_marketplace) ? _marketplace : username;
   
-  // programs_index programs(_soviet, coopname.value);
+  // progcomarket_index programs(_soviet, coopname.value);
   // auto existing_program = programs.find(program_id);
 
   // exchange_index exchange(_marketplace, coopname.value);
@@ -274,7 +274,7 @@ void soviet::pcontribute(eosio::name coopname, eosio::name username, uint64_t pr
   require_auth(_marketplace);
 
   // print("on soviet contribute");
-  // programs_index programs(_soviet, coopname.value);
+  // progcomarket_index programs(_soviet, coopname.value);
   // auto existing_program = programs.find(program_id);
 
   // eosio::check(existing_program != programs.end(), "Программа не найдена.");

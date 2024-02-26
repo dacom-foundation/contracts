@@ -123,6 +123,14 @@ void gateway::dpcomplete(eosio::name coopname, eosio::name admin, uint64_t depos
     std::make_tuple(coopname, deposit -> username, deposit -> quantity)
   ).send();
    
+  action(
+    permission_level{ _gateway, "active"_n},
+    _fund,
+    "addcirculate"_n,
+    std::make_tuple(coopname, deposit -> quantity)
+  ).send();
+   
+  
 }
 
 /**
@@ -292,6 +300,12 @@ void gateway::wthdcomplete(eosio::name coopname, eosio::name admin, uint64_t wit
     std::make_tuple(coopname, withdraw -> username, withdraw -> quantity)
   ).send();
 
+  action(
+    permission_level{ _gateway, "active"_n},
+    _fund,
+    "subcirculate"_n,
+    std::make_tuple(coopname, withdraw -> quantity)
+  ).send();
 
 }
 

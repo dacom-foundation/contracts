@@ -68,8 +68,16 @@ struct [[eosio::table, eosio::contract(MARKETPLACE)]] exchange {
   eosio::name username;        /*!< имя аккаунта владельца заявки */
   eosio::name parent_username; /*!< имя аккаунта владельца объявления */
   eosio::name token_contract;  /*!< имя контракта токена */
-  eosio::asset price_for_piece;/*!< цена за единицу товара */
+  
+  eosio::asset price_for_piece;/*!< себестоимость единицы товара */
   eosio::asset amount;         /*!< цена за всю поставку */
+
+  // eosio::asset supplier_unit_cost; /*!< себестоимость единицы товара от поставщика */
+  // eosio::asset supplier_total_cost; /*!< себестоимость всей поставки от поставщика */
+
+  // eosio::asset order_unit_price; /*!< цена единицы товара для заказчика с учётом членского взноса */
+  // eosio::asset order_total_price; /*!< цена всей поставки для заказчика с учётом членского взноса */
+
   uint64_t remain_pieces;      /*!< оставшееся количество товара */
   uint64_t blocked_pieces;     /*!< заблокированное количество товара */
   uint64_t delivered_pieces;   /*!< количество доставленного товара */
