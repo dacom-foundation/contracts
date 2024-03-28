@@ -7,3 +7,4 @@ system/build/*
 system/build
 ano/ano.wasm
 ano/ano.abi
+#lib
