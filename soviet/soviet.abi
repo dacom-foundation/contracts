@@ -981,10 +981,6 @@
                 {
                     "name": "has_vote",
                     "type": "bool"
-                },
-                {
-                    "name": "wallet",
-                    "type": "wallet"
                 }
             ]
         },
@@ -1083,6 +1079,32 @@
             ]
         },
         {
+            "name": "progwallets",
+            "base": "",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "program_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "available",
+                    "type": "asset"
+                }
+            ]
+        },
+        {
             "name": "recieved",
             "base": "",
             "fields": [
@@ -1093,6 +1115,20 @@
                 {
                     "name": "exchange_id",
                     "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "regpaid",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
                 }
             ]
         },
@@ -1349,9 +1385,17 @@
             ]
         },
         {
-            "name": "wallet",
+            "name": "wallets",
             "base": "",
             "fields": [
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
                 {
                     "name": "available",
                     "type": "asset"
@@ -1362,32 +1406,6 @@
                 },
                 {
                     "name": "minimum",
-                    "type": "asset"
-                }
-            ]
-        },
-        {
-            "name": "wallets",
-            "base": "",
-            "fields": [
-                {
-                    "name": "id",
-                    "type": "uint64"
-                },
-                {
-                    "name": "coopname",
-                    "type": "name"
-                },
-                {
-                    "name": "program_id",
-                    "type": "uint64"
-                },
-                {
-                    "name": "username",
-                    "type": "name"
-                },
-                {
-                    "name": "available",
                     "type": "asset"
                 }
             ]
@@ -1558,6 +1576,11 @@
             "ricardian_contract": ""
         },
         {
+            "name": "regpaid",
+            "type": "regpaid",
+            "ricardian_contract": ""
+        },
+        {
             "name": "rmstaff",
             "type": "rmstaff",
             "ricardian_contract": ""
@@ -1680,6 +1703,13 @@
         {
             "name": "progcomarket",
             "type": "progcomarket",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "progwallets",
+            "type": "progwallets",
             "index_type": "i64",
             "key_names": [],
             "key_types": []

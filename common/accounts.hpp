@@ -218,8 +218,9 @@ struct [[eosio::table, eosio::contract(REGISTRATOR)]] orgs {
   eosio::name token_contract; ///< Контракт токена, связанного с организацией.
   std::string announce; ///< Анонс организации.
   std::string description; ///< Описание организации.
-  eosio::asset initial; ///< Вступительный взнос (если применимо).
-  eosio::asset minimum; ///< Минимальный взнос (если применимо).
+  eosio::asset registration; ///< Регистрационный взнос 
+  eosio::asset initial; ///< Вступительный членский взнос
+  eosio::asset minimum; ///< Минимальный паевый взнос
   
   // Тип некоммерческой организации
   // (0, _('Union of Societies')),

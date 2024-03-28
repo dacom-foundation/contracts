@@ -64,8 +64,11 @@ public:
   
   //regaccount.cpp
   [[eosio::action]] void joincoop(eosio::name coopname, eosio::name username, document document);
-  
+  [[eosio::action]] void regpaid(eosio::name coopname, eosio::name username);
+
   static void joincoop_effect(eosio::name executer, eosio::name coopname, uint64_t decision_id, uint64_t batch_id);
+  
+
 
   //automator.cpp
   [[eosio::action]] void automate(eosio::name coopname, uint64_t board_id, eosio::name member, eosio::name action_type, eosio::name provider, std::string encrypted_private_key);
@@ -175,9 +178,14 @@ struct [[eosio::table, eosio::contract(SOVIET)]] automator {
     uint64_t primary_key() const {
       return id;
     };
+
+    uint64_t byusername() const {return username.value;}
+
   };
 
-  typedef eosio::multi_index<"joincoops"_n, joincoops> joincoops_index; 
+  typedef eosio::multi_index<"joincoops"_n, joincoops,
+    eosio::indexed_by<"byusername"_n, eosio::const_mem_fun<joincoops, uint64_t, &joincoops::byusername>>
+  > joincoops_index; 
 
   struct [[eosio::table, eosio::contract(SOVIET)]] changes {
     uint64_t id;

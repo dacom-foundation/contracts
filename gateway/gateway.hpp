@@ -53,7 +53,7 @@ public:
 
   void apply(uint64_t receiver, uint64_t code, uint64_t action);
 
-  [[eosio::action]] void deposit(eosio::name coopname, eosio::name username, eosio::asset quantity);
+  [[eosio::action]] void deposit(eosio::name coopname, eosio::name username, eosio::name type, eosio::asset quantity);
   [[eosio::action]] void dpcomplete(eosio::name coopname, eosio::name admin, uint64_t deposit_id, std::string memo);
   [[eosio::action]] void dpfail(eosio::name coopname, eosio::name admin, uint64_t deposit_id, std::string memo);
 

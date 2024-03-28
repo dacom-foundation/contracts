@@ -62,6 +62,10 @@
                     "type": "name"
                 },
                 {
+                    "name": "type",
+                    "type": "name"
+                },
+                {
                     "name": "quantity",
                     "type": "asset"
                 }
@@ -81,6 +85,10 @@
                 },
                 {
                     "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "type",
                     "type": "name"
                 },
                 {

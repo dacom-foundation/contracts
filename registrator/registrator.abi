@@ -253,6 +253,10 @@
                     "type": "string"
                 },
                 {
+                    "name": "registration",
+                    "type": "asset"
+                },
+                {
                     "name": "initial",
                     "type": "asset"
                 },

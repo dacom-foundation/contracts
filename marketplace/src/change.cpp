@@ -65,13 +65,12 @@
  * Общая функция для создания как родительских, так и дочерних заявок.
  */
 void marketplace::create (eosio::name type, const exchange_params& params) {
-  print("on create child");
   orgs_index orgs(_registrator, _registrator.value);
   auto coop = orgs.find(params.coopname.value);
   eosio::check(coop != orgs.end() && coop -> is_coop(), "Кооператив не найден");
-  eosio::check(params.price_for_piece.symbol == coop -> initial.symbol, "Неверный символ токен");
+  eosio::check(params.unit_cost.symbol == coop -> initial.symbol, "Неверный символ токен");
   eosio::check(params.pieces > 0, "Количество единиц в заявке должно быть больше нуля");
-  eosio::check(params.price_for_piece.amount >= 0, "Цена не может быть отрицательной");
+  eosio::check(params.unit_cost.amount >= 0, "Цена не может быть отрицательной");
 
   if (params.parent_id == 0) {
     marketplace::create_parent(type, params);
@@ -90,6 +89,8 @@ void marketplace::create (eosio::name type, const exchange_params& params) {
  * Специализированная функция для создания родительской заявки.
  */
 void marketplace::create_parent(eosio::name type, const exchange_params& params) {
+  eosio::check(type == "offer"_n, "В родительском заявке может быть только предложение");
+
   exchange_index exchange(_marketplace, params.coopname.value);
   uint64_t id = get_global_id(_marketplace, "exchange"_n);
   
@@ -111,8 +112,11 @@ void marketplace::create_parent(eosio::name type, const exchange_params& params)
     //срок жизни продукта должен быть установлен
     eosio::check(params.product_lifecycle_secs > 0, "Гарантийный срок возврата для имущества должен быть установлен");
 
-  } else if(type == "order"_n) {
-    eosio::asset quantity = params.price_for_piece * params.pieces;
+  } 
+
+  else if(type == "order"_n) {
+    
+    eosio::asset quantity = params.unit_cost * params.pieces;
 
     action(
       permission_level{ _marketplace, "active"_n},
@@ -128,9 +132,8 @@ void marketplace::create_parent(eosio::name type, const exchange_params& params)
       std::make_tuple(params.coopname, params.username, params.program_id, quantity)
     ).send();
 
-
   };
-  
+
   exchange.emplace(params.username, [&](auto &i) {
     i.id = id;
     i.type = type;
@@ -139,14 +142,18 @@ void marketplace::create_parent(eosio::name type, const exchange_params& params)
     i.coopname = params.coopname;
     i.status = "moderation"_n;
     i.token_contract = coop -> token_contract;
-    i.remain_pieces = params.pieces;
-    i.price_for_piece = params.price_for_piece;
-    i.amount = params.price_for_piece * params.pieces;
+    i.remain_units = params.pieces;
+    i.unit_cost = params.unit_cost;
+    i.supplier_amount = params.unit_cost * params.pieces;
+
+    i.membership_fee = asset(0, coop -> initial.symbol);
+    i.total_cost = asset(0, coop -> initial.symbol);
+    
     i.product_lifecycle_secs = params.product_lifecycle_secs;
     i.data = params.data;
     i.meta = params.meta;
     i.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
-    i.cancellation_fee_amount = asset(0, params.price_for_piece.symbol);
+    i.cancellation_fee_amount = asset(0, params.unit_cost.symbol);
   });
   
   action(
@@ -169,6 +176,8 @@ void marketplace::create_parent(eosio::name type, const exchange_params& params)
  * Специализированная функция для создания дочерних заявок, связанных с родительской заявкой.
  */
 void marketplace::create_child(eosio::name type, const exchange_params& params) {
+  eosio::check(type == "order"_n, "В дочерней заявки может быть только заказ");
+
   exchange_index exchange(_marketplace, params.coopname.value);
   auto parent_change = exchange.find(params.parent_id);
   eosio::check(parent_change != exchange.end(), "Заявка не обнаружена");
@@ -180,7 +189,8 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
   eosio::check(coop -> is_coop() == true, "Организация - не кооператив");
   eosio::check(parent_change -> token_contract == coop -> token_contract, "Неверный контракт");
 
-  eosio::check(parent_change -> price_for_piece.amount == params.price_for_piece.amount, "Торги запрещены");
+  eosio::check(parent_change -> unit_cost.amount == params.unit_cost.amount, "Торги запрещены");
+  
   eosio::check(params.parent_id > 0, "Встречная заявка создаётся с указанием родителя");
   
   uint64_t id = get_global_id(_marketplace, "exchange"_n);
@@ -195,6 +205,17 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
   
   uint64_t product_lifecycle_secs = 0;
 
+  eosio::asset membership_fee;
+  eosio::asset supplier_amount = params.unit_cost * params.pieces;
+
+  if (program.calculation_type == "absolute"_n) {
+    membership_fee = program.fixed_membership_contribution;
+  } else {
+    membership_fee = supplier_amount * HUNDR_PERCENTS / program.membership_percent_fee;
+  };
+  
+  eosio::asset total_cost = params.unit_cost * params.pieces + membership_fee;
+  
   //Специальные проверки
   if (type == "offer"_n) {
     //родительская заявка должна быть противоположного типа
@@ -203,20 +224,19 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
   } else if(type == "order"_n) {
     //родительская заявка должна быть противоположного типа
     eosio::check(parent_change -> type == "offer"_n, "Неверный тип родительской заявки");
-    eosio::asset quantity = params.price_for_piece * params.pieces;
-
+    
     action(
       permission_level{ _marketplace, "active"_n},
       _soviet,
       "blockbal"_n,
-      std::make_tuple(params.coopname, params.username, quantity)
+      std::make_tuple(params.coopname, params.username, total_cost)
     ).send();
-
+    
     action(
       permission_level{ _marketplace, "active"_n},
       _soviet,
       "addprogbal"_n,
-      std::make_tuple(params.coopname, params.username, params.program_id, quantity)
+      std::make_tuple(params.coopname, params.username, params.program_id, total_cost)
     ).send();
 
   }
@@ -231,12 +251,20 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
     i.username = params.username;
     i.status = "published"_n;
     i.token_contract = coop -> token_contract;
-    i.remain_pieces = params.pieces;
-    i.price_for_piece = params.price_for_piece;
-    i.amount = params.price_for_piece * params.pieces;
-    i.data = params.data;
+    i.remain_units = params.pieces;
+    i.unit_cost = params.unit_cost;
+    i.membership_fee = membership_fee;
+    
+    i.supplier_amount = supplier_amount;
+    i.total_cost = total_cost;
+    
+    // не дублируем информацию
+    // i.data = params.data;
+    // i.meta = params.meta;
+
     i.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
-    i.cancellation_fee_amount = asset(0, params.price_for_piece.symbol);
+    i.cancellation_fee_amount = asset(0, params.unit_cost.symbol);
+
 
     if (type == "order"_n) {
       print("on create child order");
@@ -287,18 +315,18 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
   auto parent_change = exchange.find(change -> parent_id);
   eosio::check(parent_change != exchange.end(), "Родительская заявка не найдена");
   eosio::check(parent_change -> username == username, "Недостаточно прав доступа");
-  eosio::check(parent_change -> remain_pieces >= change -> remain_pieces, "Недостаточно объектов для поставки");
+  eosio::check(parent_change -> remain_units >= change -> remain_units, "Недостаточно объектов для поставки");
   
   exchange.modify(parent_change, username, [&](auto &i) {
-    i.remain_pieces -= change -> remain_pieces;
-    i.amount = (parent_change -> remain_pieces - change -> remain_pieces ) * parent_change -> price_for_piece;
-    i.blocked_pieces += change -> remain_pieces;
+    i.remain_units -= change -> remain_units;
+    i.supplier_amount = (parent_change -> remain_units - change -> remain_units ) * parent_change -> unit_cost;
+    i.blocked_units += change -> remain_units;
   });
 
   exchange.modify(change, username, [&](auto &o){
     o.status = "accepted"_n;
-    o.blocked_pieces += change -> remain_pieces;
-    o.remain_pieces = 0;
+    o.blocked_units += change -> remain_units;
+    o.remain_units = 0;
     o.accepted_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
 
     if (change -> type == "order"_n) {
@@ -319,7 +347,7 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
 
 
 
-[[eosio::action]] void marketplace::supplycnfrm(eosio::name coopname, eosio::name username, uint64_t exchange_id, document document) {
+[[eosio::action]] void marketplace::supply(eosio::name coopname, eosio::name username, uint64_t exchange_id, document document) {
   require_auth(username);
 
   exchange_index exchange(_marketplace, coopname.value);
@@ -348,7 +376,7 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
 \brief Отказ от предложения.
 **/
 
-[[eosio::action]] void marketplace::supply(eosio::name coopname, eosio::name username, uint64_t exchange_id, document document) { 
+[[eosio::action]] void marketplace::supplycnfrm(eosio::name coopname, eosio::name username, uint64_t exchange_id, document document) { 
   require_auth(username);
 
   exchange_index exchange(_marketplace, coopname.value);
@@ -356,7 +384,7 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
   eosio::check(change != exchange.end(), "Заявка не найдена");
   eosio::check(change -> parent_id > 0, "Только продукт по встречной заявке может быть поставлен");
 
-  eosio::check(change -> status == "supplied1"_n, "Продукт может быть поставлен только по заявке в статусе ожидания");
+  eosio::check(change -> status == "supplied1"_n, "Продукт может быть поставлен только по заявке в статусе supplied1");
 
   auto soviet = get_board_by_type_or_fail(coopname, "soviet"_n);
   auto chairman = soviet.get_chairman();
@@ -373,7 +401,7 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
     permission_level{ _marketplace, "active"_n},
     _soviet,
     "addbalance"_n,
-    std::make_tuple(coopname, change -> product_contributor, change -> amount)
+    std::make_tuple(coopname, change -> product_contributor, change -> supplier_amount)
   ).send();
 
 
@@ -381,7 +409,7 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
     permission_level{ _marketplace, "active"_n},
     _soviet,
     "blockbal"_n,
-    std::make_tuple(coopname, change -> product_contributor, change -> amount)
+    std::make_tuple(coopname, change -> product_contributor, change -> supplier_amount)
   ).send();
 
 
@@ -389,7 +417,7 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
     permission_level{ _marketplace, "active"_n},
     _soviet,
     "addprogbal"_n,
-    std::make_tuple(coopname, change -> product_contributor, change -> program_id, change -> amount)
+    std::make_tuple(coopname, change -> product_contributor, change -> program_id, change -> supplier_amount)
   ).send();
 
 }
@@ -438,22 +466,22 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
   exchange_index exchange(_marketplace, coopname.value);
   auto change = exchange.find(exchange_id);
   eosio::check(change != exchange.end(), "Заявка не найдена");
-  eosio::check(change -> parent_id > 0, "Только продукт по встречной заявке может быть поставлен");
+  eosio::check(change -> parent_id > 0, "Только продукт по встречной заявке может быть выдан");
 
-  eosio::check(change -> status == "delivered"_n, "Продукт может быть поставлен только по заявке в статусе ожидания");
+  eosio::check(change -> status == "delivered"_n, "Продукт может быть выдан только по заявке в статусе ожидания получения");
 
-  eosio::check(change -> deadline_for_receipt.sec_since_epoch() > eosio::current_time_point().sec_since_epoch(), "Время на получение имущества истекло");
-
+  eosio::check(change -> deadline_for_receipt.sec_since_epoch() <= eosio::current_time_point().sec_since_epoch(), "Время на выдачу имущества истекло");
+  
   auto soviet = get_board_by_type_or_fail(coopname, "soviet"_n);
   auto chairman = soviet.get_chairman();
   
   if (change -> type == "order"_n) { //если указанная заявка - это заказ продукта
     //то получение продукта может осуществить только пользователь из username
-    eosio::check(change -> username == username, "Недостачно прав доступа для получения поставки");
+    eosio::check(change -> username == username, "Недостачно прав доступа для получения имущества");
   } else { //если указанная заявка - это поставка продукта
 
     //то поставку может осуществить только пользователь username в этой заявке
-    eosio::check(change -> parent_username == username, "Недостаточно прав доступа для получения поставки");
+    eosio::check(change -> parent_username == username, "Недостаточно прав доступа для получения имущества");
   };
 
     //подписываем акт приёма-передачи кооперативу пайщиком
@@ -480,7 +508,7 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
   auto soviet = get_board_by_type_or_fail(coopname, "soviet"_n);
   auto chairman = soviet.get_chairman();
   
-  eosio::check(username == chairman, "Недостачно прав доступа для подтверждения поставки");
+  eosio::check(username == chairman, "Недостачно прав доступа для подтверждения выдачи имущества");
 
   exchange.modify(change, username, [&](auto &ch) {
     ch.status = "recieved2"_n;
@@ -499,8 +527,140 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
 
 
 
+[[eosio::action]] void marketplace::dispute(eosio::name coopname, eosio::name username, uint64_t exchange_id, document document){
 
-// [[eosio::action]] void marketplace::dsptcreate()
+  require_auth(username);
+  
+  exchange_index exchange(_marketplace, coopname.value);
+  auto change = exchange.find(exchange_id);
+  
+  eosio::check(change -> type == "order"_n, "Спор может быть открыт только по заявке на поставку");
+  
+  eosio::check(change != exchange.end(), "Заявка не найдена");
+  eosio::check(change -> username == username, "Только заказчик может открыть спор");
+  
+  eosio::check(change -> is_warranty_return == false, "Нельзя открыть спор на спор");
+
+  auto parent_change = exchange.find(change -> parent_id);
+  eosio::check(parent_change != exchange.end(), "Родительская заявка не найдена");
+
+  eosio::check(change -> status == "recieved2"_n, "Неверный статус для открытия спора");
+  
+  exchange.modify(change, username, [&](auto &e){
+    e.status = "disputed"_n;
+    e.disputed_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+    e.warranty_return_id = change -> id;
+  });
+
+  uint64_t new_id = get_global_id(_marketplace, "exchange"_n);
+  uint64_t new_parent_id = get_global_id(_marketplace, "exchange"_n);  
+
+  auto cooperative = get_cooperative_or_fail(coopname);
+  
+  //открытая заявка от заказчика на поставку имущества поставщику
+  exchange.emplace(username, [&](auto &i) {
+    i.id = new_parent_id;
+    i.type = "offer"_n;
+    i.program_id = change -> program_id; 
+    i.username = username;
+    i.parent_username = ""_n;
+    i.parent_id = 0;
+    i.coopname = coopname;
+    i.status = "published"_n;
+    i.token_contract = change -> token_contract;
+    i.remain_units = change -> remain_units;
+    i.unit_cost = change -> unit_cost;
+
+    i.supplier_amount = i.unit_cost * i.remain_units;
+    i.total_cost = i.supplier_amount;
+
+    i.membership_fee = asset(0, cooperative.initial.symbol);
+    i.cancellation_fee_amount = asset(0, cooperative.initial.symbol);
+    
+    i.product_lifecycle_secs = change -> product_lifecycle_secs;
+    i.data = change -> data;
+    i.meta = change -> meta;
+    i.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+
+    i.is_warranty_return = true;
+    i.warranty_return_id = change -> id;
+  });
+
+  action(
+    permission_level{ _marketplace, "active"_n},
+    _marketplace,
+    "newid"_n,
+    std::make_tuple(new_parent_id, "offer")
+  ).send();
+
+  //новая встречная заявка для будущего возврата поставщику
+  exchange.emplace(username, [&](auto &i) {
+    i.id = new_id;
+    i.parent_id = new_parent_id;
+    i.type = "order"_n;
+
+    i.program_id = parent_change -> program_id;
+    i.coopname = coopname;
+    
+    i.username = change -> parent_username;
+    i.parent_username = change -> username;
+    
+    i.status = "published"_n;
+    i.token_contract = cooperative.token_contract;
+    
+    i.remain_units = change -> remain_units;
+    i.unit_cost = change -> unit_cost;
+    
+    i.supplier_amount = change -> supplier_amount;
+    i.total_cost = change -> supplier_amount;;
+    
+    i.membership_fee = asset(0, cooperative.initial.symbol); //размер членского взноса должен установить председатель в методе resolve
+    i.cancellation_fee_amount = asset(0, cooperative.initial.symbol);
+
+    i.data = change -> data;
+    i.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+    
+    i.is_warranty_return = true;
+    i.warranty_return_id = exchange_id;
+
+    i.contribute_product_statement = document;
+    i.money_contributor = parent_change -> username;
+    i.product_contributor = change -> username;  
+    i.product_lifecycle_secs = 0; //потому что гарантийного срока в споре нет
+    
+  });
+
+
+  action(
+    permission_level{ _marketplace, "active"_n},
+    _marketplace,
+    "newid"_n,
+    std::make_tuple(new_id, "order"_n)
+  ).send();
+  
+};
+
+  
+  // I принимаем брак
+  // создать открытую заявку от заказчика на поставку
+  // создать встречную заявку от поставщика на заказ своего имущества
+    // без заявления
+    // это отправит запрос на взнос в совет
+    //  т.е. отправляется только одна часть: за внос, вторая часть: за возврат будет отправлена принята позднее
+    //  т.е. делим стандартный процесс обмена на 2 независимые части, всё остальное как обычно
+    //  accept должен обработать это
+    //  cancel должен обработать это
+    // после решения совета - немедленно начислить баланс в кошелёк
+  
+
+  // II отправляем брак назад
+  // теперь необходимо получить согласие или отказ от изначального поставщика забрать свой продукт
+    // метод accept2 принимает согласие получить возврат и запускает в ход второе решение
+    // метод cancel2 принимает отказ получить возврат и завершает ход
+
+  // методы передачи  supply, supplycnfrm, delivery, ... мы можем использовать повторно
+  
+
 // обратный процесс доставки в том же ордере (указатель на объект диспута)
 // поля для оценок / отзывов в том же ордере
 // moneyblock для поставщика по кошельку (простая проверка при попытке вывода на запрет по диспуту)
@@ -509,6 +669,8 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
 // moneyback
 
 
+
+// [[eosio::action]] marketplace::resolve()
 
 
 
@@ -541,57 +703,43 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
   eosio::check(change -> warranty_delay_until.sec_since_epoch() < eosio::current_time_point().sec_since_epoch(), "Время гарантийной задержки еще не истекло");
 
   exchange.modify(parent_change, username, [&](auto &i) {
-    i.delivered_pieces += change -> blocked_pieces;
-    i.blocked_pieces -= change -> blocked_pieces; 
-    i.amount -= change -> amount;
-
-    if (i.blocked_pieces + parent_change -> remain_pieces == 0) {
+    i.delivered_units += change -> blocked_units;
+    i.blocked_units -= change -> blocked_units; 
+    
+    if (i.blocked_units + parent_change -> remain_units == 0) {
       i.status = "unpublished"_n; //снимаем родительскую заявку с публикации, если она исполнена
     }; 
   });
 
   exchange.modify(change, username, [&](auto &o) {
     o.status = "completed"_n;
-    o.delivered_pieces += change -> blocked_pieces;
-    o.blocked_pieces = 0;
+    o.delivered_units += change -> blocked_units;
+    o.blocked_units = 0;
     o.completed_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
   });
 
   auto program = get_program_or_fail(coopname, change -> program_id);
-  eosio::asset amount_to_back;
-  eosio::asset amount_to_spread;
-
-  if (program.calculation_type == "absolute"_n) {
-    amount_to_spread = program.fixed_membership_contribution;
-    eosio::check(amount_to_spread <= change -> amount, "Недостаточно средств членского взноса для распределения");
-  } else {
-    amount_to_spread = change -> amount * program.membership_percent_fee / HUNDR_PERCENTS;
-  };
-
-  amount_to_back = change -> amount - amount_to_spread;
-    
   
   //Заказчику уменьшаем баланс ЦПП не кошелька, разблокируем баланс ЦПП кошелька и списываем его  
   action(
     permission_level{ _marketplace, "active"_n},
     _soviet,
     "subprogbal"_n,
-    std::make_tuple(coopname, change -> money_contributor, change -> program_id, change -> amount)
+    std::make_tuple(coopname, change -> money_contributor, change -> program_id, change -> total_cost)
   ).send();
   
   action(
     permission_level{ _marketplace, "active"_n},
     _soviet,
     "unblockbal"_n,
-    std::make_tuple(coopname, change -> money_contributor, change -> amount)
+    std::make_tuple(coopname, change -> money_contributor, change -> total_cost)
   ).send();
-
 
   action(
     permission_level{ _marketplace, "active"_n},
     _soviet,
     "subbalance"_n,
-    std::make_tuple(coopname, change -> money_contributor, change -> amount)
+    std::make_tuple(coopname, change -> money_contributor, change -> total_cost)
   ).send();
 
 
@@ -600,32 +748,23 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
     permission_level{ _marketplace, "active"_n},
     _soviet,
     "subprogbal"_n,
-    std::make_tuple(coopname, change -> product_contributor, change -> program_id, change -> amount)
+    std::make_tuple(coopname, change -> product_contributor, change -> program_id, change -> supplier_amount)
   ).send();
 
   action(
     permission_level{ _marketplace, "active"_n},
     _soviet,
     "unblockbal"_n,
-    std::make_tuple(coopname, change -> product_contributor, change -> amount)
-  ).send();
-
-  //списываем с поставщика членский взнос
-  action(
-    permission_level{ _marketplace, "active"_n},
-    _soviet,
-    "subbalance"_n,
-    std::make_tuple(coopname, change -> product_contributor, amount_to_spread)
+    std::make_tuple(coopname, change -> product_contributor, change -> supplier_amount)
   ).send();
 
 
-
-  if (amount_to_spread.amount > 0){
+  if (change -> membership_fee.amount > 0){
     action(
       permission_level{ _marketplace, "active"_n},
       _fund,
       "spreadamount"_n,
-      std::make_tuple(coopname, amount_to_spread)
+      std::make_tuple(coopname, change -> membership_fee)
     ).send();
   }
 
@@ -676,14 +815,14 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
       permission_level{ _marketplace, "active"_n},
       _soviet,
       "subprogbal"_n,
-      std::make_tuple(coopname, username, change -> program_id, change -> amount)
+      std::make_tuple(coopname, change -> money_contributor, change -> program_id, change -> total_cost)
     ).send();
 
     action(
       permission_level{ _marketplace, "active"_n},
       _soviet,
       "unblockbal"_n,
-      std::make_tuple(coopname, username, change -> amount)
+      std::make_tuple(coopname, change -> money_contributor, change -> total_cost)
     ).send();
 
 
@@ -707,10 +846,12 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
 */
 [[eosio::action]] void marketplace::cancel(eosio::name coopname, eosio::name username, uint64_t exchange_id) { 
   require_auth(username);
-  
+
   exchange_index exchange(_marketplace, coopname.value);
   auto change = exchange.find(exchange_id);
   eosio::check(change != exchange.end(), "Заявка не найдена");
+  
+  //TODO перенести под проверку пользователя и вообще сценарий отмены проверить полностью
   eosio::check(change -> status != "accepted"_n, "Заявка не может быть отменена сейчас");
 
   if (change -> parent_id == 0) {
@@ -735,7 +876,7 @@ void marketplace::cancel_parent(eosio::name coopname, eosio::name username, uint
   auto change = exchange.find(exchange_id);
 
   //Удаление, если заблокированных объектов на поставке - нет.   
-  eosio::check(change -> remain_pieces + change -> blocked_pieces == 0, "Заявка не может быть отменена из-за наличия заблокированных единиц товара");
+  eosio::check(change -> remain_units + change -> blocked_units == 0, "Заявка не может быть отменена из-за наличия заблокированных единиц товара");
   exchange.erase(change);
 };
 
@@ -753,22 +894,23 @@ void marketplace::cancel_child(eosio::name coopname, eosio::name username, uint6
   exchange_index exchange(_marketplace, coopname.value);
   auto change = exchange.find(exchange_id);
   auto parent_change = exchange.find(change -> parent_id);
-  eosio::asset quantity = change -> price_for_piece * change -> blocked_pieces;
+  eosio::asset quantity = change -> unit_cost * change -> blocked_units;
 
+  
   // оповещаем совет об отмене
   if (change -> type == "order"_n) {
     action(
       permission_level{ _marketplace, "active"_n},
       _soviet,
       "subprogbal"_n,
-      std::make_tuple(coopname, username, change -> program_id, change -> amount)
+      std::make_tuple(coopname, change -> money_contributor, change -> program_id, change -> total_cost)
     ).send();
 
     action(
       permission_level{ _marketplace, "active"_n},
       _soviet,
       "unblockbal"_n,
-      std::make_tuple(coopname, username, change -> amount)
+      std::make_tuple(coopname, change -> money_contributor, change -> total_cost)
     ).send();
 
   };  
@@ -776,9 +918,9 @@ void marketplace::cancel_child(eosio::name coopname, eosio::name username, uint6
   if (change -> status == "authorized"_n) {
     //возвращаем единицы товара в родительскую заявку
     exchange.modify(parent_change, username, [&](auto &e) {
-      e.remain_pieces += change -> blocked_pieces;
-      e.blocked_pieces -= change -> blocked_pieces;
-      e.amount += change -> amount;
+      e.remain_units += change -> blocked_units;
+      e.blocked_units -= change -> blocked_units;
+      e.supplier_amount += change -> supplier_amount;
     });
 
     exchange.modify(change, username, [&](auto &c){
@@ -816,16 +958,16 @@ void marketplace::cancel_child(eosio::name coopname, eosio::name username, uint6
 
 @note Авторизация требуется от аккаунта: @p username
 */
-[[eosio::action]] void marketplace::update(eosio::name coopname, eosio::name username, uint64_t exchange_id, uint64_t remain_pieces, eosio::asset price_for_piece, std::string data, std::string meta) {
+[[eosio::action]] void marketplace::update(eosio::name coopname, eosio::name username, uint64_t exchange_id, uint64_t remain_units, eosio::asset unit_cost, std::string data, std::string meta) {
   require_auth(username);
 
   exchange_index exchange(_marketplace, coopname.value);
   auto change = exchange.find(exchange_id);
   eosio::check(change != exchange.end(), "Заявка на обмен не найдена");
-  eosio::check(price_for_piece.symbol == change -> price_for_piece.symbol, "Неверный символ токен");
+  eosio::check(unit_cost.symbol == change -> unit_cost.symbol, "Неверный символ токен");
   eosio::check(change -> parent_id == 0, "Встречные заявки можно только отменять");
   eosio::check(change -> username == username, "У вас нет права на отмену данной заявки");
-  eosio::check(remain_pieces >= 0, "Количество единиц товара должно быть положительным");
+  eosio::check(remain_units >= 0, "Количество единиц товара должно быть положительным");
 
   eosio::name status = "moderation"_n;
 
@@ -834,8 +976,8 @@ void marketplace::cancel_child(eosio::name coopname, eosio::name username, uint6
 
   exchange.modify(change, username, [&](auto &i) {
     i.status = status;
-    i.price_for_piece = price_for_piece;
-    i.remain_pieces = remain_pieces;
+    i.unit_cost = unit_cost;
+    i.remain_units = remain_units;
     i.data = data;
     i.meta = meta;
   });
@@ -864,8 +1006,8 @@ void marketplace::cancel_child(eosio::name coopname, eosio::name username, uint6
   eosio::check(change -> parent_id == 0, "Нельзя отредактировать количество единиц во встречной заявке. Отмените её и пересоздайте");
 
   exchange.modify(change, username, [&](auto &c){
-    c.remain_pieces += new_pieces;
-    c.amount = (change -> remain_pieces + new_pieces) * change -> price_for_piece;
+    c.remain_units += new_pieces;
+    c.supplier_amount = (change -> remain_units + new_pieces) * change -> unit_cost;
   });
   
 };

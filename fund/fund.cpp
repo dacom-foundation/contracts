@@ -418,9 +418,8 @@ using namespace eosio;
   [[eosio::action]] void fund::spreadamount( eosio::name coopname, eosio::asset quantity) {
     /// < распределить членские взносы по фондам накопления, положив остаток в фондовый кошелёк для дальнейшего списания 
     //на входе мы получаем общую членскую часть
-    
-    require_auth(_marketplace); //может ещё кто-то, но сейчас только он
-
+    eosio::check(has_auth(_marketplace) || has_auth(_gateway), "Недостаточно прав доступа");
+    eosio::name payer = has_auth(_marketplace) ? _marketplace : _gateway;
 
     fundwallet_index fundwallet(_fund, coopname.value);
     auto wal = fundwallet.find(0);
@@ -448,8 +447,8 @@ using namespace eosio;
     //считаем сколько не выплачено в фонды накопления
     eosio::asset remain_amount = quantity - total_accumulated;
 
-    //начисляем в кошелёк для дальнейшего списания
-    fundwallet.modify(wal, _marketplace, [&](auto &w) {
+    //начисляем в кошелёк
+    fundwallet.modify(wal, payer, [&](auto &w) {
       w.available += remain_amount;
       w.membership += remain_amount;
     });

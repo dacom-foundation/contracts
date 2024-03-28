@@ -1,5 +1,36 @@
 using namespace eosio;
 
+
+/**
+\ingroup public_actions
+\brief Подтверждение оплаты регистрационного взноса
+*
+* Этот метод вызывается контрактом gateway при поступлении оплаты регистрационного взноса, что изменяет состояние объекта joincoop и сообщает администраторам, что оплата взноса произведена.
+*
+* @param coopname Имя кооператива
+* @param username Имя пользователя
+* @param position_title Заголовок должности
+* @param position Должность
+* 
+* @note Авторизация требуется от аккаунта: @p _registrator
+*/
+void soviet::regpaid(eosio::name coopname, eosio::name username){
+  require_auth(_gateway);
+
+  joincoops_index joincoops(_soviet, coopname.value);
+  auto joincoops_by_username_index = joincoops.template get_index<"byusername"_n>();
+
+  auto joincoop = joincoops_by_username_index.find(username.value);
+
+  eosio::check(joincoop != joincoops_by_username_index.end(), "Информация о регистрируемом пользователе не найдена" );  
+  eosio::check(joincoop -> is_paid == false, "Регистрационный взнос уже оплачен");
+
+  joincoops_by_username_index.modify(joincoop, _gateway, [&](auto &j){
+    j.is_paid = true;
+  });
+};
+
+
 /**
 \ingroup public_actions
 \brief Заявка на вступление в кооператив
@@ -17,6 +48,7 @@ void soviet::joincoop(eosio::name coopname, eosio::name username, document docum
   require_auth(_registrator);
   
   joincoops_index joincoops(_soviet, coopname.value); 
+  
   auto batch_id = get_global_id(_soviet, "joincoops"_n);
 
   joincoops.emplace(_registrator, [&](auto &a){
@@ -54,7 +86,7 @@ void soviet::joincoop_effect(eosio::name executer, eosio::name coopname, uint64_
   auto decision = decisions.find(decision_id);
 
   joincoops_index joincoops(_soviet, coopname.value); 
-  auto joincoop_action = joincoops.find(decision->batch_id);
+  auto joincoop_action = joincoops.find(decision -> batch_id);
 
   participants_index participants(_soviet, coopname.value);
   auto cooperative = get_cooperative_or_fail(coopname);
@@ -68,9 +100,17 @@ void soviet::joincoop_effect(eosio::name executer, eosio::name coopname, uint64_
     m.is_initial = true;
     m.is_minimum = true;
     m.has_vote = true;    
-    m.wallet.available = asset(0, cooperative.initial.symbol);
-    m.wallet.blocked = asset(0, cooperative.initial.symbol);
-    m.wallet.minimum = cooperative.minimum; //TODO add minimum amount here
+    
+  });
+
+  wallets_index wallets(_soviet, coopname.value);
+
+  wallets.emplace(_soviet, [&](auto &w){
+    w.username = joincoop_action -> username;
+    w.coopname = coopname;
+    w.available = asset(0, cooperative.initial.symbol);
+    w.blocked = asset(0, cooperative.initial.symbol);
+    w.minimum = cooperative.minimum; //TODO add minimum amount here
   });
 
   action(

@@ -136,9 +136,8 @@ extern "C" {
         EOSIO_DISPATCH_HELPER (
             soviet, 
             //REGACCOUNT
-            (joincoop)
+            (joincoop)(regpaid)
         )
-
 
         EOSIO_DISPATCH_HELPER (
             soviet, 

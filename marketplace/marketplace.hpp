@@ -67,12 +67,13 @@ public:
   [[eosio::action]] void recieve(eosio::name coopname, eosio::name username, uint64_t exchange_id, document document);
   [[eosio::action]] void recievecnfrm(eosio::name coopname, eosio::name username, uint64_t exchange_id, document document);
 
+  [[eosio::action]] void dispute(eosio::name coopname, eosio::name username, uint64_t exchange_id, document document);
   
   [[eosio::action]] void complete(eosio::name coopname, eosio::name username, uint64_t exchange_id);
 
   [[eosio::action]] void cancel(eosio::name coopname, eosio::name username, uint64_t exchange_id);
   
-  [[eosio::action]] void update(eosio::name coopname, eosio::name username, uint64_t exchange_id, uint64_t remain_pieces, eosio::asset price_for_piece, std::string data, std::string meta);
+  [[eosio::action]] void update(eosio::name coopname, eosio::name username, uint64_t exchange_id, uint64_t remain_units, eosio::asset unit_cost, std::string data, std::string meta);
   [[eosio::action]] void addpieces(eosio::name coopname, eosio::name username, uint64_t exchange_id, uint64_t new_pieces);
   
   //admins.cpp

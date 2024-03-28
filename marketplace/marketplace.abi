@@ -154,6 +154,28 @@
             ]
         },
         {
+            "name": "dispute",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "exchange_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "document",
+                    "type": "document"
+                }
+            ]
+        },
+        {
             "name": "document",
             "base": "",
             "fields": [
@@ -216,23 +238,31 @@
                     "type": "name"
                 },
                 {
-                    "name": "price_for_piece",
+                    "name": "unit_cost",
                     "type": "asset"
                 },
                 {
-                    "name": "amount",
+                    "name": "supplier_amount",
                     "type": "asset"
                 },
                 {
-                    "name": "remain_pieces",
+                    "name": "total_cost",
+                    "type": "asset"
+                },
+                {
+                    "name": "membership_fee",
+                    "type": "asset"
+                },
+                {
+                    "name": "remain_units",
                     "type": "uint64"
                 },
                 {
-                    "name": "blocked_pieces",
+                    "name": "blocked_units",
                     "type": "uint64"
                 },
                 {
-                    "name": "delivered_pieces",
+                    "name": "delivered_units",
                     "type": "uint64"
                 },
                 {
@@ -332,6 +362,10 @@
                     "type": "time_point_sec"
                 },
                 {
+                    "name": "disputed_at",
+                    "type": "time_point_sec"
+                },
+                {
                     "name": "canceled_at",
                     "type": "time_point_sec"
                 },
@@ -342,6 +376,14 @@
                 {
                     "name": "deadline_for_receipt",
                     "type": "time_point_sec"
+                },
+                {
+                    "name": "is_warranty_return",
+                    "type": "bool"
+                },
+                {
+                    "name": "warranty_return_id",
+                    "type": "uint64"
                 }
             ]
         },
@@ -370,7 +412,7 @@
                     "type": "uint64"
                 },
                 {
-                    "name": "price_for_piece",
+                    "name": "unit_cost",
                     "type": "asset"
                 },
                 {
@@ -610,11 +652,11 @@
                     "type": "uint64"
                 },
                 {
-                    "name": "remain_pieces",
+                    "name": "remain_units",
                     "type": "uint64"
                 },
                 {
-                    "name": "price_for_piece",
+                    "name": "unit_cost",
                     "type": "asset"
                 },
                 {
@@ -662,6 +704,11 @@
         {
             "name": "delivered",
             "type": "delivered",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "dispute",
+            "type": "dispute",
             "ricardian_contract": ""
         },
         {

@@ -152,7 +152,8 @@
     });
 
     orgs_index orgs(_registrator, _registrator.value);
-
+    eosio::check(params.initial.symbol == params.minimum.symbol, "Неверные символы для взносов");
+    
     //TODO 
     // проверить поля, если это кооператив
     std::vector<storage> storages;
@@ -168,6 +169,7 @@
       org.token_contract = params.token_contract;
       org.announce = params.announce;
       org.description = params.description;
+      org.registration = params.initial + params.minimum;
       org.initial = params.initial;
       org.minimum = params.minimum;
     });   

@@ -13,7 +13,7 @@
 * - parent_id: Идентификатор родительской заявки (если есть).
 * - coopname: Имя кооператива.
 * - pieces: Количество частей (штук) товара или услуги для обмена.
-* - price_for_piece: Цена за единицу (штуку) товара или услуги, выраженная в определенном формате asset.
+* - unit_cost: Цена за единицу (штуку) товара или услуги, выраженная в определенном формате asset.
 * - data: Содержит дополнительные данные, специфичные для заявки (например, условия обмена).
 * - meta: Метаданные, предоставляющие дополнительную информацию о заявке (например, описание товара или условия обмена).
 */
@@ -23,7 +23,7 @@ struct exchange_params {
   uint64_t program_id; /*!< Идентификатор программы */
   eosio::name coopname; /*!< Имя кооператива */
   uint64_t pieces; /*!< Количество частей (штук) товара или услуги */
-  eosio::asset price_for_piece; /*!< Цена за единицу (штуку) товара или услуги */
+  eosio::asset unit_cost; /*!< Цена за единицу (штуку) товара или услуги */
   uint64_t product_lifecycle_secs; /*!< Время жизни продукта, заявляемое поставщиком */
   document document; /*!< Сопутствующий подписанный документ на взнос или возврат взноса */
   std::string data; /*!< Дополнительные данные, специфичные для заявки */
@@ -42,10 +42,10 @@ struct exchange_params {
  * @param status Статус обмена (например, "опубликовано", "на модерации" и т.д.)
  * @param username Имя пользователя, создавшего заявку
  * @param token_contract Имя контракта токена
- * @param price_for_piece Цена за единицу товара в заявке
- * @param remain_pieces Оставшееся количество товара
- * @param blocked_pieces Заблокированное количество товара
- * @param delivered_pieces Количество доставленного товара
+ * @param unit_cost Цена за единицу товара в заявке
+ * @param remain_units Оставшееся количество товара
+ * @param blocked_units Заблокированное количество товара
+ * @param delivered_units Количество доставленного товара
  * @param data Дополнительные данные, связанные с заявкой
  * @param meta Метаданные заявки
  *
@@ -69,18 +69,14 @@ struct [[eosio::table, eosio::contract(MARKETPLACE)]] exchange {
   eosio::name parent_username; /*!< имя аккаунта владельца объявления */
   eosio::name token_contract;  /*!< имя контракта токена */
   
-  eosio::asset price_for_piece;/*!< себестоимость единицы товара */
-  eosio::asset amount;         /*!< цена за всю поставку */
+  eosio::asset unit_cost;/*!< себестоимость единицы товара от поставщика */
+  eosio::asset supplier_amount; /*!< сумма взноса поставщика */
+  eosio::asset total_cost;    /*!< сумма взноса заказчика */
+  eosio::asset membership_fee; /*!< членский взнос заказчика */
 
-  // eosio::asset supplier_unit_cost; /*!< себестоимость единицы товара от поставщика */
-  // eosio::asset supplier_total_cost; /*!< себестоимость всей поставки от поставщика */
-
-  // eosio::asset order_unit_price; /*!< цена единицы товара для заказчика с учётом членского взноса */
-  // eosio::asset order_total_price; /*!< цена всей поставки для заказчика с учётом членского взноса */
-
-  uint64_t remain_pieces;      /*!< оставшееся количество товара */
-  uint64_t blocked_pieces;     /*!< заблокированное количество товара */
-  uint64_t delivered_pieces;   /*!< количество доставленного товара */
+  uint64_t remain_units;      /*!< оставшееся количество товара */
+  uint64_t blocked_units;     /*!< заблокированное количество товара */
+  uint64_t delivered_units;   /*!< количество доставленного товара */
   std::string data;            /*!< дополнительные данные */
   std::string meta;            /*!< метаданные заявки */
 
@@ -113,10 +109,15 @@ struct [[eosio::table, eosio::contract(MARKETPLACE)]] exchange {
   eosio::time_point_sec recieved_at;
   eosio::time_point_sec completed_at;
   eosio::time_point_sec declined_at;
+  eosio::time_point_sec disputed_at;
   eosio::time_point_sec canceled_at;
+  // eosio::time_point_sec expired_at;
 
   eosio::time_point_sec warranty_delay_until;
   eosio::time_point_sec deadline_for_receipt;
+
+  bool is_warranty_return = false;
+  uint64_t warranty_return_id;
 
   uint64_t primary_key() const { return id; } /*!< return id - primary_key */
   uint64_t by_coop() const {return coopname.value;} /*!< кооператив */
@@ -130,9 +131,9 @@ struct [[eosio::table, eosio::contract(MARKETPLACE)]] exchange {
   uint64_t by_created() const { return created_at.sec_since_epoch();}
   uint64_t by_completed() const { return completed_at.sec_since_epoch();}
   uint64_t by_declined() const { return declined_at.sec_since_epoch();}
-
   uint64_t by_canceled() const { return canceled_at.sec_since_epoch();}
-
+  uint64_t by_warranty_id() const { return warranty_return_id;}
+  // uint64_t by_expired() const { return expired_at.sec_since_epoch();}
 };
 
 typedef eosio::multi_index<
@@ -144,13 +145,13 @@ typedef eosio::multi_index<
     eosio::indexed_by<"byparent"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_parent>>,
     eosio::indexed_by<"byusername"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_username>>,
     eosio::indexed_by<"bypausername"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_parent_username>>,
-
     eosio::indexed_by<"bycreated"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_created>>,
     eosio::indexed_by<"bycompleted"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_completed>>,
     eosio::indexed_by<"bydeclined"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_declined>>,
-    eosio::indexed_by<"bycanceled"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_canceled>>
-
-    >
+    eosio::indexed_by<"bycanceled"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_canceled>>,
+    eosio::indexed_by<"bywarrantyid"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_warranty_id>>
+    // eosio::indexed_by<"byexpired"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_expired>>
+  >
     exchange_index; /*!< Тип мультииндекса для таблицы обменов */
 
 

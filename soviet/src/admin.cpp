@@ -132,15 +132,26 @@ void soviet::validate(eosio::name coopname, eosio::name username, uint64_t decis
   decisions_index decisions(_soviet, coopname.value);
   auto decision = decisions.find(decision_id);
   eosio::check(decision != decisions.end(), "Документ не найден");
-
+  
+  // Проверяем был ли совершен регистрационный взнос
+  if (decision -> type == "joincoop"_n) {
+    
+    joincoops_index joincoops(_soviet, coopname.value);
+    auto joincoop = joincoops.find(decision -> batch_id);
+    eosio::check(joincoop != joincoops.end(), "Данные пользователя не найдены");
+    
+    eosio::check(joincoop -> is_paid == true, "Регистрационный взнос не оплачен");
+  };
+  
+  bool validated = !decision -> validated;
   decisions.modify(decision, username, [&](auto &d){
-    d.validated = !decision -> validated;
+    d.validated = validated;
   });
 
   autosigner_index autosigner(_soviet, coopname.value);  
   auto signer = autosigner.find(decision -> id);
 
-  if (signer == autosigner.end())
+  if (validated && signer == autosigner.end())
     autosigner.emplace(_soviet, [&](auto &o) {
       o.decision_id = decision -> id;
     });

@@ -25,7 +25,7 @@
     eosio::check(persona -> has_right(_marketplace, "moderate"_n), "Недостаточно прав доступа");
     
     eosio::check(cancellation_fee >= 0 && cancellation_fee < 100, "Комиссия отмены должна быть от 0 до 100 процентов");
-    eosio::asset cancellation_fee_amount = change -> amount * cancellation_fee / 100;
+    eosio::asset cancellation_fee_amount = change -> total_cost * cancellation_fee / 100;
 
     exchange.modify(change, username, [&](auto &o){
       o.status = "published"_n;

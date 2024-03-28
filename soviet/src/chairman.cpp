@@ -105,11 +105,16 @@ void soviet::createboard(eosio::name coopname, eosio::name chairman, eosio::name
       m.is_minimum = true;
       m.has_vote = true;    
 
-      m.wallet.available = asset(0, cooperative.initial.symbol);
-      m.wallet.blocked = asset(0, cooperative.initial.symbol);
-      m.wallet.minimum = cooperative.minimum; 
     });
 
+    wallets_index wallets(_soviet, coopname.value);
+    wallets.emplace(payer, [&](auto &w){
+      w.username = chairman;
+      w.coopname = coopname;
+      w.available = asset(0, cooperative.initial.symbol);
+      w.blocked = asset(0, cooperative.initial.symbol);
+      w.minimum = cooperative.minimum; 
+    });
 
     action(
       permission_level{ _soviet, "active"_n},

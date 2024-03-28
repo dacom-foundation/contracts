@@ -148,12 +148,6 @@ struct [[eosio::table, eosio::contract(SOVIET)]] staff {
 
 typedef eosio::multi_index<"staff"_n, staff> staff_index; ///< Тип мультииндекса для таблицы администраторов
 
-struct wallet {
-  eosio::asset available;
-  eosio::asset blocked;
-  eosio::asset minimum;
-};
-
 
 /**
  * @ingroup public_tables
@@ -172,8 +166,6 @@ struct [[eosio::table, eosio::contract(SOVIET)]] participants {
   bool is_initial; ///< Флаг, указывающий, внесен ли регистрационный взнос.
   bool is_minimum; ///< Флаг, указывающий, внесен ли минимальный паевый взнос.
   bool has_vote; ///< Флаг, указывающий, имеет ли член право голоса.
-
-  wallet wallet;
 
   /**
    * @brief Возвращает первичный ключ учетной записи члена кооператива.

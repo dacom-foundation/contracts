@@ -32,7 +32,7 @@ void gateway::newwithdrid(eosio::name username, uint64_t id) {
  * @param username Имя пользователя, создающего запись.
  * @param coopname Имя аккаунта кооператива, в рамках которого создается депозит.
  * @param program_id Идентификатор программы, с которой связан депозит.
- * @param purpose Назначение платежа ('initial' или 'changeone').
+ * @param purpose Назначение платежа ('registration' или 'deposit').
  * @param batch_id Вторичный идентификатор, связанный с депозитом.
  * @param internal_quantity Количество во внутреннем формате.
  * @param external_quantity Количество во внешнем формате.
@@ -40,29 +40,37 @@ void gateway::newwithdrid(eosio::name username, uint64_t id) {
  *
  * Пример создания новой записи депозита через cleos:
  * 
- * cleos push action gateway dpcreate '["username", "coopaccount", 123, "initial", 456, "10.0000 SYS", "10.0000 EXT", "Депозит для программы X"]' -p username@active
+ * cleos push action gateway dpcreate '["username", "coopaccount", 123, "registration", 456, "10.0000 SYS", "10.0000 EXT", "Депозит для программы X"]' -p username@active
  */
 
-[[eosio::action]] void gateway::deposit(eosio::name coopname, eosio::name username, eosio::asset quantity) {
-
-  require_auth(username);
+[[eosio::action]] void gateway::deposit(eosio::name coopname, eosio::name username, eosio::name type, eosio::asset quantity) {
+  eosio::name payer = has_auth(coopname) ? coopname : username;
+  print("on here");
+  eosio::check(has_auth(payer), "Недостаточно прав доступа");
 
   deposits_index deposits(_gateway, coopname.value);
 
   uint64_t id = get_global_id(_gateway, "deposits"_n);
 
   auto cooperative = get_cooperative_or_fail(coopname);
-  
-  participants_index participants(_soviet, coopname.value);
-  auto participant = participants.find(username.value);
-
-  eosio::check(participant != participants.end(), "Вы не являетесь пайщиком указанного кооператива");
-  eosio::check(participant -> is_active(), "Ваш аккаунт не активен в указанном кооперативе");
-  
+  print("on here1");
+  eosio::check(type == "registration"_n || type == "deposit"_n, "Неверный тип заявки");
   eosio::check(quantity.amount > 0, "Сумма ввода должна быть положительной");
-  
-  deposits.emplace(username, [&](auto &d) {
+  print("on here2");
+  if (type == "deposit"_n) {
+    participants_index participants(_soviet, coopname.value);
+    auto participant = participants.find(username.value);
+    print("on here3");
+    eosio::check(participant != participants.end(), "Вы не являетесь пайщиком указанного кооператива");
+    eosio::check(participant -> is_active(), "Ваш аккаунт не активен в указанном кооперативе");
+    print("on here4");
+  } else {
+    eosio::check(quantity == cooperative.registration, "Сумма минимального взноса не соответствует установленной в кооперативе");
+  }
+  print("on here5");
+  deposits.emplace(payer, [&](auto &d) {
     d.id = id;
+    d.type = type;
     d.username = username;
     d.coopname = coopname;
     d.token_contract = cooperative.token_contract;
@@ -99,7 +107,10 @@ void gateway::newwithdrid(eosio::name username, uint64_t id) {
 void gateway::dpcomplete(eosio::name coopname, eosio::name admin, uint64_t deposit_id, std::string memo) {
 
   require_auth(admin);
-  check_auth_or_fail(coopname, admin, "dpcomplete"_n);
+
+  if (coopname != admin){
+    check_auth_or_fail(coopname, admin, "dpcomplete"_n);
+  };
 
   deposits_index deposits(_gateway, coopname.value);
   auto deposit = deposits.find(deposit_id);
@@ -115,21 +126,48 @@ void gateway::dpcomplete(eosio::name coopname, eosio::name admin, uint64_t depos
     d.status = "completed"_n;
     d.expired_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch() + _deposit_expiration_seconds);
   });
+  
+  if (deposit -> type == "deposit"_n) {
+  
+    action(
+      permission_level{ _gateway, "active"_n},
+      _soviet,
+      "addbalance"_n,
+      std::make_tuple(coopname, deposit -> username, deposit -> quantity)
+    ).send();
+    
+    action(
+      permission_level{ _gateway, "active"_n},
+      _fund,
+      "addcirculate"_n,
+      std::make_tuple(coopname, deposit -> quantity)
+    ).send();
+  
+  } else {
+    //TODO spread to funds
 
-  action(
-    permission_level{ _gateway, "active"_n},
-    _soviet,
-    "addbalance"_n,
-    std::make_tuple(coopname, deposit -> username, deposit -> quantity)
-  ).send();
-   
-  action(
-    permission_level{ _gateway, "active"_n},
-    _fund,
-    "addcirculate"_n,
-    std::make_tuple(coopname, deposit -> quantity)
-  ).send();
-   
+    action(
+      permission_level{ _gateway, "active"_n},
+      _fund,
+      "addcirculate"_n,
+      std::make_tuple(coopname, cooperative.minimum)
+    ).send();
+    
+    action(
+      permission_level{ _gateway, "active"_n},
+      _fund,
+      "spreadamount"_n,
+      std::make_tuple(coopname, cooperative.initial)
+    ).send();
+
+    action(
+      permission_level{ _gateway, "active"_n},
+      _soviet,
+      "regpaid"_n,
+      std::make_tuple(coopname, deposit -> username)
+    ).send();
+    
+  }
   
 }
 
@@ -149,10 +187,13 @@ void gateway::dpcomplete(eosio::name coopname, eosio::name admin, uint64_t depos
  * cleos push action gateway dpfail '[123, "Заметка к неудачному депозиту"]' -p gateway@active
  */
 void gateway::dpfail(eosio::name coopname, eosio::name admin, uint64_t deposit_id, std::string memo) {
+  
   require_auth(admin);
 
-  check_auth_or_fail(coopname, admin, "dpfail"_n);
-
+  if (coopname != admin){
+    check_auth_or_fail(coopname, admin, "dpcomplete"_n);
+  };
+  
   deposits_index deposits(_gateway, coopname.value);
   auto deposit = deposits.find(deposit_id);
   eosio::check(deposit -> coopname == coopname, "Указан не верный кооператив");
@@ -250,7 +291,6 @@ void gateway::withdrawauth(eosio::name coopname, uint64_t withdraw_id) {
   withdraws.modify(withdraw, _soviet, [&](auto &d){
     d.status = "authorized"_n;
   });
-
 
 }
 

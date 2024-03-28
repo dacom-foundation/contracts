@@ -11,9 +11,13 @@ void soviet::addbalance(eosio::name coopname, eosio::name username, eosio::asset
 
   eosio::check(participant != participants.end(), "Вы не являетесь пайщиком указанного кооператива");
   
-  participants.modify(participant, payer, [&](auto &p) {
-    p.wallet.available += quantity;
+  wallets_index wallets(_soviet, coopname.value);
+  auto wallet = wallets.find(username.value);
+
+  wallets.modify(wallet, _soviet, [&](auto &w){
+    w.available += quantity;
   });
+
 }
 
 void soviet::subbalance(eosio::name coopname, eosio::name username, eosio::asset quantity) {
@@ -26,12 +30,16 @@ void soviet::subbalance(eosio::name coopname, eosio::name username, eosio::asset
   auto participant = participants.find(username.value);
 
   eosio::check(participant != participants.end(), "Вы не являетесь пайщиком указанного кооператива");
-  
-  eosio::check(participant -> wallet.available >= quantity, "Недостаточно средств на балансе");
 
-  participants.modify(participant, payer, [&](auto &p) {
-    p.wallet.available -= quantity;
+  wallets_index wallets(_soviet, coopname.value);
+  auto wallet = wallets.find(username.value);
+  
+  eosio::check(wallet -> available >= quantity, "Недостаточно средств на балансе");
+
+  wallets.modify(wallet, payer, [&](auto &w){
+    w.available -= quantity;
   });
+  
 }
 
 
@@ -49,11 +57,14 @@ void soviet::blockbal(eosio::name coopname, eosio::name username, eosio::asset q
   
   eosio::check(participant != participants.end(), "Участник не найден");
 
-  eosio::check(participant -> wallet.available >= quantity, "Недостаточно средств в блокировке");
+  wallets_index wallets(_soviet, coopname.value);
+  auto wallet = wallets.find(username.value);
+  
+  eosio::check(wallet -> available >= quantity, "Недостаточно средств на балансе");
 
-  participants.modify(participant, payer, [&](auto& p) {
-      p.wallet.available -= quantity;
-      p.wallet.blocked += quantity;
+  wallets.modify(wallet, payer, [&](auto &w){
+    w.available -= quantity;
+    w.blocked += quantity;
   });
 
 }
@@ -72,11 +83,14 @@ void soviet::unblockbal(eosio::name coopname, eosio::name username, eosio::asset
   auto participant = participants.find(username.value);
   eosio::check(participant != participants.end(), "Участник не найден");
 
-  eosio::check(participant -> wallet.blocked >= quantity, "Недостаточно средств в блокировке");
+  wallets_index wallets(_soviet, coopname.value);
+  auto wallet = wallets.find(username.value);
+  
+  eosio::check(wallet -> blocked >= quantity, "Недостаточно средств в блокировке");
 
-  participants.modify(participant, payer, [&](auto& p) {
-      p.wallet.available += quantity;
-      p.wallet.blocked -= quantity;
+  wallets.modify(wallet, payer, [&](auto &w){
+    w.available += quantity;
+    w.blocked -= quantity;
   });
 
 
@@ -87,6 +101,7 @@ void soviet::unblockbal(eosio::name coopname, eosio::name username, eosio::asset
 void soviet::addprogbal(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity) {
   eosio::check(has_auth(_marketplace) || has_auth(_soviet), "Недостаточно прав доступа");
   eosio::name payer = has_auth(_marketplace) ? _marketplace : _soviet;
+  print("on add prog bal: ", program_id, quantity);
 
   auto cooperative = get_cooperative_or_fail(coopname);  
   
@@ -95,23 +110,23 @@ void soviet::addprogbal(eosio::name coopname, eosio::name username, uint64_t pro
 
   eosio::check(participant != participants.end(), "Вы не являетесь пайщиком указанного кооператива");
   
-  wallets_index wallets(_soviet, coopname.value);
+  progwallets_index progwallets(_soviet, coopname.value);
 
-  auto balances_by_username_and_program = wallets.template get_index<"byuserprog"_n>();
+  auto balances_by_username_and_program = progwallets.template get_index<"byuserprog"_n>();
   auto username_and_program_index = combine_ids(username.value, program_id);
   auto balance = balances_by_username_and_program.find(username_and_program_index);
-
   
   if (balance == balances_by_username_and_program.end()) {
-    wallets.emplace(payer, [&](auto &b) {
-      b.id = wallets.available_primary_key();
+    print("on emplace", coopname, username);
+    progwallets.emplace(payer, [&](auto &b) {
+      b.id = progwallets.available_primary_key();
       b.available = quantity;
       b.program_id = program_id;
       b.coopname = coopname;
       b.username = username;
     });
   } else {
-
+    print("on modify");
     balances_by_username_and_program.modify(balance, payer, [&](auto &b) { 
       b.available += quantity; 
     });
@@ -131,9 +146,9 @@ void soviet::subprogbal(eosio::name coopname, eosio::name username, uint64_t pro
 
   eosio::check(participant != participants.end(), "Вы не являетесь пайщиком указанного кооператива");
   
-  wallets_index wallets(_soviet, coopname.value);
+  progwallets_index progwallets(_soviet, coopname.value);
 
-  auto balances_by_username_and_program = wallets.template get_index<"byuserprog"_n>();
+  auto balances_by_username_and_program = progwallets.template get_index<"byuserprog"_n>();
   auto username_and_program_index = combine_ids(username.value, program_id);
   auto balance = balances_by_username_and_program.find(username_and_program_index);
 
@@ -155,8 +170,6 @@ void soviet::subprogbal(eosio::name coopname, eosio::name username, uint64_t pro
 }
 
 
-//TODO 
-// здесь вместо перевода на баланс должна быть инициализация возврата денег по заявлению  
 void soviet::withdraw(eosio::name coopname, eosio::name username, uint64_t withdraw_id) { 
 
   require_auth(_gateway);

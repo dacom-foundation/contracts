@@ -8,6 +8,8 @@ struct [[eosio::table, eosio::contract(GATEWAY)]] deposits {
     uint64_t id; /*!< Уникальный идентификатор записи депозита */
     eosio::name username; /*!< Имя аккаунта пользователя, совершившего депозит */
     eosio::name coopname; /*!< Имя аккаунта кооператива, в контексте которого совершается депозит */
+    eosio::name type; /*!< Тип взноса (deposit | initial) */
+    
     eosio::name token_contract; /*!< Имя аккаунта контракта токена для депозита */
     eosio::asset quantity; /*!< Количество средств во внутренней валюте */
 
@@ -17,7 +19,6 @@ struct [[eosio::table, eosio::contract(GATEWAY)]] deposits {
     eosio::time_point_sec expired_at; ///< Время истечения срока давности
 
     uint64_t primary_key() const { return id; } /*!< Возвращает id как первичный ключ */
-    uint64_t by_coopname() const { return coopname.value; } /*!< Индекс по названию кооператива */
     uint64_t by_username() const { return username.value; } /*!< Индекс по имени пользователя */
     uint64_t by_status() const { return status.value; } /*!< Индекс по статусу депозита */
     uint64_t by_expired() const { return expired_at.sec_since_epoch(); } /*!< Индекс по статусу истечения */
@@ -26,7 +27,6 @@ struct [[eosio::table, eosio::contract(GATEWAY)]] deposits {
 typedef eosio::multi_index<
     "deposits"_n, deposits,
     eosio::indexed_by<"byusername"_n, eosio::const_mem_fun<deposits, uint64_t, &deposits::by_username>>,
-    eosio::indexed_by<"bycoopname"_n, eosio::const_mem_fun<deposits, uint64_t, &deposits::by_coopname>>,
     eosio::indexed_by<"bystatus"_n, eosio::const_mem_fun<deposits, uint64_t, &deposits::by_status>>,
     eosio::indexed_by<"byexpired"_n, eosio::const_mem_fun<deposits, uint64_t, &deposits::by_expired>>
 > deposits_index; /*!< Мультииндекс для доступа и манипуляции данными таблицы `deposits` */
@@ -90,6 +90,20 @@ typedef eosio::multi_index<"balances"_n, balances_base, eosio::indexed_by<"bycon
 
 
 struct [[eosio::table, eosio::contract(SOVIET)]] wallets {
+  eosio::name username;
+  eosio::name coopname;
+  eosio::asset available;
+  eosio::asset blocked;
+  eosio::asset minimum;
+
+  uint64_t primary_key() const { return username.value; } /*!< return username - primary_key */
+  
+};
+
+typedef eosio::multi_index<"wallets"_n, wallets> wallets_index;
+
+
+struct [[eosio::table, eosio::contract(SOVIET)]] progwallets {
   uint64_t id;
   eosio::name coopname;
   uint64_t program_id;
@@ -105,11 +119,11 @@ struct [[eosio::table, eosio::contract(SOVIET)]] wallets {
   } /*!< возвращает уникальный индекс, сформированный из значения username и program_id */
 };
 
-typedef eosio::multi_index<"wallets"_n, wallets, 
-  eosio::indexed_by<"byusername"_n, eosio::const_mem_fun<wallets, uint64_t, &wallets::by_username>>,
-  eosio::indexed_by<"byprogram"_n, eosio::const_mem_fun<wallets, uint64_t, &wallets::by_program>>,
-  eosio::indexed_by<"byuserprog"_n, eosio::const_mem_fun<wallets, uint128_t, &wallets::by_username_and_program>>
-> wallets_index; /*!< Тип мультииндекса для таблицы кошелька программ */
+typedef eosio::multi_index<"progwallets"_n, progwallets, 
+  eosio::indexed_by<"byusername"_n, eosio::const_mem_fun<progwallets, uint64_t, &progwallets::by_username>>,
+  eosio::indexed_by<"byprogram"_n, eosio::const_mem_fun<progwallets, uint64_t, &progwallets::by_program>>,
+  eosio::indexed_by<"byuserprog"_n, eosio::const_mem_fun<progwallets, uint128_t, &progwallets::by_username_and_program>>
+> progwallets_index; /*!< Тип мультииндекса для таблицы кошелька программ */
 
 
 
