@@ -27,8 +27,7 @@ namespace eosiosystem {
       const int64_t ram_reserve   = itr->base.balance.amount;
       const int64_t eos_reserve   = itr->quote.balance.amount;
       const int64_t cost          = exchange_state::get_bancor_input( ram_reserve, eos_reserve, bytes );
-      const int64_t cost_plus_fee = cost / double(0.995);
-      buyram( payer, receiver, asset{ cost_plus_fee, core_symbol() } );
+      buyram( payer, receiver, asset{ cost, core_symbol() } );
    }
 
 
@@ -41,30 +40,18 @@ namespace eosiosystem {
     *  priced using the bancor algorithm such that price-per-byte with a constant reserve ratio of 100:1.
     */
    void system_contract::buyram( const name& payer, const name& receiver, const asset& quant )
-   {
+    {
       require_auth( payer );
       update_ram_supply();
 
       check( quant.symbol == core_symbol(), "must buy ram with core token" );
       check( quant.amount > 0, "must purchase a positive amount" );
 
-      auto fee = quant;
-      fee.amount = ( fee.amount + 199 ) / 200; /// .5% fee (round up)
-      // fee.amount cannot be 0 since that is only possible if quant.amount is 0 which is not allowed by the assert above.
-      // If quant.amount == 1, then fee.amount == 1,
-      // otherwise if quant.amount > 1, then 0 < fee.amount < quant.amount.
-      auto quant_after_fee = quant;
-      quant_after_fee.amount -= fee.amount;
-      // quant_after_fee.amount should be > 0 if quant.amount > 1.
-      // If quant.amount == 1, then quant_after_fee.amount == 0 and the next inline transfer will fail causing the buyram action to fail.
+      auto quant_after_fee = quant; // Полная сумма идет на покупку RAM, без вычета комиссии
+
       {
          token::transfer_action transfer_act{ token_account, { {payer, active_permission}, {ram_account, active_permission} } };
          transfer_act.send( payer, ram_account, quant_after_fee, "buy ram" );
-      }
-      if ( fee.amount > 0 ) {
-         token::transfer_action transfer_act{ token_account, { {payer, active_permission} } };
-         transfer_act.send( payer, ramfee_account, fee, "ram fee" );
-         channel_to_rex( ramfee_account, fee );
       }
 
       int64_t bytes_out;
@@ -77,7 +64,7 @@ namespace eosiosystem {
       check( bytes_out > 0, "must reserve a positive amount" );
 
       _gstate.total_ram_bytes_reserved += uint64_t(bytes_out);
-      _gstate.total_ram_stake          += quant_after_fee.amount;
+      _gstate.total_ram_stake          += quant.amount;
 
       user_resources_table  userres( get_self(), receiver.value );
       auto res_itr = userres.find( receiver.value );
@@ -100,15 +87,9 @@ namespace eosiosystem {
          get_resource_limits( res_itr->owner, ram_bytes, net, cpu );
          set_resource_limits( res_itr->owner, res_itr->ram_bytes + ram_gift_bytes, net, cpu );
       }
-   }
+    }
 
-  /**
-    *  The system contract now buys and sells RAM allocations at prevailing market prices.
-    *  This may result in traders buying RAM today in anticipation of potential shortages
-    *  tomorrow. Overall this will result in the market balancing the supply and demand
-    *  for RAM over time.
-    */
-   void system_contract::sellram( const name& account, int64_t bytes ) {
+  void system_contract::sellram( const name& account, int64_t bytes ) {
       require_auth( account );
       update_ram_supply();
 
@@ -122,16 +103,14 @@ namespace eosiosystem {
       asset tokens_out;
       auto itr = _rammarket.find(ramcore_symbol.raw());
       _rammarket.modify( itr, same_payer, [&]( auto& es ) {
-         /// the cast to int64_t of bytes is safe because we certify bytes is <= quota which is limited by prior purchases
          tokens_out = es.direct_convert( asset(bytes, ram_symbol), core_symbol());
       });
 
       check( tokens_out.amount > 1, "token amount received from selling ram is too low" );
 
-      _gstate.total_ram_bytes_reserved -= static_cast<decltype(_gstate.total_ram_bytes_reserved)>(bytes); // bytes > 0 is asserted above
+      _gstate.total_ram_bytes_reserved -= static_cast<decltype(_gstate.total_ram_bytes_reserved)>(bytes);
       _gstate.total_ram_stake          -= tokens_out.amount;
 
-      //// this shouldn't happen, but just in case it does we should prevent it
       check( _gstate.total_ram_stake >= 0, "error, attempt to unstake more tokens than previously staked" );
 
       userres.modify( res_itr, account, [&]( auto& res ) {
@@ -149,23 +128,7 @@ namespace eosiosystem {
          token::transfer_action transfer_act{ token_account, { {ram_account, active_permission}, {account, active_permission} } };
          transfer_act.send( ram_account, account, asset(tokens_out), "sell ram" );
       }
-      auto fee = ( tokens_out.amount + 199 ) / 200; /// .5% fee (round up)
-      // since tokens_out.amount was asserted to be at least 2 earlier, fee.amount < tokens_out.amount
-      if ( fee > 0 ) {
-         token::transfer_action transfer_act{ token_account, { {account, active_permission} } };
-         transfer_act.send( account, ramfee_account, asset(fee, core_symbol()), "sell ram fee" );
-         channel_to_rex( ramfee_account, asset(fee, core_symbol() ));
-      }
-   }
-
-   void validate_b1_vesting( int64_t stake ) {
-      const int64_t base_time = 1527811200; /// Friday, June 1, 2018 12:00:00 AM UTC
-      const int64_t current_time = 1638921540; /// Tuesday, December 7, 2021 11:59:00 PM UTC
-      const int64_t max_claimable = 100'000'000'0000ll;
-      const int64_t claimable = int64_t(max_claimable * double(current_time - base_time) / (10*seconds_per_year) );
-
-      check( max_claimable - claimable <= stake, "b1 can only claim their tokens over 10 years" );
-   }
+  }
 
    void system_contract::changebw( name from, const name& receiver,
                                    const asset& stake_net_delta, const asset& stake_cpu_delta, bool transfer )
@@ -360,10 +323,6 @@ namespace eosiosystem {
       }
 
       check( 0 <= voter_itr->staked, "stake for voting cannot be negative" );
-
-      if( voter == "b1"_n ) {
-         validate_b1_vesting( voter_itr->staked );
-      }
 
       if( voter_itr->producers.size() || voter_itr->proxy ) {
          update_votes( voter, voter_itr->proxy, voter_itr->producers, false );

@@ -470,7 +470,7 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
 
   eosio::check(change -> status == "delivered"_n, "Продукт может быть выдан только по заявке в статусе ожидания получения");
 
-  eosio::check(change -> deadline_for_receipt.sec_since_epoch() <= eosio::current_time_point().sec_since_epoch(), "Время на выдачу имущества истекло");
+  eosio::check(change -> deadline_for_receipt.sec_since_epoch() >= eosio::current_time_point().sec_since_epoch(), "Время на выдачу имущества истекло");
   
   auto soviet = get_board_by_type_or_fail(coopname, "soviet"_n);
   auto chairman = soviet.get_chairman();

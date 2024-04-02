@@ -1,4 +1,5 @@
 #include <eosio.system/eosio.system.hpp>
+#include <eosio.token/eosio.token.hpp>
 #include <eosio/action.hpp>
 #include <eosio.system/powerup.results.hpp>
 #include <algorithm>
@@ -123,7 +124,7 @@ void system_contract::cfgpowerup(powerup_config& args) {
    powerup_state_singleton state_sing{ get_self(), 0 };
    auto                   state = state_sing.get_or_default();
 
-   eosio::check(eosio::is_account(reserve_account), "eosio.reserv account must first be created"); // cspell:disable-line
+   eosio::check(eosio::is_account(reserve_account), "eosio.resource account must first be created"); // cspell:disable-line
 
    int64_t net_delta_available = 0;
    int64_t cpu_delta_available = 0;
@@ -288,7 +289,7 @@ int64_t calc_powerup_fee(const powerup_state_resource& state, int64_t utilizatio
       // the safest thing to do is handle that as a special case explicitly rather than relying on std::pow to return 1.0
       // instead of triggering a domain error.
       double new_exponent = state.exponent - 1.0;
-      if (new_exponent <= 0.0) {
+      if (new_exponent <= 0.0) { 
          return state.max_price.amount;
       } else {
          price += (state.max_price.amount - state.min_price.amount) * std::pow(double(utilization) / state.weight, new_exponent);
@@ -300,17 +301,18 @@ int64_t calc_powerup_fee(const powerup_state_resource& state, int64_t utilizatio
    double  fee = 0.0;
    int64_t start_utilization = state.utilization;
    int64_t end_utilization   = start_utilization + utilization_increase;
-
-   if (start_utilization < state.adjusted_utilization) {
+   print(" calculate fee: \n");
+   if (start_utilization < state.adjusted_utilization) { 
       fee += price_function(state.adjusted_utilization) *
                std::min(utilization_increase, state.adjusted_utilization - start_utilization) / state.weight;
+      print(" on price 1: ", fee);
       start_utilization = state.adjusted_utilization;
    }
 
-   if (start_utilization < end_utilization) {
+   if (start_utilization < end_utilization) { 
       fee += price_integral_delta(start_utilization, end_utilization);
+      print(" on price 2: ", fee);
    }
-
    return std::ceil(fee);
 }
 
@@ -362,6 +364,8 @@ void system_contract::powerup(const name& payer, const name& receiver, uint32_t 
       eosio::check(f > 0, "calculated fee is below minimum; try powering up with more resources");
       fee.amount += f;
       state.utilization += amount;
+      print("total_fee: ", fee);
+      print("utilization_amount: ", amount);
    };
 
    int64_t net_amount = 0;
@@ -387,8 +391,12 @@ void system_contract::powerup(const name& payer, const name& receiver, uint32_t 
 
    adjust_resources(payer, receiver, core_symbol, net_amount, cpu_amount, true);
    adjust_resources(get_self(), reserve_account, core_symbol, net_delta_available, cpu_delta_available, true);
-   channel_to_rex(payer, fee, true);
-   state_sing.set(state, get_self());
+  //  channel_to_rex(payer, fee, true);
+
+  token::transfer_action transfer_act{ token_account, { payer, active_permission } };
+  transfer_act.send( payer, reserve_account, fee, std::string("reserve from ") + payer.to_string() + " to eosio.power" );
+  
+  state_sing.set(state, get_self());
 
    // inline noop action
    powup_results::powupresult_action powupresult_act{ reserve_account, std::vector<eosio::permission_level>{ } };

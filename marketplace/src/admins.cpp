@@ -18,7 +18,7 @@
   auto change = exchange.find(exchange_id);
   eosio::check(change != exchange.end(), "Ордер не найден");
 
-  if (change -> status == "moderation"_n) {
+  if (change -> status == "moderation"_n || change -> status == "prohibit"_n) {
     staff_index staff(_soviet, coopname.value);
     auto persona = staff.find(username.value);
     eosio::check(persona != staff.end(), "Пользователь не является членом персонала");
@@ -118,9 +118,12 @@
 
   eosio::check(change != exchange.end(), "Ордер не найден");
   eosio::check(change->username == username || (persona != staff.end() && persona -> has_right(_marketplace, "unpublish"_n)), "У вас нет права на публикацию данной заявки");
-  eosio::check(change->status == "unpublished"_n, "Неверный статус для публикации");
+  eosio::check(change->status == "unpublished"_n || change->status == "prohibit"_n, "Неверный статус для публикации");
 
-  exchange.modify(change, username, [&](auto &o){
-    o.status = "published"_n;
+  exchange.modify(change, username, [&](auto &o) {
+    if (change->status == "unpublished"_n)
+      o.status = "published"_n;
+    else 
+      o.status = "moderation"_n;
   });
 }
