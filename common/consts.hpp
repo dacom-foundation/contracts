@@ -96,6 +96,9 @@ static constexpr eosio::name _efund_withdraw_action = "subexp"_n;
     static constexpr eosio::name _root_contract = "eosio.token"_n; /*!< системный контракт */
     static constexpr eosio::symbol RAM_symbol{"RAM", 0}; /*!< токен рынка оперативной памяти */
     static constexpr eosio::symbol _ramcore_symbol = eosio::symbol(eosio::symbol_code("RAMCORE"),4); /*!< идентификационный токен рынка оперативной памяти */
+    static constexpr uint64_t _ram_price_per_byte = 1; /*!< стоимость 1 байта в сатоши */
+    static constexpr uint64_t _ram_bytes_for_new_account = 16 * 1024; /*!< оперативная память нового аккаунта */
+    
     static constexpr uint64_t _ram_bytes = 16384; /*!< оперативная память нового аккаунта */
     static constexpr uint64_t _stake_cpu_amount = 10000; /*!< оперативная память нового аккаунта */
     static constexpr uint64_t _stake_net_amount = 10000; /*!< оперативная память нового аккаунта */

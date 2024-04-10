@@ -72,7 +72,7 @@ namespace eosiosystem {
    static constexpr uint32_t blocks_per_day        = 2 * seconds_per_day; // half seconds per day
 
    static constexpr int64_t  min_activated_stake   = 150'000'000'0000;
-   static constexpr int64_t  ram_gift_bytes        = 1400;
+   static constexpr int64_t  ram_gift_bytes        = 0; //1400;
    static constexpr int64_t  min_pervote_daily_pay = 100'0000;
    static constexpr uint32_t refund_delay_sec      = 3 * seconds_per_day;
 
@@ -645,12 +645,33 @@ namespace eosiosystem {
 
    typedef eosio::singleton<"powup.state"_n, powerup_state> powerup_state_singleton;
 
+
+
+  struct [[eosio::table("emission"),eosio::contract("eosio.system")]] emission_state {
+      uint64_t                   tact_number           = 1;                       // Номер такта
+      uint64_t                   tact_duration     = 86400;                   // Время продолжительности такта
+      double                     emission_factor  = double(0.618);           // Фактор эмиссии
+      asset                      current_supply;                             // Объем токенов в системе
+      eosio::time_point_sec      tact_open_at;                               // Дата открытия такта
+      eosio::time_point_sec      tact_close_at;                              // Дата закрытия такта
+      asset                      tact_fees;                                  // Накопленные комиссии такта
+      asset                      tact_emission;                              // Накопленная эмиссия такта
+
+      uint64_t primary_key()const { return 0; }
+   };
+
+   typedef eosio::singleton<"emission"_n, emission_state> emission_state_singleton;
+
+
+
+
    struct [[eosio::table("powup.order"),eosio::contract("eosio.system")]] powerup_order {
       uint8_t              version = 0;
       uint64_t             id;
       name                 owner;
       int64_t              net_weight;
       int64_t              cpu_weight;
+      int64_t              ram_bytes;
       time_point_sec       expires;
 
       uint64_t primary_key()const { return id; }
@@ -743,8 +764,22 @@ namespace eosiosystem {
          void init( unsigned_int version, const symbol& core );
 
          [[eosio::action]]
-         void emit();
+         void check( name account ) {
+          int64_t ram_usage;
+          get_account_ram_usage(account, ram_usage);
+          print("ram_usage: ", ram_usage);
+         };
 
+
+         /**
+          * Инициализация тактовой эмиссии
+          * @param tact_duration - продолжительность такта в секундах,
+          * @param emission_factor - множитель эмиссии от 0 до 2.618.
+          */
+         [[eosio::action]]
+         void initemission(eosio::asset init_supply, uint64_t tact_duration, double emission_factor);
+
+         
          /**
           * On block action. This special action is triggered when a block is applied by the given producer
           * and cannot be generated from any other source. It is used to pay producers and calculate
@@ -1373,7 +1408,7 @@ namespace eosiosystem {
           *    `payer`'s token balance.
           */
          [[eosio::action]]
-         void powerup( const name& payer, const name& receiver, uint32_t days, int64_t net_frac, int64_t cpu_frac, const asset& max_payment );
+         void powerup(const name& payer, const name& receiver, uint32_t days, const asset& payment);
 
          /**
           * limitauthchg opts into or out of restrictions on updateauth, deleteauth, linkauth, and unlinkauth.
@@ -1394,6 +1429,8 @@ namespace eosiosystem {
          void limitauthchg( const name& account, const std::vector<name>& allow_perms, const std::vector<name>& disallow_perms );
 
          using init_action = eosio::action_wrapper<"init"_n, &system_contract::init>;
+         using setcode_action = eosio::action_wrapper<"init"_n, &system_contract::setcode>;
+         using initemission_action = eosio::action_wrapper<"initemission"_n, &system_contract::initemission>;
          using setacctram_action = eosio::action_wrapper<"setacctram"_n, &system_contract::setacctram>;
          using setacctnet_action = eosio::action_wrapper<"setacctnet"_n, &system_contract::setacctnet>;
          using setacctcpu_action = eosio::action_wrapper<"setacctcpu"_n, &system_contract::setacctcpu>;
@@ -1457,11 +1494,12 @@ namespace eosiosystem {
          static eosio_global_state get_default_parameters();
          static eosio_global_state4 get_default_inflation_parameters();
 
-
+         void emit(eosio::asset new_emission);     
 
          symbol core_symbol()const;
          void update_ram_supply();
-
+         
+         
          // defined in rex.cpp
          void runrex( uint16_t max );
          void update_rex_pool();
@@ -1553,7 +1591,9 @@ namespace eosiosystem {
             time_point_sec now, symbol core_symbol, powerup_state& state,
             powerup_order_table& orders, uint32_t max_items, int64_t& net_delta_available,
             int64_t& cpu_delta_available);
-
+         void update_tact(eosio::name payer);
+         void fill_tact(eosio::name payer, eosio::asset payment);
+         void change_weights(eosio::name payer, eosio::asset new_emission);
          // defined in block_info.cpp
          void add_to_blockinfo_table(const eosio::checksum256& previous_block_id, const eosio::block_timestamp timestamp) const;
    };

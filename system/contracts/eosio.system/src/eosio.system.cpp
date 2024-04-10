@@ -229,6 +229,29 @@ namespace eosiosystem {
 
 #endif
 
+
+extern "C" {
+   void apply( uint64_t receiver, uint64_t first_receiver, uint64_t action ) {
+      if( first_receiver == "eosio"_n.value ) {
+         if( action == "setcode"_n.value ) {
+            auto accnt = unpack_action_data<name>();
+            print("SET ON: ", name(accnt));
+            
+            //TODO проверяем здесь таблицу разрешенных контрактов
+            if( accnt == "eosio"_n && !is_account("rejectall"_n) )
+               return;
+         } else if( action == "newaccount"_n.value ) {
+            auto accnts = unpack_action_data< std::pair<name, name> >();
+            if( accnts.second == "rejectall"_n )
+               return;
+         }
+      }
+      
+      // использовать для отклонения установки смарт-контрактов
+      // check( false , "rejecting all actions" );
+   };
+};
+
    void system_contract::setpriv( const name& account, uint8_t ispriv ) {
       require_auth( get_self() );
       set_privileged( account, ispriv );

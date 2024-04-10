@@ -90,18 +90,19 @@ namespace eosiosystem {
     }
 
   void system_contract::sellram( const name& account, int64_t bytes ) {
-      require_auth( account );
+      require_auth( get_self() );
       update_ram_supply();
-
+      print("on sell ram");
       check( bytes > 0, "cannot sell negative byte" );
 
       user_resources_table  userres( get_self(), account.value );
       auto res_itr = userres.find( account.value );
       check( res_itr != userres.end(), "no resource row" );
-      check( res_itr->ram_bytes >= bytes, "insufficient quota" );
+      // check( res_itr->ram_bytes >= bytes, "insufficient quota" );
 
       asset tokens_out;
       auto itr = _rammarket.find(ramcore_symbol.raw());
+      
       _rammarket.modify( itr, same_payer, [&]( auto& es ) {
          tokens_out = es.direct_convert( asset(bytes, ram_symbol), core_symbol());
       });
@@ -112,21 +113,25 @@ namespace eosiosystem {
       _gstate.total_ram_stake          -= tokens_out.amount;
 
       check( _gstate.total_ram_stake >= 0, "error, attempt to unstake more tokens than previously staked" );
+    //TODO 
+      auto voter_itr = _voters.find( res_itr->owner.value );
+      if( voter_itr == _voters.end() || !has_field( voter_itr->flags1, voter_info::flags1_fields::ram_managed ) ) {
+         int64_t ram_usage, net, cpu;
+         get_resource_limits( res_itr->owner, ram_usage, net, cpu );
+         print("ram_usage: ", ram_usage);
+         print("ram_bytes: ", res_itr -> ram_bytes);
+         set_resource_limits( res_itr->owner, res_itr->ram_bytes + ram_gift_bytes, net, cpu );
+      }
 
       userres.modify( res_itr, account, [&]( auto& res ) {
           res.ram_bytes -= bytes;
       });
 
-      auto voter_itr = _voters.find( res_itr->owner.value );
-      if( voter_itr == _voters.end() || !has_field( voter_itr->flags1, voter_info::flags1_fields::ram_managed ) ) {
-         int64_t ram_bytes, net, cpu;
-         get_resource_limits( res_itr->owner, ram_bytes, net, cpu );
-         set_resource_limits( res_itr->owner, res_itr->ram_bytes + ram_gift_bytes, net, cpu );
-      }
-
+      // TODO передаём 100% использованных токенов в фонд комиссий делегатов 
+      // т.е. временно резервируем (потом разделим)
       {
          token::transfer_action transfer_act{ token_account, { {ram_account, active_permission}, {account, active_permission} } };
-         transfer_act.send( ram_account, account, asset(tokens_out), "sell ram" );
+         transfer_act.send( ram_account, saving_account, asset(tokens_out), "sell ram" );
       }
   }
 

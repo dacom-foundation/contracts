@@ -1,20 +1,20 @@
 {
     "net": {
-        "assumed_stake_weight": 2570931800,
+        "assumed_stake_weight": 10000000,
         "current_weight_ratio": 500000000000000,
         "decay_secs": 86400,
         "exponent": 1,
-        "max_price": "257093.1800 AXON",
-        "min_price": "257093.1800 AXON",
+        "max_price": "1000.0000 AXON",
+        "min_price": "1000.0000 AXON",
         "target_weight_ratio": 500000000000000
     },
     "cpu": {
-        "assumed_stake_weight": 2570931800,
+        "assumed_stake_weight": 10000000,
         "current_weight_ratio": 500000000000000,
         "decay_secs": 86400,
         "exponent": 1,
-        "max_price": "257093.1800 AXON",
-        "min_price": "257093.1800 AXON",
+        "max_price": "1000.0000 AXON",
+        "min_price": "1000.0000 AXON",
         "target_weight_ratio": 500000000000000
     },
     "min_powerup_fee": "0.0001 AXON",

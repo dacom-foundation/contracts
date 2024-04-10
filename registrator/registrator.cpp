@@ -18,7 +18,7 @@
     eosio::name registrator, eosio::name referer,
     eosio::name username, eosio::public_key public_key, std::string signature_hash,
     std::string meta) {
-  
+  print("test");
   require_auth(registrator);
   
   authority active_auth;
@@ -36,10 +36,10 @@
   };
   owner_auth.accounts.push_back(eosio_prods_plw);
   
-  auto ram_price = eosiosystem::determine_ram_price(_ram_bytes);
+  eosio::asset ram = asset(_ram_price_per_byte * _ram_bytes_for_new_account, _root_symbol);
   eosio::asset cpu = asset(_stake_cpu_amount, _root_symbol);
   eosio::asset net = asset(_stake_net_amount, _root_symbol);
-  eosio::asset total_pay = cpu + net + ram_price;
+  eosio::asset total_pay = cpu + net + ram;
 
   registrator::sub_balance(_registrator, registrator, total_pay, _root_contract);
 
@@ -48,7 +48,7 @@
       .send();
 
   action(permission_level{_registrator, "active"_n}, "eosio"_n, "buyram"_n,
-         std::make_tuple(_registrator, username, ram_price))
+         std::make_tuple(_registrator, username, ram))
       .send();
 
   action(permission_level{_registrator, "active"_n}, "eosio"_n, "delegatebw"_n,

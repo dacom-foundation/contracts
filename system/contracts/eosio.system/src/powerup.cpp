@@ -81,12 +81,15 @@ void system_contract::process_powerup_queue(time_point_sec now, symbol core_symb
       net_delta_available += it->net_weight;
       cpu_delta_available += it->cpu_weight;
       adjust_resources(get_self(), it->owner, core_symbol, -it->net_weight, -it->cpu_weight);
+      // TODO здесь где-то надо изъять RAM
+      // sellram()
       idx.erase(it);
    }
    state.net.utilization -= net_delta_available;
    state.cpu.utilization -= cpu_delta_available;
    update_weight(now, state.net, net_delta_available);
    update_weight(now, state.cpu, cpu_delta_available);
+
 }
 
 void update_weight(time_point_sec now, powerup_state_resource& res, int64_t& delta_available) {
@@ -301,17 +304,15 @@ int64_t calc_powerup_fee(const powerup_state_resource& state, int64_t utilizatio
    double  fee = 0.0;
    int64_t start_utilization = state.utilization;
    int64_t end_utilization   = start_utilization + utilization_increase;
-   print(" calculate fee: \n");
+   
    if (start_utilization < state.adjusted_utilization) { 
       fee += price_function(state.adjusted_utilization) *
                std::min(utilization_increase, state.adjusted_utilization - start_utilization) / state.weight;
-      print(" on price 1: ", fee);
       start_utilization = state.adjusted_utilization;
    }
 
    if (start_utilization < end_utilization) { 
       fee += price_integral_delta(start_utilization, end_utilization);
-      print(" on price 2: ", fee);
    }
    return std::ceil(fee);
 }
@@ -333,74 +334,199 @@ void system_contract::powerupexec(const name& user, uint16_t max) {
    state_sing.set(state, get_self());
 }
 
-void system_contract::powerup(const name& payer, const name& receiver, uint32_t days, int64_t net_frac, int64_t cpu_frac,
-                             const asset& max_payment) {
-   require_auth(payer);
-   powerup_state_singleton state_sing{ get_self(), 0 };
-   powerup_order_table     orders{ get_self(), 0 };
-   eosio::check(state_sing.exists(), "powerup hasn't been initialized");
-   auto           state       = state_sing.get();
-   time_point_sec now         = eosio::current_time_point();
-   auto           core_symbol = get_core_symbol();
-   eosio::check(max_payment.symbol == core_symbol, "max_payment doesn't match core symbol");
-   eosio::check(days == state.powerup_days, "days doesn't match configuration");
-   eosio::check(net_frac >= 0, "net_frac can't be negative");
-   eosio::check(cpu_frac >= 0, "cpu_frac can't be negative");
-   eosio::check(net_frac <= powerup_frac, "net can't be more than 100%");
-   eosio::check(cpu_frac <= powerup_frac, "cpu can't be more than 100%");
+void system_contract::powerup(const name& payer, const name& receiver, uint32_t days, const asset& payment) {
+  require_auth(payer);
+  eosio::check(payment.amount > 0, "Payment must be positive");
+  powerup_state_singleton state_sing{ get_self(), 0 };
+  powerup_order_table orders{ get_self(), 0 };
+  eosio::check(state_sing.exists(), "powerup hasn't been initialized");
+  auto state = state_sing.get();
+  time_point_sec now = eosio::current_time_point();
+  auto core_symbol = get_core_symbol();
+  eosio::check(payment.symbol == core_symbol, "Payment doesn't match core symbol");
+  eosio::check(days == state.powerup_days, "Days doesn't match configuration");
 
-   int64_t net_delta_available = 0;
-   int64_t cpu_delta_available = 0;
-   process_powerup_queue(now, core_symbol, state, orders, 2, net_delta_available, cpu_delta_available);
+  // Divide payment
+  eosio::asset net_payment = payment / 4; // 25%
+  eosio::asset cpu_payment = payment / 4; // 25%
+  eosio::asset ram_payment = payment / 2; // 50%
+  eosio::asset weight_payment = cpu_payment + cpu_payment;
 
-   eosio::asset fee{ 0, core_symbol };
-   auto         process = [&](int64_t frac, int64_t& amount, powerup_state_resource& state) {
-      if (!frac)
-         return;
-      amount = int128_t(frac) * state.weight / powerup_frac;
-      eosio::check(state.weight, "market doesn't have resources available");
-      eosio::check(state.utilization + amount <= state.weight, "market doesn't have enough resources available");
-      int64_t f = calc_powerup_fee(state, amount);
-      eosio::check(f > 0, "calculated fee is below minimum; try powering up with more resources");
-      fee.amount += f;
-      state.utilization += amount;
-      print("total_fee: ", fee);
-      print("utilization_amount: ", amount);
-   };
+  // Buy RAM
+  buyram(payer, receiver, ram_payment);
 
-   int64_t net_amount = 0;
-   int64_t cpu_amount = 0;
-   process(net_frac, net_amount, state.net);
-   process(cpu_frac, cpu_amount, state.cpu);
-   if (fee > max_payment) {
-      std::string error_msg = "max_payment is less than calculated fee: ";
-      error_msg += fee.to_string();
-      eosio::check(false, error_msg);
-   }
-   eosio::check(fee >= state.min_powerup_fee, "calculated fee is below minimum; try powering up with more resources");
+  int64_t net_delta_available = 0;
+  int64_t cpu_delta_available = 0;
+  process_powerup_queue(now, core_symbol, state, orders, 2, net_delta_available, cpu_delta_available);
 
-   orders.emplace(payer, [&](auto& order) {
-      order.id         = orders.available_primary_key();
-      order.owner      = receiver;
-      order.net_weight = net_amount;
-      order.cpu_weight = cpu_amount;
-      order.expires    = now + eosio::days(days);
-   });
-   net_delta_available -= net_amount;
-   cpu_delta_available -= cpu_amount;
+  // Process NET and CPU fractions separately based on specified payment portions
+  int64_t net_frac = 0;
+  int64_t cpu_frac = 0;
 
-   adjust_resources(payer, receiver, core_symbol, net_amount, cpu_amount, true);
-   adjust_resources(get_self(), reserve_account, core_symbol, net_delta_available, cpu_delta_available, true);
-  //  channel_to_rex(payer, fee, true);
+  if (state.net.weight > 0)
+    net_frac = int128_t(net_payment.amount) * powerup_frac / state.net.weight;
+  if (state.cpu.weight > 0)
+    cpu_frac = int128_t(cpu_payment.amount) * powerup_frac / state.cpu.weight;
 
-  token::transfer_action transfer_act{ token_account, { payer, active_permission } };
-  transfer_act.send( payer, reserve_account, fee, std::string("reserve from ") + payer.to_string() + " to eosio.power" );
+  eosio::asset fee{ 0, core_symbol };
+
+  int64_t net_amount = 0;
+  int64_t cpu_amount = 0;
+  int64_t ram_bytes = ram_payment.amount * _ram_price_per_byte;
   
+  // Process the NET and CPU powerup
+  auto process = [&](int64_t frac, int64_t& amount, powerup_state_resource& resource) {
+    if(frac > 0) {
+      amount = int128_t(frac) * resource.weight / powerup_frac;
+      
+      eosio::check(resource.weight, "market doesn't have resources available");
+      eosio::check(resource.utilization + amount <= resource.weight, "market doesn't have enough resources available");
+      
+      int64_t cost = calc_powerup_fee(resource, amount);
+      eosio::check(cost > 0, "calculated fee is below minimum; try powering up with more resources");
+      fee.amount += cost;
+      resource.utilization += amount;
+    }
+  };
+
+  process(net_frac, net_amount, state.net);
+  process(cpu_frac, cpu_amount, state.cpu);
+
+  eosio::check(fee <= payment, "Fee exceeds max payment");
+  eosio::check(fee >= state.min_powerup_fee, "Fee is below minimum");
+
   state_sing.set(state, get_self());
 
-   // inline noop action
-   powup_results::powupresult_action powupresult_act{ reserve_account, std::vector<eosio::permission_level>{ } };
-   powupresult_act.send( fee, net_amount, cpu_amount );
+  orders.emplace(payer, [&](auto& order) {
+    order.id = orders.available_primary_key();
+    order.owner = receiver;
+    order.net_weight = net_amount;
+    order.cpu_weight = cpu_amount;
+    order.ram_bytes = ram_bytes;
+    order.expires = now + eosio::days(days);
+  });
+
+  adjust_resources(payer, receiver, core_symbol, net_amount, cpu_amount, true);
+  
+  fill_tact(payer, payment);
+
+  // Inline noop action
+  powup_results::powupresult_action powup_result_act{ reserve_account, std::vector<eosio::permission_level>{} };
+  powup_result_act.send(payment, net_amount, cpu_amount);
+}
+
+void system_contract::initemission(eosio::asset init_supply, uint64_t tact_duration, double emission_factor) {
+  require_auth(get_self());
+
+  emission_state_singleton emission_state_sing{ get_self(), get_self().value};
+  
+  eosio::check(!emission_state_sing.exists(), "Первый такт уже инициализирован. Повторная инициализация невозможна");
+
+  eosio::check(tact_duration <= 365 * 86400, "Продолжительность такта не может превышать 1 год");
+  eosio::check(emission_factor > 0 && emission_factor < 2.618, "Фактор эмиссии должен быть больше нуля и меньше 2.618");
+  time_point_sec now =  eosio::current_time_point();
+
+  auto state = emission_state_sing.get_or_default();
+  state.tact_number = 1;
+  state.tact_duration = tact_duration;
+  state.emission_factor = emission_factor;
+  state.current_supply = init_supply;
+  state.tact_open_at = now;
+  state.tact_close_at = eosio::time_point_sec(now.sec_since_epoch() + tact_duration);
+  state.tact_fees = asset(0, core_symbol());
+  state.tact_emission = asset(0, core_symbol());
+
+  emission_state_sing.set(state, get_self());
+}
+
+void system_contract::update_tact(eosio::name payer) {
+  require_auth(payer);
+
+  emission_state_singleton emission_state_sing{ get_self(), get_self().value};
+  
+  if (emission_state_sing.exists()) {
+  
+    auto state = emission_state_sing.get();
+    
+    time_point_sec now = eosio::current_time_point();
+    
+    if (state.tact_close_at <= now) {
+      state.tact_number += 1;
+      state.tact_open_at = eosio::current_time_point();
+      state.tact_close_at = eosio::time_point_sec(now.sec_since_epoch() + state.tact_duration);
+      state.tact_fees.amount = 0;
+      state.tact_emission.amount = 0;
+      
+      emission_state_sing.set(state, payer);
+    }
+  }
+}
+
+void system_contract::fill_tact(eosio::name payer, eosio::asset payment) {
+  update_tact(payer);
+  emission_state_singleton emission_state_sing{ get_self(), get_self().value};
+  eosio::check(emission_state_sing.exists(), "Эмиссия не инициализирована");
+    
+  if (payment.amount > 0) {
+
+    auto state = emission_state_sing.get();
+    
+    // eosio::check(state.tact_fees + payment <= state.current_supply, "Достигнут предел оборота в такте");
+
+    // Добавляем собранные комиссии к числу комиссий такта
+    state.tact_fees += payment;
+
+    // Передаём комиссии делегатам за подписанные блоки
+    token::transfer_action transfer_act{ token_account, { payer, active_permission } };
+    transfer_act.send(payer, bpay_account, payment, "Witnesses per-block fee");
+  
+    _gstate.perblock_bucket         += payment.amount;
+    _gstate.last_pervote_bucket_fill = current_time_point();
+    
+    print(" fact_fees: ", double(state.tact_fees.amount));
+    print(" current_supply: ", double(state.current_supply.amount) / double(1 + state.emission_factor));
+    
+    //Производим эмиссию в фонд при достижении условия:
+    if (double(state.tact_fees.amount) > double(state.current_supply.amount) / double(1 + state.emission_factor)) {
+      eosio::asset new_emission = asset(uint64_t((1 + state.emission_factor) * double(state.tact_fees.amount) - double(state.current_supply.amount)), get_core_symbol());
+      print("new_emission: ", new_emission);    
+      
+      if (new_emission.amount > 0) {
+        state.tact_emission += new_emission;
+        
+        // Увеличиваем текущий объем в обороте на сумму эмиссии
+        state.current_supply += new_emission;
+        
+        // Эмимитируем токены в фонд
+        system_contract::emit(new_emission);
+
+        // Изменяем веса CPU & NET в соответствии с новой эмиссией
+        system_contract::change_weights(payer, new_emission);
+      };
+    
+    }
+
+    emission_state_sing.set(state, payer);
+  }
+
+}
+
+void system_contract::change_weights(eosio::name payer, eosio::asset new_emission) {
+  powerup_state_singleton power_state_sing{ get_self(), 0 };
+  eosio::check(power_state_sing.exists(), "powerup hasn't been initialized");
+  auto power_state = power_state_sing.get();
+  
+  print("on change weights: ", new_emission);
+
+  power_state.cpu.weight += new_emission.amount;
+  power_state.cpu.max_price += new_emission;
+  power_state.cpu.min_price += new_emission;
+
+  power_state.net.weight += new_emission.amount;
+  power_state.net.max_price += new_emission;
+  power_state.net.min_price += new_emission;
+
+  power_state_sing.set(power_state, payer);
 }
 
 } // namespace eosiosystem

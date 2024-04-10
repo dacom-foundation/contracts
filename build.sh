@@ -46,11 +46,11 @@ else
 fi
 
 # Запуск контейнера Docker
-docker run --rm --name cdt_v4.0.0 \
+docker run --rm --name cdt_v4.1.0 \
   --volume $(pwd):/project \
   -w /project \
   --env CONTRACT_PARAMS="$contract_params_str" \
-  dicoop/cdt_v4.0.0 /bin/bash -c "
+  dicoop/cdt_v4.1.0 /bin/bash -c "
 
 # Перебираем все папки в директории
 for folder in $contracts/ ; do
