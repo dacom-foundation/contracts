@@ -142,7 +142,7 @@ namespace eosiosystem {
    struct [[eosio::table("global"), eosio::contract("eosio.system")]] eosio_global_state : eosio::blockchain_parameters {
       uint64_t free_ram()const { return max_ram_size - total_ram_bytes_reserved; }
 
-      uint64_t             max_ram_size = 64ll*1024 * 1024 * 1024;
+      uint64_t             max_ram_size = 8ll*1024 * 1024 * 1024;
       uint64_t             total_ram_bytes_reserved = 0;
       int64_t              total_ram_stake = 0;
 
@@ -351,6 +351,16 @@ namespace eosiosystem {
       // explicit serialization macro is not necessary, used here only to improve compilation time
       EOSLIB_SERIALIZE( user_resources, (owner)(net_weight)(cpu_weight)(ram_bytes) )
    };
+
+        // Структура записи о долге по RAM для аккаунта.
+    struct [[eosio::table, eosio::contract("eosio.system")]] ram_debt_record {
+        name account;
+        int64_t ram_debt;
+
+        uint64_t primary_key() const { return account.value; }
+    };
+    typedef eosio::multi_index<"ramdebts"_n, ram_debt_record> ram_debts_table;
+
 
    // Every user 'from' has a scope/table that uses every recipient 'to' as the primary key.
    struct [[eosio::table, eosio::contract("eosio.system")]] delegated_bandwidth {
@@ -763,12 +773,8 @@ namespace eosiosystem {
          [[eosio::action]]
          void init( unsigned_int version, const symbol& core );
 
-         [[eosio::action]]
-         void check( name account ) {
-          int64_t ram_usage;
-          get_account_ram_usage(account, ram_usage);
-          print("ram_usage: ", ram_usage);
-         };
+        //  [[eosio::action]]
+        //  void test( name account );
 
 
          /**
@@ -1138,6 +1144,11 @@ namespace eosiosystem {
          [[eosio::action]]
          void buyram( const name& payer, const name& receiver, const asset& quant );
 
+
+         [[eosio::action]]
+         void sellram( const name& account, int64_t bytes );
+
+
          /**
           * Buy a specific amount of ram bytes action. Increases receiver's ram in quantity of bytes provided.
           * An inline transfer from receiver to system contract of tokens will be executed.
@@ -1148,16 +1159,6 @@ namespace eosiosystem {
           */
          [[eosio::action]]
          void buyrambytes( const name& payer, const name& receiver, uint32_t bytes );
-
-         /**
-          * Sell ram action, reduces quota by bytes and then performs an inline transfer of tokens
-          * to receiver based upon the average purchase price of the original quota.
-          *
-          * @param account - the ram seller account,
-          * @param bytes - the amount of ram to sell in bytes.
-          */
-         [[eosio::action]]
-         void sellram( const name& account, int64_t bytes );
 
          /**
           * Refund action, this action is called after the delegation-period to claim all pending
@@ -1427,6 +1428,7 @@ namespace eosiosystem {
           */
          [[eosio::action]]
          void limitauthchg( const name& account, const std::vector<name>& allow_perms, const std::vector<name>& disallow_perms );
+        //  using test_action = eosio::action_wrapper<"test"_n, &system_contract::test>;
 
          using init_action = eosio::action_wrapper<"init"_n, &system_contract::init>;
          using setcode_action = eosio::action_wrapper<"init"_n, &system_contract::setcode>;
@@ -1458,7 +1460,6 @@ namespace eosiosystem {
          using undelegatebw_action = eosio::action_wrapper<"undelegatebw"_n, &system_contract::undelegatebw>;
          using buyram_action = eosio::action_wrapper<"buyram"_n, &system_contract::buyram>;
          using buyrambytes_action = eosio::action_wrapper<"buyrambytes"_n, &system_contract::buyrambytes>;
-         using sellram_action = eosio::action_wrapper<"sellram"_n, &system_contract::sellram>;
          using refund_action = eosio::action_wrapper<"refund"_n, &system_contract::refund>;
          using regproducer_action = eosio::action_wrapper<"regproducer"_n, &system_contract::regproducer>;
          using regproducer2_action = eosio::action_wrapper<"regproducer2"_n, &system_contract::regproducer2>;
@@ -1493,9 +1494,10 @@ namespace eosiosystem {
          //defined in eosio.system.cpp
          static eosio_global_state get_default_parameters();
          static eosio_global_state4 get_default_inflation_parameters();
-
+         int64_t update_ram_debt_table(name payer, name account, int64_t ram_bytes);
+         
          void emit(eosio::asset new_emission);     
-
+         
          symbol core_symbol()const;
          void update_ram_supply();
          
@@ -1541,7 +1543,9 @@ namespace eosiosystem {
          void changebw( name from, const name& receiver,
                         const asset& stake_net_quantity, const asset& stake_cpu_quantity, bool transfer );
          void update_voting_power( const name& voter, const asset& total_update );
-
+         
+         uint64_t get_ram(const asset& quant);
+         void back_ram(int64_t bytes);
          // defined in voting.cpp
          void register_producer( const name& producer, const eosio::block_signing_authority& producer_authority, const std::string& url, uint16_t location );
          void update_elected_producers( const block_timestamp& timestamp );
@@ -1586,7 +1590,7 @@ namespace eosiosystem {
          registration<&system_contract::update_rex_stake> vote_stake_updater{ this };
 
          // defined in power.cpp
-         void adjust_resources(name payer, name account, symbol core_symbol, int64_t net_delta, int64_t cpu_delta, bool must_not_be_managed = false);
+         void adjust_resources(name payer, name account, symbol core_symbol, int64_t net_delta, int64_t cpu_delta, int64_t ram_delta, bool must_not_be_managed = false);
          void process_powerup_queue(
             time_point_sec now, symbol core_symbol, powerup_state& state,
             powerup_order_table& orders, uint32_t max_items, int64_t& net_delta_available,

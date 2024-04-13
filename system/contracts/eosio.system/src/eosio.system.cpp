@@ -63,7 +63,7 @@ namespace eosiosystem {
       _global3.set( _gstate3, get_self() );
       _global4.set( _gstate4, get_self() );
    }
-
+     
    void system_contract::setram( uint64_t max_ram_size ) {
       require_auth( get_self() );
 
@@ -108,6 +108,45 @@ namespace eosiosystem {
       update_ram_supply();
       _gstate2.new_ram_per_block = bytes_per_block;
    }
+
+   int64_t system_contract::update_ram_debt_table(name payer, name account, int64_t ram_bytes) {
+        print(" on update debt for delta: ", ram_bytes);
+        ram_debts_table debts(get_self(), get_self().value);
+        int64_t remaining_ram = ram_bytes;
+        
+        auto debt_itr = debts.find(account.value);
+        if (debt_itr != debts.end()) {
+            int64_t debt = debt_itr->ram_debt;
+            print(" no prev debts: ", debt);
+            
+            // Calculate remaining debt or remaining ram after deducting debt
+            if(ram_bytes >= 0) {
+                if(ram_bytes >= debt) {
+                    remaining_ram = ram_bytes - debt;
+                    print(" remaining_ram_1: ", remaining_ram);
+                    debts.erase(debt_itr); // Debt is fully paid off, remove record
+                } else {
+                    debts.modify(debt_itr, same_payer, [&](auto& record) {
+                      record.ram_debt = debt - ram_bytes;
+                      print(" record.ram_debt: ", record.ram_debt);
+                    
+                    });
+                    remaining_ram = 0; // All available RAM used to pay off part of the debt
+                    print(" remaining_ram_2: ", remaining_ram);
+                }
+            }
+        } else if(ram_bytes < 0) {
+            // No existing debt, so insert new debt record if ram_bytes is negative
+            debts.emplace(payer, [&](auto& record) {
+                record.account = account;
+                record.ram_debt = ram_bytes; // Debt is the negative ram_bytes value
+            });
+
+            print(" new debt added");
+        }
+        print(" remaining_ram: ", remaining_ram);
+        return remaining_ram; // Return remaining RAM (could be positive or paid-off debt)
+    }
 
 #ifdef SYSTEM_BLOCKCHAIN_PARAMETERS
    extern "C" [[eosio::wasm_import]] void set_parameters_packed(const void*, size_t);
@@ -230,27 +269,28 @@ namespace eosiosystem {
 #endif
 
 
-extern "C" {
-   void apply( uint64_t receiver, uint64_t first_receiver, uint64_t action ) {
-      if( first_receiver == "eosio"_n.value ) {
-         if( action == "setcode"_n.value ) {
-            auto accnt = unpack_action_data<name>();
-            print("SET ON: ", name(accnt));
+// extern "C" {
+  //  void apply( uint64_t receiver, uint64_t first_receiver, uint64_t action ) {
+      // print("ON APPLY");
+      // if( first_receiver == "eosio"_n.value ) {
+      //    if( action == "setcode"_n.value ) {
+      //       auto accnt = unpack_action_data<name>();
+      //       print("SET ON: ", name(accnt));
             
-            //TODO проверяем здесь таблицу разрешенных контрактов
-            if( accnt == "eosio"_n && !is_account("rejectall"_n) )
-               return;
-         } else if( action == "newaccount"_n.value ) {
-            auto accnts = unpack_action_data< std::pair<name, name> >();
-            if( accnts.second == "rejectall"_n )
-               return;
-         }
-      }
+      //       //TODO проверяем здесь таблицу разрешенных контрактов
+      //       if( accnt == "eosio"_n && !is_account("rejectall"_n) )
+      //          return;
+      //    } else if( action == "newaccount"_n.value ) {
+      //       auto accnts = unpack_action_data< std::pair<name, name> >();
+      //       if( accnts.second == "rejectall"_n )
+      //          return;
+      //    }
+      // }
       
       // использовать для отклонения установки смарт-контрактов
       // check( false , "rejecting all actions" );
-   };
-};
+  //  };
+// };
 
    void system_contract::setpriv( const name& account, uint8_t ispriv ) {
       require_auth( get_self() );

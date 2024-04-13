@@ -31,6 +31,22 @@ namespace eosiosystem {
    }
 
 
+   uint64_t system_contract::get_ram(const asset& quant) {
+      int64_t bytes_out;
+
+      const auto& market = _rammarket.get(ramcore_symbol.raw(), "ram market does not exist");
+      _rammarket.modify( market, same_payer, [&]( auto& es ) {
+         bytes_out = es.direct_convert( quant,  ram_symbol ).amount;
+      });
+
+      check( bytes_out > 0, "must reserve a positive amount" );
+
+      _gstate.total_ram_stake          += quant.amount;
+      _gstate.total_ram_bytes_reserved += uint64_t(bytes_out);
+      
+      return uint64_t(bytes_out);
+   };
+
    /**
     *  When buying ram the payer irreversibly transfers quant to system contract and only
     *  the receiver may reclaim the tokens via the sellram action. The receiver pays for the
@@ -54,17 +70,7 @@ namespace eosiosystem {
          transfer_act.send( payer, ram_account, quant_after_fee, "buy ram" );
       }
 
-      int64_t bytes_out;
-
-      const auto& market = _rammarket.get(ramcore_symbol.raw(), "ram market does not exist");
-      _rammarket.modify( market, same_payer, [&]( auto& es ) {
-         bytes_out = es.direct_convert( quant_after_fee,  ram_symbol ).amount;
-      });
-
-      check( bytes_out > 0, "must reserve a positive amount" );
-
-      _gstate.total_ram_bytes_reserved += uint64_t(bytes_out);
-      _gstate.total_ram_stake          += quant.amount;
+      int64_t bytes_out = get_ram(quant);
 
       user_resources_table  userres( get_self(), receiver.value );
       auto res_itr = userres.find( receiver.value );
@@ -89,8 +95,27 @@ namespace eosiosystem {
       }
     }
 
+  void system_contract::back_ram(int64_t bytes){
+    check( bytes > 0, "cannot back negative byte" );
+
+    asset tokens_out;
+    auto itr = _rammarket.find(ramcore_symbol.raw());
+    
+    _rammarket.modify( itr, same_payer, [&]( auto& es ) {
+        tokens_out = es.direct_convert( asset(bytes, ram_symbol), core_symbol());
+    });
+
+    check( tokens_out.amount > 1, "token amount received from selling ram is too low" );
+
+    _gstate.total_ram_bytes_reserved -= static_cast<decltype(_gstate.total_ram_bytes_reserved)>(bytes);
+    _gstate.total_ram_stake          -= tokens_out.amount;
+
+    check( _gstate.total_ram_stake >= 0, "error, attempt to unstake more tokens than previously staked" );
+    
+  }
+
   void system_contract::sellram( const name& account, int64_t bytes ) {
-      require_auth( get_self() );
+      require_auth(get_self());
       update_ram_supply();
       print("on sell ram");
       check( bytes > 0, "cannot sell negative byte" );
@@ -98,22 +123,10 @@ namespace eosiosystem {
       user_resources_table  userres( get_self(), account.value );
       auto res_itr = userres.find( account.value );
       check( res_itr != userres.end(), "no resource row" );
-      // check( res_itr->ram_bytes >= bytes, "insufficient quota" );
+      check( res_itr->ram_bytes >= bytes, "insufficient quota" );
 
-      asset tokens_out;
-      auto itr = _rammarket.find(ramcore_symbol.raw());
-      
-      _rammarket.modify( itr, same_payer, [&]( auto& es ) {
-         tokens_out = es.direct_convert( asset(bytes, ram_symbol), core_symbol());
-      });
+      back_ram(bytes);
 
-      check( tokens_out.amount > 1, "token amount received from selling ram is too low" );
-
-      _gstate.total_ram_bytes_reserved -= static_cast<decltype(_gstate.total_ram_bytes_reserved)>(bytes);
-      _gstate.total_ram_stake          -= tokens_out.amount;
-
-      check( _gstate.total_ram_stake >= 0, "error, attempt to unstake more tokens than previously staked" );
-    //TODO 
       auto voter_itr = _voters.find( res_itr->owner.value );
       if( voter_itr == _voters.end() || !has_field( voter_itr->flags1, voter_info::flags1_fields::ram_managed ) ) {
          int64_t ram_usage, net, cpu;
@@ -123,16 +136,10 @@ namespace eosiosystem {
          set_resource_limits( res_itr->owner, res_itr->ram_bytes + ram_gift_bytes, net, cpu );
       }
 
-      userres.modify( res_itr, account, [&]( auto& res ) {
+      userres.modify( res_itr, same_payer, [&]( auto& res ) {
           res.ram_bytes -= bytes;
       });
 
-      // TODO передаём 100% использованных токенов в фонд комиссий делегатов 
-      // т.е. временно резервируем (потом разделим)
-      {
-         token::transfer_action transfer_act{ token_account, { {ram_account, active_permission}, {account, active_permission} } };
-         transfer_act.send( ram_account, saving_account, asset(tokens_out), "sell ram" );
-      }
   }
 
    void system_contract::changebw( name from, const name& receiver,

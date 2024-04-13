@@ -18,22 +18,25 @@ void update_weight(time_point_sec now, powerup_state_resource& res, int64_t& del
 void update_utilization(time_point_sec now, powerup_state_resource& res);
 
 void system_contract::adjust_resources(name payer, name account, symbol core_symbol, int64_t net_delta,
-                                       int64_t cpu_delta, bool must_not_be_managed) {
-   if (!net_delta && !cpu_delta)
+                                       int64_t cpu_delta, int64_t ram_delta, bool must_not_be_managed) {
+   if (!net_delta && !cpu_delta && !ram_delta)
       return;
-
+  print("on adjust_resources for: ", account);
    user_resources_table totals_tbl(get_self(), account.value);
    auto                 tot_itr = totals_tbl.find(account.value);
    if (tot_itr == totals_tbl.end()) {
+    print(" on 2");
       tot_itr = totals_tbl.emplace(payer, [&](auto& tot) {
          tot.owner      = account;
          tot.net_weight = asset{ net_delta, core_symbol };
          tot.cpu_weight = asset{ cpu_delta, core_symbol };
       });
    } else {
+    print(" on 3");
       totals_tbl.modify(tot_itr, same_payer, [&](auto& tot) {
          tot.net_weight.amount += net_delta;
          tot.cpu_weight.amount += cpu_delta;
+         tot.ram_bytes += ram_delta;
       });
    }
    check(0 <= tot_itr->net_weight.amount, "insufficient staked total net bandwidth");
@@ -54,12 +57,60 @@ void system_contract::adjust_resources(name payer, name account, symbol core_sym
       if (must_not_be_managed)
          eosio::check(!net_managed && !cpu_managed, "something is managed which shouldn't be");
 
-      if (!(net_managed && cpu_managed)) {
-         int64_t ram_bytes, net, cpu;
-         get_resource_limits(account, ram_bytes, net, cpu);
-         set_resource_limits(
-               account, ram_managed ? ram_bytes : std::max(tot_itr->ram_bytes + ram_gift_bytes, ram_bytes),
-               net_managed ? net : tot_itr->net_weight.amount, cpu_managed ? cpu : tot_itr->cpu_weight.amount);
+      if (!(net_managed && cpu_managed && ram_managed)) {
+        int64_t old_ram_limit, net, cpu, ram_usage, ram_limit, ram_debt, ram_to_back;
+        get_resource_limits(account, old_ram_limit, net, cpu);
+        get_account_ram_usage(account, ram_usage);
+        ram_debt = 0; // Initialize ram_debt to 0
+        ram_to_back = 0; // Initialize ram_to_back to 0
+        print(" previous_ram_limit: ", old_ram_limit);
+        int64_t new_ram_limit = old_ram_limit;
+        print(" delta: ", ram_delta);
+        // int64_t free_ram = old_ram_limit - ram_usage;
+        
+        if (ram_delta != 0) { // применяем только если были изменения по квоте RAM
+          // Вычисляем новую квоту RAM на основании того, что было, плюс изменения, за вычетом того, что продолжает использоваться.
+          new_ram_limit = old_ram_limit + ram_delta;
+          print(" new_ram_limit1: ", new_ram_limit);
+          
+          if (new_ram_limit < ram_usage) { // если новый лимит меньше, чем используется байт, то формируем долг
+              ram_debt = - (ram_usage - new_ram_limit); // новый долг - это отрицательная величина
+              print(" ram_debt: ", ram_debt);
+              new_ram_limit = ram_usage; // новый лимит - это вся используемая память, т.е. квота будет равна 0 байт
+              print(" new_ram_limit2: ", new_ram_limit);
+          };
+          
+          
+          if ( ram_delta < 0 ) { // если списание
+            ram_to_back = old_ram_limit - new_ram_limit; //считаем байты, которые продать с аккаунта
+            /*
+              Если свободно всё, то будет продано ram_to_back = - abs(delta)
+              Если с долгом, то будет продано ram_to_back = ram_usage, т.е. квота установится в ноль.
+            */
+
+            print(" ram_to_back: ", ram_to_back);  
+
+            if(ram_to_back > 0) {// продаём только если значение положительно
+                print(" on 6");
+                back_ram(ram_to_back);
+                print(" on 7");
+            };
+          };
+          
+          
+          
+          // Store the ram_debt in a persistent table if ram_debt is non-zero
+          if(ram_debt != 0) {
+              // Logic to update the account's ram debt record in the persistent table
+              // Assuming a function update_ram_debt_table exists for this purpose
+              update_ram_debt_table(payer, account, ram_debt);
+              print(" on 5");
+          }
+      
+          
+        }
+        // Set the new resource limits
+        set_resource_limits(account, new_ram_limit, net + net_delta, cpu + cpu_delta);
       }
    }
 
@@ -80,9 +131,9 @@ void system_contract::process_powerup_queue(time_point_sec now, symbol core_symb
          break;
       net_delta_available += it->net_weight;
       cpu_delta_available += it->cpu_weight;
-      adjust_resources(get_self(), it->owner, core_symbol, -it->net_weight, -it->cpu_weight);
-      // TODO здесь где-то надо изъять RAM
-      // sellram()
+
+      adjust_resources(get_self(), it->owner, core_symbol, -it->net_weight, -it->cpu_weight, -it -> ram_bytes);
+      
       idx.erase(it);
    }
    state.net.utilization -= net_delta_available;
@@ -252,70 +303,10 @@ void system_contract::cfgpowerup(powerup_config& args) {
    state.net.adjusted_utilization = std::min(state.net.adjusted_utilization, state.net.weight);
    state.cpu.adjusted_utilization = std::min(state.cpu.adjusted_utilization, state.cpu.weight);
 
-   adjust_resources(get_self(), reserve_account, core_symbol, net_delta_available, cpu_delta_available, true);
+   adjust_resources(get_self(), reserve_account, core_symbol, net_delta_available, cpu_delta_available, 0, true);
    state_sing.set(state, get_self());
 }
 
-/**
- *  @pre 0 <= state.min_price.amount <= state.max_price.amount
- *  @pre 0 < state.max_price.amount
- *  @pre 1.0 <= state.exponent
- *  @pre 0 <= state.utilization <= state.adjusted_utilization <= state.weight
- *  @pre 0 <= utilization_increase <= (state.weight - state.utilization)
- */
-int64_t calc_powerup_fee(const powerup_state_resource& state, int64_t utilization_increase) {
-   if( utilization_increase <= 0 ) return 0;
-
-   // Let p(u) = price as a function of the utilization fraction u which is defined for u in [0.0, 1.0].
-   // Let f(u) = integral of the price function p(x) from x = 0.0 to x = u, again defined for u in [0.0, 1.0].
-
-   // In particular we choose f(u) = min_price * u + ((max_price - min_price) / exponent) * (u ^ exponent).
-   // And so p(u) = min_price + (max_price - min_price) * (u ^ (exponent - 1.0)).
-
-   // Returns f(double(end_utilization)/state.weight) - f(double(start_utilization)/state.weight) which is equivalent to
-   // the integral of p(x) from x = double(start_utilization)/state.weight to x = double(end_utilization)/state.weight.
-   // @pre 0 <= start_utilization <= end_utilization <= state.weight
-   auto price_integral_delta = [&state](int64_t start_utilization, int64_t end_utilization) -> double {
-      double coefficient = (state.max_price.amount - state.min_price.amount) / state.exponent;
-      double start_u     = double(start_utilization) / state.weight;
-      double end_u       = double(end_utilization) / state.weight;
-      return state.min_price.amount * end_u - state.min_price.amount * start_u +
-               coefficient * std::pow(end_u, state.exponent) - coefficient * std::pow(start_u, state.exponent);
-   };
-
-   // Returns p(double(utilization)/state.weight).
-   // @pre 0 <= utilization <= state.weight
-   auto price_function = [&state](int64_t utilization) -> double {
-      double price = state.min_price.amount;
-      // state.exponent >= 1.0, therefore the exponent passed into std::pow is >= 0.0.
-      // Since the exponent passed into std::pow could be 0.0 and simultaneously so could double(utilization)/state.weight,
-      // the safest thing to do is handle that as a special case explicitly rather than relying on std::pow to return 1.0
-      // instead of triggering a domain error.
-      double new_exponent = state.exponent - 1.0;
-      if (new_exponent <= 0.0) { 
-         return state.max_price.amount;
-      } else {
-         price += (state.max_price.amount - state.min_price.amount) * std::pow(double(utilization) / state.weight, new_exponent);
-      }
-
-      return price;
-   };
-
-   double  fee = 0.0;
-   int64_t start_utilization = state.utilization;
-   int64_t end_utilization   = start_utilization + utilization_increase;
-   
-   if (start_utilization < state.adjusted_utilization) { 
-      fee += price_function(state.adjusted_utilization) *
-               std::min(utilization_increase, state.adjusted_utilization - start_utilization) / state.weight;
-      start_utilization = state.adjusted_utilization;
-   }
-
-   if (start_utilization < end_utilization) { 
-      fee += price_integral_delta(start_utilization, end_utilization);
-   }
-   return std::ceil(fee);
-}
 
 void system_contract::powerupexec(const name& user, uint16_t max) {
    require_auth(user);
@@ -330,7 +321,7 @@ void system_contract::powerupexec(const name& user, uint16_t max) {
    int64_t cpu_delta_available = 0;
    process_powerup_queue(now, core_symbol, state, orders, max, net_delta_available, cpu_delta_available);
 
-   adjust_resources(get_self(), reserve_account, core_symbol, net_delta_available, cpu_delta_available, true);
+   adjust_resources(get_self(), reserve_account, core_symbol, net_delta_available, cpu_delta_available, 0, true);
    state_sing.set(state, get_self());
 }
 
@@ -350,11 +341,7 @@ void system_contract::powerup(const name& payer, const name& receiver, uint32_t 
   eosio::asset net_payment = payment / 4; // 25%
   eosio::asset cpu_payment = payment / 4; // 25%
   eosio::asset ram_payment = payment / 2; // 50%
-  eosio::asset weight_payment = cpu_payment + cpu_payment;
-
-  // Buy RAM
-  buyram(payer, receiver, ram_payment);
-
+  
   int64_t net_delta_available = 0;
   int64_t cpu_delta_available = 0;
   process_powerup_queue(now, core_symbol, state, orders, 2, net_delta_available, cpu_delta_available);
@@ -364,55 +351,47 @@ void system_contract::powerup(const name& payer, const name& receiver, uint32_t 
   int64_t cpu_frac = 0;
 
   if (state.net.weight > 0)
-    net_frac = int128_t(net_payment.amount) * powerup_frac / state.net.weight;
+    net_frac = int128_t(net_payment.amount);
   if (state.cpu.weight > 0)
-    cpu_frac = int128_t(cpu_payment.amount) * powerup_frac / state.cpu.weight;
+    cpu_frac = int128_t(cpu_payment.amount);
 
-  eosio::asset fee{ 0, core_symbol };
+  // Get RAM from linear market
+  int64_t ram_bytes = get_ram(ram_payment);
 
-  int64_t net_amount = 0;
-  int64_t cpu_amount = 0;
-  int64_t ram_bytes = ram_payment.amount * _ram_price_per_byte;
-  
   // Process the NET and CPU powerup
-  auto process = [&](int64_t frac, int64_t& amount, powerup_state_resource& resource) {
-    if(frac > 0) {
-      amount = int128_t(frac) * resource.weight / powerup_frac;
-      
+  auto process = [&](int64_t amount, powerup_state_resource& resource) {
+    if(amount > 0) {
       eosio::check(resource.weight, "market doesn't have resources available");
       eosio::check(resource.utilization + amount <= resource.weight, "market doesn't have enough resources available");
-      
-      int64_t cost = calc_powerup_fee(resource, amount);
-      eosio::check(cost > 0, "calculated fee is below minimum; try powering up with more resources");
-      fee.amount += cost;
       resource.utilization += amount;
     }
   };
 
-  process(net_frac, net_amount, state.net);
-  process(cpu_frac, cpu_amount, state.cpu);
-
-  eosio::check(fee <= payment, "Fee exceeds max payment");
-  eosio::check(fee >= state.min_powerup_fee, "Fee is below minimum");
+  process(net_frac, state.net);
+  process(cpu_frac, state.cpu);
+  
+  eosio::check(payment >= state.min_powerup_fee, "Payment is below minimum");
 
   state_sing.set(state, get_self());
 
+  int64_t ram_after_pay_debt = update_ram_debt_table(payer, receiver, ram_bytes); 
+  print("ram_after_pay_debt: ", ram_after_pay_debt);
+  eosio::check(ram_after_pay_debt > 0, "Недостаточное пополнение ресурсов для погашения используемой RAM. Попробуйте увеличить сумму пополнения.");
+  
   orders.emplace(payer, [&](auto& order) {
     order.id = orders.available_primary_key();
     order.owner = receiver;
-    order.net_weight = net_amount;
-    order.cpu_weight = cpu_amount;
-    order.ram_bytes = ram_bytes;
-    order.expires = now + eosio::days(days);
+    order.net_weight = net_frac;
+    order.cpu_weight = cpu_frac;
+    order.ram_bytes = ram_after_pay_debt;
+    order.expires = eosio::current_time_point() + eosio::seconds(10); // TODO delete it
+    // order.expires = now + eosio::days(days);
   });
-
-  adjust_resources(payer, receiver, core_symbol, net_amount, cpu_amount, true);
   
   fill_tact(payer, payment);
-
-  // Inline noop action
+  adjust_resources(payer, receiver, core_symbol, net_frac, cpu_frac, ram_after_pay_debt, true);
   powup_results::powupresult_action powup_result_act{ reserve_account, std::vector<eosio::permission_level>{} };
-  powup_result_act.send(payment, net_amount, cpu_amount);
+  powup_result_act.send(payment, net_frac, cpu_frac);
 }
 
 void system_contract::initemission(eosio::asset init_supply, uint64_t tact_duration, double emission_factor) {
@@ -471,8 +450,6 @@ void system_contract::fill_tact(eosio::name payer, eosio::asset payment) {
 
     auto state = emission_state_sing.get();
     
-    // eosio::check(state.tact_fees + payment <= state.current_supply, "Достигнут предел оборота в такте");
-
     // Добавляем собранные комиссии к числу комиссий такта
     state.tact_fees += payment;
 
