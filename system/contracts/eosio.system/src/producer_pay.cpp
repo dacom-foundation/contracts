@@ -39,7 +39,7 @@ namespace eosiosystem {
       }
 
       // emit();
-      update_tact(get_self());
+      update_tact();
 
       /**
        * At startup the initial producer may not be one that is registered / elected
@@ -78,53 +78,13 @@ namespace eosiosystem {
    }
 
    void system_contract::emit(eosio::asset new_emission) {
-
       if (new_emission.amount > 0) {
         token::issue_action issue_act{ token_account, { {get_self(), active_permission} } };
           issue_act.send( get_self(), new_emission, "Выпуск новых токенов в фонд" );
         
         token::transfer_action transfer_act{ token_account, { {get_self(), active_permission} } };
-        transfer_act.send( get_self(), reserve_account, new_emission, "Передача токенов в фонд" );
+        transfer_act.send( get_self(), _saving_account, new_emission, "Передача токенов в фонд" );
       }
-  
-      
-      // const auto ct = current_time_point();
-      
-      // const auto usecs_since_last_fill = (ct - _gstate.last_pervote_bucket_fill).count();
-
-      // if( usecs_since_last_fill > 0 && _gstate.last_pervote_bucket_fill > time_point() ) {
-      //    int64_t new_tokens = 200;
-
-      //    int64_t to_producers     = (new_tokens * uint128_t(pay_factor_precision)) / _gstate4.inflation_pay_factor;
-      //    int64_t to_savings       = new_tokens - to_producers;
-      //    int64_t to_per_block_pay = (to_producers * uint128_t(pay_factor_precision)) / _gstate4.votepay_factor;
-      //    int64_t to_per_vote_pay  = to_producers - to_per_block_pay;
-
-      //    if( new_tokens > 0 ) {
-      //       {
-      //          token::issue_action issue_act{ token_account, { {get_self(), active_permission} } };
-      //          issue_act.send( get_self(), asset(new_tokens, core_symbol()), "issue tokens for producer pay and savings" );
-      //       }
-      //       {
-      //          token::transfer_action transfer_act{ token_account, { {get_self(), active_permission} } };
-      //          if( to_savings > 0 ) {
-      //             transfer_act.send( get_self(), saving_account, asset(to_savings, core_symbol()), "unallocated inflation" );
-      //          }
-      //          if( to_per_block_pay > 0 ) {
-      //             transfer_act.send( get_self(), bpay_account, asset(to_per_block_pay, core_symbol()), "fund per-block bucket" );
-      //          }
-      //          if( to_per_vote_pay > 0 ) {
-      //             transfer_act.send( get_self(), vpay_account, asset(to_per_vote_pay, core_symbol()), "fund per-vote bucket" );
-      //          }
-      //       }
-      //    }
-
-      //   //  _gstate.pervote_bucket          += to_per_vote_pay;
-      //    _gstate.perblock_bucket         += to_per_block_pay;
-      //    _gstate.last_pervote_bucket_fill = ct;
-      // }
-
-
    };
 
    void system_contract::claimrewards( const name& owner ) {

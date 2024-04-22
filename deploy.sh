@@ -57,19 +57,19 @@ if [ ! -z "$contract_name" ]; then
 	echo "Проверка наличия папки для контракта $contract_name..."
 	if [ -d "./$contract_name" ]; then
 		echo "Папка контракта найдена. Содержимое папки:"
-		deploy_contract $contract_name "/mnt/dev/contracts/$contract_name" $contract_name
+		deploy_contract $contract_name "/contracts/$contract_name" $contract_name
 	elif [ "$contract_name" == "eosio.msig" ] || [ "$contract_name" == "eosio.token" ] || [ "$contract_name" == "eosio.wrap" ]; then
 		echo "Папка системного контракта найдена. Содержимое папки:"
-		ls "/mnt/dev/contracts/system/build/contracts/$contract_name"
-		deploy_contract $contract_name "/mnt/dev/contracts/system/build/contracts/$contract_name" $contract_name
+		ls "/contracts/system/build/contracts/$contract_name"
+		deploy_contract $contract_name "/contracts/system/build/contracts/$contract_name" $contract_name
 	elif [ "$contract_name" == "eosio.system" ]; then
 		echo "Папка системного контракта найдена. Содержимое папки:"
-		ls "/mnt/dev/contracts/system/build/contracts/$contract_name"
-		deploy_contract $contract_name "/mnt/dev/contracts/system/build/contracts/$contract_name" "eosio"
+		ls "/contracts/system/build/contracts/$contract_name"
+		deploy_contract $contract_name "/contracts/system/build/contracts/$contract_name" "eosio"
 	elif [ "$contract_name" == "eosio.boot" ]; then
 		echo "Папка системного контракта найдена. Содержимое папки:"
-		ls "/mnt/dev/contracts/system/build/contracts/$contract_name"
-		deploy_contract $contract_name "/mnt/dev/contracts/system/build/contracts/$contract_name" "eosio"
+		ls "/contracts/system/build/contracts/$contract_name"
+		deploy_contract $contract_name "/contracts/system/build/contracts/$contract_name" "eosio"
 	else
 		echo "Контракт $contract_name не найден"
 	fi
@@ -77,7 +77,7 @@ if [ ! -z "$contract_name" ]; then
 fi
 
 # Перебираем все папки с контрактами на верхнем уровне, исключая 'system'
-for dir in $(find /mnt/dev/contracts/* -maxdepth 0 -type d ! -name 'system'); do
+for dir in $(find /contracts/* -maxdepth 0 -type d ! -name 'system'); do
 	contract=$(basename $dir)
 	echo "Найдена папка $dir для контракта $contract. Содержимое папки:"
 	ls $dir
@@ -88,8 +88,8 @@ done
 special_system_contracts=("eosio.msig" "eosio.token" "eosio.wrap")
 for contract in "${special_system_contracts[@]}"; do
 	echo "Найдена папка системного контракта для $contract. Содержимое папки:"
-	ls "/mnt/dev/contracts/system/build/contracts/$contract"
-	deploy_contract $contract "/mnt/dev/contracts/system/build/contracts/$contract" $contract
+	ls "/contracts/system/build/contracts/$contract"
+	deploy_contract $contract "/contracts/system/build/contracts/$contract" $contract
 done
 
-deploy_contract "eosio.system" "/mnt/dev/contracts/system/build/contracts/eosio.system" "eosio"
+deploy_contract "eosio.system" "/contracts/system/build/contracts/eosio.system" "eosio"

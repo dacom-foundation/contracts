@@ -31,22 +31,6 @@ namespace eosiosystem {
    }
 
 
-   uint64_t system_contract::get_ram(const asset& quant) {
-      int64_t bytes_out;
-
-      const auto& market = _rammarket.get(ramcore_symbol.raw(), "ram market does not exist");
-      _rammarket.modify( market, same_payer, [&]( auto& es ) {
-         bytes_out = es.direct_convert( quant,  ram_symbol ).amount;
-      });
-
-      check( bytes_out > 0, "must reserve a positive amount" );
-
-      _gstate.total_ram_stake          += quant.amount;
-      _gstate.total_ram_bytes_reserved += uint64_t(bytes_out);
-      
-      return uint64_t(bytes_out);
-   };
-
    /**
     *  When buying ram the payer irreversibly transfers quant to system contract and only
     *  the receiver may reclaim the tokens via the sellram action. The receiver pays for the
@@ -60,86 +44,104 @@ namespace eosiosystem {
       require_auth( payer );
       update_ram_supply();
 
-      check( quant.symbol == core_symbol(), "must buy ram with core token" );
-      check( quant.amount > 0, "must purchase a positive amount" );
+      powerup_state_singleton state_sing{ get_self(), 0 };
+      if (!state_sing.exists()) {
+        check( quant.symbol == core_symbol(), "must buy ram with core token" );
+        check( quant.amount > 0, "must purchase a positive amount" );
 
-      auto quant_after_fee = quant; // Полная сумма идет на покупку RAM, без вычета комиссии
+        auto quant_after_fee = quant; // Полная сумма идет на покупку RAM, без вычета комиссии
 
-      {
-         token::transfer_action transfer_act{ token_account, { {payer, active_permission}, {ram_account, active_permission} } };
-         transfer_act.send( payer, ram_account, quant_after_fee, "buy ram" );
-      }
+        {
+          token::transfer_action transfer_act{ token_account, { {payer, active_permission}, {ram_account, active_permission} } };
+          transfer_act.send( payer, ram_account, quant_after_fee, "buy ram" );
+        }
 
-      int64_t bytes_out = get_ram(quant);
+        int64_t bytes_out;
 
-      user_resources_table  userres( get_self(), receiver.value );
-      auto res_itr = userres.find( receiver.value );
-      if( res_itr ==  userres.end() ) {
-         res_itr = userres.emplace( receiver, [&]( auto& res ) {
-               res.owner = receiver;
-               res.net_weight = asset( 0, core_symbol() );
-               res.cpu_weight = asset( 0, core_symbol() );
-               res.ram_bytes = bytes_out;
-            });
+        const auto& market = _rammarket.get(ramcore_symbol.raw(), "ram market does not exist");
+        _rammarket.modify( market, same_payer, [&]( auto& es ) {
+          bytes_out = es.direct_convert( quant,  ram_symbol ).amount;
+        });
+
+        check( _gstate.total_ram_bytes_reserved + uint64_t(bytes_out) <= _gstate.max_ram_size, "покупка RAM сейчас невозможна." );
+
+        check( bytes_out > 0, "must reserve a positive amount" );
+
+        _gstate.total_ram_stake          += quant.amount;
+        _gstate.total_ram_bytes_reserved += uint64_t(bytes_out);
+        
+        user_resources_table  userres( get_self(), receiver.value );
+        auto res_itr = userres.find( receiver.value );
+        if( res_itr ==  userres.end() ) {
+          res_itr = userres.emplace( receiver, [&]( auto& res ) {
+                res.owner = receiver;
+                res.net_weight = asset( 0, core_symbol() );
+                res.cpu_weight = asset( 0, core_symbol() );
+                res.ram_bytes = bytes_out;
+              });
+        } else {
+          userres.modify( res_itr, receiver, [&]( auto& res ) {
+                res.ram_bytes += bytes_out;
+              });
+        }
+
+        auto voter_itr = _voters.find( res_itr->owner.value );
+        if( voter_itr == _voters.end() || !has_field( voter_itr->flags1, voter_info::flags1_fields::ram_managed ) ) {
+          int64_t ram_bytes, net, cpu;
+          get_resource_limits( res_itr->owner, ram_bytes, net, cpu );
+          set_resource_limits( res_itr->owner, res_itr->ram_bytes + ram_gift_bytes, net, cpu );
+        }
+
       } else {
-         userres.modify( res_itr, receiver, [&]( auto& res ) {
-               res.ram_bytes += bytes_out;
-            });
-      }
-
-      auto voter_itr = _voters.find( res_itr->owner.value );
-      if( voter_itr == _voters.end() || !has_field( voter_itr->flags1, voter_info::flags1_fields::ram_managed ) ) {
-         int64_t ram_bytes, net, cpu;
-         get_resource_limits( res_itr->owner, ram_bytes, net, cpu );
-         set_resource_limits( res_itr->owner, res_itr->ram_bytes + ram_gift_bytes, net, cpu );
+        print("Метод безопасно закрыт для вызова");
       }
     }
 
-  void system_contract::back_ram(int64_t bytes){
-    check( bytes > 0, "cannot back negative byte" );
-
-    asset tokens_out;
-    auto itr = _rammarket.find(ramcore_symbol.raw());
-    
-    _rammarket.modify( itr, same_payer, [&]( auto& es ) {
-        tokens_out = es.direct_convert( asset(bytes, ram_symbol), core_symbol());
-    });
-
-    check( tokens_out.amount > 1, "token amount received from selling ram is too low" );
-
-    _gstate.total_ram_bytes_reserved -= static_cast<decltype(_gstate.total_ram_bytes_reserved)>(bytes);
-    _gstate.total_ram_stake          -= tokens_out.amount;
-
-    check( _gstate.total_ram_stake >= 0, "error, attempt to unstake more tokens than previously staked" );
-    
-  }
 
   void system_contract::sellram( const name& account, int64_t bytes ) {
       require_auth(get_self());
       update_ram_supply();
-      print("on sell ram");
-      check( bytes > 0, "cannot sell negative byte" );
+      
+      powerup_state_singleton state_sing{ get_self(), 0 };
+      if (!state_sing.exists()) {
+        
+        check( bytes > 0, "cannot sell negative byte" );
 
-      user_resources_table  userres( get_self(), account.value );
-      auto res_itr = userres.find( account.value );
-      check( res_itr != userres.end(), "no resource row" );
-      check( res_itr->ram_bytes >= bytes, "insufficient quota" );
+        user_resources_table  userres( get_self(), account.value );
+        auto res_itr = userres.find( account.value );
+        check( res_itr != userres.end(), "no resource row" );
+        check( res_itr->ram_bytes >= bytes, "insufficient quota" );
 
-      back_ram(bytes);
+        check( bytes > 0, "cannot back negative byte" );
 
-      auto voter_itr = _voters.find( res_itr->owner.value );
-      if( voter_itr == _voters.end() || !has_field( voter_itr->flags1, voter_info::flags1_fields::ram_managed ) ) {
-         int64_t ram_usage, net, cpu;
-         get_resource_limits( res_itr->owner, ram_usage, net, cpu );
-         print("ram_usage: ", ram_usage);
-         print("ram_bytes: ", res_itr -> ram_bytes);
-         set_resource_limits( res_itr->owner, res_itr->ram_bytes + ram_gift_bytes, net, cpu );
+        asset tokens_out;
+        auto itr = _rammarket.find(ramcore_symbol.raw());
+        
+        _rammarket.modify( itr, same_payer, [&]( auto& es ) {
+            tokens_out = es.direct_convert( asset(bytes, ram_symbol), core_symbol());
+        });
+
+        check( tokens_out.amount > 1, "token amount received from selling ram is too low" );
+        
+        _gstate.total_ram_bytes_reserved -= static_cast<decltype(_gstate.total_ram_bytes_reserved)>(bytes);
+        _gstate.total_ram_stake          -= tokens_out.amount;
+        
+        check( _gstate.total_ram_stake >= 0, "error, attempt to unstake more tokens than previously staked" );
+        
+
+        auto voter_itr = _voters.find( res_itr->owner.value );
+        if( voter_itr == _voters.end() || !has_field( voter_itr->flags1, voter_info::flags1_fields::ram_managed ) ) {
+          int64_t ram_usage, net, cpu;
+          get_resource_limits( res_itr->owner, ram_usage, net, cpu );
+          set_resource_limits( res_itr->owner, res_itr->ram_bytes + ram_gift_bytes, net, cpu );
+        }
+
+        userres.modify( res_itr, same_payer, [&]( auto& res ) {
+            res.ram_bytes -= bytes;
+        });
+      } else {
+        print("Метод безопасно закрыт для вызова");
       }
-
-      userres.modify( res_itr, same_payer, [&]( auto& res ) {
-          res.ram_bytes -= bytes;
-      });
-
   }
 
    void system_contract::changebw( name from, const name& receiver,
@@ -350,8 +352,14 @@ namespace eosiosystem {
       check( stake_net_quantity >= zero_asset, "must stake a positive amount" );
       check( stake_net_quantity.amount + stake_cpu_quantity.amount > 0, "must stake a positive amount" );
       check( !transfer || from != receiver, "cannot use transfer flag if delegating to self" );
-
-      changebw( from, receiver, stake_net_quantity, stake_cpu_quantity, transfer);
+      
+      powerup_state_singleton state_sing{ get_self(), 0 };
+      if (!state_sing.exists()) {
+        changebw( from, receiver, stake_net_quantity, stake_cpu_quantity, transfer);
+      } else {
+        print("Метод безопасно закрыт для вызова");
+      }
+      
    } // delegatebw
 
    void system_contract::undelegatebw( const name& from, const name& receiver,
@@ -363,8 +371,14 @@ namespace eosiosystem {
       check( unstake_cpu_quantity.amount + unstake_net_quantity.amount > 0, "must unstake a positive amount" );
       check( _gstate.thresh_activated_stake_time != time_point(),
              "cannot undelegate bandwidth until the chain is activated (at least 15% of all tokens participate in voting)" );
-
-      changebw( from, receiver, -unstake_net_quantity, -unstake_cpu_quantity, false);
+      
+      powerup_state_singleton state_sing{ get_self(), 0 };
+      if (!state_sing.exists()) {
+        changebw( from, receiver, -unstake_net_quantity, -unstake_cpu_quantity, false);
+      } else {
+        print("Метод безопасно закрыт для вызова");
+      }
+      
    } // undelegatebw
 
 

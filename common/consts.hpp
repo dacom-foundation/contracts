@@ -83,14 +83,16 @@ static constexpr eosio::name _efund_withdraw_action = "subexp"_n;
     
 
     // Константы для тестовой сети
-    static constexpr eosio::name _ano = "anotest1"_n;
-    static constexpr eosio::name _gateway = "gatetest1"_n;
-    static constexpr eosio::name _draft = "drafttest1"_n;
-    static constexpr eosio::name _marketplace = "markettest1"_n;
-    static constexpr eosio::name _soviet = "soviettest1"_n;
-    static constexpr eosio::name _registrator = "regtest1"_n;
+    static constexpr eosio::name _ano = "anotest22222"_n;
+    static constexpr eosio::name _gateway = "gatetest2222"_n;
+    static constexpr eosio::name _draft = "drafttest222"_n;
+    static constexpr eosio::name _marketplace = "markettest22"_n;
+    static constexpr eosio::name _soviet = "soviettest22"_n;
+    static constexpr eosio::name _registrator = "regtest22222"_n;
     static constexpr eosio::name _system = "eosio"_n;
-    static constexpr eosio::name _fund = "fundtest1"_n;
+    static constexpr eosio::name _fund = "fundtest2222"_n;
+    static constexpr eosio::name _power_account = "eosio.power"_n;
+    static constexpr eosio::name _saving_account = "eosio.saving"_n;
 
     static constexpr eosio::symbol _root_symbol = eosio::symbol(eosio::symbol_code("AXON"), 4); /*!< системный токен */
     static constexpr eosio::name _root_contract = "eosio.token"_n; /*!< системный контракт */
@@ -104,9 +106,13 @@ static constexpr eosio::name _efund_withdraw_action = "subexp"_n;
     static constexpr uint64_t _stake_net_amount = 10000; /*!< оперативная память нового аккаунта */
 
     static constexpr uint64_t _signature_expiration = 86400 * 365 * 2;
-    static constexpr uint64_t _auction_name_length_limit = 6;
+    static constexpr uint64_t _auction_name_length_limit = 12;
     
     static constexpr uint64_t _deposit_expiration_seconds = 3600;
+    
+    static constexpr uint64_t _producers_percent = 900000; // 90%
+    static constexpr uint64_t _fund_percent = 100000; // 10%
+    
     
     
     
@@ -133,7 +139,9 @@ static constexpr eosio::name _efund_withdraw_action = "subexp"_n;
     static constexpr eosio::name _registrator = "registrator"_n;
     static constexpr eosio::name _system = "eosio"_n;
     static constexpr eosio::name _fund = "fund"_n;
-
+    static constexpr eosio::name _power_account = "eosio.power"_n;
+    static constexpr eosio::name _saving_account = "eosio.saving"_n;
+    
     static constexpr eosio::symbol _root_symbol = eosio::symbol(eosio::symbol_code("AXON"), 4); /*!< системный токен */
     static constexpr eosio::name _root_contract = "eosio.token"_n; /*!< системный контракт */
     static constexpr eosio::symbol RAM_symbol{"RAM", 0}; /*!< токен рынка оперативной памяти */
@@ -143,10 +151,12 @@ static constexpr eosio::name _efund_withdraw_action = "subexp"_n;
     static constexpr uint64_t _stake_net_amount = 10000; /*!< оперативная память нового аккаунта */
 
     static constexpr uint64_t _signature_expiration = 86400 * 365 * 2;
-    static constexpr uint64_t _auction_name_length_limit = 6;
+    static constexpr uint64_t _auction_name_length_limit = 12;
 
     static constexpr uint64_t _deposit_expiration_seconds = 3600;
     
+    static constexpr uint64_t _producers_percent = 900000; // 90%
+    static constexpr uint64_t _fund_percent = 100000; // 10%
 /**
 * @}
 */

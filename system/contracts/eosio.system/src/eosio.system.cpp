@@ -109,45 +109,6 @@ namespace eosiosystem {
       _gstate2.new_ram_per_block = bytes_per_block;
    }
 
-   int64_t system_contract::update_ram_debt_table(name payer, name account, int64_t ram_bytes) {
-        print(" on update debt for delta: ", ram_bytes);
-        ram_debts_table debts(get_self(), get_self().value);
-        int64_t remaining_ram = ram_bytes;
-        
-        auto debt_itr = debts.find(account.value);
-        if (debt_itr != debts.end()) {
-            int64_t debt = debt_itr->ram_debt;
-            print(" no prev debts: ", debt);
-            
-            // Calculate remaining debt or remaining ram after deducting debt
-            if(ram_bytes >= 0) {
-                if(ram_bytes >= debt) {
-                    remaining_ram = ram_bytes - debt;
-                    print(" remaining_ram_1: ", remaining_ram);
-                    debts.erase(debt_itr); // Debt is fully paid off, remove record
-                } else {
-                    debts.modify(debt_itr, same_payer, [&](auto& record) {
-                      record.ram_debt = debt - ram_bytes;
-                      print(" record.ram_debt: ", record.ram_debt);
-                    
-                    });
-                    remaining_ram = 0; // All available RAM used to pay off part of the debt
-                    print(" remaining_ram_2: ", remaining_ram);
-                }
-            }
-        } else if(ram_bytes < 0) {
-            // No existing debt, so insert new debt record if ram_bytes is negative
-            debts.emplace(payer, [&](auto& record) {
-                record.account = account;
-                record.ram_debt = ram_bytes; // Debt is the negative ram_bytes value
-            });
-
-            print(" new debt added");
-        }
-        print(" remaining_ram: ", remaining_ram);
-        return remaining_ram; // Return remaining RAM (could be positive or paid-off debt)
-    }
-
 #ifdef SYSTEM_BLOCKCHAIN_PARAMETERS
    extern "C" [[eosio::wasm_import]] void set_parameters_packed(const void*, size_t);
 #endif
@@ -505,46 +466,53 @@ void native::newaccount(const name& creator,
     
     check(has_auth(_registrator) || has_auth(get_self()), "Недостаточно прав доступа");
     
-    std::string account_name_str = new_account_name.to_string();
-    size_t name_length = account_name_str.size();
-    size_t dot_position = account_name_str.find('.');
+    name payer = has_auth(_registrator) ? _registrator : get_self();
 
-    // Проверка на максимум одну точку в имени аккаунта
-    int dot_count = std::count(account_name_str.begin(), account_name_str.end(), '.');
-    check(dot_count <= 1, "Account name can contain only one dot.");
+    if( creator != get_self() ) {
+         uint64_t tmp = new_account_name.value >> 4;
+         bool has_dot = false;
 
-    if (name_length < _auction_name_length_limit) {
-        // Не должны содержать точку
-        check(dot_position == std::string::npos, "Short domain names should not contain a dot.");
-        
-        // Регистрация только через аукцион
-        name_bid_table bids(get_self(), get_self().value);
-        auto current = bids.find(new_account_name.value);
-        check(current != bids.end(), "no active bid for name");
-        check(current->high_bidder == creator, "only highest bidder can claim");
-        check(current->high_bid < 0, "auction for name is not closed yet");
-        bids.erase(current);
-    } else if (name_length >= _auction_name_length_limit && name_length < 12) {
-        // Регистрация возможна только при наличии подписи аккаунта `_registrator`
-        check(dot_position == std::string::npos, "Names from 6 to 11 characters cannot have dots.");
-    }
+         for( uint32_t i = 0; i < 12; ++i ) {
+           has_dot |= !(tmp & 0x1f);
+           tmp >>= 5;
+         }
+         if( has_dot ) { // or is less than 12 characters
+            auto suffix = new_account_name.suffix();
+            if( suffix == new_account_name ) {
+               name_bid_table bids(get_self(), get_self().value);
+               auto current = bids.find( new_account_name.value );
+               check( current != bids.end(), "no active bid for name" );
+               check( current->high_bidder == creator, "only highest bidder can claim" );
+               check( current->high_bid < 0, "auction for name is not closed yet" );
+               bids.erase( current );
+            } else {
+               check( creator == suffix, "only suffix may create this account" );
+            }
+         }
+      }
 
-    if (dot_position != std::string::npos) {
-        check(dot_position != 0, "Account name should not start with a dot.");
-        
-        auto suffix = new_account_name.suffix();
-        check(suffix.length() <= _auction_name_length_limit, "Suffix must be a valid domain name with length <= 5.");
-        check(creator == suffix, "only suffix owner may create this account");
-    }
+      powerup_state_singleton state_sing{ get_self(), 0 };
+      /* если powerup активна, то все регистрации должны автоматически выдавать RAM из числа средств системного аккаунта бессрочно */
+      if (state_sing.exists()) {
+        // вызываем мтеод
+        auto state = state_sing.get();
+        auto core_symbol = system_contract::get_core_symbol();
+        asset register_amount = asset(_stake_net_amount + _stake_cpu_amount + _ram_bytes, core_symbol);
 
-    user_resources_table userres(get_self(), new_account_name.value);
-    userres.emplace(new_account_name, [&](auto& res) {
-        res.owner = new_account_name;
-        res.net_weight = asset(0, system_contract::get_core_symbol());
-        res.cpu_weight = asset(0, system_contract::get_core_symbol());
-    });
+        system_contract::powerup_action action{ get_self(), { {payer, system_contract::active_permission} } };
+        action.send( payer, new_account_name, state.powerup_days, register_amount, true );
+    
+      } else { 
+        user_resources_table  userres( get_self(), new_account_name.value );
 
-    set_resource_limits(new_account_name, 0, 0, 0);
+        userres.emplace( new_account_name, [&]( auto& res ) {
+          res.owner = new_account_name;
+          res.net_weight = asset( 0, system_contract::get_core_symbol() );
+          res.cpu_weight = asset( 0, system_contract::get_core_symbol() );
+        });
+
+        set_resource_limits( new_account_name, 0, 0, 0 );
+      }
 }
 
 void native::setabi( const name& acnt, const std::vector<char>& abi,

@@ -10,7 +10,7 @@ function usage() {
   exit 1
 }
 
-BUILD_TESTS=OFF
+BUILD_TESTS=ON
 
 if [ $# -ne 0 ]; then
   while getopts "c:l:h" opt; do
@@ -43,16 +43,16 @@ fi
 LEAP_DIR_CMAKE_OPTION=''
 
 if [[ "${BUILD_TESTS}" == "ON" ]]; then
-  if [[ ! -f "$LEAP_BUILD_DIR/lib/cmake/leap/leap-config.cmake" ]]; then
-    echo "Invalid path to Leap build directory: $LEAP_BUILD_DIR"
+  if [[ ! -f "/leap/build/lib/cmake/leap/leap-config.cmake" ]]; then
+    echo "Invalid path to Leap build directory: /leap/build"
     echo "Leap build directory is required to build tests. If you do not wish to build tests, leave off the -l option."
     echo "Cannot proceed. Exiting..."
     exit 1;
   fi
 
-  echo "Using Leap build directory at: $LEAP_BUILD_DIR"
+  echo "Using Leap build directory at: /leap/build"
   echo ""
-  LEAP_DIR_CMAKE_OPTION="-Dleap_DIR=${LEAP_BUILD_DIR}/lib/cmake/leap"
+  LEAP_DIR_CMAKE_OPTION="-Dleap_DIR=/leap/build/lib/cmake/leap"
 fi
 
 CDT_DIR_CMAKE_OPTION=''
@@ -61,16 +61,16 @@ if [[ -z $CDT_INSTALL_DIR ]]; then
   echo "No CDT location was specified. Assuming installed in standard location."
   echo ""
 else
-  if [[ ! -f "$CDT_INSTALL_DIR/lib/cmake/cdt/cdt-config.cmake" ]]; then
-    echo "Invalid path to CDT installation/build directory: $CDT_INSTALL_DIR"
+  if [[ ! -f "/cdt/build/lib/cmake/cdt/cdt-config.cmake" ]]; then
+    echo "Invalid path to CDT installation/build directory: /cdt/build/"
     echo "If CDT is installed at the standard system location, then you do not need to use the -c option."
     echo "Cannot proceed. Exiting..."
     exit 1;
   fi
   
-  echo "Using CDT installation/build at: $CDT_INSTALL_DIR"
+  echo "Using CDT installation/build at: /cdt/build/"
   echo ""
-  CDT_DIR_CMAKE_OPTION="-Dcdt_DIR=${CDT_INSTALL_DIR}/lib/cmake/cdt"
+  CDT_DIR_CMAKE_OPTION="-Dcdt_DIR=/cdt/build/lib/cmake/cdt"
 fi
 
 printf "\t=========== Building reference-contracts ===========\n\n"

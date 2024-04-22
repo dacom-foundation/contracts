@@ -931,6 +931,12 @@ public:
       return static_cast<uint64_t>( time_point::from_iso_string( v.as_string() ).time_since_epoch().count() );
    }
 
+   fc::variant get_emission_state() {
+      vector<char> data = get_row_by_account( config::system_account_name, config::system_account_name, "emission"_n, "emission"_n );
+      if (data.empty()) std::cout << "\nData is empty\n" << std::endl;
+      return data.empty() ? fc::variant() : abi_ser.binary_to_variant( "emission_state", data, abi_serializer::create_yield_function(abi_serializer_max_time) );
+   }
+
    fc::variant get_global_state() {
       vector<char> data = get_row_by_account( config::system_account_name, config::system_account_name, "global"_n, "global"_n );
       if (data.empty()) std::cout << "\nData is empty\n" << std::endl;

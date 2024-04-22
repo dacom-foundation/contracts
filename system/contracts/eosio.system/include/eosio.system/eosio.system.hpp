@@ -556,104 +556,37 @@ namespace eosiosystem {
       asset stake_change;
    };
 
-   struct powerup_config_resource {
-      std::optional<int64_t>        current_weight_ratio;   // Immediately set weight_ratio to this amount. 1x = 10^15. 0.01x = 10^13.
-                                                            //    Do not specify to preserve the existing setting or use the default;
-                                                            //    this avoids sudden price jumps. For new chains which don't need
-                                                            //    to gradually phase out staking and REX, 0.01x (10^13) is a good
-                                                            //    value for both current_weight_ratio and target_weight_ratio.
-      std::optional<int64_t>        target_weight_ratio;    // Linearly shrink weight_ratio to this amount. 1x = 10^15. 0.01x = 10^13.
-                                                            //    Do not specify to preserve the existing setting or use the default.
-      std::optional<int64_t>        assumed_stake_weight;   // Assumed stake weight for ratio calculations. Use the sum of total
-                                                            //    staked and total rented by REX at the time the power market
-                                                            //    is first activated. Do not specify to preserve the existing
-                                                            //    setting (no default exists); this avoids sudden price jumps.
-                                                            //    For new chains which don't need to phase out staking and REX,
-                                                            //    10^12 is probably a good value.
-      std::optional<time_point_sec> target_timestamp;       // Stop automatic weight_ratio shrinkage at this time. Once this
-                                                            //    time hits, weight_ratio will be target_weight_ratio. Ignored
-                                                            //    if current_weight_ratio == target_weight_ratio. Do not specify
-                                                            //    this to preserve the existing setting (no default exists).
-      std::optional<double>         exponent;               // Exponent of resource price curve. Must be >= 1. Do not specify
-                                                            //    to preserve the existing setting or use the default.
-      std::optional<uint32_t>       decay_secs;             // Number of seconds for the gap between adjusted resource
-                                                            //    utilization and instantaneous resource utilization to shrink
-                                                            //    by 63%. Do not specify to preserve the existing setting or
-                                                            //    use the default.
-      std::optional<asset>          min_price;              // Fee needed to reserve the entire resource market weight at the
-                                                            //    minimum price. For example, this could be set to 0.005% of
-                                                            //    total token supply. Do not specify to preserve the existing
-                                                            //    setting or use the default.
-      std::optional<asset>          max_price;              // Fee needed to reserve the entire resource market weight at the
-                                                            //    maximum price. For example, this could be set to 10% of total
-                                                            //    token supply. Do not specify to preserve the existing
-                                                            //    setting (no default exists).
-
-      EOSLIB_SERIALIZE( powerup_config_resource, (current_weight_ratio)(target_weight_ratio)(assumed_stake_weight)
-                                                (target_timestamp)(exponent)(decay_secs)(min_price)(max_price)    )
-   };
-
+   
    struct powerup_config {
-      powerup_config_resource  net;             // NET market configuration
-      powerup_config_resource  cpu;             // CPU market configuration
       std::optional<uint32_t> powerup_days;     // `powerup` `days` argument must match this. Do not specify to preserve the
                                                 //    existing setting or use the default.
       std::optional<asset>    min_powerup_fee;  // Fees below this amount are rejected. Do not specify to preserve the
                                                 //    existing setting (no default exists).
 
-      EOSLIB_SERIALIZE( powerup_config, (net)(cpu)(powerup_days)(min_powerup_fee) )
+      EOSLIB_SERIALIZE( powerup_config, (powerup_days)(min_powerup_fee) )
    };
 
    struct powerup_state_resource {
-      static constexpr double   default_exponent   = 2.0;                  // Exponent of 2.0 means that the price to reserve a
-                                                                           //    tiny amount of resources increases linearly
-                                                                           //    with utilization.
-      static constexpr uint32_t default_decay_secs = 1 * seconds_per_day;  // 1 day; if 100% of bandwidth resources are in a
-                                                                           //    single loan, then, assuming no further powerup usage,
-                                                                           //    1 day after it expires the adjusted utilization
-                                                                           //    will be at approximately 37% and after 3 days
-                                                                           //    the adjusted utilization will be less than 5%.
-
-      uint8_t        version                 = 0;
       int64_t        weight                  = 0;                  // resource market weight. calculated; varies over time.
                                                                    //    1 represents the same amount of resources as 1
                                                                    //    satoshi of SYS staked.
-      int64_t        weight_ratio            = 0;                  // resource market weight ratio:
-                                                                   //    assumed_stake_weight / (assumed_stake_weight + weight).
-                                                                   //    calculated; varies over time. 1x = 10^15. 0.01x = 10^13.
-      int64_t        assumed_stake_weight    = 0;                  // Assumed stake weight for ratio calculations.
-      int64_t        initial_weight_ratio    = powerup_frac;        // Initial weight_ratio used for linear shrinkage.
-      int64_t        target_weight_ratio     = powerup_frac / 100;  // Linearly shrink the weight_ratio to this amount.
-      time_point_sec initial_timestamp       = {};                 // When weight_ratio shrinkage started
-      time_point_sec target_timestamp        = {};                 // Stop automatic weight_ratio shrinkage at this time. Once this
-                                                                   //    time hits, weight_ratio will be target_weight_ratio.
-      double         exponent                = default_exponent;   // Exponent of resource price curve.
-      uint32_t       decay_secs              = default_decay_secs; // Number of seconds for the gap between adjusted resource
-                                                                   //    utilization and instantaneous utilization to shrink by 63%.
-      asset          min_price               = {};                 // Fee needed to reserve the entire resource market weight at
-                                                                   //    the minimum price (defaults to 0).
-      asset          max_price               = {};                 // Fee needed to reserve the entire resource market weight at
-                                                                   //    the maximum price.
       int64_t        utilization             = 0;                  // Instantaneous resource utilization. This is the current
                                                                    //    amount sold. utilization <= weight.
-      int64_t        adjusted_utilization    = 0;                  // Adjusted resource utilization. This is >= utilization and
-                                                                   //    <= weight. It grows instantly but decays exponentially.
-      time_point_sec utilization_timestamp   = {};                 // When adjusted_utilization was last updated
    };
 
-   struct [[eosio::table("powup.state"),eosio::contract("eosio.system")]] powerup_state {
+   struct [[eosio::table("powerstate"),eosio::contract("eosio.system")]] powerup_state {
       static constexpr uint32_t default_powerup_days = 30; // 30 day resource powerup
-
-      uint8_t                    version           = 0;
       powerup_state_resource     net               = {};                     // NET market state
       powerup_state_resource     cpu               = {};                     // CPU market state
+      powerup_state_resource     ram               = {};                     // RAM market state
+      
       uint32_t                   powerup_days      = default_powerup_days;   // `powerup` `days` argument must match this.
       asset                      min_powerup_fee   = {};                     // fees below this amount are rejected
 
       uint64_t primary_key()const { return 0; }
    };
 
-   typedef eosio::singleton<"powup.state"_n, powerup_state> powerup_state_singleton;
+   typedef eosio::singleton<"powerstate"_n, powerup_state> powerup_state_singleton;
 
 
 
@@ -665,8 +598,9 @@ namespace eosiosystem {
       eosio::time_point_sec      tact_open_at;                               // Дата открытия такта
       eosio::time_point_sec      tact_close_at;                              // Дата закрытия такта
       asset                      tact_fees;                                  // Накопленные комиссии такта
+      asset                      back_from_producers;                        // Вернулось в фонд от делегатских комиссий
       asset                      tact_emission;                              // Накопленная эмиссия такта
-
+      asset                      emission_start;                    // Подвижная граница начала эмиссии в такте
       uint64_t primary_key()const { return 0; }
    };
 
@@ -739,9 +673,7 @@ namespace eosiosystem {
          static constexpr eosio::name bpay_account{"eosio.bpay"_n};
          static constexpr eosio::name vpay_account{"eosio.vpay"_n};
          static constexpr eosio::name names_account{"eosio.names"_n};
-         static constexpr eosio::name saving_account{"eosio.saving"_n};
          static constexpr eosio::name rex_account{"eosio.rex"_n};
-         static constexpr eosio::name reserve_account{"eosio.power"_n}; // cspell:disable-line
          static constexpr eosio::name null_account{"eosio.null"_n};
          static constexpr symbol ramcore_symbol = symbol(symbol_code("RAMCORE"), 4);
          static constexpr symbol ram_symbol     = symbol(symbol_code("RAM"), 0);
@@ -1409,7 +1341,7 @@ namespace eosiosystem {
           *    `payer`'s token balance.
           */
          [[eosio::action]]
-         void powerup(const name& payer, const name& receiver, uint32_t days, const asset& payment);
+         void powerup(const name& payer, const name& receiver, uint32_t days, const asset& payment, const bool transfer = false);
 
          /**
           * limitauthchg opts into or out of restrictions on updateauth, deleteauth, linkauth, and unlinkauth.
@@ -1544,8 +1476,6 @@ namespace eosiosystem {
                         const asset& stake_net_quantity, const asset& stake_cpu_quantity, bool transfer );
          void update_voting_power( const name& voter, const asset& total_update );
          
-         uint64_t get_ram(const asset& quant);
-         void back_ram(int64_t bytes);
          // defined in voting.cpp
          void register_producer( const name& producer, const eosio::block_signing_authority& producer_authority, const std::string& url, uint16_t location );
          void update_elected_producers( const block_timestamp& timestamp );
@@ -1590,13 +1520,13 @@ namespace eosiosystem {
          registration<&system_contract::update_rex_stake> vote_stake_updater{ this };
 
          // defined in power.cpp
+         void fill_tact(eosio::name payer, eosio::asset payment);
          void adjust_resources(name payer, name account, symbol core_symbol, int64_t net_delta, int64_t cpu_delta, int64_t ram_delta, bool must_not_be_managed = false);
          void process_powerup_queue(
             time_point_sec now, symbol core_symbol, powerup_state& state,
             powerup_order_table& orders, uint32_t max_items, int64_t& net_delta_available,
-            int64_t& cpu_delta_available);
-         void update_tact(eosio::name payer);
-         void fill_tact(eosio::name payer, eosio::asset payment);
+            int64_t& cpu_delta_available, int64_t& ram_delta_available);
+         void update_tact();
          void change_weights(eosio::name payer, eosio::asset new_emission);
          // defined in block_info.cpp
          void add_to_blockinfo_table(const eosio::checksum256& previous_block_id, const eosio::block_timestamp timestamp) const;
