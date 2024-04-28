@@ -26,8 +26,9 @@ void verify(const document& doc) {
 
 struct [[eosio::table, eosio::contract(DRAFT)]] drafts {
   uint64_t id;
+  uint64_t registry_id;
   eosio::name creator;
-  eosio::name action_name;
+  std::vector<eosio::name> actions;
   uint64_t version;
   uint64_t default_translation_id;
   std::string title;
@@ -35,30 +36,15 @@ struct [[eosio::table, eosio::contract(DRAFT)]] drafts {
   std::string context;
   std::string model;
   
-  bool is_published;
-  bool is_activated;
-  bool is_approved;
-  bool is_standartized;
-
   uint64_t primary_key() const { return id; };
 
-  uint64_t by_action() const { return action_name.value; };
-  
-  uint128_t by_action_version() const {
-    return combine_ids(action_name.value, version);
-  };
-
-  uint128_t by_action_active() const {
-    return combine_ids(action_name.value, is_activated == true ? 1 : 0);
-  };
+  uint64_t by_registry_id() const { return registry_id;}
 
 };
 
 typedef eosio::multi_index<
     "drafts"_n, drafts,
-    eosio::indexed_by<"byaction"_n, eosio::const_mem_fun<drafts, uint64_t, &drafts::by_action>>,
-    eosio::indexed_by< "byactversion"_n, eosio::const_mem_fun<drafts, uint128_t, &drafts::by_action_version>>,
-    eosio::indexed_by< "byactactive"_n, eosio::const_mem_fun<drafts, uint128_t, &drafts::by_action_active>>
+    eosio::indexed_by< "byregistryid"_n, eosio::const_mem_fun<drafts, uint64_t, &drafts::by_registry_id>>
 > drafts_index;
 
 

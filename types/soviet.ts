@@ -438,6 +438,7 @@ export interface Votefor {
 
 export interface Wallets {
   username: Name
+  coopname: Name
   available: Asset
   blocked: Asset
   minimum: Asset

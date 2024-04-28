@@ -72,20 +72,22 @@ static constexpr eosio::name _efund_withdraw_action = "subexp"_n;
 
 #if IS_TESTNET
     // Дефайны для тестовой сети
-    #define ANO "anotest1"
-    #define GATEWAY "gatetest1"
-    #define DRAFT "drafttest1"
-    #define MARKETPLACE "markettest1"
-    #define SOVIET "soviettest1"
-    #define REGISTRATOR "regtest1"
+    #define ANO "anotest22222"
+    #define GATEWAY "gatetest2222"
+    #define DRAFT "drafttest222"
+    #define TEMPLATE "template2222"
+    #define MARKETPLACE "markettest22"
+    #define SOVIET "soviettest22"
+    #define REGISTRATOR "regtest22222"
     #define SYSTEM "eosio"
-    #define FUND "fundtest1"
+    #define FUND "fundtest2222"
     
 
     // Константы для тестовой сети
     static constexpr eosio::name _ano = "anotest22222"_n;
     static constexpr eosio::name _gateway = "gatetest2222"_n;
     static constexpr eosio::name _draft = "drafttest222"_n;
+    static constexpr eosio::name _template = "template2222"_n;
     static constexpr eosio::name _marketplace = "markettest22"_n;
     static constexpr eosio::name _soviet = "soviettest22"_n;
     static constexpr eosio::name _registrator = "regtest22222"_n;
@@ -121,6 +123,7 @@ static constexpr eosio::name _efund_withdraw_action = "subexp"_n;
     #define ANO "ano"
     #define GATEWAY "gateway"
     #define DRAFT "draft"
+    #define DRAFT "template"
     #define MARKETPLACE "marketplace"
     #define SOVIET "soviet"
     #define REGISTRATOR "registrator"
@@ -134,6 +137,7 @@ static constexpr eosio::name _efund_withdraw_action = "subexp"_n;
     static constexpr eosio::name _ano = "ano"_n;
     static constexpr eosio::name _gateway = "gateway"_n;
     static constexpr eosio::name _draft = "draft"_n;
+    static constexpr eosio::name _template = "template"_n;
     static constexpr eosio::name _marketplace = "marketplace"_n;
     static constexpr eosio::name _soviet = "soviet"_n;
     static constexpr eosio::name _registrator = "registrator"_n;

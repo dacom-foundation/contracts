@@ -3,14 +3,6 @@
 export type Name = string
 export type Uint64 = number | string
 
-export interface Approvedraft {
-  draft_id: Uint64
-}
-
-export interface Approvetrans {
-  translate_id: Uint64
-}
-
 export interface Counts extends CountsBase {
 }
 
@@ -21,9 +13,7 @@ export interface CountsBase {
 }
 
 export interface Createdraft {
-  creator: Name
-  action_name: Name
-  version: Uint64
+  registry_id: Uint64
   lang: Name
   title: string
   description: string
@@ -33,41 +23,26 @@ export interface Createdraft {
 }
 
 export interface Createtrans {
-  creator: Name
   draft_id: Uint64
   lang: Name
   data: string
 }
 
 export interface Deldraft {
-  creator: Name
   draft_id: Uint64
 }
 
 export interface Deltrans {
-  creator: Name
   translate_id: Uint64
 }
 
 export interface Drafts {
   id: Uint64
+  registry_id: Uint64
   creator: Name
-  action_name: Name
+  actions: Name[]
   version: Uint64
   default_translation_id: Uint64
-  title: string
-  description: string
-  context: string
-  model: string
-  is_published: boolean
-  is_activated: boolean
-  is_approved: boolean
-  is_standartized: boolean
-}
-
-export interface Editdraft {
-  creator: Name
-  draft_id: Uint64
   title: string
   description: string
   context: string
@@ -75,27 +50,12 @@ export interface Editdraft {
 }
 
 export interface Edittrans {
-  creator: Name
   translate_id: Uint64
   data: string
 }
 
 export interface Newid {
   id: Uint64
-}
-
-export interface Publishdraft {
-  creator: Name
-  draft_id: Uint64
-}
-
-export interface Publishtrans {
-  creator: Name
-  translate_id: Uint64
-}
-
-export interface Standardize {
-  draft_id: Uint64
 }
 
 export interface Translations {

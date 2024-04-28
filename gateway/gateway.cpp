@@ -53,21 +53,18 @@ void gateway::newwithdrid(eosio::name username, uint64_t id) {
   uint64_t id = get_global_id(_gateway, "deposits"_n);
 
   auto cooperative = get_cooperative_or_fail(coopname);
-  print("on here1");
+  
   eosio::check(type == "registration"_n || type == "deposit"_n, "Неверный тип заявки");
   eosio::check(quantity.amount > 0, "Сумма ввода должна быть положительной");
-  print("on here2");
+
   if (type == "deposit"_n) {
     participants_index participants(_soviet, coopname.value);
     auto participant = participants.find(username.value);
-    print("on here3");
     eosio::check(participant != participants.end(), "Вы не являетесь пайщиком указанного кооператива");
     eosio::check(participant -> is_active(), "Ваш аккаунт не активен в указанном кооперативе");
-    print("on here4");
   } else {
     eosio::check(quantity == cooperative.registration, "Сумма минимального взноса не соответствует установленной в кооперативе");
   }
-  print("on here5");
   deposits.emplace(payer, [&](auto &d) {
     d.id = id;
     d.type = type;

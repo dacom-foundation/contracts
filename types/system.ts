@@ -185,7 +185,17 @@ export interface Deposit {
   amount: Asset
 }
 
-export interface Emit {
+export interface EmissionState {
+  tact_number: Uint64
+  tact_duration: Uint64
+  emission_factor: Float64
+  current_supply: Asset
+  tact_open_at: TimePointSec
+  tact_close_at: TimePointSec
+  tact_fees: Asset
+  back_from_producers: Asset
+  tact_emission: Asset
+  emission_start: Asset
 }
 
 export interface EosioGlobalState extends BlockchainParameters {
@@ -244,6 +254,12 @@ export interface Fundnetloan {
 export interface Init {
   version: Varuint32
   core: Symbol
+}
+
+export interface Initemission {
+  init_supply: Asset
+  tact_duration: Uint64
+  emission_factor: Float64
 }
 
 export interface KeyWeight {
@@ -317,27 +333,13 @@ export interface Powerup {
   payer: Name
   receiver: Name
   days: Uint32
-  net_frac: Int64
-  cpu_frac: Int64
-  max_payment: Asset
+  payment: Asset
+  transfer: boolean
 }
 
 export interface PowerupConfig {
-  net: PowerupConfigResource
-  cpu: PowerupConfigResource
   powerup_days?: Uint32
   min_powerup_fee?: Asset
-}
-
-export interface PowerupConfigResource {
-  current_weight_ratio?: Int64
-  target_weight_ratio?: Int64
-  assumed_stake_weight?: Int64
-  target_timestamp?: TimePointSec
-  exponent?: Float64
-  decay_secs?: Uint32
-  min_price?: Asset
-  max_price?: Asset
 }
 
 export interface PowerupOrder {
@@ -346,33 +348,21 @@ export interface PowerupOrder {
   owner: Name
   net_weight: Int64
   cpu_weight: Int64
+  ram_bytes: Int64
   expires: TimePointSec
 }
 
 export interface PowerupState {
-  version: Uint8
   net: PowerupStateResource
   cpu: PowerupStateResource
+  ram: PowerupStateResource
   powerup_days: Uint32
   min_powerup_fee: Asset
 }
 
 export interface PowerupStateResource {
-  version: Uint8
   weight: Int64
-  weight_ratio: Int64
-  assumed_stake_weight: Int64
-  initial_weight_ratio: Int64
-  target_weight_ratio: Int64
-  initial_timestamp: TimePointSec
-  target_timestamp: TimePointSec
-  exponent: Float64
-  decay_secs: Uint32
-  min_price: Asset
-  max_price: Asset
   utilization: Int64
-  adjusted_utilization: Int64
-  utilization_timestamp: TimePointSec
 }
 
 export interface Powerupexec {
@@ -406,6 +396,11 @@ export interface ProducerKey {
 export interface ProducerSchedule {
   version: Uint32
   producers: ProducerKey[]
+}
+
+export interface RamDebtRecord {
+  account: Name
+  ram_debt: Int64
 }
 
 export interface Refund {

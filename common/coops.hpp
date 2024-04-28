@@ -32,6 +32,7 @@ struct [[eosio::table, eosio::contract(SOVIET)]] boards {
   // (other, _('Other committee')),   # Другая комиссия
   std::string name; ///< Название доски.
   std::string description; ///< Описание доски.
+  
   std::vector<board_member> members; ///< Список членов доски.
 
   eosio::time_point_sec created_at; ///< Время создания доски.

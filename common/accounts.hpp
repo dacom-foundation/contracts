@@ -47,7 +47,7 @@ struct [[eosio::table, eosio::contract(REGISTRATOR)]] accounts {
   // "active" - активный аккаунт;
   // "blocked" - заблокированный аккаунт;
   // "deleted" - удален пользователем;
-  uint64_t reputation; ///< Репутация аккаунта, возможно, связанная с его деятельностью.
+  uint64_t reputation; ///< Репутация аккаунта
   eosio::asset registration_amount; ///< Количество токенов, которое требуется для регистрации.
   eosio::time_point_sec registered_at; ///< Время регистрации аккаунта.
   eosio::time_point_sec signature_expires_at; ///< Время истечения срока действия подписи аккаунта.
@@ -165,18 +165,6 @@ struct bank {
 */
 struct org_data {
     storage storage; ///< Хранилища персональных данных и идентификаторы данных в них.
-    // TODO - то, что сохраняем в сторадже:    
-    // std::string name; ///< Полное наименование
-    // std::string short_name; ///< Краткое наименование
-    // std::string address; ///< Юридический адрес
-    // std::string ogrn; ///< ОГРН
-    // std::string inn; ///< ИНН
-    // std::string logo; ///< Логотип
-    // std::string phone; ///< Номер телефона
-    // std::string email; ///< Электронная почта
-    // std::string registration; ///< Дата регистрации юрлица
-    // std::string website; ///< Веб-сайт
-    // std::vector<bank> accounts; ///< Банковские счета
 
     bool is_cooperative = false; ///< Является ли кооперативом
     eosio::name coop_type; ///< Тип кооператива (union, conscoop, prodcoop, agricoop, builderscoop, nonprofitorg)
