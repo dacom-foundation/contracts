@@ -1,0 +1,335 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structeosiosystem_1_1exchange__state" kind="struct" language="C++" prot="public">
+    <compoundname>eosiosystem::exchange_state</compoundname>
+    <includes refid="rammarket_8hpp" local="no">rammarket.hpp</includes>
+    <innerclass refid="structeosiosystem_1_1exchange__state_1_1connector" prot="public">eosiosystem::exchange_state::connector</innerclass>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeosiosystem_1_1exchange__state_1a46dd436b7c53a2cc5fb718f18176f55f" prot="public" static="no" mutable="no">
+        <type>asset</type>
+        <definition>asset eosiosystem::exchange_state::supply</definition>
+        <argsstring></argsstring>
+        <name>supply</name>
+        <qualifiedname>eosiosystem::exchange_state::supply</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/rammarket.hpp" line="19" column="9" bodyfile="common/rammarket.hpp" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1exchange__state_1a64022b0822ac4b53ff484590f76ef021" prot="public" static="no" mutable="no">
+        <type><ref refid="structeosiosystem_1_1exchange__state_1_1connector" kindref="compound">connector</ref></type>
+        <definition>connector eosiosystem::exchange_state::base</definition>
+        <argsstring></argsstring>
+        <name>base</name>
+        <qualifiedname>eosiosystem::exchange_state::base</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/rammarket.hpp" line="28" column="13" bodyfile="common/rammarket.hpp" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1exchange__state_1a193594141203ddbb6a37d7cf56201f7f" prot="public" static="no" mutable="no">
+        <type><ref refid="structeosiosystem_1_1exchange__state_1_1connector" kindref="compound">connector</ref></type>
+        <definition>connector eosiosystem::exchange_state::quote</definition>
+        <argsstring></argsstring>
+        <name>quote</name>
+        <qualifiedname>eosiosystem::exchange_state::quote</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/rammarket.hpp" line="29" column="13" bodyfile="common/rammarket.hpp" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeosiosystem_1_1exchange__state_1a124e84f589746ad2bada2ea98af5b5e2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t eosiosystem::exchange_state::primary_key</definition>
+        <argsstring>() const</argsstring>
+        <name>primary_key</name>
+        <qualifiedname>eosiosystem::exchange_state::primary_key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/rammarket.hpp" line="31" column="12" bodyfile="common/rammarket.hpp" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="structeosiosystem_1_1exchange__state_1a7c029ed83a27b04524911cf1c3f647c8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>asset</type>
+        <definition>asset eosiosystem::exchange_state::convert_to_exchange</definition>
+        <argsstring>(connector &amp;c, asset in)</argsstring>
+        <name>convert_to_exchange</name>
+        <qualifiedname>eosiosystem::exchange_state::convert_to_exchange</qualifiedname>
+        <param>
+          <type><ref refid="structeosiosystem_1_1exchange__state_1_1connector" kindref="compound">connector</ref> &amp;</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type>asset</type>
+          <declname>in</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/rammarket.hpp" line="33" column="9" bodyfile="common/rammarket.hpp" bodystart="33" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="structeosiosystem_1_1exchange__state_1ade7bfd99be01e15093f27d95a3013ba7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>asset</type>
+        <definition>asset eosiosystem::exchange_state::convert_from_exchange</definition>
+        <argsstring>(connector &amp;c, asset in)</argsstring>
+        <name>convert_from_exchange</name>
+        <qualifiedname>eosiosystem::exchange_state::convert_from_exchange</qualifiedname>
+        <param>
+          <type><ref refid="structeosiosystem_1_1exchange__state_1_1connector" kindref="compound">connector</ref> &amp;</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type>asset</type>
+          <declname>in</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/rammarket.hpp" line="49" column="9" bodyfile="common/rammarket.hpp" bodystart="49" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="structeosiosystem_1_1exchange__state_1a9b44e4142697e729fe05dc028b932c0e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>asset</type>
+        <definition>asset eosiosystem::exchange_state::convert</definition>
+        <argsstring>(asset from, const symbol &amp;to)</argsstring>
+        <name>convert</name>
+        <qualifiedname>eosiosystem::exchange_state::convert</qualifiedname>
+        <param>
+          <type>asset</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const symbol &amp;</type>
+          <declname>to</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/rammarket.hpp" line="73" column="9" bodyfile="common/rammarket.hpp" bodystart="73" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="structeosiosystem_1_1exchange__state_1a124e84f589746ad2bada2ea98af5b5e2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t eosiosystem::exchange_state::primary_key</definition>
+        <argsstring>() const</argsstring>
+        <name>primary_key</name>
+        <qualifiedname>eosiosystem::exchange_state::primary_key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/exchange_state.hpp" line="30" column="16" bodyfile="system/contracts/eosio.system/include/eosio.system/exchange_state.hpp" bodystart="30" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="structeosiosystem_1_1exchange__state_1aa6e00de0427eba26f16acc1d0c85e5a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>asset</type>
+        <definition>asset eosiosystem::exchange_state::convert_to_exchange</definition>
+        <argsstring>(connector &amp;reserve, const asset &amp;payment)</argsstring>
+        <name>convert_to_exchange</name>
+        <qualifiedname>eosiosystem::exchange_state::convert_to_exchange</qualifiedname>
+        <param>
+          <type><ref refid="structeosiosystem_1_1exchange__state_1_1connector" kindref="compound">connector</ref> &amp;</type>
+          <declname>reserve</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>payment</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/exchange_state.hpp" line="32" column="13" bodyfile="system/contracts/eosio.system/src/exchange_state.cpp" bodystart="12" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structeosiosystem_1_1exchange__state_1a7056cfffba84abdf75b38f2d81d95ccd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>asset</type>
+        <definition>asset eosiosystem::exchange_state::convert_from_exchange</definition>
+        <argsstring>(connector &amp;reserve, const asset &amp;tokens)</argsstring>
+        <name>convert_from_exchange</name>
+        <qualifiedname>eosiosystem::exchange_state::convert_from_exchange</qualifiedname>
+        <param>
+          <type><ref refid="structeosiosystem_1_1exchange__state_1_1connector" kindref="compound">connector</ref> &amp;</type>
+          <declname>reserve</declname>
+        </param>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>tokens</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/exchange_state.hpp" line="33" column="13" bodyfile="system/contracts/eosio.system/src/exchange_state.cpp" bodystart="20" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="structeosiosystem_1_1exchange__state_1aff0f484e4eac6b51e3b01839a884e12e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>asset</type>
+        <definition>asset eosiosystem::exchange_state::convert</definition>
+        <argsstring>(const asset &amp;from, const symbol &amp;to)</argsstring>
+        <name>convert</name>
+        <qualifiedname>eosiosystem::exchange_state::convert</qualifiedname>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const symbol &amp;</type>
+          <declname>to</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/exchange_state.hpp" line="34" column="13" bodyfile="system/contracts/eosio.system/src/exchange_state.cpp" bodystart="28" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="structeosiosystem_1_1exchange__state_1a048b1798df129a50aade23df905cd87b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>asset</type>
+        <definition>asset eosiosystem::exchange_state::direct_convert</definition>
+        <argsstring>(const asset &amp;from, const symbol &amp;to)</argsstring>
+        <name>direct_convert</name>
+        <qualifiedname>eosiosystem::exchange_state::direct_convert</qualifiedname>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const symbol &amp;</type>
+          <declname>to</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/exchange_state.hpp" line="35" column="13" bodyfile="system/contracts/eosio.system/src/exchange_state.cpp" bodystart="45" bodyend="47"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeosiosystem_1_1exchange__state_1a599d5f2fd340508ef808f7a9e7f7f700" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t eosiosystem::exchange_state::get_bancor_output</definition>
+        <argsstring>(int64_t inp_reserve, int64_t out_reserve, int64_t inp)</argsstring>
+        <name>get_bancor_output</name>
+        <qualifiedname>eosiosystem::exchange_state::get_bancor_output</qualifiedname>
+        <param>
+          <type>int64_t</type>
+          <declname>inp_reserve</declname>
+        </param>
+        <param>
+          <type>int64_t</type>
+          <declname>out_reserve</declname>
+        </param>
+        <param>
+          <type>int64_t</type>
+          <declname>inp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/exchange_state.hpp" line="37" column="22" bodyfile="system/contracts/eosio.system/src/exchange_state.cpp" bodystart="49" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="structeosiosystem_1_1exchange__state_1aab488cbf49b061bbb660f1bf5add2cf6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t eosiosystem::exchange_state::get_bancor_input</definition>
+        <argsstring>(int64_t out_reserve, int64_t inp_reserve, int64_t out)</argsstring>
+        <name>get_bancor_input</name>
+        <qualifiedname>eosiosystem::exchange_state::get_bancor_input</qualifiedname>
+        <param>
+          <type>int64_t</type>
+          <declname>out_reserve</declname>
+        </param>
+        <param>
+          <type>int64_t</type>
+          <declname>inp_reserve</declname>
+        </param>
+        <param>
+          <type>int64_t</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/exchange_state.hpp" line="40" column="22" bodyfile="system/contracts/eosio.system/src/exchange_state.cpp" bodystart="54" bodyend="57"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Uses Bancor math to create a 50/50 relay between two asset types. The state of the bancor exchange is entirely contained within this struct. There are no external side effects associated with using this API. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>asset</label>
+      </node>
+      <node id="1">
+        <label>eosiosystem::exchange_state</label>
+        <link refid="structeosiosystem_1_1exchange__state"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>supply</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>base</edgelabel>
+          <edgelabel>quote</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eosiosystem::exchange_state::connector</label>
+        <link refid="structeosiosystem_1_1exchange__state_1_1connector"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>balance</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="common/rammarket.hpp" line="18" column="1" bodyfile="common/rammarket.hpp" bodystart="18" bodyend="109"/>
+    <listofallmembers>
+      <member refid="structeosiosystem_1_1exchange__state_1a64022b0822ac4b53ff484590f76ef021" prot="public" virt="non-virtual"><scope>eosiosystem::exchange_state</scope><name>base</name></member>
+      <member refid="structeosiosystem_1_1exchange__state_1a9b44e4142697e729fe05dc028b932c0e" prot="public" virt="non-virtual"><scope>eosiosystem::exchange_state</scope><name>convert</name></member>
+      <member refid="structeosiosystem_1_1exchange__state_1aff0f484e4eac6b51e3b01839a884e12e" prot="public" virt="non-virtual"><scope>eosiosystem::exchange_state</scope><name>convert</name></member>
+      <member refid="structeosiosystem_1_1exchange__state_1ade7bfd99be01e15093f27d95a3013ba7" prot="public" virt="non-virtual"><scope>eosiosystem::exchange_state</scope><name>convert_from_exchange</name></member>
+      <member refid="structeosiosystem_1_1exchange__state_1a7056cfffba84abdf75b38f2d81d95ccd" prot="public" virt="non-virtual"><scope>eosiosystem::exchange_state</scope><name>convert_from_exchange</name></member>
+      <member refid="structeosiosystem_1_1exchange__state_1a7c029ed83a27b04524911cf1c3f647c8" prot="public" virt="non-virtual"><scope>eosiosystem::exchange_state</scope><name>convert_to_exchange</name></member>
+      <member refid="structeosiosystem_1_1exchange__state_1aa6e00de0427eba26f16acc1d0c85e5a7" prot="public" virt="non-virtual"><scope>eosiosystem::exchange_state</scope><name>convert_to_exchange</name></member>
+      <member refid="structeosiosystem_1_1exchange__state_1a048b1798df129a50aade23df905cd87b" prot="public" virt="non-virtual"><scope>eosiosystem::exchange_state</scope><name>direct_convert</name></member>
+      <member refid="structeosiosystem_1_1exchange__state_1aab488cbf49b061bbb660f1bf5add2cf6" prot="public" virt="non-virtual"><scope>eosiosystem::exchange_state</scope><name>get_bancor_input</name></member>
+      <member refid="structeosiosystem_1_1exchange__state_1a599d5f2fd340508ef808f7a9e7f7f700" prot="public" virt="non-virtual"><scope>eosiosystem::exchange_state</scope><name>get_bancor_output</name></member>
+      <member refid="structeosiosystem_1_1exchange__state_1a124e84f589746ad2bada2ea98af5b5e2" prot="public" virt="non-virtual"><scope>eosiosystem::exchange_state</scope><name>primary_key</name></member>
+      <member refid="structeosiosystem_1_1exchange__state_1a124e84f589746ad2bada2ea98af5b5e2" prot="public" virt="non-virtual"><scope>eosiosystem::exchange_state</scope><name>primary_key</name></member>
+      <member refid="structeosiosystem_1_1exchange__state_1a193594141203ddbb6a37d7cf56201f7f" prot="public" virt="non-virtual"><scope>eosiosystem::exchange_state</scope><name>quote</name></member>
+      <member refid="structeosiosystem_1_1exchange__state_1a46dd436b7c53a2cc5fb718f18176f55f" prot="public" virt="non-virtual"><scope>eosiosystem::exchange_state</scope><name>supply</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

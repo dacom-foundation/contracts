@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structeosiosystem_1_1rex__loan" kind="struct" language="C++" prot="public">
+    <compoundname>eosiosystem::rex_loan</compoundname>
+    <includes refid="eosio_8system_8hpp" local="no">eosio.system.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeosiosystem_1_1rex__loan_1a0b4256fabf5de5140d7454287b7ce635" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t eosiosystem::rex_loan::version</definition>
+        <argsstring></argsstring>
+        <name>version</name>
+        <qualifiedname>eosiosystem::rex_loan::version</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="512" column="27" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="512" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1rex__loan_1a59654a42de37d5f6ad11ef7b1ca8845f" prot="public" static="no" mutable="no">
+        <type>name</type>
+        <definition>name eosiosystem::rex_loan::from</definition>
+        <argsstring></argsstring>
+        <name>from</name>
+        <qualifiedname>eosiosystem::rex_loan::from</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="513" column="27" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="513" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1rex__loan_1ad28a74d7cfcfcbe1c7502c49f34ab988" prot="public" static="no" mutable="no">
+        <type>name</type>
+        <definition>name eosiosystem::rex_loan::receiver</definition>
+        <argsstring></argsstring>
+        <name>receiver</name>
+        <qualifiedname>eosiosystem::rex_loan::receiver</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="514" column="27" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="514" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1rex__loan_1aa0eb3d72cb30bc2b205cebab93a2c4f2" prot="public" static="no" mutable="no">
+        <type>asset</type>
+        <definition>asset eosiosystem::rex_loan::payment</definition>
+        <argsstring></argsstring>
+        <name>payment</name>
+        <qualifiedname>eosiosystem::rex_loan::payment</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="515" column="27" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="515" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1rex__loan_1aaa8b37af599e458df1cc4a4557558c34" prot="public" static="no" mutable="no">
+        <type>asset</type>
+        <definition>asset eosiosystem::rex_loan::balance</definition>
+        <argsstring></argsstring>
+        <name>balance</name>
+        <qualifiedname>eosiosystem::rex_loan::balance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="516" column="27" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="516" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1rex__loan_1a030741dbdcc390ac07da48560f86a39b" prot="public" static="no" mutable="no">
+        <type>asset</type>
+        <definition>asset eosiosystem::rex_loan::total_staked</definition>
+        <argsstring></argsstring>
+        <name>total_staked</name>
+        <qualifiedname>eosiosystem::rex_loan::total_staked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="517" column="27" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="517" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1rex__loan_1a5727e851ef16e34096c5f3864a43d994" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t eosiosystem::rex_loan::loan_num</definition>
+        <argsstring></argsstring>
+        <name>loan_num</name>
+        <qualifiedname>eosiosystem::rex_loan::loan_num</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="518" column="27" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="518" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1rex__loan_1ab9f18e11705c3798b616cf7caf476590" prot="public" static="no" mutable="no">
+        <type>eosio::time_point</type>
+        <definition>eosio::time_point eosiosystem::rex_loan::expiration</definition>
+        <argsstring></argsstring>
+        <name>expiration</name>
+        <qualifiedname>eosiosystem::rex_loan::expiration</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="519" column="27" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="519" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeosiosystem_1_1rex__loan_1a98d977e47a68a99e7af5283f5d7621d9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t eosiosystem::rex_loan::primary_key</definition>
+        <argsstring>() const</argsstring>
+        <name>primary_key</name>
+        <qualifiedname>eosiosystem::rex_loan::primary_key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="521" column="16" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="521" bodyend="521"/>
+      </memberdef>
+      <memberdef kind="function" id="structeosiosystem_1_1rex__loan_1a7e1408b91e4d52c1381ce8f99b9eb521" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t eosiosystem::rex_loan::by_expr</definition>
+        <argsstring>() const</argsstring>
+        <name>by_expr</name>
+        <qualifiedname>eosiosystem::rex_loan::by_expr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="522" column="16" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="522" bodyend="522"/>
+      </memberdef>
+      <memberdef kind="function" id="structeosiosystem_1_1rex__loan_1a5dc4c8b0bf062ea5a729db6c859c033d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t eosiosystem::rex_loan::by_owner</definition>
+        <argsstring>() const</argsstring>
+        <name>by_owner</name>
+        <qualifiedname>eosiosystem::rex_loan::by_owner</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="523" column="16" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="523" bodyend="523"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>asset</label>
+      </node>
+      <node id="2">
+        <label>name</label>
+      </node>
+      <node id="4">
+        <label>time_point</label>
+      </node>
+      <node id="1">
+        <label>eosiosystem::rex_loan</label>
+        <link refid="structeosiosystem_1_1rex__loan"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>from</edgelabel>
+          <edgelabel>receiver</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>balance</edgelabel>
+          <edgelabel>payment</edgelabel>
+          <edgelabel>total_staked</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>expiration</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="511" column="4" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="511" bodyend="524"/>
+    <listofallmembers>
+      <member refid="structeosiosystem_1_1rex__loan_1aaa8b37af599e458df1cc4a4557558c34" prot="public" virt="non-virtual"><scope>eosiosystem::rex_loan</scope><name>balance</name></member>
+      <member refid="structeosiosystem_1_1rex__loan_1a7e1408b91e4d52c1381ce8f99b9eb521" prot="public" virt="non-virtual"><scope>eosiosystem::rex_loan</scope><name>by_expr</name></member>
+      <member refid="structeosiosystem_1_1rex__loan_1a5dc4c8b0bf062ea5a729db6c859c033d" prot="public" virt="non-virtual"><scope>eosiosystem::rex_loan</scope><name>by_owner</name></member>
+      <member refid="structeosiosystem_1_1rex__loan_1ab9f18e11705c3798b616cf7caf476590" prot="public" virt="non-virtual"><scope>eosiosystem::rex_loan</scope><name>expiration</name></member>
+      <member refid="structeosiosystem_1_1rex__loan_1a59654a42de37d5f6ad11ef7b1ca8845f" prot="public" virt="non-virtual"><scope>eosiosystem::rex_loan</scope><name>from</name></member>
+      <member refid="structeosiosystem_1_1rex__loan_1a5727e851ef16e34096c5f3864a43d994" prot="public" virt="non-virtual"><scope>eosiosystem::rex_loan</scope><name>loan_num</name></member>
+      <member refid="structeosiosystem_1_1rex__loan_1aa0eb3d72cb30bc2b205cebab93a2c4f2" prot="public" virt="non-virtual"><scope>eosiosystem::rex_loan</scope><name>payment</name></member>
+      <member refid="structeosiosystem_1_1rex__loan_1a98d977e47a68a99e7af5283f5d7621d9" prot="public" virt="non-virtual"><scope>eosiosystem::rex_loan</scope><name>primary_key</name></member>
+      <member refid="structeosiosystem_1_1rex__loan_1ad28a74d7cfcfcbe1c7502c49f34ab988" prot="public" virt="non-virtual"><scope>eosiosystem::rex_loan</scope><name>receiver</name></member>
+      <member refid="structeosiosystem_1_1rex__loan_1a030741dbdcc390ac07da48560f86a39b" prot="public" virt="non-virtual"><scope>eosiosystem::rex_loan</scope><name>total_staked</name></member>
+      <member refid="structeosiosystem_1_1rex__loan_1a0b4256fabf5de5140d7454287b7ce635" prot="public" virt="non-virtual"><scope>eosiosystem::rex_loan</scope><name>version</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structgateway_1_1balances" kind="struct" language="C++" prot="public">
+    <compoundname>gateway::balances</compoundname>
+    <basecompoundref refid="structbalances__base" prot="public" virt="non-virtual">balances_base</basecompoundref>
+    <includes refid="gateway_8hpp" local="no">gateway.hpp</includes>
+    <briefdescription>
+<para>Таблица <computeroutput>balances</computeroutput> отслеживает внутренние балансы пользователей в контракте GATEWAY. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>balances_base</label>
+        <link refid="structbalances__base"/>
+      </node>
+      <node id="1">
+        <label>gateway::balances</label>
+        <link refid="structgateway_1_1balances"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>balances_base</label>
+        <link refid="structbalances__base"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>contract</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>quantity</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>asset</label>
+      </node>
+      <node id="3">
+        <label>name</label>
+      </node>
+      <node id="1">
+        <label>gateway::balances</label>
+        <link refid="structgateway_1_1balances"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="gateway/gateway.hpp" line="77" column="3" bodyfile="gateway/gateway.hpp" bodystart="77" bodyend="77"/>
+    <listofallmembers>
+      <member refid="structbalances__base_1af43d841c9f521f6fbbed7c943d4fd366" prot="public" virt="non-virtual"><scope>gateway::balances</scope><name>byconsym</name></member>
+      <member refid="structbalances__base_1acebf235da280f8d16533b6913912da41" prot="public" virt="non-virtual"><scope>gateway::balances</scope><name>contract</name></member>
+      <member refid="structbalances__base_1a2069a54454c59cae6ac2a977002bc8ce" prot="public" virt="non-virtual"><scope>gateway::balances</scope><name>id</name></member>
+      <member refid="structbalances__base_1a242d9cbeea53e487eff7eb9349327931" prot="public" virt="non-virtual"><scope>gateway::balances</scope><name>primary_key</name></member>
+      <member refid="structbalances__base_1a1c3e3dfd8436a6e847dfbe620ba26c23" prot="public" virt="non-virtual"><scope>gateway::balances</scope><name>quantity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

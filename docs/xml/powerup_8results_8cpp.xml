@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="powerup_8results_8cpp" kind="file" language="C++">
+    <compoundname>powerup.results.cpp</compoundname>
+    <includes refid="powerup_8results_8hpp" local="no">eosio.system/powerup.results.hpp</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>eosio.system/powerup.results.hpp</label>
+        <link refid="powerup_8results_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>system/contracts/eosio.system/src/powerup.results.cpp</label>
+        <link refid="powerup_8results_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eosio/asset.hpp</label>
+      </node>
+      <node id="4">
+        <label>eosio/eosio.hpp</label>
+      </node>
+      <node id="5">
+        <label>eosio/name.hpp</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="powerup_8results_8cpp_1a9b58db3feef4fe7c80025d93f95d33ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void apply</definition>
+        <argsstring>(uint64_t, uint64_t, uint64_t)</argsstring>
+        <name>apply</name>
+        <param>
+          <type>uint64_t</type>
+        </param>
+        <param>
+          <type>uint64_t</type>
+        </param>
+        <param>
+          <type>uint64_t</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/src/powerup.results.cpp" line="5" column="17" bodyfile="system/contracts/eosio.system/src/powerup.results.cpp" bodystart="5" bodyend="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;<ref refid="powerup_8results_8hpp" kindref="compound">eosio.system/powerup.results.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classpowup__results_1a92bf8a4505d35524f2708a7984d5df59" kindref="member">powup_results::powupresult</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>asset&amp;<sp/>fee,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>int64_t<sp/>powup_net_weight,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>int64_t<sp/>powup_cpu_weight<sp/>)<sp/>{<sp/>}</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="powerup_8results_8cpp_1a9b58db3feef4fe7c80025d93f95d33ed" kindref="member">apply</ref>(<sp/>uint64_t,<sp/>uint64_t,<sp/>uint64_t<sp/>)<sp/>{<sp/>}</highlight></codeline>
+    </programlisting>
+    <location file="system/contracts/eosio.system/src/powerup.results.cpp"/>
+  </compounddef>
+</doxygen>

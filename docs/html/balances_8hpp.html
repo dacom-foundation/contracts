@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.3"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Для разработчиков: Файл common/balances.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Для разработчиков
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.3 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('balances_8hpp.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Классы</a> &#124;
+<a href="#typedef-members">Определения типов</a> &#124;
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">Файл balances.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><a href="balances_8hpp_source.html">См. исходные тексты.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Классы</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdeposits.html">deposits</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Таблица <code>deposits</code> отслеживает депозиты в контракте GATEWAY.  <a href="structdeposits.html#details">Подробнее...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structwithdraws.html">withdraws</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Таблица <code>withdraws</code> отслеживает операции вывода средств в контракте GATEWAY.  <a href="structwithdraws.html#details">Подробнее...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalances__base.html">balances_base</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Структура таблицы баланса.  <a href="structbalances__base.html#details">Подробнее...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structwallets.html">wallets</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structprogwallets.html">progwallets</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Определения типов</h2></td></tr>
+<tr class="memitem:a6da2d38486281e0066d1b23944453d8c"><td class="memItemLeft" align="right" valign="top">typedef eosio::multi_index&lt; &quot;deposits&quot;_n, <a class="el" href="structdeposits.html">deposits</a>, eosio::indexed_by&lt;&quot;byusername&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structdeposits.html">deposits</a>, uint64_t, &amp;<a class="el" href="structdeposits.html#a3c25feb661e1accede7aa739f26052f1">deposits::by_username</a> &gt; &gt;, eosio::indexed_by&lt;&quot;bystatus&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structdeposits.html">deposits</a>, uint64_t, &amp;<a class="el" href="structdeposits.html#a39a21fbb51377a5500950eb5401bd03d">deposits::by_status</a> &gt; &gt;, eosio::indexed_by&lt;&quot;byexpired&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structdeposits.html">deposits</a>, uint64_t, &amp;<a class="el" href="structdeposits.html#a4bdefd36c0695c406576e41187f347a9">deposits::by_expired</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="balances_8hpp.html#a6da2d38486281e0066d1b23944453d8c">deposits_index</a></td></tr>
+<tr class="separator:a6da2d38486281e0066d1b23944453d8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23418235288859f2f4227424aff17b77"><td class="memItemLeft" align="right" valign="top">typedef eosio::multi_index&lt; &quot;withdraws&quot;_n, <a class="el" href="structwithdraws.html">withdraws</a>, eosio::indexed_by&lt;&quot;byusername&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structwithdraws.html">withdraws</a>, uint64_t, &amp;<a class="el" href="structwithdraws.html#af28428694d19b3e435befc37311f874b">withdraws::by_username</a> &gt; &gt;, eosio::indexed_by&lt;&quot;bycoopname&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structwithdraws.html">withdraws</a>, uint64_t, &amp;<a class="el" href="structwithdraws.html#a2cdd545bc8a4b1986d670e17abb9e4f3">withdraws::by_coopname</a> &gt; &gt;, eosio::indexed_by&lt;&quot;bystatus&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structwithdraws.html">withdraws</a>, uint64_t, &amp;<a class="el" href="structwithdraws.html#a279e91da89642cc4bee51458069ee21d">withdraws::by_status</a> &gt; &gt;, eosio::indexed_by&lt;&quot;bycreated&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structwithdraws.html">withdraws</a>, uint64_t, &amp;<a class="el" href="structwithdraws.html#a9b1951a93b9c89267a38e17882f74023">withdraws::by_created</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="balances_8hpp.html#a23418235288859f2f4227424aff17b77">withdraws_index</a></td></tr>
+<tr class="separator:a23418235288859f2f4227424aff17b77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f044097a1d44c2a73b8f5bd7719439e"><td class="memItemLeft" align="right" valign="top">typedef eosio::multi_index&lt;&quot;balances&quot;_n, <a class="el" href="structbalances__base.html">balances_base</a>, eosio::indexed_by&lt;&quot;byconsym&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structbalances__base.html">balances_base</a>, uint128_t, &amp;<a class="el" href="structbalances__base.html#af43d841c9f521f6fbbed7c943d4fd366">balances_base::byconsym</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="balances_8hpp.html#a2f044097a1d44c2a73b8f5bd7719439e">balances_index</a></td></tr>
+<tr class="separator:a2f044097a1d44c2a73b8f5bd7719439e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae56150f8b7b3c5292c018af0bfc21760"><td class="memItemLeft" align="right" valign="top">typedef eosio::multi_index&lt;&quot;wallets&quot;_n, <a class="el" href="structwallets.html">wallets</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="balances_8hpp.html#ae56150f8b7b3c5292c018af0bfc21760">wallets_index</a></td></tr>
+<tr class="separator:ae56150f8b7b3c5292c018af0bfc21760"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a166ba6bdfbb60bb1ae58b9be1b5fc9"><td class="memItemLeft" align="right" valign="top">typedef eosio::multi_index&lt;&quot;progwallets&quot;_n, <a class="el" href="structprogwallets.html">progwallets</a>, eosio::indexed_by&lt;&quot;byusername&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structprogwallets.html">progwallets</a>, uint64_t, &amp;<a class="el" href="structprogwallets.html#a4cceac2dd54374e766cb43110f8c8924">progwallets::by_username</a> &gt; &gt;, eosio::indexed_by&lt;&quot;byprogram&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structprogwallets.html">progwallets</a>, uint64_t, &amp;<a class="el" href="structprogwallets.html#a5b332d51633dbda7bb8f17e04e49e11b">progwallets::by_program</a> &gt; &gt;, eosio::indexed_by&lt;&quot;byuserprog&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structprogwallets.html">progwallets</a>, uint128_t, &amp;<a class="el" href="structprogwallets.html#ad86cd689f05547c9dea842ea605542da">progwallets::by_username_and_program</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="balances_8hpp.html#a8a166ba6bdfbb60bb1ae58b9be1b5fc9">progwallets_index</a></td></tr>
+<tr class="separator:a8a166ba6bdfbb60bb1ae58b9be1b5fc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ac392247269dae8fe58bcebe2a0b14133"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="balances_8hpp.html#ac392247269dae8fe58bcebe2a0b14133">add_balance</a> (eosio::name source, eosio::name username, eosio::asset quantity, eosio::name contract)</td></tr>
+<tr class="separator:ac392247269dae8fe58bcebe2a0b14133"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a535cbf0e546fa5cf6eaaca63d2d1d854"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="balances_8hpp.html#a535cbf0e546fa5cf6eaaca63d2d1d854">sub_balance</a> (eosio::name source, eosio::name username, eosio::asset quantity, eosio::name contract)</td></tr>
+<tr class="separator:a535cbf0e546fa5cf6eaaca63d2d1d854"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Типы</h2>
+<a id="a2f044097a1d44c2a73b8f5bd7719439e" name="a2f044097a1d44c2a73b8f5bd7719439e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f044097a1d44c2a73b8f5bd7719439e">&#9670;&nbsp;</a></span>balances_index</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef eosio::multi_index&lt;&quot;balances&quot;_n, <a class="el" href="structbalances__base.html">balances_base</a>, eosio::indexed_by&lt;&quot;byconsym&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structbalances__base.html">balances_base</a>, uint128_t, &amp;<a class="el" href="structbalances__base.html#af43d841c9f521f6fbbed7c943d4fd366">balances_base::byconsym</a>&gt; &gt; &gt; <a class="el" href="balances_8hpp.html#a2f044097a1d44c2a73b8f5bd7719439e">balances_index</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Тип мультииндекса для таблицы балансов </p>
+
+</div>
+</div>
+<a id="a6da2d38486281e0066d1b23944453d8c" name="a6da2d38486281e0066d1b23944453d8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6da2d38486281e0066d1b23944453d8c">&#9670;&nbsp;</a></span>deposits_index</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef eosio::multi_index&lt; &quot;deposits&quot;_n, <a class="el" href="structdeposits.html">deposits</a>, eosio::indexed_by&lt;&quot;byusername&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structdeposits.html">deposits</a>, uint64_t, &amp;<a class="el" href="structdeposits.html#a3c25feb661e1accede7aa739f26052f1">deposits::by_username</a>&gt; &gt;, eosio::indexed_by&lt;&quot;bystatus&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structdeposits.html">deposits</a>, uint64_t, &amp;<a class="el" href="structdeposits.html#a39a21fbb51377a5500950eb5401bd03d">deposits::by_status</a>&gt; &gt;, eosio::indexed_by&lt;&quot;byexpired&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structdeposits.html">deposits</a>, uint64_t, &amp;<a class="el" href="structdeposits.html#a4bdefd36c0695c406576e41187f347a9">deposits::by_expired</a>&gt; &gt;&gt; <a class="el" href="balances_8hpp.html#a6da2d38486281e0066d1b23944453d8c">deposits_index</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Мультииндекс для доступа и манипуляции данными таблицы <code>deposits</code> </p>
+
+</div>
+</div>
+<a id="a8a166ba6bdfbb60bb1ae58b9be1b5fc9" name="a8a166ba6bdfbb60bb1ae58b9be1b5fc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a166ba6bdfbb60bb1ae58b9be1b5fc9">&#9670;&nbsp;</a></span>progwallets_index</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef eosio::multi_index&lt;&quot;progwallets&quot;_n, <a class="el" href="structprogwallets.html">progwallets</a>, eosio::indexed_by&lt;&quot;byusername&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structprogwallets.html">progwallets</a>, uint64_t, &amp;<a class="el" href="structprogwallets.html#a4cceac2dd54374e766cb43110f8c8924">progwallets::by_username</a>&gt; &gt;, eosio::indexed_by&lt;&quot;byprogram&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structprogwallets.html">progwallets</a>, uint64_t, &amp;<a class="el" href="structprogwallets.html#a5b332d51633dbda7bb8f17e04e49e11b">progwallets::by_program</a>&gt; &gt;, eosio::indexed_by&lt;&quot;byuserprog&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structprogwallets.html">progwallets</a>, uint128_t, &amp;<a class="el" href="structprogwallets.html#ad86cd689f05547c9dea842ea605542da">progwallets::by_username_and_program</a>&gt; &gt;&gt; <a class="el" href="balances_8hpp.html#a8a166ba6bdfbb60bb1ae58b9be1b5fc9">progwallets_index</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Тип мультииндекса для таблицы кошелька программ </p>
+
+</div>
+</div>
+<a id="ae56150f8b7b3c5292c018af0bfc21760" name="ae56150f8b7b3c5292c018af0bfc21760"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae56150f8b7b3c5292c018af0bfc21760">&#9670;&nbsp;</a></span>wallets_index</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef eosio::multi_index&lt;&quot;wallets&quot;_n, <a class="el" href="structwallets.html">wallets</a>&gt; <a class="el" href="balances_8hpp.html#ae56150f8b7b3c5292c018af0bfc21760">wallets_index</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a23418235288859f2f4227424aff17b77" name="a23418235288859f2f4227424aff17b77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23418235288859f2f4227424aff17b77">&#9670;&nbsp;</a></span>withdraws_index</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef eosio::multi_index&lt; &quot;withdraws&quot;_n, <a class="el" href="structwithdraws.html">withdraws</a>, eosio::indexed_by&lt;&quot;byusername&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structwithdraws.html">withdraws</a>, uint64_t, &amp;<a class="el" href="structwithdraws.html#af28428694d19b3e435befc37311f874b">withdraws::by_username</a>&gt; &gt;, eosio::indexed_by&lt;&quot;bycoopname&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structwithdraws.html">withdraws</a>, uint64_t, &amp;<a class="el" href="structwithdraws.html#a2cdd545bc8a4b1986d670e17abb9e4f3">withdraws::by_coopname</a>&gt; &gt;, eosio::indexed_by&lt;&quot;bystatus&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structwithdraws.html">withdraws</a>, uint64_t, &amp;<a class="el" href="structwithdraws.html#a279e91da89642cc4bee51458069ee21d">withdraws::by_status</a>&gt; &gt;, eosio::indexed_by&lt;&quot;bycreated&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structwithdraws.html">withdraws</a>, uint64_t, &amp;<a class="el" href="structwithdraws.html#a9b1951a93b9c89267a38e17882f74023">withdraws::by_created</a>&gt; &gt; &gt; <a class="el" href="balances_8hpp.html#a23418235288859f2f4227424aff17b77">withdraws_index</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Мультииндекс для доступа и манипуляции данными таблицы <code>withdraws</code> </p>
+
+</div>
+</div>
+<h2 class="groupheader">Функции</h2>
+<a id="ac392247269dae8fe58bcebe2a0b14133" name="ac392247269dae8fe58bcebe2a0b14133"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac392247269dae8fe58bcebe2a0b14133">&#9670;&nbsp;</a></span>add_balance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void add_balance </td>
+          <td>(</td>
+          <td class="paramtype">eosio::name&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">eosio::name&#160;</td>
+          <td class="paramname"><em>username</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">eosio::asset&#160;</td>
+          <td class="paramname"><em>quantity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">eosio::name&#160;</td>
+          <td class="paramname"><em>contract</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a535cbf0e546fa5cf6eaaca63d2d1d854" name="a535cbf0e546fa5cf6eaaca63d2d1d854"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a535cbf0e546fa5cf6eaaca63d2d1d854">&#9670;&nbsp;</a></span>sub_balance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sub_balance </td>
+          <td>(</td>
+          <td class="paramtype">eosio::name&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">eosio::name&#160;</td>
+          <td class="paramname"><em>username</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">eosio::asset&#160;</td>
+          <td class="paramname"><em>quantity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">eosio::name&#160;</td>
+          <td class="paramname"><em>contract</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_bdd9a5d540de89e9fe90efdfc6973a4f.html">common</a></li><li class="navelem"><a class="el" href="balances_8hpp.html">balances.hpp</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+  </ul>
+</div>
+</body>
+</html>

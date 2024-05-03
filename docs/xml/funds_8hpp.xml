@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="funds_8hpp" kind="file" language="C++">
+    <compoundname>funds.hpp</compoundname>
+    <includedby refid="soviet_8hpp" local="yes">soviet/soviet.hpp</includedby>
+    <invincdepgraph>
+      <node id="1">
+        <label>common/funds.hpp</label>
+        <link refid="funds_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>soviet/soviet.cpp</label>
+        <link refid="soviet_2soviet_8cpp"/>
+      </node>
+      <node id="2">
+        <label>soviet/soviet.hpp</label>
+        <link refid="soviet_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structfundwallet" prot="public">fundwallet</innerclass>
+    <innerclass refid="structaccfunds" prot="public">accfunds</innerclass>
+    <innerclass refid="structexpfunds" prot="public">expfunds</innerclass>
+    <innerclass refid="structfwithdraws" prot="public">fwithdraws</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="funds_8hpp_1adeeb57b03a577ea6e9e3b0000a50afb3" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;fundwallet&quot;_n, <ref refid="structfundwallet" kindref="compound">fundwallet</ref> &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;fundwallet&quot;_n, fundwallet&gt; fundwallet_index</definition>
+        <argsstring></argsstring>
+        <name>fundwallet_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/funds.hpp" line="14" column="28" bodyfile="common/funds.hpp" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="funds_8hpp_1a7a890c4b0ee350111e0ea2df7d721462" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;accfunds&quot;_n, <ref refid="structaccfunds" kindref="compound">accfunds</ref> &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;accfunds&quot;_n, accfunds&gt; accfunds_index</definition>
+        <argsstring></argsstring>
+        <name>accfunds_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/funds.hpp" line="32" column="28" bodyfile="common/funds.hpp" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="funds_8hpp_1adc3ed84f562dbf7d9768e962194a2aab" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;expfunds&quot;_n, <ref refid="structexpfunds" kindref="compound">expfunds</ref> &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;expfunds&quot;_n, expfunds&gt; expfunds_index</definition>
+        <argsstring></argsstring>
+        <name>expfunds_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/funds.hpp" line="51" column="28" bodyfile="common/funds.hpp" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="funds_8hpp_1a17d7df6720b663ac48d59a902d3d858b" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;fwithdraws&quot;_n, <ref refid="structfwithdraws" kindref="compound">fwithdraws</ref>, eosio::indexed_by&lt;&quot;byusername&quot;_n, eosio::const_mem_fun&lt; <ref refid="structfwithdraws" kindref="compound">fwithdraws</ref>, uint64_t, &amp;<ref refid="structfwithdraws_1abd60956d0d3e9ed918869a51aea1607a" kindref="member">fwithdraws::by_username</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;bystatus&quot;_n, eosio::const_mem_fun&lt; <ref refid="structfwithdraws" kindref="compound">fwithdraws</ref>, uint64_t, &amp;<ref refid="structfwithdraws_1a60fa7497fb02d85a90f473b5bca4ea02" kindref="member">fwithdraws::by_status</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;byexpired&quot;_n, eosio::const_mem_fun&lt; <ref refid="structfwithdraws" kindref="compound">fwithdraws</ref>, uint64_t, &amp;<ref refid="structfwithdraws_1a02eb4b02215e0e13184515ea062df127" kindref="member">fwithdraws::by_expired</ref> &gt; &gt; &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;fwithdraws&quot;_n, fwithdraws, eosio::indexed_by&lt;&quot;byusername&quot;_n, eosio::const_mem_fun&lt;fwithdraws, uint64_t, &amp;fwithdraws::by_username&gt; &gt;, eosio::indexed_by&lt;&quot;bystatus&quot;_n, eosio::const_mem_fun&lt;fwithdraws, uint64_t, &amp;fwithdraws::by_status&gt; &gt;, eosio::indexed_by&lt;&quot;byexpired&quot;_n, eosio::const_mem_fun&lt;fwithdraws, uint64_t, &amp;fwithdraws::by_expired&gt; &gt;&gt; fundwithdraws_index</definition>
+        <argsstring></argsstring>
+        <name>fundwithdraws_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/funds.hpp" line="79" column="2" bodyfile="common/funds.hpp" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="structfundwallet" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(FUND)]]<sp/><ref refid="structfundwallet" kindref="compound">fundwallet</ref><sp/>{<sp/></highlight><highlight class="comment">//<sp/>фонд<sp/>членских<sp/>взносов</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2" refid="structfundwallet_1a6e7afadc2f5184566173602aa2cdd5ef" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/>0;<sp/></highlight></codeline>
+<codeline lineno="3" refid="structfundwallet_1a84bcb63f815cee187d2d83224d80fc7d" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structfundwallet_1a84bcb63f815cee187d2d83224d80fc7d" kindref="member">coopname</ref>;<sp/></highlight></codeline>
+<codeline lineno="4" refid="structfundwallet_1aa737876c0e5ec9449b1bafe8d4560f91" refkind="member"><highlight class="normal"><sp/><sp/>eosio::asset<sp/><ref refid="structfundwallet_1aa737876c0e5ec9449b1bafe8d4560f91" kindref="member">circulating</ref>;<sp/></highlight></codeline>
+<codeline lineno="5" refid="structfundwallet_1a3188bcd02db0c86fdabc3e1fb38d7fe1" refkind="member"><highlight class="normal"><sp/><sp/>eosio::asset<sp/><ref refid="structfundwallet_1a3188bcd02db0c86fdabc3e1fb38d7fe1" kindref="member">membership</ref>;<sp/></highlight></codeline>
+<codeline lineno="6" refid="structfundwallet_1a4bd269caa75108d5e1ca17219629741f" refkind="member"><highlight class="normal"><sp/><sp/>eosio::asset<sp/><ref refid="structfundwallet_1a4bd269caa75108d5e1ca17219629741f" kindref="member">accumulated</ref>;<sp/></highlight></codeline>
+<codeline lineno="7" refid="structfundwallet_1a99ca9b77cca8ac9dad189a9a046f9d78" refkind="member"><highlight class="normal"><sp/><sp/>eosio::asset<sp/><ref refid="structfundwallet_1a99ca9b77cca8ac9dad189a9a046f9d78" kindref="member">withdrawed</ref>;<sp/></highlight></codeline>
+<codeline lineno="8" refid="structfundwallet_1aa706c9090b7457a98ad757e007b47418" refkind="member"><highlight class="normal"><sp/><sp/>eosio::asset<sp/><ref refid="structfundwallet_1aa706c9090b7457a98ad757e007b47418" kindref="member">available</ref>;<sp/></highlight></codeline>
+<codeline lineno="9" refid="structfundwallet_1a912eec4e769a02fef0bf0baac729593c" refkind="member"><highlight class="normal"><sp/><sp/>eosio::asset<sp/><ref refid="structfundwallet_1a912eec4e769a02fef0bf0baac729593c" kindref="member">expended</ref>;<sp/></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="11" refid="structfundwallet_1a4c444c553117baed8e54df059c9bcd23" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structfundwallet_1a4c444c553117baed8e54df059c9bcd23" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structfundwallet_1a6e7afadc2f5184566173602aa2cdd5ef" kindref="member">id</ref>;}<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="funds_8hpp_1adeeb57b03a577ea6e9e3b0000a50afb3" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;<sp/></highlight><highlight class="stringliteral">&quot;fundwallet&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structfundwallet" kindref="compound">fundwallet</ref>&gt;<sp/><ref refid="funds_8hpp_1adeeb57b03a577ea6e9e3b0000a50afb3" kindref="member">fundwallet_index</ref>;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="structaccfunds" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(FUND)]]<sp/><ref refid="structaccfunds" kindref="compound">accfunds</ref><sp/>{<sp/></highlight><highlight class="comment">//фонды<sp/>накопления</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="structaccfunds_1adcca9a94251183d055c7ab6a8d9d6f0c" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structaccfunds_1adcca9a94251183d055c7ab6a8d9d6f0c" kindref="member">id</ref>;<sp/></highlight></codeline>
+<codeline lineno="19" refid="structaccfunds_1a589dfd35cf6f0d85513f31be12770b1b" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structaccfunds_1a589dfd35cf6f0d85513f31be12770b1b" kindref="member">coopname</ref>;<sp/></highlight></codeline>
+<codeline lineno="20" refid="structaccfunds_1aab16a8f0030602551948b7f9f5c47ba3" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structaccfunds_1aab16a8f0030602551948b7f9f5c47ba3" kindref="member">contract</ref>;<sp/></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="22" refid="structaccfunds_1afb03c0dac27d7eb7d8464128662a33df" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structaccfunds_1afb03c0dac27d7eb7d8464128662a33df" kindref="member">name</ref>;<sp/></highlight></codeline>
+<codeline lineno="23" refid="structaccfunds_1a607854b22be889d87c61271a53b62dad" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structaccfunds_1a607854b22be889d87c61271a53b62dad" kindref="member">description</ref>;<sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="25" refid="structaccfunds_1afb524b5b54ad69d9f093bff456a6ce2f" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structaccfunds_1afb524b5b54ad69d9f093bff456a6ce2f" kindref="member">percent</ref>;<sp/></highlight></codeline>
+<codeline lineno="26" refid="structaccfunds_1a8fa753c862acaa0dc47a7987dd40febc" refkind="member"><highlight class="normal"><sp/><sp/>eosio::asset<sp/><ref refid="structaccfunds_1a8fa753c862acaa0dc47a7987dd40febc" kindref="member">available</ref>;<sp/></highlight></codeline>
+<codeline lineno="27" refid="structaccfunds_1a7e3aff526dae580046c35c1619c64fad" refkind="member"><highlight class="normal"><sp/><sp/>eosio::asset<sp/><ref refid="structaccfunds_1a7e3aff526dae580046c35c1619c64fad" kindref="member">withdrawed</ref>;<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="structaccfunds_1ae19e8876823cb6f1e5543314f7e8153f" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structaccfunds_1ae19e8876823cb6f1e5543314f7e8153f" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structfundwallet_1a6e7afadc2f5184566173602aa2cdd5ef" kindref="member">id</ref>;<sp/>}<sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="funds_8hpp_1a7a890c4b0ee350111e0ea2df7d721462" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;<sp/></highlight><highlight class="stringliteral">&quot;accfunds&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structaccfunds" kindref="compound">accfunds</ref>&gt;<sp/><ref refid="funds_8hpp_1a7a890c4b0ee350111e0ea2df7d721462" kindref="member">accfunds_index</ref>;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="structexpfunds" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(FUND)]]<sp/><ref refid="structexpfunds" kindref="compound">expfunds</ref><sp/>{<sp/></highlight><highlight class="comment">//фонды<sp/>списания</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="structexpfunds_1aa6287ec5a42e47adab5a0a8a53785d8e" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structexpfunds_1aa6287ec5a42e47adab5a0a8a53785d8e" kindref="member">id</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="37" refid="structexpfunds_1ae7a605d6dc753f5d8c0341cd7d6a1d28" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structexpfunds_1ae7a605d6dc753f5d8c0341cd7d6a1d28" kindref="member">coopname</ref>;<sp/></highlight></codeline>
+<codeline lineno="38" refid="structexpfunds_1a4e0b2458abd7c9f57c1366c166bd3954" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structexpfunds_1a4e0b2458abd7c9f57c1366c166bd3954" kindref="member">contract</ref>;<sp/></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="40" refid="structexpfunds_1a245dc3f2b349a59561af7998d10d04cd" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structexpfunds_1a245dc3f2b349a59561af7998d10d04cd" kindref="member">name</ref>;<sp/></highlight></codeline>
+<codeline lineno="41" refid="structexpfunds_1a781bc2179065a8410a066e72ec368dc5" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structexpfunds_1a781bc2179065a8410a066e72ec368dc5" kindref="member">description</ref>;<sp/></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="structexpfunds_1a088bb14e8732b2d547d2c568cb327d81" refkind="member"><highlight class="normal"><sp/><sp/>eosio::asset<sp/><ref refid="structexpfunds_1a088bb14e8732b2d547d2c568cb327d81" kindref="member">expended</ref>;<sp/></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="46" refid="structexpfunds_1a0e8b5ccb59641007b85bbcf7ef1d834d" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structexpfunds_1a0e8b5ccb59641007b85bbcf7ef1d834d" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structfundwallet_1a6e7afadc2f5184566173602aa2cdd5ef" kindref="member">id</ref>;<sp/>}<sp/></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="funds_8hpp_1adc3ed84f562dbf7d9768e962194a2aab" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;<sp/></highlight><highlight class="stringliteral">&quot;expfunds&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structexpfunds" kindref="compound">expfunds</ref>&gt;<sp/><ref refid="funds_8hpp_1adc3ed84f562dbf7d9768e962194a2aab" kindref="member">expfunds_index</ref>;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="structfwithdraws" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(FUND)]]<sp/><ref refid="structfwithdraws" kindref="compound">fwithdraws</ref><sp/>{<sp/></highlight><highlight class="comment">//таблица<sp/>ожидания<sp/>решения<sp/>совета<sp/>о<sp/>использовании<sp/>фонда<sp/>накопления</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="structfwithdraws_1a7b59d31cd8750255c069d15dec51b5f4" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structfwithdraws_1a7b59d31cd8750255c069d15dec51b5f4" kindref="member">id</ref>;</highlight></codeline>
+<codeline lineno="56" refid="structfwithdraws_1a7cc27c0c01c6d7fa4484aa2d57bc46ee" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structfwithdraws_1a7cc27c0c01c6d7fa4484aa2d57bc46ee" kindref="member">coopname</ref>;</highlight></codeline>
+<codeline lineno="57" refid="structfwithdraws_1aebff33b80e315c5a2e01cd00895df005" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structfwithdraws_1aebff33b80e315c5a2e01cd00895df005" kindref="member">username</ref>;</highlight></codeline>
+<codeline lineno="58" refid="structfwithdraws_1a8bdc79b90cdf30a96797fb5f87f193af" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structfwithdraws_1a8bdc79b90cdf30a96797fb5f87f193af" kindref="member">status</ref>;</highlight></codeline>
+<codeline lineno="59" refid="structfwithdraws_1a41375de2393d4775fa06a10565699732" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structfwithdraws_1a41375de2393d4775fa06a10565699732" kindref="member">type</ref>;</highlight></codeline>
+<codeline lineno="60" refid="structfwithdraws_1a1bc432bcd93c911ca0c21a8619db9ea0" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structfwithdraws_1a1bc432bcd93c911ca0c21a8619db9ea0" kindref="member">fund_id</ref>;</highlight></codeline>
+<codeline lineno="61" refid="structfwithdraws_1a855dd04f3082e7ccde322d8cbe73b64a" refkind="member"><highlight class="normal"><sp/><sp/>eosio::asset<sp/><ref refid="structfwithdraws_1a855dd04f3082e7ccde322d8cbe73b64a" kindref="member">quantity</ref>;</highlight></codeline>
+<codeline lineno="62" refid="structfwithdraws_1adb442e17444ad0ed958b490adf7db24a" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="structdocument" kindref="compound">document</ref><sp/><ref refid="structfwithdraws_1adb442e17444ad0ed958b490adf7db24a" kindref="member">document</ref>;</highlight></codeline>
+<codeline lineno="63" refid="structfwithdraws_1a450ab8e004e6fca3d6a8dad17629b701" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structfwithdraws_1a450ab8e004e6fca3d6a8dad17629b701" kindref="member">bank_data_id</ref>;</highlight></codeline>
+<codeline lineno="64" refid="structfwithdraws_1a77fc081541e3b88e4c34b5e9a309d25f" refkind="member"><highlight class="normal"><sp/><sp/>eosio::time_point_sec<sp/><ref refid="structfwithdraws_1a77fc081541e3b88e4c34b5e9a309d25f" kindref="member">expired_at</ref>;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="structfwithdraws_1ad2e9ed511ba3d596ef34e7431758f1ab" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structfwithdraws_1ad2e9ed511ba3d596ef34e7431758f1ab" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structfundwallet_1a6e7afadc2f5184566173602aa2cdd5ef" kindref="member">id</ref>;<sp/>}<sp/></highlight></codeline>
+<codeline lineno="68" refid="structfwithdraws_1abd60956d0d3e9ed918869a51aea1607a" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structfwithdraws_1abd60956d0d3e9ed918869a51aea1607a" kindref="member">by_username</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>username.value;<sp/>}<sp/></highlight></codeline>
+<codeline lineno="69" refid="structfwithdraws_1a60fa7497fb02d85a90f473b5bca4ea02" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structfwithdraws_1a60fa7497fb02d85a90f473b5bca4ea02" kindref="member">by_status</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>status.value;<sp/>}<sp/></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="structfwithdraws_1a02eb4b02215e0e13184515ea062df127" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structfwithdraws_1a02eb4b02215e0e13184515ea062df127" kindref="member">by_expired</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>expired_at.sec_since_epoch();<sp/>}<sp/></highlight></codeline>
+<codeline lineno="73"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;<sp/></highlight><highlight class="stringliteral">&quot;fwithdraws&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structfwithdraws" kindref="compound">fwithdraws</ref>,</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byusername&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;fwithdraws,<sp/>uint64_t,<sp/>&amp;fwithdraws::by_username&gt;&gt;,</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bystatus&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;fwithdraws,<sp/>uint64_t,<sp/>&amp;fwithdraws::by_status&gt;&gt;,</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byexpired&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;fwithdraws,<sp/>uint64_t,<sp/>&amp;fwithdraws::by_expired&gt;&gt;</highlight></codeline>
+<codeline lineno="79" refid="funds_8hpp_1a17d7df6720b663ac48d59a902d3d858b" refkind="member"><highlight class="normal">&gt;<sp/><ref refid="funds_8hpp_1a17d7df6720b663ac48d59a902d3d858b" kindref="member">fundwithdraws_index</ref>;</highlight></codeline>
+    </programlisting>
+    <location file="common/funds.hpp"/>
+  </compounddef>
+</doxygen>

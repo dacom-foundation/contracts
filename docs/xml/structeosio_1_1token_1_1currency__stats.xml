@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structeosio_1_1token_1_1currency__stats" kind="struct" language="C++" prot="private">
+    <compoundname>eosio::token::currency_stats</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeosio_1_1token_1_1currency__stats_1ab24e3519d9ea9063b80d74a64ec1fd73" prot="public" static="no" mutable="no">
+        <type>asset</type>
+        <definition>asset eosio::token::currency_stats::supply</definition>
+        <argsstring></argsstring>
+        <name>supply</name>
+        <qualifiedname>eosio::token::currency_stats::supply</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" line="132" column="22" bodyfile="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosio_1_1token_1_1currency__stats_1ab83559b6e1cdd215cf7b60153009a966" prot="public" static="no" mutable="no">
+        <type>asset</type>
+        <definition>asset eosio::token::currency_stats::max_supply</definition>
+        <argsstring></argsstring>
+        <name>max_supply</name>
+        <qualifiedname>eosio::token::currency_stats::max_supply</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" line="133" column="22" bodyfile="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosio_1_1token_1_1currency__stats_1a98c87418ed2e156ca2bd94a8e51a0b9f" prot="public" static="no" mutable="no">
+        <type>name</type>
+        <definition>name eosio::token::currency_stats::issuer</definition>
+        <argsstring></argsstring>
+        <name>issuer</name>
+        <qualifiedname>eosio::token::currency_stats::issuer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" line="134" column="22" bodyfile="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeosio_1_1token_1_1currency__stats_1ac651a49171c9e1b62d07e529657895ec" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t eosio::token::currency_stats::primary_key</definition>
+        <argsstring>() const</argsstring>
+        <name>primary_key</name>
+        <qualifiedname>eosio::token::currency_stats::primary_key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" line="136" column="22" bodyfile="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" bodystart="136" bodyend="136"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>asset</label>
+      </node>
+      <node id="3">
+        <label>name</label>
+      </node>
+      <node id="1">
+        <label>eosio::token::currency_stats</label>
+        <link refid="structeosio_1_1token_1_1currency__stats"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>max_supply</edgelabel>
+          <edgelabel>supply</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>issuer</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" line="131" column="10" bodyfile="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" bodystart="131" bodyend="137"/>
+    <listofallmembers>
+      <member refid="structeosio_1_1token_1_1currency__stats_1a98c87418ed2e156ca2bd94a8e51a0b9f" prot="public" virt="non-virtual"><scope>eosio::token::currency_stats</scope><name>issuer</name></member>
+      <member refid="structeosio_1_1token_1_1currency__stats_1ab83559b6e1cdd215cf7b60153009a966" prot="public" virt="non-virtual"><scope>eosio::token::currency_stats</scope><name>max_supply</name></member>
+      <member refid="structeosio_1_1token_1_1currency__stats_1ac651a49171c9e1b62d07e529657895ec" prot="public" virt="non-virtual"><scope>eosio::token::currency_stats</scope><name>primary_key</name></member>
+      <member refid="structeosio_1_1token_1_1currency__stats_1ab24e3519d9ea9063b80d74a64ec1fd73" prot="public" virt="non-virtual"><scope>eosio::token::currency_stats</scope><name>supply</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

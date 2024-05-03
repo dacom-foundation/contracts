@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structautosigner" kind="struct" language="C++" prot="public">
+    <compoundname>autosigner</compoundname>
+    <includes refid="soviet_8hpp" local="no">soviet.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structautosigner_1a2d1155e3a9d63342575c616944f30a4c" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t autosigner::decision_id</definition>
+        <argsstring></argsstring>
+        <name>decision_id</name>
+        <qualifiedname>autosigner::decision_id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="163" column="14" bodyfile="soviet/soviet.hpp" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structautosigner_1a2487244a79f8fdf7fa6e67d8821c960f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t autosigner::primary_key</definition>
+        <argsstring>() const</argsstring>
+        <name>primary_key</name>
+        <qualifiedname>autosigner::primary_key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="164" column="14" bodyfile="soviet/soviet.hpp" bodystart="164" bodyend="164"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="soviet/soviet.hpp" line="162" column="3" bodyfile="soviet/soviet.hpp" bodystart="162" bodyend="165"/>
+    <listofallmembers>
+      <member refid="structautosigner_1a2d1155e3a9d63342575c616944f30a4c" prot="public" virt="non-virtual"><scope>autosigner</scope><name>decision_id</name></member>
+      <member refid="structautosigner_1a2487244a79f8fdf7fa6e67d8821c960f" prot="public" virt="non-virtual"><scope>autosigner</scope><name>primary_key</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

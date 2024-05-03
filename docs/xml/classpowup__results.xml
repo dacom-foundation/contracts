@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="classpowup__results" kind="class" language="C++" prot="public">
+    <compoundname>powup_results</compoundname>
+    <basecompoundref prot="private" virt="non-virtual">eosio::contract</basecompoundref>
+    <includes refid="powerup_8results_8hpp" local="no">powerup.results.hpp</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classpowup__results_1ad9f92d7d14262016aa90efa04e433646" prot="public" static="no">
+        <type>action_wrapper&lt;&quot;powupresult&quot;_n, &amp;<ref refid="classpowup__results_1a92bf8a4505d35524f2708a7984d5df59" kindref="member">powup_results::powupresult</ref> &gt;</type>
+        <definition>using powup_results::powupresult_action =  action_wrapper&lt;&quot;powupresult&quot;_n, &amp;powup_results::powupresult&gt;</definition>
+        <argsstring></argsstring>
+        <name>powupresult_action</name>
+        <qualifiedname>powup_results::powupresult_action</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/powerup.results.hpp" line="32" column="7" bodyfile="system/contracts/eosio.system/include/eosio.system/powerup.results.hpp" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classpowup__results_1a92bf8a4505d35524f2708a7984d5df59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void powup_results::powupresult</definition>
+        <argsstring>(const asset &amp;fee, const int64_t powup_net, const int64_t powup_cpu)</argsstring>
+        <name>powupresult</name>
+        <qualifiedname>powup_results::powupresult</qualifiedname>
+        <param>
+          <type>const asset &amp;</type>
+          <declname>fee</declname>
+        </param>
+        <param>
+          <type>const int64_t</type>
+          <declname>powup_net</declname>
+        </param>
+        <param>
+          <type>const int64_t</type>
+          <declname>powup_cpu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>powupresult action.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fee</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- powerup fee amount </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>powup_net</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- amount of powup NET tokens </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>powup_cpu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- amount of powup CPU tokens </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/powerup.results.hpp" line="30" column="12" bodyfile="system/contracts/eosio.system/src/powerup.results.cpp" bodystart="3" bodyend="3"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The action <computeroutput>powupresult</computeroutput> is a no-op. It is added as an inline convenience action to <computeroutput>powerup</computeroutput> reservation. This inline convenience action does not have any effect, however, its data includes the result of the parent action and appears in its trace. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>eosio::contract</label>
+      </node>
+      <node id="1">
+        <label>powup_results</label>
+        <link refid="classpowup__results"/>
+        <childnode refid="2" relation="private-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>eosio::contract</label>
+      </node>
+      <node id="1">
+        <label>powup_results</label>
+        <link refid="classpowup__results"/>
+        <childnode refid="2" relation="private-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="system/contracts/eosio.system/include/eosio.system/powerup.results.hpp" line="17" column="1" bodyfile="system/contracts/eosio.system/include/eosio.system/powerup.results.hpp" bodystart="17" bodyend="33"/>
+    <listofallmembers>
+      <member refid="classpowup__results_1a92bf8a4505d35524f2708a7984d5df59" prot="public" virt="non-virtual"><scope>powup_results</scope><name>powupresult</name></member>
+      <member refid="classpowup__results_1ad9f92d7d14262016aa90efa04e433646" prot="public" virt="non-virtual"><scope>powup_results</scope><name>powupresult_action</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

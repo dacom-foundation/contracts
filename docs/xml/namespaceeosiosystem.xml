@@ -1,0 +1,881 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="namespaceeosiosystem" kind="namespace" language="C++">
+    <compoundname>eosiosystem</compoundname>
+    <innerclass refid="structeosiosystem_1_1abi__hash" prot="public">eosiosystem::abi_hash</innerclass>
+    <innerclass refid="structeosiosystem_1_1authority" prot="public">eosiosystem::authority</innerclass>
+    <innerclass refid="structeosiosystem_1_1bid__refund" prot="public">eosiosystem::bid_refund</innerclass>
+    <innerclass refid="structeosiosystem_1_1block__header" prot="public">eosiosystem::block_header</innerclass>
+    <innerclass refid="structeosiosystem_1_1delegated__bandwidth" prot="public">eosiosystem::delegated_bandwidth</innerclass>
+    <innerclass refid="structeosiosystem_1_1emission__state" prot="public">eosiosystem::emission_state</innerclass>
+    <innerclass refid="structeosiosystem_1_1eosio__global__state" prot="public">eosiosystem::eosio_global_state</innerclass>
+    <innerclass refid="structeosiosystem_1_1eosio__global__state2" prot="public">eosiosystem::eosio_global_state2</innerclass>
+    <innerclass refid="structeosiosystem_1_1eosio__global__state3" prot="public">eosiosystem::eosio_global_state3</innerclass>
+    <innerclass refid="structeosiosystem_1_1eosio__global__state4" prot="public">eosiosystem::eosio_global_state4</innerclass>
+    <innerclass refid="structeosiosystem_1_1exchange__state" prot="public">eosiosystem::exchange_state</innerclass>
+    <innerclass refid="structeosiosystem_1_1key__weight" prot="public">eosiosystem::key_weight</innerclass>
+    <innerclass refid="structeosiosystem_1_1limit__auth__change" prot="public">eosiosystem::limit_auth_change</innerclass>
+    <innerclass refid="structeosiosystem_1_1name__bid" prot="public">eosiosystem::name_bid</innerclass>
+    <innerclass refid="classeosiosystem_1_1native" prot="public">eosiosystem::native</innerclass>
+    <innerclass refid="structeosiosystem_1_1pair__time__point__sec__int64" prot="public">eosiosystem::pair_time_point_sec_int64</innerclass>
+    <innerclass refid="structeosiosystem_1_1permission__level__weight" prot="public">eosiosystem::permission_level_weight</innerclass>
+    <innerclass refid="structeosiosystem_1_1powerup__config" prot="public">eosiosystem::powerup_config</innerclass>
+    <innerclass refid="structeosiosystem_1_1powerup__order" prot="public">eosiosystem::powerup_order</innerclass>
+    <innerclass refid="structeosiosystem_1_1powerup__state" prot="public">eosiosystem::powerup_state</innerclass>
+    <innerclass refid="structeosiosystem_1_1powerup__state__resource" prot="public">eosiosystem::powerup_state_resource</innerclass>
+    <innerclass refid="structeosiosystem_1_1producer__info" prot="public">eosiosystem::producer_info</innerclass>
+    <innerclass refid="structeosiosystem_1_1producer__info2" prot="public">eosiosystem::producer_info2</innerclass>
+    <innerclass refid="structeosiosystem_1_1ram__debt__record" prot="public">eosiosystem::ram_debt_record</innerclass>
+    <innerclass refid="structeosiosystem_1_1refund__request" prot="public">eosiosystem::refund_request</innerclass>
+    <innerclass refid="structeosiosystem_1_1rex__balance" prot="public">eosiosystem::rex_balance</innerclass>
+    <innerclass refid="structeosiosystem_1_1rex__fund" prot="public">eosiosystem::rex_fund</innerclass>
+    <innerclass refid="structeosiosystem_1_1rex__loan" prot="public">eosiosystem::rex_loan</innerclass>
+    <innerclass refid="structeosiosystem_1_1rex__order" prot="public">eosiosystem::rex_order</innerclass>
+    <innerclass refid="structeosiosystem_1_1rex__order__outcome" prot="public">eosiosystem::rex_order_outcome</innerclass>
+    <innerclass refid="structeosiosystem_1_1rex__pool" prot="public">eosiosystem::rex_pool</innerclass>
+    <innerclass refid="structeosiosystem_1_1rex__return__buckets" prot="public">eosiosystem::rex_return_buckets</innerclass>
+    <innerclass refid="structeosiosystem_1_1rex__return__pool" prot="public">eosiosystem::rex_return_pool</innerclass>
+    <innerclass refid="classeosiosystem_1_1system__contract" prot="public">eosiosystem::system_contract</innerclass>
+    <innerclass refid="structeosiosystem_1_1user__resources" prot="public">eosiosystem::user_resources</innerclass>
+    <innerclass refid="structeosiosystem_1_1voter__info" prot="public">eosiosystem::voter_info</innerclass>
+    <innerclass refid="structeosiosystem_1_1wait__weight" prot="public">eosiosystem::wait_weight</innerclass>
+    <innernamespace refid="namespaceeosiosystem_1_1block__info">eosiosystem::block_info</innernamespace>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespaceeosiosystem_1a44b4ba2cc0f25ec73138308d16cb792f" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double eosiosystem::real_type</definition>
+        <argsstring></argsstring>
+        <name>real_type</name>
+        <qualifiedname>eosiosystem::real_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/rammarket.hpp" line="11" column="16" bodyfile="common/rammarket.hpp" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeosiosystem_1a084bb74fe483e49001e674d5e66001de" prot="public" static="no">
+        <type>eosio::multi_index&lt;&quot;rammarket&quot;_n, <ref refid="structeosiosystem_1_1exchange__state" kindref="compound">exchange_state</ref> &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;rammarket&quot;_n, exchange_state &gt; eosiosystem::rammarket</definition>
+        <argsstring></argsstring>
+        <name>rammarket</name>
+        <qualifiedname>eosiosystem::rammarket</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/rammarket.hpp" line="111" column="28" bodyfile="common/rammarket.hpp" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeosiosystem_1a5e1fbfc9229b1616bfc70a519e26e9c2" prot="public" static="no">
+        <type>eosio::blockchain_parameters</type>
+        <definition>using eosiosystem::blockchain_parameters_t = typedef eosio::blockchain_parameters</definition>
+        <argsstring></argsstring>
+        <name>blockchain_parameters_t</name>
+        <qualifiedname>eosiosystem::blockchain_parameters_t</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="94" column="4" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeosiosystem_1a89109f288e4d5622f4abd4c033e5698b" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;namebids&quot;_n, <ref refid="structeosiosystem_1_1name__bid" kindref="compound">name_bid</ref>, indexed_by&lt;&quot;highbid&quot;_n, const_mem_fun&lt; <ref refid="structeosiosystem_1_1name__bid" kindref="compound">name_bid</ref>, uint64_t, &amp;<ref refid="structeosiosystem_1_1name__bid_1a5b559444f1ddf4eee7a32c53a3ef9485" kindref="member">name_bid::by_high_bid</ref> &gt; &gt; &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;namebids&quot;_n, name_bid, indexed_by&lt;&quot;highbid&quot;_n, const_mem_fun&lt;name_bid, uint64_t, &amp;name_bid::by_high_bid&gt; &gt; &gt; eosiosystem::name_bid_table</definition>
+        <argsstring></argsstring>
+        <name>name_bid_table</name>
+        <qualifiedname>eosiosystem::name_bid_table</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="137" column="2" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeosiosystem_1a9fb24f45319750acae81a7d91703ea05" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;bidrefunds&quot;_n, <ref refid="structeosiosystem_1_1bid__refund" kindref="compound">bid_refund</ref> &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;bidrefunds&quot;_n, bid_refund &gt; eosiosystem::bid_refund_table</definition>
+        <argsstring></argsstring>
+        <name>bid_refund_table</name>
+        <qualifiedname>eosiosystem::bid_refund_table</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="139" column="31" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeosiosystem_1a129e3f7382aec9aeb9122766f5490ea6" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;voters&quot;_n, <ref refid="structeosiosystem_1_1voter__info" kindref="compound">voter_info</ref> &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;voters&quot;_n, voter_info &gt; eosiosystem::voters_table</definition>
+        <argsstring></argsstring>
+        <name>voters_table</name>
+        <qualifiedname>eosiosystem::voters_table</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="324" column="32" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="324" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeosiosystem_1aef9278e2c0a2a94a5ca2da72768058f9" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;producers&quot;_n, <ref refid="structeosiosystem_1_1producer__info" kindref="compound">producer_info</ref>, indexed_by&lt;&quot;prototalvote&quot;_n, const_mem_fun&lt; <ref refid="structeosiosystem_1_1producer__info" kindref="compound">producer_info</ref>, double, &amp;<ref refid="structeosiosystem_1_1producer__info_1a2923be76a2e0b28b39b772fc8f5f30aa" kindref="member">producer_info::by_votes</ref> &gt; &gt; &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;producers&quot;_n, producer_info, indexed_by&lt;&quot;prototalvote&quot;_n, const_mem_fun&lt;producer_info, double, &amp;producer_info::by_votes&gt; &gt; &gt; eosiosystem::producers_table</definition>
+        <argsstring></argsstring>
+        <name>producers_table</name>
+        <qualifiedname>eosiosystem::producers_table</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="329" column="2" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="329" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeosiosystem_1aec03ff9b9e26842a0ae7543b729b4eb8" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;producers2&quot;_n, <ref refid="structeosiosystem_1_1producer__info2" kindref="compound">producer_info2</ref> &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;producers2&quot;_n, producer_info2 &gt; eosiosystem::producers_table2</definition>
+        <argsstring></argsstring>
+        <name>producers_table2</name>
+        <qualifiedname>eosiosystem::producers_table2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="331" column="31" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="331" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeosiosystem_1a2757bc4c835154772dce0d5891c93b58" prot="public" static="no">
+        <type>eosio::singleton&lt; &quot;global&quot;_n, <ref refid="structeosiosystem_1_1eosio__global__state" kindref="compound">eosio_global_state</ref> &gt;</type>
+        <definition>typedef eosio::singleton&lt; &quot;global&quot;_n, eosio_global_state &gt; eosiosystem::global_state_singleton</definition>
+        <argsstring></argsstring>
+        <name>global_state_singleton</name>
+        <qualifiedname>eosiosystem::global_state_singleton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="334" column="31" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="334" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeosiosystem_1adb616b32d645551d19e31961316dee14" prot="public" static="no">
+        <type>eosio::singleton&lt; &quot;global2&quot;_n, <ref refid="structeosiosystem_1_1eosio__global__state2" kindref="compound">eosio_global_state2</ref> &gt;</type>
+        <definition>typedef eosio::singleton&lt; &quot;global2&quot;_n, eosio_global_state2 &gt; eosiosystem::global_state2_singleton</definition>
+        <argsstring></argsstring>
+        <name>global_state2_singleton</name>
+        <qualifiedname>eosiosystem::global_state2_singleton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="336" column="29" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="336" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeosiosystem_1a958a67bf9b36e7cfba8b3e2ba38ed6cd" prot="public" static="no">
+        <type>eosio::singleton&lt; &quot;global3&quot;_n, <ref refid="structeosiosystem_1_1eosio__global__state3" kindref="compound">eosio_global_state3</ref> &gt;</type>
+        <definition>typedef eosio::singleton&lt; &quot;global3&quot;_n, eosio_global_state3 &gt; eosiosystem::global_state3_singleton</definition>
+        <argsstring></argsstring>
+        <name>global_state3_singleton</name>
+        <qualifiedname>eosiosystem::global_state3_singleton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="338" column="29" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="338" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeosiosystem_1ab4454fd166d16430c6918051bef3af56" prot="public" static="no">
+        <type>eosio::singleton&lt; &quot;global4&quot;_n, <ref refid="structeosiosystem_1_1eosio__global__state4" kindref="compound">eosio_global_state4</ref> &gt;</type>
+        <definition>typedef eosio::singleton&lt; &quot;global4&quot;_n, eosio_global_state4 &gt; eosiosystem::global_state4_singleton</definition>
+        <argsstring></argsstring>
+        <name>global_state4_singleton</name>
+        <qualifiedname>eosiosystem::global_state4_singleton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="340" column="29" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="340" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeosiosystem_1a52ceb5dd9d2a80698c83a32fb4b3e62f" prot="public" static="no">
+        <type>eosio::multi_index&lt;&quot;ramdebts&quot;_n, <ref refid="structeosiosystem_1_1ram__debt__record" kindref="compound">ram_debt_record</ref> &gt;</type>
+        <definition>typedef eosio::multi_index&lt;&quot;ramdebts&quot;_n, ram_debt_record&gt; eosiosystem::ram_debts_table</definition>
+        <argsstring></argsstring>
+        <name>ram_debts_table</name>
+        <qualifiedname>eosiosystem::ram_debts_table</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="362" column="32" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="362" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeosiosystem_1a392bb6f33cd89eca7b90ee378a7ac8e3" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;userres&quot;_n, <ref refid="structeosiosystem_1_1user__resources" kindref="compound">user_resources</ref> &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;userres&quot;_n, user_resources &gt; eosiosystem::user_resources_table</definition>
+        <argsstring></argsstring>
+        <name>user_resources_table</name>
+        <qualifiedname>eosiosystem::user_resources_table</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="394" column="36" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="394" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeosiosystem_1a4e16d907ef29397151873e2b4af00694" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;delband&quot;_n, <ref refid="structeosiosystem_1_1delegated__bandwidth" kindref="compound">delegated_bandwidth</ref> &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;delband&quot;_n, delegated_bandwidth &gt; eosiosystem::del_bandwidth_table</definition>
+        <argsstring></argsstring>
+        <name>del_bandwidth_table</name>
+        <qualifiedname>eosiosystem::del_bandwidth_table</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="395" column="31" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="395" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeosiosystem_1aa3f5a7875c9a421bed214a88d78d7750" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;refunds&quot;_n, <ref refid="structeosiosystem_1_1refund__request" kindref="compound">refund_request</ref> &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;refunds&quot;_n, refund_request &gt; eosiosystem::refunds_table</definition>
+        <argsstring></argsstring>
+        <name>refunds_table</name>
+        <qualifiedname>eosiosystem::refunds_table</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="396" column="36" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="396" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeosiosystem_1aab279eda55b1ca1ada69524b4e57bdcc" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;rexpool&quot;_n, <ref refid="structeosiosystem_1_1rex__pool" kindref="compound">rex_pool</ref> &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;rexpool&quot;_n, rex_pool &gt; eosiosystem::rex_pool_table</definition>
+        <argsstring></argsstring>
+        <name>rex_pool_table</name>
+        <qualifiedname>eosiosystem::rex_pool_table</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="420" column="31" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="420" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeosiosystem_1ad6a995b6569fba225ac32ede6445588f" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;rexretpool&quot;_n, <ref refid="structeosiosystem_1_1rex__return__pool" kindref="compound">rex_return_pool</ref> &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;rexretpool&quot;_n, rex_return_pool &gt; eosiosystem::rex_return_pool_table</definition>
+        <argsstring></argsstring>
+        <name>rex_return_pool_table</name>
+        <qualifiedname>eosiosystem::rex_return_pool_table</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="447" column="31" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="447" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeosiosystem_1ad64bb26fc1b25cadb230ce1e28332a8d" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;retbuckets&quot;_n, <ref refid="structeosiosystem_1_1rex__return__buckets" kindref="compound">rex_return_buckets</ref> &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;retbuckets&quot;_n, rex_return_buckets &gt; eosiosystem::rex_return_buckets_table</definition>
+        <argsstring></argsstring>
+        <name>rex_return_buckets_table</name>
+        <qualifiedname>eosiosystem::rex_return_buckets_table</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="466" column="31" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="466" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeosiosystem_1ab4d1e899542a55b49aadb517d5779ac7" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;rexfund&quot;_n, <ref refid="structeosiosystem_1_1rex__fund" kindref="compound">rex_fund</ref> &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;rexfund&quot;_n, rex_fund &gt; eosiosystem::rex_fund_table</definition>
+        <argsstring></argsstring>
+        <name>rex_fund_table</name>
+        <qualifiedname>eosiosystem::rex_fund_table</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="480" column="31" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="480" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeosiosystem_1ae2f4a6ffda396b4ce5d5317fa8745469" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;rexbal&quot;_n, <ref refid="structeosiosystem_1_1rex__balance" kindref="compound">rex_balance</ref> &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;rexbal&quot;_n, rex_balance &gt; eosiosystem::rex_balance_table</definition>
+        <argsstring></argsstring>
+        <name>rex_balance_table</name>
+        <qualifiedname>eosiosystem::rex_balance_table</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="499" column="31" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="499" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeosiosystem_1ad6c349c930878b3b22f1bfa41a3f0958" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;cpuloan&quot;_n, <ref refid="structeosiosystem_1_1rex__loan" kindref="compound">rex_loan</ref>, indexed_by&lt;&quot;byexpr&quot;_n, const_mem_fun&lt; <ref refid="structeosiosystem_1_1rex__loan" kindref="compound">rex_loan</ref>, uint64_t, &amp;<ref refid="structeosiosystem_1_1rex__loan_1a7e1408b91e4d52c1381ce8f99b9eb521" kindref="member">rex_loan::by_expr</ref> &gt; &gt;, indexed_by&lt;&quot;byowner&quot;_n, const_mem_fun&lt; <ref refid="structeosiosystem_1_1rex__loan" kindref="compound">rex_loan</ref>, uint64_t, &amp;<ref refid="structeosiosystem_1_1rex__loan_1a5dc4c8b0bf062ea5a729db6c859c033d" kindref="member">rex_loan::by_owner</ref> &gt; &gt; &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;cpuloan&quot;_n, rex_loan, indexed_by&lt;&quot;byexpr&quot;_n, const_mem_fun&lt;rex_loan, uint64_t, &amp;rex_loan::by_expr&gt; &gt;, indexed_by&lt;&quot;byowner&quot;_n, const_mem_fun&lt;rex_loan, uint64_t, &amp;rex_loan::by_owner&gt; &gt; &gt; eosiosystem::rex_cpu_loan_table</definition>
+        <argsstring></argsstring>
+        <name>rex_cpu_loan_table</name>
+        <qualifiedname>eosiosystem::rex_cpu_loan_table</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="529" column="2" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="529" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeosiosystem_1ab9ffddfccf8c34d6546d5353e4cf522f" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;netloan&quot;_n, <ref refid="structeosiosystem_1_1rex__loan" kindref="compound">rex_loan</ref>, indexed_by&lt;&quot;byexpr&quot;_n, const_mem_fun&lt; <ref refid="structeosiosystem_1_1rex__loan" kindref="compound">rex_loan</ref>, uint64_t, &amp;<ref refid="structeosiosystem_1_1rex__loan_1a7e1408b91e4d52c1381ce8f99b9eb521" kindref="member">rex_loan::by_expr</ref> &gt; &gt;, indexed_by&lt;&quot;byowner&quot;_n, const_mem_fun&lt; <ref refid="structeosiosystem_1_1rex__loan" kindref="compound">rex_loan</ref>, uint64_t, &amp;<ref refid="structeosiosystem_1_1rex__loan_1a5dc4c8b0bf062ea5a729db6c859c033d" kindref="member">rex_loan::by_owner</ref> &gt; &gt; &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;netloan&quot;_n, rex_loan, indexed_by&lt;&quot;byexpr&quot;_n, const_mem_fun&lt;rex_loan, uint64_t, &amp;rex_loan::by_expr&gt; &gt;, indexed_by&lt;&quot;byowner&quot;_n, const_mem_fun&lt;rex_loan, uint64_t, &amp;rex_loan::by_owner&gt; &gt; &gt; eosiosystem::rex_net_loan_table</definition>
+        <argsstring></argsstring>
+        <name>rex_net_loan_table</name>
+        <qualifiedname>eosiosystem::rex_net_loan_table</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="534" column="2" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="534" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeosiosystem_1a15c29cf918cdbf79e26c480b9a3916bd" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;rexqueue&quot;_n, <ref refid="structeosiosystem_1_1rex__order" kindref="compound">rex_order</ref>, indexed_by&lt;&quot;bytime&quot;_n, const_mem_fun&lt; <ref refid="structeosiosystem_1_1rex__order" kindref="compound">rex_order</ref>, uint64_t, &amp;<ref refid="structeosiosystem_1_1rex__order_1a177603993abdb4e9b521d273d9cbc818" kindref="member">rex_order::by_time</ref> &gt; &gt; &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;rexqueue&quot;_n, rex_order, indexed_by&lt;&quot;bytime&quot;_n, const_mem_fun&lt;rex_order, uint64_t, &amp;rex_order::by_time&gt; &gt; &gt; eosiosystem::rex_order_table</definition>
+        <argsstring></argsstring>
+        <name>rex_order_table</name>
+        <qualifiedname>eosiosystem::rex_order_table</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="551" column="2" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="551" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeosiosystem_1a3f7272bcaba5ffb74778b45ecd0fe547" prot="public" static="no">
+        <type>eosio::singleton&lt;&quot;powerstate&quot;_n, <ref refid="structeosiosystem_1_1powerup__state" kindref="compound">powerup_state</ref> &gt;</type>
+        <definition>typedef eosio::singleton&lt;&quot;powerstate&quot;_n, powerup_state&gt; eosiosystem::powerup_state_singleton</definition>
+        <argsstring></argsstring>
+        <name>powerup_state_singleton</name>
+        <qualifiedname>eosiosystem::powerup_state_singleton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="589" column="29" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="589" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeosiosystem_1acc6ad551520c18fdac72d2ef9bfb26a9" prot="public" static="no">
+        <type>eosio::singleton&lt;&quot;emission&quot;_n, <ref refid="structeosiosystem_1_1emission__state" kindref="compound">emission_state</ref> &gt;</type>
+        <definition>typedef eosio::singleton&lt;&quot;emission&quot;_n, emission_state&gt; eosiosystem::emission_state_singleton</definition>
+        <argsstring></argsstring>
+        <name>emission_state_singleton</name>
+        <qualifiedname>eosiosystem::emission_state_singleton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="607" column="29" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="607" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeosiosystem_1ab020b27ad4ebc87d910cb31fbcf9e7ac" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;powup.order&quot;_n, <ref refid="structeosiosystem_1_1powerup__order" kindref="compound">powerup_order</ref>, indexed_by&lt;&quot;byowner&quot;_n, const_mem_fun&lt; <ref refid="structeosiosystem_1_1powerup__order" kindref="compound">powerup_order</ref>, uint64_t, &amp;<ref refid="structeosiosystem_1_1powerup__order_1ad6f472ce4c90343ff6c3a2a312ac64ab" kindref="member">powerup_order::by_owner</ref> &gt; &gt;, indexed_by&lt;&quot;byexpires&quot;_n, const_mem_fun&lt; <ref refid="structeosiosystem_1_1powerup__order" kindref="compound">powerup_order</ref>, uint64_t, &amp;<ref refid="structeosiosystem_1_1powerup__order_1a9a404ef12847703055ba5da5b47af05a" kindref="member">powerup_order::by_expires</ref> &gt; &gt; &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;powup.order&quot;_n, powerup_order, indexed_by&lt;&quot;byowner&quot;_n, const_mem_fun&lt;powerup_order, uint64_t, &amp;powerup_order::by_owner&gt; &gt;, indexed_by&lt;&quot;byexpires&quot;_n, const_mem_fun&lt;powerup_order, uint64_t, &amp;powerup_order::by_expires&gt; &gt; &gt; eosiosystem::powerup_order_table</definition>
+        <argsstring></argsstring>
+        <name>powerup_order_table</name>
+        <qualifiedname>eosiosystem::powerup_order_table</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="629" column="2" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="629" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeosiosystem_1ab6669b0a3e740568b4ff28936a6ac5d5" prot="public" static="no">
+        <type>eosio::multi_index&lt;&quot;limitauthchg&quot;_n, <ref refid="structeosiosystem_1_1limit__auth__change" kindref="compound">limit_auth_change</ref> &gt;</type>
+        <definition>typedef eosio::multi_index&lt;&quot;limitauthchg&quot;_n, limit_auth_change&gt; eosiosystem::limit_auth_change_table</definition>
+        <argsstring></argsstring>
+        <name>limit_auth_change_table</name>
+        <qualifiedname>eosiosystem::limit_auth_change_table</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/limit_auth_changes.hpp" line="19" column="31" bodyfile="system/contracts/eosio.system/include/eosio.system/limit_auth_changes.hpp" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceeosiosystem_1ad71bd6c8c9f27a07f389e6a3ff365692" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr int64_t</type>
+        <definition>constexpr int64_t eosiosystem::powerup_frac</definition>
+        <argsstring></argsstring>
+        <name>powerup_frac</name>
+        <qualifiedname>eosiosystem::powerup_frac</qualifiedname>
+        <initializer>= 1&apos;000&apos;000&apos;000&apos;000&apos;000ll</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="45" column="29" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeosiosystem_1ad9f060ae539e7622b6d65da7d0e330d1" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t eosiosystem::seconds_per_year</definition>
+        <argsstring></argsstring>
+        <name>seconds_per_year</name>
+        <qualifiedname>eosiosystem::seconds_per_year</qualifiedname>
+        <initializer>= 52 * 7 * 24 * 3600</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="66" column="30" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeosiosystem_1a3211e9428d4299b7fb7acc4538840d80" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t eosiosystem::seconds_per_day</definition>
+        <argsstring></argsstring>
+        <name>seconds_per_day</name>
+        <qualifiedname>eosiosystem::seconds_per_day</qualifiedname>
+        <initializer>= 24 * 3600</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="67" column="30" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeosiosystem_1a651e86e8ec09b9e2c5161427512d1d6c" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t eosiosystem::seconds_per_hour</definition>
+        <argsstring></argsstring>
+        <name>seconds_per_hour</name>
+        <qualifiedname>eosiosystem::seconds_per_hour</qualifiedname>
+        <initializer>= 3600</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="68" column="30" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeosiosystem_1a783457e9dd7058cd7db98773e7049a8c" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int64_t</type>
+        <definition>constexpr int64_t eosiosystem::useconds_per_year</definition>
+        <argsstring></argsstring>
+        <name>useconds_per_year</name>
+        <qualifiedname>eosiosystem::useconds_per_year</qualifiedname>
+        <initializer>= int64_t(<ref refid="namespaceeosiosystem_1ad9f060ae539e7622b6d65da7d0e330d1" kindref="member">seconds_per_year</ref>) * 1000&apos;000ll</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="69" column="30" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeosiosystem_1a967cb121feaa3f5fb5734b0095578c4b" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int64_t</type>
+        <definition>constexpr int64_t eosiosystem::useconds_per_day</definition>
+        <argsstring></argsstring>
+        <name>useconds_per_day</name>
+        <qualifiedname>eosiosystem::useconds_per_day</qualifiedname>
+        <initializer>= int64_t(<ref refid="namespaceeosiosystem_1a3211e9428d4299b7fb7acc4538840d80" kindref="member">seconds_per_day</ref>) * 1000&apos;000ll</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="70" column="30" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeosiosystem_1a72db69dbbb548aea94fb755987a949ad" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int64_t</type>
+        <definition>constexpr int64_t eosiosystem::useconds_per_hour</definition>
+        <argsstring></argsstring>
+        <name>useconds_per_hour</name>
+        <qualifiedname>eosiosystem::useconds_per_hour</qualifiedname>
+        <initializer>= int64_t(<ref refid="namespaceeosiosystem_1a651e86e8ec09b9e2c5161427512d1d6c" kindref="member">seconds_per_hour</ref>) * 1000&apos;000ll</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="71" column="30" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeosiosystem_1a0a989239fac055dbc55e5e6bd05f8f5f" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t eosiosystem::blocks_per_day</definition>
+        <argsstring></argsstring>
+        <name>blocks_per_day</name>
+        <qualifiedname>eosiosystem::blocks_per_day</qualifiedname>
+        <initializer>= 2 * <ref refid="namespaceeosiosystem_1a3211e9428d4299b7fb7acc4538840d80" kindref="member">seconds_per_day</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="72" column="30" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeosiosystem_1a919beca0c6b93527d5dd3ac5d56866ff" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int64_t</type>
+        <definition>constexpr int64_t eosiosystem::min_activated_stake</definition>
+        <argsstring></argsstring>
+        <name>min_activated_stake</name>
+        <qualifiedname>eosiosystem::min_activated_stake</qualifiedname>
+        <initializer>= 150&apos;000&apos;000&apos;0000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="74" column="30" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeosiosystem_1a0843661bca3ab2494b8a85111041f078" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int64_t</type>
+        <definition>constexpr int64_t eosiosystem::ram_gift_bytes</definition>
+        <argsstring></argsstring>
+        <name>ram_gift_bytes</name>
+        <qualifiedname>eosiosystem::ram_gift_bytes</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="75" column="30" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeosiosystem_1abd74f7ff09c66b649bd6f1e107c4035e" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int64_t</type>
+        <definition>constexpr int64_t eosiosystem::min_pervote_daily_pay</definition>
+        <argsstring></argsstring>
+        <name>min_pervote_daily_pay</name>
+        <qualifiedname>eosiosystem::min_pervote_daily_pay</qualifiedname>
+        <initializer>= 100&apos;0000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="76" column="30" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeosiosystem_1ac8dd7319fe241152601b25ac397495f9" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t eosiosystem::refund_delay_sec</definition>
+        <argsstring></argsstring>
+        <name>refund_delay_sec</name>
+        <qualifiedname>eosiosystem::refund_delay_sec</qualifiedname>
+        <initializer>= 3 * <ref refid="namespaceeosiosystem_1a3211e9428d4299b7fb7acc4538840d80" kindref="member">seconds_per_day</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="77" column="30" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeosiosystem_1a3721a156697a43ad47f62beaa02a33a0" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int64_t</type>
+        <definition>constexpr int64_t eosiosystem::inflation_precision</definition>
+        <argsstring></argsstring>
+        <name>inflation_precision</name>
+        <qualifiedname>eosiosystem::inflation_precision</qualifiedname>
+        <initializer>= 100</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="79" column="30" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeosiosystem_1acc1a38de77d814642baee725124491d2" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int64_t</type>
+        <definition>constexpr int64_t eosiosystem::default_annual_rate</definition>
+        <argsstring></argsstring>
+        <name>default_annual_rate</name>
+        <qualifiedname>eosiosystem::default_annual_rate</qualifiedname>
+        <initializer>= 500</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="80" column="30" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeosiosystem_1a6212da08b9833235265db622f497e3b2" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int64_t</type>
+        <definition>constexpr int64_t eosiosystem::pay_factor_precision</definition>
+        <argsstring></argsstring>
+        <name>pay_factor_precision</name>
+        <qualifiedname>eosiosystem::pay_factor_precision</qualifiedname>
+        <initializer>= 10000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="81" column="30" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeosiosystem_1a5620d77ccf4632bbe8f5fc70fdcfeca5" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int64_t</type>
+        <definition>constexpr int64_t eosiosystem::default_inflation_pay_factor</definition>
+        <argsstring></argsstring>
+        <name>default_inflation_pay_factor</name>
+        <qualifiedname>eosiosystem::default_inflation_pay_factor</qualifiedname>
+        <initializer>= 50000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="82" column="30" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeosiosystem_1a2e07601e403e2204f93972cef556bd46" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int64_t</type>
+        <definition>constexpr int64_t eosiosystem::default_votepay_factor</definition>
+        <argsstring></argsstring>
+        <name>default_votepay_factor</name>
+        <qualifiedname>eosiosystem::default_votepay_factor</qualifiedname>
+        <initializer>= 50000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="83" column="30" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeosiosystem_1a2bf66ae74712f288511596991a953dbf" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr int64_t</type>
+        <definition>constexpr int64_t eosiosystem::_ram_price_per_byte</definition>
+        <argsstring></argsstring>
+        <name>_ram_price_per_byte</name>
+        <qualifiedname>eosiosystem::_ram_price_per_byte</qualifiedname>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/src/exchange_state.cpp" line="10" column="21" bodyfile="system/contracts/eosio.system/src/exchange_state.cpp" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeosiosystem_1a554d168bb3ecdd68b09cabaabe5a90a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>eosio::asset</type>
+        <definition>eosio::asset eosiosystem::determine_ram_price</definition>
+        <argsstring>(uint32_t bytes)</argsstring>
+        <name>determine_ram_price</name>
+        <qualifiedname>eosiosystem::determine_ram_price</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>bytes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/rammarket.hpp" line="113" column="14" bodyfile="common/rammarket.hpp" bodystart="113" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeosiosystem_1a6c407cd2889dff2a2fd87aa6ff808b0e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename E</type>
+          </param>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>static auto eosiosystem::has_field</definition>
+        <argsstring>(F flags, E field) -&gt; std::enable_if_t&lt; std::is_integral_v&lt; F &gt; &amp;&amp;std::is_unsigned_v&lt; F &gt; &amp;&amp;std::is_enum_v&lt; E &gt; &amp;&amp;std::is_same_v&lt; F, std::underlying_type_t&lt; E &gt; &gt;, bool &gt;</argsstring>
+        <name>has_field</name>
+        <qualifiedname>eosiosystem::has_field</qualifiedname>
+        <param>
+          <type>F</type>
+          <declname>flags</declname>
+        </param>
+        <param>
+          <type>E</type>
+          <declname>field</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="48" column="23" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="48" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeosiosystem_1a5528d1c28d5d062e4b4289b4f7ae1c77" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename E</type>
+          </param>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>static auto eosiosystem::set_field</definition>
+        <argsstring>(F flags, E field, bool value=true) -&gt; std::enable_if_t&lt; std::is_integral_v&lt; F &gt; &amp;&amp;std::is_unsigned_v&lt; F &gt; &amp;&amp;std::is_enum_v&lt; E &gt; &amp;&amp;std::is_same_v&lt; F, std::underlying_type_t&lt; E &gt; &gt;, F &gt;</argsstring>
+        <name>set_field</name>
+        <qualifiedname>eosiosystem::set_field</qualifiedname>
+        <param>
+          <type>F</type>
+          <declname>flags</declname>
+        </param>
+        <param>
+          <type>E</type>
+          <declname>field</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>value</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="56" column="23" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="56" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeosiosystem_1ab75117312e65b8b2882d459d0b33ca43" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>eosio::block_signing_authority</type>
+        <definition>eosio::block_signing_authority eosiosystem::convert_to_block_signing_authority</definition>
+        <argsstring>(const eosio::public_key &amp;producer_key)</argsstring>
+        <name>convert_to_block_signing_authority</name>
+        <qualifiedname>eosiosystem::convert_to_block_signing_authority</qualifiedname>
+        <param>
+          <type>const eosio::public_key &amp;</type>
+          <declname>producer_key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="201" column="42" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="201" bodyend="203"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeosiosystem_1a4546341868a4a05f2e23a02e1fc33262" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosiosystem::check_auth_change</definition>
+        <argsstring>(name contract, name account, const binary_extension&lt; name &gt; &amp;authorized_by)</argsstring>
+        <name>check_auth_change</name>
+        <qualifiedname>eosiosystem::check_auth_change</qualifiedname>
+        <param>
+          <type>name</type>
+          <declname>contract</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>account</declname>
+        </param>
+        <param>
+          <type>const binary_extension&lt; name &gt; &amp;</type>
+          <declname>authorized_by</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/src/limit_auth_changes.cpp" line="37" column="9" bodyfile="system/contracts/eosio.system/src/limit_auth_changes.cpp" bodystart="37" bodyend="54" declfile="system/contracts/eosio.system/include/eosio.system/native.hpp" declline="122" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeosiosystem_1a0c548c4fb43fa5317ba67ce4a8f1253d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double eosiosystem::get_continuous_rate</definition>
+        <argsstring>(int64_t annual_rate)</argsstring>
+        <name>get_continuous_rate</name>
+        <qualifiedname>eosiosystem::get_continuous_rate</qualifiedname>
+        <param>
+          <type>int64_t</type>
+          <declname>annual_rate</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/src/eosio.system.cpp" line="14" column="11" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="14" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeosiosystem_1a3e036636d2cc92c741db234dd33870db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double eosiosystem::stake2vote</definition>
+        <argsstring>(int64_t staked)</argsstring>
+        <name>stake2vote</name>
+        <qualifiedname>eosiosystem::stake2vote</qualifiedname>
+        <param>
+          <type>int64_t</type>
+          <declname>staked</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>TODO subtract 2080 brings the large numbers closer to this decade</para>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/src/voting.cpp" line="145" column="11" bodyfile="system/contracts/eosio.system/src/voting.cpp" bodystart="145" bodyend="149"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="common/rammarket.hpp" line="7" column="1"/>
+  </compounddef>
+</doxygen>

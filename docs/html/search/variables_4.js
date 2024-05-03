@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['data_0',['data',['../structexchange__params.html#ae14b0160b59af35e8e4786811398b314',1,'exchange_params::data()'],['../structexchange.html#add5daca8e65c7bdfc41163844bb1d07a',1,'exchange::data()'],['../structaddresses.html#a198b932b99b9881a2bb8d5aae2b82f74',1,'addresses::data()'],['../structtranslations.html#a2ea009ac87abff8fe9859b57d6285faa',1,'translations::data()']]],
+  ['deadline_5ffor_5freceipt_1',['deadline_for_receipt',['../structexchange.html#ad1092fa2bb4bdfec8ca5996a1715ee74',1,'exchange']]],
+  ['decision_5fid_2',['decision_id',['../structautosigner.html#a2d1155e3a9d63342575c616944f30a4c',1,'autosigner']]],
+  ['declined_5fat_3',['declined_at',['../structexchange.html#adb2f0c1569be46684e34adb0c1023dfa',1,'exchange']]],
+  ['default_5fannual_5frate_4',['default_annual_rate',['../namespaceeosiosystem.html#acc1a38de77d814642baee725124491d2',1,'eosiosystem']]],
+  ['default_5finflation_5fpay_5ffactor_5',['default_inflation_pay_factor',['../namespaceeosiosystem.html#a5620d77ccf4632bbe8f5fc70fdcfeca5',1,'eosiosystem']]],
+  ['default_5fpowerup_5fdays_6',['default_powerup_days',['../structeosiosystem_1_1powerup__state.html#a7ac8f24cd2c7173d15f1919fa6aff42b',1,'eosiosystem::powerup_state']]],
+  ['default_5ftranslation_5fid_7',['default_translation_id',['../structdrafts.html#ab4646bfd78c923b34a1be693aff7610a',1,'drafts']]],
+  ['default_5fvotepay_5ffactor_8',['default_votepay_factor',['../namespaceeosiosystem.html#a2e07601e403e2204f93972cef556bd46',1,'eosiosystem']]],
+  ['delivered_5fat_9',['delivered_at',['../structexchange.html#a3d52ae7a985e62ba32f41dc86061f694',1,'exchange']]],
+  ['delivered_5funits_10',['delivered_units',['../structexchange.html#a2a4c94f947fa284349132738412d59c4',1,'exchange']]],
+  ['description_11',['description',['../structplot__data.html#abd7a5526c0912ce5e7be26ec188a2b0d',1,'plot_data::description()'],['../structorgs.html#a7e5900ad7ad2c99fe7a13bd70a154cca',1,'orgs::description()'],['../structboards.html#ae8f0825aa67789f638169abf513ce674',1,'boards::description()'],['../structorg__data.html#a53f757c92b8548c72cb7edc7bb97663a',1,'org_data::description()'],['../structaccfunds.html#a607854b22be889d87c61271a53b62dad',1,'accfunds::description()'],['../structexpfunds.html#a781bc2179065a8410a066e72ec368dc5',1,'expfunds::description()'],['../structprogcomarket.html#a9b8ce6d41fb8c42fca2904e19c9f8f23',1,'progcomarket::description()'],['../structdrafts.html#a2272b3e60f6641b0d1da65099f765c25',1,'drafts::description()']]],
+  ['directions_12',['directions',['../structaddress.html#aebec737c9fa2d67ff39b8a0abe0d1a78',1,'address']]],
+  ['disallow_5fperms_13',['disallow_perms',['../structeosiosystem_1_1limit__auth__change.html#a49b0036332a792a390387813cfe20afd',1,'eosiosystem::limit_auth_change']]],
+  ['disputed_5fat_14',['disputed_at',['../structexchange.html#a7f62b77bfd9bb80d753d9539e000a6ef',1,'exchange']]],
+  ['dist_5finterval_15',['dist_interval',['../structeosiosystem_1_1rex__return__pool.html#ab5e1ccbb63ca2e93a4e66825d6bee245',1,'eosiosystem::rex_return_pool']]],
+  ['district_16',['district',['../structaddress.html#a28d18e08d44ef8531ef15f6ad3f44f45',1,'address']]],
+  ['document_17',['document',['../structwithdraws.html#a1d5c5381ecaf78a41e8786f7aaad12ba',1,'withdraws::document()'],['../structexchange__params.html#acd228f83a4f786bc1f98a51d0c9c49fb',1,'exchange_params::document()'],['../structfwithdraws.html#adb442e17444ad0ed958b490adf7db24a',1,'fwithdraws::document()']]],
+  ['draft_5fid_18',['draft_id',['../structtranslations.html#a99f9ba150840e017e9c8735f60641051',1,'translations']]]
+];

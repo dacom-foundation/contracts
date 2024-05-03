@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="group__public__contracts" kind="group">
+    <compoundname>public_contracts</compoundname>
+    <title>Контракты</title>
+    <innerclass refid="classregistrator" prot="public">registrator</innerclass>
+    <innerclass refid="classmarketplace" prot="public">marketplace</innerclass>
+    <innerclass refid="classsoviet" prot="public">soviet</innerclass>
+    <innerclass refid="classgateway" prot="public">gateway</innerclass>
+    <briefdescription>
+<para>Контракты Кооперативной Экономики </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Группа содержит контракты, предназначенные для кооперативной экономики. Контракты описывают основные логические единицы и функциональность для управления и взаимодействия в рамках кооперативной экосистемы. От регистрации участников до обменных операций - все аспекты кооперативной деятельности регулируются этими контрактами. </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

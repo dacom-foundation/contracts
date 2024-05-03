@@ -1,0 +1,491 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="coops_8hpp" kind="file" language="C++">
+    <compoundname>coops.hpp</compoundname>
+    <includedby refid="gateway_8hpp" local="yes">gateway/gateway.hpp</includedby>
+    <includedby refid="marketplace_8hpp" local="yes">marketplace/marketplace.hpp</includedby>
+    <includedby refid="registrator_8hpp" local="yes">registrator/registrator.hpp</includedby>
+    <includedby refid="soviet_8hpp" local="yes">soviet/soviet.hpp</includedby>
+    <invincdepgraph>
+      <node id="1">
+        <label>common/coops.hpp</label>
+        <link refid="coops_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>gateway/gateway.cpp</label>
+        <link refid="gateway_8cpp"/>
+      </node>
+      <node id="2">
+        <label>gateway/gateway.hpp</label>
+        <link refid="gateway_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>marketplace/marketplace.cpp</label>
+        <link refid="marketplace_2marketplace_8cpp"/>
+      </node>
+      <node id="4">
+        <label>marketplace/marketplace.hpp</label>
+        <link refid="marketplace_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>registrator/registrator.cpp</label>
+        <link refid="registrator_8cpp"/>
+      </node>
+      <node id="6">
+        <label>registrator/registrator.hpp</label>
+        <link refid="registrator_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>soviet/soviet.cpp</label>
+        <link refid="soviet_2soviet_8cpp"/>
+      </node>
+      <node id="8">
+        <label>soviet/soviet.hpp</label>
+        <link refid="soviet_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structboard__member" prot="public">board_member</innerclass>
+    <innerclass refid="structboards" prot="public">boards</innerclass>
+    <innerclass refid="structright" prot="public">right</innerclass>
+    <innerclass refid="structstaff" prot="public">staff</innerclass>
+    <innerclass refid="structparticipants" prot="public">participants</innerclass>
+    <innerclass refid="structdecisions" prot="public">decisions</innerclass>
+    <innerclass refid="structaddress" prot="public">address</innerclass>
+    <innerclass refid="structaddresses" prot="public">addresses</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="coops_8hpp_1a78302821fd10bd5b552f1c9cf16d57f7" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;boards&quot;_n, <ref refid="structboards" kindref="compound">boards</ref>, eosio::indexed_by&lt;&quot;bytype&quot;_n, eosio::const_mem_fun&lt; <ref refid="structboards" kindref="compound">boards</ref>, uint64_t, &amp;<ref refid="structboards_1a62601ce5131f1d2be8f17c3df5866f38" kindref="member">boards::by_type</ref> &gt; &gt; &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;boards&quot;_n, boards,eosio::indexed_by&lt;&quot;bytype&quot;_n, eosio::const_mem_fun&lt;boards, uint64_t, &amp;boards::by_type&gt; &gt; &gt; boards_index</definition>
+        <argsstring></argsstring>
+        <name>boards_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="112" column="2" bodyfile="common/coops.hpp" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="coops_8hpp_1a04b2c83df71b9adc976ae65b894f4b3d" prot="public" static="no">
+        <type>eosio::multi_index&lt;&quot;staff&quot;_n, <ref refid="structstaff" kindref="compound">staff</ref> &gt;</type>
+        <definition>typedef eosio::multi_index&lt;&quot;staff&quot;_n, staff&gt; staff_index</definition>
+        <argsstring></argsstring>
+        <name>staff_index</name>
+        <briefdescription>
+<para>Тип мультииндекса для таблицы администраторов </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="150" column="28" bodyfile="common/coops.hpp" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="coops_8hpp_1adf0a04dfbe948cdf1bd01cf5b344af61" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;participants&quot;_n, <ref refid="structparticipants" kindref="compound">participants</ref>, eosio::indexed_by&lt;&quot;bylastpay&quot;_n, eosio::const_mem_fun&lt; <ref refid="structparticipants" kindref="compound">participants</ref>, uint64_t, &amp;<ref refid="structparticipants_1aa40e98abaf7212e03dd80e1f993d6c17" kindref="member">participants::bylastpay</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;createdat&quot;_n, eosio::const_mem_fun&lt; <ref refid="structparticipants" kindref="compound">participants</ref>, uint64_t, &amp;<ref refid="structparticipants_1ab63c149354ae6df6a4a5de3948fdaf00" kindref="member">participants::by_created_at</ref> &gt; &gt; &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;participants&quot;_n, participants, eosio::indexed_by&lt;&quot;bylastpay&quot;_n, eosio::const_mem_fun&lt;participants, uint64_t, &amp;participants::bylastpay&gt; &gt;, eosio::indexed_by&lt;&quot;createdat&quot;_n, eosio::const_mem_fun&lt;participants, uint64_t, &amp;participants::by_created_at&gt; &gt;&gt; participants_index</definition>
+        <argsstring></argsstring>
+        <name>participants_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="204" column="2" bodyfile="common/coops.hpp" bodystart="204" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="coops_8hpp_1aa1a060285827fdcbe676dc431070dbce" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;decisions&quot;_n, <ref refid="structdecisions" kindref="compound">decisions</ref>, eosio::indexed_by&lt;&quot;bysecondary&quot;_n, eosio::const_mem_fun&lt; <ref refid="structdecisions" kindref="compound">decisions</ref>, uint64_t, &amp;<ref refid="structdecisions_1a9ec7ed6dab56a52187a4dcbd430b1d48" kindref="member">decisions::by_secondary</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;bytype&quot;_n, eosio::const_mem_fun&lt; <ref refid="structdecisions" kindref="compound">decisions</ref>, uint64_t, &amp;<ref refid="structdecisions_1a87937d6b4c5c378d3e3ac77141b11394" kindref="member">decisions::bytype</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;byapproved&quot;_n, eosio::const_mem_fun&lt; <ref refid="structdecisions" kindref="compound">decisions</ref>, uint64_t, &amp;<ref refid="structdecisions_1a6cadd228516907f8eb55f915eb03d4b8" kindref="member">decisions::byapproved</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;byvalidated&quot;_n, eosio::const_mem_fun&lt; <ref refid="structdecisions" kindref="compound">decisions</ref>, uint64_t, &amp;<ref refid="structdecisions_1a9661d6706d87e72e74ad3590620e5009" kindref="member">decisions::byvalidated</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;byauthorized&quot;_n, eosio::const_mem_fun&lt; <ref refid="structdecisions" kindref="compound">decisions</ref>, uint64_t, &amp;<ref refid="structdecisions_1ab166604702a060e0a03e885efa8c14b9" kindref="member">decisions::byauthorized</ref> &gt; &gt; &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;decisions&quot;_n, decisions, eosio::indexed_by&lt;&quot;bysecondary&quot;_n, eosio::const_mem_fun&lt;decisions, uint64_t, &amp;decisions::by_secondary&gt; &gt;, eosio::indexed_by&lt;&quot;bytype&quot;_n, eosio::const_mem_fun&lt;decisions, uint64_t, &amp;decisions::bytype&gt; &gt;, eosio::indexed_by&lt;&quot;byapproved&quot;_n, eosio::const_mem_fun&lt;decisions, uint64_t, &amp;decisions::byapproved&gt; &gt;, eosio::indexed_by&lt;&quot;byvalidated&quot;_n, eosio::const_mem_fun&lt;decisions, uint64_t, &amp;decisions::byvalidated&gt; &gt;, eosio::indexed_by&lt;&quot;byauthorized&quot;_n, eosio::const_mem_fun&lt;decisions, uint64_t, &amp;decisions::byauthorized&gt; &gt;&gt; decisions_index</definition>
+        <argsstring></argsstring>
+        <name>decisions_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="289" column="2" bodyfile="common/coops.hpp" bodystart="289" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="coops_8hpp_1ad05b8ab165ff4c063b1363832210ae3e" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;addresses&quot;_n, <ref refid="structaddresses" kindref="compound">addresses</ref>, eosio::indexed_by&lt;&quot;bycooplate&quot;_n, eosio::const_mem_fun&lt; <ref refid="structaddresses" kindref="compound">addresses</ref>, uint64_t, &amp;<ref refid="structaddresses_1a82b8881b433938145f8d9af152cc19c3" kindref="member">addresses::bycooplate</ref> &gt; &gt; &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;addresses&quot;_n, addresses, eosio::indexed_by&lt;&quot;bycooplate&quot;_n, eosio::const_mem_fun&lt;addresses, uint64_t, &amp;addresses::bycooplate&gt; &gt;&gt; addresses_index</definition>
+        <argsstring></argsstring>
+        <name>addresses_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="362" column="2" bodyfile="common/coops.hpp" bodystart="362" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="coops_8hpp_1a3541ce0c65865661aeb7230f280abf3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structboards" kindref="compound">boards</ref></type>
+        <definition>boards get_board_by_id</definition>
+        <argsstring>(eosio::name coopname, uint64_t board_id)</argsstring>
+        <name>get_board_by_id</name>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>board_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="292" column="8" bodyfile="common/coops.hpp" bodystart="292" bodyend="300"/>
+      </memberdef>
+      <memberdef kind="function" id="coops_8hpp_1a5975688eadd5a074161c268985282581" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structboards" kindref="compound">boards</ref></type>
+        <definition>boards get_board_by_type_or_fail</definition>
+        <argsstring>(eosio::name coopname, eosio::name type)</argsstring>
+        <name>get_board_by_type_or_fail</name>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="303" column="8" bodyfile="common/coops.hpp" bodystart="303" bodyend="312"/>
+      </memberdef>
+      <memberdef kind="function" id="coops_8hpp_1a7071d280b47702321a02ac12afe8f74b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool check_for_exist_board_by_type</definition>
+        <argsstring>(eosio::name coopname, eosio::name type)</argsstring>
+        <name>check_for_exist_board_by_type</name>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="315" column="6" bodyfile="common/coops.hpp" bodystart="315" bodyend="325"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="structboard__member" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structboard__member" kindref="compound">board_member</ref><sp/>{</highlight></codeline>
+<codeline lineno="9" refid="structboard__member_1adf5286ff237471ceabc65d4d091972d0" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structboard__member_1adf5286ff237471ceabc65d4d091972d0" kindref="member">username</ref>;<sp/></highlight></codeline>
+<codeline lineno="10" refid="structboard__member_1a20b8902343fc67a6f8a0665a4e40b330" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structboard__member_1a20b8902343fc67a6f8a0665a4e40b330" kindref="member">is_voting</ref>;<sp/></highlight></codeline>
+<codeline lineno="11" refid="structboard__member_1a2961218c9a14c7125a53ade0c15e5598" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structboard__member_1a2961218c9a14c7125a53ade0c15e5598" kindref="member">position_title</ref>;<sp/></highlight></codeline>
+<codeline lineno="12" refid="structboard__member_1a10fea881563dbbbbee4ad11c3756e7ec" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structboard__member_1a10fea881563dbbbbee4ad11c3756e7ec" kindref="member">position</ref>;<sp/></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>(CHAIRMAN,<sp/>_(&apos;chairman&apos;)),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>(CHAIRMAN_VP,<sp/>_(&apos;vpchairman&apos;)),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>(SECRETARY,<sp/>_(&apos;secretary&apos;)),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>(ACCOUNTING,<sp/>_(&apos;accounting&apos;)),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>(MEMBER,<sp/>_(&apos;member&apos;)),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>(INVITED,<sp/>_(‘invited&apos;)),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="structboards" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(SOVIET)]]<sp/><ref refid="structboards" kindref="compound">boards</ref><sp/>{</highlight></codeline>
+<codeline lineno="27" refid="structboards_1a4902e87f13247db8f837629544f12a6a" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structboards_1a4902e87f13247db8f837629544f12a6a" kindref="member">id</ref>;<sp/></highlight></codeline>
+<codeline lineno="28" refid="structboards_1a277bb2ea397a8b6076584f07f2c4432f" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structboards_1a277bb2ea397a8b6076584f07f2c4432f" kindref="member">type</ref>;<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>(soviet,<sp/>_(&apos;Board<sp/>of<sp/>Members&apos;)),<sp/><sp/><sp/>#<sp/>Совет<sp/>кооператива</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>(executive,<sp/>_(&apos;Executive<sp/>Board&apos;)),<sp/>#<sp/>Правление</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>(audit,<sp/>_(&apos;Audit<sp/>and<sp/>Revision<sp/>Board&apos;)),<sp/><sp/>#<sp/>Ревизионный</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>(other,<sp/>_(&apos;Other<sp/>committee&apos;)),<sp/><sp/><sp/>#<sp/>Другая<sp/>комиссия</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="structboards_1ad9a12ccbc9bdbabfe1dbd5f7cffdb06f" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structboards_1ad9a12ccbc9bdbabfe1dbd5f7cffdb06f" kindref="member">name</ref>;<sp/></highlight></codeline>
+<codeline lineno="34" refid="structboards_1ae8f0825aa67789f638169abf513ce674" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structboards_1ae8f0825aa67789f638169abf513ce674" kindref="member">description</ref>;<sp/></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="36" refid="structboards_1a784be337829b64e7caaa6c6657f5c262" refkind="member"><highlight class="normal"><sp/><sp/>std::vector&lt;board_member&gt;<sp/><ref refid="structboards_1a784be337829b64e7caaa6c6657f5c262" kindref="member">members</ref>;<sp/></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="structboards_1add47e6975c343415f278a0414c714066" refkind="member"><highlight class="normal"><sp/><sp/>eosio::time_point_sec<sp/><ref refid="structboards_1add47e6975c343415f278a0414c714066" kindref="member">created_at</ref>;<sp/></highlight></codeline>
+<codeline lineno="39" refid="structboards_1acaad31053c6dc00a9b99faaece7213bc" refkind="member"><highlight class="normal"><sp/><sp/>eosio::time_point_sec<sp/><ref refid="structboards_1acaad31053c6dc00a9b99faaece7213bc" kindref="member">last_update</ref>;<sp/></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="structboards_1a8a887a056d41000b8183975cc5fe0c91" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structboards_1a8a887a056d41000b8183975cc5fe0c91" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structboards_1a4902e87f13247db8f837629544f12a6a" kindref="member">id</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="structboards_1a62601ce5131f1d2be8f17c3df5866f38" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structboards_1a62601ce5131f1d2be8f17c3df5866f38" kindref="member">by_type</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>type.value;<sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="structboards_1a3108c80a73de20b8ad7a776e108abe26" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structboards_1a3108c80a73de20b8ad7a776e108abe26" kindref="member">is_valid_member</ref>(eosio::name<sp/>member)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>m<sp/>:<sp/>members)<sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m.username<sp/>==<sp/>member)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="62" refid="structboards_1acfe79079ce96ef59fea0f86c95506cb8" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structboards_1acfe79079ce96ef59fea0f86c95506cb8" kindref="member">is_voting_member</ref>(eosio::name<sp/>member)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>m<sp/>:<sp/>members)<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m.username<sp/>==<sp/>member<sp/>&amp;&amp;<sp/>m.is_voting<sp/>==<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="structboards_1ad1e613d161e0dfb3bee0b043b71c13db" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structboards_1ad1e613d161e0dfb3bee0b043b71c13db" kindref="member">is_valid_chairman</ref>(eosio::name<sp/>chairman)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>m<sp/>:<sp/>members)<sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m.username<sp/>==<sp/>chairman<sp/>&amp;&amp;<sp/>(m.position<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;chairman&quot;</highlight><highlight class="normal">_n<sp/>||<sp/>m.position<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;vpchairman&quot;</highlight><highlight class="normal">_n))</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79" refid="structboards_1ad04db86aca0d3390cbf18c1696818f16" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structboards_1ad04db86aca0d3390cbf18c1696818f16" kindref="member">get_chairman</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>m<sp/>:<sp/>members)<sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m.position<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;chairman&quot;</highlight><highlight class="normal">_n)</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m.username;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87" refid="structboards_1a19e6b2ff62948b4922ea2ea945b5083a" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structboards_1a19e6b2ff62948b4922ea2ea945b5083a" kindref="member">is_valid_secretary</ref>(eosio::name<sp/>secretary)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>m<sp/>:<sp/>members)<sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m.username<sp/>==<sp/>secretary<sp/>&amp;&amp;<sp/>(m.position<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;secretary&quot;</highlight><highlight class="normal">_n))</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95" refid="structboards_1a151ec00b76ae9f7c7fdc1e4dee7f0412" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structboards_1a151ec00b76ae9f7c7fdc1e4dee7f0412" kindref="member">has_voting_right</ref>(eosio::name<sp/>member)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>m<sp/>:<sp/>members)<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m.username<sp/>==<sp/>member<sp/>&amp;&amp;<sp/>m.is_voting)</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104" refid="structboards_1a3eb726cb1d52d85288567c3e5848828e" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structboards_1a3eb726cb1d52d85288567c3e5848828e" kindref="member">get_members_count</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>members.size();</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;<sp/></highlight><highlight class="stringliteral">&quot;boards&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structboards" kindref="compound">boards</ref>,</highlight></codeline>
+<codeline lineno="111"><highlight class="normal">eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bytype&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;<ref refid="structboards" kindref="compound">boards</ref>,<sp/>uint64_t,</highlight></codeline>
+<codeline lineno="112" refid="coops_8hpp_1a78302821fd10bd5b552f1c9cf16d57f7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;<ref refid="structboards_1a62601ce5131f1d2be8f17c3df5866f38" kindref="member">boards::by_type</ref>&gt;&gt;&gt;<sp/><ref refid="coops_8hpp_1a78302821fd10bd5b552f1c9cf16d57f7" kindref="member">boards_index</ref>;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120" refid="structright" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structright" kindref="compound">right</ref><sp/>{</highlight></codeline>
+<codeline lineno="121" refid="structright_1a72bb88ed7a935b2652edd7c01ed9cbfb" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structright_1a72bb88ed7a935b2652edd7c01ed9cbfb" kindref="member">contract</ref>;<sp/></highlight></codeline>
+<codeline lineno="122" refid="structright_1a7b8447f641a5a31a5c77b23ab3d97dd3" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structright_1a7b8447f641a5a31a5c77b23ab3d97dd3" kindref="member">action_name</ref>;<sp/></highlight></codeline>
+<codeline lineno="123"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130" refid="structstaff" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(SOVIET)]]<sp/><ref refid="structstaff" kindref="compound">staff</ref><sp/>{</highlight></codeline>
+<codeline lineno="131" refid="structstaff_1aa67b206d474a4f87453bca87fda2f01b" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structstaff_1aa67b206d474a4f87453bca87fda2f01b" kindref="member">username</ref>;<sp/></highlight></codeline>
+<codeline lineno="132" refid="structstaff_1a8fa0fdaf003c7588f9f1185a087785ba" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structstaff_1a8fa0fdaf003c7588f9f1185a087785ba" kindref="member">position_title</ref>;<sp/></highlight></codeline>
+<codeline lineno="133" refid="structstaff_1adc9ddede2cb6c7035ee3425ecdee5df4" refkind="member"><highlight class="normal"><sp/><sp/>std::vector&lt;eosio::name&gt;<sp/><ref refid="structstaff_1adc9ddede2cb6c7035ee3425ecdee5df4" kindref="member">roles</ref>;<sp/></highlight></codeline>
+<codeline lineno="134" refid="structstaff_1a935eee764193e5796da146fedfc465e5" refkind="member"><highlight class="normal"><sp/><sp/>std::vector&lt;right&gt;<sp/><ref refid="structstaff_1a935eee764193e5796da146fedfc465e5" kindref="member">rights</ref>;<sp/></highlight></codeline>
+<codeline lineno="135" refid="structstaff_1ab46bbfc312f86ec081fead61e3d01a10" refkind="member"><highlight class="normal"><sp/><sp/>eosio::time_point_sec<sp/><ref refid="structstaff_1ab46bbfc312f86ec081fead61e3d01a10" kindref="member">created_at</ref>;<sp/></highlight></codeline>
+<codeline lineno="136" refid="structstaff_1a2079dc310b3faf4112d9046e54a72ab7" refkind="member"><highlight class="normal"><sp/><sp/>eosio::time_point_sec<sp/><ref refid="structstaff_1a2079dc310b3faf4112d9046e54a72ab7" kindref="member">updated_at</ref>;<sp/></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138" refid="structstaff_1a907194daa8db9aee9629350891757d22" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structstaff_1a907194daa8db9aee9629350891757d22" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>username.value;<sp/>}<sp/></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140" refid="structstaff_1a72d9d9dac115d8379e3afa76ff712c98" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structstaff_1a72d9d9dac115d8379e3afa76ff712c98" kindref="member">has_right</ref>(eosio::name<sp/>contract,<sp/>eosio::name<sp/>action_name)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>r<sp/>:<sp/>rights)<sp/>{</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(r.contract<sp/>==<sp/>contract<sp/>&amp;&amp;<sp/>r.action_name<sp/>==<sp/>action_name)<sp/>{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="148"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150" refid="coops_8hpp_1a04b2c83df71b9adc976ae65b894f4b3d" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;</highlight><highlight class="stringliteral">&quot;staff&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structstaff" kindref="compound">staff</ref>&gt;<sp/><ref refid="coops_8hpp_1a04b2c83df71b9adc976ae65b894f4b3d" kindref="member">staff_index</ref>;<sp/></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159" refid="structparticipants" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(SOVIET)]]<sp/><ref refid="structparticipants" kindref="compound">participants</ref><sp/>{</highlight></codeline>
+<codeline lineno="160" refid="structparticipants_1ae5560052371e0cc4d94f156f8d732fe1" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structparticipants_1ae5560052371e0cc4d94f156f8d732fe1" kindref="member">username</ref>;<sp/></highlight></codeline>
+<codeline lineno="161" refid="structparticipants_1a23d435b17537bb122b11ede9692b605a" refkind="member"><highlight class="normal"><sp/><sp/>eosio::time_point_sec<sp/><ref refid="structparticipants_1a23d435b17537bb122b11ede9692b605a" kindref="member">created_at</ref>;<sp/></highlight></codeline>
+<codeline lineno="162" refid="structparticipants_1a4f914f47ab6ea9ff77135d13f71f361d" refkind="member"><highlight class="normal"><sp/><sp/>eosio::time_point_sec<sp/><ref refid="structparticipants_1a4f914f47ab6ea9ff77135d13f71f361d" kindref="member">last_update</ref>;<sp/></highlight></codeline>
+<codeline lineno="163" refid="structparticipants_1acb3931363302e336cfb0c62e3a2d9abc" refkind="member"><highlight class="normal"><sp/><sp/>eosio::time_point_sec<sp/><ref refid="structparticipants_1acb3931363302e336cfb0c62e3a2d9abc" kindref="member">last_min_pay</ref>;<sp/></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165" refid="structparticipants_1a3c39e76b933e59ec19db7205337b5a9a" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structparticipants_1a3c39e76b933e59ec19db7205337b5a9a" kindref="member">status</ref>;<sp/></highlight><highlight class="comment">//accepted<sp/>|<sp/>blocked</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167" refid="structparticipants_1a9172b4ea5fa9b858be1a2ca24d467c31" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structparticipants_1a9172b4ea5fa9b858be1a2ca24d467c31" kindref="member">is_initial</ref>;<sp/></highlight></codeline>
+<codeline lineno="168" refid="structparticipants_1adb615a78b2bf2c4ea428289a6af5f64c" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structparticipants_1adb615a78b2bf2c4ea428289a6af5f64c" kindref="member">is_minimum</ref>;<sp/></highlight></codeline>
+<codeline lineno="169" refid="structparticipants_1a3b77b4b3083b75e0adf822241ae5fbfe" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structparticipants_1a3b77b4b3083b75e0adf822241ae5fbfe" kindref="member">has_vote</ref>;<sp/></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175" refid="structparticipants_1a8623d16a26dea29aaf14d87f10ecf3c9" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structparticipants_1a8623d16a26dea29aaf14d87f10ecf3c9" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>username.value;</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/>}<sp/></highlight></codeline>
+<codeline lineno="183" refid="structparticipants_1aa40e98abaf7212e03dd80e1f993d6c17" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structparticipants_1aa40e98abaf7212e03dd80e1f993d6c17" kindref="member">bylastpay</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>last_min_pay.sec_since_epoch();</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191" refid="structparticipants_1ab63c149354ae6df6a4a5de3948fdaf00" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structparticipants_1ab63c149354ae6df6a4a5de3948fdaf00" kindref="member">by_created_at</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>created_at.sec_since_epoch();</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195" refid="structparticipants_1a755cb10cc54ed15fcf4849ace4c679ad" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structparticipants_1a755cb10cc54ed15fcf4849ace4c679ad" kindref="member">is_active</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>status<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;accepted&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;<sp/></highlight><highlight class="stringliteral">&quot;participants&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structparticipants" kindref="compound">participants</ref>,</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bylastpay&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;participants,<sp/>uint64_t,<sp/>&amp;participants::bylastpay&gt;&gt;,</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;createdat&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;participants,<sp/>uint64_t,<sp/>&amp;participants::by_created_at&gt;&gt;</highlight></codeline>
+<codeline lineno="204" refid="coops_8hpp_1adf0a04dfbe948cdf1bd01cf5b344af61" refkind="member"><highlight class="normal">&gt;<sp/><ref refid="coops_8hpp_1adf0a04dfbe948cdf1bd01cf5b344af61" kindref="member">participants_index</ref>;</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="213" refid="structdecisions" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(SOVIET)]]<sp/><ref refid="structdecisions" kindref="compound">decisions</ref><sp/>{</highlight></codeline>
+<codeline lineno="214" refid="structdecisions_1aa61841427ff58ac67bf67d16c00c0250" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structdecisions_1aa61841427ff58ac67bf67d16c00c0250" kindref="member">id</ref>;<sp/></highlight></codeline>
+<codeline lineno="215" refid="structdecisions_1a7a7e7d1969b2cb6de6b85f88e9056f64" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structdecisions_1a7a7e7d1969b2cb6de6b85f88e9056f64" kindref="member">coopname</ref>;<sp/></highlight></codeline>
+<codeline lineno="216" refid="structdecisions_1ad74a3f563f26f85d9333dbb2cc040843" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structdecisions_1ad74a3f563f26f85d9333dbb2cc040843" kindref="member">username</ref>;<sp/></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="218" refid="structdecisions_1a7a8e39491d6be766cd3c4fa1fadafbc0" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structdecisions_1a7a8e39491d6be766cd3c4fa1fadafbc0" kindref="member">type</ref>;<sp/></highlight></codeline>
+<codeline lineno="219" refid="structdecisions_1a4a5595962b6b67447b283aed64d24b87" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structdecisions_1a4a5595962b6b67447b283aed64d24b87" kindref="member">batch_id</ref>;<sp/></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221" refid="structdecisions_1a8b734c20fd41967766efcd38cf7c0580" refkind="member"><highlight class="normal"><sp/><sp/>std::vector&lt;eosio::name&gt;<sp/><ref refid="structdecisions_1a8b734c20fd41967766efcd38cf7c0580" kindref="member">votes_for</ref>;<sp/></highlight></codeline>
+<codeline lineno="222" refid="structdecisions_1a944df451a915494bc936415e24d39abe" refkind="member"><highlight class="normal"><sp/><sp/>std::vector&lt;eosio::name&gt;<sp/><ref refid="structdecisions_1a944df451a915494bc936415e24d39abe" kindref="member">votes_against</ref>;<sp/></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="224" refid="structdecisions_1adface34e69e2468b2986e6d395794a1a" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>validated<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="225" refid="structdecisions_1a302e21ff37fe798e2b908a4fdd1bb7bb" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>approved<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="226" refid="structdecisions_1a980288ea11bd9b954357ddf4a094b4f3" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>authorized<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="228" refid="structdecisions_1a2016e7425a2396ac98ca0dfee2603f08" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="structdocument" kindref="compound">document</ref><sp/><ref refid="structdecisions_1a2016e7425a2396ac98ca0dfee2603f08" kindref="member">authorization</ref>;<sp/></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight></codeline>
+<codeline lineno="230" refid="structdecisions_1ae90c18d643b92b8afc17394ab666aa5e" refkind="member"><highlight class="normal"><sp/><sp/>eosio::time_point_sec<sp/><ref refid="structdecisions_1ae90c18d643b92b8afc17394ab666aa5e" kindref="member">created_at</ref>;<sp/></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight></codeline>
+<codeline lineno="236" refid="structdecisions_1a7393d2d0ce88224d46edaa7973fb41dd" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structdecisions_1a7393d2d0ce88224d46edaa7973fb41dd" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structboards_1a4902e87f13247db8f837629544f12a6a" kindref="member">id</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight></codeline>
+<codeline lineno="242" refid="structdecisions_1a9ec7ed6dab56a52187a4dcbd430b1d48" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structdecisions_1a9ec7ed6dab56a52187a4dcbd430b1d48" kindref="member">by_secondary</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>batch_id;<sp/>}</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248" refid="structdecisions_1a87937d6b4c5c378d3e3ac77141b11394" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structdecisions_1a87937d6b4c5c378d3e3ac77141b11394" kindref="member">bytype</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>type.value;<sp/>}</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"></highlight></codeline>
+<codeline lineno="254" refid="structdecisions_1a6cadd228516907f8eb55f915eb03d4b8" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structdecisions_1a6cadd228516907f8eb55f915eb03d4b8" kindref="member">byapproved</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>approved;<sp/>}</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"></highlight></codeline>
+<codeline lineno="260" refid="structdecisions_1a9661d6706d87e72e74ad3590620e5009" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structdecisions_1a9661d6706d87e72e74ad3590620e5009" kindref="member">byvalidated</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>validated;<sp/>}</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight></codeline>
+<codeline lineno="266" refid="structdecisions_1ab166604702a060e0a03e885efa8c14b9" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structdecisions_1ab166604702a060e0a03e885efa8c14b9" kindref="member">byauthorized</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>authorized;<sp/>}</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight></codeline>
+<codeline lineno="268"><highlight class="normal"></highlight></codeline>
+<codeline lineno="269" refid="structdecisions_1abe41b47952071a0589bf968b5f9cc6f6" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structdecisions_1abe41b47952071a0589bf968b5f9cc6f6" kindref="member">check_for_any_vote_exist</ref>(eosio::name<sp/>member)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Проверяем,<sp/>есть<sp/>ли<sp/>имя<sp/>участника<sp/>в<sp/>голосах<sp/>за</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::check(std::find(votes_for.begin(),<sp/>votes_for.end(),<sp/>member)<sp/>==<sp/>votes_for.end(),<sp/></highlight><highlight class="stringliteral">&quot;Участник<sp/>уже<sp/>голосовал<sp/>за<sp/>данное<sp/>решение.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"></highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Проверяем,<sp/>есть<sp/>ли<sp/>имя<sp/>участника<sp/>в<sp/>голосах<sp/>против</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::check(std::find(votes_against.begin(),<sp/>votes_against.end(),<sp/>member)<sp/>==<sp/>votes_against.end(),<sp/></highlight><highlight class="stringliteral">&quot;Участник<sp/>уже<sp/>голосовал<sp/>против<sp/>данного<sp/>решения.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight></codeline>
+<codeline lineno="277" refid="structdecisions_1a23e686cd085c2be8cf671d55ffc8a20c" refkind="member"><highlight class="normal"><sp/><sp/>std::pair&lt;uint64_t,<sp/>uint64_t&gt;<sp/><ref refid="structdecisions_1a23e686cd085c2be8cf671d55ffc8a20c" kindref="member">get_votes_count</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::make_pair(votes_for.size(),<sp/>votes_against.size());</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="280"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"></highlight></codeline>
+<codeline lineno="282"><highlight class="normal"></highlight></codeline>
+<codeline lineno="283"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;<sp/></highlight><highlight class="stringliteral">&quot;decisions&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structdecisions" kindref="compound">decisions</ref>,</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bysecondary&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;decisions,<sp/>uint64_t,<sp/>&amp;decisions::by_secondary&gt;&gt;,</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bytype&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;decisions,<sp/>uint64_t,<sp/>&amp;decisions::bytype&gt;&gt;,</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byapproved&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;decisions,<sp/>uint64_t,<sp/>&amp;decisions::byapproved&gt;&gt;,</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byvalidated&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;decisions,<sp/>uint64_t,<sp/>&amp;decisions::byvalidated&gt;&gt;,</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byauthorized&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;decisions,<sp/>uint64_t,<sp/>&amp;decisions::byauthorized&gt;&gt;</highlight></codeline>
+<codeline lineno="289" refid="coops_8hpp_1aa1a060285827fdcbe676dc431070dbce" refkind="member"><highlight class="normal">&gt;<sp/><ref refid="coops_8hpp_1aa1a060285827fdcbe676dc431070dbce" kindref="member">decisions_index</ref>;</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"></highlight></codeline>
+<codeline lineno="291"><highlight class="normal"></highlight></codeline>
+<codeline lineno="292" refid="coops_8hpp_1a3541ce0c65865661aeb7230f280abf3f" refkind="member"><highlight class="normal"><ref refid="structboards" kindref="compound">boards</ref><sp/><ref refid="coops_8hpp_1a3541ce0c65865661aeb7230f280abf3f" kindref="member">get_board_by_id</ref>(eosio::name<sp/>coopname,<sp/>uint64_t<sp/>board_id){</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><ref refid="coops_8hpp_1a78302821fd10bd5b552f1c9cf16d57f7" kindref="member">boards_index</ref><sp/><ref refid="structboards" kindref="compound">boards</ref>(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>coopname.value);</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>board<sp/>=<sp/><ref refid="structboards" kindref="compound">boards</ref>.find(board_id);</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/>eosio::check(board<sp/>!=<sp/><ref refid="structboards" kindref="compound">boards</ref>.end(),<sp/></highlight><highlight class="stringliteral">&quot;Совет<sp/>не<sp/>найден&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"></highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*board;<sp/></highlight></codeline>
+<codeline lineno="299"><highlight class="normal"></highlight></codeline>
+<codeline lineno="300"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"></highlight></codeline>
+<codeline lineno="302"><highlight class="normal"></highlight></codeline>
+<codeline lineno="303" refid="coops_8hpp_1a5975688eadd5a074161c268985282581" refkind="member"><highlight class="normal"><ref refid="structboards" kindref="compound">boards</ref><sp/><ref refid="coops_8hpp_1a5975688eadd5a074161c268985282581" kindref="member">get_board_by_type_or_fail</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>type){</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><ref refid="coops_8hpp_1a78302821fd10bd5b552f1c9cf16d57f7" kindref="member">boards_index</ref><sp/><ref refid="structboards" kindref="compound">boards</ref>(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>coopname.value);</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>boards_by_type_index<sp/>=<sp/><ref refid="structboards" kindref="compound">boards</ref>.template<sp/>get_index&lt;</highlight><highlight class="stringliteral">&quot;bytype&quot;</highlight><highlight class="normal">_n&gt;();</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>exist<sp/>=<sp/>boards_by_type_index.find(type.value);</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/>eosio::check(exist<sp/>!=<sp/>boards_by_type_index.end(),<sp/></highlight><highlight class="stringliteral">&quot;Совет<sp/>не<sp/>найден&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"></highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*exist;</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"></highlight></codeline>
+<codeline lineno="312"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"></highlight></codeline>
+<codeline lineno="314"><highlight class="normal"></highlight></codeline>
+<codeline lineno="315" refid="coops_8hpp_1a7071d280b47702321a02ac12afe8f74b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="coops_8hpp_1a7071d280b47702321a02ac12afe8f74b" kindref="member">check_for_exist_board_by_type</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>type){</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><ref refid="coops_8hpp_1a78302821fd10bd5b552f1c9cf16d57f7" kindref="member">boards_index</ref><sp/><ref refid="structboards" kindref="compound">boards</ref>(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>coopname.value);</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"></highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>boards_by_type_index<sp/>=<sp/><ref refid="structboards" kindref="compound">boards</ref>.template<sp/>get_index&lt;</highlight><highlight class="stringliteral">&quot;bytype&quot;</highlight><highlight class="normal">_n&gt;();</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"></highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>exist<sp/>=<sp/>boards_by_type_index.find(type.value);</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(exist<sp/>!=<sp/>boards_by_type_index.end())</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="325"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"></highlight></codeline>
+<codeline lineno="327"><highlight class="normal"></highlight></codeline>
+<codeline lineno="328" refid="structaddress" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structaddress" kindref="compound">address</ref><sp/>{<sp/></highlight></codeline>
+<codeline lineno="329" refid="structaddress_1accd30a3285ef1acb4f46c3d27e6e00d5" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structaddress_1accd30a3285ef1acb4f46c3d27e6e00d5" kindref="member">latitude</ref>;</highlight></codeline>
+<codeline lineno="330" refid="structaddress_1aeb0eaac4f41de68f2e2b2c08c7d4b111" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structaddress_1aeb0eaac4f41de68f2e2b2c08c7d4b111" kindref="member">longitude</ref>;</highlight></codeline>
+<codeline lineno="331" refid="structaddress_1a6d3c5423727d5ca2340631a7ddde1022" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structaddress_1a6d3c5423727d5ca2340631a7ddde1022" kindref="member">country</ref>;</highlight></codeline>
+<codeline lineno="332" refid="structaddress_1a706a208b78c00371a9922fa00efdd4e1" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structaddress_1a706a208b78c00371a9922fa00efdd4e1" kindref="member">state</ref>;</highlight></codeline>
+<codeline lineno="333" refid="structaddress_1ac6aa41c02d77a9ed850d1b54cc10f379" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structaddress_1ac6aa41c02d77a9ed850d1b54cc10f379" kindref="member">city</ref>;</highlight></codeline>
+<codeline lineno="334" refid="structaddress_1a28d18e08d44ef8531ef15f6ad3f44f45" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structaddress_1a28d18e08d44ef8531ef15f6ad3f44f45" kindref="member">district</ref>;</highlight></codeline>
+<codeline lineno="335" refid="structaddress_1a732f9ae03c0b36327b1d60ffebc81415" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structaddress_1a732f9ae03c0b36327b1d60ffebc81415" kindref="member">street</ref>;</highlight></codeline>
+<codeline lineno="336" refid="structaddress_1ab2decd423a20551450767c384ea25f9c" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structaddress_1ab2decd423a20551450767c384ea25f9c" kindref="member">house_number</ref>;</highlight></codeline>
+<codeline lineno="337" refid="structaddress_1aa714c4baddf02fffea8834660e39118a" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structaddress_1aa714c4baddf02fffea8834660e39118a" kindref="member">building_section</ref>;</highlight></codeline>
+<codeline lineno="338" refid="structaddress_1acc87a21438b16fe0b9234fb81c5cdd65" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structaddress_1acc87a21438b16fe0b9234fb81c5cdd65" kindref="member">unit_number</ref>;</highlight></codeline>
+<codeline lineno="339" refid="structaddress_1aebec737c9fa2d67ff39b8a0abe0d1a78" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structaddress_1aebec737c9fa2d67ff39b8a0abe0d1a78" kindref="member">directions</ref>;<sp/></highlight><highlight class="comment">//как<sp/>добраться</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="340" refid="structaddress_1ad5de7798476a236539e0bd28b73f9b88" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structaddress_1ad5de7798476a236539e0bd28b73f9b88" kindref="member">phone_number</ref>;</highlight></codeline>
+<codeline lineno="341" refid="structaddress_1adf8eb6a178e4938ce78a51a5acba0183" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structaddress_1adf8eb6a178e4938ce78a51a5acba0183" kindref="member">business_hours</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="342"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"></highlight></codeline>
+<codeline lineno="349" refid="structaddresses" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(SOVIET)]]<sp/><ref refid="structaddresses" kindref="compound">addresses</ref><sp/>{</highlight></codeline>
+<codeline lineno="350" refid="structaddresses_1a1861499bb0e9be9241b4e08f40b544b8" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structaddresses_1a1861499bb0e9be9241b4e08f40b544b8" kindref="member">id</ref>;</highlight></codeline>
+<codeline lineno="351" refid="structaddresses_1a88027a9691f6ce27cc71ed720455413d" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structaddresses_1a88027a9691f6ce27cc71ed720455413d" kindref="member">coopname</ref>;</highlight></codeline>
+<codeline lineno="352" refid="structaddresses_1a7faceb467e12773662fba5f289221b21" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structaddresses_1a7faceb467e12773662fba5f289221b21" kindref="member">cooplate</ref>;<sp/></highlight><highlight class="comment">//юзернейм<sp/>организации<sp/>кооперативного<sp/>участка,<sp/>если<sp/>есть</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="353" refid="structaddresses_1a198b932b99b9881a2bb8d5aae2b82f74" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="structaddress" kindref="compound">address</ref><sp/><ref refid="structaddresses_1a198b932b99b9881a2bb8d5aae2b82f74" kindref="member">data</ref>;</highlight></codeline>
+<codeline lineno="354" refid="structaddresses_1af318fa67c0c2a366ed24434f5fb27706" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structaddresses_1af318fa67c0c2a366ed24434f5fb27706" kindref="member">meta</ref>;</highlight></codeline>
+<codeline lineno="355" refid="structaddresses_1a505c9476012d6d24ae6379ebccd29c4d" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structaddresses_1a505c9476012d6d24ae6379ebccd29c4d" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structboards_1a4902e87f13247db8f837629544f12a6a" kindref="member">id</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="356" refid="structaddresses_1a82b8881b433938145f8d9af152cc19c3" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structaddresses_1a82b8881b433938145f8d9af152cc19c3" kindref="member">bycooplate</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>cooplate.value;<sp/>}</highlight></codeline>
+<codeline lineno="357"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="358"><highlight class="normal"></highlight></codeline>
+<codeline lineno="359"><highlight class="normal"></highlight></codeline>
+<codeline lineno="360"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;<sp/></highlight><highlight class="stringliteral">&quot;addresses&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structaddresses" kindref="compound">addresses</ref>,</highlight></codeline>
+<codeline lineno="361"><highlight class="normal"><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bycooplate&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;addresses,<sp/>uint64_t,<sp/>&amp;addresses::bycooplate&gt;&gt;</highlight></codeline>
+<codeline lineno="362" refid="coops_8hpp_1ad05b8ab165ff4c063b1363832210ae3e" refkind="member"><highlight class="normal">&gt;<sp/><ref refid="coops_8hpp_1ad05b8ab165ff4c063b1363832210ae3e" kindref="member">addresses_index</ref>;</highlight></codeline>
+    </programlisting>
+    <location file="common/coops.hpp"/>
+  </compounddef>
+</doxygen>

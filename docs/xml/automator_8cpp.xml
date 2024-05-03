@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="automator_8cpp" kind="file" language="C++">
+    <compoundname>automator.cpp</compoundname>
+    <includedby refid="soviet_2soviet_8cpp" local="yes">soviet/soviet.cpp</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>soviet/soviet.cpp</label>
+        <link refid="soviet_2soviet_8cpp"/>
+      </node>
+      <node id="1">
+        <label>soviet/src/automator.cpp</label>
+        <link refid="automator_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceeosio" kindref="compound">eosio</ref>;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsoviet_1abe351d4443e3fc5d242876592132f56a" kindref="member">soviet::is_valid_action_for_automation</ref>(eosio::name<sp/>action_type)<sp/>{</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><sp/><sp/>std::vector&lt;eosio::name&gt;<sp/>valid_types<sp/>=<sp/>{</highlight><highlight class="stringliteral">&quot;regaccount&quot;</highlight><highlight class="normal">_n,<sp/></highlight><highlight class="stringliteral">&quot;authorize&quot;</highlight><highlight class="normal">_n};</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/>eosio::check(std::find(valid_types.begin(),<sp/>valid_types.end(),<sp/>action_type)<sp/>!=<sp/>valid_types.end(),<sp/></highlight><highlight class="stringliteral">&quot;Действие<sp/>не<sp/>найдено<sp/>среди<sp/>допустимых<sp/>типов.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="8"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1gacd08501eb19d2733f9640cae3ae229f0" kindref="member">soviet::automate</ref>(eosio::name<sp/>coopname,<sp/>uint64_t<sp/>board_id,<sp/>eosio::name<sp/>member,<sp/>eosio::name<sp/>action_type,<sp/>eosio::name<sp/>permission_name,<sp/>std::string<sp/>encrypted_private_key)<sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>require_auth(member);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><ref refid="coops_8hpp_1a78302821fd10bd5b552f1c9cf16d57f7" kindref="member">boards_index</ref><sp/><ref refid="structboards" kindref="compound">boards</ref>(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>coopname.value);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>board<sp/>=<sp/><ref refid="structboards" kindref="compound">boards</ref>.find(board_id);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>eosio::check(board<sp/>!=<sp/><ref refid="structboards" kindref="compound">boards</ref>.end(),<sp/></highlight><highlight class="stringliteral">&quot;Совет<sp/>не<sp/>найден&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(action_type<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;authorize&quot;</highlight><highlight class="normal">_n){</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>board<sp/>-&gt;<sp/>is_valid_chairman(member);<sp/><sp/></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsoviet_1abe351d4443e3fc5d242876592132f56a" kindref="member">soviet::is_valid_action_for_automation</ref>(action_type);<sp/><sp/></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><ref refid="soviet_8hpp_1aa2cd741b7360626b4456d74d8be57826" kindref="member">automator_index</ref><sp/><ref refid="structautomator" kindref="compound">automator</ref>(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>coopname.value);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>by_member_action_index<sp/>=<sp/><ref refid="structautomator" kindref="compound">automator</ref>.template<sp/>get_index&lt;</highlight><highlight class="stringliteral">&quot;bymembaction&quot;</highlight><highlight class="normal">_n&gt;();</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>idx<sp/>=<sp/><ref refid="utils_8hpp_1a9674246df019d9c71da6884b1fd0fe39" kindref="member">combine_ids</ref>(member.value,<sp/>action_type.value);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>autom<sp/>=<sp/>by_member_action_index.find(idx);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>eosio::check(autom<sp/>==<sp/>by_member_action_index.end(),<sp/></highlight><highlight class="stringliteral">&quot;Автоматизация<sp/>по<sp/>данному<sp/>действию<sp/>уже<sp/>установлена&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><ref refid="structautomator" kindref="compound">automator</ref>.emplace(member,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;a){</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>a.id<sp/>=<sp/><ref refid="structautomator" kindref="compound">automator</ref>.available_primary_key();</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>a.<ref refid="structautomator_1a020dc5169affb64d4df454bd10d8176f" kindref="member">coopname</ref><sp/>=<sp/>coopname;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>a.board_id<sp/>=<sp/>board_id;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>a.member<sp/>=<sp/>member;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>a.action_type<sp/>=<sp/>action_type;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>a.permission_name<sp/>=<sp/>permission_name;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>a.encrypted_private_key<sp/>=<sp/>encrypted_private_key;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1gaa1c59a4f419370fbe9eeedde1b315ad7" kindref="member">soviet::disautomate</ref>(eosio::name<sp/>coopname,<sp/>uint64_t<sp/>board_id,<sp/>eosio::name<sp/>member,<sp/>uint64_t<sp/>automation_id<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>require_auth(member);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><ref refid="soviet_8hpp_1aa2cd741b7360626b4456d74d8be57826" kindref="member">automator_index</ref><sp/><ref refid="structautomator" kindref="compound">automator</ref>(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>coopname.value);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>autom<sp/>=<sp/><ref refid="structautomator" kindref="compound">automator</ref>.find(automation_id);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/>eosio::check(autom<sp/>-&gt;<sp/>board_id<sp/>==<sp/>board_id,<sp/></highlight><highlight class="stringliteral">&quot;Указан<sp/>неверный<sp/>идентификатор<sp/>совета&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/>eosio::check(autom<sp/>-&gt;<sp/>member<sp/>==<sp/>member,<sp/></highlight><highlight class="stringliteral">&quot;Это<sp/>не<sp/>ваша<sp/>автоматизация<sp/>для<sp/>удаления&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><ref refid="structautomator" kindref="compound">automator</ref>.erase(autom);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="soviet/src/automator.cpp"/>
+  </compounddef>
+</doxygen>

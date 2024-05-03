@@ -1,0 +1,325 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structaccounts" kind="struct" language="C++" prot="public">
+    <compoundname>accounts</compoundname>
+    <includes refid="accounts_8hpp" local="no">accounts.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structaccounts_1a05876c5415522c3ff8a3d8e8a783d6a7" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name accounts::username</definition>
+        <argsstring></argsstring>
+        <name>username</name>
+        <qualifiedname>accounts::username</qualifiedname>
+        <briefdescription>
+<para>Имя аккаунта гостя. Имя пользователя в системе. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="40" column="15" bodyfile="common/accounts.hpp" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structaccounts_1a42c6052506d3b2d89bbbb95913591809" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name accounts::referer</definition>
+        <argsstring></argsstring>
+        <name>referer</name>
+        <qualifiedname>accounts::referer</qualifiedname>
+        <briefdescription>
+<para>Имя аккаунта, который был реферером при регистрации. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="41" column="15" bodyfile="common/accounts.hpp" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structaccounts_1a432b7b14e9da714d2de1546dbbd74a7e" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name accounts::registrator</definition>
+        <argsstring></argsstring>
+        <name>registrator</name>
+        <qualifiedname>accounts::registrator</qualifiedname>
+        <briefdescription>
+<para>Имя аккаунта регистратора, который создал этот аккаунт. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="42" column="15" bodyfile="common/accounts.hpp" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structaccounts_1af1bfc2d1e94ebb71271c0ce836558160" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name accounts::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>accounts::type</qualifiedname>
+        <briefdescription>
+<para>Тип аккаунта: user (пользователь) | org (организация). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="43" column="15" bodyfile="common/accounts.hpp" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structaccounts_1a0498f8a07ad571d52548a076370d9253" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name accounts::status</definition>
+        <argsstring></argsstring>
+        <name>status</name>
+        <qualifiedname>accounts::status</qualifiedname>
+        <briefdescription>
+<para>Статус аккаунта: </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="44" column="15" bodyfile="common/accounts.hpp" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structaccounts_1aeecfd8c0939c8e7de20db6126b965bd9" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string accounts::meta</definition>
+        <argsstring></argsstring>
+        <name>meta</name>
+        <qualifiedname>accounts::meta</qualifiedname>
+        <briefdescription>
+<para>Дополнительная мета-информация о аккаунте. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="45" column="15" bodyfile="common/accounts.hpp" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structaccounts_1aaa9631adef3e542db5ddc1e2388dfd61" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t accounts::reputation</definition>
+        <argsstring></argsstring>
+        <name>reputation</name>
+        <qualifiedname>accounts::reputation</qualifiedname>
+        <briefdescription>
+<para>Репутация аккаунта </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="50" column="12" bodyfile="common/accounts.hpp" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structaccounts_1a9aa73b3535b162d4dbcdb5c581146ce2" prot="public" static="no" mutable="no">
+        <type>eosio::asset</type>
+        <definition>eosio::asset accounts::registration_amount</definition>
+        <argsstring></argsstring>
+        <name>registration_amount</name>
+        <qualifiedname>accounts::registration_amount</qualifiedname>
+        <briefdescription>
+<para>Количество токенов, которое требуется для регистрации. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="51" column="16" bodyfile="common/accounts.hpp" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structaccounts_1a5ab584c673fa71b1aebd8eb3ec4e69e5" prot="public" static="no" mutable="no">
+        <type>eosio::time_point_sec</type>
+        <definition>eosio::time_point_sec accounts::registered_at</definition>
+        <argsstring></argsstring>
+        <name>registered_at</name>
+        <qualifiedname>accounts::registered_at</qualifiedname>
+        <briefdescription>
+<para>Время регистрации аккаунта. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="52" column="25" bodyfile="common/accounts.hpp" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structaccounts_1a38b262d4ca61e4cecb3f1eab1a5d3887" prot="public" static="no" mutable="no">
+        <type>eosio::time_point_sec</type>
+        <definition>eosio::time_point_sec accounts::signature_expires_at</definition>
+        <argsstring></argsstring>
+        <name>signature_expires_at</name>
+        <qualifiedname>accounts::signature_expires_at</qualifiedname>
+        <briefdescription>
+<para>Время истечения срока действия подписи аккаунта. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="53" column="25" bodyfile="common/accounts.hpp" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structaccounts_1ac5356720544cfbfc9b82d829f4fa4f37" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t accounts::primary_key</definition>
+        <argsstring>() const</argsstring>
+        <name>primary_key</name>
+        <qualifiedname>accounts::primary_key</qualifiedname>
+        <briefdescription>
+<para>Возвращает первичный ключ учетной записи аккаунта. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>uint64_t - первичный ключ, равный значению имени аккаунта. return username - primary_key </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="59" column="12" bodyfile="common/accounts.hpp" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="function" id="structaccounts_1a779b22d35ce6564c3b2e34e03b77aa29" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t accounts::by_referer</definition>
+        <argsstring>() const</argsstring>
+        <name>by_referer</name>
+        <qualifiedname>accounts::by_referer</qualifiedname>
+        <briefdescription>
+<para>Возвращает ключ по рефереру. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>uint64_t - ключ, равный значению имени реферера. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="67" column="12" bodyfile="common/accounts.hpp" bodystart="67" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="structaccounts_1a336640e99b5ae6106b3715cae302ff46" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t accounts::by_type</definition>
+        <argsstring>() const</argsstring>
+        <name>by_type</name>
+        <qualifiedname>accounts::by_type</qualifiedname>
+        <briefdescription>
+<para>Возвращает ключ по типу аккаунта. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>uint64_t - ключ, равный значению типа аккаунта. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="73" column="12" bodyfile="common/accounts.hpp" bodystart="73" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="structaccounts_1ae34d3eff438789f8e09b1fef2eed2af2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t accounts::by_status</definition>
+        <argsstring>() const</argsstring>
+        <name>by_status</name>
+        <qualifiedname>accounts::by_status</qualifiedname>
+        <briefdescription>
+<para>Возвращает ключ по статусу аккаунта. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>uint64_t - ключ, равный значению статуса аккаунта. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="79" column="12" bodyfile="common/accounts.hpp" bodystart="79" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="structaccounts_1a88ed8c7045efdf796cfadb54e91ef284" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t accounts::by_registr</definition>
+        <argsstring>() const</argsstring>
+        <name>by_registr</name>
+        <qualifiedname>accounts::by_registr</qualifiedname>
+        <briefdescription>
+<para>Возвращает ключ по регистратору. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>uint64_t - ключ, равный значению имени регистратора. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="85" column="12" bodyfile="common/accounts.hpp" bodystart="85" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="structaccounts_1a7cedd43173876881e9122f35509c1e24" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t accounts::by_registered_at</definition>
+        <argsstring>() const</argsstring>
+        <name>by_registered_at</name>
+        <qualifiedname>accounts::by_registered_at</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="87" column="12" bodyfile="common/accounts.hpp" bodystart="87" bodyend="89"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Структура, представляющая учетные записи аккаунтов. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Эта структура хранит информацию о пользователях аккаунта и их статусе, репутации и других параметрах. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>accounts</label>
+        <link refid="structaccounts"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>referer</edgelabel>
+          <edgelabel>registrator</edgelabel>
+          <edgelabel>status</edgelabel>
+          <edgelabel>type</edgelabel>
+          <edgelabel>username</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>meta</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>registration_amount</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>registered_at</edgelabel>
+          <edgelabel>signature_expires_at</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>asset</label>
+      </node>
+      <node id="2">
+        <label>name</label>
+      </node>
+      <node id="5">
+        <label>time_point_sec</label>
+      </node>
+      <node id="3">
+        <label>string</label>
+      </node>
+    </collaborationgraph>
+    <location file="common/accounts.hpp" line="39" column="1" bodyfile="common/accounts.hpp" bodystart="39" bodyend="91"/>
+    <listofallmembers>
+      <member refid="structaccounts_1a779b22d35ce6564c3b2e34e03b77aa29" prot="public" virt="non-virtual"><scope>accounts</scope><name>by_referer</name></member>
+      <member refid="structaccounts_1a7cedd43173876881e9122f35509c1e24" prot="public" virt="non-virtual"><scope>accounts</scope><name>by_registered_at</name></member>
+      <member refid="structaccounts_1a88ed8c7045efdf796cfadb54e91ef284" prot="public" virt="non-virtual"><scope>accounts</scope><name>by_registr</name></member>
+      <member refid="structaccounts_1ae34d3eff438789f8e09b1fef2eed2af2" prot="public" virt="non-virtual"><scope>accounts</scope><name>by_status</name></member>
+      <member refid="structaccounts_1a336640e99b5ae6106b3715cae302ff46" prot="public" virt="non-virtual"><scope>accounts</scope><name>by_type</name></member>
+      <member refid="structaccounts_1aeecfd8c0939c8e7de20db6126b965bd9" prot="public" virt="non-virtual"><scope>accounts</scope><name>meta</name></member>
+      <member refid="structaccounts_1ac5356720544cfbfc9b82d829f4fa4f37" prot="public" virt="non-virtual"><scope>accounts</scope><name>primary_key</name></member>
+      <member refid="structaccounts_1a42c6052506d3b2d89bbbb95913591809" prot="public" virt="non-virtual"><scope>accounts</scope><name>referer</name></member>
+      <member refid="structaccounts_1a5ab584c673fa71b1aebd8eb3ec4e69e5" prot="public" virt="non-virtual"><scope>accounts</scope><name>registered_at</name></member>
+      <member refid="structaccounts_1a9aa73b3535b162d4dbcdb5c581146ce2" prot="public" virt="non-virtual"><scope>accounts</scope><name>registration_amount</name></member>
+      <member refid="structaccounts_1a432b7b14e9da714d2de1546dbbd74a7e" prot="public" virt="non-virtual"><scope>accounts</scope><name>registrator</name></member>
+      <member refid="structaccounts_1aaa9631adef3e542db5ddc1e2388dfd61" prot="public" virt="non-virtual"><scope>accounts</scope><name>reputation</name></member>
+      <member refid="structaccounts_1a38b262d4ca61e4cecb3f1eab1a5d3887" prot="public" virt="non-virtual"><scope>accounts</scope><name>signature_expires_at</name></member>
+      <member refid="structaccounts_1a0498f8a07ad571d52548a076370d9253" prot="public" virt="non-virtual"><scope>accounts</scope><name>status</name></member>
+      <member refid="structaccounts_1af1bfc2d1e94ebb71271c0ce836558160" prot="public" virt="non-virtual"><scope>accounts</scope><name>type</name></member>
+      <member refid="structaccounts_1a05876c5415522c3ff8a3d8e8a783d6a7" prot="public" virt="non-virtual"><scope>accounts</scope><name>username</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

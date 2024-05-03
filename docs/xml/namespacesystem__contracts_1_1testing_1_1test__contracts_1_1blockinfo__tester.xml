@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester" kind="namespace" language="C++">
+    <compoundname>system_contracts::testing::test_contracts::blockinfo_tester</compoundname>
+    <innerclass refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1get__latest__block__batch__info" prot="public">system_contracts::testing::test_contracts::blockinfo_tester::get_latest_block_batch_info</innerclass>
+    <innerclass refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result" prot="public">system_contracts::testing::test_contracts::blockinfo_tester::latest_block_batch_info_result</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1aada4f815458e881f7140c74078089f01" prot="public" static="no">
+        <type>eosio::time_point</type>
+        <definition>using system_contracts::testing::test_contracts::blockinfo_tester::time_point = typedef eosio::time_point</definition>
+        <argsstring></argsstring>
+        <name>time_point</name>
+        <qualifiedname>system_contracts::testing::test_contracts::blockinfo_tester::time_point</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/test_contracts/blockinfo_tester/include/blockinfo_tester/blockinfo_tester.hpp" line="30" column="1" bodyfile="system/contracts/test_contracts/blockinfo_tester/include/blockinfo_tester/blockinfo_tester.hpp" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1a3b3bb00116a9d1c649c8cd6b9d8eb43b" prot="public" static="no">
+        <type>eosio::unsigned_int</type>
+        <definition>using system_contracts::testing::test_contracts::blockinfo_tester::varint = typedef eosio::unsigned_int</definition>
+        <argsstring></argsstring>
+        <name>varint</name>
+        <qualifiedname>system_contracts::testing::test_contracts::blockinfo_tester::varint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/test_contracts/blockinfo_tester/include/blockinfo_tester/blockinfo_tester.hpp" line="31" column="1" bodyfile="system/contracts/test_contracts/blockinfo_tester/include/blockinfo_tester/blockinfo_tester.hpp" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1a401279c7208232bcb2a66175b597ba44" prot="public" static="no">
+        <type>std::variant&lt; <ref refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1get__latest__block__batch__info" kindref="compound">get_latest_block_batch_info</ref> &gt;</type>
+        <definition>using system_contracts::testing::test_contracts::blockinfo_tester::input_type = typedef std::variant&lt;get_latest_block_batch_info&gt;</definition>
+        <argsstring></argsstring>
+        <name>input_type</name>
+        <qualifiedname>system_contracts::testing::test_contracts::blockinfo_tester::input_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/test_contracts/blockinfo_tester/include/blockinfo_tester/blockinfo_tester.hpp" line="90" column="1" bodyfile="system/contracts/test_contracts/blockinfo_tester/include/blockinfo_tester/blockinfo_tester.hpp" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1a78d9b5e57a0feb8412c06a95236fb12f" prot="public" static="no">
+        <type>std::variant&lt; <ref refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result" kindref="compound">latest_block_batch_info_result</ref> &gt;</type>
+        <definition>using system_contracts::testing::test_contracts::blockinfo_tester::output_type = typedef std::variant&lt;latest_block_batch_info_result&gt;</definition>
+        <argsstring></argsstring>
+        <name>output_type</name>
+        <qualifiedname>system_contracts::testing::test_contracts::blockinfo_tester::output_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/test_contracts/blockinfo_tester/include/blockinfo_tester/blockinfo_tester.hpp" line="92" column="1" bodyfile="system/contracts/test_contracts/blockinfo_tester/include/blockinfo_tester/blockinfo_tester.hpp" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1a705f35a783c6830287ee92b4f8146d49" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto system_contracts::testing::test_contracts::blockinfo_tester::process</definition>
+        <argsstring>(get_latest_block_batch_info request) -&gt; latest_block_batch_info_result</argsstring>
+        <name>process</name>
+        <qualifiedname>system_contracts::testing::test_contracts::blockinfo_tester::process</qualifiedname>
+        <param>
+          <type><ref refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1get__latest__block__batch__info" kindref="compound">get_latest_block_batch_info</ref></type>
+          <declname>request</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/test_contracts/blockinfo_tester/src/blockinfo_tester.cpp" line="19" column="6" bodyfile="system/contracts/test_contracts/blockinfo_tester/src/blockinfo_tester.cpp" bodystart="19" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1a363d3c4aeaaf0d43dc7d2c8b36f35ed6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1a78d9b5e57a0feb8412c06a95236fb12f" kindref="member">output_type</ref></type>
+        <definition>output_type system_contracts::testing::test_contracts::blockinfo_tester::process_call</definition>
+        <argsstring>(input_type input)</argsstring>
+        <name>process_call</name>
+        <qualifiedname>system_contracts::testing::test_contracts::blockinfo_tester::process_call</qualifiedname>
+        <param>
+          <type><ref refid="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1a401279c7208232bcb2a66175b597ba44" kindref="member">input_type</ref></type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/test_contracts/blockinfo_tester/src/blockinfo_tester.cpp" line="40" column="13" bodyfile="system/contracts/test_contracts/blockinfo_tester/src/blockinfo_tester.cpp" bodystart="40" bodyend="43"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="system/contracts/test_contracts/blockinfo_tester/include/blockinfo_tester/blockinfo_tester.hpp" line="21" column="1"/>
+  </compounddef>
+</doxygen>

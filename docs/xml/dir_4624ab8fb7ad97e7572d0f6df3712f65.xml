@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="dir_4624ab8fb7ad97e7572d0f6df3712f65" kind="dir">
+    <compoundname>system/contracts/eosio.bios/src</compoundname>
+    <innerfile refid="eosio_8bios_8cpp">eosio.bios.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="system/contracts/eosio.bios/src/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,208 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structeosiosystem_1_1rex__return__pool" kind="struct" language="C++" prot="public">
+    <compoundname>eosiosystem::rex_return_pool</compoundname>
+    <includes refid="eosio_8system_8hpp" local="no">eosio.system.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeosiosystem_1_1rex__return__pool_1a9b16ec989d93521cc26f51b97793c662" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t eosiosystem::rex_return_pool::version</definition>
+        <argsstring></argsstring>
+        <name>version</name>
+        <qualifiedname>eosiosystem::rex_return_pool::version</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="431" column="22" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="431" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1rex__return__pool_1a6bcacb0d59cb8951b83f089e2dee3bed" prot="public" static="no" mutable="no">
+        <type>time_point_sec</type>
+        <definition>time_point_sec eosiosystem::rex_return_pool::last_dist_time</definition>
+        <argsstring></argsstring>
+        <name>last_dist_time</name>
+        <qualifiedname>eosiosystem::rex_return_pool::last_dist_time</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="432" column="22" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="432" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1rex__return__pool_1a54bd0982d04bfea79eea5343cb2dce33" prot="public" static="no" mutable="no">
+        <type>time_point_sec</type>
+        <definition>time_point_sec eosiosystem::rex_return_pool::pending_bucket_time</definition>
+        <argsstring></argsstring>
+        <name>pending_bucket_time</name>
+        <qualifiedname>eosiosystem::rex_return_pool::pending_bucket_time</qualifiedname>
+        <initializer>= time_point_sec::maximum()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="433" column="22" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="433" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1rex__return__pool_1a50d9c4534af93ce26fffc8ae21c83981" prot="public" static="no" mutable="no">
+        <type>time_point_sec</type>
+        <definition>time_point_sec eosiosystem::rex_return_pool::oldest_bucket_time</definition>
+        <argsstring></argsstring>
+        <name>oldest_bucket_time</name>
+        <qualifiedname>eosiosystem::rex_return_pool::oldest_bucket_time</qualifiedname>
+        <initializer>= time_point_sec::min()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="434" column="22" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="434" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1rex__return__pool_1a6586a70341c24f27a2b0ef2234fc5005" prot="public" static="no" mutable="no">
+        <type>int64_t</type>
+        <definition>int64_t eosiosystem::rex_return_pool::pending_bucket_proceeds</definition>
+        <argsstring></argsstring>
+        <name>pending_bucket_proceeds</name>
+        <qualifiedname>eosiosystem::rex_return_pool::pending_bucket_proceeds</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="435" column="22" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="435" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1rex__return__pool_1a9c40149b316eefb370e1733584ff1d6f" prot="public" static="no" mutable="no">
+        <type>int64_t</type>
+        <definition>int64_t eosiosystem::rex_return_pool::current_rate_of_increase</definition>
+        <argsstring></argsstring>
+        <name>current_rate_of_increase</name>
+        <qualifiedname>eosiosystem::rex_return_pool::current_rate_of_increase</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="436" column="22" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="436" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1rex__return__pool_1a8c9014435e9325e35ee05115ac9e0ca3" prot="public" static="no" mutable="no">
+        <type>int64_t</type>
+        <definition>int64_t eosiosystem::rex_return_pool::proceeds</definition>
+        <argsstring></argsstring>
+        <name>proceeds</name>
+        <qualifiedname>eosiosystem::rex_return_pool::proceeds</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="437" column="22" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="437" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="structeosiosystem_1_1rex__return__pool_1ab3ac180090c440ff99d8183a8e069584" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t eosiosystem::rex_return_pool::total_intervals</definition>
+        <argsstring></argsstring>
+        <name>total_intervals</name>
+        <qualifiedname>eosiosystem::rex_return_pool::total_intervals</qualifiedname>
+        <initializer>= 30 * 144</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="439" column="33" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="439" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1rex__return__pool_1ab5e1ccbb63ca2e93a4e66825d6bee245" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t eosiosystem::rex_return_pool::dist_interval</definition>
+        <argsstring></argsstring>
+        <name>dist_interval</name>
+        <qualifiedname>eosiosystem::rex_return_pool::dist_interval</qualifiedname>
+        <initializer>= 10 * 60</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="440" column="33" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="440" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1rex__return__pool_1a5c46fa237317e475593185efd817dbbd" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr uint8_t</type>
+        <definition>constexpr uint8_t eosiosystem::rex_return_pool::hours_per_bucket</definition>
+        <argsstring></argsstring>
+        <name>hours_per_bucket</name>
+        <qualifiedname>eosiosystem::rex_return_pool::hours_per_bucket</qualifiedname>
+        <initializer>= 12</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="441" column="33" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="441" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeosiosystem_1_1rex__return__pool_1a1e8d9b3fd69ac163dcf6d77c3aedb80a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t eosiosystem::rex_return_pool::primary_key</definition>
+        <argsstring>() const</argsstring>
+        <name>primary_key</name>
+        <qualifiedname>eosiosystem::rex_return_pool::primary_key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="444" column="16" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="444" bodyend="444"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>time_point_sec</label>
+      </node>
+      <node id="1">
+        <label>eosiosystem::rex_return_pool</label>
+        <link refid="structeosiosystem_1_1rex__return__pool"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>last_dist_time</edgelabel>
+          <edgelabel>oldest_bucket_time</edgelabel>
+          <edgelabel>pending_bucket_time</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="430" column="4" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="430" bodyend="445"/>
+    <listofallmembers>
+      <member refid="structeosiosystem_1_1rex__return__pool_1a9c40149b316eefb370e1733584ff1d6f" prot="public" virt="non-virtual"><scope>eosiosystem::rex_return_pool</scope><name>current_rate_of_increase</name></member>
+      <member refid="structeosiosystem_1_1rex__return__pool_1ab5e1ccbb63ca2e93a4e66825d6bee245" prot="public" virt="non-virtual"><scope>eosiosystem::rex_return_pool</scope><name>dist_interval</name></member>
+      <member refid="structeosiosystem_1_1rex__return__pool_1a5c46fa237317e475593185efd817dbbd" prot="public" virt="non-virtual"><scope>eosiosystem::rex_return_pool</scope><name>hours_per_bucket</name></member>
+      <member refid="structeosiosystem_1_1rex__return__pool_1a6bcacb0d59cb8951b83f089e2dee3bed" prot="public" virt="non-virtual"><scope>eosiosystem::rex_return_pool</scope><name>last_dist_time</name></member>
+      <member refid="structeosiosystem_1_1rex__return__pool_1a50d9c4534af93ce26fffc8ae21c83981" prot="public" virt="non-virtual"><scope>eosiosystem::rex_return_pool</scope><name>oldest_bucket_time</name></member>
+      <member refid="structeosiosystem_1_1rex__return__pool_1a6586a70341c24f27a2b0ef2234fc5005" prot="public" virt="non-virtual"><scope>eosiosystem::rex_return_pool</scope><name>pending_bucket_proceeds</name></member>
+      <member refid="structeosiosystem_1_1rex__return__pool_1a54bd0982d04bfea79eea5343cb2dce33" prot="public" virt="non-virtual"><scope>eosiosystem::rex_return_pool</scope><name>pending_bucket_time</name></member>
+      <member refid="structeosiosystem_1_1rex__return__pool_1a1e8d9b3fd69ac163dcf6d77c3aedb80a" prot="public" virt="non-virtual"><scope>eosiosystem::rex_return_pool</scope><name>primary_key</name></member>
+      <member refid="structeosiosystem_1_1rex__return__pool_1a8c9014435e9325e35ee05115ac9e0ca3" prot="public" virt="non-virtual"><scope>eosiosystem::rex_return_pool</scope><name>proceeds</name></member>
+      <member refid="structeosiosystem_1_1rex__return__pool_1ab3ac180090c440ff99d8183a8e069584" prot="public" virt="non-virtual"><scope>eosiosystem::rex_return_pool</scope><name>total_intervals</name></member>
+      <member refid="structeosiosystem_1_1rex__return__pool_1a9b16ec989d93521cc26f51b97793c662" prot="public" virt="non-virtual"><scope>eosiosystem::rex_return_pool</scope><name>version</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

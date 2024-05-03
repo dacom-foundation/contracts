@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structeosiosystem_1_1rex__return__buckets" kind="struct" language="C++" prot="public">
+    <compoundname>eosiosystem::rex_return_buckets</compoundname>
+    <includes refid="eosio_8system_8hpp" local="no">eosio.system.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeosiosystem_1_1rex__return__buckets_1a24996f1358821a23925f8fb6fedfbcac" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t eosiosystem::rex_return_buckets::version</definition>
+        <argsstring></argsstring>
+        <name>version</name>
+        <qualifiedname>eosiosystem::rex_return_buckets::version</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="460" column="46" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="460" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1rex__return__buckets_1a40398601193e8e6f2e343b417c5195c6" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structeosiosystem_1_1pair__time__point__sec__int64" kindref="compound">pair_time_point_sec_int64</ref> &gt;</type>
+        <definition>std::vector&lt;pair_time_point_sec_int64&gt; eosiosystem::rex_return_buckets::return_buckets</definition>
+        <argsstring></argsstring>
+        <name>return_buckets</name>
+        <qualifiedname>eosiosystem::rex_return_buckets::return_buckets</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="461" column="19" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="461" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeosiosystem_1_1rex__return__buckets_1a91e47ae14cf12803658fc81858ba7d76" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t eosiosystem::rex_return_buckets::primary_key</definition>
+        <argsstring>() const</argsstring>
+        <name>primary_key</name>
+        <qualifiedname>eosiosystem::rex_return_buckets::primary_key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="463" column="16" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="463" bodyend="463"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="459" column="4" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="459" bodyend="464"/>
+    <listofallmembers>
+      <member refid="structeosiosystem_1_1rex__return__buckets_1a91e47ae14cf12803658fc81858ba7d76" prot="public" virt="non-virtual"><scope>eosiosystem::rex_return_buckets</scope><name>primary_key</name></member>
+      <member refid="structeosiosystem_1_1rex__return__buckets_1a40398601193e8e6f2e343b417c5195c6" prot="public" virt="non-virtual"><scope>eosiosystem::rex_return_buckets</scope><name>return_buckets</name></member>
+      <member refid="structeosiosystem_1_1rex__return__buckets_1a24996f1358821a23925f8fb6fedfbcac" prot="public" virt="non-virtual"><scope>eosiosystem::rex_return_buckets</scope><name>version</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

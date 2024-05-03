@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structwait__weight" kind="struct" language="C++" prot="public">
+    <compoundname>wait_weight</compoundname>
+    <includes refid="permissions_8hpp" local="no">permissions.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structwait__weight_1a3286af83356d29e62a35ccb650d92c98" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t wait_weight::wait_sec</definition>
+        <argsstring></argsstring>
+        <name>wait_sec</name>
+        <qualifiedname>wait_weight::wait_sec</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/permissions.hpp" line="18" column="23" bodyfile="common/permissions.hpp" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structwait__weight_1a41ebcf1f6076155456429094e7db0d2f" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t wait_weight::weight</definition>
+        <argsstring></argsstring>
+        <name>weight</name>
+        <qualifiedname>wait_weight::weight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/permissions.hpp" line="19" column="23" bodyfile="common/permissions.hpp" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="common/permissions.hpp" line="17" column="1" bodyfile="common/permissions.hpp" bodystart="17" bodyend="23"/>
+    <listofallmembers>
+      <member refid="structwait__weight_1a3286af83356d29e62a35ccb650d92c98" prot="public" virt="non-virtual"><scope>wait_weight</scope><name>wait_sec</name></member>
+      <member refid="structwait__weight_1a41ebcf1f6076155456429094e7db0d2f" prot="public" virt="non-virtual"><scope>wait_weight</scope><name>weight</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

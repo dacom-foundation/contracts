@@ -1,0 +1,363 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="balances_8hpp" kind="file" language="C++">
+    <compoundname>balances.hpp</compoundname>
+    <includedby refid="gateway_8hpp" local="yes">gateway/gateway.hpp</includedby>
+    <includedby refid="marketplace_8hpp" local="yes">marketplace/marketplace.hpp</includedby>
+    <includedby refid="registrator_8hpp" local="yes">registrator/registrator.hpp</includedby>
+    <includedby refid="soviet_8hpp" local="yes">soviet/soviet.hpp</includedby>
+    <invincdepgraph>
+      <node id="1">
+        <label>common/balances.hpp</label>
+        <link refid="balances_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>gateway/gateway.cpp</label>
+        <link refid="gateway_8cpp"/>
+      </node>
+      <node id="2">
+        <label>gateway/gateway.hpp</label>
+        <link refid="gateway_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>marketplace/marketplace.cpp</label>
+        <link refid="marketplace_2marketplace_8cpp"/>
+      </node>
+      <node id="4">
+        <label>marketplace/marketplace.hpp</label>
+        <link refid="marketplace_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>registrator/registrator.cpp</label>
+        <link refid="registrator_8cpp"/>
+      </node>
+      <node id="6">
+        <label>registrator/registrator.hpp</label>
+        <link refid="registrator_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>soviet/soviet.cpp</label>
+        <link refid="soviet_2soviet_8cpp"/>
+      </node>
+      <node id="8">
+        <label>soviet/soviet.hpp</label>
+        <link refid="soviet_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structdeposits" prot="public">deposits</innerclass>
+    <innerclass refid="structwithdraws" prot="public">withdraws</innerclass>
+    <innerclass refid="structbalances__base" prot="public">balances_base</innerclass>
+    <innerclass refid="structwallets" prot="public">wallets</innerclass>
+    <innerclass refid="structprogwallets" prot="public">progwallets</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="balances_8hpp_1a6da2d38486281e0066d1b23944453d8c" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;deposits&quot;_n, <ref refid="structdeposits" kindref="compound">deposits</ref>, eosio::indexed_by&lt;&quot;byusername&quot;_n, eosio::const_mem_fun&lt; <ref refid="structdeposits" kindref="compound">deposits</ref>, uint64_t, &amp;<ref refid="structdeposits_1a3c25feb661e1accede7aa739f26052f1" kindref="member">deposits::by_username</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;bystatus&quot;_n, eosio::const_mem_fun&lt; <ref refid="structdeposits" kindref="compound">deposits</ref>, uint64_t, &amp;<ref refid="structdeposits_1a39a21fbb51377a5500950eb5401bd03d" kindref="member">deposits::by_status</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;byexpired&quot;_n, eosio::const_mem_fun&lt; <ref refid="structdeposits" kindref="compound">deposits</ref>, uint64_t, &amp;<ref refid="structdeposits_1a4bdefd36c0695c406576e41187f347a9" kindref="member">deposits::by_expired</ref> &gt; &gt; &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;deposits&quot;_n, deposits, eosio::indexed_by&lt;&quot;byusername&quot;_n, eosio::const_mem_fun&lt;deposits, uint64_t, &amp;deposits::by_username&gt; &gt;, eosio::indexed_by&lt;&quot;bystatus&quot;_n, eosio::const_mem_fun&lt;deposits, uint64_t, &amp;deposits::by_status&gt; &gt;, eosio::indexed_by&lt;&quot;byexpired&quot;_n, eosio::const_mem_fun&lt;deposits, uint64_t, &amp;deposits::by_expired&gt; &gt;&gt; deposits_index</definition>
+        <argsstring></argsstring>
+        <name>deposits_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Мультииндекс для доступа и манипуляции данными таблицы <computeroutput>deposits</computeroutput> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/balances.hpp" line="32" column="2" bodyfile="common/balances.hpp" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="balances_8hpp_1a23418235288859f2f4227424aff17b77" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;withdraws&quot;_n, <ref refid="structwithdraws" kindref="compound">withdraws</ref>, eosio::indexed_by&lt;&quot;byusername&quot;_n, eosio::const_mem_fun&lt; <ref refid="structwithdraws" kindref="compound">withdraws</ref>, uint64_t, &amp;<ref refid="structwithdraws_1af28428694d19b3e435befc37311f874b" kindref="member">withdraws::by_username</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;bycoopname&quot;_n, eosio::const_mem_fun&lt; <ref refid="structwithdraws" kindref="compound">withdraws</ref>, uint64_t, &amp;<ref refid="structwithdraws_1a2cdd545bc8a4b1986d670e17abb9e4f3" kindref="member">withdraws::by_coopname</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;bystatus&quot;_n, eosio::const_mem_fun&lt; <ref refid="structwithdraws" kindref="compound">withdraws</ref>, uint64_t, &amp;<ref refid="structwithdraws_1a279e91da89642cc4bee51458069ee21d" kindref="member">withdraws::by_status</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;bycreated&quot;_n, eosio::const_mem_fun&lt; <ref refid="structwithdraws" kindref="compound">withdraws</ref>, uint64_t, &amp;<ref refid="structwithdraws_1a9b1951a93b9c89267a38e17882f74023" kindref="member">withdraws::by_created</ref> &gt; &gt; &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;withdraws&quot;_n, withdraws, eosio::indexed_by&lt;&quot;byusername&quot;_n, eosio::const_mem_fun&lt;withdraws, uint64_t, &amp;withdraws::by_username&gt; &gt;, eosio::indexed_by&lt;&quot;bycoopname&quot;_n, eosio::const_mem_fun&lt;withdraws, uint64_t, &amp;withdraws::by_coopname&gt; &gt;, eosio::indexed_by&lt;&quot;bystatus&quot;_n, eosio::const_mem_fun&lt;withdraws, uint64_t, &amp;withdraws::by_status&gt; &gt;, eosio::indexed_by&lt;&quot;bycreated&quot;_n, eosio::const_mem_fun&lt;withdraws, uint64_t, &amp;withdraws::by_created&gt; &gt; &gt; withdraws_index</definition>
+        <argsstring></argsstring>
+        <name>withdraws_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Мультииндекс для доступа и манипуляции данными таблицы <computeroutput>withdraws</computeroutput> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/balances.hpp" line="65" column="2" bodyfile="common/balances.hpp" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="balances_8hpp_1a2f044097a1d44c2a73b8f5bd7719439e" prot="public" static="no">
+        <type>eosio::multi_index&lt;&quot;balances&quot;_n, <ref refid="structbalances__base" kindref="compound">balances_base</ref>, eosio::indexed_by&lt;&quot;byconsym&quot;_n, eosio::const_mem_fun&lt; <ref refid="structbalances__base" kindref="compound">balances_base</ref>, uint128_t, &amp;<ref refid="structbalances__base_1af43d841c9f521f6fbbed7c943d4fd366" kindref="member">balances_base::byconsym</ref> &gt; &gt; &gt;</type>
+        <definition>typedef eosio::multi_index&lt;&quot;balances&quot;_n, balances_base, eosio::indexed_by&lt;&quot;byconsym&quot;_n, eosio::const_mem_fun&lt;balances_base, uint128_t, &amp;balances_base::byconsym&gt; &gt; &gt; balances_index</definition>
+        <argsstring></argsstring>
+        <name>balances_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Тип мультииндекса для таблицы балансов </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/balances.hpp" line="89" column="28" bodyfile="common/balances.hpp" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="balances_8hpp_1ae56150f8b7b3c5292c018af0bfc21760" prot="public" static="no">
+        <type>eosio::multi_index&lt;&quot;wallets&quot;_n, <ref refid="structwallets" kindref="compound">wallets</ref> &gt;</type>
+        <definition>typedef eosio::multi_index&lt;&quot;wallets&quot;_n, wallets&gt; wallets_index</definition>
+        <argsstring></argsstring>
+        <name>wallets_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/balances.hpp" line="103" column="28" bodyfile="common/balances.hpp" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="balances_8hpp_1a8a166ba6bdfbb60bb1ae58b9be1b5fc9" prot="public" static="no">
+        <type>eosio::multi_index&lt;&quot;progwallets&quot;_n, <ref refid="structprogwallets" kindref="compound">progwallets</ref>, eosio::indexed_by&lt;&quot;byusername&quot;_n, eosio::const_mem_fun&lt; <ref refid="structprogwallets" kindref="compound">progwallets</ref>, uint64_t, &amp;<ref refid="structprogwallets_1a4cceac2dd54374e766cb43110f8c8924" kindref="member">progwallets::by_username</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;byprogram&quot;_n, eosio::const_mem_fun&lt; <ref refid="structprogwallets" kindref="compound">progwallets</ref>, uint64_t, &amp;<ref refid="structprogwallets_1a5b332d51633dbda7bb8f17e04e49e11b" kindref="member">progwallets::by_program</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;byuserprog&quot;_n, eosio::const_mem_fun&lt; <ref refid="structprogwallets" kindref="compound">progwallets</ref>, uint128_t, &amp;<ref refid="structprogwallets_1ad86cd689f05547c9dea842ea605542da" kindref="member">progwallets::by_username_and_program</ref> &gt; &gt; &gt;</type>
+        <definition>typedef eosio::multi_index&lt;&quot;progwallets&quot;_n, progwallets, eosio::indexed_by&lt;&quot;byusername&quot;_n, eosio::const_mem_fun&lt;progwallets, uint64_t, &amp;progwallets::by_username&gt; &gt;, eosio::indexed_by&lt;&quot;byprogram&quot;_n, eosio::const_mem_fun&lt;progwallets, uint64_t, &amp;progwallets::by_program&gt; &gt;, eosio::indexed_by&lt;&quot;byuserprog&quot;_n, eosio::const_mem_fun&lt;progwallets, uint128_t, &amp;progwallets::by_username_and_program&gt; &gt;&gt; progwallets_index</definition>
+        <argsstring></argsstring>
+        <name>progwallets_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Тип мультииндекса для таблицы кошелька программ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/balances.hpp" line="126" column="2" bodyfile="common/balances.hpp" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="balances_8hpp_1ac392247269dae8fe58bcebe2a0b14133" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void add_balance</definition>
+        <argsstring>(eosio::name source, eosio::name username, eosio::asset quantity, eosio::name contract)</argsstring>
+        <name>add_balance</name>
+        <param>
+          <type>eosio::name</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>eosio::asset</type>
+          <declname>quantity</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>contract</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/balances.hpp" line="130" column="6" bodyfile="common/balances.hpp" bodystart="130" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="balances_8hpp_1a535cbf0e546fa5cf6eaaca63d2d1d854" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sub_balance</definition>
+        <argsstring>(eosio::name source, eosio::name username, eosio::asset quantity, eosio::name contract)</argsstring>
+        <name>sub_balance</name>
+        <param>
+          <type>eosio::name</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>eosio::asset</type>
+          <declname>quantity</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>contract</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/balances.hpp" line="160" column="6" bodyfile="common/balances.hpp" bodystart="160" bodyend="189"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="structdeposits" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(GATEWAY)]]<sp/><ref refid="structdeposits" kindref="compound">deposits</ref><sp/>{</highlight></codeline>
+<codeline lineno="8" refid="structdeposits_1a5c45aae9c52f01084bc8aaa17845946f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structdeposits_1a5c45aae9c52f01084bc8aaa17845946f" kindref="member">id</ref>;<sp/></highlight></codeline>
+<codeline lineno="9" refid="structdeposits_1a900766dd7cb6ae871e5a02dc23aa298f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="structdeposits_1a900766dd7cb6ae871e5a02dc23aa298f" kindref="member">username</ref>;<sp/></highlight></codeline>
+<codeline lineno="10" refid="structdeposits_1a8f1ce91fc16f7ead9fe1381b820236ab" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="structdeposits_1a8f1ce91fc16f7ead9fe1381b820236ab" kindref="member">coopname</ref>;<sp/></highlight></codeline>
+<codeline lineno="11" refid="structdeposits_1af7050767f2cc4c041b06717b77457c29" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="structdeposits_1af7050767f2cc4c041b06717b77457c29" kindref="member">type</ref>;<sp/></highlight></codeline>
+<codeline lineno="13" refid="structdeposits_1a7bb75856564899a414be208947bffc7d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="structdeposits_1a7bb75856564899a414be208947bffc7d" kindref="member">token_contract</ref>;<sp/></highlight></codeline>
+<codeline lineno="14" refid="structdeposits_1ae892cb9379aeb7afd09539fac520eae9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::asset<sp/><ref refid="structdeposits_1ae892cb9379aeb7afd09539fac520eae9" kindref="member">quantity</ref>;<sp/></highlight></codeline>
+<codeline lineno="16" refid="structdeposits_1af09ca4dfb7c381c557cc852ae2e4e119" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="structdeposits_1af09ca4dfb7c381c557cc852ae2e4e119" kindref="member">status</ref>;<sp/></highlight></codeline>
+<codeline lineno="17" refid="structdeposits_1a96fcef18e7a0632efe0f15ae432cdacf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structdeposits_1a96fcef18e7a0632efe0f15ae432cdacf" kindref="member">link</ref>;<sp/></highlight></codeline>
+<codeline lineno="18" refid="structdeposits_1aeb880b7a35cbb9aee64e87c432d190fc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structdeposits_1aeb880b7a35cbb9aee64e87c432d190fc" kindref="member">memo</ref>;<sp/></highlight></codeline>
+<codeline lineno="19" refid="structdeposits_1a57fc3f06ba682c23325da1c2f0b0f6a2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::time_point_sec<sp/><ref refid="structdeposits_1a57fc3f06ba682c23325da1c2f0b0f6a2" kindref="member">expired_at</ref>;<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="structdeposits_1a0989b88356d889dfdeb17eb10ccd3471" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structdeposits_1a0989b88356d889dfdeb17eb10ccd3471" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structdeposits_1a5c45aae9c52f01084bc8aaa17845946f" kindref="member">id</ref>;<sp/>}<sp/></highlight></codeline>
+<codeline lineno="22" refid="structdeposits_1a3c25feb661e1accede7aa739f26052f1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structdeposits_1a3c25feb661e1accede7aa739f26052f1" kindref="member">by_username</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>username.value;<sp/>}<sp/></highlight></codeline>
+<codeline lineno="23" refid="structdeposits_1a39a21fbb51377a5500950eb5401bd03d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structdeposits_1a39a21fbb51377a5500950eb5401bd03d" kindref="member">by_status</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>status.value;<sp/>}<sp/></highlight></codeline>
+<codeline lineno="24" refid="structdeposits_1a4bdefd36c0695c406576e41187f347a9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structdeposits_1a4bdefd36c0695c406576e41187f347a9" kindref="member">by_expired</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>expired_at.sec_since_epoch();<sp/>}<sp/></highlight></codeline>
+<codeline lineno="25"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;deposits&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structdeposits" kindref="compound">deposits</ref>,</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byusername&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;deposits,<sp/>uint64_t,<sp/>&amp;deposits::by_username&gt;&gt;,</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bystatus&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;deposits,<sp/>uint64_t,<sp/>&amp;deposits::by_status&gt;&gt;,</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byexpired&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;deposits,<sp/>uint64_t,<sp/>&amp;deposits::by_expired&gt;&gt;</highlight></codeline>
+<codeline lineno="32" refid="balances_8hpp_1a6da2d38486281e0066d1b23944453d8c" refkind="member"><highlight class="normal">&gt;<sp/><ref refid="balances_8hpp_1a6da2d38486281e0066d1b23944453d8c" kindref="member">deposits_index</ref>;<sp/></highlight></codeline>
+<codeline lineno="40" refid="structwithdraws" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(GATEWAY)]]<sp/><ref refid="structwithdraws" kindref="compound">withdraws</ref><sp/>{</highlight></codeline>
+<codeline lineno="41" refid="structwithdraws_1a0bd51f247965dbfb329fec3d40ea4aff" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structwithdraws_1a0bd51f247965dbfb329fec3d40ea4aff" kindref="member">id</ref>;<sp/></highlight></codeline>
+<codeline lineno="42" refid="structwithdraws_1a90f3595d227a8fa839c987ff704a6fb1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="structwithdraws_1a90f3595d227a8fa839c987ff704a6fb1" kindref="member">username</ref>;<sp/></highlight></codeline>
+<codeline lineno="43" refid="structwithdraws_1a8a335a5d2d6d9df49548f2742babfa56" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="structwithdraws_1a8a335a5d2d6d9df49548f2742babfa56" kindref="member">coopname</ref>;<sp/></highlight></codeline>
+<codeline lineno="44" refid="structwithdraws_1a8ffde0a7ea12626e021d4556726d2cf1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structwithdraws_1a8ffde0a7ea12626e021d4556726d2cf1" kindref="member">bank_data_id</ref>;<sp/></highlight></codeline>
+<codeline lineno="45" refid="structwithdraws_1a0c214e95d7d9b8d7b9689f7ddd0e62f1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="structwithdraws_1a0c214e95d7d9b8d7b9689f7ddd0e62f1" kindref="member">token_contract</ref>;<sp/></highlight></codeline>
+<codeline lineno="46" refid="structwithdraws_1ad636cffd24311103bc97378f444d7ffd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::asset<sp/><ref refid="structwithdraws_1ad636cffd24311103bc97378f444d7ffd" kindref="member">quantity</ref>;<sp/></highlight></codeline>
+<codeline lineno="47" refid="structwithdraws_1a66705c798a455391622a98254fa57d94" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="structwithdraws_1a66705c798a455391622a98254fa57d94" kindref="member">status</ref>;<sp/></highlight></codeline>
+<codeline lineno="48" refid="structwithdraws_1a1d5c5381ecaf78a41e8786f7aaad12ba" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structdocument" kindref="compound">document</ref><sp/><ref refid="structwithdraws_1a1d5c5381ecaf78a41e8786f7aaad12ba" kindref="member">document</ref>;<sp/></highlight></codeline>
+<codeline lineno="49" refid="structwithdraws_1a37174203ef7bac581734dc9b623a8d07" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structwithdraws_1a37174203ef7bac581734dc9b623a8d07" kindref="member">memo</ref>;<sp/></highlight></codeline>
+<codeline lineno="50" refid="structwithdraws_1ae7aab0d7401094cf68dac64ca3b2baf1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::time_point_sec<sp/><ref refid="structwithdraws_1ae7aab0d7401094cf68dac64ca3b2baf1" kindref="member">created_at</ref>;<sp/></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="structwithdraws_1a03f0fac1b1b5de27fb09730a35eb2ac4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structwithdraws_1a03f0fac1b1b5de27fb09730a35eb2ac4" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structdeposits_1a5c45aae9c52f01084bc8aaa17845946f" kindref="member">id</ref>;<sp/>}<sp/></highlight></codeline>
+<codeline lineno="53" refid="structwithdraws_1a2cdd545bc8a4b1986d670e17abb9e4f3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structwithdraws_1a2cdd545bc8a4b1986d670e17abb9e4f3" kindref="member">by_coopname</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>coopname.value;<sp/>}<sp/></highlight></codeline>
+<codeline lineno="54" refid="structwithdraws_1af28428694d19b3e435befc37311f874b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structwithdraws_1af28428694d19b3e435befc37311f874b" kindref="member">by_username</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>username.value;<sp/>}<sp/></highlight></codeline>
+<codeline lineno="55" refid="structwithdraws_1a279e91da89642cc4bee51458069ee21d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structwithdraws_1a279e91da89642cc4bee51458069ee21d" kindref="member">by_status</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>status.value;<sp/>}<sp/></highlight></codeline>
+<codeline lineno="56" refid="structwithdraws_1a9b1951a93b9c89267a38e17882f74023" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structwithdraws_1a9b1951a93b9c89267a38e17882f74023" kindref="member">by_created</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>created_at.sec_since_epoch();<sp/>}<sp/></highlight></codeline>
+<codeline lineno="57"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;withdraws&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structwithdraws" kindref="compound">withdraws</ref>,</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byusername&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;withdraws,<sp/>uint64_t,<sp/>&amp;withdraws::by_username&gt;&gt;,</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bycoopname&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;withdraws,<sp/>uint64_t,<sp/>&amp;withdraws::by_coopname&gt;&gt;,</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bystatus&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;withdraws,<sp/>uint64_t,<sp/>&amp;withdraws::by_status&gt;&gt;,</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bycreated&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;withdraws,<sp/>uint64_t,<sp/>&amp;withdraws::by_created&gt;&gt;</highlight></codeline>
+<codeline lineno="65" refid="balances_8hpp_1a23418235288859f2f4227424aff17b77" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>&gt;<sp/><ref refid="balances_8hpp_1a23418235288859f2f4227424aff17b77" kindref="member">withdraws_index</ref>;<sp/></highlight></codeline>
+<codeline lineno="77" refid="structbalances__base" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structbalances__base" kindref="compound">balances_base</ref><sp/>{</highlight></codeline>
+<codeline lineno="78" refid="structbalances__base_1a2069a54454c59cae6ac2a977002bc8ce" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structbalances__base_1a2069a54454c59cae6ac2a977002bc8ce" kindref="member">id</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="79" refid="structbalances__base_1acebf235da280f8d16533b6913912da41" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structbalances__base_1acebf235da280f8d16533b6913912da41" kindref="member">contract</ref>;<sp/></highlight></codeline>
+<codeline lineno="80" refid="structbalances__base_1a1c3e3dfd8436a6e847dfbe620ba26c23" refkind="member"><highlight class="normal"><sp/><sp/>eosio::asset<sp/><ref refid="structbalances__base_1a1c3e3dfd8436a6e847dfbe620ba26c23" kindref="member">quantity</ref>;<sp/></highlight></codeline>
+<codeline lineno="82" refid="structbalances__base_1a242d9cbeea53e487eff7eb9349327931" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structbalances__base_1a242d9cbeea53e487eff7eb9349327931" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structbalances__base_1a2069a54454c59cae6ac2a977002bc8ce" kindref="member">id</ref>;<sp/>}<sp/></highlight></codeline>
+<codeline lineno="84" refid="structbalances__base_1af43d841c9f521f6fbbed7c943d4fd366" refkind="member"><highlight class="normal"><sp/><sp/>uint128_t<sp/><ref refid="structbalances__base_1af43d841c9f521f6fbbed7c943d4fd366" kindref="member">byconsym</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="utils_8hpp_1a9674246df019d9c71da6884b1fd0fe39" kindref="member">combine_ids</ref>(<ref refid="structbalances__base_1acebf235da280f8d16533b6913912da41" kindref="member">contract</ref>.value,<sp/><ref refid="structbalances__base_1a1c3e3dfd8436a6e847dfbe620ba26c23" kindref="member">quantity</ref>.symbol.code().raw());</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/>}<sp/></highlight></codeline>
+<codeline lineno="87"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89" refid="balances_8hpp_1a2f044097a1d44c2a73b8f5bd7719439e" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;</highlight><highlight class="stringliteral">&quot;balances&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structbalances__base" kindref="compound">balances_base</ref>,<sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byconsym&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;balances_base,<sp/>uint128_t,<sp/>&amp;balances_base::byconsym&gt;&gt;&gt;<sp/><ref refid="balances_8hpp_1a2f044097a1d44c2a73b8f5bd7719439e" kindref="member">balances_index</ref>;<sp/></highlight></codeline>
+<codeline lineno="92" refid="structwallets" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(SOVIET)]]<sp/><ref refid="structwallets" kindref="compound">wallets</ref><sp/>{</highlight></codeline>
+<codeline lineno="93" refid="structwallets_1a5bf63dc37dc288590a7ff1b003ce5bdd" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structwallets_1a5bf63dc37dc288590a7ff1b003ce5bdd" kindref="member">username</ref>;</highlight></codeline>
+<codeline lineno="94" refid="structwallets_1aca067f3f06b79fdf17bc20f2f7b5b5ca" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structwallets_1aca067f3f06b79fdf17bc20f2f7b5b5ca" kindref="member">coopname</ref>;</highlight></codeline>
+<codeline lineno="95" refid="structwallets_1a957cd6ea3e8b379c05b9ecae8aecf2ec" refkind="member"><highlight class="normal"><sp/><sp/>eosio::asset<sp/><ref refid="structwallets_1a957cd6ea3e8b379c05b9ecae8aecf2ec" kindref="member">available</ref>;</highlight></codeline>
+<codeline lineno="96" refid="structwallets_1a46f39ef4eb3a087abb588d747f4c3cf7" refkind="member"><highlight class="normal"><sp/><sp/>eosio::asset<sp/><ref refid="structwallets_1a46f39ef4eb3a087abb588d747f4c3cf7" kindref="member">blocked</ref>;</highlight></codeline>
+<codeline lineno="97" refid="structwallets_1a8b429e66e7455d556b00ab2f140ec103" refkind="member"><highlight class="normal"><sp/><sp/>eosio::asset<sp/><ref refid="structwallets_1a8b429e66e7455d556b00ab2f140ec103" kindref="member">minimum</ref>;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99" refid="structwallets_1ab97728a6804a1c5d59b7043796a06c20" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structwallets_1ab97728a6804a1c5d59b7043796a06c20" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>username.value;<sp/>}<sp/></highlight></codeline>
+<codeline lineno="101"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103" refid="balances_8hpp_1ae56150f8b7b3c5292c018af0bfc21760" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;</highlight><highlight class="stringliteral">&quot;wallets&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structwallets" kindref="compound">wallets</ref>&gt;<sp/><ref refid="balances_8hpp_1ae56150f8b7b3c5292c018af0bfc21760" kindref="member">wallets_index</ref>;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106" refid="structprogwallets" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(SOVIET)]]<sp/><ref refid="structprogwallets" kindref="compound">progwallets</ref><sp/>{</highlight></codeline>
+<codeline lineno="107" refid="structprogwallets_1a7d1baaf6016763a42b0ffee6e00ea690" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structprogwallets_1a7d1baaf6016763a42b0ffee6e00ea690" kindref="member">id</ref>;</highlight></codeline>
+<codeline lineno="108" refid="structprogwallets_1a670074d9a5dacbb811ecd82e1049f41a" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structprogwallets_1a670074d9a5dacbb811ecd82e1049f41a" kindref="member">coopname</ref>;</highlight></codeline>
+<codeline lineno="109" refid="structprogwallets_1a0b8f5a1eae7b19cc2a35441ff1f39277" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structprogwallets_1a0b8f5a1eae7b19cc2a35441ff1f39277" kindref="member">program_id</ref>;</highlight></codeline>
+<codeline lineno="110" refid="structprogwallets_1a8c3361a53f0b8d8124538293ee4d428a" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structprogwallets_1a8c3361a53f0b8d8124538293ee4d428a" kindref="member">username</ref>;</highlight></codeline>
+<codeline lineno="111" refid="structprogwallets_1afdd0676819e6c70ec2a9a9fa82b3510a" refkind="member"><highlight class="normal"><sp/><sp/>eosio::asset<sp/><ref refid="structprogwallets_1afdd0676819e6c70ec2a9a9fa82b3510a" kindref="member">available</ref>;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="113" refid="structprogwallets_1a89de991f214be871ee4baa55bc941756" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structprogwallets_1a89de991f214be871ee4baa55bc941756" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structdeposits_1a5c45aae9c52f01084bc8aaa17845946f" kindref="member">id</ref>;<sp/>}<sp/></highlight></codeline>
+<codeline lineno="114" refid="structprogwallets_1a4cceac2dd54374e766cb43110f8c8924" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structprogwallets_1a4cceac2dd54374e766cb43110f8c8924" kindref="member">by_username</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>username.value;<sp/>}<sp/></highlight></codeline>
+<codeline lineno="115" refid="structprogwallets_1a5b332d51633dbda7bb8f17e04e49e11b" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structprogwallets_1a5b332d51633dbda7bb8f17e04e49e11b" kindref="member">by_program</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>program_id;<sp/>}<sp/></highlight></codeline>
+<codeline lineno="117" refid="structprogwallets_1ad86cd689f05547c9dea842ea605542da" refkind="member"><highlight class="normal"><sp/><sp/>uint128_t<sp/><ref refid="structprogwallets_1ad86cd689f05547c9dea842ea605542da" kindref="member">by_username_and_program</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="utils_8hpp_1a9674246df019d9c71da6884b1fd0fe39" kindref="member">combine_ids</ref>(username.value,<sp/>program_id);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/>}<sp/></highlight></codeline>
+<codeline lineno="120"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;</highlight><highlight class="stringliteral">&quot;progwallets&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structprogwallets" kindref="compound">progwallets</ref>,<sp/></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byusername&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;progwallets,<sp/>uint64_t,<sp/>&amp;progwallets::by_username&gt;&gt;,</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byprogram&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;progwallets,<sp/>uint64_t,<sp/>&amp;progwallets::by_program&gt;&gt;,</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byuserprog&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;progwallets,<sp/>uint128_t,<sp/>&amp;progwallets::by_username_and_program&gt;&gt;</highlight></codeline>
+<codeline lineno="126" refid="balances_8hpp_1a8a166ba6bdfbb60bb1ae58b9be1b5fc9" refkind="member"><highlight class="normal">&gt;<sp/><ref refid="balances_8hpp_1a8a166ba6bdfbb60bb1ae58b9be1b5fc9" kindref="member">progwallets_index</ref>;<sp/></highlight></codeline>
+<codeline lineno="130" refid="balances_8hpp_1ac392247269dae8fe58bcebe2a0b14133" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="balances_8hpp_1ac392247269dae8fe58bcebe2a0b14133" kindref="member">add_balance</ref>(eosio::name<sp/>source,<sp/>eosio::name<sp/>username,<sp/>eosio::asset<sp/>quantity,</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/>contract)<sp/>{</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Если<sp/>баланс<sp/>не<sp/>найден,<sp/>создаем<sp/>новую<sp/>запись.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>В<sp/>противном<sp/>случае,<sp/>увеличиваем<sp/>существующий<sp/>баланс.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>eosio::check(username<sp/>!=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">_n,<sp/></highlight><highlight class="stringliteral">&quot;В<sp/>поле<sp/>memo<sp/>должен<sp/>быть<sp/>указан<sp/>получатель<sp/>баланса&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><ref refid="balances_8hpp_1a2f044097a1d44c2a73b8f5bd7719439e" kindref="member">balances_index</ref><sp/>balances(source,<sp/>username.value);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>balances_by_contract_and_symbol<sp/>=</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>balances.template<sp/>get_index&lt;</highlight><highlight class="stringliteral">&quot;byconsym&quot;</highlight><highlight class="normal">_n&gt;();</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>contract_and_symbol_index<sp/>=</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="utils_8hpp_1a9674246df019d9c71da6884b1fd0fe39" kindref="member">combine_ids</ref>(contract.value,<sp/>quantity.symbol.code().raw());</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>balance<sp/>=</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>balances_by_contract_and_symbol.find(contract_and_symbol_index);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(balance<sp/>==<sp/>balances_by_contract_and_symbol.end())<sp/>{</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>balances.emplace(source,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;b)<sp/>{</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>b.id<sp/>=<sp/>balances.available_primary_key();</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>b.contract<sp/>=<sp/>contract;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>b.quantity<sp/>=<sp/>quantity;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>balances_by_contract_and_symbol.modify(</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>balance,<sp/>source,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;b)<sp/>{<sp/>b.quantity<sp/>+=<sp/>quantity;<sp/>});</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="157"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160" refid="balances_8hpp_1a535cbf0e546fa5cf6eaaca63d2d1d854" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="balances_8hpp_1a535cbf0e546fa5cf6eaaca63d2d1d854" kindref="member">sub_balance</ref>(eosio::name<sp/>source,<sp/>eosio::name<sp/>username,<sp/>eosio::asset<sp/>quantity,</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/>contract)<sp/>{</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Если<sp/>после<sp/>вычитания<sp/>баланс<sp/>равен<sp/>нулю,<sp/>удаляем<sp/>запись.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>В<sp/>противном<sp/>случае,<sp/>уменьшаем<sp/>существующий<sp/>баланс.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><ref refid="balances_8hpp_1a2f044097a1d44c2a73b8f5bd7719439e" kindref="member">balances_index</ref><sp/>balances(source,<sp/>username.value);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>balances_by_contract_and_symbol<sp/>=</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>balances.template<sp/>get_index&lt;</highlight><highlight class="stringliteral">&quot;byconsym&quot;</highlight><highlight class="normal">_n&gt;();</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>contract_and_symbol_index<sp/>=</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="utils_8hpp_1a9674246df019d9c71da6884b1fd0fe39" kindref="member">combine_ids</ref>(contract.value,<sp/>quantity.symbol.code().raw());</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>balance<sp/>=</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>balances_by_contract_and_symbol.find(contract_and_symbol_index);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/>eosio::check(balance<sp/>!=<sp/>balances_by_contract_and_symbol.end(),</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Баланс<sp/>не<sp/>найден&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/>eosio::check(balance-&gt;quantity<sp/>&gt;=<sp/>quantity,<sp/></highlight><highlight class="stringliteral">&quot;Недостаточный<sp/>баланс&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(balance-&gt;quantity<sp/>==<sp/>quantity)<sp/>{</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>balances_by_contract_and_symbol.erase(balance);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>balances_by_contract_and_symbol.modify(</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>balance,<sp/>source,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;b)<sp/>{<sp/>b.quantity<sp/>-=<sp/>quantity;<sp/>});</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="189"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="common/balances.hpp"/>
+  </compounddef>
+</doxygen>

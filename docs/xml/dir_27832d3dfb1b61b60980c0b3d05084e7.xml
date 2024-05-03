@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="dir_27832d3dfb1b61b60980c0b3d05084e7" kind="dir">
+    <compoundname>soviet/src</compoundname>
+    <innerfile refid="addresses_8cpp">addresses.cpp</innerfile>
+    <innerfile refid="admin_8cpp">admin.cpp</innerfile>
+    <innerfile refid="automator_8cpp">automator.cpp</innerfile>
+    <innerfile refid="chairman_8cpp">chairman.cpp</innerfile>
+    <innerfile refid="contributions_8cpp">contributions.cpp</innerfile>
+    <innerfile refid="fund_8cpp">fund.cpp</innerfile>
+    <innerfile refid="joincoop_8cpp">joincoop.cpp</innerfile>
+    <innerfile refid="soviet_2src_2marketplace_8cpp">marketplace.cpp</innerfile>
+    <innerfile refid="programs_8cpp">programs.cpp</innerfile>
+    <innerfile refid="soviet_2src_2voting_8cpp">voting.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="soviet/src/"/>
+  </compounddef>
+</doxygen>

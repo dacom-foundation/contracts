@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="dir_cfc703efbd44a49c5257c82be2683191" kind="dir">
+    <compoundname>registrator</compoundname>
+    <innerfile refid="registrator_8cpp">registrator.cpp</innerfile>
+    <innerfile refid="registrator_8hpp">registrator.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="registrator/"/>
+  </compounddef>
+</doxygen>

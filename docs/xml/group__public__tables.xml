@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="group__public__tables" kind="group">
+    <compoundname>public_tables</compoundname>
+    <title>Таблицы</title>
+    <innerclass refid="structverification" prot="public">verification</innerclass>
+    <innerclass refid="structaccounts" prot="public">accounts</innerclass>
+    <innerclass refid="structusers" prot="public">users</innerclass>
+    <innerclass refid="structbank" prot="public">bank</innerclass>
+    <innerclass refid="structorg__data" prot="public">org_data</innerclass>
+    <innerclass refid="structplot__data" prot="public">plot_data</innerclass>
+    <innerclass refid="structorgs" prot="public">orgs</innerclass>
+    <innerclass refid="structdeposits" prot="public">deposits</innerclass>
+    <innerclass refid="structwithdraws" prot="public">withdraws</innerclass>
+    <innerclass refid="structbalances__base" prot="public">balances_base</innerclass>
+    <innerclass refid="structexchange__params" prot="public">exchange_params</innerclass>
+    <innerclass refid="structexchange" prot="public">exchange</innerclass>
+    <innerclass refid="structboard__member" prot="public">board_member</innerclass>
+    <innerclass refid="structboards" prot="public">boards</innerclass>
+    <innerclass refid="structstaff" prot="public">staff</innerclass>
+    <innerclass refid="structparticipants" prot="public">participants</innerclass>
+    <innerclass refid="structdecisions" prot="public">decisions</innerclass>
+    <innerclass refid="structaddresses" prot="public">addresses</innerclass>
+    <innerclass refid="structregistrator_1_1balances" prot="public">registrator::balances</innerclass>
+    <innerclass refid="structautomator" prot="public">automator</innerclass>
+    <innerclass refid="structgateway_1_1balances" prot="public">gateway::balances</innerclass>
+    <briefdescription>
+<para>Структуры таблиц контрактов </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Таблицы в контрактах EOSIO используются для хранения состояния контракта на блокчейне. В этой группе представлены основные структуры данных, которые используются в таблицах контрактов кооперативной экономики. От сведений о участниках до деталей транзакций - все это сохраняется в таблицах. </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

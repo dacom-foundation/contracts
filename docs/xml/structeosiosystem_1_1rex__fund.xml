@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structeosiosystem_1_1rex__fund" kind="struct" language="C++" prot="public">
+    <compoundname>eosiosystem::rex_fund</compoundname>
+    <includes refid="eosio_8system_8hpp" local="no">eosio.system.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeosiosystem_1_1rex__fund_1a0d87faa3b4241bb715ef75854f885815" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t eosiosystem::rex_fund::version</definition>
+        <argsstring></argsstring>
+        <name>version</name>
+        <qualifiedname>eosiosystem::rex_fund::version</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="473" column="15" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="473" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1rex__fund_1a9f04d7bcf465529f0870d54aabf5ae36" prot="public" static="no" mutable="no">
+        <type>name</type>
+        <definition>name eosiosystem::rex_fund::owner</definition>
+        <argsstring></argsstring>
+        <name>owner</name>
+        <qualifiedname>eosiosystem::rex_fund::owner</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="474" column="15" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="474" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1rex__fund_1af8fa096b0e2c5d24798a659aa5ddb309" prot="public" static="no" mutable="no">
+        <type>asset</type>
+        <definition>asset eosiosystem::rex_fund::balance</definition>
+        <argsstring></argsstring>
+        <name>balance</name>
+        <qualifiedname>eosiosystem::rex_fund::balance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="475" column="15" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="475" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeosiosystem_1_1rex__fund_1ada0d465ad79456e859e6dce84be99be5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t eosiosystem::rex_fund::primary_key</definition>
+        <argsstring>() const</argsstring>
+        <name>primary_key</name>
+        <qualifiedname>eosiosystem::rex_fund::primary_key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="477" column="16" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="477" bodyend="477"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>asset</label>
+      </node>
+      <node id="2">
+        <label>name</label>
+      </node>
+      <node id="1">
+        <label>eosiosystem::rex_fund</label>
+        <link refid="structeosiosystem_1_1rex__fund"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>owner</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>balance</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="472" column="4" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="472" bodyend="478"/>
+    <listofallmembers>
+      <member refid="structeosiosystem_1_1rex__fund_1af8fa096b0e2c5d24798a659aa5ddb309" prot="public" virt="non-virtual"><scope>eosiosystem::rex_fund</scope><name>balance</name></member>
+      <member refid="structeosiosystem_1_1rex__fund_1a9f04d7bcf465529f0870d54aabf5ae36" prot="public" virt="non-virtual"><scope>eosiosystem::rex_fund</scope><name>owner</name></member>
+      <member refid="structeosiosystem_1_1rex__fund_1ada0d465ad79456e859e6dce84be99be5" prot="public" virt="non-virtual"><scope>eosiosystem::rex_fund</scope><name>primary_key</name></member>
+      <member refid="structeosiosystem_1_1rex__fund_1a0d87faa3b4241bb715ef75854f885815" prot="public" virt="non-virtual"><scope>eosiosystem::rex_fund</scope><name>version</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

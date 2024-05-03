@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structeosiosystem_1_1key__weight" kind="struct" language="C++" prot="public">
+    <compoundname>eosiosystem::key_weight</compoundname>
+    <includes refid="native_8hpp" local="no">native.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeosiosystem_1_1key__weight_1a31686ad5ac920e70870cf69e6a2dddc6" prot="public" static="no" mutable="no">
+        <type>eosio::public_key</type>
+        <definition>eosio::public_key eosiosystem::key_weight::key</definition>
+        <argsstring></argsstring>
+        <name>key</name>
+        <qualifiedname>eosiosystem::key_weight::key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/native.hpp" line="42" column="26" bodyfile="system/contracts/eosio.system/include/eosio.system/native.hpp" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiosystem_1_1key__weight_1a2e8de08d6240bb75204c4d5195489f85" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t eosiosystem::key_weight::weight</definition>
+        <argsstring></argsstring>
+        <name>weight</name>
+        <qualifiedname>eosiosystem::key_weight::weight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/native.hpp" line="43" column="26" bodyfile="system/contracts/eosio.system/include/eosio.system/native.hpp" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Weighted key.</para>
+<para>A weighted key is defined by a public key and an associated weight. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>public_key</label>
+      </node>
+      <node id="1">
+        <label>eosiosystem::key_weight</label>
+        <link refid="structeosiosystem_1_1key__weight"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>key</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="system/contracts/eosio.system/include/eosio.system/native.hpp" line="41" column="4" bodyfile="system/contracts/eosio.system/include/eosio.system/native.hpp" bodystart="41" bodyend="47"/>
+    <listofallmembers>
+      <member refid="structeosiosystem_1_1key__weight_1a31686ad5ac920e70870cf69e6a2dddc6" prot="public" virt="non-virtual"><scope>eosiosystem::key_weight</scope><name>key</name></member>
+      <member refid="structeosiosystem_1_1key__weight_1a2e8de08d6240bb75204c4d5195489f85" prot="public" virt="non-virtual"><scope>eosiosystem::key_weight</scope><name>weight</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

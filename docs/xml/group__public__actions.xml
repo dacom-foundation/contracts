@@ -1,0 +1,3250 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="group__public__actions" kind="group">
+    <compoundname>public_actions</compoundname>
+    <title>Действия</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__public__actions_1gaeae2fd664c83c2dad995c167c2566e26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void registrator::newaccount</definition>
+        <argsstring>(eosio::name registrator, eosio::name referer, eosio::name username, eosio::public_key public_key, std::string signature_hash, std::string meta)</argsstring>
+        <name>newaccount</name>
+        <qualifiedname>registrator::newaccount</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>registrator</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>referer</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>eosio::public_key</type>
+          <declname>public_key</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>signature_hash</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>meta</declname>
+        </param>
+        <briefdescription>
+<para>Регистрирует новый аккаунт. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Действие позволяет создать новый аккаунт. Новый аккаунт может быть создан только верифицированной организацией. <simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>registrator</computeroutput> </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>registrator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Аккаунт, который оплачивает создание нового аккаунта. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>referer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Реферер, который представил нового пользователя. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя нового аккаунта (от 5 до 12 символов). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>public_key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Открытый ключ нового аккаунта. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>meta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Дополнительная мета-информация. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator/registrator.hpp" line="58" column="9" bodyfile="registrator/registrator.cpp" bodystart="17" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gad6b5f40727b07cff66380feb735ff79f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void registrator::reguser</definition>
+        <argsstring>(eosio::name coopname, eosio::name username, storage storage)</argsstring>
+        <name>reguser</name>
+        <qualifiedname>registrator::reguser</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type><ref refid="structstorage" kindref="compound">storage</ref></type>
+          <declname>storage</declname>
+        </param>
+        <briefdescription>
+<para>Регистрация пользователя </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод предназначен для регистрации аккаунта в качестве физического лица. После регистрации пользователь получает статус &quot;user&quot;. Принимает хэш-ссылку на зашифрованный профиль, сохраненный в IPFS.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>registrator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя регистратора, который регистрирует (обычно, кооператив, но может быть и участником, который регистрирует свою карточку сам) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя, который регистрируется </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>profile_hash</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Хэш-ссылка на зашифрованный профиль пользователя, сохраненный в IPFS</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>registrator</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator/registrator.hpp" line="45" column="9" bodyfile="registrator/registrator.cpp" bodystart="92" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gad1c42f1901b5ff1d34fbf889908675b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void registrator::regorg</definition>
+        <argsstring>(eosio::name coopname, eosio::name username, org_data params)</argsstring>
+        <name>regorg</name>
+        <qualifiedname>registrator::regorg</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type><ref refid="structorg__data" kindref="compound">org_data</ref></type>
+          <declname>params</declname>
+        </param>
+        <briefdescription>
+<para>Регистрация юридического лица </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет регистрировать аккаунт в качестве юридического лица. Все данные в карточке юридического лица публичны и хранятся в блокчейне.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>params</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Структура данных нового юридического лица</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от одного из аккаунтов: <computeroutput>coopname</computeroutput> || username </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator/registrator.hpp" line="51" column="9" bodyfile="registrator/registrator.cpp" bodystart="142" bodyend="177"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga99b01f19b346839f0ed7a132093f74c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void registrator::regplot</definition>
+        <argsstring>(eosio::name coopname, eosio::name username, plot_data params)</argsstring>
+        <name>regplot</name>
+        <qualifiedname>registrator::regplot</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type><ref refid="structplot__data" kindref="compound">plot_data</ref></type>
+          <declname>params</declname>
+        </param>
+        <briefdescription>
+<para>Регистрация юридического лица </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет регистрировать аккаунт в качестве юридического лица. Все данные в карточке юридического лица публичны и хранятся в блокчейне.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>params</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Структура данных нового юридического лица</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от одного из аккаунтов: <computeroutput>coopname</computeroutput> || username </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator/registrator.hpp" line="52" column="9" bodyfile="registrator/registrator.cpp" bodystart="193" bodyend="230"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga4edb42d418f1b8d0a7ec00f06b9927ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void registrator::verificate</definition>
+        <argsstring>(eosio::name username, eosio::name procedure)</argsstring>
+        <name>verificate</name>
+        <qualifiedname>registrator::verificate</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>procedure</declname>
+        </param>
+        <briefdescription>
+<para>Верификация аккаунта </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет верифицировать аккаунты как пользователей, так и организаций. На данный момент может быть применен только аккаунтом автономной некоммерческой организации &quot;Кооперативная Экономика&quot;.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя аккаунта, который подлежит верификации</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>_ano</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator/registrator.hpp" line="56" column="9" bodyfile="registrator/registrator.cpp" bodystart="244" bodyend="301"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga9118fec52032836986b9a60a28355039" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void registrator::joincoop</definition>
+        <argsstring>(eosio::name coopname, eosio::name username, document document)</argsstring>
+        <name>joincoop</name>
+        <qualifiedname>registrator::joincoop</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type><ref refid="structdocument" kindref="compound">document</ref></type>
+          <declname>document</declname>
+        </param>
+        <briefdescription>
+<para>Подача заявления на членство в кооперативе </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет подать заявление на вступление в кооператив от имени физического или юридического лица. После подачи заявления, оно направляется на рассмотрение в совет кооператива для голосования.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coopname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя заявителя </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>position_title</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Наименование должности заявителя </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>position</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Код должности заявителя, который может быть одним из следующего списка:<itemizedlist>
+<listitem><para>chairman</para>
+</listitem><listitem><para>vpchairman</para>
+</listitem><listitem><para>director</para>
+</listitem><listitem><para>vpdirector</para>
+</listitem><listitem><para>boardmember</para>
+</listitem><listitem><para>execmember</para>
+</listitem><listitem><para>votingmember</para>
+</listitem><listitem><para>assocmember </para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ricardian_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Переменные шаблона заявления, которые вставляются в рикардианский договор, содержащийся в ABI метода действия контракта. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>statement_hash</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Хэш ссылка на заявление</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>username</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator/registrator.hpp" line="54" column="9" bodyfile="registrator/registrator.cpp" bodystart="327" bodyend="339"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gac68fe89b4be51de18ac5b5921ca56eed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void registrator::update</definition>
+        <argsstring>(eosio::name username, std::string meta)</argsstring>
+        <name>update</name>
+        <qualifiedname>registrator::update</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>meta</declname>
+        </param>
+        <briefdescription>
+<para>Обновление метаданных аккаунта </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет обновить метаданные указанного аккаунта. Только владелец аккаунта имеет право обновлять его метаданные.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя аккаунта, который требуется обновить </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>meta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Новые метаданные для аккаунта</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>username</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator/registrator.hpp" line="42" column="9" bodyfile="registrator/registrator.cpp" bodystart="354" bodyend="367"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga68df314fe90a719f00f0931c097bc6c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void registrator::changekey</definition>
+        <argsstring>(eosio::name username, eosio::public_key public_key)</argsstring>
+        <name>changekey</name>
+        <qualifiedname>registrator::changekey</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>eosio::public_key</type>
+          <declname>public_key</declname>
+        </param>
+        <briefdescription>
+<para>Изменение ключа активной учетной записи </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет изменить активный ключ указанной учетной записи. Только аккаунт автономной некомерческой организации &quot;Кооперативная Экономика&quot; имеет право изменять ключи учетных записей.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя аккаунта, ключ которого требуется изменить </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>public_key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Новый публичный ключ для активной учетной записи</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>_ano</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator/registrator.hpp" line="63" column="9" bodyfile="registrator/registrator.cpp" bodystart="384" bodyend="405"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga25e4c5c4eea2a2e1463ce911b61117aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void registrator::confirmreg</definition>
+        <argsstring>(eosio::name coopname, eosio::name member)</argsstring>
+        <name>confirmreg</name>
+        <qualifiedname>registrator::confirmreg</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>member</declname>
+        </param>
+        <briefdescription>
+<para>Подтверждение регистрации члена кооператива </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет подтвердить регистрацию пользователя (физического или юридического лица) в качестве члена кооператива. Подтверждение может быть осуществлено только аккаунтом контракта совета кооператива после принятия соответствующего решения.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coopname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>member</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя члена кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>position_title</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Название должности </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>position</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Код должности (например, chairman, director и др.)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>_soviet</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator/registrator.hpp" line="43" column="9" bodyfile="registrator/registrator.cpp" bodystart="423" bodyend="433"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga6d78c0a4a104abcae663754dc08d8da8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::newid</definition>
+        <argsstring>(uint64_t id, eosio::name type)</argsstring>
+        <name>newid</name>
+        <qualifiedname>marketplace::newid</qualifiedname>
+        <param>
+          <type>uint64_t</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>Пустой метод регистрации нового идентификатора</para>
+<para>Этот метод используется для возврата информации из контракта. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>идентификатор </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>тип идентификатора </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="46" column="9" bodyfile="marketplace/marketplace.cpp" bodystart="14" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gaa94f8cc59c762e8dc2d059d8cba5e20d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::moderate</definition>
+        <argsstring>(eosio::name coopname, eosio::name username, uint64_t exchange_id, uint64_t cancellation_fee)</argsstring>
+        <name>moderate</name>
+        <qualifiedname>marketplace::moderate</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>exchange_id</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>cancellation_fee</declname>
+        </param>
+        <briefdescription>
+<para>Модерация товара на маркетплейсе. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Данный метод предназначен для модерации товара перед его публикацией на маркетплейсе. Метод может быть вызван только администратором маркетплейса.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя-администратора, который вызывает данный метод. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>exchange_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Уникальный идентификатор товара, который нужно опубликовать после модерации.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>username</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="80" column="9" bodyfile="marketplace/src/admins.cpp" bodystart="13" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gada9158c3abd78a8fcf586064a8548c0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::prohibit</definition>
+        <argsstring>(eosio::name coopname, eosio::name username, uint64_t exchange_id, std::string meta)</argsstring>
+        <name>prohibit</name>
+        <qualifiedname>marketplace::prohibit</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>exchange_id</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>meta</declname>
+        </param>
+        <briefdescription>
+<para>Отказ в прохождении модерации заявки на товар. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод предназначен для администраторов маркетплейса, чтобы отказать в публикации товара после его модерации. При отказе администратор указывает причину отказа в параметре <computeroutput>meta</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя-администратора, который вызывает данный метод. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>exchange_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Уникальный идентификатор товара, публикацию которого нужно запретить. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>meta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Строковое описание или причина, по которой товар не прошел модерацию.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>username</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="81" column="9" bodyfile="marketplace/src/admins.cpp" bodystart="52" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gab0b3a052f2caa13fa75d7f50ff3658bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::unpublish</definition>
+        <argsstring>(eosio::name coopname, eosio::name username, uint64_t exchange_id)</argsstring>
+        <name>unpublish</name>
+        <qualifiedname>marketplace::unpublish</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>exchange_id</declname>
+        </param>
+        <briefdescription>
+<para>Снять товар с публикации на маркетплейсе. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод предназначен для снятия товара с публикации. Только владелец товара может снять его с публикации.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя, являющегося владельцем заявки. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>exchange_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор заявки, которую следует снять с публикации.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>username</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="82" column="9" bodyfile="marketplace/src/admins.cpp" bodystart="82" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gaa6481de81606a1a6a9805b79ebda7d84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::publish</definition>
+        <argsstring>(eosio::name coopname, eosio::name username, uint64_t exchange_id)</argsstring>
+        <name>publish</name>
+        <qualifiedname>marketplace::publish</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>exchange_id</declname>
+        </param>
+        <briefdescription>
+<para>Опубликовать товар на маркетплейсе. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет владельцу товара опубликовать его на маркетплейсе. Для публикации товар должен находиться в статусе &quot;unpublished&quot;.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя, являющегося владельцем заявки. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>exchange_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор заявки, которую следует опубликовать.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>username</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="83" column="9" bodyfile="marketplace/src/admins.cpp" bodystart="110" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gab643c84304eeca5b09587fa01ee7a5eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::order</definition>
+        <argsstring>(const exchange_params &amp;params)</argsstring>
+        <name>order</name>
+        <qualifiedname>marketplace::order</qualifiedname>
+        <param>
+          <type>const <ref refid="structexchange__params" kindref="compound">exchange_params</ref> &amp;</type>
+          <declname>params</declname>
+        </param>
+        <briefdescription>
+<para>Создать заявку на денежный паевой взнос. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Данный метод позволяет пользователю создать заявку на денежный паевой взнос в системе.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>params</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Параметры для создания заявки на денежный паевой взнос.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>params.username</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="53" column="9" bodyfile="marketplace/src/change.cpp" bodystart="33" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga74c30d5573748d4cf4c5a660568b2a60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::offer</definition>
+        <argsstring>(const exchange_params &amp;params)</argsstring>
+        <name>offer</name>
+        <qualifiedname>marketplace::offer</qualifiedname>
+        <param>
+          <type>const <ref refid="structexchange__params" kindref="compound">exchange_params</ref> &amp;</type>
+          <declname>params</declname>
+        </param>
+        <briefdescription>
+<para>Создать заявку на имущественный паевой взнос. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Данный метод позволяет пользователю создать заявку на имущественный паевой взнос в системе.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>params</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Параметры для создания заявки на имущественный паевой взнос.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>params.username</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="52" column="9" bodyfile="marketplace/src/change.cpp" bodystart="50" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga279155e46493ac89cf8d98249b239128" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::accept</definition>
+        <argsstring>(eosio::name coopname, eosio::name username, uint64_t exchange_id, document document)</argsstring>
+        <name>accept</name>
+        <qualifiedname>marketplace::accept</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>exchange_id</declname>
+        </param>
+        <param>
+          <type><ref refid="structdocument" kindref="compound">document</ref></type>
+          <declname>document</declname>
+        </param>
+        <briefdescription>
+<para>Подтверждение готовности выполнить заявку. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Данный метод позволяет пользователю, который получил предложение по своей заявке, подтвердить свою готовность его принять и выполнить. При этом формируется пакет документов, который отправляется в совет на утверждение.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя, подтверждающего готовность выполнить предложение. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>exchange_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID предложения, которое следует подтвердить.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>username</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="61" column="9" bodyfile="marketplace/src/change.cpp" bodystart="307" bodyend="346"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga9ee9ac0937429488378463abd8bc5848" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::supplycnfrm</definition>
+        <argsstring>(eosio::name coopname, eosio::name username, uint64_t exchange_id, document document)</argsstring>
+        <name>supplycnfrm</name>
+        <qualifiedname>marketplace::supplycnfrm</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>exchange_id</declname>
+        </param>
+        <param>
+          <type><ref refid="structdocument" kindref="compound">document</ref></type>
+          <declname>document</declname>
+        </param>
+        <briefdescription>
+<para>Отказ от предложения. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="64" column="9" bodyfile="marketplace/src/change.cpp" bodystart="379" bodyend="423"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga084713334c8f04951ef37b2b431331ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::recieve</definition>
+        <argsstring>(eosio::name coopname, eosio::name username, uint64_t exchange_id, document document)</argsstring>
+        <name>recieve</name>
+        <qualifiedname>marketplace::recieve</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>exchange_id</declname>
+        </param>
+        <param>
+          <type><ref refid="structdocument" kindref="compound">document</ref></type>
+          <declname>document</declname>
+        </param>
+        <briefdescription>
+<para>Подпись акта получения имущества пайщиком </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="67" column="9" bodyfile="marketplace/src/change.cpp" bodystart="463" bodyend="495"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga082792b887a075f6fba43280d5a5e0cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::complete</definition>
+        <argsstring>(eosio::name coopname, eosio::name username, uint64_t exchange_id)</argsstring>
+        <name>complete</name>
+        <qualifiedname>marketplace::complete</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>exchange_id</declname>
+        </param>
+        <briefdescription>
+<para>Подписание акта о приёме-передаче имущества. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>После успешного получения товара, получатель подписывает акт о приёме-передаче, что свидетельствует о юридическом завершении сделки. Этот акт делает пакет документов по данной сделке полным. После проведения ряда проверок, обновляются статусы и количество объектов в основной заявке и предложении. Если все объекты основной заявки обработаны, заявка удаляется из публикации. В зависимости от типа предложения, может осуществляться перевод токенов.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя-получателя товара. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>exchange_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID предложения, под которым следует подписать акт.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>username</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="72" column="9" bodyfile="marketplace/src/change.cpp" bodystart="688" bodyend="771"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga632cf8b33c10b9602cb694f4cb036049" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::decline</definition>
+        <argsstring>(eosio::name coopname, eosio::name username, uint64_t exchange_id, std::string meta)</argsstring>
+        <name>decline</name>
+        <qualifiedname>marketplace::decline</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>exchange_id</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>meta</declname>
+        </param>
+        <briefdescription>
+<para>Отказ от предложения. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет пользователю отклонить предложение, представленное к его заявке. Выполняются следующие проверки:<itemizedlist>
+<listitem><para>Существование предложения с указанным ID.</para>
+</listitem><listitem><para>Существование основной заявки.</para>
+</listitem><listitem><para>Предложение находится в статусе &quot;ожидание&quot;.</para>
+</listitem></itemizedlist>
+</para>
+<para>Если отклонено предложение к заявке типа &quot;order&quot;, осуществляется возврат токенов пользователю, которому были заблокированы токены при создании предложения.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя, отклоняющего предложение. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>exchange_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID предложения, которое следует отклонить. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>meta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Дополнительные метаданные, связанные с отказом.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>username</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="62" column="9" bodyfile="marketplace/src/change.cpp" bodystart="794" bodyend="831"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gaa0e2d4ec515205db7bc0b459c7b602d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::cancel</definition>
+        <argsstring>(eosio::name coopname, eosio::name username, uint64_t exchange_id)</argsstring>
+        <name>cancel</name>
+        <qualifiedname>marketplace::cancel</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>exchange_id</declname>
+        </param>
+        <briefdescription>
+<para>Отмена заявки и возврат токенов. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Позволяет пользователю отменить родительскую или дочернюю заявку, а также обеспечивает возврат токенов владельцу (если применимо). При отмене проверяется наличие заявки и её текущий статус.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя, инициировавшего отмену. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>exchange_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор заявки для отмены.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>username</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="74" column="9" bodyfile="marketplace/src/change.cpp" bodystart="847" bodyend="862"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga0571c4090259fcc39ca6e64a9f94063b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::update</definition>
+        <argsstring>(eosio::name coopname, eosio::name username, uint64_t exchange_id, uint64_t remain_units, eosio::asset unit_cost, std::string data, std::string meta)</argsstring>
+        <name>update</name>
+        <qualifiedname>marketplace::update</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>exchange_id</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>remain_units</declname>
+        </param>
+        <param>
+          <type>eosio::asset</type>
+          <declname>unit_cost</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>meta</declname>
+        </param>
+        <briefdescription>
+<para>Отмена заявки и возврат токенов. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Позволяет пользователю отменить родительскую или дочернюю заявку, а также обеспечивает возврат токенов владельцу (если применимо). При отмене проверяется наличие заявки и её текущий статус. Если заявка является родительской, вызывается метод <computeroutput>cancel_parent</computeroutput>, иначе — <computeroutput>cancel_child</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя, инициировавшего отмену. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>exchange_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор заявки для отмены.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>username</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="76" column="9" bodyfile="marketplace/src/change.cpp" bodystart="961" bodyend="984"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gac2a62dd532b9c0212270a2cbe5958b57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::addpieces</definition>
+        <argsstring>(eosio::name coopname, eosio::name username, uint64_t exchange_id, uint64_t new_pieces)</argsstring>
+        <name>addpieces</name>
+        <qualifiedname>marketplace::addpieces</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>exchange_id</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>new_pieces</declname>
+        </param>
+        <briefdescription>
+<para>Добавление единиц товара к заявке. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Метод позволяет владельцу заявки дополнительно увеличить количество товара, доступное для обмена в рамках указанной заявки. Используется, когда у продавца появляется дополнительное количество товара, которое он хочет добавить к существующей заявке.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя, инициировавшего добавление. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>exchange_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор заявки, к которой добавляются единицы товара. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>new_pieces</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Количество новых единиц товара, которые следует добавить к заявке.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>username</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="77" column="9" bodyfile="marketplace/src/change.cpp" bodystart="999" bodyend="1013"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga006a09b0804cd50f3ec8aef8bd280fff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void marketplace::authorize</definition>
+        <argsstring>(eosio::name coopname, uint64_t exchange_id, uint64_t contribution_product_decision_id, document contribution_product_authorization, uint64_t return_product_decision_id, document return_product_authorization)</argsstring>
+        <name>authorize</name>
+        <qualifiedname>marketplace::authorize</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>exchange_id</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>contribution_product_decision_id</declname>
+        </param>
+        <param>
+          <type><ref refid="structdocument" kindref="compound">document</ref></type>
+          <declname>contribution_product_authorization</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>return_product_decision_id</declname>
+        </param>
+        <param>
+          <type><ref refid="structdocument" kindref="compound">document</ref></type>
+          <declname>return_product_authorization</declname>
+        </param>
+        <briefdescription>
+<para>Авторизация обмена советом. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Метод используется для подтверждения согласия совета на заявленный обмен. Обычно этот метод вызывается после прохождения определенного процесса голосования или принятия решения советом. Авторизованный обмен считается утвержденным и может быть выполнен.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>exchange_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор заявки на обмен, которую следует авторизовать.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>_soviet</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="marketplace/marketplace.hpp" line="49" column="9" bodyfile="marketplace/src/soviet.cpp" bodystart="13" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga2df3ffc1ac9da194963f3be0aadc4139" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void soviet::exec</definition>
+        <argsstring>(eosio::name executer, eosio::name coopname, uint64_t decision_id)</argsstring>
+        <name>exec</name>
+        <qualifiedname>soviet::exec</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>executer</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>decision_id</declname>
+        </param>
+        <briefdescription>
+<para>Исполнение решения совета </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет исполнить решение совета. Исполнение решения включает в себя проверку, что решение существует, что оно было авторизовано, и что оно еще не было выполнено. В зависимости от типа решения, вызывается соответствующая функция для его реализации.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>executer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя аккаунта, который исполняет решение </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>coopname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>decision_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор решения для исполнения</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>executer</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="42" column="9" bodyfile="soviet/soviet.cpp" bodystart="80" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gaed705497ce78823553360af42f1e0dc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void soviet::addstaff</definition>
+        <argsstring>(eosio::name coopname, eosio::name chairman, eosio::name username, std::vector&lt; right &gt; rights, std::string position_title)</argsstring>
+        <name>addstaff</name>
+        <qualifiedname>soviet::addstaff</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>chairman</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="structright" kindref="compound">right</ref> &gt;</type>
+          <declname>rights</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>position_title</declname>
+        </param>
+        <briefdescription>
+<para>Добавление персонала кооператива </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Данный метод позволяет добавить в кооператив нового члена персонала с указанием определенных прав на выполнение методов действий вместо совета. Авторизация для выполнения этого метода требуется только от председателя совета кооператива.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coopname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>board_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID совета кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>chairman</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя председателя совета </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя нового члена персонала </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rights</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Список прав, разрешенных для выполнения указанным членом персонала </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>position_title</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Название должности нового члена персонала</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>chairman</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="60" column="9" bodyfile="soviet/src/admin.cpp" bodystart="19" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gab2a5baad145e14f45937617b98d7c73c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void soviet::rmstaff</definition>
+        <argsstring>(eosio::name coopname, eosio::name chairman, eosio::name username)</argsstring>
+        <name>rmstaff</name>
+        <qualifiedname>soviet::rmstaff</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>chairman</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <briefdescription>
+<para>Удаление персонала из кооператива </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Данный метод позволяет удалить члена персонала из кооператива. Авторизация для выполнения этого метода требуется только от председателя совета кооператива.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coopname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>board_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID совета кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>chairman</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя председателя совета </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя удаляемого члена персонала</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>chairman</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="61" column="9" bodyfile="soviet/src/admin.cpp" bodystart="58" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gaff82a212963ad56c994fca0d30548802" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void soviet::setrights</definition>
+        <argsstring>(eosio::name coopname, eosio::name chairman, eosio::name username, std::vector&lt; right &gt; rights)</argsstring>
+        <name>setrights</name>
+        <qualifiedname>soviet::setrights</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>chairman</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="structright" kindref="compound">right</ref> &gt;</type>
+          <declname>rights</declname>
+        </param>
+        <briefdescription>
+<para>Установка прав для персонала кооператива </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет установить конкретные права для члена персонала в кооперативе. Авторизация для выполнения этого метода требуется только от председателя совета кооператива.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coopname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>board_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID совета кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>chairman</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя председателя совета </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя члена персонала, для которого устанавливаются права </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rights</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Вектор прав, которые будут установлены для указанного члена персонала</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>chairman</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="62" column="9" bodyfile="soviet/src/admin.cpp" bodystart="88" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga2c3e9ad00f9266432144774c17eb4b43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void soviet::validate</definition>
+        <argsstring>(eosio::name coopname, eosio::name username, uint64_t decision_id)</argsstring>
+        <name>validate</name>
+        <qualifiedname>soviet::validate</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>decision_id</declname>
+        </param>
+        <briefdescription>
+<para>Предварительная валидация решения совета персоналом </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет персоналу подтвердить поступление оплаты или провести другую форму валидации перед принятием советом какого-либо решения.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coopname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>board_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID совета кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя члена персонала, проводящего валидацию </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>decision_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID решения, которое подлежит валидации</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>username</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="63" column="9" bodyfile="soviet/src/admin.cpp" bodystart="120" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gacd08501eb19d2733f9640cae3ae229f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void soviet::automate</definition>
+        <argsstring>(eosio::name coopname, uint64_t board_id, eosio::name member, eosio::name action_type, eosio::name provider, std::string encrypted_private_key)</argsstring>
+        <name>automate</name>
+        <qualifiedname>soviet::automate</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>board_id</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>member</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>action_type</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>provider</declname>
+          <defname>permission_name</defname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>encrypted_private_key</declname>
+        </param>
+        <briefdescription>
+<para>Автоматизация подписи на решениях </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет члену совета автоматизировать подпись на решениях по определенным типам вопросов. Член совета может настроить автоматическую подпись для указанных типов действий.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coopname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>board_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID совета кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>member</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя члена совета, который настраивает автоматизацию </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>action_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Тип действия для автоматизации </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>permission_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя разрешения для использования в автоматизированном действии </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>encrypted_private_key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Зашифрованный приватный ключ для автоматизации на аккаунт oracul по алгоритму Д-Х</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>member</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="74" column="9" bodyfile="soviet/src/automator.cpp" bodystart="26" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gaa1c59a4f419370fbe9eeedde1b315ad7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void soviet::disautomate</definition>
+        <argsstring>(eosio::name coopname, uint64_t board_id, eosio::name member, uint64_t automation_id)</argsstring>
+        <name>disautomate</name>
+        <qualifiedname>soviet::disautomate</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>board_id</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>member</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>automation_id</declname>
+        </param>
+        <briefdescription>
+<para>Удаление настройки автоматизации подписи </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет члену совета удалить настройку автоматизации подписи на решениях по определенным типам вопросов.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coopname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>board_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID совета кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>member</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя члена совета, который удаляет автоматизацию </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>automation_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор автоматизации для удаления</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>member</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="75" column="9" bodyfile="soviet/src/automator.cpp" bodystart="72" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga3ca9fb1ee5a9584303c34e391af99e6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void soviet::authorize</definition>
+        <argsstring>(eosio::name coopname, eosio::name chairman, uint64_t decision_id, document document)</argsstring>
+        <name>authorize</name>
+        <qualifiedname>soviet::authorize</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>chairman</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>decision_id</declname>
+        </param>
+        <param>
+          <type><ref refid="structdocument" kindref="compound">document</ref></type>
+          <declname>document</declname>
+        </param>
+        <briefdescription>
+<para>Авторизация принятого решения советом </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет председателю совета утвердить принятое решение совета.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coopname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>chairman</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя председателя совета кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>decision_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор решения для авторизации</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>chairman</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="79" column="9" bodyfile="soviet/src/chairman.cpp" bodystart="16" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga03967c07043b14f5239e50448362287a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void soviet::createboard</definition>
+        <argsstring>(eosio::name coopname, eosio::name chairman, eosio::name type, std::vector&lt; board_member &gt; members, std::string name, std::string description)</argsstring>
+        <name>createboard</name>
+        <qualifiedname>soviet::createboard</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>chairman</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="structboard__member" kindref="compound">board_member</ref> &gt;</type>
+          <declname>members</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>description</declname>
+        </param>
+        <briefdescription>
+<para>Создание нового совета кооператива </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет председателю кооператива создать новый совет с указанными членами и параметрами. Если совет создается как совет кооператива, председатель должен быть указан в списке членов совета.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coopname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>chairman</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя председателя кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Тип совета. Доступные типы:<itemizedlist>
+<listitem><para><bold>soviet</bold> - Совет кооператива (Board of Members)</para>
+</listitem><listitem><para><bold>executive</bold> - Правление (Executive Board)</para>
+</listitem><listitem><para><bold>audit</bold> - Ревизионный комитет (Audit and Revision Board)</para>
+</listitem><listitem><para><bold>other</bold> - Другая комиссия (Other committee) </para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>members</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Список членов совета </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Название совета </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Описание совета</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>chairman</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="80" column="9" bodyfile="soviet/src/chairman.cpp" bodystart="66" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga633d78f7717ca0b13d800f1af3b298d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void soviet::updateboard</definition>
+        <argsstring>(eosio::name coopname, eosio::name chairman, uint64_t board_id, std::vector&lt; board_member &gt; members, std::string name, std::string description)</argsstring>
+        <name>updateboard</name>
+        <qualifiedname>soviet::updateboard</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>chairman</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>board_id</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="structboard__member" kindref="compound">board_member</ref> &gt;</type>
+          <declname>members</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>description</declname>
+        </param>
+        <briefdescription>
+<para>Обновление совета или комиссии </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет председателю кооператива обновить совет с указанными членами.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coopname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>chairman</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя председателя кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Тип совета. Доступные типы:<itemizedlist>
+<listitem><para><bold>soviet</bold> - Совет кооператива (Board of Members)</para>
+</listitem><listitem><para><bold>executive</bold> - Правление (Executive Board)</para>
+</listitem><listitem><para><bold>audit</bold> - Ревизионный комитет (Audit and Revision Board)</para>
+</listitem><listitem><para><bold>other</bold> - Другая комиссия (Other committee) </para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>members</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Список членов совета </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Название совета </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Описание совета</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>chairman</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="81" column="9" bodyfile="soviet/src/chairman.cpp" bodystart="168" bodyend="206"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga46020951b62e043b52d7e7c6939684a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void soviet::fundwithdraw</definition>
+        <argsstring>(eosio::name coopname, eosio::name username, eosio::name type, uint64_t withdraw_id, document document)</argsstring>
+        <name>fundwithdraw</name>
+        <qualifiedname>soviet::fundwithdraw</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>withdraw_id</declname>
+        </param>
+        <param>
+          <type><ref refid="structdocument" kindref="compound">document</ref></type>
+          <declname>document</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>_fund</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="126" column="9" bodyfile="soviet/src/fund.cpp" bodystart="9" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gaddace7bdb215147f252a529422010022" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void soviet::regpaid</definition>
+        <argsstring>(eosio::name coopname, eosio::name username)</argsstring>
+        <name>regpaid</name>
+        <qualifiedname>soviet::regpaid</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <briefdescription>
+<para>Подтверждение оплаты регистрационного взноса </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод вызывается контрактом gateway при поступлении оплаты регистрационного взноса, что изменяет состояние объекта joincoop и сообщает администраторам, что оплата взноса произведена.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coopname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>position_title</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Заголовок должности </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>position</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Должность</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>_registrator</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="67" column="9" bodyfile="soviet/src/joincoop.cpp" bodystart="17" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gadeadfe2269b80480012be4a05a5b08ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void soviet::joincoop</definition>
+        <argsstring>(eosio::name coopname, eosio::name username, document document)</argsstring>
+        <name>joincoop</name>
+        <qualifiedname>soviet::joincoop</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type><ref refid="structdocument" kindref="compound">document</ref></type>
+          <declname>document</declname>
+        </param>
+        <briefdescription>
+<para>Заявка на вступление в кооператив </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод вызывается контрактом registrator при поступлении заявления на вступление в кооператив. При успешном вызове формируется повестка на голосование членам совета. Повестка по вопросам регистрации аккаунтов может быть автоматизирована.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coopname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>position_title</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Заголовок должности </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>position</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Должность</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>_registrator</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="66" column="9" bodyfile="soviet/src/joincoop.cpp" bodystart="47" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga3666aba8b8d5a7b8ac50abdda8eb0438" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void soviet::change</definition>
+        <argsstring>(eosio::name coopname, eosio::name parent_username, eosio::name username, uint64_t exchange_id, eosio::name money_contributor, eosio::name product_contributor)</argsstring>
+        <name>change</name>
+        <qualifiedname>soviet::change</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>parent_username</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>exchange_id</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>money_contributor</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>product_contributor</declname>
+        </param>
+        <briefdescription>
+<para>Обмен в кооперативе </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод вызывается контрактом marketplace при создании запроса на обмен в кооперативе. При успешном вызове формируется повестка со всеми сопровождающими документами, которая отправляется на голосование членам совета.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coopname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>exchange_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор обмена </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>orderer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Участник, который вносит денежный паевый взнос </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>offerer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Участник, который вносит имущественный паевый взнос </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>quantity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Сумма взаимного зачёта</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>_marketplace</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="89" column="9" bodyfile="soviet/src/marketplace.cpp" bodystart="94" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga0c242b184398cfcccbe628d1d9400f76" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void soviet::createprog</definition>
+        <argsstring>(eosio::name coopname, eosio::name chairman, std::string title, std::string announce, std::string description, std::string preview, std::string images, eosio::name calculation_type, eosio::asset fixed_membership_contribution, uint64_t membership_percent_fee)</argsstring>
+        <name>createprog</name>
+        <qualifiedname>soviet::createprog</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>chairman</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>title</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>announce</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>description</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>preview</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>images</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>calculation_type</declname>
+        </param>
+        <param>
+          <type>eosio::asset</type>
+          <declname>fixed_membership_contribution</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>membership_percent_fee</declname>
+        </param>
+        <briefdescription>
+<para>Метод создания целевой программы </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет председателю совета создать новую программу.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coopname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>chairman</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя председателя совета </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя программы </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>announce</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Объявление о программе </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Описание программы </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>preview</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Предварительный просмотр </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>images</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Изображения для программы </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>website</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Веб-сайт программы </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>initial</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Вступительный взнос </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>minimum</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Минимальный взнос </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>membership</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Членский взнос </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>period</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Периодичность </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>category</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Категория</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>chairman</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="99" column="9" bodyfile="soviet/src/programs.cpp" bodystart="26" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga5630c673f95331a1796fda2dcc878803" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void soviet::editprog</definition>
+        <argsstring>(eosio::name coopname, uint64_t id, std::string title, std::string announce, std::string description, std::string preview, std::string images)</argsstring>
+        <name>editprog</name>
+        <qualifiedname>soviet::editprog</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>title</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>announce</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>description</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>preview</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>images</declname>
+        </param>
+        <briefdescription>
+<para>Метод редактирования целевой программы </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет модифицировать существующую программу.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coopname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор программы </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя программы </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>announce</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Объявление о программе </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Описание программы </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>preview</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Предварительный просмотр </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>images</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Изображения для программы </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>website</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Веб-сайт программы </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>initial</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Вступительный взнос </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>minimum</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Минимальный взнос </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>membership</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Членский взнос </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>period</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Периодичность </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>category</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Категория</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>coopname</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="101" column="9" bodyfile="soviet/src/programs.cpp" bodystart="96" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga8c6922ba61c30a7c6409cb48e62e08b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void soviet::disableprog</definition>
+        <argsstring>(eosio::name coopname, uint64_t id)</argsstring>
+        <name>disableprog</name>
+        <qualifiedname>soviet::disableprog</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Метод отключения целевой программы </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет отключить существующую программу, устанавливая поле <computeroutput>is_active</computeroutput> в <computeroutput>false</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coopname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор программы</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>coopname</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="102" column="9" bodyfile="soviet/src/programs.cpp" bodystart="132" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga544aed065e9bdae354fab6348fc2d660" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void soviet::votefor</definition>
+        <argsstring>(eosio::name coopname, eosio::name member, uint64_t decision_id)</argsstring>
+        <name>votefor</name>
+        <qualifiedname>soviet::votefor</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>member</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>decision_id</declname>
+        </param>
+        <briefdescription>
+<para>Голосование за решение совета </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет члену совета голосовать за конкретное решение. Если у члена совета нет права голоса или голосование уже было произведено ранее, процедура завершится ошибкой. После голосования рассчитывается, превысило ли количество голосов &quot;за&quot; заданный процент консенсуса от общего количества членов.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coopname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>member</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя члена совета, голосующего за решение </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>decision_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор решения, за которое происходит голосование</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>member</computeroutput> или <computeroutput>permission_level{member</computeroutput>, &quot;oracle&quot;_n} </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="84" column="9" bodyfile="soviet/src/voting.cpp" bodystart="43" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gae9017da5c4aea5f1fa86dc5b6f3ecf2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void soviet::voteagainst</definition>
+        <argsstring>(eosio::name coopname, eosio::name member, uint64_t decision_id)</argsstring>
+        <name>voteagainst</name>
+        <qualifiedname>soviet::voteagainst</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>member</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>decision_id</declname>
+        </param>
+        <briefdescription>
+<para>Голосование против решения совета </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет члену совета голосовать против конкретного решения. Если у члена совета нет права голоса или голосование уже было произведено ранее, процедура завершится ошибкой.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coopname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>member</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя члена совета, голосующего против решения </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>decision_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор решения, против которого происходит голосование</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>member</computeroutput> или <computeroutput>permission_level{member</computeroutput>, &quot;provide&quot;_n} </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="85" column="9" bodyfile="soviet/src/voting.cpp" bodystart="85" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga826e017b52f0b323a3339da457ecfa43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void soviet::cancelvote</definition>
+        <argsstring>(eosio::name coopname, eosio::name member, uint64_t decision_id)</argsstring>
+        <name>cancelvote</name>
+        <qualifiedname>soviet::cancelvote</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>member</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>decision_id</declname>
+        </param>
+        <briefdescription>
+<para>Отмена голосования членом совета </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет члену совета отменить свой голос, поданный ранее, по конкретному решению. Если голосование не было произведено или решение не найдено, процедура завершится ошибкой.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coopname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>member</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя члена совета, отменяющего свое голосование </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>decision_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор решения, по которому голосование было проведено</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>member</computeroutput> или <computeroutput>permission_level{member</computeroutput>, &quot;provide&quot;_n} </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="86" column="9" bodyfile="soviet/src/voting.cpp" bodystart="118" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gaa2f4b2364f09b8728cbf12eb6e9b92f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gateway::newdepositid</definition>
+        <argsstring>(eosio::name username, uint64_t id)</argsstring>
+        <name>newdepositid</name>
+        <qualifiedname>gateway::newdepositid</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Пустой метод регистрации нового идентификатора</para>
+<para>Этот метод используется для возврата информации из контракта. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>идентификатор </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>тип идентификатора </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gateway/gateway.hpp" line="51" column="9" bodyfile="gateway/gateway.cpp" bodystart="15" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gateway::deposit</definition>
+        <argsstring>(eosio::name coopname, eosio::name username, eosio::name type, eosio::asset quantity)</argsstring>
+        <name>deposit</name>
+        <qualifiedname>gateway::deposit</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>eosio::asset</type>
+          <declname>quantity</declname>
+        </param>
+        <briefdescription>
+<para>Создает новую запись депозита в контракте <computeroutput>gateway</computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Действие <computeroutput>dpcreate</computeroutput> позволяет пользователю <computeroutput>username</computeroutput> создать запись о депозите в указанном кооперативе по имени аккаунта <computeroutput>coopname</computeroutput> с определенными параметрами.</para>
+<para><simplesect kind="note"><para>Требуется авторизация пользователя <computeroutput>username</computeroutput>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя, создающего запись. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>coopname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя аккаунта кооператива, в рамках которого создается депозит. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>program_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор программы, с которой связан депозит. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>purpose</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Назначение платежа (&apos;registration&apos; или &apos;deposit&apos;). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>batch_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Вторичный идентификатор, связанный с депозитом. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>internal_quantity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Количество во внутреннем формате. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>external_quantity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Количество во внешнем формате. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>memo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Примечание к депозиту.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Пример создания новой записи депозита через cleos:</para>
+<para>cleos push action gateway dpcreate &apos;[&quot;username&quot;, &quot;coopaccount&quot;, 123, &quot;registration&quot;, 456, &quot;10.0000 SYS&quot;, &quot;10.0000 EXT&quot;, &quot;Депозит для программы X&quot;]&apos; -p username@active </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gateway/gateway.hpp" line="56" column="9" bodyfile="gateway/gateway.cpp" bodystart="46" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga59936ddb45db401976fd3d404b92caa7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gateway::dpcomplete</definition>
+        <argsstring>(eosio::name coopname, eosio::name admin, uint64_t deposit_id, std::string memo)</argsstring>
+        <name>dpcomplete</name>
+        <qualifiedname>gateway::dpcomplete</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>admin</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>deposit_id</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>memo</declname>
+        </param>
+        <briefdescription>
+<para>Завершает обработку депозита в контракте <computeroutput>gateway</computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Действие <computeroutput>dpcomplete</computeroutput> используется для установки статуса депозита в &apos;completed&apos; и обновления его заметки. Это действие также инициирует выпуск токенов соответствующему пользователю, основываясь на данных депозита.</para>
+<para><simplesect kind="note"><para>Требуется авторизация аккаунта контракта <computeroutput>gateway</computeroutput>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>deposit_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор депозита, который завершается. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>memo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Новая заметка, связанная с депозитом.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Завершение обработки депозита через cleos</para>
+<para>cleos push action gateway dpcomplete &apos;[123, &quot;Заметка к завершенному депозиту&quot;]&apos; -p gateway@active </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gateway/gateway.hpp" line="57" column="9" bodyfile="gateway/gateway.cpp" bodystart="107" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga8776a33709be83c15957bc8e366db71d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gateway::dpfail</definition>
+        <argsstring>(eosio::name coopname, eosio::name admin, uint64_t deposit_id, std::string memo)</argsstring>
+        <name>dpfail</name>
+        <qualifiedname>gateway::dpfail</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>admin</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>deposit_id</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>memo</declname>
+        </param>
+        <briefdescription>
+<para>Устанавливает статус депозита как &quot;failed&quot; в контракте <computeroutput>gateway</computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Действие <computeroutput>dpfail</computeroutput> используется для обозначения неудачи в обработке депозита, устанавливая его статус в &apos;failed&apos; и обновляя заметку.</para>
+<para><simplesect kind="note"><para>Требуется авторизация аккаунта контракта <computeroutput>_admin</computeroutput>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>deposit_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор депозита, статус которого обновляется. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>memo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Новая заметка, связанная с депозитом.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Установка статуса депозита как &apos;failed&apos; через cleos</para>
+<para>cleos push action gateway dpfail &apos;[123, &quot;Заметка к неудачному депозиту&quot;]&apos; -p gateway@active </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gateway/gateway.hpp" line="58" column="9" bodyfile="gateway/gateway.cpp" bodystart="189" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gateway::withdraw</definition>
+        <argsstring>(eosio::name coopname, eosio::name username, eosio::asset quantity, document document, std::string bank_data_id, std::string memo)</argsstring>
+        <name>withdraw</name>
+        <qualifiedname>gateway::withdraw</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>eosio::asset</type>
+          <declname>quantity</declname>
+        </param>
+        <param>
+          <type><ref refid="structdocument" kindref="compound">document</ref></type>
+          <declname>document</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>bank_data_id</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>memo</declname>
+        </param>
+        <briefdescription>
+<para>Создаёт запрос на вывод средств в контракте <computeroutput>gateway</computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Действие <computeroutput>wthdcreate</computeroutput> используется для создания запроса на вывод средств, включая внутреннее и внешнее количество токенов и связанную заметку.</para>
+<para><simplesect kind="note"><para>Требуется авторизация аккаунта пользователя.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя, инициирующего вывод средств. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>coopname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя кооператива, через который происходит вывод. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>internal_quantity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Количество токенов для вывода во внутреннем представлении. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>external_quantity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Количество токенов для вывода во внешнем представлении. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>memo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Заметка, связанная с операцией вывода средств.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Пример</para>
+<para>cleos push action gateway wthdcreate &apos;[&quot;username&quot;, &quot;coopname&quot;, &quot;10.0000 SYS&quot;, &quot;10.00 USD&quot;, &quot;Заметка к выводу&quot;]&apos; -p username@active </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gateway/gateway.hpp" line="62" column="9" bodyfile="gateway/gateway.cpp" bodystart="229" bodyend="278"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga2551c736852a98d33f2fcc9f569fe836" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gateway::wthdcomplete</definition>
+        <argsstring>(eosio::name coopname, eosio::name admin, uint64_t withdraw_id, std::string memo)</argsstring>
+        <name>wthdcomplete</name>
+        <qualifiedname>gateway::wthdcomplete</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>admin</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>withdraw_id</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>memo</declname>
+        </param>
+        <briefdescription>
+<para>Завершает процесс вывода средств в контракте <computeroutput>gateway</computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Действие <computeroutput>wthdcomplete</computeroutput> используется для обозначения успешного завершения запроса на вывод средств. Оно обновляет статус запроса на &quot;completed&quot; и обновляет заметку.</para>
+<para><simplesect kind="note"><para>Требуется авторизация аккаунта контракта <computeroutput>gateway</computeroutput>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>withdraw_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Уникальный идентификатор запроса на вывод средств. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>memo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Обновлённая заметка, связанная с запросом на вывод.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+cleos push action gateway wthdcomplete &apos;[&quot;12345&quot;, &quot;Успешное завершение&quot;]&apos; -p gateway@active </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gateway/gateway.hpp" line="63" column="9" bodyfile="gateway/gateway.cpp" bodystart="311" bodyend="350"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gac0eb7373a774cec08f2017a74522b2b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gateway::wthdfail</definition>
+        <argsstring>(eosio::name coopname, eosio::name admin, uint64_t withdraw_id, std::string memo)</argsstring>
+        <name>wthdfail</name>
+        <qualifiedname>gateway::wthdfail</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>admin</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>withdraw_id</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>memo</declname>
+        </param>
+        <briefdescription>
+<para>Отменяет процесс вывода средств в контракте <computeroutput>gateway</computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Действие <computeroutput>wthdfail</computeroutput> используется для обозначения неудачного завершения запроса на вывод средств. Оно обновляет статус запроса на &quot;failed&quot;, обновляет заметку и возвращает средства пользователю.</para>
+<para><simplesect kind="note"><para>Требуется авторизация аккаунта контракта <computeroutput>gateway</computeroutput>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>withdraw_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Уникальный идентификатор запроса на вывод средств. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>memo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Обновлённая заметка, связанная с запросом на вывод.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+cleos push action gateway wthdfail &apos;[&quot;12345&quot;, &quot;Отмена из-за ошибки&quot;]&apos; -p gateway@active </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gateway/gateway.hpp" line="64" column="9" bodyfile="gateway/gateway.cpp" bodystart="366" bodyend="389"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Методы действий контрактов </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Действия представляют собой методы, которые можно вызывать в контрактах. Они отвечают за выполнение определенных задач, таких как создание аккаунта, обновление информации или осуществление транзакции. Эта группа описывает все доступные действия, которые предоставляют контракты кооперативной экономики. </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

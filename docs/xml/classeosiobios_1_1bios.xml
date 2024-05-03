@@ -1,0 +1,998 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="classeosiobios_1_1bios" kind="class" language="C++" prot="public">
+    <compoundname>eosiobios::bios</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">eosio::contract</basecompoundref>
+    <includes refid="eosio_8bios_8hpp" local="no">eosio.bios.hpp</includes>
+    <innerclass refid="structeosiobios_1_1bios_1_1abi__hash" prot="public">eosiobios::bios::abi_hash</innerclass>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classeosiobios_1_1bios_1a2e27cd48a27fdf2f13e7e49c236effab" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;abihash&quot;_n, <ref refid="structeosiobios_1_1bios_1_1abi__hash" kindref="compound">abi_hash</ref> &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;abihash&quot;_n, abi_hash &gt; eosiobios::bios::abi_hash_table</definition>
+        <argsstring></argsstring>
+        <name>abi_hash_table</name>
+        <qualifiedname>eosiobios::bios::abi_hash_table</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="264" column="37" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="264" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classeosiobios_1_1bios_1ac51372f90c1c7f5b9fe20c5fe1b414be" prot="public" static="no">
+        <type>action_wrapper&lt;&quot;newaccount&quot;_n, &amp;<ref refid="classeosiobios_1_1bios_1a289a68eec1095060829ae3f3cedba2b1" kindref="member">bios::newaccount</ref> &gt;</type>
+        <definition>using eosiobios::bios::newaccount_action =  action_wrapper&lt;&quot;newaccount&quot;_n, &amp;bios::newaccount&gt;</definition>
+        <argsstring></argsstring>
+        <name>newaccount_action</name>
+        <qualifiedname>eosiobios::bios::newaccount_action</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="266" column="10" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="266" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classeosiobios_1_1bios_1a4f8bd4830434c2f90d1595182e3c2d43" prot="public" static="no">
+        <type>action_wrapper&lt;&quot;updateauth&quot;_n, &amp;<ref refid="classeosiobios_1_1bios_1a6da029e3f9ffbcb2bfc3cc6f555a3bcd" kindref="member">bios::updateauth</ref> &gt;</type>
+        <definition>using eosiobios::bios::updateauth_action =  action_wrapper&lt;&quot;updateauth&quot;_n, &amp;bios::updateauth&gt;</definition>
+        <argsstring></argsstring>
+        <name>updateauth_action</name>
+        <qualifiedname>eosiobios::bios::updateauth_action</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="267" column="10" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="267" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classeosiobios_1_1bios_1a10d38a405fb47716f4b9617664c56c1d" prot="public" static="no">
+        <type>action_wrapper&lt;&quot;deleteauth&quot;_n, &amp;<ref refid="classeosiobios_1_1bios_1a496491a411e8263ae0d91179526c25a6" kindref="member">bios::deleteauth</ref> &gt;</type>
+        <definition>using eosiobios::bios::deleteauth_action =  action_wrapper&lt;&quot;deleteauth&quot;_n, &amp;bios::deleteauth&gt;</definition>
+        <argsstring></argsstring>
+        <name>deleteauth_action</name>
+        <qualifiedname>eosiobios::bios::deleteauth_action</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="268" column="10" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="268" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classeosiobios_1_1bios_1aa23c7a9882776e23792f72958e7e2698" prot="public" static="no">
+        <type>action_wrapper&lt;&quot;linkauth&quot;_n, &amp;<ref refid="classeosiobios_1_1bios_1ac88e1fbb2bf9f23fcf351ab4f02bcf23" kindref="member">bios::linkauth</ref> &gt;</type>
+        <definition>using eosiobios::bios::linkauth_action =  action_wrapper&lt;&quot;linkauth&quot;_n, &amp;bios::linkauth&gt;</definition>
+        <argsstring></argsstring>
+        <name>linkauth_action</name>
+        <qualifiedname>eosiobios::bios::linkauth_action</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="269" column="10" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="269" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classeosiobios_1_1bios_1afc60db5f0cdb49c29e2027eea445ef5d" prot="public" static="no">
+        <type>action_wrapper&lt;&quot;unlinkauth&quot;_n, &amp;<ref refid="classeosiobios_1_1bios_1a754f09c20691df6b7292dad22b3a80c9" kindref="member">bios::unlinkauth</ref> &gt;</type>
+        <definition>using eosiobios::bios::unlinkauth_action =  action_wrapper&lt;&quot;unlinkauth&quot;_n, &amp;bios::unlinkauth&gt;</definition>
+        <argsstring></argsstring>
+        <name>unlinkauth_action</name>
+        <qualifiedname>eosiobios::bios::unlinkauth_action</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="270" column="10" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="270" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classeosiobios_1_1bios_1acf3f2105a1de301314fb8d559adb2f34" prot="public" static="no">
+        <type>action_wrapper&lt;&quot;canceldelay&quot;_n, &amp;<ref refid="classeosiobios_1_1bios_1a7b70dcae7153a74de611cc78e59b0352" kindref="member">bios::canceldelay</ref> &gt;</type>
+        <definition>using eosiobios::bios::canceldelay_action =  action_wrapper&lt;&quot;canceldelay&quot;_n, &amp;bios::canceldelay&gt;</definition>
+        <argsstring></argsstring>
+        <name>canceldelay_action</name>
+        <qualifiedname>eosiobios::bios::canceldelay_action</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="271" column="10" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="271" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classeosiobios_1_1bios_1a3284dadf28210ffea040c8eddc01e7b7" prot="public" static="no">
+        <type>action_wrapper&lt;&quot;setcode&quot;_n, &amp;<ref refid="classeosiobios_1_1bios_1afb059bb5862ce9b0cda885bc130a52e3" kindref="member">bios::setcode</ref> &gt;</type>
+        <definition>using eosiobios::bios::setcode_action =  action_wrapper&lt;&quot;setcode&quot;_n, &amp;bios::setcode&gt;</definition>
+        <argsstring></argsstring>
+        <name>setcode_action</name>
+        <qualifiedname>eosiobios::bios::setcode_action</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="272" column="10" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="272" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classeosiobios_1_1bios_1adec46384d14a191009d1821aea836c2e" prot="public" static="no">
+        <type>action_wrapper&lt;&quot;setabi&quot;_n, &amp;<ref refid="classeosiobios_1_1bios_1a0663bbf0563a9ad67960ccbae6222911" kindref="member">bios::setabi</ref> &gt;</type>
+        <definition>using eosiobios::bios::setabi_action =  action_wrapper&lt;&quot;setabi&quot;_n, &amp;bios::setabi&gt;</definition>
+        <argsstring></argsstring>
+        <name>setabi_action</name>
+        <qualifiedname>eosiobios::bios::setabi_action</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="273" column="10" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="273" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classeosiobios_1_1bios_1a3f4944b933f2524b915295ace2c3ccf8" prot="public" static="no">
+        <type>action_wrapper&lt;&quot;setpriv&quot;_n, &amp;<ref refid="classeosiobios_1_1bios_1ae5de33639414c0c00e090a2ca7418c69" kindref="member">bios::setpriv</ref> &gt;</type>
+        <definition>using eosiobios::bios::setpriv_action =  action_wrapper&lt;&quot;setpriv&quot;_n, &amp;bios::setpriv&gt;</definition>
+        <argsstring></argsstring>
+        <name>setpriv_action</name>
+        <qualifiedname>eosiobios::bios::setpriv_action</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="274" column="10" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="274" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classeosiobios_1_1bios_1a8dd8ef730cb1bd25c940c69b67557df4" prot="public" static="no">
+        <type>action_wrapper&lt;&quot;setalimits&quot;_n, &amp;<ref refid="classeosiobios_1_1bios_1ac7a64a2f4cf193136957f5be5aeca85b" kindref="member">bios::setalimits</ref> &gt;</type>
+        <definition>using eosiobios::bios::setalimits_action =  action_wrapper&lt;&quot;setalimits&quot;_n, &amp;bios::setalimits&gt;</definition>
+        <argsstring></argsstring>
+        <name>setalimits_action</name>
+        <qualifiedname>eosiobios::bios::setalimits_action</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="275" column="10" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="275" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classeosiobios_1_1bios_1a6366d6a56bedac0269d795e5e1b52163" prot="public" static="no">
+        <type>action_wrapper&lt;&quot;setprods&quot;_n, &amp;<ref refid="classeosiobios_1_1bios_1aac48a883107aeacbd1b567a2e3fbad12" kindref="member">bios::setprods</ref> &gt;</type>
+        <definition>using eosiobios::bios::setprods_action =  action_wrapper&lt;&quot;setprods&quot;_n, &amp;bios::setprods&gt;</definition>
+        <argsstring></argsstring>
+        <name>setprods_action</name>
+        <qualifiedname>eosiobios::bios::setprods_action</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="276" column="10" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="276" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classeosiobios_1_1bios_1a99756330be6311220baba883425df47b" prot="public" static="no">
+        <type>action_wrapper&lt;&quot;setparams&quot;_n, &amp;<ref refid="classeosiobios_1_1bios_1ad4047afa380b9eda3ecc232d89bf05a7" kindref="member">bios::setparams</ref> &gt;</type>
+        <definition>using eosiobios::bios::setparams_action =  action_wrapper&lt;&quot;setparams&quot;_n, &amp;bios::setparams&gt;</definition>
+        <argsstring></argsstring>
+        <name>setparams_action</name>
+        <qualifiedname>eosiobios::bios::setparams_action</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="277" column="10" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="277" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classeosiobios_1_1bios_1ab0a2b9e56d84260b7cc1d496856ca232" prot="public" static="no">
+        <type>action_wrapper&lt;&quot;reqauth&quot;_n, &amp;<ref refid="classeosiobios_1_1bios_1abfefcfb3d6b2b221052a6e017de18c56" kindref="member">bios::reqauth</ref> &gt;</type>
+        <definition>using eosiobios::bios::reqauth_action =  action_wrapper&lt;&quot;reqauth&quot;_n, &amp;bios::reqauth&gt;</definition>
+        <argsstring></argsstring>
+        <name>reqauth_action</name>
+        <qualifiedname>eosiobios::bios::reqauth_action</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="278" column="10" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="278" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classeosiobios_1_1bios_1abc8584942d7320f82da8dd093c30af52" prot="public" static="no">
+        <type>action_wrapper&lt;&quot;activate&quot;_n, &amp;<ref refid="classeosiobios_1_1bios_1ad642c358d927b33340654d59f9dd0df9" kindref="member">bios::activate</ref> &gt;</type>
+        <definition>using eosiobios::bios::activate_action =  action_wrapper&lt;&quot;activate&quot;_n, &amp;bios::activate&gt;</definition>
+        <argsstring></argsstring>
+        <name>activate_action</name>
+        <qualifiedname>eosiobios::bios::activate_action</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="279" column="10" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="279" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classeosiobios_1_1bios_1aeca598319b21f76fdf17fe8c5091d8bc" prot="public" static="no">
+        <type>action_wrapper&lt;&quot;reqactivated&quot;_n, &amp;<ref refid="classeosiobios_1_1bios_1a3f7b5f24b41381cde54901b02ee1793d" kindref="member">bios::reqactivated</ref> &gt;</type>
+        <definition>using eosiobios::bios::reqactivated_action =  action_wrapper&lt;&quot;reqactivated&quot;_n, &amp;bios::reqactivated&gt;</definition>
+        <argsstring></argsstring>
+        <name>reqactivated_action</name>
+        <qualifiedname>eosiobios::bios::reqactivated_action</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="280" column="10" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="280" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classeosiobios_1_1bios_1a289a68eec1095060829ae3f3cedba2b1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosiobios::bios::newaccount</definition>
+        <argsstring>(name creator, name name, ignore&lt; authority &gt; owner, ignore&lt; authority &gt; active)</argsstring>
+        <name>newaccount</name>
+        <qualifiedname>eosiobios::bios::newaccount</qualifiedname>
+        <param>
+          <type>name</type>
+          <declname>creator</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>ignore&lt; <ref refid="structeosiobios_1_1authority" kindref="compound">authority</ref> &gt;</type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>ignore&lt; <ref refid="structeosiobios_1_1authority" kindref="compound">authority</ref> &gt;</type>
+          <declname>active</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>New account action, called after a new account is created. This code enforces resource-limits rules for new accounts as well as new account naming conventions.</para>
+<para><orderedlist>
+<listitem><para>accounts cannot contain &apos;.&apos; symbols which forces all acccounts to be 12 characters long without &apos;.&apos; until a future account auction process is implemented which prevents name squatting.</para>
+</listitem><listitem><para>new accounts must stake a minimal number of tokens (as set in system parameters) therefore, this method will execute an inline buyram from receiver for newacnt in an amount equal to the current new account creation fee. </para>
+</listitem></orderedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="90" column="15" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="90" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosiobios_1_1bios_1a6da029e3f9ffbcb2bfc3cc6f555a3bcd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosiobios::bios::updateauth</definition>
+        <argsstring>(ignore&lt; name &gt; account, ignore&lt; name &gt; permission, ignore&lt; name &gt; parent, ignore&lt; authority &gt; auth)</argsstring>
+        <name>updateauth</name>
+        <qualifiedname>eosiobios::bios::updateauth</qualifiedname>
+        <param>
+          <type>ignore&lt; name &gt;</type>
+          <declname>account</declname>
+        </param>
+        <param>
+          <type>ignore&lt; name &gt;</type>
+          <declname>permission</declname>
+        </param>
+        <param>
+          <type>ignore&lt; name &gt;</type>
+          <declname>parent</declname>
+        </param>
+        <param>
+          <type>ignore&lt; <ref refid="structeosiobios_1_1authority" kindref="compound">authority</ref> &gt;</type>
+          <declname>auth</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Update authorization action updates pemission for an account.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>account</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the account for which the permission is updated, </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pemission</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the permission name which is updated, </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>parem</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the parent of the permission which is updated, </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>aut</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the json describing the permission authorization. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="103" column="15" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="103" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosiobios_1_1bios_1a496491a411e8263ae0d91179526c25a6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosiobios::bios::deleteauth</definition>
+        <argsstring>(ignore&lt; name &gt; account, ignore&lt; name &gt; permission)</argsstring>
+        <name>deleteauth</name>
+        <qualifiedname>eosiobios::bios::deleteauth</qualifiedname>
+        <param>
+          <type>ignore&lt; name &gt;</type>
+          <declname>account</declname>
+        </param>
+        <param>
+          <type>ignore&lt; name &gt;</type>
+          <declname>permission</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Delete authorization action deletes the authorization for an account&apos;s permission.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>account</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the account for which the permission authorization is deleted, </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>permission</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the permission name been deleted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="115" column="15" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="115" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosiobios_1_1bios_1ac88e1fbb2bf9f23fcf351ab4f02bcf23" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosiobios::bios::linkauth</definition>
+        <argsstring>(ignore&lt; name &gt; account, ignore&lt; name &gt; code, ignore&lt; name &gt; type, ignore&lt; name &gt; requirement)</argsstring>
+        <name>linkauth</name>
+        <qualifiedname>eosiobios::bios::linkauth</qualifiedname>
+        <param>
+          <type>ignore&lt; name &gt;</type>
+          <declname>account</declname>
+        </param>
+        <param>
+          <type>ignore&lt; name &gt;</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>ignore&lt; name &gt;</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>ignore&lt; name &gt;</type>
+          <declname>requirement</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Link authorization action assigns a specific action from a contract to a permission you have created. Five system actions can not be linked <computeroutput>updateauth</computeroutput>, <computeroutput>deleteauth</computeroutput>, <computeroutput>linkauth</computeroutput>, <computeroutput>unlinkauth</computeroutput>, and <computeroutput>canceldelay</computeroutput>. This is useful because when doing authorization checks, the EOSIO based blockchain starts with the action needed to be authorized (and the contract belonging to), and looks up which permission is needed to pass authorization validation. If a link is set, that permission is used for authoraization validation otherwise then active is the default, with the exception of <computeroutput>eosio.any</computeroutput>. <computeroutput>eosio.any</computeroutput> is an implicit permission which exists on every account; you can link actions to <computeroutput>eosio.any</computeroutput> and that will make it so linked actions are accessible to any permissions defined for the account.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>account</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the permission&apos;s owner to be linked and the payer of the RAM needed to store this link, </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the owner of the action to be linked, </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the action to be linked, </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>requirement</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the permission to be linked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="134" column="15" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="134" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosiobios_1_1bios_1a754f09c20691df6b7292dad22b3a80c9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosiobios::bios::unlinkauth</definition>
+        <argsstring>(ignore&lt; name &gt; account, ignore&lt; name &gt; code, ignore&lt; name &gt; type)</argsstring>
+        <name>unlinkauth</name>
+        <qualifiedname>eosiobios::bios::unlinkauth</qualifiedname>
+        <param>
+          <type>ignore&lt; name &gt;</type>
+          <declname>account</declname>
+        </param>
+        <param>
+          <type>ignore&lt; name &gt;</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>ignore&lt; name &gt;</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Unlink authorization action it&apos;s doing the reverse of linkauth action, by unlinking the given action.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>account</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the owner of the permission to be unlinked and the receiver of the freed RAM, </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the owner of the action to be unlinked, </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the action to be unlinked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="147" column="15" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="147" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosiobios_1_1bios_1a7b70dcae7153a74de611cc78e59b0352" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosiobios::bios::canceldelay</definition>
+        <argsstring>(ignore&lt; permission_level &gt; canceling_auth, ignore&lt; checksum256 &gt; trx_id)</argsstring>
+        <name>canceldelay</name>
+        <qualifiedname>eosiobios::bios::canceldelay</qualifiedname>
+        <param>
+          <type>ignore&lt; permission_level &gt;</type>
+          <declname>canceling_auth</declname>
+        </param>
+        <param>
+          <type>ignore&lt; checksum256 &gt;</type>
+          <declname>trx_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Cancel delay action cancels a deferred transaction.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>canceling_auth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the permission that authorizes this action, </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>trx_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the deferred transaction id to be cancelled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="158" column="15" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="158" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosiobios_1_1bios_1afb059bb5862ce9b0cda885bc130a52e3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosiobios::bios::setcode</definition>
+        <argsstring>(name account, uint8_t vmtype, uint8_t vmversion, const std::vector&lt; char &gt; &amp;code)</argsstring>
+        <name>setcode</name>
+        <qualifiedname>eosiobios::bios::setcode</qualifiedname>
+        <param>
+          <type>name</type>
+          <declname>account</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>vmtype</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>vmversion</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; char &gt; &amp;</type>
+          <declname>code</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set code action sets the contract code for an account.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>account</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the account for which to set the contract code. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>vmtype</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- reserved, set it to zero. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>vmversion</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- reserved, set it to zero. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the code content to be set, in the form of a blob binary.. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="169" column="15" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="169" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosiobios_1_1bios_1a0663bbf0563a9ad67960ccbae6222911" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosiobios::bios::setabi</definition>
+        <argsstring>(name account, const std::vector&lt; char &gt; &amp;abi)</argsstring>
+        <name>setabi</name>
+        <qualifiedname>eosiobios::bios::setabi</qualifiedname>
+        <param>
+          <type>name</type>
+          <declname>account</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; char &gt; &amp;</type>
+          <declname>abi</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set abi action sets the abi for contract identified by <computeroutput>account</computeroutput> name. Creates an entry in the abi_hash_table index, with <computeroutput>account</computeroutput> name as key, if it is not already present and sets its value with the abi hash. Otherwise it is updating the current abi hash value for the existing <computeroutput>account</computeroutput> key.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>account</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the name of the account to set the abi for </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>abi</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the abi hash represented as a vector of characters </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="180" column="15" bodyfile="system/contracts/eosio.bios/src/eosio.bios.cpp" bodystart="5" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosiobios_1_1bios_1a317235869c18964d6d9425eefa533098" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosiobios::bios::onerror</definition>
+        <argsstring>(ignore&lt; uint128_t &gt; sender_id, ignore&lt; std::vector&lt; char &gt; &gt; sent_trx)</argsstring>
+        <name>onerror</name>
+        <qualifiedname>eosiobios::bios::onerror</qualifiedname>
+        <param>
+          <type>ignore&lt; uint128_t &gt;</type>
+          <declname>sender_id</declname>
+        </param>
+        <param>
+          <type>ignore&lt; std::vector&lt; char &gt; &gt;</type>
+          <declname>sent_trx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>On error action, notification of this action is delivered to the sender of a deferred transaction when an objective error occurs while executing the deferred transaction. This action is not meant to be called directly.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sender_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the id for the deferred transaction chosen by the sender, </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sent_trx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the deferred transaction that failed. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="191" column="15" bodyfile="system/contracts/eosio.bios/src/eosio.bios.cpp" bodystart="20" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosiobios_1_1bios_1ae5de33639414c0c00e090a2ca7418c69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosiobios::bios::setpriv</definition>
+        <argsstring>(name account, uint8_t is_priv)</argsstring>
+        <name>setpriv</name>
+        <qualifiedname>eosiobios::bios::setpriv</qualifiedname>
+        <param>
+          <type>name</type>
+          <declname>account</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>is_priv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set privilege action allows to set privilege status for an account (turn it on/off). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>account</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the account to set the privileged status for. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>is_priv</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- 0 for false, &gt; 0 for true. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="199" column="15" bodyfile="system/contracts/eosio.bios/src/eosio.bios.cpp" bodystart="24" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosiobios_1_1bios_1ac7a64a2f4cf193136957f5be5aeca85b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosiobios::bios::setalimits</definition>
+        <argsstring>(name account, int64_t ram_bytes, int64_t net_weight, int64_t cpu_weight)</argsstring>
+        <name>setalimits</name>
+        <qualifiedname>eosiobios::bios::setalimits</qualifiedname>
+        <param>
+          <type>name</type>
+          <declname>account</declname>
+        </param>
+        <param>
+          <type>int64_t</type>
+          <declname>ram_bytes</declname>
+        </param>
+        <param>
+          <type>int64_t</type>
+          <declname>net_weight</declname>
+        </param>
+        <param>
+          <type>int64_t</type>
+          <declname>cpu_weight</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the resource limits of an account</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>account</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- name of the account whose resource limit to be set </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ram_bytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- ram limit in absolute bytes </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>net_weight</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- fractionally proportionate net limit of available resources based on (weight / total_weight_of_all_accounts) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cpu_weight</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- fractionally proportionate cpu limit of available resources based on (weight / total_weight_of_all_accounts) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="210" column="15" bodyfile="system/contracts/eosio.bios/src/eosio.bios.cpp" bodystart="29" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosiobios_1_1bios_1aac48a883107aeacbd1b567a2e3fbad12" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosiobios::bios::setprods</definition>
+        <argsstring>(const std::vector&lt; eosio::producer_authority &gt; &amp;schedule)</argsstring>
+        <name>setprods</name>
+        <qualifiedname>eosiobios::bios::setprods</qualifiedname>
+        <param>
+          <type>const std::vector&lt; eosio::producer_authority &gt; &amp;</type>
+          <declname>schedule</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set producers action, sets a new list of active producers, by proposing a schedule change, once the block that contains the proposal becomes irreversible, the schedule is promoted to &quot;pending&quot; automatically. Once the block that promotes the schedule is irreversible, the schedule will become &quot;active&quot;.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>schedule</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- New list of active producers to set </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="221" column="15" bodyfile="system/contracts/eosio.bios/src/eosio.bios.cpp" bodystart="34" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosiobios_1_1bios_1ad4047afa380b9eda3ecc232d89bf05a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosiobios::bios::setparams</definition>
+        <argsstring>(const eosio::blockchain_parameters &amp;params)</argsstring>
+        <name>setparams</name>
+        <qualifiedname>eosiobios::bios::setparams</qualifiedname>
+        <param>
+          <type>const eosio::blockchain_parameters &amp;</type>
+          <declname>params</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set params action, sets the blockchain parameters. By tuning these parameters, various degrees of customization can be achieved.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>params</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- New blockchain parameters to set </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="229" column="15" bodyfile="system/contracts/eosio.bios/src/eosio.bios.cpp" bodystart="39" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosiobios_1_1bios_1abfefcfb3d6b2b221052a6e017de18c56" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosiobios::bios::reqauth</definition>
+        <argsstring>(name from)</argsstring>
+        <name>reqauth</name>
+        <qualifiedname>eosiobios::bios::reqauth</qualifiedname>
+        <param>
+          <type>name</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Require authorization action, checks if the account name <computeroutput>from</computeroutput> passed in as param has authorization to access current action, that is, if it is listed in the action’s allowed permissions vector.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>from</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the account name to authorize </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="238" column="15" bodyfile="system/contracts/eosio.bios/src/eosio.bios.cpp" bodystart="44" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosiobios_1_1bios_1ad642c358d927b33340654d59f9dd0df9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosiobios::bios::activate</definition>
+        <argsstring>(const eosio::checksum256 &amp;feature_digest)</argsstring>
+        <name>activate</name>
+        <qualifiedname>eosiobios::bios::activate</qualifiedname>
+        <param>
+          <type>const eosio::checksum256 &amp;</type>
+          <declname>feature_digest</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Activate action, activates a protocol feature</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>feature_digest</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- hash of the protocol feature to activate. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="246" column="15" bodyfile="system/contracts/eosio.bios/src/eosio.bios.cpp" bodystart="48" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosiobios_1_1bios_1a3f7b5f24b41381cde54901b02ee1793d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosiobios::bios::reqactivated</definition>
+        <argsstring>(const eosio::checksum256 &amp;feature_digest)</argsstring>
+        <name>reqactivated</name>
+        <qualifiedname>eosiobios::bios::reqactivated</qualifiedname>
+        <param>
+          <type>const eosio::checksum256 &amp;</type>
+          <declname>feature_digest</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Require activated action, asserts that a protocol feature has been activated</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>feature_digest</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- hash of the protocol feature to check for activation. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="254" column="15" bodyfile="system/contracts/eosio.bios/src/eosio.bios.cpp" bodystart="53" bodyend="55"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The <computeroutput>eosio.bios</computeroutput> is the first sample of system contract provided by <computeroutput>block.one</computeroutput> through the EOSIO platform. It is a minimalist system contract because it only supplies the actions that are absolutely critical to bootstrap a chain and nothing more. This allows for a chain agnostic approach to bootstrapping a chain.</para>
+<para>Just like in the <computeroutput>eosio.system</computeroutput> sample contract implementation, there are a few actions which are not implemented at the contract level (<computeroutput>newaccount</computeroutput>, <computeroutput>updateauth</computeroutput>, <computeroutput>deleteauth</computeroutput>, <computeroutput>linkauth</computeroutput>, <computeroutput>unlinkauth</computeroutput>, <computeroutput>canceldelay</computeroutput>, <computeroutput>onerror</computeroutput>, <computeroutput>setabi</computeroutput>, <computeroutput>setcode</computeroutput>), they are just declared in the contract so they will show in the contract&apos;s ABI and users will be able to push those actions to the chain via the account holding the <computeroutput>eosio.system</computeroutput> contract, but the implementation is at the EOSIO core level. They are referred to as EOSIO native actions. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>eosio::contract</label>
+      </node>
+      <node id="1">
+        <label>eosiobios::bios</label>
+        <link refid="classeosiobios_1_1bios"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>eosio::contract</label>
+      </node>
+      <node id="1">
+        <label>eosiobios::bios</label>
+        <link refid="classeosiobios_1_1bios"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="74" column="4" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="74" bodyend="281"/>
+    <listofallmembers>
+      <member refid="classeosiobios_1_1bios_1a2e27cd48a27fdf2f13e7e49c236effab" prot="public" virt="non-virtual"><scope>eosiobios::bios</scope><name>abi_hash_table</name></member>
+      <member refid="classeosiobios_1_1bios_1ad642c358d927b33340654d59f9dd0df9" prot="public" virt="non-virtual"><scope>eosiobios::bios</scope><name>activate</name></member>
+      <member refid="classeosiobios_1_1bios_1abc8584942d7320f82da8dd093c30af52" prot="public" virt="non-virtual"><scope>eosiobios::bios</scope><name>activate_action</name></member>
+      <member refid="classeosiobios_1_1bios_1a7b70dcae7153a74de611cc78e59b0352" prot="public" virt="non-virtual"><scope>eosiobios::bios</scope><name>canceldelay</name></member>
+      <member refid="classeosiobios_1_1bios_1acf3f2105a1de301314fb8d559adb2f34" prot="public" virt="non-virtual"><scope>eosiobios::bios</scope><name>canceldelay_action</name></member>
+      <member refid="classeosiobios_1_1bios_1a496491a411e8263ae0d91179526c25a6" prot="public" virt="non-virtual"><scope>eosiobios::bios</scope><name>deleteauth</name></member>
+      <member refid="classeosiobios_1_1bios_1a10d38a405fb47716f4b9617664c56c1d" prot="public" virt="non-virtual"><scope>eosiobios::bios</scope><name>deleteauth_action</name></member>
+      <member refid="classeosiobios_1_1bios_1ac88e1fbb2bf9f23fcf351ab4f02bcf23" prot="public" virt="non-virtual"><scope>eosiobios::bios</scope><name>linkauth</name></member>
+      <member refid="classeosiobios_1_1bios_1aa23c7a9882776e23792f72958e7e2698" prot="public" virt="non-virtual"><scope>eosiobios::bios</scope><name>linkauth_action</name></member>
+      <member refid="classeosiobios_1_1bios_1a289a68eec1095060829ae3f3cedba2b1" prot="public" virt="non-virtual"><scope>eosiobios::bios</scope><name>newaccount</name></member>
+      <member refid="classeosiobios_1_1bios_1ac51372f90c1c7f5b9fe20c5fe1b414be" prot="public" virt="non-virtual"><scope>eosiobios::bios</scope><name>newaccount_action</name></member>
+      <member refid="classeosiobios_1_1bios_1a317235869c18964d6d9425eefa533098" prot="public" virt="non-virtual"><scope>eosiobios::bios</scope><name>onerror</name></member>
+      <member refid="classeosiobios_1_1bios_1a3f7b5f24b41381cde54901b02ee1793d" prot="public" virt="non-virtual"><scope>eosiobios::bios</scope><name>reqactivated</name></member>
+      <member refid="classeosiobios_1_1bios_1aeca598319b21f76fdf17fe8c5091d8bc" prot="public" virt="non-virtual"><scope>eosiobios::bios</scope><name>reqactivated_action</name></member>
+      <member refid="classeosiobios_1_1bios_1abfefcfb3d6b2b221052a6e017de18c56" prot="public" virt="non-virtual"><scope>eosiobios::bios</scope><name>reqauth</name></member>
+      <member refid="classeosiobios_1_1bios_1ab0a2b9e56d84260b7cc1d496856ca232" prot="public" virt="non-virtual"><scope>eosiobios::bios</scope><name>reqauth_action</name></member>
+      <member refid="classeosiobios_1_1bios_1a0663bbf0563a9ad67960ccbae6222911" prot="public" virt="non-virtual"><scope>eosiobios::bios</scope><name>setabi</name></member>
+      <member refid="classeosiobios_1_1bios_1adec46384d14a191009d1821aea836c2e" prot="public" virt="non-virtual"><scope>eosiobios::bios</scope><name>setabi_action</name></member>
+      <member refid="classeosiobios_1_1bios_1ac7a64a2f4cf193136957f5be5aeca85b" prot="public" virt="non-virtual"><scope>eosiobios::bios</scope><name>setalimits</name></member>
+      <member refid="classeosiobios_1_1bios_1a8dd8ef730cb1bd25c940c69b67557df4" prot="public" virt="non-virtual"><scope>eosiobios::bios</scope><name>setalimits_action</name></member>
+      <member refid="classeosiobios_1_1bios_1afb059bb5862ce9b0cda885bc130a52e3" prot="public" virt="non-virtual"><scope>eosiobios::bios</scope><name>setcode</name></member>
+      <member refid="classeosiobios_1_1bios_1a3284dadf28210ffea040c8eddc01e7b7" prot="public" virt="non-virtual"><scope>eosiobios::bios</scope><name>setcode_action</name></member>
+      <member refid="classeosiobios_1_1bios_1ad4047afa380b9eda3ecc232d89bf05a7" prot="public" virt="non-virtual"><scope>eosiobios::bios</scope><name>setparams</name></member>
+      <member refid="classeosiobios_1_1bios_1a99756330be6311220baba883425df47b" prot="public" virt="non-virtual"><scope>eosiobios::bios</scope><name>setparams_action</name></member>
+      <member refid="classeosiobios_1_1bios_1ae5de33639414c0c00e090a2ca7418c69" prot="public" virt="non-virtual"><scope>eosiobios::bios</scope><name>setpriv</name></member>
+      <member refid="classeosiobios_1_1bios_1a3f4944b933f2524b915295ace2c3ccf8" prot="public" virt="non-virtual"><scope>eosiobios::bios</scope><name>setpriv_action</name></member>
+      <member refid="classeosiobios_1_1bios_1aac48a883107aeacbd1b567a2e3fbad12" prot="public" virt="non-virtual"><scope>eosiobios::bios</scope><name>setprods</name></member>
+      <member refid="classeosiobios_1_1bios_1a6366d6a56bedac0269d795e5e1b52163" prot="public" virt="non-virtual"><scope>eosiobios::bios</scope><name>setprods_action</name></member>
+      <member refid="classeosiobios_1_1bios_1a754f09c20691df6b7292dad22b3a80c9" prot="public" virt="non-virtual"><scope>eosiobios::bios</scope><name>unlinkauth</name></member>
+      <member refid="classeosiobios_1_1bios_1afc60db5f0cdb49c29e2027eea445ef5d" prot="public" virt="non-virtual"><scope>eosiobios::bios</scope><name>unlinkauth_action</name></member>
+      <member refid="classeosiobios_1_1bios_1a6da029e3f9ffbcb2bfc3cc6f555a3bcd" prot="public" virt="non-virtual"><scope>eosiobios::bios</scope><name>updateauth</name></member>
+      <member refid="classeosiobios_1_1bios_1a4f8bd4830434c2f90d1595182e3c2d43" prot="public" virt="non-virtual"><scope>eosiobios::bios</scope><name>updateauth_action</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

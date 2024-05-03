@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="rex_8results_8hpp" kind="file" language="C++">
+    <compoundname>rex.results.hpp</compoundname>
+    <includes local="no">eosio/asset.hpp</includes>
+    <includes local="no">eosio/eosio.hpp</includes>
+    <includes local="no">eosio/name.hpp</includes>
+    <includedby refid="rex_8cpp" local="no">system/contracts/eosio.system/src/rex.cpp</includedby>
+    <includedby refid="rex_8results_8cpp" local="no">system/contracts/eosio.system/src/rex.results.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>system/contracts/eosio.system/include/eosio.system/rex.results.hpp</label>
+        <link refid="rex_8results_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eosio/asset.hpp</label>
+      </node>
+      <node id="3">
+        <label>eosio/eosio.hpp</label>
+      </node>
+      <node id="4">
+        <label>eosio/name.hpp</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>system/contracts/eosio.system/include/eosio.system/rex.results.hpp</label>
+        <link refid="rex_8results_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>system/contracts/eosio.system/src/rex.cpp</label>
+        <link refid="rex_8cpp"/>
+      </node>
+      <node id="3">
+        <label>system/contracts/eosio.system/src/rex.results.cpp</label>
+        <link refid="rex_8results_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classrex__results" prot="public">rex_results</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/asset.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/eosio.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/name.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>eosio::action_wrapper;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>eosio::asset;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>eosio::name;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="classrex__results" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">[[eosio::contract(&quot;rex.results&quot;)]]<sp/><ref refid="classrex__results" kindref="compound">rex_results</ref><sp/>:<sp/>eosio::contract<sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>eosio::contract::contract;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>[[eosio::action]]</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>buyresult(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>asset&amp;<sp/>rex_received<sp/>);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>[[eosio::action]]</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>sellresult(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>asset&amp;<sp/>proceeds<sp/>);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>[[eosio::action]]</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>orderresult(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>name&amp;<sp/>owner,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>asset&amp;<sp/>proceeds<sp/>);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>[[eosio::action]]</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>rentresult(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>asset&amp;<sp/>rented_tokens<sp/>);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="classrex__results_1ae4ba8a63313cdfe4cac719d785a38ea7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="classrex__results_1ae4ba8a63313cdfe4cac719d785a38ea7" kindref="member">buyresult_action</ref><sp/><sp/><sp/>=<sp/>action_wrapper&lt;</highlight><highlight class="stringliteral">&quot;buyresult&quot;</highlight><highlight class="normal">_n,<sp/><sp/><sp/>&amp;<ref refid="classrex__results_1a955ccff2c80578de034ee8c16bb29b47" kindref="member">rex_results::buyresult</ref>&gt;;</highlight></codeline>
+<codeline lineno="56" refid="classrex__results_1a7045f3b0cbe2f486892be59a7cdcd946" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="classrex__results_1a7045f3b0cbe2f486892be59a7cdcd946" kindref="member">sellresult_action</ref><sp/><sp/>=<sp/>action_wrapper&lt;</highlight><highlight class="stringliteral">&quot;sellresult&quot;</highlight><highlight class="normal">_n,<sp/><sp/>&amp;<ref refid="classrex__results_1a2fdb9897a541ee103c618e8b311afab9" kindref="member">rex_results::sellresult</ref>&gt;;</highlight></codeline>
+<codeline lineno="57" refid="classrex__results_1a9cc818bbdd737994bf6c6c028cbadf88" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="classrex__results_1a9cc818bbdd737994bf6c6c028cbadf88" kindref="member">orderresult_action</ref><sp/>=<sp/>action_wrapper&lt;</highlight><highlight class="stringliteral">&quot;orderresult&quot;</highlight><highlight class="normal">_n,<sp/>&amp;<ref refid="classrex__results_1aadee1538b7d17cbbe6efd8438fa46ae1" kindref="member">rex_results::orderresult</ref>&gt;;</highlight></codeline>
+<codeline lineno="58" refid="classrex__results_1a4bc44b0b83ecec66ad131019049e4c6d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="classrex__results_1a4bc44b0b83ecec66ad131019049e4c6d" kindref="member">rentresult_action</ref><sp/><sp/>=<sp/>action_wrapper&lt;</highlight><highlight class="stringliteral">&quot;rentresult&quot;</highlight><highlight class="normal">_n,<sp/><sp/>&amp;<ref refid="classrex__results_1ab9cb69866c17d4344e0d50ea810ecef4" kindref="member">rex_results::rentresult</ref>&gt;;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="system/contracts/eosio.system/include/eosio.system/rex.results.hpp"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structdocument" kind="struct" language="C++" prot="public">
+    <compoundname>document</compoundname>
+    <includes refid="drafts_8hpp" local="no">drafts.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structdocument_1a974c7e2fc7d1331789ef2fadffe810d5" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string document::hash</definition>
+        <argsstring></argsstring>
+        <name>hash</name>
+        <qualifiedname>document::hash</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/drafts.hpp" line="9" column="15" bodyfile="common/drafts.hpp" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structdocument_1a5ac94be6f1dab06a1de785c6cb7be25b" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string document::pkey</definition>
+        <argsstring></argsstring>
+        <name>pkey</name>
+        <qualifiedname>document::pkey</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/drafts.hpp" line="11" column="15" bodyfile="common/drafts.hpp" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structdocument_1ad4244e8a2d23974528c6dc33bfb08794" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string document::sign</definition>
+        <argsstring></argsstring>
+        <name>sign</name>
+        <qualifiedname>document::sign</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/drafts.hpp" line="13" column="15" bodyfile="common/drafts.hpp" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structdocument_1ad6e940cca29c2ca96fb1f740d3f2dc90" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string document::meta</definition>
+        <argsstring></argsstring>
+        <name>meta</name>
+        <qualifiedname>document::meta</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/drafts.hpp" line="14" column="15" bodyfile="common/drafts.hpp" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>document</label>
+        <link refid="structdocument"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>hash</edgelabel>
+          <edgelabel>meta</edgelabel>
+          <edgelabel>pkey</edgelabel>
+          <edgelabel>sign</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>string</label>
+      </node>
+    </collaborationgraph>
+    <location file="common/drafts.hpp" line="7" column="1" bodyfile="common/drafts.hpp" bodystart="7" bodyend="15"/>
+    <listofallmembers>
+      <member refid="structdocument_1a974c7e2fc7d1331789ef2fadffe810d5" prot="public" virt="non-virtual"><scope>document</scope><name>hash</name></member>
+      <member refid="structdocument_1ad6e940cca29c2ca96fb1f740d3f2dc90" prot="public" virt="non-virtual"><scope>document</scope><name>meta</name></member>
+      <member refid="structdocument_1a5ac94be6f1dab06a1de785c6cb7be25b" prot="public" virt="non-virtual"><scope>document</scope><name>pkey</name></member>
+      <member refid="structdocument_1ad4244e8a2d23974528c6dc33bfb08794" prot="public" virt="non-virtual"><scope>document</scope><name>sign</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

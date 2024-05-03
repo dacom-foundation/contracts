@@ -1,0 +1,672 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="classregistrator" kind="class" language="C++" prot="public">
+    <compoundname>registrator</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">eosio::contract</basecompoundref>
+    <includes refid="registrator_8hpp" local="no">registrator.hpp</includes>
+    <innerclass refid="structregistrator_1_1balances" prot="public">registrator::balances</innerclass>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classregistrator_1a5031045fe1736a84cd445be212673c0b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>registrator::registrator</definition>
+        <argsstring>(eosio::name receiver, eosio::name code, eosio::datastream&lt; const char * &gt; ds)</argsstring>
+        <name>registrator</name>
+        <qualifiedname>registrator::registrator</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>receiver</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>eosio::datastream&lt; const char * &gt;</type>
+          <declname>ds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator/registrator.hpp" line="38" column="3" bodyfile="registrator/registrator.hpp" bodystart="38" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gac68fe89b4be51de18ac5b5921ca56eed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void registrator::update</definition>
+        <argsstring>(eosio::name username, std::string meta)</argsstring>
+        <name>update</name>
+        <qualifiedname>registrator::update</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>meta</declname>
+        </param>
+        <briefdescription>
+<para>Обновление метаданных аккаунта </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет обновить метаданные указанного аккаунта. Только владелец аккаунта имеет право обновлять его метаданные.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя аккаунта, который требуется обновить </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>meta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Новые метаданные для аккаунта</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>username</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator/registrator.hpp" line="42" column="9" bodyfile="registrator/registrator.cpp" bodystart="354" bodyend="367"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga25e4c5c4eea2a2e1463ce911b61117aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void registrator::confirmreg</definition>
+        <argsstring>(eosio::name coopname, eosio::name member)</argsstring>
+        <name>confirmreg</name>
+        <qualifiedname>registrator::confirmreg</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>member</declname>
+        </param>
+        <briefdescription>
+<para>Подтверждение регистрации члена кооператива </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет подтвердить регистрацию пользователя (физического или юридического лица) в качестве члена кооператива. Подтверждение может быть осуществлено только аккаунтом контракта совета кооператива после принятия соответствующего решения.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coopname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>member</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя члена кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>position_title</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Название должности </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>position</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Код должности (например, chairman, director и др.)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>_soviet</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator/registrator.hpp" line="43" column="9" bodyfile="registrator/registrator.cpp" bodystart="423" bodyend="433"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gad6b5f40727b07cff66380feb735ff79f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void registrator::reguser</definition>
+        <argsstring>(eosio::name coopname, eosio::name username, storage storage)</argsstring>
+        <name>reguser</name>
+        <qualifiedname>registrator::reguser</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type><ref refid="structstorage" kindref="compound">storage</ref></type>
+          <declname>storage</declname>
+        </param>
+        <briefdescription>
+<para>Регистрация пользователя </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод предназначен для регистрации аккаунта в качестве физического лица. После регистрации пользователь получает статус &quot;user&quot;. Принимает хэш-ссылку на зашифрованный профиль, сохраненный в IPFS.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>registrator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя регистратора, который регистрирует (обычно, кооператив, но может быть и участником, который регистрирует свою карточку сам) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя, который регистрируется </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>profile_hash</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Хэш-ссылка на зашифрованный профиль пользователя, сохраненный в IPFS</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>registrator</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator/registrator.hpp" line="45" column="9" bodyfile="registrator/registrator.cpp" bodystart="92" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gad1c42f1901b5ff1d34fbf889908675b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void registrator::regorg</definition>
+        <argsstring>(eosio::name coopname, eosio::name username, org_data params)</argsstring>
+        <name>regorg</name>
+        <qualifiedname>registrator::regorg</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type><ref refid="structorg__data" kindref="compound">org_data</ref></type>
+          <declname>params</declname>
+        </param>
+        <briefdescription>
+<para>Регистрация юридического лица </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет регистрировать аккаунт в качестве юридического лица. Все данные в карточке юридического лица публичны и хранятся в блокчейне.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>params</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Структура данных нового юридического лица</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от одного из аккаунтов: <computeroutput>coopname</computeroutput> || username </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator/registrator.hpp" line="51" column="9" bodyfile="registrator/registrator.cpp" bodystart="142" bodyend="177"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga99b01f19b346839f0ed7a132093f74c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void registrator::regplot</definition>
+        <argsstring>(eosio::name coopname, eosio::name username, plot_data params)</argsstring>
+        <name>regplot</name>
+        <qualifiedname>registrator::regplot</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type><ref refid="structplot__data" kindref="compound">plot_data</ref></type>
+          <declname>params</declname>
+        </param>
+        <briefdescription>
+<para>Регистрация юридического лица </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет регистрировать аккаунт в качестве юридического лица. Все данные в карточке юридического лица публичны и хранятся в блокчейне.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>params</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Структура данных нового юридического лица</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от одного из аккаунтов: <computeroutput>coopname</computeroutput> || username </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator/registrator.hpp" line="52" column="9" bodyfile="registrator/registrator.cpp" bodystart="193" bodyend="230"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga9118fec52032836986b9a60a28355039" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void registrator::joincoop</definition>
+        <argsstring>(eosio::name coopname, eosio::name username, document document)</argsstring>
+        <name>joincoop</name>
+        <qualifiedname>registrator::joincoop</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type><ref refid="structdocument" kindref="compound">document</ref></type>
+          <declname>document</declname>
+        </param>
+        <briefdescription>
+<para>Подача заявления на членство в кооперативе </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет подать заявление на вступление в кооператив от имени физического или юридического лица. После подачи заявления, оно направляется на рассмотрение в совет кооператива для голосования.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coopname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя заявителя </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>position_title</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Наименование должности заявителя </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>position</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Код должности заявителя, который может быть одним из следующего списка:<itemizedlist>
+<listitem><para>chairman</para>
+</listitem><listitem><para>vpchairman</para>
+</listitem><listitem><para>director</para>
+</listitem><listitem><para>vpdirector</para>
+</listitem><listitem><para>boardmember</para>
+</listitem><listitem><para>execmember</para>
+</listitem><listitem><para>votingmember</para>
+</listitem><listitem><para>assocmember </para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ricardian_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Переменные шаблона заявления, которые вставляются в рикардианский договор, содержащийся в ABI метода действия контракта. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>statement_hash</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Хэш ссылка на заявление</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>username</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator/registrator.hpp" line="54" column="9" bodyfile="registrator/registrator.cpp" bodystart="327" bodyend="339"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga4edb42d418f1b8d0a7ec00f06b9927ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void registrator::verificate</definition>
+        <argsstring>(eosio::name username, eosio::name procedure)</argsstring>
+        <name>verificate</name>
+        <qualifiedname>registrator::verificate</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>procedure</declname>
+        </param>
+        <briefdescription>
+<para>Верификация аккаунта </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет верифицировать аккаунты как пользователей, так и организаций. На данный момент может быть применен только аккаунтом автономной некоммерческой организации &quot;Кооперативная Экономика&quot;.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя аккаунта, который подлежит верификации</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>_ano</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator/registrator.hpp" line="56" column="9" bodyfile="registrator/registrator.cpp" bodystart="244" bodyend="301"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gaeae2fd664c83c2dad995c167c2566e26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void registrator::newaccount</definition>
+        <argsstring>(eosio::name registrator, eosio::name referer, eosio::name username, eosio::public_key public_key, std::string signature_hash, std::string meta)</argsstring>
+        <name>newaccount</name>
+        <qualifiedname>registrator::newaccount</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>registrator</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>referer</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>eosio::public_key</type>
+          <declname>public_key</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>signature_hash</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>meta</declname>
+        </param>
+        <briefdescription>
+<para>Регистрирует новый аккаунт. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Действие позволяет создать новый аккаунт. Новый аккаунт может быть создан только верифицированной организацией. <simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>registrator</computeroutput> </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>registrator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Аккаунт, который оплачивает создание нового аккаунта. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>referer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Реферер, который представил нового пользователя. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя нового аккаунта (от 5 до 12 символов). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>public_key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Открытый ключ нового аккаунта. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>meta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Дополнительная мета-информация. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator/registrator.hpp" line="58" column="9" bodyfile="registrator/registrator.cpp" bodystart="17" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga68df314fe90a719f00f0931c097bc6c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void registrator::changekey</definition>
+        <argsstring>(eosio::name username, eosio::public_key public_key)</argsstring>
+        <name>changekey</name>
+        <qualifiedname>registrator::changekey</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>eosio::public_key</type>
+          <declname>public_key</declname>
+        </param>
+        <briefdescription>
+<para>Изменение ключа активной учетной записи </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет изменить активный ключ указанной учетной записи. Только аккаунт автономной некомерческой организации &quot;Кооперативная Экономика&quot; имеет право изменять ключи учетных записей.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя аккаунта, ключ которого требуется изменить </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>public_key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Новый публичный ключ для активной учетной записи</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>_ano</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator/registrator.hpp" line="63" column="9" bodyfile="registrator/registrator.cpp" bodystart="384" bodyend="405"/>
+      </memberdef>
+      <memberdef kind="function" id="classregistrator_1a459e96e1cc7864c070000cbdcdad1d82" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void registrator::apply</definition>
+        <argsstring>(uint64_t receiver, uint64_t code, uint64_t action)</argsstring>
+        <name>apply</name>
+        <qualifiedname>registrator::apply</qualifiedname>
+        <param>
+          <type>uint64_t</type>
+          <declname>receiver</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>action</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator/registrator.hpp" line="66" column="8"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classregistrator_1a3e9acbee2d392e2cbf80cd79475f847f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void registrator::add_balance</definition>
+        <argsstring>(eosio::name source, eosio::name username, eosio::asset quantity, eosio::name contract)</argsstring>
+        <name>add_balance</name>
+        <qualifiedname>registrator::add_balance</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>eosio::asset</type>
+          <declname>quantity</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>contract</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator/registrator.hpp" line="79" column="15" bodyfile="registrator/registrator.hpp" bodystart="79" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="classregistrator_1ac761520ce6bb378a4224b1e3b570138d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void registrator::sub_balance</definition>
+        <argsstring>(eosio::name source, eosio::name username, eosio::asset quantity, eosio::name contract)</argsstring>
+        <name>sub_balance</name>
+        <qualifiedname>registrator::sub_balance</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>eosio::asset</type>
+          <declname>quantity</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>contract</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator/registrator.hpp" line="109" column="15" bodyfile="registrator/registrator.hpp" bodystart="109" bodyend="138"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Класс <computeroutput>registrator</computeroutput> служит воротами в блокчейн-систему для новых участников, позволяя регистрировать аккаунты, а также карточки физических и юридических лиц. Через данный контракт участники могут посылать заявления в совет кооперативов на вступление и получать подтверждения о принятии их заявлений. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Основные функции класса:<itemizedlist>
+<listitem><para>Регистрация новых аккаунтов с различными параметрами (CPU, NET, RAM и т.д.).</para>
+</listitem><listitem><para>Регистрация карточек физических и юридических лиц.</para>
+</listitem><listitem><para>Обновление метаданных пользователей.</para>
+</listitem><listitem><para>Отправка заявлений на вступление в любой кооператив.</para>
+</listitem><listitem><para>Создание и изменение ключей доступа к аккаунтам.</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="note"><para>Этот класс служит основой для регистрации и идентификации участников в блокчейн-среде. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>eosio::contract</label>
+      </node>
+      <node id="1">
+        <label>registrator</label>
+        <link refid="classregistrator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>eosio::contract</label>
+      </node>
+      <node id="1">
+        <label>registrator</label>
+        <link refid="classregistrator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="registrator/registrator.hpp" line="35" column="1" bodyfile="registrator/registrator.hpp" bodystart="35" bodyend="139"/>
+    <listofallmembers>
+      <member refid="classregistrator_1a3e9acbee2d392e2cbf80cd79475f847f" prot="public" virt="non-virtual"><scope>registrator</scope><name>add_balance</name></member>
+      <member refid="classregistrator_1a459e96e1cc7864c070000cbdcdad1d82" prot="public" virt="non-virtual"><scope>registrator</scope><name>apply</name></member>
+      <member refid="group__public__actions_1ga68df314fe90a719f00f0931c097bc6c5" prot="public" virt="non-virtual"><scope>registrator</scope><name>changekey</name></member>
+      <member refid="group__public__actions_1ga25e4c5c4eea2a2e1463ce911b61117aa" prot="public" virt="non-virtual"><scope>registrator</scope><name>confirmreg</name></member>
+      <member refid="group__public__actions_1ga9118fec52032836986b9a60a28355039" prot="public" virt="non-virtual"><scope>registrator</scope><name>joincoop</name></member>
+      <member refid="group__public__actions_1gaeae2fd664c83c2dad995c167c2566e26" prot="public" virt="non-virtual"><scope>registrator</scope><name>newaccount</name></member>
+      <member refid="classregistrator_1a5031045fe1736a84cd445be212673c0b" prot="public" virt="non-virtual"><scope>registrator</scope><name>registrator</name></member>
+      <member refid="group__public__actions_1gad1c42f1901b5ff1d34fbf889908675b5" prot="public" virt="non-virtual"><scope>registrator</scope><name>regorg</name></member>
+      <member refid="group__public__actions_1ga99b01f19b346839f0ed7a132093f74c5" prot="public" virt="non-virtual"><scope>registrator</scope><name>regplot</name></member>
+      <member refid="group__public__actions_1gad6b5f40727b07cff66380feb735ff79f" prot="public" virt="non-virtual"><scope>registrator</scope><name>reguser</name></member>
+      <member refid="classregistrator_1ac761520ce6bb378a4224b1e3b570138d" prot="public" virt="non-virtual"><scope>registrator</scope><name>sub_balance</name></member>
+      <member refid="group__public__actions_1gac68fe89b4be51de18ac5b5921ca56eed" prot="public" virt="non-virtual"><scope>registrator</scope><name>update</name></member>
+      <member refid="group__public__actions_1ga4edb42d418f1b8d0a7ec00f06b9927ae" prot="public" virt="non-virtual"><scope>registrator</scope><name>verificate</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="dir_b13090aff7bc4a99d8becb580edae8dd" kind="dir">
+    <compoundname>system/contracts/eosio.token</compoundname>
+    <innerdir refid="dir_c17616ab78943cfc34aae7d5443c2f25">system/contracts/eosio.token/include</innerdir>
+    <innerdir refid="dir_c905ab711a6244052dbb1335bb842490">system/contracts/eosio.token/src</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="system/contracts/eosio.token/"/>
+  </compounddef>
+</doxygen>

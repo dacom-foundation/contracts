@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structeosiobios_1_1authority" kind="struct" language="C++" prot="public">
+    <compoundname>eosiobios::authority</compoundname>
+    <includes refid="eosio_8bios_8hpp" local="no">eosio.bios.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeosiobios_1_1authority_1a39fdbcf135683889becbb79b7f494df0" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t eosiobios::authority::threshold</definition>
+        <argsstring></argsstring>
+        <name>threshold</name>
+        <qualifiedname>eosiobios::authority::threshold</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="45" column="45" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiobios_1_1authority_1ab3a3f653907a5490ab96ac7605198f2c" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structeosiobios_1_1key__weight" kindref="compound">key_weight</ref> &gt;</type>
+        <definition>std::vector&lt;key_weight&gt; eosiobios::authority::keys</definition>
+        <argsstring></argsstring>
+        <name>keys</name>
+        <qualifiedname>eosiobios::authority::keys</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="46" column="33" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiobios_1_1authority_1a1f834bcacfd6abd1d2f7aa389990cf5a" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structeosiobios_1_1permission__level__weight" kindref="compound">permission_level_weight</ref> &gt;</type>
+        <definition>std::vector&lt;permission_level_weight&gt; eosiobios::authority::accounts</definition>
+        <argsstring></argsstring>
+        <name>accounts</name>
+        <qualifiedname>eosiobios::authority::accounts</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="47" column="20" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiobios_1_1authority_1a674014ea85ff0ee9d4dcd9a3d1922d61" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structeosiobios_1_1wait__weight" kindref="compound">wait_weight</ref> &gt;</type>
+        <definition>std::vector&lt;wait_weight&gt; eosiobios::authority::waits</definition>
+        <argsstring></argsstring>
+        <name>waits</name>
+        <qualifiedname>eosiobios::authority::waits</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="48" column="32" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="44" column="4" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="44" bodyend="52"/>
+    <listofallmembers>
+      <member refid="structeosiobios_1_1authority_1a1f834bcacfd6abd1d2f7aa389990cf5a" prot="public" virt="non-virtual"><scope>eosiobios::authority</scope><name>accounts</name></member>
+      <member refid="structeosiobios_1_1authority_1ab3a3f653907a5490ab96ac7605198f2c" prot="public" virt="non-virtual"><scope>eosiobios::authority</scope><name>keys</name></member>
+      <member refid="structeosiobios_1_1authority_1a39fdbcf135683889becbb79b7f494df0" prot="public" virt="non-virtual"><scope>eosiobios::authority</scope><name>threshold</name></member>
+      <member refid="structeosiobios_1_1authority_1a674014ea85ff0ee9d4dcd9a3d1922d61" prot="public" virt="non-virtual"><scope>eosiobios::authority</scope><name>waits</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

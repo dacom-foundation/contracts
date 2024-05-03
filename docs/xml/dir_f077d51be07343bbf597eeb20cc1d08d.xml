@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="dir_f077d51be07343bbf597eeb20cc1d08d" kind="dir">
+    <compoundname>system/contracts/eosio.boot</compoundname>
+    <innerdir refid="dir_b0051becfdad76ff107ba599d12443de">system/contracts/eosio.boot/include</innerdir>
+    <innerdir refid="dir_c9d8786bb80f0e52627acf7edb14e6de">system/contracts/eosio.boot/src</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="system/contracts/eosio.boot/"/>
+  </compounddef>
+</doxygen>

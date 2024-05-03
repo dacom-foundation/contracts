@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.3"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Для разработчиков: Исходный файл system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Для разработчиков
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.3 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('eosio_8msig_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">eosio.msig.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="eosio_8msig_8hpp.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;eosio/binary_extension.hpp&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;eosio/eosio.hpp&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;eosio/ignore.hpp&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;eosio/transaction.hpp&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="namespaceeosio.html">    8</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceeosio.html">eosio</a> {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classeosio_1_1multisig.html">   18</a></span>   <span class="keyword">class </span>[[eosio::contract(&quot;<a class="code hl_namespace" href="namespaceeosio.html">eosio</a>.msig&quot;)]] <a class="code hl_class" href="classeosio_1_1multisig.html">multisig</a> : <span class="keyword">public</span> contract {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>      <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>         <span class="keyword">using</span> contract::contract;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>         [[eosio::action]]</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>         <span class="keywordtype">void</span> propose(name proposer, name proposal_name,</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>                      std::vector&lt;permission_level&gt; requested, ignore&lt;transaction&gt; trx);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>         [[eosio::action]]</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>         <span class="keywordtype">void</span> approve( name proposer, name proposal_name, permission_level level,</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                       <span class="keyword">const</span> eosio::binary_extension&lt;eosio::checksum256&gt;&amp; proposal_hash );</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>         [[eosio::action]]</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>         <span class="keywordtype">void</span> unapprove( name proposer, name proposal_name, permission_level level );</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>         [[eosio::action]]</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>         <span class="keywordtype">void</span> cancel( name proposer, name proposal_name, name canceler );</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>         [[eosio::action]]</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>         <span class="keywordtype">void</span> exec( name proposer, name proposal_name, name executer );</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>         [[eosio::action]]</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>         <span class="keywordtype">void</span> invalidate( name account );</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="classeosio_1_1multisig.html#a6b2b36f41c47c6cd4d93fecfd8cc60cf">  108</a></span>         <span class="keyword">using</span> <a class="code hl_typedef" href="classeosio_1_1multisig.html#a6b2b36f41c47c6cd4d93fecfd8cc60cf">propose_action</a> = eosio::action_wrapper&lt;<span class="stringliteral">&quot;propose&quot;</span>_n, &amp;<a class="code hl_function" href="classeosio_1_1multisig.html#acb9cee084979625820b6f45492f13be0">multisig::propose</a>&gt;;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="classeosio_1_1multisig.html#a78ab9fde21f9ded0848d08fa608928be">  109</a></span>         <span class="keyword">using</span> <a class="code hl_typedef" href="classeosio_1_1multisig.html#a78ab9fde21f9ded0848d08fa608928be">approve_action</a> = eosio::action_wrapper&lt;<span class="stringliteral">&quot;approve&quot;</span>_n, &amp;<a class="code hl_function" href="classeosio_1_1multisig.html#a5cccb8b23b9fffa1b27d443fad9ce3e9">multisig::approve</a>&gt;;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="classeosio_1_1multisig.html#a36509e236e810ab65fa9f0d4d4819a44">  110</a></span>         <span class="keyword">using</span> <a class="code hl_typedef" href="classeosio_1_1multisig.html#a36509e236e810ab65fa9f0d4d4819a44">unapprove_action</a> = eosio::action_wrapper&lt;<span class="stringliteral">&quot;unapprove&quot;</span>_n, &amp;<a class="code hl_function" href="classeosio_1_1multisig.html#a7d6e568f96c6697728e316557a9bcf1e">multisig::unapprove</a>&gt;;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="classeosio_1_1multisig.html#aa24ce647e2b69d4def57d629b12a5947">  111</a></span>         <span class="keyword">using</span> <a class="code hl_typedef" href="classeosio_1_1multisig.html#aa24ce647e2b69d4def57d629b12a5947">cancel_action</a> = eosio::action_wrapper&lt;<span class="stringliteral">&quot;cancel&quot;</span>_n, &amp;<a class="code hl_function" href="classeosio_1_1multisig.html#a2dc849ab961ea31c0e93ebace0f0dd00">multisig::cancel</a>&gt;;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="classeosio_1_1multisig.html#a190673aa69f84e30b207ce0d7fcfdeaf">  112</a></span>         <span class="keyword">using</span> <a class="code hl_typedef" href="classeosio_1_1multisig.html#a190673aa69f84e30b207ce0d7fcfdeaf">exec_action</a> = eosio::action_wrapper&lt;<span class="stringliteral">&quot;exec&quot;</span>_n, &amp;<a class="code hl_function" href="classeosio_1_1multisig.html#ac31b3d91892bf8fcdad8d6f123c278ff">multisig::exec</a>&gt;;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="classeosio_1_1multisig.html#ac2bc17cd429e3e5c7b5dd8469db4fb74">  113</a></span>         <span class="keyword">using</span> <a class="code hl_typedef" href="classeosio_1_1multisig.html#ac2bc17cd429e3e5c7b5dd8469db4fb74">invalidate_action</a> = eosio::action_wrapper&lt;<span class="stringliteral">&quot;invalidate&quot;</span>_n, &amp;<a class="code hl_function" href="classeosio_1_1multisig.html#a59e26671d5a02dd2f809b08f56b4d3b8">multisig::invalidate</a>&gt;;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="structeosio_1_1multisig_1_1proposal.html">  115</a></span>   <span class="keyword">struct </span>[[eosio::table, <a class="code hl_namespace" href="namespaceeosio.html">eosio</a>::contract(&quot;eosio.msig&quot;)]] <a class="code hl_struct" href="structeosio_1_1multisig_1_1proposal.html">proposal</a> {</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="structeosio_1_1multisig_1_1proposal.html#a231b1043a7721d508c07ca6c6b20385b">  116</a></span>      name                                                            <a class="code hl_variable" href="structeosio_1_1multisig_1_1proposal.html#a231b1043a7721d508c07ca6c6b20385b">proposal_name</a>;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="structeosio_1_1multisig_1_1proposal.html#af9a7406b371dbf10a78ce56f9f921f84">  117</a></span>      std::vector&lt;char&gt;                                               <a class="code hl_variable" href="structeosio_1_1multisig_1_1proposal.html#af9a7406b371dbf10a78ce56f9f921f84">packed_transaction</a>;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="structeosio_1_1multisig_1_1proposal.html#ac8b4f63052c9089874b1a0be48bcef07">  118</a></span>      eosio::binary_extension&lt; std::optional&lt;time_point&gt; &gt;            <a class="code hl_variable" href="structeosio_1_1multisig_1_1proposal.html#ac8b4f63052c9089874b1a0be48bcef07">earliest_exec_time</a>;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="structeosio_1_1multisig_1_1proposal.html#ae459219bcd83cd451771b633277519db">  120</a></span>      uint64_t <a class="code hl_function" href="structeosio_1_1multisig_1_1proposal.html#ae459219bcd83cd451771b633277519db">primary_key</a>()<span class="keyword">const </span>{ <span class="keywordflow">return</span> proposal_name.value; }</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>   };</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="classeosio_1_1multisig.html#a4f80f1ab1d2bd88d9ee3964e8cf34771">  122</a></span>   <span class="keyword">typedef</span> eosio::multi_index&lt; <span class="stringliteral">&quot;proposal&quot;</span>_n, <a class="code hl_struct" href="structeosio_1_1multisig_1_1proposal.html">proposal</a> &gt; <a class="code hl_typedef" href="classeosio_1_1multisig.html#a4f80f1ab1d2bd88d9ee3964e8cf34771">proposals</a>;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="structeosio_1_1multisig_1_1old__approvals__info.html">  124</a></span>   <span class="keyword">struct </span>[[eosio::table, <a class="code hl_namespace" href="namespaceeosio.html">eosio</a>::contract(&quot;eosio.msig&quot;)]] <a class="code hl_struct" href="structeosio_1_1multisig_1_1old__approvals__info.html">old_approvals_info</a> {</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="structeosio_1_1multisig_1_1old__approvals__info.html#ababd8996161ac79d6889b81a2f1755af">  125</a></span>      name                            <a class="code hl_variable" href="structeosio_1_1multisig_1_1old__approvals__info.html#ababd8996161ac79d6889b81a2f1755af">proposal_name</a>;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="structeosio_1_1multisig_1_1old__approvals__info.html#ae499fbd3582721ecd3caa4d0ff71737f">  126</a></span>      std::vector&lt;permission_level&gt;   <a class="code hl_variable" href="structeosio_1_1multisig_1_1old__approvals__info.html#ae499fbd3582721ecd3caa4d0ff71737f">requested_approvals</a>;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno"><a class="line" href="structeosio_1_1multisig_1_1old__approvals__info.html#a1f9c8bcc263e6a6d324c81e1cbbd49f1">  127</a></span>      std::vector&lt;permission_level&gt;   <a class="code hl_variable" href="structeosio_1_1multisig_1_1old__approvals__info.html#a1f9c8bcc263e6a6d324c81e1cbbd49f1">provided_approvals</a>;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="structeosio_1_1multisig_1_1old__approvals__info.html#a3a8558018b8d987b48ae8d0d0935611e">  128</a></span>      uint64_t <a class="code hl_function" href="structeosio_1_1multisig_1_1old__approvals__info.html#a3a8558018b8d987b48ae8d0d0935611e">primary_key</a>()<span class="keyword">const </span>{ <span class="keywordflow">return</span> proposal_name.value; }</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>   };</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="classeosio_1_1multisig.html#a1ad32ac47eba850bcecb5940b21b1f04">  130</a></span>   <span class="keyword">typedef</span> eosio::multi_index&lt; <span class="stringliteral">&quot;approvals&quot;</span>_n, <a class="code hl_struct" href="structeosio_1_1multisig_1_1old__approvals__info.html">old_approvals_info</a> &gt; <a class="code hl_typedef" href="classeosio_1_1multisig.html#a1ad32ac47eba850bcecb5940b21b1f04">old_approvals</a>;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="structeosio_1_1multisig_1_1approval.html">  131</a></span>   <span class="keyword">struct </span><a class="code hl_struct" href="structeosio_1_1multisig_1_1approval.html">approval</a> {</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="structeosio_1_1multisig_1_1approval.html#a7de164e0abd4d7ecec9da2f67fe57ece">  132</a></span>      permission_level <a class="code hl_variable" href="structeosio_1_1multisig_1_1approval.html#a7de164e0abd4d7ecec9da2f67fe57ece">level</a>;</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="structeosio_1_1multisig_1_1approval.html#a07e19daf20f6ca5a96251a0c590cbe31">  133</a></span>      <a class="code hl_typedef" href="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester.html#aada4f815458e881f7140c74078089f01">time_point</a>       <a class="code hl_variable" href="structeosio_1_1multisig_1_1approval.html#a07e19daf20f6ca5a96251a0c590cbe31">time</a>;</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>   };</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="structeosio_1_1multisig_1_1approvals__info.html">  136</a></span>   <span class="keyword">struct </span>[[eosio::table, <a class="code hl_namespace" href="namespaceeosio.html">eosio</a>::contract(&quot;eosio.msig&quot;)]] <a class="code hl_struct" href="structeosio_1_1multisig_1_1approvals__info.html">approvals_info</a> {</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="structeosio_1_1multisig_1_1approvals__info.html#a7067d083de3933cab8fa1b961e1d810d">  137</a></span>      uint8_t                 version = 1;</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="structeosio_1_1multisig_1_1approvals__info.html#a76bf340c4c8c42d573664bd0fab91675">  138</a></span>      name                    <a class="code hl_variable" href="structeosio_1_1multisig_1_1approvals__info.html#a76bf340c4c8c42d573664bd0fab91675">proposal_name</a>;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>      <span class="comment">//requested approval doesn&#39;t need to contain time, but we want requested approval</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>      <span class="comment">//to be of exactly the same size as provided approval, in this case approve/unapprove</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>      <span class="comment">//doesn&#39;t change serialized data size. So, we use the same type.</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="structeosio_1_1multisig_1_1approvals__info.html#ad173253fe8f9e34c17117db4baeb41ae">  142</a></span>      std::vector&lt;approval&gt;   <a class="code hl_variable" href="structeosio_1_1multisig_1_1approvals__info.html#ad173253fe8f9e34c17117db4baeb41ae">requested_approvals</a>;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="structeosio_1_1multisig_1_1approvals__info.html#a6d57f9792fe5bc8b2cacbf071e1059f8">  143</a></span>      std::vector&lt;approval&gt;   <a class="code hl_variable" href="structeosio_1_1multisig_1_1approvals__info.html#a6d57f9792fe5bc8b2cacbf071e1059f8">provided_approvals</a>;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="structeosio_1_1multisig_1_1approvals__info.html#ac7ec9b713d3a499006ea9ba9030e10b4">  144</a></span>      uint64_t <a class="code hl_function" href="structeosio_1_1multisig_1_1approvals__info.html#ac7ec9b713d3a499006ea9ba9030e10b4">primary_key</a>()<span class="keyword">const </span>{ <span class="keywordflow">return</span> proposal_name.value; }</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>   };</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="classeosio_1_1multisig.html#a63a04fd1cf67821038757093a19934e4">  146</a></span>   <span class="keyword">typedef</span> eosio::multi_index&lt; <span class="stringliteral">&quot;approvals2&quot;</span>_n, <a class="code hl_struct" href="structeosio_1_1multisig_1_1approvals__info.html">approvals_info</a> &gt; <a class="code hl_typedef" href="classeosio_1_1multisig.html#a63a04fd1cf67821038757093a19934e4">approvals</a>;</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno"><a class="line" href="structeosio_1_1multisig_1_1invalidation.html">  148</a></span>   <span class="keyword">struct </span>[[eosio::table, <a class="code hl_namespace" href="namespaceeosio.html">eosio</a>::contract(&quot;eosio.msig&quot;)]] <a class="code hl_struct" href="structeosio_1_1multisig_1_1invalidation.html">invalidation</a> {</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno"><a class="line" href="structeosio_1_1multisig_1_1invalidation.html#af732aa933c30257e90b28db376af4461">  149</a></span>         name         <a class="code hl_variable" href="structeosio_1_1multisig_1_1invalidation.html#af732aa933c30257e90b28db376af4461">account</a>;</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno"><a class="line" href="structeosio_1_1multisig_1_1invalidation.html#a767f677a40d58d61189e2bfd2bbdff1f">  150</a></span>         <a class="code hl_typedef" href="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester.html#aada4f815458e881f7140c74078089f01">time_point</a>   <a class="code hl_variable" href="structeosio_1_1multisig_1_1invalidation.html#a767f677a40d58d61189e2bfd2bbdff1f">last_invalidation_time</a>;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno"><a class="line" href="structeosio_1_1multisig_1_1invalidation.html#a8222535d8511a2cd9667a7c816a169b8">  152</a></span>         uint64_t <a class="code hl_function" href="structeosio_1_1multisig_1_1invalidation.html#a8222535d8511a2cd9667a7c816a169b8">primary_key</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> account.value; }</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>      };</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="classeosio_1_1multisig.html#a22ec4ca93c516c0b46aa306ef14929e6">  155</a></span>      <span class="keyword">typedef</span> eosio::multi_index&lt; <span class="stringliteral">&quot;invals&quot;</span>_n, <a class="code hl_struct" href="structeosio_1_1multisig_1_1invalidation.html">invalidation</a> &gt; <a class="code hl_typedef" href="classeosio_1_1multisig.html#a22ec4ca93c516c0b46aa306ef14929e6">invalidations</a>;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>   };</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>} </div>
+<div class="ttc" id="aclasseosio_1_1multisig_html"><div class="ttname"><a href="classeosio_1_1multisig.html">eosio::multisig</a></div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:18</div></div>
+<div class="ttc" id="aclasseosio_1_1multisig_html_a190673aa69f84e30b207ce0d7fcfdeaf"><div class="ttname"><a href="classeosio_1_1multisig.html#a190673aa69f84e30b207ce0d7fcfdeaf">eosio::multisig::exec_action</a></div><div class="ttdeci">eosio::action_wrapper&lt;&quot;exec&quot;_n, &amp;multisig::exec &gt; exec_action</div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:112</div></div>
+<div class="ttc" id="aclasseosio_1_1multisig_html_a1ad32ac47eba850bcecb5940b21b1f04"><div class="ttname"><a href="classeosio_1_1multisig.html#a1ad32ac47eba850bcecb5940b21b1f04">eosio::multisig::old_approvals</a></div><div class="ttdeci">eosio::multi_index&lt; &quot;approvals&quot;_n, old_approvals_info &gt; old_approvals</div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:130</div></div>
+<div class="ttc" id="aclasseosio_1_1multisig_html_a22ec4ca93c516c0b46aa306ef14929e6"><div class="ttname"><a href="classeosio_1_1multisig.html#a22ec4ca93c516c0b46aa306ef14929e6">eosio::multisig::invalidations</a></div><div class="ttdeci">eosio::multi_index&lt; &quot;invals&quot;_n, invalidation &gt; invalidations</div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:155</div></div>
+<div class="ttc" id="aclasseosio_1_1multisig_html_a2dc849ab961ea31c0e93ebace0f0dd00"><div class="ttname"><a href="classeosio_1_1multisig.html#a2dc849ab961ea31c0e93ebace0f0dd00">eosio::multisig::cancel</a></div><div class="ttdeci">void cancel(name proposer, name proposal_name, name canceler)</div><div class="ttdef"><b>Definition:</b> eosio.msig.cpp:184</div></div>
+<div class="ttc" id="aclasseosio_1_1multisig_html_a36509e236e810ab65fa9f0d4d4819a44"><div class="ttname"><a href="classeosio_1_1multisig.html#a36509e236e810ab65fa9f0d4d4819a44">eosio::multisig::unapprove_action</a></div><div class="ttdeci">eosio::action_wrapper&lt;&quot;unapprove&quot;_n, &amp;multisig::unapprove &gt; unapprove_action</div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:110</div></div>
+<div class="ttc" id="aclasseosio_1_1multisig_html_a4f80f1ab1d2bd88d9ee3964e8cf34771"><div class="ttname"><a href="classeosio_1_1multisig.html#a4f80f1ab1d2bd88d9ee3964e8cf34771">eosio::multisig::proposals</a></div><div class="ttdeci">eosio::multi_index&lt; &quot;proposal&quot;_n, proposal &gt; proposals</div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:122</div></div>
+<div class="ttc" id="aclasseosio_1_1multisig_html_a59e26671d5a02dd2f809b08f56b4d3b8"><div class="ttname"><a href="classeosio_1_1multisig.html#a59e26671d5a02dd2f809b08f56b4d3b8">eosio::multisig::invalidate</a></div><div class="ttdeci">void invalidate(name account)</div><div class="ttdef"><b>Definition:</b> eosio.msig.cpp:240</div></div>
+<div class="ttc" id="aclasseosio_1_1multisig_html_a5cccb8b23b9fffa1b27d443fad9ce3e9"><div class="ttname"><a href="classeosio_1_1multisig.html#a5cccb8b23b9fffa1b27d443fad9ce3e9">eosio::multisig::approve</a></div><div class="ttdeci">void approve(name proposer, name proposal_name, permission_level level, const eosio::binary_extension&lt; eosio::checksum256 &gt; &amp;proposal_hash)</div><div class="ttdef"><b>Definition:</b> eosio.msig.cpp:92</div></div>
+<div class="ttc" id="aclasseosio_1_1multisig_html_a63a04fd1cf67821038757093a19934e4"><div class="ttname"><a href="classeosio_1_1multisig.html#a63a04fd1cf67821038757093a19934e4">eosio::multisig::approvals</a></div><div class="ttdeci">eosio::multi_index&lt; &quot;approvals2&quot;_n, approvals_info &gt; approvals</div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:146</div></div>
+<div class="ttc" id="aclasseosio_1_1multisig_html_a6b2b36f41c47c6cd4d93fecfd8cc60cf"><div class="ttname"><a href="classeosio_1_1multisig.html#a6b2b36f41c47c6cd4d93fecfd8cc60cf">eosio::multisig::propose_action</a></div><div class="ttdeci">eosio::action_wrapper&lt;&quot;propose&quot;_n, &amp;multisig::propose &gt; propose_action</div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:108</div></div>
+<div class="ttc" id="aclasseosio_1_1multisig_html_a78ab9fde21f9ded0848d08fa608928be"><div class="ttname"><a href="classeosio_1_1multisig.html#a78ab9fde21f9ded0848d08fa608928be">eosio::multisig::approve_action</a></div><div class="ttdeci">eosio::action_wrapper&lt;&quot;approve&quot;_n, &amp;multisig::approve &gt; approve_action</div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:109</div></div>
+<div class="ttc" id="aclasseosio_1_1multisig_html_a7d6e568f96c6697728e316557a9bcf1e"><div class="ttname"><a href="classeosio_1_1multisig.html#a7d6e568f96c6697728e316557a9bcf1e">eosio::multisig::unapprove</a></div><div class="ttdeci">void unapprove(name proposer, name proposal_name, permission_level level)</div><div class="ttdef"><b>Definition:</b> eosio.msig.cpp:143</div></div>
+<div class="ttc" id="aclasseosio_1_1multisig_html_aa24ce647e2b69d4def57d629b12a5947"><div class="ttname"><a href="classeosio_1_1multisig.html#aa24ce647e2b69d4def57d629b12a5947">eosio::multisig::cancel_action</a></div><div class="ttdeci">eosio::action_wrapper&lt;&quot;cancel&quot;_n, &amp;multisig::cancel &gt; cancel_action</div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:111</div></div>
+<div class="ttc" id="aclasseosio_1_1multisig_html_ac2bc17cd429e3e5c7b5dd8469db4fb74"><div class="ttname"><a href="classeosio_1_1multisig.html#ac2bc17cd429e3e5c7b5dd8469db4fb74">eosio::multisig::invalidate_action</a></div><div class="ttdeci">eosio::action_wrapper&lt;&quot;invalidate&quot;_n, &amp;multisig::invalidate &gt; invalidate_action</div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:113</div></div>
+<div class="ttc" id="aclasseosio_1_1multisig_html_ac31b3d91892bf8fcdad8d6f123c278ff"><div class="ttname"><a href="classeosio_1_1multisig.html#ac31b3d91892bf8fcdad8d6f123c278ff">eosio::multisig::exec</a></div><div class="ttdeci">void exec(name proposer, name proposal_name, name executer)</div><div class="ttdef"><b>Definition:</b> eosio.msig.cpp:208</div></div>
+<div class="ttc" id="aclasseosio_1_1multisig_html_acb9cee084979625820b6f45492f13be0"><div class="ttname"><a href="classeosio_1_1multisig.html#acb9cee084979625820b6f45492f13be0">eosio::multisig::propose</a></div><div class="ttdeci">void propose(name proposer, name proposal_name, std::vector&lt; permission_level &gt; requested, ignore&lt; transaction &gt; trx)</div><div class="ttdef"><b>Definition:</b> eosio.msig.cpp:42</div></div>
+<div class="ttc" id="anamespaceeosio_html"><div class="ttname"><a href="namespaceeosio.html">eosio</a></div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:8</div></div>
+<div class="ttc" id="anamespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_html_aada4f815458e881f7140c74078089f01"><div class="ttname"><a href="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester.html#aada4f815458e881f7140c74078089f01">system_contracts::testing::test_contracts::blockinfo_tester::time_point</a></div><div class="ttdeci">eosio::time_point time_point</div><div class="ttdef"><b>Definition:</b> blockinfo_tester.hpp:30</div></div>
+<div class="ttc" id="astructeosio_1_1multisig_1_1approval_html"><div class="ttname"><a href="structeosio_1_1multisig_1_1approval.html">eosio::multisig::approval</a></div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:131</div></div>
+<div class="ttc" id="astructeosio_1_1multisig_1_1approval_html_a07e19daf20f6ca5a96251a0c590cbe31"><div class="ttname"><a href="structeosio_1_1multisig_1_1approval.html#a07e19daf20f6ca5a96251a0c590cbe31">eosio::multisig::approval::time</a></div><div class="ttdeci">time_point time</div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:133</div></div>
+<div class="ttc" id="astructeosio_1_1multisig_1_1approval_html_a7de164e0abd4d7ecec9da2f67fe57ece"><div class="ttname"><a href="structeosio_1_1multisig_1_1approval.html#a7de164e0abd4d7ecec9da2f67fe57ece">eosio::multisig::approval::level</a></div><div class="ttdeci">permission_level level</div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:132</div></div>
+<div class="ttc" id="astructeosio_1_1multisig_1_1approvals__info_html"><div class="ttname"><a href="structeosio_1_1multisig_1_1approvals__info.html">eosio::multisig::approvals_info</a></div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:136</div></div>
+<div class="ttc" id="astructeosio_1_1multisig_1_1approvals__info_html_a6d57f9792fe5bc8b2cacbf071e1059f8"><div class="ttname"><a href="structeosio_1_1multisig_1_1approvals__info.html#a6d57f9792fe5bc8b2cacbf071e1059f8">eosio::multisig::approvals_info::provided_approvals</a></div><div class="ttdeci">std::vector&lt; approval &gt; provided_approvals</div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:143</div></div>
+<div class="ttc" id="astructeosio_1_1multisig_1_1approvals__info_html_a76bf340c4c8c42d573664bd0fab91675"><div class="ttname"><a href="structeosio_1_1multisig_1_1approvals__info.html#a76bf340c4c8c42d573664bd0fab91675">eosio::multisig::approvals_info::proposal_name</a></div><div class="ttdeci">name proposal_name</div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:138</div></div>
+<div class="ttc" id="astructeosio_1_1multisig_1_1approvals__info_html_ac7ec9b713d3a499006ea9ba9030e10b4"><div class="ttname"><a href="structeosio_1_1multisig_1_1approvals__info.html#ac7ec9b713d3a499006ea9ba9030e10b4">eosio::multisig::approvals_info::primary_key</a></div><div class="ttdeci">uint64_t primary_key() const</div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:144</div></div>
+<div class="ttc" id="astructeosio_1_1multisig_1_1approvals__info_html_ad173253fe8f9e34c17117db4baeb41ae"><div class="ttname"><a href="structeosio_1_1multisig_1_1approvals__info.html#ad173253fe8f9e34c17117db4baeb41ae">eosio::multisig::approvals_info::requested_approvals</a></div><div class="ttdeci">std::vector&lt; approval &gt; requested_approvals</div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:142</div></div>
+<div class="ttc" id="astructeosio_1_1multisig_1_1invalidation_html"><div class="ttname"><a href="structeosio_1_1multisig_1_1invalidation.html">eosio::multisig::invalidation</a></div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:148</div></div>
+<div class="ttc" id="astructeosio_1_1multisig_1_1invalidation_html_a767f677a40d58d61189e2bfd2bbdff1f"><div class="ttname"><a href="structeosio_1_1multisig_1_1invalidation.html#a767f677a40d58d61189e2bfd2bbdff1f">eosio::multisig::invalidation::last_invalidation_time</a></div><div class="ttdeci">time_point last_invalidation_time</div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:150</div></div>
+<div class="ttc" id="astructeosio_1_1multisig_1_1invalidation_html_a8222535d8511a2cd9667a7c816a169b8"><div class="ttname"><a href="structeosio_1_1multisig_1_1invalidation.html#a8222535d8511a2cd9667a7c816a169b8">eosio::multisig::invalidation::primary_key</a></div><div class="ttdeci">uint64_t primary_key() const</div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:152</div></div>
+<div class="ttc" id="astructeosio_1_1multisig_1_1invalidation_html_af732aa933c30257e90b28db376af4461"><div class="ttname"><a href="structeosio_1_1multisig_1_1invalidation.html#af732aa933c30257e90b28db376af4461">eosio::multisig::invalidation::account</a></div><div class="ttdeci">name account</div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:149</div></div>
+<div class="ttc" id="astructeosio_1_1multisig_1_1old__approvals__info_html"><div class="ttname"><a href="structeosio_1_1multisig_1_1old__approvals__info.html">eosio::multisig::old_approvals_info</a></div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:124</div></div>
+<div class="ttc" id="astructeosio_1_1multisig_1_1old__approvals__info_html_a1f9c8bcc263e6a6d324c81e1cbbd49f1"><div class="ttname"><a href="structeosio_1_1multisig_1_1old__approvals__info.html#a1f9c8bcc263e6a6d324c81e1cbbd49f1">eosio::multisig::old_approvals_info::provided_approvals</a></div><div class="ttdeci">std::vector&lt; permission_level &gt; provided_approvals</div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:127</div></div>
+<div class="ttc" id="astructeosio_1_1multisig_1_1old__approvals__info_html_a3a8558018b8d987b48ae8d0d0935611e"><div class="ttname"><a href="structeosio_1_1multisig_1_1old__approvals__info.html#a3a8558018b8d987b48ae8d0d0935611e">eosio::multisig::old_approvals_info::primary_key</a></div><div class="ttdeci">uint64_t primary_key() const</div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:128</div></div>
+<div class="ttc" id="astructeosio_1_1multisig_1_1old__approvals__info_html_ababd8996161ac79d6889b81a2f1755af"><div class="ttname"><a href="structeosio_1_1multisig_1_1old__approvals__info.html#ababd8996161ac79d6889b81a2f1755af">eosio::multisig::old_approvals_info::proposal_name</a></div><div class="ttdeci">name proposal_name</div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:125</div></div>
+<div class="ttc" id="astructeosio_1_1multisig_1_1old__approvals__info_html_ae499fbd3582721ecd3caa4d0ff71737f"><div class="ttname"><a href="structeosio_1_1multisig_1_1old__approvals__info.html#ae499fbd3582721ecd3caa4d0ff71737f">eosio::multisig::old_approvals_info::requested_approvals</a></div><div class="ttdeci">std::vector&lt; permission_level &gt; requested_approvals</div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:126</div></div>
+<div class="ttc" id="astructeosio_1_1multisig_1_1proposal_html"><div class="ttname"><a href="structeosio_1_1multisig_1_1proposal.html">eosio::multisig::proposal</a></div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:115</div></div>
+<div class="ttc" id="astructeosio_1_1multisig_1_1proposal_html_a231b1043a7721d508c07ca6c6b20385b"><div class="ttname"><a href="structeosio_1_1multisig_1_1proposal.html#a231b1043a7721d508c07ca6c6b20385b">eosio::multisig::proposal::proposal_name</a></div><div class="ttdeci">name proposal_name</div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:116</div></div>
+<div class="ttc" id="astructeosio_1_1multisig_1_1proposal_html_ac8b4f63052c9089874b1a0be48bcef07"><div class="ttname"><a href="structeosio_1_1multisig_1_1proposal.html#ac8b4f63052c9089874b1a0be48bcef07">eosio::multisig::proposal::earliest_exec_time</a></div><div class="ttdeci">eosio::binary_extension&lt; std::optional&lt; time_point &gt; &gt; earliest_exec_time</div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:118</div></div>
+<div class="ttc" id="astructeosio_1_1multisig_1_1proposal_html_ae459219bcd83cd451771b633277519db"><div class="ttname"><a href="structeosio_1_1multisig_1_1proposal.html#ae459219bcd83cd451771b633277519db">eosio::multisig::proposal::primary_key</a></div><div class="ttdeci">uint64_t primary_key() const</div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:120</div></div>
+<div class="ttc" id="astructeosio_1_1multisig_1_1proposal_html_af9a7406b371dbf10a78ce56f9f921f84"><div class="ttname"><a href="structeosio_1_1multisig_1_1proposal.html#af9a7406b371dbf10a78ce56f9f921f84">eosio::multisig::proposal::packed_transaction</a></div><div class="ttdeci">std::vector&lt; char &gt; packed_transaction</div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:117</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_e8522150b400a43ebfdbd1fed060b8e2.html">system</a></li><li class="navelem"><a class="el" href="dir_ffef2b95cecc8775c327d00648f9c8c4.html">contracts</a></li><li class="navelem"><a class="el" href="dir_ce176606428438334767495850c86213.html">eosio.msig</a></li><li class="navelem"><a class="el" href="dir_e461500be802598d854d0b36cf5e54fe.html">include</a></li><li class="navelem"><a class="el" href="dir_fe51f45cd2a4eee3e812ea0f9b909c13.html">eosio.msig</a></li><li class="navelem"><a class="el" href="eosio_8msig_8hpp.html">eosio.msig.hpp</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+  </ul>
+</div>
+</body>
+</html>

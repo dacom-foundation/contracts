@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="dir_c6fa302b7178ac141dbe1d4e625f0998" kind="dir">
+    <compoundname>system/contracts/eosio.wrap/include/eosio.wrap</compoundname>
+    <innerfile refid="eosio_8wrap_8hpp">eosio.wrap.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="system/contracts/eosio.wrap/include/eosio.wrap/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="addresses_8cpp" kind="file" language="C++">
+    <compoundname>addresses.cpp</compoundname>
+    <includedby refid="soviet_2soviet_8cpp" local="yes">soviet/soviet.cpp</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>soviet/soviet.cpp</label>
+        <link refid="soviet_2soviet_8cpp"/>
+      </node>
+      <node id="1">
+        <label>soviet/src/addresses.cpp</label>
+        <link refid="addresses_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceeosio" kindref="compound">eosio</ref>;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsoviet_1a8aea397e24b8dd9f3005414cdac0b05b" kindref="member">soviet::creaddress</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>chairman,<sp/>eosio::name<sp/>cooplate,<sp/><ref refid="structaddress" kindref="compound">address</ref><sp/>data,<sp/>std::string<sp/>meta)<sp/>{</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/>require_auth(chairman);</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>cooperative<sp/>=<sp/><ref refid="accounts_8hpp_1ab6c5b66b6e44ba641ca66bf6480bb5c5" kindref="member">get_cooperative_or_fail</ref>(coopname);<sp/><sp/></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cooplate<sp/>!=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">_n)<sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>cooperative_plate<sp/>=<sp/><ref refid="accounts_8hpp_1aaf349c65a141185f438e8bed2fc31401" kindref="member">get_cooplate_or_fail</ref>(coopname,<sp/>cooplate);<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><ref refid="coops_8hpp_1ad05b8ab165ff4c063b1363832210ae3e" kindref="member">addresses_index</ref><sp/><ref refid="structaddresses" kindref="compound">addresses</ref>(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>coopname.value);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/><ref refid="counts_8hpp_1aeb06beaf4402f0222167ef9d12eacd5c" kindref="member">get_global_id</ref>(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/></highlight><highlight class="stringliteral">&quot;addresses&quot;</highlight><highlight class="normal">_n);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><ref refid="structaddresses" kindref="compound">addresses</ref>.emplace(chairman,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;a){</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>a.id<sp/>=<sp/>id;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>a.coopname<sp/>=<sp/>coopname;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>a.cooplate<sp/>=<sp/>cooplate;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>a.data<sp/>=<sp/>data;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>a.meta<sp/>=<sp/>meta;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsoviet_1ab294d7ecdfdb12636d28e7dc65524e68" kindref="member">soviet::deladdress</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>chairman,<sp/>uint64_t<sp/>address_id)<sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>require_auth(chairman);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>cooperative<sp/>=<sp/><ref refid="accounts_8hpp_1ab6c5b66b6e44ba641ca66bf6480bb5c5" kindref="member">get_cooperative_or_fail</ref>(coopname);<sp/><sp/></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><ref refid="coops_8hpp_1ad05b8ab165ff4c063b1363832210ae3e" kindref="member">addresses_index</ref><sp/><ref refid="structaddresses" kindref="compound">addresses</ref>(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>coopname.value);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="structaddress" kindref="compound">address</ref><sp/>=<sp/><ref refid="structaddresses" kindref="compound">addresses</ref>.find(address_id);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>eosio::check(<ref refid="structaddress" kindref="compound">address</ref><sp/>!=<sp/><ref refid="structaddresses" kindref="compound">addresses</ref>.end(),<sp/></highlight><highlight class="stringliteral">&quot;Адрес<sp/>не<sp/>найден&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><ref refid="structaddresses" kindref="compound">addresses</ref>.erase(<ref refid="structaddress" kindref="compound">address</ref>);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsoviet_1af411937e4647e3754a5d272d08802f34" kindref="member">soviet::editaddress</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>chairman,<sp/>uint64_t<sp/>address_id,<sp/>eosio::name<sp/>cooplate,<sp/><ref refid="structaddress" kindref="compound">address</ref><sp/>data,<sp/>std::string<sp/>meta)<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>require_auth(chairman);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>cooperative<sp/>=<sp/><ref refid="accounts_8hpp_1ab6c5b66b6e44ba641ca66bf6480bb5c5" kindref="member">get_cooperative_or_fail</ref>(coopname);<sp/><sp/></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cooplate<sp/>!=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">_n)<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>cooperative_plate<sp/>=<sp/><ref refid="accounts_8hpp_1aaf349c65a141185f438e8bed2fc31401" kindref="member">get_cooplate_or_fail</ref>(coopname,<sp/>cooplate);<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><ref refid="coops_8hpp_1ad05b8ab165ff4c063b1363832210ae3e" kindref="member">addresses_index</ref><sp/><ref refid="structaddresses" kindref="compound">addresses</ref>(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>coopname.value);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="structaddress" kindref="compound">address</ref><sp/>=<sp/><ref refid="structaddresses" kindref="compound">addresses</ref>.find(address_id);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>eosio::check(<ref refid="structaddress" kindref="compound">address</ref><sp/>!=<sp/><ref refid="structaddresses" kindref="compound">addresses</ref>.end(),<sp/></highlight><highlight class="stringliteral">&quot;Адрес<sp/>не<sp/>найден&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><ref refid="structaddresses" kindref="compound">addresses</ref>.modify(<ref refid="structaddress" kindref="compound">address</ref>,<sp/>chairman,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;a){</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>a.cooplate<sp/>=<sp/>cooplate;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>a.data<sp/>=<sp/>data;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>a.meta<sp/>=<sp/>meta;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="soviet/src/addresses.cpp"/>
+  </compounddef>
+</doxygen>

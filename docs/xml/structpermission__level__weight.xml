@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structpermission__level__weight" kind="struct" language="C++" prot="public">
+    <compoundname>permission_level_weight</compoundname>
+    <includes refid="permissions_8hpp" local="no">permissions.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structpermission__level__weight_1a8e66350534de3fc26309013f5ade74b8" prot="public" static="no" mutable="no">
+        <type>eosio::permission_level</type>
+        <definition>eosio::permission_level permission_level_weight::permission</definition>
+        <argsstring></argsstring>
+        <name>permission</name>
+        <qualifiedname>permission_level_weight::permission</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/permissions.hpp" line="2" column="29" bodyfile="common/permissions.hpp" bodystart="2" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structpermission__level__weight_1a8a90481461f59afdd92875d0caa6959f" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t permission_level_weight::weight</definition>
+        <argsstring></argsstring>
+        <name>weight</name>
+        <qualifiedname>permission_level_weight::weight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/permissions.hpp" line="3" column="22" bodyfile="common/permissions.hpp" bodystart="3" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>permission_level</label>
+      </node>
+      <node id="1">
+        <label>permission_level_weight</label>
+        <link refid="structpermission__level__weight"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>permission</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="common/permissions.hpp" line="1" column="1" bodyfile="common/permissions.hpp" bodystart="1" bodyend="7"/>
+    <listofallmembers>
+      <member refid="structpermission__level__weight_1a8e66350534de3fc26309013f5ade74b8" prot="public" virt="non-virtual"><scope>permission_level_weight</scope><name>permission</name></member>
+      <member refid="structpermission__level__weight_1a8a90481461f59afdd92875d0caa6959f" prot="public" virt="non-virtual"><scope>permission_level_weight</scope><name>weight</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

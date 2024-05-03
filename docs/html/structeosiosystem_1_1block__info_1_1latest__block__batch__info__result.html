@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.3"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Для разработчиков: Структура eosiosystem::block_info::latest_block_batch_info_result</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Для разработчиков
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.3 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('structeosiosystem_1_1block__info_1_1latest__block__batch__info__result.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Открытые типы</a> &#124;
+<a href="#pub-attribs">Открытые атрибуты</a> &#124;
+<a href="structeosiosystem_1_1block__info_1_1latest__block__batch__info__result-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Структура eosiosystem::block_info::latest_block_batch_info_result</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="block__info_8hpp_source.html">block_info.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Открытые типы</h2></td></tr>
+<tr class="memitem:aae67f275b3852dbc62dcfbc8be6e7e8c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeosiosystem_1_1block__info_1_1latest__block__batch__info__result.html#aae67f275b3852dbc62dcfbc8be6e7e8c">error_code_enum</a> : uint32_t { <a class="el" href="structeosiosystem_1_1block__info_1_1latest__block__batch__info__result.html#aae67f275b3852dbc62dcfbc8be6e7e8ca29ace81de9104bb745420255a55ad7b3">no_error</a>
+, <a class="el" href="structeosiosystem_1_1block__info_1_1latest__block__batch__info__result.html#aae67f275b3852dbc62dcfbc8be6e7e8caecb8e0c9f69837caaec46f55744e9f01">invalid_input</a>
+, <a class="el" href="structeosiosystem_1_1block__info_1_1latest__block__batch__info__result.html#aae67f275b3852dbc62dcfbc8be6e7e8ca4d82a7bde8f554c393031a3a9399f385">unsupported_version</a>
+, <a class="el" href="structeosiosystem_1_1block__info_1_1latest__block__batch__info__result.html#aae67f275b3852dbc62dcfbc8be6e7e8caeece530443605471d0bd284929c28ad8">insufficient_data</a>
+ }</td></tr>
+<tr class="separator:aae67f275b3852dbc62dcfbc8be6e7e8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Открытые атрибуты</h2></td></tr>
+<tr class="memitem:ad6bb99259a46f73549ee37819affcc1a"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="structeosiosystem_1_1block__info_1_1block__batch__info.html">block_batch_info</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeosiosystem_1_1block__info_1_1latest__block__batch__info__result.html#ad6bb99259a46f73549ee37819affcc1a">result</a></td></tr>
+<tr class="separator:ad6bb99259a46f73549ee37819affcc1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae64b5eb7efe7ddafb9aa3e260dc4fa8e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeosiosystem_1_1block__info_1_1latest__block__batch__info__result.html#aae67f275b3852dbc62dcfbc8be6e7e8c">error_code_enum</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeosiosystem_1_1block__info_1_1latest__block__batch__info__result.html#ae64b5eb7efe7ddafb9aa3e260dc4fa8e">error_code</a> = <a class="el" href="structeosiosystem_1_1block__info_1_1latest__block__batch__info__result.html#aae67f275b3852dbc62dcfbc8be6e7e8ca29ace81de9104bb745420255a55ad7b3">no_error</a></td></tr>
+<tr class="separator:ae64b5eb7efe7ddafb9aa3e260dc4fa8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Перечисления</h2>
+<a id="aae67f275b3852dbc62dcfbc8be6e7e8c" name="aae67f275b3852dbc62dcfbc8be6e7e8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae67f275b3852dbc62dcfbc8be6e7e8c">&#9670;&nbsp;</a></span>error_code_enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="structeosiosystem_1_1block__info_1_1latest__block__batch__info__result.html#aae67f275b3852dbc62dcfbc8be6e7e8c">eosiosystem::block_info::latest_block_batch_info_result::error_code_enum</a> : uint32_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="aae67f275b3852dbc62dcfbc8be6e7e8ca29ace81de9104bb745420255a55ad7b3" name="aae67f275b3852dbc62dcfbc8be6e7e8ca29ace81de9104bb745420255a55ad7b3"></a>no_error&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aae67f275b3852dbc62dcfbc8be6e7e8caecb8e0c9f69837caaec46f55744e9f01" name="aae67f275b3852dbc62dcfbc8be6e7e8caecb8e0c9f69837caaec46f55744e9f01"></a>invalid_input&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aae67f275b3852dbc62dcfbc8be6e7e8ca4d82a7bde8f554c393031a3a9399f385" name="aae67f275b3852dbc62dcfbc8be6e7e8ca4d82a7bde8f554c393031a3a9399f385"></a>unsupported_version&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aae67f275b3852dbc62dcfbc8be6e7e8caeece530443605471d0bd284929c28ad8" name="aae67f275b3852dbc62dcfbc8be6e7e8caeece530443605471d0bd284929c28ad8"></a>insufficient_data&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Данные класса</h2>
+<a id="ae64b5eb7efe7ddafb9aa3e260dc4fa8e" name="ae64b5eb7efe7ddafb9aa3e260dc4fa8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae64b5eb7efe7ddafb9aa3e260dc4fa8e">&#9670;&nbsp;</a></span>error_code</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structeosiosystem_1_1block__info_1_1latest__block__batch__info__result.html#aae67f275b3852dbc62dcfbc8be6e7e8c">error_code_enum</a> eosiosystem::block_info::latest_block_batch_info_result::error_code = <a class="el" href="structeosiosystem_1_1block__info_1_1latest__block__batch__info__result.html#aae67f275b3852dbc62dcfbc8be6e7e8ca29ace81de9104bb745420255a55ad7b3">no_error</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad6bb99259a46f73549ee37819affcc1a" name="ad6bb99259a46f73549ee37819affcc1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6bb99259a46f73549ee37819affcc1a">&#9670;&nbsp;</a></span>result</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt;<a class="el" href="structeosiosystem_1_1block__info_1_1block__batch__info.html">block_batch_info</a>&gt; eosiosystem::block_info::latest_block_batch_info_result::result</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>Объявления и описания членов структуры находятся в файле:<ul>
+<li>system/contracts/eosio.system/include/eosio.system/<a class="el" href="block__info_8hpp_source.html">block_info.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceeosiosystem.html">eosiosystem</a></li><li class="navelem"><a class="el" href="namespaceeosiosystem_1_1block__info.html">block_info</a></li><li class="navelem"><a class="el" href="structeosiosystem_1_1block__info_1_1latest__block__batch__info__result.html">latest_block_batch_info_result</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structautomator" kind="struct" language="C++" prot="public">
+    <compoundname>automator</compoundname>
+    <includes refid="soviet_8hpp" local="no">soviet.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structautomator_1a9389163367c7579bd9725a83bb27cef6" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t automator::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>automator::id</qualifiedname>
+        <briefdescription>
+<para>Уникальный идентификатор автоматизированного действия </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="141" column="14" bodyfile="soviet/soviet.hpp" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structautomator_1a020dc5169affb64d4df454bd10d8176f" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name automator::coopname</definition>
+        <argsstring></argsstring>
+        <name>coopname</name>
+        <qualifiedname>automator::coopname</qualifiedname>
+        <briefdescription>
+<para>Имя кооператива, к которому относится данное автоматизированное действие </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="142" column="17" bodyfile="soviet/soviet.hpp" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structautomator_1af9991df3151a7d8205c4205caf993a92" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t automator::board_id</definition>
+        <argsstring></argsstring>
+        <name>board_id</name>
+        <qualifiedname>automator::board_id</qualifiedname>
+        <briefdescription>
+<para>Идентификатор совета, который автоматизировал данное действие </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="143" column="14" bodyfile="soviet/soviet.hpp" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structautomator_1a7bb8cdadaa140b733497e80fdecf49ab" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name automator::member</definition>
+        <argsstring></argsstring>
+        <name>member</name>
+        <qualifiedname>automator::member</qualifiedname>
+        <briefdescription>
+<para>Член совета, который автоматизировал данное действие </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="144" column="17" bodyfile="soviet/soviet.hpp" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structautomator_1afcb1a4bcd330d3e3cb50fe5f977cc069" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name automator::action_type</definition>
+        <argsstring></argsstring>
+        <name>action_type</name>
+        <qualifiedname>automator::action_type</qualifiedname>
+        <briefdescription>
+<para>Тип автоматизированного действия </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="145" column="17" bodyfile="soviet/soviet.hpp" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structautomator_1a4d145638d25608ddf9c5d737f9fe6da2" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name automator::permission_name</definition>
+        <argsstring></argsstring>
+        <name>permission_name</name>
+        <qualifiedname>automator::permission_name</qualifiedname>
+        <briefdescription>
+<para>Имя разрешения для авторизации действия </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="146" column="17" bodyfile="soviet/soviet.hpp" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structautomator_1a94be657d9e8d176482eee2a344bb6665" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string automator::encrypted_private_key</definition>
+        <argsstring></argsstring>
+        <name>encrypted_private_key</name>
+        <qualifiedname>automator::encrypted_private_key</qualifiedname>
+        <briefdescription>
+<para>Зашифрованный приватный ключ для авторизации действия </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="147" column="17" bodyfile="soviet/soviet.hpp" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structautomator_1af52fe34bcc89bb7d8c7c1805a2afd76a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t automator::primary_key</definition>
+        <argsstring>() const</argsstring>
+        <name>primary_key</name>
+        <qualifiedname>automator::primary_key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="149" column="14" bodyfile="soviet/soviet.hpp" bodystart="149" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="structautomator_1a7f20068251bdaec35114f83497ca3411" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint128_t</type>
+        <definition>uint128_t automator::by_member_and_action_type</definition>
+        <argsstring>() const</argsstring>
+        <name>by_member_and_action_type</name>
+        <qualifiedname>automator::by_member_and_action_type</qualifiedname>
+        <briefdescription>
+<para>Индекс по члену совета и типу действия </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="150" column="15" bodyfile="soviet/soviet.hpp" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="function" id="structautomator_1a7690ecf690fe20aaed35f277330e2e5f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t automator::by_action</definition>
+        <argsstring>() const</argsstring>
+        <name>by_action</name>
+        <qualifiedname>automator::by_action</qualifiedname>
+        <briefdescription>
+<para>Индекс по типу действия </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="151" column="14" bodyfile="soviet/soviet.hpp" bodystart="151" bodyend="150"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Таблица автоматизированных действий </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Таблица содержит набор действий, которые член совета автоматизировал.</para>
+<para><simplesect kind="note"><para>Таблица хранится в области памяти с именем аккаунта: <computeroutput>_soviet</computeroutput> и скоупом: <computeroutput>coopname</computeroutput> </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>automator</label>
+        <link refid="structautomator"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>action_type</edgelabel>
+          <edgelabel>coopname</edgelabel>
+          <edgelabel>member</edgelabel>
+          <edgelabel>permission_name</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>encrypted_private_key</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>name</label>
+      </node>
+      <node id="3">
+        <label>string</label>
+      </node>
+    </collaborationgraph>
+    <location file="soviet/soviet.hpp" line="140" column="1" bodyfile="soviet/soviet.hpp" bodystart="140" bodyend="153"/>
+    <listofallmembers>
+      <member refid="structautomator_1afcb1a4bcd330d3e3cb50fe5f977cc069" prot="public" virt="non-virtual"><scope>automator</scope><name>action_type</name></member>
+      <member refid="structautomator_1af9991df3151a7d8205c4205caf993a92" prot="public" virt="non-virtual"><scope>automator</scope><name>board_id</name></member>
+      <member refid="structautomator_1a7690ecf690fe20aaed35f277330e2e5f" prot="public" virt="non-virtual"><scope>automator</scope><name>by_action</name></member>
+      <member refid="structautomator_1a7f20068251bdaec35114f83497ca3411" prot="public" virt="non-virtual"><scope>automator</scope><name>by_member_and_action_type</name></member>
+      <member refid="structautomator_1a020dc5169affb64d4df454bd10d8176f" prot="public" virt="non-virtual"><scope>automator</scope><name>coopname</name></member>
+      <member refid="structautomator_1a94be657d9e8d176482eee2a344bb6665" prot="public" virt="non-virtual"><scope>automator</scope><name>encrypted_private_key</name></member>
+      <member refid="structautomator_1a9389163367c7579bd9725a83bb27cef6" prot="public" virt="non-virtual"><scope>automator</scope><name>id</name></member>
+      <member refid="structautomator_1a7bb8cdadaa140b733497e80fdecf49ab" prot="public" virt="non-virtual"><scope>automator</scope><name>member</name></member>
+      <member refid="structautomator_1a4d145638d25608ddf9c5d737f9fe6da2" prot="public" virt="non-virtual"><scope>automator</scope><name>permission_name</name></member>
+      <member refid="structautomator_1af52fe34bcc89bb7d8c7c1805a2afd76a" prot="public" virt="non-virtual"><scope>automator</scope><name>primary_key</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="namespaceanonymous__namespace_02blockinfo__tester_8cpp_03" kind="namespace" language="C++">
+    <compoundname>anonymous_namespace{blockinfo_tester.cpp}</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="system/contracts/test_contracts/blockinfo_tester/src/blockinfo_tester.cpp" line="12" column="1"/>
+  </compounddef>
+</doxygen>

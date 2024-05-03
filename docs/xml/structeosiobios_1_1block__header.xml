@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structeosiobios_1_1block__header" kind="struct" language="C++" prot="public">
+    <compoundname>eosiobios::block_header</compoundname>
+    <includes refid="eosio_8bios_8hpp" local="no">eosio.bios.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeosiobios_1_1block__header_1ac25070170e000a8427f2e96d0e3fd7b0" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t eosiobios::block_header::timestamp</definition>
+        <argsstring></argsstring>
+        <name>timestamp</name>
+        <qualifiedname>eosiobios::block_header::timestamp</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="55" column="49" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiobios_1_1block__header_1a0c794f15d473ccc576dc403676689536" prot="public" static="no" mutable="no">
+        <type>name</type>
+        <definition>name eosiobios::block_header::producer</definition>
+        <argsstring></argsstring>
+        <name>producer</name>
+        <qualifiedname>eosiobios::block_header::producer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="56" column="49" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiobios_1_1block__header_1ad0e00f2357c447a2001b9192849aa839" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t eosiobios::block_header::confirmed</definition>
+        <argsstring></argsstring>
+        <name>confirmed</name>
+        <qualifiedname>eosiobios::block_header::confirmed</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="57" column="49" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiobios_1_1block__header_1aae1cc92b2256891adbd2539efa99cc34" prot="public" static="no" mutable="no">
+        <type>checksum256</type>
+        <definition>checksum256 eosiobios::block_header::previous</definition>
+        <argsstring></argsstring>
+        <name>previous</name>
+        <qualifiedname>eosiobios::block_header::previous</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="58" column="49" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiobios_1_1block__header_1adb40a37bf4327f68e081a07cc2abe5c8" prot="public" static="no" mutable="no">
+        <type>checksum256</type>
+        <definition>checksum256 eosiobios::block_header::transaction_mroot</definition>
+        <argsstring></argsstring>
+        <name>transaction_mroot</name>
+        <qualifiedname>eosiobios::block_header::transaction_mroot</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="59" column="49" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiobios_1_1block__header_1af1c275fdf2db888deff6db96514dfbd8" prot="public" static="no" mutable="no">
+        <type>checksum256</type>
+        <definition>checksum256 eosiobios::block_header::action_mroot</definition>
+        <argsstring></argsstring>
+        <name>action_mroot</name>
+        <qualifiedname>eosiobios::block_header::action_mroot</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="60" column="49" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiobios_1_1block__header_1af34fd0dd085bf489c10b02be5f4dd209" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t eosiobios::block_header::schedule_version</definition>
+        <argsstring></argsstring>
+        <name>schedule_version</name>
+        <qualifiedname>eosiobios::block_header::schedule_version</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="61" column="49" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiobios_1_1block__header_1a75189b8a7b99f93b14f9b775bf343396" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; eosio::producer_schedule &gt;</type>
+        <definition>std::optional&lt;eosio::producer_schedule&gt; eosiobios::block_header::new_producers</definition>
+        <argsstring></argsstring>
+        <name>new_producers</name>
+        <qualifiedname>eosiobios::block_header::new_producers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="62" column="23" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>checksum256</label>
+      </node>
+      <node id="2">
+        <label>name</label>
+      </node>
+      <node id="1">
+        <label>eosiobios::block_header</label>
+        <link refid="structeosiobios_1_1block__header"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>producer</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>action_mroot</edgelabel>
+          <edgelabel>previous</edgelabel>
+          <edgelabel>transaction_mroot</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="54" column="4" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="54" bodyend="67"/>
+    <listofallmembers>
+      <member refid="structeosiobios_1_1block__header_1af1c275fdf2db888deff6db96514dfbd8" prot="public" virt="non-virtual"><scope>eosiobios::block_header</scope><name>action_mroot</name></member>
+      <member refid="structeosiobios_1_1block__header_1ad0e00f2357c447a2001b9192849aa839" prot="public" virt="non-virtual"><scope>eosiobios::block_header</scope><name>confirmed</name></member>
+      <member refid="structeosiobios_1_1block__header_1a75189b8a7b99f93b14f9b775bf343396" prot="public" virt="non-virtual"><scope>eosiobios::block_header</scope><name>new_producers</name></member>
+      <member refid="structeosiobios_1_1block__header_1aae1cc92b2256891adbd2539efa99cc34" prot="public" virt="non-virtual"><scope>eosiobios::block_header</scope><name>previous</name></member>
+      <member refid="structeosiobios_1_1block__header_1a0c794f15d473ccc576dc403676689536" prot="public" virt="non-virtual"><scope>eosiobios::block_header</scope><name>producer</name></member>
+      <member refid="structeosiobios_1_1block__header_1af34fd0dd085bf489c10b02be5f4dd209" prot="public" virt="non-virtual"><scope>eosiobios::block_header</scope><name>schedule_version</name></member>
+      <member refid="structeosiobios_1_1block__header_1ac25070170e000a8427f2e96d0e3fd7b0" prot="public" virt="non-virtual"><scope>eosiobios::block_header</scope><name>timestamp</name></member>
+      <member refid="structeosiobios_1_1block__header_1adb40a37bf4327f68e081a07cc2abe5c8" prot="public" virt="non-virtual"><scope>eosiobios::block_header</scope><name>transaction_mroot</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

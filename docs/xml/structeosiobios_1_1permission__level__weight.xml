@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structeosiobios_1_1permission__level__weight" kind="struct" language="C++" prot="public">
+    <compoundname>eosiobios::permission_level_weight</compoundname>
+    <includes refid="eosio_8bios_8hpp" local="no">eosio.bios.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeosiobios_1_1permission__level__weight_1a541c2041fbf4a2847144a156531ed3bb" prot="public" static="no" mutable="no">
+        <type>permission_level</type>
+        <definition>permission_level eosiobios::permission_level_weight::permission</definition>
+        <argsstring></argsstring>
+        <name>permission</name>
+        <qualifiedname>eosiobios::permission_level_weight::permission</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="21" column="25" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiobios_1_1permission__level__weight_1ad0a6f4cb52b93d3673b1fc22486880fa" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t eosiobios::permission_level_weight::weight</definition>
+        <argsstring></argsstring>
+        <name>weight</name>
+        <qualifiedname>eosiobios::permission_level_weight::weight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="22" column="25" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>permission_level</label>
+      </node>
+      <node id="1">
+        <label>eosiobios::permission_level_weight</label>
+        <link refid="structeosiobios_1_1permission__level__weight"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>permission</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="20" column="4" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="20" bodyend="26"/>
+    <listofallmembers>
+      <member refid="structeosiobios_1_1permission__level__weight_1a541c2041fbf4a2847144a156531ed3bb" prot="public" virt="non-virtual"><scope>eosiobios::permission_level_weight</scope><name>permission</name></member>
+      <member refid="structeosiobios_1_1permission__level__weight_1ad0a6f4cb52b93d3673b1fc22486880fa" prot="public" virt="non-virtual"><scope>eosiobios::permission_level_weight</scope><name>weight</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

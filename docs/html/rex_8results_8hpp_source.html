@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.3"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Для разработчиков: Исходный файл system/contracts/eosio.system/include/eosio.system/rex.results.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Для разработчиков
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.3 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('rex_8results_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">rex.results.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="rex_8results_8hpp.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;eosio/asset.hpp&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;eosio/eosio.hpp&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;eosio/name.hpp&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">using</span> eosio::action_wrapper;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">using</span> eosio::asset;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">using</span> eosio::name;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classrex__results.html">   17</a></span><span class="keyword">class </span>[[eosio::contract(&quot;rex.results&quot;)]] <a class="code hl_class" href="classrex__results.html">rex_results</a> : eosio::contract {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>   <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>      <span class="keyword">using</span> eosio::contract::contract;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>      [[eosio::action]]</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>      <span class="keywordtype">void</span> buyresult( <span class="keyword">const</span> asset&amp; rex_received );</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>      [[eosio::action]]</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>      <span class="keywordtype">void</span> sellresult( <span class="keyword">const</span> asset&amp; proceeds );</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>      [[eosio::action]]</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>      <span class="keywordtype">void</span> orderresult( <span class="keyword">const</span> name&amp; owner, <span class="keyword">const</span> asset&amp; proceeds );</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>      [[eosio::action]]</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>      <span class="keywordtype">void</span> rentresult( <span class="keyword">const</span> asset&amp; rented_tokens );</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classrex__results.html#ae4ba8a63313cdfe4cac719d785a38ea7">   55</a></span>      <span class="keyword">using</span> <a class="code hl_typedef" href="classrex__results.html#ae4ba8a63313cdfe4cac719d785a38ea7">buyresult_action</a>   = action_wrapper&lt;<span class="stringliteral">&quot;buyresult&quot;</span>_n,   &amp;<a class="code hl_function" href="classrex__results.html#a955ccff2c80578de034ee8c16bb29b47">rex_results::buyresult</a>&gt;;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classrex__results.html#a7045f3b0cbe2f486892be59a7cdcd946">   56</a></span>      <span class="keyword">using</span> <a class="code hl_typedef" href="classrex__results.html#a7045f3b0cbe2f486892be59a7cdcd946">sellresult_action</a>  = action_wrapper&lt;<span class="stringliteral">&quot;sellresult&quot;</span>_n,  &amp;<a class="code hl_function" href="classrex__results.html#a2fdb9897a541ee103c618e8b311afab9">rex_results::sellresult</a>&gt;;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classrex__results.html#a9cc818bbdd737994bf6c6c028cbadf88">   57</a></span>      <span class="keyword">using</span> <a class="code hl_typedef" href="classrex__results.html#a9cc818bbdd737994bf6c6c028cbadf88">orderresult_action</a> = action_wrapper&lt;<span class="stringliteral">&quot;orderresult&quot;</span>_n, &amp;<a class="code hl_function" href="classrex__results.html#aadee1538b7d17cbbe6efd8438fa46ae1">rex_results::orderresult</a>&gt;;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classrex__results.html#a4bc44b0b83ecec66ad131019049e4c6d">   58</a></span>      <span class="keyword">using</span> <a class="code hl_typedef" href="classrex__results.html#a4bc44b0b83ecec66ad131019049e4c6d">rentresult_action</a>  = action_wrapper&lt;<span class="stringliteral">&quot;rentresult&quot;</span>_n,  &amp;<a class="code hl_function" href="classrex__results.html#ab9cb69866c17d4344e0d50ea810ecef4">rex_results::rentresult</a>&gt;;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>};</div>
+<div class="ttc" id="aclassrex__results_html"><div class="ttname"><a href="classrex__results.html">rex_results</a></div><div class="ttdef"><b>Definition:</b> rex.results.hpp:17</div></div>
+<div class="ttc" id="aclassrex__results_html_a2fdb9897a541ee103c618e8b311afab9"><div class="ttname"><a href="classrex__results.html#a2fdb9897a541ee103c618e8b311afab9">rex_results::sellresult</a></div><div class="ttdeci">void sellresult(const asset &amp;proceeds)</div><div class="ttdef"><b>Definition:</b> rex.results.cpp:5</div></div>
+<div class="ttc" id="aclassrex__results_html_a4bc44b0b83ecec66ad131019049e4c6d"><div class="ttname"><a href="classrex__results.html#a4bc44b0b83ecec66ad131019049e4c6d">rex_results::rentresult_action</a></div><div class="ttdeci">action_wrapper&lt;&quot;rentresult&quot;_n, &amp;rex_results::rentresult &gt; rentresult_action</div><div class="ttdef"><b>Definition:</b> rex.results.hpp:58</div></div>
+<div class="ttc" id="aclassrex__results_html_a7045f3b0cbe2f486892be59a7cdcd946"><div class="ttname"><a href="classrex__results.html#a7045f3b0cbe2f486892be59a7cdcd946">rex_results::sellresult_action</a></div><div class="ttdeci">action_wrapper&lt;&quot;sellresult&quot;_n, &amp;rex_results::sellresult &gt; sellresult_action</div><div class="ttdef"><b>Definition:</b> rex.results.hpp:56</div></div>
+<div class="ttc" id="aclassrex__results_html_a955ccff2c80578de034ee8c16bb29b47"><div class="ttname"><a href="classrex__results.html#a955ccff2c80578de034ee8c16bb29b47">rex_results::buyresult</a></div><div class="ttdeci">void buyresult(const asset &amp;rex_received)</div><div class="ttdef"><b>Definition:</b> rex.results.cpp:3</div></div>
+<div class="ttc" id="aclassrex__results_html_a9cc818bbdd737994bf6c6c028cbadf88"><div class="ttname"><a href="classrex__results.html#a9cc818bbdd737994bf6c6c028cbadf88">rex_results::orderresult_action</a></div><div class="ttdeci">action_wrapper&lt;&quot;orderresult&quot;_n, &amp;rex_results::orderresult &gt; orderresult_action</div><div class="ttdef"><b>Definition:</b> rex.results.hpp:57</div></div>
+<div class="ttc" id="aclassrex__results_html_aadee1538b7d17cbbe6efd8438fa46ae1"><div class="ttname"><a href="classrex__results.html#aadee1538b7d17cbbe6efd8438fa46ae1">rex_results::orderresult</a></div><div class="ttdeci">void orderresult(const name &amp;owner, const asset &amp;proceeds)</div><div class="ttdef"><b>Definition:</b> rex.results.cpp:7</div></div>
+<div class="ttc" id="aclassrex__results_html_ab9cb69866c17d4344e0d50ea810ecef4"><div class="ttname"><a href="classrex__results.html#ab9cb69866c17d4344e0d50ea810ecef4">rex_results::rentresult</a></div><div class="ttdeci">void rentresult(const asset &amp;rented_tokens)</div><div class="ttdef"><b>Definition:</b> rex.results.cpp:9</div></div>
+<div class="ttc" id="aclassrex__results_html_ae4ba8a63313cdfe4cac719d785a38ea7"><div class="ttname"><a href="classrex__results.html#ae4ba8a63313cdfe4cac719d785a38ea7">rex_results::buyresult_action</a></div><div class="ttdeci">action_wrapper&lt;&quot;buyresult&quot;_n, &amp;rex_results::buyresult &gt; buyresult_action</div><div class="ttdef"><b>Definition:</b> rex.results.hpp:55</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_e8522150b400a43ebfdbd1fed060b8e2.html">system</a></li><li class="navelem"><a class="el" href="dir_ffef2b95cecc8775c327d00648f9c8c4.html">contracts</a></li><li class="navelem"><a class="el" href="dir_2128c9b58603b3333f12ada3d58d7e98.html">eosio.system</a></li><li class="navelem"><a class="el" href="dir_cd070083a45a40e05ca4d202ae14f219.html">include</a></li><li class="navelem"><a class="el" href="dir_07d8095513c121083074e3ad70aa68c1.html">eosio.system</a></li><li class="navelem"><a class="el" href="rex_8results_8hpp.html">rex.results.hpp</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+  </ul>
+</div>
+</body>
+</html>

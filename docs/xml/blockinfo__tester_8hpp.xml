@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="blockinfo__tester_8hpp" kind="file" language="C++">
+    <compoundname>blockinfo_tester.hpp</compoundname>
+    <includes local="no">eosio/time.hpp</includes>
+    <includes local="no">eosio/varint.hpp</includes>
+    <includes refid="block__info_8hpp" local="no">eosio.system/block_info.hpp</includes>
+    <includes local="no">cstdint</includes>
+    <includes local="no">optional</includes>
+    <includes local="no">variant</includes>
+    <includedby refid="blockinfo__tester_8cpp" local="no">system/contracts/test_contracts/blockinfo_tester/src/blockinfo_tester.cpp</includedby>
+    <incdepgraph>
+      <node id="4">
+        <label>eosio.system/block_info.hpp</label>
+        <link refid="block__info_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>system/contracts/test_contracts/blockinfo_tester/include/blockinfo_tester/blockinfo_tester.hpp</label>
+        <link refid="blockinfo__tester_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>cstdint</label>
+      </node>
+      <node id="5">
+        <label>eosio/multi_index.hpp</label>
+      </node>
+      <node id="6">
+        <label>eosio/name.hpp</label>
+      </node>
+      <node id="2">
+        <label>eosio/time.hpp</label>
+      </node>
+      <node id="3">
+        <label>eosio/varint.hpp</label>
+      </node>
+      <node id="7">
+        <label>limits</label>
+      </node>
+      <node id="8">
+        <label>optional</label>
+      </node>
+      <node id="10">
+        <label>variant</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>system/contracts/test_contracts/blockinfo_tester/include/blockinfo_tester/blockinfo_tester.hpp</label>
+        <link refid="blockinfo__tester_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>system/contracts/test_contracts/blockinfo_tester/src/blockinfo_tester.cpp</label>
+        <link refid="blockinfo__tester_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1get__latest__block__batch__info" prot="public">system_contracts::testing::test_contracts::blockinfo_tester::get_latest_block_batch_info</innerclass>
+    <innerclass refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result" prot="public">system_contracts::testing::test_contracts::blockinfo_tester::latest_block_batch_info_result</innerclass>
+    <innernamespace refid="namespacesystem__contracts">system_contracts</innernamespace>
+    <innernamespace refid="namespacesystem__contracts_1_1testing">system_contracts::testing</innernamespace>
+    <innernamespace refid="namespacesystem__contracts_1_1testing_1_1test__contracts">system_contracts::testing::test_contracts</innernamespace>
+    <innernamespace refid="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester">system_contracts::testing::test_contracts::blockinfo_tester</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>TEST_INCLUDE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fc/io/varint.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fc/time.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/time.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/varint.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="block__info_8hpp" kindref="compound">eosio.system/block_info.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdint&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;optional&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;variant&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="namespacesystem__contracts" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester" kindref="compound">system_contracts::testing::test_contracts::blockinfo_tester</ref><sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>TEST_INCLUDE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1aada4f815458e881f7140c74078089f01" kindref="member">time_point</ref><sp/>=<sp/><ref refid="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1aada4f815458e881f7140c74078089f01" kindref="member">fc::time_point</ref>;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1a3b3bb00116a9d1c649c8cd6b9d8eb43b" kindref="member">varint</ref><sp/><sp/><sp/><sp/><sp/>=<sp/>fc::unsigned_int;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1aada4f815458e881f7140c74078089f01" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1aada4f815458e881f7140c74078089f01" kindref="member">time_point</ref><sp/>=<sp/><ref refid="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1aada4f815458e881f7140c74078089f01" kindref="member">eosio::time_point</ref>;</highlight></codeline>
+<codeline lineno="31" refid="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1a3b3bb00116a9d1c649c8cd6b9d8eb43b" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1a3b3bb00116a9d1c649c8cd6b9d8eb43b" kindref="member">varint</ref><sp/><sp/><sp/><sp/><sp/>=<sp/>eosio::unsigned_int;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1get__latest__block__batch__info" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1get__latest__block__batch__info" kindref="compound">get_latest_block_batch_info</ref></highlight></codeline>
+<codeline lineno="42"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="43" refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1get__latest__block__batch__info_1ac601553260c24e5fe6ed17828e4a41ef" refkind="member"><highlight class="normal"><sp/><sp/><sp/>uint32_t<sp/><ref refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1get__latest__block__batch__info_1ac601553260c24e5fe6ed17828e4a41ef" kindref="member">batch_start_height_offset</ref>;</highlight></codeline>
+<codeline lineno="44" refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1get__latest__block__batch__info_1a82ebd86affa47e2f8024b9083374ed8a" refkind="member"><highlight class="normal"><sp/><sp/><sp/>uint32_t<sp/><ref refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1get__latest__block__batch__info_1a82ebd86affa47e2f8024b9083374ed8a" kindref="member">batch_size</ref>;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>TEST_INCLUDE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structeosiosystem_1_1block__info_1_1block__batch__info" kindref="compound">block_batch_info</ref></highlight></codeline>
+<codeline lineno="50"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><ref refid="structeosiosystem_1_1block__info_1_1block__batch__info_1aabf1478c4a361b8fc044f77c4617e32b" kindref="member">batch_start_height</ref>;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><ref refid="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1aada4f815458e881f7140c74078089f01" kindref="member">time_point</ref><sp/><ref refid="structeosiosystem_1_1block__info_1_1block__batch__info_1af7f9f6a56f32f91ec80622736fe86478" kindref="member">batch_start_timestamp</ref>;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><ref refid="structeosiosystem_1_1block__info_1_1block__batch__info_1a54af69850d006e2a43fdea538f5c0695" kindref="member">batch_current_end_height</ref>;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><ref refid="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1aada4f815458e881f7140c74078089f01" kindref="member">time_point</ref><sp/><ref refid="structeosiosystem_1_1block__info_1_1block__batch__info_1aef63da736d0ed2568917a4e9aeb44931" kindref="member">batch_current_end_timestamp</ref>;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="structeosiosystem_1_1block__info_1_1block__batch__info" kindref="compound">eosiosystem::block_info::block_batch_info</ref>;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66" refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result" kindref="compound">latest_block_batch_info_result</ref></highlight></codeline>
+<codeline lineno="67"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="68" refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1aeb9f839d5c51488952f8f1381f89a64a" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1aeb9f839d5c51488952f8f1381f89a64a" kindref="member">error_code_enum</ref><sp/>:<sp/>uint32_t</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="70" refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1aeb9f839d5c51488952f8f1381f89a64aa2a1d4c1c3cfc5a05f9cea814b5cb5987" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1aeb9f839d5c51488952f8f1381f89a64aa2a1d4c1c3cfc5a05f9cea814b5cb5987" kindref="member">no_error</ref>,</highlight></codeline>
+<codeline lineno="71" refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1aeb9f839d5c51488952f8f1381f89a64aa47d347c195a1c26fdbce91210f28a157" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1aeb9f839d5c51488952f8f1381f89a64aa47d347c195a1c26fdbce91210f28a157" kindref="member">invalid_input</ref>,</highlight></codeline>
+<codeline lineno="72" refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1aeb9f839d5c51488952f8f1381f89a64aabaabaf67659e847cf8aac8c9b9cafeca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1aeb9f839d5c51488952f8f1381f89a64aabaabaf67659e847cf8aac8c9b9cafeca" kindref="member">unsupported_version</ref>,</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1aeb9f839d5c51488952f8f1381f89a64aaf18cb9d59b963ddb71352e9cf8f03bc8" kindref="member">insufficient_data</ref></highlight></codeline>
+<codeline lineno="74" refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1aeb9f839d5c51488952f8f1381f89a64aaf18cb9d59b963ddb71352e9cf8f03bc8" refkind="member"><highlight class="normal"><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1a6bef31839eb6c99ff3bb5f69bbb8b7a5" refkind="member"><highlight class="normal"><sp/><sp/><sp/>std::optional&lt;block_batch_info&gt;<sp/><ref refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1a6bef31839eb6c99ff3bb5f69bbb8b7a5" kindref="member">result</ref>;</highlight></codeline>
+<codeline lineno="77" refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1aa3bf20610c6a68ed0a5e3261cbdb5808" refkind="member"><highlight class="normal"><sp/><sp/><sp/><ref refid="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1a3b3bb00116a9d1c649c8cd6b9d8eb43b" kindref="member">varint</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1aa3bf20610c6a68ed0a5e3261cbdb5808" kindref="member">error_code</ref><sp/>=<sp/><ref refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1aeb9f839d5c51488952f8f1381f89a64aa2a1d4c1c3cfc5a05f9cea814b5cb5987" kindref="member">no_error</ref>;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79" refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1a8c36a77acb6436c335c075939e5ffc0d" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1a8c36a77acb6436c335c075939e5ffc0d" kindref="member">has_error</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>!(<ref refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1aa3bf20610c6a68ed0a5e3261cbdb5808" kindref="member">error_code</ref>.value<sp/>==<sp/><ref refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1aeb9f839d5c51488952f8f1381f89a64aa2a1d4c1c3cfc5a05f9cea814b5cb5987" kindref="member">no_error</ref><sp/>&amp;&amp;<sp/><ref refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1a6bef31839eb6c99ff3bb5f69bbb8b7a5" kindref="member">result</ref>.has_value());<sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1a98a9efbd6bbda91e666bd57e16095adb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><ref refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1aeb9f839d5c51488952f8f1381f89a64a" kindref="member">error_code_enum</ref><sp/><ref refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1a98a9efbd6bbda91e666bd57e16095adb" kindref="member">get_error</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1aeb9f839d5c51488952f8f1381f89a64a" kindref="member">error_code_enum</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<ref refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1aa3bf20610c6a68ed0a5e3261cbdb5808" kindref="member">error_code</ref>.value);<sp/>}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>TEST_INCLUDE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/>EOSLIB_SERIALIZE(<ref refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result" kindref="compound">latest_block_batch_info_result</ref>,<sp/>(<ref refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1a6bef31839eb6c99ff3bb5f69bbb8b7a5" kindref="member">result</ref>)(<ref refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1aa3bf20610c6a68ed0a5e3261cbdb5808" kindref="member">error_code</ref>))</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90" refid="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1a401279c7208232bcb2a66175b597ba44" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1a401279c7208232bcb2a66175b597ba44" kindref="member">input_type</ref><sp/>=<sp/>std::variant&lt;get_latest_block_batch_info&gt;;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92" refid="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1a78d9b5e57a0feb8412c06a95236fb12f" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="namespacesystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1a78d9b5e57a0feb8412c06a95236fb12f" kindref="member">output_type</ref><sp/>=<sp/>std::variant&lt;latest_block_batch_info_result&gt;;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>system_contracts::testing::test_contracts::blockinfo_tester</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>TEST_INCLUDE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal">FC_REFLECT(<ref refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1get__latest__block__batch__info" kindref="compound">system_contracts::testing::test_contracts::blockinfo_tester::get_latest_block_batch_info</ref>,</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(batch_start_height_offset)(batch_size))</highlight></codeline>
+<codeline lineno="100"><highlight class="normal">FC_REFLECT(<ref refid="structeosiosystem_1_1block__info_1_1block__batch__info" kindref="compound">system_contracts::testing::test_contracts::blockinfo_tester::block_batch_info</ref>,</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(batch_start_height)(batch_start_timestamp)(batch_current_end_height)(batch_current_end_timestamp))</highlight></codeline>
+<codeline lineno="102"><highlight class="normal">FC_REFLECT_ENUM(</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><ref refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result_1aeb9f839d5c51488952f8f1381f89a64a" kindref="member">system_contracts::testing::test_contracts::blockinfo_tester::latest_block_batch_info_result::error_code_enum</ref>,</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/>(no_error)(invalid_input)(unsupported_version)(insufficient_data))</highlight></codeline>
+<codeline lineno="105"><highlight class="normal">FC_REFLECT(<ref refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result" kindref="compound">system_contracts::testing::test_contracts::blockinfo_tester::latest_block_batch_info_result</ref>,</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(result)(error_code))</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="system/contracts/test_contracts/blockinfo_tester/include/blockinfo_tester/blockinfo_tester.hpp"/>
+  </compounddef>
+</doxygen>

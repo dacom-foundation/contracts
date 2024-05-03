@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structeosio_1_1multisig_1_1invalidation" kind="struct" language="C++" prot="public">
+    <compoundname>eosio::multisig::invalidation</compoundname>
+    <includes refid="eosio_8msig_8hpp" local="no">eosio.msig.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeosio_1_1multisig_1_1invalidation_1af732aa933c30257e90b28db376af4461" prot="public" static="no" mutable="no">
+        <type>name</type>
+        <definition>name eosio::multisig::invalidation::account</definition>
+        <argsstring></argsstring>
+        <name>account</name>
+        <qualifiedname>eosio::multisig::invalidation::account</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" line="149" column="23" bodyfile="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosio_1_1multisig_1_1invalidation_1a767f677a40d58d61189e2bfd2bbdff1f" prot="public" static="no" mutable="no">
+        <type>time_point</type>
+        <definition>time_point eosio::multisig::invalidation::last_invalidation_time</definition>
+        <argsstring></argsstring>
+        <name>last_invalidation_time</name>
+        <qualifiedname>eosio::multisig::invalidation::last_invalidation_time</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" line="150" column="23" bodyfile="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeosio_1_1multisig_1_1invalidation_1a8222535d8511a2cd9667a7c816a169b8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t eosio::multisig::invalidation::primary_key</definition>
+        <argsstring>() const</argsstring>
+        <name>primary_key</name>
+        <qualifiedname>eosio::multisig::invalidation::primary_key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" line="152" column="19" bodyfile="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" bodystart="152" bodyend="152"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>eosio::multisig::invalidation</label>
+        <link refid="structeosio_1_1multisig_1_1invalidation"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>account</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>last_invalidation_time</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>name</label>
+      </node>
+      <node id="3">
+        <label>time_point</label>
+      </node>
+    </collaborationgraph>
+    <location file="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" line="148" column="4" bodyfile="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" bodystart="148" bodyend="153"/>
+    <listofallmembers>
+      <member refid="structeosio_1_1multisig_1_1invalidation_1af732aa933c30257e90b28db376af4461" prot="public" virt="non-virtual"><scope>eosio::multisig::invalidation</scope><name>account</name></member>
+      <member refid="structeosio_1_1multisig_1_1invalidation_1a767f677a40d58d61189e2bfd2bbdff1f" prot="public" virt="non-virtual"><scope>eosio::multisig::invalidation</scope><name>last_invalidation_time</name></member>
+      <member refid="structeosio_1_1multisig_1_1invalidation_1a8222535d8511a2cd9667a7c816a169b8" prot="public" virt="non-virtual"><scope>eosio::multisig::invalidation</scope><name>primary_key</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

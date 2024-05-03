@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structorg__data" kind="struct" language="C++" prot="public">
+    <compoundname>org_data</compoundname>
+    <includes refid="accounts_8hpp" local="no">accounts.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structorg__data_1ae5aa80cb42de74403396c50b33bd20be" prot="public" static="no" mutable="no">
+        <type><ref refid="structstorage" kindref="compound">storage</ref></type>
+        <definition>storage org_data::storage</definition>
+        <argsstring></argsstring>
+        <name>storage</name>
+        <qualifiedname>org_data::storage</qualifiedname>
+        <briefdescription>
+<para>Хранилища персональных данных и идентификаторы данных в них. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="167" column="13" bodyfile="common/accounts.hpp" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structorg__data_1a73a9e2d8573545f8852ff0dda1c860e5" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool org_data::is_cooperative</definition>
+        <argsstring></argsstring>
+        <name>is_cooperative</name>
+        <qualifiedname>org_data::is_cooperative</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>Является ли кооперативом </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="169" column="10" bodyfile="common/accounts.hpp" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structorg__data_1a879607268d761ab2fb337ac067234678" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name org_data::coop_type</definition>
+        <argsstring></argsstring>
+        <name>coop_type</name>
+        <qualifiedname>org_data::coop_type</qualifiedname>
+        <briefdescription>
+<para>Тип кооператива (union, conscoop, prodcoop, agricoop, builderscoop, nonprofitorg) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="170" column="17" bodyfile="common/accounts.hpp" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structorg__data_1ad8aea1135b4ca307880d7a4477e841f4" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name org_data::token_contract</definition>
+        <argsstring></argsstring>
+        <name>token_contract</name>
+        <qualifiedname>org_data::token_contract</qualifiedname>
+        <briefdescription>
+<para>Контракт токена </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="171" column="17" bodyfile="common/accounts.hpp" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structorg__data_1af31eb176481e60108b902def456ff225" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string org_data::announce</definition>
+        <argsstring></argsstring>
+        <name>announce</name>
+        <qualifiedname>org_data::announce</qualifiedname>
+        <briefdescription>
+<para>Анонс </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="172" column="17" bodyfile="common/accounts.hpp" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structorg__data_1a53f757c92b8548c72cb7edc7bb97663a" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string org_data::description</definition>
+        <argsstring></argsstring>
+        <name>description</name>
+        <qualifiedname>org_data::description</qualifiedname>
+        <briefdescription>
+<para>Описание </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="173" column="17" bodyfile="common/accounts.hpp" bodystart="173" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structorg__data_1a46f196bb722c9e9218cb972193a676ff" prot="public" static="no" mutable="no">
+        <type>eosio::asset</type>
+        <definition>eosio::asset org_data::initial</definition>
+        <argsstring></argsstring>
+        <name>initial</name>
+        <qualifiedname>org_data::initial</qualifiedname>
+        <briefdescription>
+<para>Вступительный взнос </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="174" column="18" bodyfile="common/accounts.hpp" bodystart="174" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structorg__data_1a0e181c3124d29937b16b0bef4b2bdafa" prot="public" static="no" mutable="no">
+        <type>eosio::asset</type>
+        <definition>eosio::asset org_data::minimum</definition>
+        <argsstring></argsstring>
+        <name>minimum</name>
+        <qualifiedname>org_data::minimum</qualifiedname>
+        <briefdescription>
+<para>Минимальный взнос </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="175" column="18" bodyfile="common/accounts.hpp" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Структура данных нового юридического лица </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Данная структура содержит всю необходимую информацию для регистрации нового юридического лица в блокчейне. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="5">
+        <label>asset</label>
+      </node>
+      <node id="3">
+        <label>name</label>
+      </node>
+      <node id="1">
+        <label>org_data</label>
+        <link refid="structorg__data"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>storage</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>coop_type</edgelabel>
+          <edgelabel>token_contract</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>announce</edgelabel>
+          <edgelabel>description</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>initial</edgelabel>
+          <edgelabel>minimum</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>string</label>
+      </node>
+      <node id="2">
+        <label>storage</label>
+        <link refid="structstorage"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>storage_username</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="common/accounts.hpp" line="166" column="1" bodyfile="common/accounts.hpp" bodystart="166" bodyend="176"/>
+    <listofallmembers>
+      <member refid="structorg__data_1af31eb176481e60108b902def456ff225" prot="public" virt="non-virtual"><scope>org_data</scope><name>announce</name></member>
+      <member refid="structorg__data_1a879607268d761ab2fb337ac067234678" prot="public" virt="non-virtual"><scope>org_data</scope><name>coop_type</name></member>
+      <member refid="structorg__data_1a53f757c92b8548c72cb7edc7bb97663a" prot="public" virt="non-virtual"><scope>org_data</scope><name>description</name></member>
+      <member refid="structorg__data_1a46f196bb722c9e9218cb972193a676ff" prot="public" virt="non-virtual"><scope>org_data</scope><name>initial</name></member>
+      <member refid="structorg__data_1a73a9e2d8573545f8852ff0dda1c860e5" prot="public" virt="non-virtual"><scope>org_data</scope><name>is_cooperative</name></member>
+      <member refid="structorg__data_1a0e181c3124d29937b16b0bef4b2bdafa" prot="public" virt="non-virtual"><scope>org_data</scope><name>minimum</name></member>
+      <member refid="structorg__data_1ae5aa80cb42de74403396c50b33bd20be" prot="public" virt="non-virtual"><scope>org_data</scope><name>storage</name></member>
+      <member refid="structorg__data_1ad8aea1135b4ca307880d7a4477e841f4" prot="public" virt="non-virtual"><scope>org_data</scope><name>token_contract</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structbalances__base" kind="struct" language="C++" prot="public">
+    <compoundname>balances_base</compoundname>
+    <derivedcompoundref refid="structgateway_1_1balances" prot="public" virt="non-virtual">gateway::balances</derivedcompoundref>
+    <derivedcompoundref refid="structmarketplace_1_1balances" prot="public" virt="non-virtual">marketplace::balances</derivedcompoundref>
+    <derivedcompoundref refid="structregistrator_1_1balances" prot="public" virt="non-virtual">registrator::balances</derivedcompoundref>
+    <includes refid="balances_8hpp" local="no">balances.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structbalances__base_1a2069a54454c59cae6ac2a977002bc8ce" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t balances_base::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>balances_base::id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>идентификатор баланса </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/balances.hpp" line="78" column="12" bodyfile="common/balances.hpp" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structbalances__base_1acebf235da280f8d16533b6913912da41" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name balances_base::contract</definition>
+        <argsstring></argsstring>
+        <name>contract</name>
+        <qualifiedname>balances_base::contract</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>имя контракта токена </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/balances.hpp" line="79" column="15" bodyfile="common/balances.hpp" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structbalances__base_1a1c3e3dfd8436a6e847dfbe620ba26c23" prot="public" static="no" mutable="no">
+        <type>eosio::asset</type>
+        <definition>eosio::asset balances_base::quantity</definition>
+        <argsstring></argsstring>
+        <name>quantity</name>
+        <qualifiedname>balances_base::quantity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>количество токенов на балансе </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/balances.hpp" line="80" column="16" bodyfile="common/balances.hpp" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structbalances__base_1a242d9cbeea53e487eff7eb9349327931" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t balances_base::primary_key</definition>
+        <argsstring>() const</argsstring>
+        <name>primary_key</name>
+        <qualifiedname>balances_base::primary_key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return id - primary_key </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/balances.hpp" line="82" column="12" bodyfile="common/balances.hpp" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="function" id="structbalances__base_1af43d841c9f521f6fbbed7c943d4fd366" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint128_t</type>
+        <definition>uint128_t balances_base::byconsym</definition>
+        <argsstring>() const</argsstring>
+        <name>byconsym</name>
+        <qualifiedname>balances_base::byconsym</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>возвращает уникальный индекс, сформированный из значения contract и символа токена </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/balances.hpp" line="84" column="13" bodyfile="common/balances.hpp" bodystart="84" bodyend="82"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Структура таблицы баланса. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Структура, представляющая записи баланса в контрактах. Используется при отправке токенов в контракты _marketplace или _registrator.</para>
+<para><simplesect kind="note"><para>Таблица хранится в области памяти пользователя (_registrator | _marketplace, username) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>balances_base</label>
+        <link refid="structbalances__base"/>
+      </node>
+      <node id="2">
+        <label>gateway::balances</label>
+        <link refid="structgateway_1_1balances"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>marketplace::balances</label>
+        <link refid="structmarketplace_1_1balances"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>registrator::balances</label>
+        <link refid="structregistrator_1_1balances"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>balances_base</label>
+        <link refid="structbalances__base"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>contract</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>quantity</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>asset</label>
+      </node>
+      <node id="2">
+        <label>name</label>
+      </node>
+    </collaborationgraph>
+    <location file="common/balances.hpp" line="77" column="1" bodyfile="common/balances.hpp" bodystart="77" bodyend="87"/>
+    <listofallmembers>
+      <member refid="structbalances__base_1af43d841c9f521f6fbbed7c943d4fd366" prot="public" virt="non-virtual"><scope>balances_base</scope><name>byconsym</name></member>
+      <member refid="structbalances__base_1acebf235da280f8d16533b6913912da41" prot="public" virt="non-virtual"><scope>balances_base</scope><name>contract</name></member>
+      <member refid="structbalances__base_1a2069a54454c59cae6ac2a977002bc8ce" prot="public" virt="non-virtual"><scope>balances_base</scope><name>id</name></member>
+      <member refid="structbalances__base_1a242d9cbeea53e487eff7eb9349327931" prot="public" virt="non-virtual"><scope>balances_base</scope><name>primary_key</name></member>
+      <member refid="structbalances__base_1a1c3e3dfd8436a6e847dfbe620ba26c23" prot="public" virt="non-virtual"><scope>balances_base</scope><name>quantity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1get__latest__block__batch__info" kind="struct" language="C++" prot="public">
+    <compoundname>system_contracts::testing::test_contracts::blockinfo_tester::get_latest_block_batch_info</compoundname>
+    <includes refid="blockinfo__tester_8hpp" local="no">blockinfo_tester.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1get__latest__block__batch__info_1ac601553260c24e5fe6ed17828e4a41ef" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t system_contracts::testing::test_contracts::blockinfo_tester::get_latest_block_batch_info::batch_start_height_offset</definition>
+        <argsstring></argsstring>
+        <name>batch_start_height_offset</name>
+        <qualifiedname>system_contracts::testing::test_contracts::blockinfo_tester::get_latest_block_batch_info::batch_start_height_offset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/test_contracts/blockinfo_tester/include/blockinfo_tester/blockinfo_tester.hpp" line="43" column="13" bodyfile="system/contracts/test_contracts/blockinfo_tester/include/blockinfo_tester/blockinfo_tester.hpp" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1get__latest__block__batch__info_1a82ebd86affa47e2f8024b9083374ed8a" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t system_contracts::testing::test_contracts::blockinfo_tester::get_latest_block_batch_info::batch_size</definition>
+        <argsstring></argsstring>
+        <name>batch_size</name>
+        <qualifiedname>system_contracts::testing::test_contracts::blockinfo_tester::get_latest_block_batch_info::batch_size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/test_contracts/blockinfo_tester/include/blockinfo_tester/blockinfo_tester.hpp" line="44" column="13" bodyfile="system/contracts/test_contracts/blockinfo_tester/include/blockinfo_tester/blockinfo_tester.hpp" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Input data structure for <computeroutput><ref refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1get__latest__block__batch__info" kindref="compound">get_latest_block_batch_info</ref></computeroutput> RPC. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Use this struct as the input for a call to the <computeroutput><ref refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1get__latest__block__batch__info" kindref="compound">get_latest_block_batch_info</ref></computeroutput> RPC. That call will return the result as the <computeroutput><ref refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1latest__block__batch__info__result" kindref="compound">latest_block_batch_info_result</ref></computeroutput> struct. </para>
+    </detaileddescription>
+    <location file="system/contracts/test_contracts/blockinfo_tester/include/blockinfo_tester/blockinfo_tester.hpp" line="41" column="1" bodyfile="system/contracts/test_contracts/blockinfo_tester/include/blockinfo_tester/blockinfo_tester.hpp" bodystart="42" bodyend="45"/>
+    <listofallmembers>
+      <member refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1get__latest__block__batch__info_1a82ebd86affa47e2f8024b9083374ed8a" prot="public" virt="non-virtual"><scope>system_contracts::testing::test_contracts::blockinfo_tester::get_latest_block_batch_info</scope><name>batch_size</name></member>
+      <member refid="structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1get__latest__block__batch__info_1ac601553260c24e5fe6ed17828e4a41ef" prot="public" virt="non-virtual"><scope>system_contracts::testing::test_contracts::blockinfo_tester::get_latest_block_batch_info</scope><name>batch_start_height_offset</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

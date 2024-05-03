@@ -1,0 +1,605 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="classgateway" kind="class" language="C++" prot="public">
+    <compoundname>gateway</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">eosio::contract</basecompoundref>
+    <includes refid="gateway_8hpp" local="no">gateway.hpp</includes>
+    <innerclass refid="structgateway_1_1balances" prot="public">gateway::balances</innerclass>
+    <innerclass refid="structgateway_1_1counts" prot="public">gateway::counts</innerclass>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classgateway_1a61f6973ac320eea0ad63680cfe3317ae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>gateway::gateway</definition>
+        <argsstring>(eosio::name receiver, eosio::name code, eosio::datastream&lt; const char * &gt; ds)</argsstring>
+        <name>gateway</name>
+        <qualifiedname>gateway::gateway</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>receiver</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>eosio::datastream&lt; const char * &gt;</type>
+          <declname>ds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gateway/gateway.hpp" line="47" column="3" bodyfile="gateway/gateway.hpp" bodystart="47" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gaa2f4b2364f09b8728cbf12eb6e9b92f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gateway::newdepositid</definition>
+        <argsstring>(eosio::name username, uint64_t id)</argsstring>
+        <name>newdepositid</name>
+        <qualifiedname>gateway::newdepositid</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Пустой метод регистрации нового идентификатора</para>
+<para>Этот метод используется для возврата информации из контракта. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>идентификатор </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>тип идентификатора </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gateway/gateway.hpp" line="51" column="9" bodyfile="gateway/gateway.cpp" bodystart="15" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classgateway_1a3cbc501eda8ea4d6bb061068141f28ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gateway::newwithdrid</definition>
+        <argsstring>(eosio::name username, uint64_t id)</argsstring>
+        <name>newwithdrid</name>
+        <qualifiedname>gateway::newwithdrid</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gateway/gateway.hpp" line="52" column="9" bodyfile="gateway/gateway.cpp" bodystart="19" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classgateway_1a69b49209b2cc17da42aa66890e2ca080" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gateway::apply</definition>
+        <argsstring>(uint64_t receiver, uint64_t code, uint64_t action)</argsstring>
+        <name>apply</name>
+        <qualifiedname>gateway::apply</qualifiedname>
+        <param>
+          <type>uint64_t</type>
+          <declname>receiver</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>action</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gateway/gateway.hpp" line="54" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gateway::deposit</definition>
+        <argsstring>(eosio::name coopname, eosio::name username, eosio::name type, eosio::asset quantity)</argsstring>
+        <name>deposit</name>
+        <qualifiedname>gateway::deposit</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>eosio::asset</type>
+          <declname>quantity</declname>
+        </param>
+        <briefdescription>
+<para>Создает новую запись депозита в контракте <computeroutput>gateway</computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Действие <computeroutput>dpcreate</computeroutput> позволяет пользователю <computeroutput>username</computeroutput> создать запись о депозите в указанном кооперативе по имени аккаунта <computeroutput>coopname</computeroutput> с определенными параметрами.</para>
+<para><simplesect kind="note"><para>Требуется авторизация пользователя <computeroutput>username</computeroutput>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя, создающего запись. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>coopname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя аккаунта кооператива, в рамках которого создается депозит. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>program_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор программы, с которой связан депозит. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>purpose</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Назначение платежа (&apos;registration&apos; или &apos;deposit&apos;). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>batch_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Вторичный идентификатор, связанный с депозитом. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>internal_quantity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Количество во внутреннем формате. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>external_quantity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Количество во внешнем формате. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>memo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Примечание к депозиту.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Пример создания новой записи депозита через cleos:</para>
+<para>cleos push action gateway dpcreate &apos;[&quot;username&quot;, &quot;coopaccount&quot;, 123, &quot;registration&quot;, 456, &quot;10.0000 SYS&quot;, &quot;10.0000 EXT&quot;, &quot;Депозит для программы X&quot;]&apos; -p username@active </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gateway/gateway.hpp" line="56" column="9" bodyfile="gateway/gateway.cpp" bodystart="46" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga59936ddb45db401976fd3d404b92caa7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gateway::dpcomplete</definition>
+        <argsstring>(eosio::name coopname, eosio::name admin, uint64_t deposit_id, std::string memo)</argsstring>
+        <name>dpcomplete</name>
+        <qualifiedname>gateway::dpcomplete</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>admin</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>deposit_id</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>memo</declname>
+        </param>
+        <briefdescription>
+<para>Завершает обработку депозита в контракте <computeroutput>gateway</computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Действие <computeroutput>dpcomplete</computeroutput> используется для установки статуса депозита в &apos;completed&apos; и обновления его заметки. Это действие также инициирует выпуск токенов соответствующему пользователю, основываясь на данных депозита.</para>
+<para><simplesect kind="note"><para>Требуется авторизация аккаунта контракта <computeroutput>gateway</computeroutput>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>deposit_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор депозита, который завершается. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>memo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Новая заметка, связанная с депозитом.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Завершение обработки депозита через cleos</para>
+<para>cleos push action gateway dpcomplete &apos;[123, &quot;Заметка к завершенному депозиту&quot;]&apos; -p gateway@active </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gateway/gateway.hpp" line="57" column="9" bodyfile="gateway/gateway.cpp" bodystart="107" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga8776a33709be83c15957bc8e366db71d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gateway::dpfail</definition>
+        <argsstring>(eosio::name coopname, eosio::name admin, uint64_t deposit_id, std::string memo)</argsstring>
+        <name>dpfail</name>
+        <qualifiedname>gateway::dpfail</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>admin</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>deposit_id</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>memo</declname>
+        </param>
+        <briefdescription>
+<para>Устанавливает статус депозита как &quot;failed&quot; в контракте <computeroutput>gateway</computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Действие <computeroutput>dpfail</computeroutput> используется для обозначения неудачи в обработке депозита, устанавливая его статус в &apos;failed&apos; и обновляя заметку.</para>
+<para><simplesect kind="note"><para>Требуется авторизация аккаунта контракта <computeroutput>_admin</computeroutput>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>deposit_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Идентификатор депозита, статус которого обновляется. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>memo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Новая заметка, связанная с депозитом.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Установка статуса депозита как &apos;failed&apos; через cleos</para>
+<para>cleos push action gateway dpfail &apos;[123, &quot;Заметка к неудачному депозиту&quot;]&apos; -p gateway@active </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gateway/gateway.hpp" line="58" column="9" bodyfile="gateway/gateway.cpp" bodystart="189" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="classgateway_1a5b244fde939d3cf2aaa7c36f91c228cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gateway::withdrawauth</definition>
+        <argsstring>(eosio::name coopname, uint64_t withdraw_id)</argsstring>
+        <name>withdrawauth</name>
+        <qualifiedname>gateway::withdrawauth</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>withdraw_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gateway/gateway.hpp" line="60" column="9" bodyfile="gateway/gateway.cpp" bodystart="282" bodyend="295"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gateway::withdraw</definition>
+        <argsstring>(eosio::name coopname, eosio::name username, eosio::asset quantity, document document, std::string bank_data_id, std::string memo)</argsstring>
+        <name>withdraw</name>
+        <qualifiedname>gateway::withdraw</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>eosio::asset</type>
+          <declname>quantity</declname>
+        </param>
+        <param>
+          <type><ref refid="structdocument" kindref="compound">document</ref></type>
+          <declname>document</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>bank_data_id</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>memo</declname>
+        </param>
+        <briefdescription>
+<para>Создаёт запрос на вывод средств в контракте <computeroutput>gateway</computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Действие <computeroutput>wthdcreate</computeroutput> используется для создания запроса на вывод средств, включая внутреннее и внешнее количество токенов и связанную заметку.</para>
+<para><simplesect kind="note"><para>Требуется авторизация аккаунта пользователя.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя, инициирующего вывод средств. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>coopname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя кооператива, через который происходит вывод. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>internal_quantity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Количество токенов для вывода во внутреннем представлении. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>external_quantity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Количество токенов для вывода во внешнем представлении. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>memo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Заметка, связанная с операцией вывода средств.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Пример</para>
+<para>cleos push action gateway wthdcreate &apos;[&quot;username&quot;, &quot;coopname&quot;, &quot;10.0000 SYS&quot;, &quot;10.00 USD&quot;, &quot;Заметка к выводу&quot;]&apos; -p username@active </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gateway/gateway.hpp" line="62" column="9" bodyfile="gateway/gateway.cpp" bodystart="229" bodyend="278"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga2551c736852a98d33f2fcc9f569fe836" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gateway::wthdcomplete</definition>
+        <argsstring>(eosio::name coopname, eosio::name admin, uint64_t withdraw_id, std::string memo)</argsstring>
+        <name>wthdcomplete</name>
+        <qualifiedname>gateway::wthdcomplete</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>admin</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>withdraw_id</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>memo</declname>
+        </param>
+        <briefdescription>
+<para>Завершает процесс вывода средств в контракте <computeroutput>gateway</computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Действие <computeroutput>wthdcomplete</computeroutput> используется для обозначения успешного завершения запроса на вывод средств. Оно обновляет статус запроса на &quot;completed&quot; и обновляет заметку.</para>
+<para><simplesect kind="note"><para>Требуется авторизация аккаунта контракта <computeroutput>gateway</computeroutput>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>withdraw_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Уникальный идентификатор запроса на вывод средств. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>memo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Обновлённая заметка, связанная с запросом на вывод.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+cleos push action gateway wthdcomplete &apos;[&quot;12345&quot;, &quot;Успешное завершение&quot;]&apos; -p gateway@active </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gateway/gateway.hpp" line="63" column="9" bodyfile="gateway/gateway.cpp" bodystart="311" bodyend="350"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gac0eb7373a774cec08f2017a74522b2b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gateway::wthdfail</definition>
+        <argsstring>(eosio::name coopname, eosio::name admin, uint64_t withdraw_id, std::string memo)</argsstring>
+        <name>wthdfail</name>
+        <qualifiedname>gateway::wthdfail</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>admin</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>withdraw_id</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>memo</declname>
+        </param>
+        <briefdescription>
+<para>Отменяет процесс вывода средств в контракте <computeroutput>gateway</computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Действие <computeroutput>wthdfail</computeroutput> используется для обозначения неудачного завершения запроса на вывод средств. Оно обновляет статус запроса на &quot;failed&quot;, обновляет заметку и возвращает средства пользователю.</para>
+<para><simplesect kind="note"><para>Требуется авторизация аккаунта контракта <computeroutput>gateway</computeroutput>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>withdraw_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Уникальный идентификатор запроса на вывод средств. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>memo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Обновлённая заметка, связанная с запросом на вывод.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+cleos push action gateway wthdfail &apos;[&quot;12345&quot;, &quot;Отмена из-за ошибки&quot;]&apos; -p gateway@active </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gateway/gateway.hpp" line="64" column="9" bodyfile="gateway/gateway.cpp" bodystart="366" bodyend="389"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Класс <computeroutput>gateway</computeroutput> обеспечивает процессинг банковских и криптовалютных платежей в кооперативах. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Контракт <computeroutput>Gateway</computeroutput> выполняет ключевую роль в обработке платежных операций в блокчейн-системе кооперативов. Он позволяет управлять депозитами и выводом средств, обеспечивая эффективное и безопасное взаимодействие между участниками системы.</para>
+<para>Для процессинга депозитов контракт предлагает следующие методы:<itemizedlist>
+<listitem><para><computeroutput>dpcreate</computeroutput>: Создание инвойса для депозита.</para>
+</listitem><listitem><para><computeroutput>dpinit</computeroutput>: Инициализация обработки инвойса.</para>
+</listitem><listitem><para><computeroutput>dpupdate</computeroutput>: Обновление статуса инвойса.</para>
+</listitem><listitem><para><computeroutput>dpcomplete</computeroutput>: Отметка инвойса как исполненного.</para>
+</listitem><listitem><para><computeroutput>dpfail</computeroutput>: Отметка инвойса как провалившегося.</para>
+</listitem></itemizedlist>
+</para>
+<para>Для вывода средств предусмотрены следующие шаги:<itemizedlist>
+<listitem><para><computeroutput>Transfer</computeroutput>: Перевод на контракт шлюза, который пополняет внутренний баланс.</para>
+</listitem><listitem><para><computeroutput>wthdcreate</computeroutput>: Создание поручения на вывод средств и блокировка внутреннего баланса.</para>
+</listitem><listitem><para><computeroutput>wthdupdate</computeroutput>: Обновление статуса поручения на вывод.</para>
+</listitem><listitem><para><computeroutput>wthdcomplete</computeroutput>: Отметка поручения на вывод как исполненного.</para>
+</listitem><listitem><para><computeroutput>wthdfail</computeroutput>: Отметка поручения на вывод как проваленного.</para>
+</listitem></itemizedlist>
+</para>
+<para>Для возврата средств с внутреннего баланса, полученных путем перевода на аккаунт контракта, применяется метод <computeroutput>back</computeroutput>. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>eosio::contract</label>
+      </node>
+      <node id="1">
+        <label>gateway</label>
+        <link refid="classgateway"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>eosio::contract</label>
+      </node>
+      <node id="1">
+        <label>gateway</label>
+        <link refid="classgateway"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="gateway/gateway.hpp" line="44" column="1" bodyfile="gateway/gateway.hpp" bodystart="44" bodyend="78"/>
+    <listofallmembers>
+      <member refid="classgateway_1a69b49209b2cc17da42aa66890e2ca080" prot="public" virt="non-virtual"><scope>gateway</scope><name>apply</name></member>
+      <member refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" prot="public" virt="non-virtual"><scope>gateway</scope><name>deposit</name></member>
+      <member refid="group__public__actions_1ga59936ddb45db401976fd3d404b92caa7" prot="public" virt="non-virtual"><scope>gateway</scope><name>dpcomplete</name></member>
+      <member refid="group__public__actions_1ga8776a33709be83c15957bc8e366db71d" prot="public" virt="non-virtual"><scope>gateway</scope><name>dpfail</name></member>
+      <member refid="classgateway_1a61f6973ac320eea0ad63680cfe3317ae" prot="public" virt="non-virtual"><scope>gateway</scope><name>gateway</name></member>
+      <member refid="group__public__actions_1gaa2f4b2364f09b8728cbf12eb6e9b92f1" prot="public" virt="non-virtual"><scope>gateway</scope><name>newdepositid</name></member>
+      <member refid="classgateway_1a3cbc501eda8ea4d6bb061068141f28ba" prot="public" virt="non-virtual"><scope>gateway</scope><name>newwithdrid</name></member>
+      <member refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" prot="public" virt="non-virtual"><scope>gateway</scope><name>withdraw</name></member>
+      <member refid="classgateway_1a5b244fde939d3cf2aaa7c36f91c228cb" prot="public" virt="non-virtual"><scope>gateway</scope><name>withdrawauth</name></member>
+      <member refid="group__public__actions_1ga2551c736852a98d33f2fcc9f569fe836" prot="public" virt="non-virtual"><scope>gateway</scope><name>wthdcomplete</name></member>
+      <member refid="group__public__actions_1gac0eb7373a774cec08f2017a74522b2b2" prot="public" virt="non-virtual"><scope>gateway</scope><name>wthdfail</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structeosio_1_1token_1_1account" kind="struct" language="C++" prot="private">
+    <compoundname>eosio::token::account</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeosio_1_1token_1_1account_1a6d6aaf37aa4e794b64a1b04990339043" prot="public" static="no" mutable="no">
+        <type>asset</type>
+        <definition>asset eosio::token::account::balance</definition>
+        <argsstring></argsstring>
+        <name>balance</name>
+        <qualifiedname>eosio::token::account::balance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" line="126" column="22" bodyfile="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeosio_1_1token_1_1account_1a0881195a3cc88813bfc082903e2e627a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t eosio::token::account::primary_key</definition>
+        <argsstring>() const</argsstring>
+        <name>primary_key</name>
+        <qualifiedname>eosio::token::account::primary_key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" line="128" column="22" bodyfile="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" bodystart="128" bodyend="128"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>asset</label>
+      </node>
+      <node id="1">
+        <label>eosio::token::account</label>
+        <link refid="structeosio_1_1token_1_1account"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>balance</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" line="125" column="10" bodyfile="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" bodystart="125" bodyend="129"/>
+    <listofallmembers>
+      <member refid="structeosio_1_1token_1_1account_1a6d6aaf37aa4e794b64a1b04990339043" prot="public" virt="non-virtual"><scope>eosio::token::account</scope><name>balance</name></member>
+      <member refid="structeosio_1_1token_1_1account_1a0881195a3cc88813bfc082903e2e627a" prot="public" virt="non-virtual"><scope>eosio::token::account</scope><name>primary_key</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

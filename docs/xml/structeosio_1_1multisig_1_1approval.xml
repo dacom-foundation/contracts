@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structeosio_1_1multisig_1_1approval" kind="struct" language="C++" prot="public">
+    <compoundname>eosio::multisig::approval</compoundname>
+    <includes refid="eosio_8msig_8hpp" local="no">eosio.msig.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeosio_1_1multisig_1_1approval_1a7de164e0abd4d7ecec9da2f67fe57ece" prot="public" static="no" mutable="no">
+        <type>permission_level</type>
+        <definition>permission_level eosio::multisig::approval::level</definition>
+        <argsstring></argsstring>
+        <name>level</name>
+        <qualifiedname>eosio::multisig::approval::level</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" line="132" column="24" bodyfile="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosio_1_1multisig_1_1approval_1a07e19daf20f6ca5a96251a0c590cbe31" prot="public" static="no" mutable="no">
+        <type>time_point</type>
+        <definition>time_point eosio::multisig::approval::time</definition>
+        <argsstring></argsstring>
+        <name>time</name>
+        <qualifiedname>eosio::multisig::approval::time</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" line="133" column="24" bodyfile="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>eosio::multisig::approval</label>
+        <link refid="structeosio_1_1multisig_1_1approval"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>level</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>time</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>permission_level</label>
+      </node>
+      <node id="3">
+        <label>time_point</label>
+      </node>
+    </collaborationgraph>
+    <location file="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" line="131" column="4" bodyfile="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" bodystart="131" bodyend="134"/>
+    <listofallmembers>
+      <member refid="structeosio_1_1multisig_1_1approval_1a7de164e0abd4d7ecec9da2f67fe57ece" prot="public" virt="non-virtual"><scope>eosio::multisig::approval</scope><name>level</name></member>
+      <member refid="structeosio_1_1multisig_1_1approval_1a07e19daf20f6ca5a96251a0c590cbe31" prot="public" virt="non-virtual"><scope>eosio::multisig::approval</scope><name>time</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="rammarket_8hpp" kind="file" language="C++">
+    <compoundname>rammarket.hpp</compoundname>
+    <includes local="no">algorithm</includes>
+    <includes local="no">cmath</includes>
+    <includes local="no">eosio/asset.hpp</includes>
+    <includedby refid="registrator_8hpp" local="yes">registrator/registrator.hpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>common/rammarket.hpp</label>
+        <link refid="rammarket_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>algorithm</label>
+      </node>
+      <node id="3">
+        <label>cmath</label>
+      </node>
+      <node id="4">
+        <label>eosio/asset.hpp</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>common/rammarket.hpp</label>
+        <link refid="rammarket_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>registrator/registrator.cpp</label>
+        <link refid="registrator_8cpp"/>
+      </node>
+      <node id="2">
+        <label>registrator/registrator.hpp</label>
+        <link refid="registrator_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structeosiosystem_1_1exchange__state" prot="public">eosiosystem::exchange_state</innerclass>
+    <innerclass refid="structeosiosystem_1_1exchange__state_1_1connector" prot="public">eosiosystem::exchange_state::connector</innerclass>
+    <innernamespace refid="namespaceeosiosystem">eosiosystem</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cmath&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/asset.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="namespaceeosiosystem" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceeosiosystem" kindref="compound">eosiosystem</ref><sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>eosio::asset;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>eosio::symbol;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="namespaceeosiosystem_1a44b4ba2cc0f25ec73138308d16cb792f" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespaceeosiosystem_1a44b4ba2cc0f25ec73138308d16cb792f" kindref="member">real_type</ref>;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="structeosiosystem_1_1exchange__state" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(SYSTEM)]]<sp/><ref refid="structeosiosystem_1_1exchange__state" kindref="compound">exchange_state</ref><sp/>{</highlight></codeline>
+<codeline lineno="19" refid="structeosiosystem_1_1exchange__state_1a46dd436b7c53a2cc5fb718f18176f55f" refkind="member"><highlight class="normal"><sp/><sp/>asset<sp/><ref refid="structeosiosystem_1_1exchange__state_1a46dd436b7c53a2cc5fb718f18176f55f" kindref="member">supply</ref>;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="structeosiosystem_1_1exchange__state_1_1connector" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structeosiosystem_1_1exchange__state_1_1connector" kindref="compound">connector</ref><sp/>{</highlight></codeline>
+<codeline lineno="22" refid="structeosiosystem_1_1exchange__state_1_1connector_1aa0c34b770479927ae7d4f0760bc0e574" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>asset<sp/><ref refid="structeosiosystem_1_1exchange__state_1_1connector_1aa0c34b770479927ae7d4f0760bc0e574" kindref="member">balance</ref>;</highlight></codeline>
+<codeline lineno="23" refid="structeosiosystem_1_1exchange__state_1_1connector_1a0132eb8bc9c7a9fe1958c98a436e4262" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>weight<sp/>=<sp/>0.5;<sp/></highlight><highlight class="comment">//.5</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>EOSLIB_SERIALIZE(<ref refid="structeosiosystem_1_1exchange__state_1_1connector" kindref="compound">connector</ref>,<sp/>(balance)(weight))</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="structeosiosystem_1_1exchange__state_1a64022b0822ac4b53ff484590f76ef021" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="structeosiosystem_1_1exchange__state_1_1connector" kindref="compound">connector</ref><sp/><ref refid="structeosiosystem_1_1exchange__state_1a64022b0822ac4b53ff484590f76ef021" kindref="member">base</ref>;</highlight></codeline>
+<codeline lineno="29" refid="structeosiosystem_1_1exchange__state_1a193594141203ddbb6a37d7cf56201f7f" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="structeosiosystem_1_1exchange__state_1_1connector" kindref="compound">connector</ref><sp/><ref refid="structeosiosystem_1_1exchange__state_1a193594141203ddbb6a37d7cf56201f7f" kindref="member">quote</ref>;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="structeosiosystem_1_1exchange__state_1a124e84f589746ad2bada2ea98af5b5e2" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structeosiosystem_1_1exchange__state_1a124e84f589746ad2bada2ea98af5b5e2" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>supply.symbol.raw();<sp/>}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="structeosiosystem_1_1exchange__state_1a7c029ed83a27b04524911cf1c3f647c8" refkind="member"><highlight class="normal"><sp/><sp/>asset<sp/><ref refid="structeosiosystem_1_1exchange__state_1a7c029ed83a27b04524911cf1c3f647c8" kindref="member">convert_to_exchange</ref>(<ref refid="structeosiosystem_1_1exchange__state_1_1connector" kindref="compound">connector</ref><sp/>&amp;<sp/>c,<sp/>asset<sp/>in)<sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceeosiosystem_1a44b4ba2cc0f25ec73138308d16cb792f" kindref="member">real_type</ref><sp/>R(supply.amount);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceeosiosystem_1a44b4ba2cc0f25ec73138308d16cb792f" kindref="member">real_type</ref><sp/>C(c.<ref refid="structeosiosystem_1_1exchange__state_1_1connector_1aa0c34b770479927ae7d4f0760bc0e574" kindref="member">balance</ref>.amount<sp/>+<sp/>in.amount);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceeosiosystem_1a44b4ba2cc0f25ec73138308d16cb792f" kindref="member">real_type</ref><sp/>F(c.<ref refid="structeosiosystem_1_1exchange__state_1_1connector_1a0132eb8bc9c7a9fe1958c98a436e4262" kindref="member">weight</ref>);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceeosiosystem_1a44b4ba2cc0f25ec73138308d16cb792f" kindref="member">real_type</ref><sp/>T(in.amount);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceeosiosystem_1a44b4ba2cc0f25ec73138308d16cb792f" kindref="member">real_type</ref><sp/>ONE(1.0);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceeosiosystem_1a44b4ba2cc0f25ec73138308d16cb792f" kindref="member">real_type</ref><sp/>E<sp/>=<sp/>-R<sp/>*<sp/>(ONE<sp/>-<sp/>pow(ONE<sp/>+<sp/>T<sp/>/<sp/>C,<sp/>F));</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>int64_t<sp/>issued<sp/>=<sp/>int64_t(E);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>supply.amount<sp/>+=<sp/>issued;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>c.<ref refid="structeosiosystem_1_1exchange__state_1_1connector_1aa0c34b770479927ae7d4f0760bc0e574" kindref="member">balance</ref>.amount<sp/>+=<sp/>in.amount;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>asset(issued,<sp/>supply.symbol);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="structeosiosystem_1_1exchange__state_1ade7bfd99be01e15093f27d95a3013ba7" refkind="member"><highlight class="normal"><sp/><sp/>asset<sp/><ref refid="structeosiosystem_1_1exchange__state_1ade7bfd99be01e15093f27d95a3013ba7" kindref="member">convert_from_exchange</ref>(<ref refid="structeosiosystem_1_1exchange__state_1_1connector" kindref="compound">connector</ref><sp/>&amp;<sp/>c,<sp/>asset<sp/>in)<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::check(in.symbol<sp/>==<sp/>supply.symbol,<sp/></highlight><highlight class="stringliteral">&quot;unexpected<sp/>asset<sp/>symbol<sp/>input&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceeosiosystem_1a44b4ba2cc0f25ec73138308d16cb792f" kindref="member">real_type</ref><sp/>R(supply.amount<sp/>-<sp/>in.amount);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceeosiosystem_1a44b4ba2cc0f25ec73138308d16cb792f" kindref="member">real_type</ref><sp/>C(c.<ref refid="structeosiosystem_1_1exchange__state_1_1connector_1aa0c34b770479927ae7d4f0760bc0e574" kindref="member">balance</ref>.amount);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceeosiosystem_1a44b4ba2cc0f25ec73138308d16cb792f" kindref="member">real_type</ref><sp/>F(1.0<sp/>/<sp/>c.<ref refid="structeosiosystem_1_1exchange__state_1_1connector_1a0132eb8bc9c7a9fe1958c98a436e4262" kindref="member">weight</ref>);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceeosiosystem_1a44b4ba2cc0f25ec73138308d16cb792f" kindref="member">real_type</ref><sp/>E(in.amount);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceeosiosystem_1a44b4ba2cc0f25ec73138308d16cb792f" kindref="member">real_type</ref><sp/>ONE(1.0);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>potentially<sp/>more<sp/>accurate:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>functions<sp/>std::expm1<sp/>and<sp/>std::log1p<sp/>are<sp/>useful<sp/>for<sp/>financial</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>calculations,<sp/>for<sp/>example,<sp/>when<sp/>calculating<sp/>small<sp/>daily<sp/>interest<sp/>rates:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>(1+x)n<sp/>-1<sp/>can<sp/>be<sp/>expressed<sp/>as<sp/>std::expm1(n<sp/>*<sp/>std::log1p(x)).<sp/>real_type<sp/>T</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>=<sp/>C<sp/>*<sp/>std::expm1(<sp/>F<sp/>*<sp/>std::log1p(E/R)<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceeosiosystem_1a44b4ba2cc0f25ec73138308d16cb792f" kindref="member">real_type</ref><sp/>T<sp/>=<sp/>C<sp/>*<sp/>(std::pow(ONE<sp/>+<sp/>E<sp/>/<sp/>R,<sp/>F)<sp/>-<sp/>ONE);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>int64_t<sp/>out<sp/>=<sp/>int64_t(T);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>supply.amount<sp/>-=<sp/>in.amount;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>c.<ref refid="structeosiosystem_1_1exchange__state_1_1connector_1aa0c34b770479927ae7d4f0760bc0e574" kindref="member">balance</ref>.amount<sp/>-=<sp/>out;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>asset(out,<sp/>c.<ref refid="structeosiosystem_1_1exchange__state_1_1connector_1aa0c34b770479927ae7d4f0760bc0e574" kindref="member">balance</ref>.symbol);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73" refid="structeosiosystem_1_1exchange__state_1a9b44e4142697e729fe05dc028b932c0e" refkind="member"><highlight class="normal"><sp/><sp/>asset<sp/><ref refid="structeosiosystem_1_1exchange__state_1a9b44e4142697e729fe05dc028b932c0e" kindref="member">convert</ref>(asset<sp/>from,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>symbol<sp/>&amp;to)<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>sell_symbol<sp/>=<sp/>from.symbol;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ex_symbol<sp/>=<sp/>supply.symbol;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>base_symbol<sp/>=<sp/>base.<ref refid="structeosiosystem_1_1exchange__state_1_1connector_1aa0c34b770479927ae7d4f0760bc0e574" kindref="member">balance</ref>.symbol;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>quote_symbol<sp/>=<sp/>quote.<ref refid="structeosiosystem_1_1exchange__state_1_1connector_1aa0c34b770479927ae7d4f0760bc0e574" kindref="member">balance</ref>.symbol;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>print(<sp/>&quot;From:<sp/>&quot;,<sp/>from,<sp/>&quot;<sp/>TO<sp/>&quot;,<sp/>asset(<sp/>0,to),<sp/>&quot;\n&quot;<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>print(<sp/>&quot;base:<sp/>&quot;,<sp/>base_symbol,<sp/>&quot;\n&quot;<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>print(<sp/>&quot;quote:<sp/>&quot;,<sp/>quote_symbol,<sp/>&quot;\n&quot;<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>print(<sp/>&quot;ex:<sp/>&quot;,<sp/>supply.symbol,<sp/>&quot;\n&quot;<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(sell_symbol<sp/>!=<sp/>ex_symbol)<sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(sell_symbol<sp/>==<sp/>base_symbol)<sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>from<sp/>=<sp/>convert_to_exchange(base,<sp/>from);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(sell_symbol<sp/>==<sp/>quote_symbol)<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>from<sp/>=<sp/>convert_to_exchange(quote,<sp/>from);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::check(</highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;invalid<sp/>sell&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(to<sp/>==<sp/>base_symbol)<sp/>{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>from<sp/>=<sp/>convert_from_exchange(base,<sp/>from);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(to<sp/>==<sp/>quote_symbol)<sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>from<sp/>=<sp/>convert_from_exchange(quote,<sp/>from);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::check(</highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;invalid<sp/>conversion&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(to<sp/>!=<sp/>from.symbol)</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>convert(from,<sp/>to);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>from;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>EOSLIB_SERIALIZE(<ref refid="structeosiosystem_1_1exchange__state" kindref="compound">exchange_state</ref>,<sp/>(supply)(base)(quote))</highlight></codeline>
+<codeline lineno="109"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111" refid="namespaceeosiosystem_1a084bb74fe483e49001e674d5e66001de" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;</highlight><highlight class="stringliteral">&quot;rammarket&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structeosiosystem_1_1exchange__state" kindref="compound">exchange_state</ref>&gt;<sp/><ref refid="namespaceeosiosystem_1a084bb74fe483e49001e674d5e66001de" kindref="member">rammarket</ref>;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113" refid="namespaceeosiosystem_1a554d168bb3ecdd68b09cabaabe5a90a5" refkind="member"><highlight class="normal">eosio::asset<sp/><ref refid="namespaceeosiosystem_1a554d168bb3ecdd68b09cabaabe5a90a5" kindref="member">determine_ram_price</ref>(uint32_t<sp/>bytes)<sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><ref refid="namespaceeosiosystem_1a084bb74fe483e49001e674d5e66001de" kindref="member">eosiosystem::rammarket</ref><sp/>rammarkettable(<ref refid="group__public__consts_1ga52724c95f23545d7efc4db16f3fe42ce" kindref="member">_system</ref>,<sp/><ref refid="group__public__consts_1ga52724c95f23545d7efc4db16f3fe42ce" kindref="member">_system</ref>.value);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>market<sp/>=<sp/>rammarkettable.get(<ref refid="group__public__consts_1ga4977cb29c847a5a4fce4cce4b753c914" kindref="member">_ramcore_symbol</ref>.raw());</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ram_price<sp/>=</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>market.convert(eosio::asset{bytes,<sp/><ref refid="group__public__consts_1ga53c8b80330465342487f78d14fad4ce7" kindref="member">RAM_symbol</ref>},<sp/><ref refid="group__public__consts_1ga6b01540b618a86e6bd5303db76e3b45f" kindref="member">_root_symbol</ref>);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/>ram_price.amount<sp/>=<sp/>(ram_price.amount<sp/>*<sp/>200<sp/>+<sp/>199)<sp/>/<sp/>199;<sp/></highlight><highlight class="comment">//<sp/>add<sp/>ram<sp/>fee</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ram_price;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>eosiosystem</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="common/rammarket.hpp"/>
+  </compounddef>
+</doxygen>

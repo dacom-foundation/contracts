@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="namespaceeosiobios" kind="namespace" language="C++">
+    <compoundname>eosiobios</compoundname>
+    <innerclass refid="structeosiobios_1_1authority" prot="public">eosiobios::authority</innerclass>
+    <innerclass refid="classeosiobios_1_1bios" prot="public">eosiobios::bios</innerclass>
+    <innerclass refid="structeosiobios_1_1block__header" prot="public">eosiobios::block_header</innerclass>
+    <innerclass refid="structeosiobios_1_1key__weight" prot="public">eosiobios::key_weight</innerclass>
+    <innerclass refid="structeosiobios_1_1permission__level__weight" prot="public">eosiobios::permission_level_weight</innerclass>
+    <innerclass refid="structeosiobios_1_1wait__weight" prot="public">eosiobios::wait_weight</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="10" column="1"/>
+  </compounddef>
+</doxygen>

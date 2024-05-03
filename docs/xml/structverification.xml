@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structverification" kind="struct" language="C++" prot="public">
+    <compoundname>verification</compoundname>
+    <includes refid="accounts_8hpp" local="no">accounts.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structverification_1a7fb3c0fd447a28ad0919859e3ccb5aa7" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name verification::verificator</definition>
+        <argsstring></argsstring>
+        <name>verificator</name>
+        <qualifiedname>verification::verificator</qualifiedname>
+        <briefdescription>
+<para>Организация, которая произвела верификацию </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="15" column="15" bodyfile="common/accounts.hpp" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structverification_1aeb6702bd4b7903963252735d6f760c50" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool verification::is_verified</definition>
+        <argsstring></argsstring>
+        <name>is_verified</name>
+        <qualifiedname>verification::is_verified</qualifiedname>
+        <briefdescription>
+<para>Флаг, указывающий, прошла ли верификация </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="16" column="8" bodyfile="common/accounts.hpp" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structverification_1a0445ec6869e5259c336dd7010a357a6e" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name verification::procedure</definition>
+        <argsstring></argsstring>
+        <name>procedure</name>
+        <qualifiedname>verification::procedure</qualifiedname>
+        <briefdescription>
+<para>Тип процедуры верификации </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="17" column="15" bodyfile="common/accounts.hpp" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structverification_1aa7d19ca745ac2729d841ff65548622e6" prot="public" static="no" mutable="no">
+        <type>eosio::time_point_sec</type>
+        <definition>eosio::time_point_sec verification::created_at</definition>
+        <argsstring></argsstring>
+        <name>created_at</name>
+        <qualifiedname>verification::created_at</qualifiedname>
+        <briefdescription>
+<para>Время создания записи </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="28" column="25" bodyfile="common/accounts.hpp" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structverification_1a674206f7442d3ba3319ce4b22d542b04" prot="public" static="no" mutable="no">
+        <type>eosio::time_point_sec</type>
+        <definition>eosio::time_point_sec verification::last_update</definition>
+        <argsstring></argsstring>
+        <name>last_update</name>
+        <qualifiedname>verification::last_update</qualifiedname>
+        <briefdescription>
+<para>Время последнего обновления записи </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="29" column="25" bodyfile="common/accounts.hpp" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structverification_1a231be135ab1c6c218ca0ed86383d043c" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string verification::notice</definition>
+        <argsstring></argsstring>
+        <name>notice</name>
+        <qualifiedname>verification::notice</qualifiedname>
+        <briefdescription>
+<para>Дополнительная информация </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="30" column="15" bodyfile="common/accounts.hpp" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Структура, представляющая верификацию. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Тип процедуры верификации (procedure) может принимать следующие значения:<itemizedlist>
+<listitem><para>0: Online</para>
+</listitem><listitem><para>1: Video Call</para>
+</listitem><listitem><para>2: Qualified Signature</para>
+</listitem><listitem><para>3: Gosuslugi</para>
+</listitem><listitem><para>4: С помощью мобильного приложения (App)</para>
+</listitem><listitem><para>5: Некоторые платежные системы проводят верификацию в Связном (Agent Store)</para>
+</listitem><listitem><para>6: Верификация в банке (Bank)</para>
+</listitem><listitem><para>7: Верификация в кооперативе (In Person) </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>name</label>
+      </node>
+      <node id="3">
+        <label>time_point_sec</label>
+      </node>
+      <node id="4">
+        <label>string</label>
+      </node>
+      <node id="1">
+        <label>verification</label>
+        <link refid="structverification"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>procedure</edgelabel>
+          <edgelabel>verificator</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>created_at</edgelabel>
+          <edgelabel>last_update</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>notice</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="common/accounts.hpp" line="14" column="1" bodyfile="common/accounts.hpp" bodystart="14" bodyend="31"/>
+    <listofallmembers>
+      <member refid="structverification_1aa7d19ca745ac2729d841ff65548622e6" prot="public" virt="non-virtual"><scope>verification</scope><name>created_at</name></member>
+      <member refid="structverification_1aeb6702bd4b7903963252735d6f760c50" prot="public" virt="non-virtual"><scope>verification</scope><name>is_verified</name></member>
+      <member refid="structverification_1a674206f7442d3ba3319ce4b22d542b04" prot="public" virt="non-virtual"><scope>verification</scope><name>last_update</name></member>
+      <member refid="structverification_1a231be135ab1c6c218ca0ed86383d043c" prot="public" virt="non-virtual"><scope>verification</scope><name>notice</name></member>
+      <member refid="structverification_1a0445ec6869e5259c336dd7010a357a6e" prot="public" virt="non-virtual"><scope>verification</scope><name>procedure</name></member>
+      <member refid="structverification_1a7fb3c0fd447a28ad0919859e3ccb5aa7" prot="public" virt="non-virtual"><scope>verification</scope><name>verificator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

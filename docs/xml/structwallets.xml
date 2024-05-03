@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structwallets" kind="struct" language="C++" prot="public">
+    <compoundname>wallets</compoundname>
+    <includes refid="balances_8hpp" local="no">balances.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structwallets_1a5bf63dc37dc288590a7ff1b003ce5bdd" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name wallets::username</definition>
+        <argsstring></argsstring>
+        <name>username</name>
+        <qualifiedname>wallets::username</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/balances.hpp" line="93" column="15" bodyfile="common/balances.hpp" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structwallets_1aca067f3f06b79fdf17bc20f2f7b5b5ca" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name wallets::coopname</definition>
+        <argsstring></argsstring>
+        <name>coopname</name>
+        <qualifiedname>wallets::coopname</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/balances.hpp" line="94" column="15" bodyfile="common/balances.hpp" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structwallets_1a957cd6ea3e8b379c05b9ecae8aecf2ec" prot="public" static="no" mutable="no">
+        <type>eosio::asset</type>
+        <definition>eosio::asset wallets::available</definition>
+        <argsstring></argsstring>
+        <name>available</name>
+        <qualifiedname>wallets::available</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/balances.hpp" line="95" column="16" bodyfile="common/balances.hpp" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structwallets_1a46f39ef4eb3a087abb588d747f4c3cf7" prot="public" static="no" mutable="no">
+        <type>eosio::asset</type>
+        <definition>eosio::asset wallets::blocked</definition>
+        <argsstring></argsstring>
+        <name>blocked</name>
+        <qualifiedname>wallets::blocked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/balances.hpp" line="96" column="16" bodyfile="common/balances.hpp" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structwallets_1a8b429e66e7455d556b00ab2f140ec103" prot="public" static="no" mutable="no">
+        <type>eosio::asset</type>
+        <definition>eosio::asset wallets::minimum</definition>
+        <argsstring></argsstring>
+        <name>minimum</name>
+        <qualifiedname>wallets::minimum</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/balances.hpp" line="97" column="16" bodyfile="common/balances.hpp" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structwallets_1ab97728a6804a1c5d59b7043796a06c20" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t wallets::primary_key</definition>
+        <argsstring>() const</argsstring>
+        <name>primary_key</name>
+        <qualifiedname>wallets::primary_key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>return username - primary_key </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/balances.hpp" line="99" column="12" bodyfile="common/balances.hpp" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>asset</label>
+      </node>
+      <node id="2">
+        <label>name</label>
+      </node>
+      <node id="1">
+        <label>wallets</label>
+        <link refid="structwallets"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>coopname</edgelabel>
+          <edgelabel>username</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>available</edgelabel>
+          <edgelabel>blocked</edgelabel>
+          <edgelabel>minimum</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="common/balances.hpp" line="92" column="1" bodyfile="common/balances.hpp" bodystart="92" bodyend="101"/>
+    <listofallmembers>
+      <member refid="structwallets_1a957cd6ea3e8b379c05b9ecae8aecf2ec" prot="public" virt="non-virtual"><scope>wallets</scope><name>available</name></member>
+      <member refid="structwallets_1a46f39ef4eb3a087abb588d747f4c3cf7" prot="public" virt="non-virtual"><scope>wallets</scope><name>blocked</name></member>
+      <member refid="structwallets_1aca067f3f06b79fdf17bc20f2f7b5b5ca" prot="public" virt="non-virtual"><scope>wallets</scope><name>coopname</name></member>
+      <member refid="structwallets_1a8b429e66e7455d556b00ab2f140ec103" prot="public" virt="non-virtual"><scope>wallets</scope><name>minimum</name></member>
+      <member refid="structwallets_1ab97728a6804a1c5d59b7043796a06c20" prot="public" virt="non-virtual"><scope>wallets</scope><name>primary_key</name></member>
+      <member refid="structwallets_1a5bf63dc37dc288590a7ff1b003ce5bdd" prot="public" virt="non-virtual"><scope>wallets</scope><name>username</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

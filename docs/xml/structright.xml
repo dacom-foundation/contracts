@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structright" kind="struct" language="C++" prot="public">
+    <compoundname>right</compoundname>
+    <includes refid="coops_8hpp" local="no">coops.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structright_1a72bb88ed7a935b2652edd7c01ed9cbfb" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name right::contract</definition>
+        <argsstring></argsstring>
+        <name>contract</name>
+        <qualifiedname>right::contract</qualifiedname>
+        <briefdescription>
+<para>Имя контракта, к которому применяется право доступа. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="121" column="15" bodyfile="common/coops.hpp" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structright_1a7b8447f641a5a31a5c77b23ab3d97dd3" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name right::action_name</definition>
+        <argsstring></argsstring>
+        <name>action_name</name>
+        <qualifiedname>right::action_name</qualifiedname>
+        <briefdescription>
+<para>Имя действия, к которому применяется право доступа. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="122" column="15" bodyfile="common/coops.hpp" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Структура, представляющая права доступа. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Эта структура содержит информацию о правах доступа, связанных с конкретным контрактом и действием. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>name</label>
+      </node>
+      <node id="1">
+        <label>right</label>
+        <link refid="structright"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>action_name</edgelabel>
+          <edgelabel>contract</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="common/coops.hpp" line="120" column="1" bodyfile="common/coops.hpp" bodystart="120" bodyend="123"/>
+    <listofallmembers>
+      <member refid="structright_1a7b8447f641a5a31a5c77b23ab3d97dd3" prot="public" virt="non-virtual"><scope>right</scope><name>action_name</name></member>
+      <member refid="structright_1a72bb88ed7a935b2652edd7c01ed9cbfb" prot="public" virt="non-virtual"><scope>right</scope><name>contract</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

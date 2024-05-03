@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="classeosio_1_1wrap" kind="class" language="C++" prot="public">
+    <compoundname>eosio::wrap</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">contract</basecompoundref>
+    <includes refid="eosio_8wrap_8hpp" local="no">eosio.wrap.hpp</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classeosio_1_1wrap_1ab6b98aea95fa979a2740a617251c613e" prot="public" static="no">
+        <type>eosio::action_wrapper&lt;&quot;exec&quot;_n, &amp;<ref refid="classeosio_1_1wrap_1a62a9871067de866d265fd69a5a4eac60" kindref="member">wrap::exec</ref> &gt;</type>
+        <definition>using eosio::wrap::exec_action =  eosio::action_wrapper&lt;&quot;exec&quot;_n, &amp;wrap::exec&gt;</definition>
+        <argsstring></argsstring>
+        <name>exec_action</name>
+        <qualifiedname>eosio::wrap::exec_action</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.wrap/include/eosio.wrap/eosio.wrap.hpp" line="36" column="10" bodyfile="system/contracts/eosio.wrap/include/eosio.wrap/eosio.wrap.hpp" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classeosio_1_1wrap_1a62a9871067de866d265fd69a5a4eac60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosio::wrap::exec</definition>
+        <argsstring>(ignore&lt; name &gt; executer, ignore&lt; transaction &gt; trx)</argsstring>
+        <name>exec</name>
+        <qualifiedname>eosio::wrap::exec</qualifiedname>
+        <param>
+          <type>ignore&lt; name &gt;</type>
+          <declname>executer</declname>
+        </param>
+        <param>
+          <type>ignore&lt; transaction &gt;</type>
+          <declname>trx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Execute action.</para>
+<para>Execute a transaction while bypassing regular authorization checks.</para>
+<para>Preconditions:<itemizedlist>
+<listitem><para>Requires authorization of <ref refid="classeosio_1_1wrap" kindref="compound">eosio.wrap</ref> which needs to be a privileged account.</para>
+</listitem></itemizedlist>
+</para>
+<para>Postconditions:<itemizedlist>
+<listitem><para>Deferred transaction RAM usage is billed to &apos;executer&apos; *</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>executer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- account executing the transaction, </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>trx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the transaction to be executed. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.wrap/include/eosio.wrap/eosio.wrap.hpp" line="34" column="15" bodyfile="system/contracts/eosio.wrap/src/eosio.wrap.cpp" bodystart="5" bodyend="24"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The <computeroutput><ref refid="classeosio_1_1wrap" kindref="compound">eosio.wrap</ref></computeroutput> system contract allows block producers to bypass authorization checks or run privileged actions with 15/21 producer approval and thus simplifies block producers superuser actions. It also makes these actions easier to audit.</para>
+<para>It does not give block producers any additional powers or privileges that do not already exist within the EOSIO based blockchains. As it is implemented, in an EOSIO based blockchain, 15/21 block producers can change an account&apos;s permissions or modify an account&apos;s contract code if they decided it is beneficial for the blockchain and community. However, the current method is opaque and leaves undesirable side effects on specific system accounts, and thus the <computeroutput><ref refid="classeosio_1_1wrap" kindref="compound">eosio.wrap</ref></computeroutput>contract solves this matter by providing an easier method of executing important governance actions.</para>
+<para>The only action implemented by the <computeroutput><ref refid="classeosio_1_1wrap" kindref="compound">eosio.wrap</ref></computeroutput> system contract is the <computeroutput>exec</computeroutput> action. This action allows for execution of a transaction, which is passed to the <computeroutput>exec</computeroutput> method in the form of a packed transaction in json format via the &apos;trx&apos; parameter and the <computeroutput>executer</computeroutput> account that executes the transaction. The same <computeroutput>executer</computeroutput> account will also be used to pay the RAM and CPU fees needed to execute the transaction. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>contract</label>
+      </node>
+      <node id="1">
+        <label>eosio::wrap</label>
+        <link refid="classeosio_1_1wrap"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>contract</label>
+      </node>
+      <node id="1">
+        <label>eosio::wrap</label>
+        <link refid="classeosio_1_1wrap"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="system/contracts/eosio.wrap/include/eosio.wrap/eosio.wrap.hpp" line="15" column="4" bodyfile="system/contracts/eosio.wrap/include/eosio.wrap/eosio.wrap.hpp" bodystart="15" bodyend="37"/>
+    <listofallmembers>
+      <member refid="classeosio_1_1wrap_1a62a9871067de866d265fd69a5a4eac60" prot="public" virt="non-virtual"><scope>eosio::wrap</scope><name>exec</name></member>
+      <member refid="classeosio_1_1wrap_1ab6b98aea95fa979a2740a617251c613e" prot="public" virt="non-virtual"><scope>eosio::wrap</scope><name>exec_action</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

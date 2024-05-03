@@ -1,0 +1,447 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="soviet_2soviet_8cpp" kind="file" language="C++">
+    <compoundname>soviet.cpp</compoundname>
+    <includes local="no">eosio/action.hpp</includes>
+    <includes local="no">eosio/crypto.hpp</includes>
+    <includes local="no">eosio/permission.hpp</includes>
+    <includes refid="soviet_8hpp" local="yes">soviet.hpp</includes>
+    <includes refid="admin_8cpp" local="yes">src/admin.cpp</includes>
+    <includes refid="chairman_8cpp" local="yes">src/chairman.cpp</includes>
+    <includes refid="joincoop_8cpp" local="yes">src/joincoop.cpp</includes>
+    <includes refid="soviet_2src_2voting_8cpp" local="yes">src/voting.cpp</includes>
+    <includes refid="automator_8cpp" local="yes">src/automator.cpp</includes>
+    <includes refid="soviet_2src_2marketplace_8cpp" local="yes">src/marketplace.cpp</includes>
+    <includes refid="programs_8cpp" local="yes">src/programs.cpp</includes>
+    <includes refid="contributions_8cpp" local="yes">src/contributions.cpp</includes>
+    <includes refid="addresses_8cpp" local="yes">src/addresses.cpp</includes>
+    <includes refid="fund_8cpp" local="yes">src/fund.cpp</includes>
+    <incdepgraph>
+      <node id="18">
+        <label>../common/accounts.hpp</label>
+        <link refid="accounts_8hpp"/>
+      </node>
+      <node id="22">
+        <label>../common/admins.hpp</label>
+        <link refid="admins_8hpp"/>
+      </node>
+      <node id="17">
+        <label>../common/balances.hpp</label>
+        <link refid="balances_8hpp"/>
+      </node>
+      <node id="20">
+        <label>../common/changes.hpp</label>
+        <link refid="changes_8hpp"/>
+      </node>
+      <node id="12">
+        <label>../common/consts.hpp</label>
+        <link refid="consts_8hpp"/>
+      </node>
+      <node id="19">
+        <label>../common/coops.hpp</label>
+        <link refid="coops_8hpp"/>
+      </node>
+      <node id="21">
+        <label>../common/counts.hpp</label>
+        <link refid="counts_8hpp"/>
+      </node>
+      <node id="14">
+        <label>../common/drafts.hpp</label>
+        <link refid="drafts_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>../common/funds.hpp</label>
+        <link refid="funds_8hpp"/>
+      </node>
+      <node id="23">
+        <label>../common/programs.hpp</label>
+        <link refid="programs_8hpp"/>
+      </node>
+      <node id="13">
+        <label>../common/utils.hpp</label>
+        <link refid="utils_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>soviet/soviet.cpp</label>
+        <link refid="soviet_2soviet_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>soviet.hpp</label>
+        <link refid="soviet_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>src/addresses.cpp</label>
+        <link refid="addresses_8cpp"/>
+      </node>
+      <node id="25">
+        <label>src/admin.cpp</label>
+        <link refid="admin_8cpp"/>
+      </node>
+      <node id="29">
+        <label>src/automator.cpp</label>
+        <link refid="automator_8cpp"/>
+      </node>
+      <node id="26">
+        <label>src/chairman.cpp</label>
+        <link refid="chairman_8cpp"/>
+      </node>
+      <node id="32">
+        <label>src/contributions.cpp</label>
+        <link refid="contributions_8cpp"/>
+      </node>
+      <node id="34">
+        <label>src/fund.cpp</label>
+        <link refid="fund_8cpp"/>
+      </node>
+      <node id="27">
+        <label>src/joincoop.cpp</label>
+        <link refid="joincoop_8cpp"/>
+      </node>
+      <node id="30">
+        <label>src/marketplace.cpp</label>
+        <link refid="soviet_2src_2marketplace_8cpp"/>
+      </node>
+      <node id="31">
+        <label>src/programs.cpp</label>
+        <link refid="programs_8cpp"/>
+      </node>
+      <node id="28">
+        <label>src/voting.cpp</label>
+        <link refid="soviet_2src_2voting_8cpp"/>
+      </node>
+      <node id="2">
+        <label>eosio/action.hpp</label>
+      </node>
+      <node id="10">
+        <label>eosio/asset.hpp</label>
+      </node>
+      <node id="6">
+        <label>eosio/binary_extension.hpp</label>
+      </node>
+      <node id="15">
+        <label>eosio/contract.hpp</label>
+      </node>
+      <node id="3">
+        <label>eosio/crypto.hpp</label>
+      </node>
+      <node id="7">
+        <label>eosio/eosio.hpp</label>
+      </node>
+      <node id="8">
+        <label>eosio/ignore.hpp</label>
+      </node>
+      <node id="4">
+        <label>eosio/permission.hpp</label>
+      </node>
+      <node id="11">
+        <label>eosio/singleton.hpp</label>
+      </node>
+      <node id="16">
+        <label>eosio/system.hpp</label>
+      </node>
+      <node id="9">
+        <label>eosio/transaction.hpp</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="soviet_2soviet_8cpp_1a569d3d0ca7b56fb8c580faaa3d73179a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void apply</definition>
+        <argsstring>(uint64_t receiver, uint64_t code, uint64_t action)</argsstring>
+        <name>apply</name>
+        <param>
+          <type>uint64_t</type>
+          <declname>receiver</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>action</declname>
+        </param>
+        <briefdescription>
+<para>The apply method implements the dispatch of events to this contract. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.cpp" line="104" column="8" bodyfile="soviet/soviet.cpp" bodystart="104" bodyend="201"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;eosio/action.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/crypto.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/permission.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="soviet_8hpp" kindref="compound">soviet.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="admin_8cpp" kindref="compound">src/admin.cpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="chairman_8cpp" kindref="compound">src/chairman.cpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="joincoop_8cpp" kindref="compound">src/joincoop.cpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;src/voting.cpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="automator_8cpp" kindref="compound">src/automator.cpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="soviet_2src_2marketplace_8cpp" kindref="compound">src/marketplace.cpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="programs_8cpp" kindref="compound">src/programs.cpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="contributions_8cpp" kindref="compound">src/contributions.cpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="addresses_8cpp" kindref="compound">src/addresses.cpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="fund_8cpp" kindref="compound">src/fund.cpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceeosio" kindref="compound">eosio</ref>;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal">[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsoviet_1ac45321a36a937e85fc0387200de54140" kindref="member">soviet::draft</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>username,<sp/>uint64_t<sp/>decision_id)<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>require_auth(_soviet);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>require_recipient(coopname);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>require_recipient(username);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal">[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsoviet_1abfbbf9b41520e2813aec2c5022c6d743" kindref="member">soviet::statement</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>username,<sp/>eosio::name<sp/>action,<sp/>uint64_t<sp/>decision_id,<sp/><ref refid="structdocument" kindref="compound">document</ref><sp/><ref refid="structdocument" kindref="compound">document</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>require_auth(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>require_recipient(coopname);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>require_recipient(username);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal">[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsoviet_1a10ddd26be5208f41bd2b13498eb282a3" kindref="member">soviet::act</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>username,<sp/>eosio::name<sp/>action,<sp/>uint64_t<sp/>decision_id,<sp/><ref refid="structdocument" kindref="compound">document</ref><sp/><ref refid="structdocument" kindref="compound">document</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>require_auth(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>require_recipient(coopname);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>require_recipient(username);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal">[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsoviet_1a7d1953dc4d198269e15d7e35df7b63ba" kindref="member">soviet::decision</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>username,<sp/>eosio::name<sp/>action,<sp/>uint64_t<sp/>decision_id,<sp/><ref refid="structdocument" kindref="compound">document</ref><sp/><ref refid="structdocument" kindref="compound">document</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>require_auth(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>require_recipient(coopname);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>require_recipient(username);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal">[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsoviet_1a9f422007a4ed36736212a6a04f252a7a" kindref="member">soviet::batch</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>action,<sp/>uint64_t<sp/>batch_id)<sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>require_auth(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>require_recipient(coopname);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal">[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsoviet_1a7219e152230eb53d532bb8a7049d9747" kindref="member">soviet::program</ref>(eosio::name<sp/>coopname,<sp/>uint64_t<sp/>program_id)<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>require_auth(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>require_recipient(coopname);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1ga2df3ffc1ac9da194963f3be0aadc4139" kindref="member">soviet::exec</ref>(eosio::name<sp/>executer,<sp/>eosio::name<sp/>coopname,<sp/>uint64_t<sp/>decision_id)<sp/>{<sp/></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/>require_auth(executer);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><ref refid="coops_8hpp_1aa1a060285827fdcbe676dc431070dbce" kindref="member">decisions_index</ref><sp/><ref refid="structdecisions" kindref="compound">decisions</ref>(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>coopname.value);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="classsoviet_1a7d1953dc4d198269e15d7e35df7b63ba" kindref="member">decision</ref><sp/>=<sp/><ref refid="structdecisions" kindref="compound">decisions</ref>.find(decision_id);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/>eosio::check(<ref refid="classsoviet_1a7d1953dc4d198269e15d7e35df7b63ba" kindref="member">decision</ref><sp/>!=<sp/><ref refid="structdecisions" kindref="compound">decisions</ref>.end(),</highlight><highlight class="stringliteral">&quot;Решение<sp/>не<sp/>найдено<sp/>в<sp/>оперативной<sp/>памяти&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>eosio::check(<ref refid="classsoviet_1a7d1953dc4d198269e15d7e35df7b63ba" kindref="member">decision</ref><sp/>-&gt;<sp/>authorized<sp/>==<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Только<sp/>авторизованное<sp/>решение<sp/>может<sp/>быть<sp/>исполнено&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classsoviet_1a7d1953dc4d198269e15d7e35df7b63ba" kindref="member">decision</ref><sp/>-&gt;<sp/>type<sp/>==<sp/><ref refid="consts_8hpp_1ace206e4d1676c54066a8ed734347d072" kindref="member">_regaccount_action</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsoviet_1a7fd72ab47d0d66be292668ebc77f23ef" kindref="member">soviet::joincoop_effect</ref>(executer,<sp/>coopname,<sp/><ref refid="classsoviet_1a7d1953dc4d198269e15d7e35df7b63ba" kindref="member">decision</ref>-&gt;id,<sp/><ref refid="classsoviet_1a7d1953dc4d198269e15d7e35df7b63ba" kindref="member">decision</ref>-&gt;batch_id);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classsoviet_1a7d1953dc4d198269e15d7e35df7b63ba" kindref="member">decision</ref><sp/>-&gt;<sp/>type<sp/>==<sp/><ref refid="consts_8hpp_1a4815e0ccce32e816ccd173a076751310" kindref="member">_change_action</ref>){</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsoviet_1a23926d9a06011b3bb37fe74d820fd41f" kindref="member">soviet::change_effect</ref>(executer,<sp/>coopname,<sp/><ref refid="classsoviet_1a7d1953dc4d198269e15d7e35df7b63ba" kindref="member">decision</ref>-&gt;id,<sp/><ref refid="classsoviet_1a7d1953dc4d198269e15d7e35df7b63ba" kindref="member">decision</ref>-&gt;batch_id);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classsoviet_1a7d1953dc4d198269e15d7e35df7b63ba" kindref="member">decision</ref><sp/>-&gt;<sp/>type<sp/>==<sp/><ref refid="consts_8hpp_1a9e2440f7709ebcf63b4e0f7ca5c65fe5" kindref="member">_withdraw_action</ref>){</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsoviet_1a74775bb15963afd3dec409c7a4df4b7a" kindref="member">soviet::withdraw_effect</ref>(executer,<sp/>coopname,<sp/><ref refid="classsoviet_1a7d1953dc4d198269e15d7e35df7b63ba" kindref="member">decision</ref>-&gt;id,<sp/><ref refid="classsoviet_1a7d1953dc4d198269e15d7e35df7b63ba" kindref="member">decision</ref>-&gt;batch_id);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classsoviet_1a7d1953dc4d198269e15d7e35df7b63ba" kindref="member">decision</ref><sp/>-&gt;<sp/>type<sp/>==<sp/><ref refid="consts_8hpp_1adc98edb1ff07b01925c99c424e7fa7e3" kindref="member">_afund_withdraw_action</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsoviet_1addadc5c1117f1c87a20d3ce3ebc0a311" kindref="member">soviet::subaccum_effect</ref>(executer,<sp/>coopname,<sp/><ref refid="classsoviet_1a7d1953dc4d198269e15d7e35df7b63ba" kindref="member">decision</ref>-&gt;id,<sp/><ref refid="classsoviet_1a7d1953dc4d198269e15d7e35df7b63ba" kindref="member">decision</ref>-&gt;batch_id);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="soviet_2soviet_8cpp_1a569d3d0ca7b56fb8c580faaa3d73179a" kindref="member">apply</ref>(uint64_t<sp/>receiver,<sp/>uint64_t<sp/>code,<sp/>uint64_t<sp/>action)<sp/>{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(code<sp/>==<sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>.value)<sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(action)<sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EOSIO_DISPATCH_HELPER<sp/>(</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsoviet" kindref="compound">soviet</ref>,<sp/></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//main</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(exec)(draft)(statement)(act)(decision)(batch)(program)</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EOSIO_DISPATCH_HELPER<sp/>(</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsoviet" kindref="compound">soviet</ref>,<sp/></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//ADMIN</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(addstaff)(rmstaff)(setrights)(validate)</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EOSIO_DISPATCH_HELPER<sp/>(</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsoviet" kindref="compound">soviet</ref>,<sp/></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//CHAIRMAN</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(authorize)(createboard)(updateboard)</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EOSIO_DISPATCH_HELPER<sp/>(</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsoviet" kindref="compound">soviet</ref>,<sp/></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//VOTING</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(votefor)(voteagainst)(cancelvote)</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EOSIO_DISPATCH_HELPER<sp/>(</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsoviet" kindref="compound">soviet</ref>,<sp/></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//REGACCOUNT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(joincoop)(regpaid)</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EOSIO_DISPATCH_HELPER<sp/>(</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsoviet" kindref="compound">soviet</ref>,<sp/></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//MARKETPLACE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(change)(cancelorder)(completed)(recieved)</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EOSIO_DISPATCH_HELPER<sp/>(</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsoviet" kindref="compound">soviet</ref>,<sp/></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//AUTOMATOR</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(automate)(disautomate)</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EOSIO_DISPATCH_HELPER<sp/>(</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsoviet" kindref="compound">soviet</ref>,<sp/></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//PROGRAMS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(createprog)(editprog)(disableprog)</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EOSIO_DISPATCH_HELPER<sp/>(</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsoviet" kindref="compound">soviet</ref>,<sp/></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//CONTRIBUTE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(addbalance)(subbalance)(blockbal)(unblockbal)(addprogbal)(subprogbal)</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(mcontribute)(pcontribute)(withdraw)</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EOSIO_DISPATCH_HELPER<sp/>(</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsoviet" kindref="compound">soviet</ref>,<sp/></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//addresses</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(creaddress)(deladdress)(editaddress)</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EOSIO_DISPATCH_HELPER<sp/>(</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsoviet" kindref="compound">soviet</ref>,<sp/></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//fund</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(fundwithdraw)</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(action<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;transfer&quot;</highlight><highlight class="normal">_n.value)<sp/>{</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">transfer<sp/>{</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/>from;</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/>to;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::asset<sp/>quantity;</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>memo;</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>op<sp/>=<sp/>eosio::unpack_action_data&lt;transfer&gt;();</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(op.to<sp/>==<sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="soviet/soviet.cpp"/>
+  </compounddef>
+</doxygen>

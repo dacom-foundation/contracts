@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structeosioboot_1_1wait__weight" kind="struct" language="C++" prot="public">
+    <compoundname>eosioboot::wait_weight</compoundname>
+    <includes refid="eosio_8boot_8hpp" local="no">eosio.boot.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeosioboot_1_1wait__weight_1a32fde6e420badc853fafc1981de02c98" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t eosioboot::wait_weight::wait_sec</definition>
+        <argsstring></argsstring>
+        <name>wait_sec</name>
+        <qualifiedname>eosioboot::wait_weight::wait_sec</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.boot/include/eosio.boot/eosio.boot.hpp" line="51" column="26" bodyfile="system/contracts/eosio.boot/include/eosio.boot/eosio.boot.hpp" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosioboot_1_1wait__weight_1a0940f3b02940bf41ec6b6ce5980ea93a" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t eosioboot::wait_weight::weight</definition>
+        <argsstring></argsstring>
+        <name>weight</name>
+        <qualifiedname>eosioboot::wait_weight::weight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.boot/include/eosio.boot/eosio.boot.hpp" line="52" column="26" bodyfile="system/contracts/eosio.boot/include/eosio.boot/eosio.boot.hpp" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Wait weight.</para>
+<para>A wait weight is defined by a number of seconds to wait for and a weight. </para>
+    </detaileddescription>
+    <location file="system/contracts/eosio.boot/include/eosio.boot/eosio.boot.hpp" line="50" column="4" bodyfile="system/contracts/eosio.boot/include/eosio.boot/eosio.boot.hpp" bodystart="50" bodyend="56"/>
+    <listofallmembers>
+      <member refid="structeosioboot_1_1wait__weight_1a32fde6e420badc853fafc1981de02c98" prot="public" virt="non-virtual"><scope>eosioboot::wait_weight</scope><name>wait_sec</name></member>
+      <member refid="structeosioboot_1_1wait__weight_1a0940f3b02940bf41ec6b6ce5980ea93a" prot="public" virt="non-virtual"><scope>eosioboot::wait_weight</scope><name>weight</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

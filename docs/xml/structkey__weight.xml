@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structkey__weight" kind="struct" language="C++" prot="public">
+    <compoundname>key_weight</compoundname>
+    <includes refid="permissions_8hpp" local="no">permissions.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structkey__weight_1a1c32ddbfc4c0d307c1f25503dfccd796" prot="public" static="no" mutable="no">
+        <type>eosio::public_key</type>
+        <definition>eosio::public_key key_weight::key</definition>
+        <argsstring></argsstring>
+        <name>key</name>
+        <qualifiedname>key_weight::key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/permissions.hpp" line="10" column="23" bodyfile="common/permissions.hpp" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structkey__weight_1ac78b3460df5fe852385da3629d2a64e6" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t key_weight::weight</definition>
+        <argsstring></argsstring>
+        <name>weight</name>
+        <qualifiedname>key_weight::weight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/permissions.hpp" line="11" column="23" bodyfile="common/permissions.hpp" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>public_key</label>
+      </node>
+      <node id="1">
+        <label>key_weight</label>
+        <link refid="structkey__weight"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>key</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="common/permissions.hpp" line="9" column="1" bodyfile="common/permissions.hpp" bodystart="9" bodyend="15"/>
+    <listofallmembers>
+      <member refid="structkey__weight_1a1c32ddbfc4c0d307c1f25503dfccd796" prot="public" virt="non-virtual"><scope>key_weight</scope><name>key</name></member>
+      <member refid="structkey__weight_1ac78b3460df5fe852385da3629d2a64e6" prot="public" virt="non-virtual"><scope>key_weight</scope><name>weight</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

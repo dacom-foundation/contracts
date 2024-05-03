@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structstaff" kind="struct" language="C++" prot="public">
+    <compoundname>staff</compoundname>
+    <includes refid="coops_8hpp" local="no">coops.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structstaff_1aa67b206d474a4f87453bca87fda2f01b" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name staff::username</definition>
+        <argsstring></argsstring>
+        <name>username</name>
+        <qualifiedname>staff::username</qualifiedname>
+        <briefdescription>
+<para>Уникальное имя администратора. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="131" column="15" bodyfile="common/coops.hpp" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structstaff_1a8fa0fdaf003c7588f9f1185a087785ba" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string staff::position_title</definition>
+        <argsstring></argsstring>
+        <name>position_title</name>
+        <qualifiedname>staff::position_title</qualifiedname>
+        <briefdescription>
+<para>Название должности администратора. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="132" column="15" bodyfile="common/coops.hpp" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structstaff_1adc9ddede2cb6c7035ee3425ecdee5df4" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; eosio::name &gt;</type>
+        <definition>std::vector&lt;eosio::name&gt; staff::roles</definition>
+        <argsstring></argsstring>
+        <name>roles</name>
+        <qualifiedname>staff::roles</qualifiedname>
+        <briefdescription>
+<para>Список ролей. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="133" column="15" bodyfile="common/coops.hpp" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structstaff_1a935eee764193e5796da146fedfc465e5" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structright" kindref="compound">right</ref> &gt;</type>
+        <definition>std::vector&lt;right&gt; staff::rights</definition>
+        <argsstring></argsstring>
+        <name>rights</name>
+        <qualifiedname>staff::rights</qualifiedname>
+        <briefdescription>
+<para>Список прав администратора. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="134" column="15" bodyfile="common/coops.hpp" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structstaff_1ab46bbfc312f86ec081fead61e3d01a10" prot="public" static="no" mutable="no">
+        <type>eosio::time_point_sec</type>
+        <definition>eosio::time_point_sec staff::created_at</definition>
+        <argsstring></argsstring>
+        <name>created_at</name>
+        <qualifiedname>staff::created_at</qualifiedname>
+        <briefdescription>
+<para>Время создания записи об администраторе. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="135" column="25" bodyfile="common/coops.hpp" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structstaff_1a2079dc310b3faf4112d9046e54a72ab7" prot="public" static="no" mutable="no">
+        <type>eosio::time_point_sec</type>
+        <definition>eosio::time_point_sec staff::updated_at</definition>
+        <argsstring></argsstring>
+        <name>updated_at</name>
+        <qualifiedname>staff::updated_at</qualifiedname>
+        <briefdescription>
+<para>Время последнего обновления информации об администраторе. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="136" column="25" bodyfile="common/coops.hpp" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structstaff_1a907194daa8db9aee9629350891757d22" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t staff::primary_key</definition>
+        <argsstring>() const</argsstring>
+        <name>primary_key</name>
+        <qualifiedname>staff::primary_key</qualifiedname>
+        <briefdescription>
+<para>Первичный ключ для индексации по имени администратора </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="138" column="12" bodyfile="common/coops.hpp" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="function" id="structstaff_1a72d9d9dac115d8379e3afa76ff712c98" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool staff::has_right</definition>
+        <argsstring>(eosio::name contract, eosio::name action_name) const</argsstring>
+        <name>has_right</name>
+        <qualifiedname>staff::has_right</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>contract</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>action_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="140" column="8" bodyfile="common/coops.hpp" bodystart="140" bodyend="147"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Структура, представляющая администраторов кооператива. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Эта структура содержит информацию об администраторах, их уникальных именах, должностях и правах. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>name</label>
+      </node>
+      <node id="4">
+        <label>time_point_sec</label>
+      </node>
+      <node id="1">
+        <label>staff</label>
+        <link refid="structstaff"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>username</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>position_title</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>created_at</edgelabel>
+          <edgelabel>updated_at</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>string</label>
+      </node>
+    </collaborationgraph>
+    <location file="common/coops.hpp" line="130" column="1" bodyfile="common/coops.hpp" bodystart="130" bodyend="148"/>
+    <listofallmembers>
+      <member refid="structstaff_1ab46bbfc312f86ec081fead61e3d01a10" prot="public" virt="non-virtual"><scope>staff</scope><name>created_at</name></member>
+      <member refid="structstaff_1a72d9d9dac115d8379e3afa76ff712c98" prot="public" virt="non-virtual"><scope>staff</scope><name>has_right</name></member>
+      <member refid="structstaff_1a8fa0fdaf003c7588f9f1185a087785ba" prot="public" virt="non-virtual"><scope>staff</scope><name>position_title</name></member>
+      <member refid="structstaff_1a907194daa8db9aee9629350891757d22" prot="public" virt="non-virtual"><scope>staff</scope><name>primary_key</name></member>
+      <member refid="structstaff_1a935eee764193e5796da146fedfc465e5" prot="public" virt="non-virtual"><scope>staff</scope><name>rights</name></member>
+      <member refid="structstaff_1adc9ddede2cb6c7035ee3425ecdee5df4" prot="public" virt="non-virtual"><scope>staff</scope><name>roles</name></member>
+      <member refid="structstaff_1a2079dc310b3faf4112d9046e54a72ab7" prot="public" virt="non-virtual"><scope>staff</scope><name>updated_at</name></member>
+      <member refid="structstaff_1aa67b206d474a4f87453bca87fda2f01b" prot="public" virt="non-virtual"><scope>staff</scope><name>username</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

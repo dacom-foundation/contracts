@@ -1,0 +1,396 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="accounts_8hpp" kind="file" language="C++">
+    <compoundname>accounts.hpp</compoundname>
+    <includedby refid="gateway_8hpp" local="yes">gateway/gateway.hpp</includedby>
+    <includedby refid="marketplace_8hpp" local="yes">marketplace/marketplace.hpp</includedby>
+    <includedby refid="registrator_8hpp" local="yes">registrator/registrator.hpp</includedby>
+    <includedby refid="soviet_8hpp" local="yes">soviet/soviet.hpp</includedby>
+    <invincdepgraph>
+      <node id="1">
+        <label>common/accounts.hpp</label>
+        <link refid="accounts_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>gateway/gateway.cpp</label>
+        <link refid="gateway_8cpp"/>
+      </node>
+      <node id="2">
+        <label>gateway/gateway.hpp</label>
+        <link refid="gateway_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>marketplace/marketplace.cpp</label>
+        <link refid="marketplace_2marketplace_8cpp"/>
+      </node>
+      <node id="4">
+        <label>marketplace/marketplace.hpp</label>
+        <link refid="marketplace_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>registrator/registrator.cpp</label>
+        <link refid="registrator_8cpp"/>
+      </node>
+      <node id="6">
+        <label>registrator/registrator.hpp</label>
+        <link refid="registrator_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>soviet/soviet.cpp</label>
+        <link refid="soviet_2soviet_8cpp"/>
+      </node>
+      <node id="8">
+        <label>soviet/soviet.hpp</label>
+        <link refid="soviet_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structverification" prot="public">verification</innerclass>
+    <innerclass refid="structaccounts" prot="public">accounts</innerclass>
+    <innerclass refid="structstorage" prot="public">storage</innerclass>
+    <innerclass refid="structusers" prot="public">users</innerclass>
+    <innerclass refid="structbank" prot="public">bank</innerclass>
+    <innerclass refid="structorg__data" prot="public">org_data</innerclass>
+    <innerclass refid="structplot__data" prot="public">plot_data</innerclass>
+    <innerclass refid="structorgs" prot="public">orgs</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="accounts_8hpp_1ad5e6703932ffddf7994722ae35f9f017" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;accounts&quot;_n, <ref refid="structaccounts" kindref="compound">accounts</ref>, eosio::indexed_by&lt; &quot;byreferer&quot;_n, eosio::const_mem_fun&lt; <ref refid="structaccounts" kindref="compound">accounts</ref>, uint64_t, &amp;<ref refid="structaccounts_1a779b22d35ce6564c3b2e34e03b77aa29" kindref="member">accounts::by_referer</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;bytype&quot;_n, eosio::const_mem_fun&lt; <ref refid="structaccounts" kindref="compound">accounts</ref>, uint64_t, &amp;<ref refid="structaccounts_1a336640e99b5ae6106b3715cae302ff46" kindref="member">accounts::by_type</ref> &gt; &gt;, eosio::indexed_by&lt; &quot;bystatus&quot;_n, eosio::const_mem_fun&lt; <ref refid="structaccounts" kindref="compound">accounts</ref>, uint64_t, &amp;<ref refid="structaccounts_1ae34d3eff438789f8e09b1fef2eed2af2" kindref="member">accounts::by_status</ref> &gt; &gt;, eosio::indexed_by&lt; &quot;byregistr&quot;_n, eosio::const_mem_fun&lt; <ref refid="structaccounts" kindref="compound">accounts</ref>, uint64_t, &amp;<ref refid="structaccounts_1a88ed8c7045efdf796cfadb54e91ef284" kindref="member">accounts::by_registr</ref> &gt; &gt;, eosio::indexed_by&lt; &quot;byregistred&quot;_n, eosio::const_mem_fun&lt; <ref refid="structaccounts" kindref="compound">accounts</ref>, uint64_t, &amp;<ref refid="structaccounts_1a7cedd43173876881e9122f35509c1e24" kindref="member">accounts::by_registered_at</ref> &gt; &gt; &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;accounts&quot;_n, accounts, eosio::indexed_by&lt; &quot;byreferer&quot;_n, eosio::const_mem_fun&lt;accounts, uint64_t, &amp;accounts::by_referer&gt; &gt;, eosio::indexed_by&lt;&quot;bytype&quot;_n, eosio::const_mem_fun&lt;accounts, uint64_t, &amp;accounts::by_type&gt; &gt;, eosio::indexed_by&lt; &quot;bystatus&quot;_n, eosio::const_mem_fun&lt;accounts, uint64_t, &amp;accounts::by_status&gt; &gt;, eosio::indexed_by&lt; &quot;byregistr&quot;_n, eosio::const_mem_fun&lt;accounts, uint64_t, &amp;accounts::by_registr&gt; &gt;, eosio::indexed_by&lt; &quot;byregistred&quot;_n, eosio::const_mem_fun&lt;accounts, uint64_t, &amp;accounts::by_registered_at&gt; &gt; &gt; accounts_index</definition>
+        <argsstring></argsstring>
+        <name>accounts_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="110" column="5" bodyfile="common/accounts.hpp" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="accounts_8hpp_1a293e036322f4f7dbcabd55b988f73238" prot="public" static="no">
+        <type>eosio::multi_index&lt;&quot;users&quot;_n, <ref refid="structusers" kindref="compound">users</ref> &gt;</type>
+        <definition>typedef eosio::multi_index&lt;&quot;users&quot;_n, users&gt; users_index</definition>
+        <argsstring></argsstring>
+        <name>users_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="143" column="27" bodyfile="common/accounts.hpp" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="accounts_8hpp_1ae5d8441e9ce3796ced45ba843f58c327" prot="public" static="no">
+        <type>eosio::multi_index&lt;&quot;orgs&quot;_n, <ref refid="structorgs" kindref="compound">orgs</ref>, eosio::indexed_by&lt;&quot;iscoop&quot;_n, eosio::const_mem_fun&lt; <ref refid="structorgs" kindref="compound">orgs</ref>, uint64_t, &amp;<ref refid="structorgs_1a62e31444747797512f25c736d36e8ad3" kindref="member">orgs::is_coop_index</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;byparent&quot;_n, eosio::const_mem_fun&lt; <ref refid="structorgs" kindref="compound">orgs</ref>, uint64_t, &amp;<ref refid="structorgs_1ab88eb6ded8ef4609e0d0a013d4fcd19f" kindref="member">orgs::by_parent</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;bycoopchilds&quot;_n, eosio::const_mem_fun&lt; <ref refid="structorgs" kindref="compound">orgs</ref>, uint128_t, &amp;<ref refid="structorgs_1aaf7a07b7ede42be8755e8dab89b68273" kindref="member">orgs::by_coop_childs</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;bycooptype&quot;_n, eosio::const_mem_fun&lt; <ref refid="structorgs" kindref="compound">orgs</ref>, uint64_t, &amp;<ref refid="structorgs_1a9c08ac2829263b63bcf3cb773855691a" kindref="member">orgs::bycooptype</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;byverif&quot;_n, eosio::const_mem_fun&lt; <ref refid="structorgs" kindref="compound">orgs</ref>, uint64_t, &amp;<ref refid="structorgs_1ab93e3b210063838c61fdc01849e93124" kindref="member">orgs::is_verified_index</ref> &gt; &gt; &gt;</type>
+        <definition>typedef eosio::multi_index&lt;&quot;orgs&quot;_n, orgs,eosio::indexed_by&lt;&quot;iscoop&quot;_n, eosio::const_mem_fun&lt;orgs, uint64_t, &amp;orgs::is_coop_index&gt; &gt;,eosio::indexed_by&lt;&quot;byparent&quot;_n, eosio::const_mem_fun&lt;orgs, uint64_t, &amp;orgs::by_parent&gt; &gt;,eosio::indexed_by&lt;&quot;bycoopchilds&quot;_n, eosio::const_mem_fun&lt;orgs, uint128_t, &amp;orgs::by_coop_childs&gt; &gt;,eosio::indexed_by&lt;&quot;bycooptype&quot;_n, eosio::const_mem_fun&lt;orgs, uint64_t, &amp;orgs::bycooptype&gt; &gt;,eosio::indexed_by&lt;&quot;byverif&quot;_n, eosio::const_mem_fun&lt;orgs, uint64_t, &amp;orgs::is_verified_index&gt; &gt;&gt; orgs_index</definition>
+        <argsstring></argsstring>
+        <name>orgs_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="321" column="2" bodyfile="common/accounts.hpp" bodystart="321" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="accounts_8hpp_1ab6c5b66b6e44ba641ca66bf6480bb5c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structorgs" kindref="compound">orgs</ref></type>
+        <definition>orgs get_cooperative_or_fail</definition>
+        <argsstring>(eosio::name coopname)</argsstring>
+        <name>get_cooperative_or_fail</name>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="326" column="6" bodyfile="common/accounts.hpp" bodystart="326" bodyend="333"/>
+      </memberdef>
+      <memberdef kind="function" id="accounts_8hpp_1aaf349c65a141185f438e8bed2fc31401" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structorgs" kindref="compound">orgs</ref></type>
+        <definition>orgs get_cooplate_or_fail</definition>
+        <argsstring>(eosio::name coopname, eosio::name cooplate)</argsstring>
+        <name>get_cooplate_or_fail</name>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>cooplate</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/accounts.hpp" line="336" column="6" bodyfile="common/accounts.hpp" bodystart="336" bodyend="349"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="structverification" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structverification" kindref="compound">verification</ref><sp/>{</highlight></codeline>
+<codeline lineno="15" refid="structverification_1a7fb3c0fd447a28ad0919859e3ccb5aa7" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structverification_1a7fb3c0fd447a28ad0919859e3ccb5aa7" kindref="member">verificator</ref>;<sp/></highlight></codeline>
+<codeline lineno="16" refid="structverification_1aeb6702bd4b7903963252735d6f760c50" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structverification_1aeb6702bd4b7903963252735d6f760c50" kindref="member">is_verified</ref>;<sp/></highlight></codeline>
+<codeline lineno="17" refid="structverification_1a0445ec6869e5259c336dd7010a357a6e" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structverification_1a0445ec6869e5259c336dd7010a357a6e" kindref="member">procedure</ref>;<sp/></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>(&apos;online&apos;)),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>(&apos;video<sp/>call&apos;)),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>(&apos;qualified<sp/>signature&apos;)),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>(&apos;gosuslugi&apos;)),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>(&apos;app&apos;)),<sp/><sp/><sp/>-<sp/><sp/>с<sp/>помощью<sp/>мобильного<sp/>приложения</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>((&apos;agent<sp/>store&apos;)),<sp/><sp/><sp/><sp/><sp/>-<sp/>некоторые<sp/>платежные<sp/>системы<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>проводят<sp/>верификацию<sp/>в<sp/>Связном</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>((&apos;bank&apos;)),<sp/><sp/><sp/><sp/>-<sp/>верификация<sp/>в<sp/>банке</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>((&apos;in<sp/>person&apos;)),<sp/>-<sp/>верификация<sp/>в<sp/>кооперативе</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="structverification_1aa7d19ca745ac2729d841ff65548622e6" refkind="member"><highlight class="normal"><sp/><sp/>eosio::time_point_sec<sp/><ref refid="structverification_1aa7d19ca745ac2729d841ff65548622e6" kindref="member">created_at</ref>;<sp/></highlight></codeline>
+<codeline lineno="29" refid="structverification_1a674206f7442d3ba3319ce4b22d542b04" refkind="member"><highlight class="normal"><sp/><sp/>eosio::time_point_sec<sp/><ref refid="structverification_1a674206f7442d3ba3319ce4b22d542b04" kindref="member">last_update</ref>;<sp/></highlight></codeline>
+<codeline lineno="30" refid="structverification_1a231be135ab1c6c218ca0ed86383d043c" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structverification_1a231be135ab1c6c218ca0ed86383d043c" kindref="member">notice</ref>;<sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="structaccounts" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(REGISTRATOR)]]<sp/><ref refid="structaccounts" kindref="compound">accounts</ref><sp/>{</highlight></codeline>
+<codeline lineno="40" refid="structaccounts_1a05876c5415522c3ff8a3d8e8a783d6a7" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structaccounts_1a05876c5415522c3ff8a3d8e8a783d6a7" kindref="member">username</ref>;<sp/></highlight></codeline>
+<codeline lineno="41" refid="structaccounts_1a42c6052506d3b2d89bbbb95913591809" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structaccounts_1a42c6052506d3b2d89bbbb95913591809" kindref="member">referer</ref>;<sp/></highlight></codeline>
+<codeline lineno="42" refid="structaccounts_1a432b7b14e9da714d2de1546dbbd74a7e" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structaccounts_1a432b7b14e9da714d2de1546dbbd74a7e" kindref="member">registrator</ref>;<sp/></highlight></codeline>
+<codeline lineno="43" refid="structaccounts_1af1bfc2d1e94ebb71271c0ce836558160" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structaccounts_1af1bfc2d1e94ebb71271c0ce836558160" kindref="member">type</ref>;<sp/></highlight></codeline>
+<codeline lineno="44" refid="structaccounts_1a0498f8a07ad571d52548a076370d9253" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structaccounts_1a0498f8a07ad571d52548a076370d9253" kindref="member">status</ref>;<sp/></highlight></codeline>
+<codeline lineno="45" refid="structaccounts_1aeecfd8c0939c8e7de20db6126b965bd9" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structaccounts_1aeecfd8c0939c8e7de20db6126b965bd9" kindref="member">meta</ref>;<sp/></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>&quot;pending&quot;<sp/>-<sp/>ожидание<sp/>утверждения<sp/>советом,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>&quot;active&quot;<sp/>-<sp/>активный<sp/>аккаунт;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>&quot;blocked&quot;<sp/>-<sp/>заблокированный<sp/>аккаунт;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>&quot;deleted&quot;<sp/>-<sp/>удален<sp/>пользователем;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="structaccounts_1aaa9631adef3e542db5ddc1e2388dfd61" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structaccounts_1aaa9631adef3e542db5ddc1e2388dfd61" kindref="member">reputation</ref>;<sp/></highlight></codeline>
+<codeline lineno="51" refid="structaccounts_1a9aa73b3535b162d4dbcdb5c581146ce2" refkind="member"><highlight class="normal"><sp/><sp/>eosio::asset<sp/><ref refid="structaccounts_1a9aa73b3535b162d4dbcdb5c581146ce2" kindref="member">registration_amount</ref>;<sp/></highlight></codeline>
+<codeline lineno="52" refid="structaccounts_1a5ab584c673fa71b1aebd8eb3ec4e69e5" refkind="member"><highlight class="normal"><sp/><sp/>eosio::time_point_sec<sp/><ref refid="structaccounts_1a5ab584c673fa71b1aebd8eb3ec4e69e5" kindref="member">registered_at</ref>;<sp/></highlight></codeline>
+<codeline lineno="53" refid="structaccounts_1a38b262d4ca61e4cecb3f1eab1a5d3887" refkind="member"><highlight class="normal"><sp/><sp/>eosio::time_point_sec<sp/><ref refid="structaccounts_1a38b262d4ca61e4cecb3f1eab1a5d3887" kindref="member">signature_expires_at</ref>;<sp/></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="structaccounts_1ac5356720544cfbfc9b82d829f4fa4f37" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structaccounts_1ac5356720544cfbfc9b82d829f4fa4f37" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>username.value;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>}<sp/></highlight></codeline>
+<codeline lineno="67" refid="structaccounts_1a779b22d35ce6564c3b2e34e03b77aa29" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structaccounts_1a779b22d35ce6564c3b2e34e03b77aa29" kindref="member">by_referer</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>referer.value;<sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73" refid="structaccounts_1a336640e99b5ae6106b3715cae302ff46" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structaccounts_1a336640e99b5ae6106b3715cae302ff46" kindref="member">by_type</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>type.value;<sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79" refid="structaccounts_1ae34d3eff438789f8e09b1fef2eed2af2" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structaccounts_1ae34d3eff438789f8e09b1fef2eed2af2" kindref="member">by_status</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>status.value;<sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85" refid="structaccounts_1a88ed8c7045efdf796cfadb54e91ef284" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structaccounts_1a88ed8c7045efdf796cfadb54e91ef284" kindref="member">by_registr</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classregistrator" kindref="compound">registrator</ref>.value;<sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87" refid="structaccounts_1a7cedd43173876881e9122f35509c1e24" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structaccounts_1a7cedd43173876881e9122f35509c1e24" kindref="member">by_registered_at</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>registered_at.sec_since_epoch();</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;accounts&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structaccounts" kindref="compound">accounts</ref>,</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;byreferer&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::const_mem_fun&lt;accounts,<sp/>uint64_t,<sp/>&amp;accounts::by_referer&gt;&gt;,</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bytype&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;<ref refid="structaccounts" kindref="compound">accounts</ref>,<sp/>uint64_t,</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;<ref refid="structaccounts_1a336640e99b5ae6106b3715cae302ff46" kindref="member">accounts::by_type</ref>&gt;&gt;,</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;bystatus&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::const_mem_fun&lt;accounts,<sp/>uint64_t,<sp/>&amp;accounts::by_status&gt;&gt;,</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;byregistr&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::const_mem_fun&lt;accounts,<sp/>uint64_t,<sp/>&amp;accounts::by_registr&gt;&gt;,</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;byregistred&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::const_mem_fun&lt;accounts,<sp/>uint64_t,<sp/>&amp;accounts::by_registered_at&gt;&gt;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;</highlight></codeline>
+<codeline lineno="110" refid="accounts_8hpp_1ad5e6703932ffddf7994722ae35f9f017" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="accounts_8hpp_1ad5e6703932ffddf7994722ae35f9f017" kindref="member">accounts_index</ref>;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117" refid="structstorage" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structstorage" kindref="compound">storage</ref><sp/>{</highlight></codeline>
+<codeline lineno="118" refid="structstorage_1aac03d6540bfa034d307d826b47e4cae1" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structstorage_1aac03d6540bfa034d307d826b47e4cae1" kindref="member">storage_username</ref>;<sp/></highlight></codeline>
+<codeline lineno="119"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127" refid="structusers" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(REGISTRATOR)]]<sp/><ref refid="structusers" kindref="compound">users</ref><sp/>{</highlight></codeline>
+<codeline lineno="128" refid="structusers_1a737eae3ed6e76f98919b26b20288164b" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structusers_1a737eae3ed6e76f98919b26b20288164b" kindref="member">username</ref>;<sp/></highlight></codeline>
+<codeline lineno="129" refid="structusers_1abe29added38df2a3d85bd2f8a6f1cc91" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is_active<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="130" refid="structusers_1a2752786aa29eb539056f93523777e347" refkind="member"><highlight class="normal"><sp/><sp/>std::vector&lt;storage&gt;<sp/><ref refid="structusers_1a2752786aa29eb539056f93523777e347" kindref="member">storages</ref>;<sp/></highlight></codeline>
+<codeline lineno="131" refid="structusers_1a9b0680107bdfb2818db4b299d6b60de0" refkind="member"><highlight class="normal"><sp/><sp/>std::vector&lt;verification&gt;<sp/><ref refid="structusers_1a9b0680107bdfb2818db4b299d6b60de0" kindref="member">verifications</ref>;<sp/></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="137" refid="structusers_1a6894c358dbcce05a63de742f2b5fbd8e" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structusers_1a6894c358dbcce05a63de742f2b5fbd8e" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>username.value;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/>}<sp/></highlight></codeline>
+<codeline lineno="141"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143" refid="accounts_8hpp_1a293e036322f4f7dbcabd55b988f73238" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;</highlight><highlight class="stringliteral">&quot;users&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structusers" kindref="compound">users</ref>&gt;<ref refid="accounts_8hpp_1a293e036322f4f7dbcabd55b988f73238" kindref="member">users_index</ref>;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151" refid="structbank" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structbank" kindref="compound">bank</ref><sp/>{</highlight></codeline>
+<codeline lineno="152" refid="structbank_1ac222eff37f2528232734f3c6b4425b67" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structbank_1ac222eff37f2528232734f3c6b4425b67" kindref="member">account</ref>;<sp/></highlight></codeline>
+<codeline lineno="153" refid="structbank_1a20b362142d5c764f45432e0efd1f36e0" refkind="member"><highlight class="normal"><sp/><sp/>eosio::time_point_sec<sp/><ref refid="structbank_1a20b362142d5c764f45432e0efd1f36e0" kindref="member">created_at</ref>;<sp/></highlight></codeline>
+<codeline lineno="154" refid="structbank_1a9d3a91fdf7922097c93148ffdf4c815d" refkind="member"><highlight class="normal"><sp/><sp/>eosio::time_point_sec<sp/><ref refid="structbank_1a9d3a91fdf7922097c93148ffdf4c815d" kindref="member">last_update</ref>;<sp/></highlight></codeline>
+<codeline lineno="155" refid="structbank_1a5364d9937ea115f7b721270e942505b0" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structbank_1a5364d9937ea115f7b721270e942505b0" kindref="member">is_active</ref>;<sp/></highlight></codeline>
+<codeline lineno="156"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166" refid="structorg__data" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structorg__data" kindref="compound">org_data</ref><sp/>{</highlight></codeline>
+<codeline lineno="167" refid="structorg__data_1ae5aa80cb42de74403396c50b33bd20be" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structstorage" kindref="compound">storage</ref><sp/><ref refid="structorg__data_1ae5aa80cb42de74403396c50b33bd20be" kindref="member">storage</ref>;<sp/></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169" refid="structorg__data_1a73a9e2d8573545f8852ff0dda1c860e5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structorg__data_1a73a9e2d8573545f8852ff0dda1c860e5" kindref="member">is_cooperative</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="170" refid="structorg__data_1a879607268d761ab2fb337ac067234678" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="structorg__data_1a879607268d761ab2fb337ac067234678" kindref="member">coop_type</ref>;<sp/></highlight></codeline>
+<codeline lineno="171" refid="structorg__data_1ad8aea1135b4ca307880d7a4477e841f4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="structorg__data_1ad8aea1135b4ca307880d7a4477e841f4" kindref="member">token_contract</ref>;<sp/></highlight></codeline>
+<codeline lineno="172" refid="structorg__data_1af31eb176481e60108b902def456ff225" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structorg__data_1af31eb176481e60108b902def456ff225" kindref="member">announce</ref>;<sp/></highlight></codeline>
+<codeline lineno="173" refid="structorg__data_1a53f757c92b8548c72cb7edc7bb97663a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structorg__data_1a53f757c92b8548c72cb7edc7bb97663a" kindref="member">description</ref>;<sp/></highlight></codeline>
+<codeline lineno="174" refid="structorg__data_1a46f196bb722c9e9218cb972193a676ff" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::asset<sp/><ref refid="structorg__data_1a46f196bb722c9e9218cb972193a676ff" kindref="member">initial</ref>;<sp/></highlight></codeline>
+<codeline lineno="175" refid="structorg__data_1a0e181c3124d29937b16b0bef4b2bdafa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::asset<sp/><ref refid="structorg__data_1a0e181c3124d29937b16b0bef4b2bdafa" kindref="member">minimum</ref>;<sp/></highlight></codeline>
+<codeline lineno="176"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185" refid="structplot__data" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structplot__data" kindref="compound">plot_data</ref><sp/>{</highlight></codeline>
+<codeline lineno="186" refid="structplot__data_1ac51b73b9ad19fb9a869e952c8ebf9828" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structstorage" kindref="compound">storage</ref><sp/><ref refid="structplot__data_1ac51b73b9ad19fb9a869e952c8ebf9828" kindref="member">storage</ref>;<sp/></highlight></codeline>
+<codeline lineno="187" refid="structplot__data_1a5fb18fab386662439ed945d5a2ef73bb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structplot__data_1a5fb18fab386662439ed945d5a2ef73bb" kindref="member">announce</ref>;<sp/></highlight></codeline>
+<codeline lineno="188" refid="structplot__data_1abd7a5526c0912ce5e7be26ec188a2b0d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structplot__data_1abd7a5526c0912ce5e7be26ec188a2b0d" kindref="member">description</ref>;<sp/></highlight></codeline>
+<codeline lineno="189"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197" refid="structorgs" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(REGISTRATOR)]]<sp/><ref refid="structorgs" kindref="compound">orgs</ref><sp/>{</highlight></codeline>
+<codeline lineno="198" refid="structorgs_1a30bd763b06c88e2db7fe63b7829448c8" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structorgs_1a30bd763b06c88e2db7fe63b7829448c8" kindref="member">username</ref>;<sp/></highlight></codeline>
+<codeline lineno="199" refid="structorgs_1ae6431f4f421b347e828673c17c11016a" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structorgs_1ae6431f4f421b347e828673c17c11016a" kindref="member">parent_username</ref>;<sp/></highlight></codeline>
+<codeline lineno="200" refid="structorgs_1a2f2e75cd711056a893bb6f84283cf069" refkind="member"><highlight class="normal"><sp/><sp/>std::vector&lt;verification&gt;<sp/><ref refid="structorgs_1a2f2e75cd711056a893bb6f84283cf069" kindref="member">verifications</ref>;<sp/></highlight></codeline>
+<codeline lineno="201" refid="structorgs_1a018bd81cc0de74c7c0edc6cb34296b29" refkind="member"><highlight class="normal"><sp/><sp/>std::vector&lt;storage&gt;<sp/><ref refid="structorgs_1a018bd81cc0de74c7c0edc6cb34296b29" kindref="member">storages</ref>;<sp/></highlight></codeline>
+<codeline lineno="202" refid="structorgs_1a7e106134eb289da6034239f59f8c8b00" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is_cooperative<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="203" refid="structorgs_1ab7a88197a80884f578161b340a42d445" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is_active<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="204" refid="structorgs_1ac0f67a51c09138a902b4626694496810" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structorgs_1ac0f67a51c09138a902b4626694496810" kindref="member">coop_type</ref>;<sp/></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="206" refid="structorgs_1a0acaa1da073fa33862536db6e1335bbd" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structorgs_1a0acaa1da073fa33862536db6e1335bbd" kindref="member">token_contract</ref>;<sp/></highlight></codeline>
+<codeline lineno="207" refid="structorgs_1aaa319494d52bab5194e2ccd093d8dff5" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structorgs_1aaa319494d52bab5194e2ccd093d8dff5" kindref="member">announce</ref>;<sp/></highlight></codeline>
+<codeline lineno="208" refid="structorgs_1a7e5900ad7ad2c99fe7a13bd70a154cca" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structorgs_1a7e5900ad7ad2c99fe7a13bd70a154cca" kindref="member">description</ref>;<sp/></highlight></codeline>
+<codeline lineno="209" refid="structorgs_1af6d7d8a744c2ae53a5cec35369bf77ea" refkind="member"><highlight class="normal"><sp/><sp/>eosio::asset<sp/><ref refid="structorgs_1af6d7d8a744c2ae53a5cec35369bf77ea" kindref="member">registration</ref>;<sp/></highlight></codeline>
+<codeline lineno="210" refid="structorgs_1ac195fc7b023e954eafd20e854570a302" refkind="member"><highlight class="normal"><sp/><sp/>eosio::asset<sp/><ref refid="structorgs_1ac195fc7b023e954eafd20e854570a302" kindref="member">initial</ref>;<sp/></highlight></codeline>
+<codeline lineno="211" refid="structorgs_1a1dbf728ec4dff7ca8f172bee4da901dd" refkind="member"><highlight class="normal"><sp/><sp/>eosio::asset<sp/><ref refid="structorgs_1a1dbf728ec4dff7ca8f172bee4da901dd" kindref="member">minimum</ref>;<sp/></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Тип<sp/>некоммерческой<sp/>организации</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>(0,<sp/>_(&apos;Union<sp/>of<sp/>Societies&apos;)),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>(1,<sp/>_(&apos;Consumer<sp/>Cooperative&apos;)),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>(2,<sp/>_(&apos;Production<sp/>Cooperative&apos;)),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>(3,<sp/>_(&apos;Agriculture<sp/>Cooperative&apos;)),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>(4,<sp/>_(&apos;Builder\&apos;s<sp/>Societes&apos;)),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>(5,<sp/>_(&apos;Non-profit<sp/>organization&apos;))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="226" refid="structorgs_1ad63f7f770daeaf11e9960f0bb3413257" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structorgs_1ad63f7f770daeaf11e9960f0bb3413257" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>username.value;</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight></codeline>
+<codeline lineno="233" refid="structorgs_1a0f61fb5a23a20f8418b6a840027ee59b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structorgs_1a0f61fb5a23a20f8418b6a840027ee59b" kindref="member">check_contract_or_fail</ref>(eosio::name<sp/>contract)<sp/>{</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::check(token_contract<sp/>==<sp/>contract,<sp/></highlight><highlight class="stringliteral">&quot;Неверный<sp/>контракт<sp/>токена&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight></codeline>
+<codeline lineno="240" refid="structorgs_1ac30f7ac01496aacd2515dc474123c6f2" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structorgs_1ac30f7ac01496aacd2515dc474123c6f2" kindref="member">check_symbol_or_fail</ref>(eosio::asset<sp/>contribution)<sp/>{</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::check(initial.symbol<sp/>==<sp/>contribution.symbol<sp/>&amp;&amp;<sp/>minimum.symbol<sp/>==<sp/>contribution.symbol,<sp/></highlight><highlight class="stringliteral">&quot;Неверный<sp/>контракт<sp/>токена&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248" refid="structorgs_1ab88eb6ded8ef4609e0d0a013d4fcd19f" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structorgs_1ab88eb6ded8ef4609e0d0a013d4fcd19f" kindref="member">by_parent</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>parent_username.value;</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight></codeline>
+<codeline lineno="256" refid="structorgs_1aaf7a07b7ede42be8755e8dab89b68273" refkind="member"><highlight class="normal"><sp/><sp/>uint128_t<sp/><ref refid="structorgs_1aaf7a07b7ede42be8755e8dab89b68273" kindref="member">by_coop_childs</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="utils_8hpp_1a9674246df019d9c71da6884b1fd0fe39" kindref="member">combine_ids</ref>(username.value,<sp/>parent_username.value);</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight></codeline>
+<codeline lineno="264" refid="structorgs_1a62e31444747797512f25c736d36e8ad3" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structorgs_1a62e31444747797512f25c736d36e8ad3" kindref="member">is_coop_index</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>is_cooperative<sp/>==<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal"><sp/>?<sp/>1<sp/>:<sp/>0;</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight></codeline>
+<codeline lineno="272" refid="structorgs_1a9c08ac2829263b63bcf3cb773855691a" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structorgs_1a9c08ac2829263b63bcf3cb773855691a" kindref="member">bycooptype</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>coop_type.value;</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"></highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight></codeline>
+<codeline lineno="281" refid="structorgs_1ab93e3b210063838c61fdc01849e93124" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structorgs_1ab93e3b210063838c61fdc01849e93124" kindref="member">is_verified_index</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>v<sp/>:<sp/>verifications)<sp/>{</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(v.is_verified)<sp/>{</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"></highlight></codeline>
+<codeline lineno="294" refid="structorgs_1a56f3d02c014cc9448b0dc2e771c99f10" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structorgs_1a56f3d02c014cc9448b0dc2e771c99f10" kindref="member">is_coop</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>is_cooperative;</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"></highlight></codeline>
+<codeline lineno="302" refid="structorgs_1a153188e5dd5b21d491fd733feb6e8ff5" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structorgs_1a153188e5dd5b21d491fd733feb6e8ff5" kindref="member">is_verified</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>v<sp/>:<sp/>verifications)<sp/>{</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(v.is_verified)<sp/>{</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="310"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"></highlight></codeline>
+<codeline lineno="312"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;</highlight><highlight class="stringliteral">&quot;orgs&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structorgs" kindref="compound">orgs</ref>,</highlight></codeline>
+<codeline lineno="313"><highlight class="normal">eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;iscoop&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;<ref refid="structorgs" kindref="compound">orgs</ref>,<sp/>uint64_t,</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;<ref refid="structorgs_1a62e31444747797512f25c736d36e8ad3" kindref="member">orgs::is_coop_index</ref>&gt;&gt;,</highlight></codeline>
+<codeline lineno="315"><highlight class="normal">eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byparent&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;<ref refid="structorgs" kindref="compound">orgs</ref>,<sp/>uint64_t,</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;<ref refid="structorgs_1ab88eb6ded8ef4609e0d0a013d4fcd19f" kindref="member">orgs::by_parent</ref>&gt;&gt;,</highlight></codeline>
+<codeline lineno="317"><highlight class="normal">eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bycoopchilds&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;orgs,<sp/>uint128_t,<sp/>&amp;orgs::by_coop_childs&gt;&gt;,</highlight></codeline>
+<codeline lineno="318"><highlight class="normal">eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bycooptype&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;orgs,<sp/>uint64_t,<sp/>&amp;orgs::bycooptype&gt;&gt;,</highlight></codeline>
+<codeline lineno="319"><highlight class="normal">eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byverif&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;<ref refid="structorgs" kindref="compound">orgs</ref>,<sp/>uint64_t,</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;<ref refid="structorgs_1ab93e3b210063838c61fdc01849e93124" kindref="member">orgs::is_verified_index</ref>&gt;&gt;</highlight></codeline>
+<codeline lineno="321" refid="accounts_8hpp_1ae5d8441e9ce3796ced45ba843f58c327" refkind="member"><highlight class="normal">&gt;<sp/><ref refid="accounts_8hpp_1ae5d8441e9ce3796ced45ba843f58c327" kindref="member">orgs_index</ref>;</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"></highlight></codeline>
+<codeline lineno="323"><highlight class="normal"></highlight></codeline>
+<codeline lineno="324"><highlight class="normal"></highlight></codeline>
+<codeline lineno="325"><highlight class="normal"></highlight></codeline>
+<codeline lineno="326" refid="accounts_8hpp_1ab6c5b66b6e44ba641ca66bf6480bb5c5" refkind="member"><highlight class="normal"><ref refid="structorgs" kindref="compound">orgs</ref><sp/><ref refid="accounts_8hpp_1ab6c5b66b6e44ba641ca66bf6480bb5c5" kindref="member">get_cooperative_or_fail</ref>(eosio::name<sp/>coopname)<sp/>{</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/><ref refid="accounts_8hpp_1ae5d8441e9ce3796ced45ba843f58c327" kindref="member">orgs_index</ref><sp/><ref refid="structorgs" kindref="compound">orgs</ref>(<ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>,<sp/><ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>.value);</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>org<sp/>=<sp/><ref refid="structorgs" kindref="compound">orgs</ref>.find(coopname.value);</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/>eosio::check(org<sp/>!=<sp/><ref refid="structorgs" kindref="compound">orgs</ref>.end(),<sp/></highlight><highlight class="stringliteral">&quot;Организация<sp/>не<sp/>найдена&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/>eosio::check(org<sp/>-&gt;<sp/>is_coop(),<sp/></highlight><highlight class="stringliteral">&quot;Организация<sp/>-<sp/>не<sp/>кооператив&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"></highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*org;</highlight></codeline>
+<codeline lineno="333"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"></highlight></codeline>
+<codeline lineno="335"><highlight class="normal"></highlight></codeline>
+<codeline lineno="336" refid="accounts_8hpp_1aaf349c65a141185f438e8bed2fc31401" refkind="member"><highlight class="normal"><ref refid="structorgs" kindref="compound">orgs</ref><sp/><ref refid="accounts_8hpp_1aaf349c65a141185f438e8bed2fc31401" kindref="member">get_cooplate_or_fail</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>cooplate)<sp/>{</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><ref refid="accounts_8hpp_1ae5d8441e9ce3796ced45ba843f58c327" kindref="member">orgs_index</ref><sp/><ref refid="structorgs" kindref="compound">orgs</ref>(<ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>,<sp/><ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>.value);</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>org<sp/>=<sp/><ref refid="structorgs" kindref="compound">orgs</ref>.find(coopname.value);</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/>eosio::check(org<sp/>!=<sp/><ref refid="structorgs" kindref="compound">orgs</ref>.end(),<sp/></highlight><highlight class="stringliteral">&quot;Организация<sp/>не<sp/>найдена&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/>eosio::check(org<sp/>-&gt;<sp/>is_coop(),<sp/></highlight><highlight class="stringliteral">&quot;Организация<sp/>-<sp/>не<sp/>кооператив&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"></highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>org2<sp/>=<sp/><ref refid="structorgs" kindref="compound">orgs</ref>.find(cooplate.value);</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/>eosio::check(org2<sp/>!=<sp/><ref refid="structorgs" kindref="compound">orgs</ref>.end(),<sp/></highlight><highlight class="stringliteral">&quot;Организация<sp/>не<sp/>найдена&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/>eosio::check(org2<sp/>-&gt;<sp/>is_coop(),<sp/></highlight><highlight class="stringliteral">&quot;Организация<sp/>-<sp/>не<sp/>кооператив&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"></highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/>eosio::check(org2<sp/>-&gt;<sp/>parent_username<sp/>==<sp/>coopname,<sp/></highlight><highlight class="stringliteral">&quot;Кооперативный<sp/>участок<sp/>не<sp/>принадлежит<sp/>к<sp/>указанному<sp/>кооперативу&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"></highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*org2;</highlight></codeline>
+<codeline lineno="349"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="common/accounts.hpp"/>
+  </compounddef>
+</doxygen>

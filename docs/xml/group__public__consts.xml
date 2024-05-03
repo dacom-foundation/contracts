@@ -1,0 +1,344 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="group__public__consts" kind="group">
+    <compoundname>public_consts</compoundname>
+    <title>Константы</title>
+      <sectiondef kind="user-defined">
+      <memberdef kind="variable" id="group__public__consts_1ga341b71e63284ca16c8b1561cb0cb0da4" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr eosio::name</type>
+        <definition>constexpr eosio::name _ano</definition>
+        <argsstring></argsstring>
+        <name>_ano</name>
+        <initializer>= &quot;ano&quot;_n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="137" column="34" bodyfile="common/consts.hpp" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr eosio::name</type>
+        <definition>constexpr eosio::name _gateway</definition>
+        <argsstring></argsstring>
+        <name>_gateway</name>
+        <initializer>= &quot;gateway&quot;_n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="138" column="34" bodyfile="common/consts.hpp" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__public__consts_1ga774dd561cf17ec65e59129b5ad8690d6" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr eosio::name</type>
+        <definition>constexpr eosio::name _draft</definition>
+        <argsstring></argsstring>
+        <name>_draft</name>
+        <initializer>= &quot;draft&quot;_n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="139" column="34" bodyfile="common/consts.hpp" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__public__consts_1ga62b71d2b9b72ddf6831a073a78b993e8" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr eosio::name</type>
+        <definition>constexpr eosio::name _template</definition>
+        <argsstring></argsstring>
+        <name>_template</name>
+        <initializer>= &quot;template&quot;_n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="140" column="34" bodyfile="common/consts.hpp" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__public__consts_1gafeb0e2ab01520072c8305917005018a1" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr eosio::name</type>
+        <definition>constexpr eosio::name _marketplace</definition>
+        <argsstring></argsstring>
+        <name>_marketplace</name>
+        <initializer>= &quot;marketplace&quot;_n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="141" column="34" bodyfile="common/consts.hpp" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr eosio::name</type>
+        <definition>constexpr eosio::name _soviet</definition>
+        <argsstring></argsstring>
+        <name>_soviet</name>
+        <initializer>= &quot;soviet&quot;_n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="142" column="34" bodyfile="common/consts.hpp" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr eosio::name</type>
+        <definition>constexpr eosio::name _registrator</definition>
+        <argsstring></argsstring>
+        <name>_registrator</name>
+        <initializer>= &quot;registrator&quot;_n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="143" column="34" bodyfile="common/consts.hpp" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__public__consts_1ga52724c95f23545d7efc4db16f3fe42ce" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr eosio::name</type>
+        <definition>constexpr eosio::name _system</definition>
+        <argsstring></argsstring>
+        <name>_system</name>
+        <initializer>= &quot;eosio&quot;_n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="144" column="34" bodyfile="common/consts.hpp" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__public__consts_1ga4538cae0be703aafb0a4e4ec9d2e3b53" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr eosio::name</type>
+        <definition>constexpr eosio::name _fund</definition>
+        <argsstring></argsstring>
+        <name>_fund</name>
+        <initializer>= &quot;fund&quot;_n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="145" column="34" bodyfile="common/consts.hpp" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__public__consts_1ga98383cb202d2d3d56f7796a53a7f3d03" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr eosio::name</type>
+        <definition>constexpr eosio::name _power_account</definition>
+        <argsstring></argsstring>
+        <name>_power_account</name>
+        <initializer>= &quot;eosio.power&quot;_n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="146" column="34" bodyfile="common/consts.hpp" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__public__consts_1gad32963d71641affbcefb02212f3166f3" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr eosio::name</type>
+        <definition>constexpr eosio::name _saving_account</definition>
+        <argsstring></argsstring>
+        <name>_saving_account</name>
+        <initializer>= &quot;eosio.saving&quot;_n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="147" column="34" bodyfile="common/consts.hpp" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__public__consts_1ga6b01540b618a86e6bd5303db76e3b45f" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr eosio::symbol</type>
+        <definition>constexpr eosio::symbol _root_symbol</definition>
+        <argsstring></argsstring>
+        <name>_root_symbol</name>
+        <initializer>= eosio::symbol(eosio::symbol_code(&quot;AXON&quot;), 4)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>системный токен </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="149" column="36" bodyfile="common/consts.hpp" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__public__consts_1ga905130dd4c8fc18bfffe9eec68f9061c" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr eosio::name</type>
+        <definition>constexpr eosio::name _root_contract</definition>
+        <argsstring></argsstring>
+        <name>_root_contract</name>
+        <initializer>= &quot;eosio.token&quot;_n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>системный контракт </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="150" column="34" bodyfile="common/consts.hpp" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__public__consts_1ga53c8b80330465342487f78d14fad4ce7" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr eosio::symbol</type>
+        <definition>constexpr eosio::symbol RAM_symbol</definition>
+        <argsstring></argsstring>
+        <name>RAM_symbol</name>
+        <initializer>{&quot;RAM&quot;, 0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>токен рынка оперативной памяти </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="151" column="36" bodyfile="common/consts.hpp" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__public__consts_1ga4977cb29c847a5a4fce4cce4b753c914" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr eosio::symbol</type>
+        <definition>constexpr eosio::symbol _ramcore_symbol</definition>
+        <argsstring></argsstring>
+        <name>_ramcore_symbol</name>
+        <initializer>= eosio::symbol(eosio::symbol_code(&quot;RAMCORE&quot;),4)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>идентификационный токен рынка оперативной памяти </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="152" column="36" bodyfile="common/consts.hpp" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__public__consts_1ga8486c7b646ce00b3e04773a00cf1e5a6" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr uint64_t</type>
+        <definition>constexpr uint64_t _ram_bytes</definition>
+        <argsstring></argsstring>
+        <name>_ram_bytes</name>
+        <initializer>= 16384</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>оперативная память нового аккаунта </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="153" column="31" bodyfile="common/consts.hpp" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__public__consts_1ga835d48268b6c17e01d290de412eb4c81" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr uint64_t</type>
+        <definition>constexpr uint64_t _stake_cpu_amount</definition>
+        <argsstring></argsstring>
+        <name>_stake_cpu_amount</name>
+        <initializer>= 10000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>оперативная память нового аккаунта </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="154" column="31" bodyfile="common/consts.hpp" bodystart="154" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__public__consts_1gae58ff0a7ec09c8cfd9d7ccd76d5f2c24" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr uint64_t</type>
+        <definition>constexpr uint64_t _stake_net_amount</definition>
+        <argsstring></argsstring>
+        <name>_stake_net_amount</name>
+        <initializer>= 10000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>оперативная память нового аккаунта </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="155" column="31" bodyfile="common/consts.hpp" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__public__consts_1ga3c1178761f963d8c1b074a29b7d7732d" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr uint64_t</type>
+        <definition>constexpr uint64_t _signature_expiration</definition>
+        <argsstring></argsstring>
+        <name>_signature_expiration</name>
+        <initializer>= 86400 * 365 * 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="157" column="31" bodyfile="common/consts.hpp" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__public__consts_1ga7907328ea2e6a0c7528a5116b1b837c1" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr uint64_t</type>
+        <definition>constexpr uint64_t _auction_name_length_limit</definition>
+        <argsstring></argsstring>
+        <name>_auction_name_length_limit</name>
+        <initializer>= 12</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="158" column="31" bodyfile="common/consts.hpp" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__public__consts_1gaad53f3329a5e977fbcf8ebc0b9670d7d" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr uint64_t</type>
+        <definition>constexpr uint64_t _deposit_expiration_seconds</definition>
+        <argsstring></argsstring>
+        <name>_deposit_expiration_seconds</name>
+        <initializer>= 3600</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="160" column="31" bodyfile="common/consts.hpp" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__public__consts_1ga37aa40ea0f7329fa18e7e9be9d1d52ba" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr uint64_t</type>
+        <definition>constexpr uint64_t _producers_percent</definition>
+        <argsstring></argsstring>
+        <name>_producers_percent</name>
+        <initializer>= 900000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="162" column="31" bodyfile="common/consts.hpp" bodystart="162" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__public__consts_1ga6d8fd359800ecc9d5a1e2adff5e55b29" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr uint64_t</type>
+        <definition>constexpr uint64_t _fund_percent</definition>
+        <argsstring></argsstring>
+        <name>_fund_percent</name>
+        <initializer>= 100000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/consts.hpp" line="163" column="31" bodyfile="common/consts.hpp" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Константы контрактов </para>
+    </briefdescription>
+    <detaileddescription>
+<para>В этой группе представлены основные константы, используемые в контрактах кооперативной экономики. Константы обеспечивают стабильность и предсказуемость поведения контрактов, а также упрощают процесс чтения и понимания кода. </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

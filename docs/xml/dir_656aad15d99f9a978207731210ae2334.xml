@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="dir_656aad15d99f9a978207731210ae2334" kind="dir">
+    <compoundname>marketplace</compoundname>
+    <innerdir refid="dir_d12eb4bac3d37f149e776cd3b74981a7">marketplace/src</innerdir>
+    <innerfile refid="marketplace_2marketplace_8cpp">marketplace.cpp</innerfile>
+    <innerfile refid="marketplace_8hpp">marketplace.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="marketplace/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,321 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structboards" kind="struct" language="C++" prot="public">
+    <compoundname>boards</compoundname>
+    <includes refid="coops_8hpp" local="no">coops.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structboards_1a4902e87f13247db8f837629544f12a6a" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t boards::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>boards::id</qualifiedname>
+        <briefdescription>
+<para>Уникальный идентификатор доски. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="27" column="12" bodyfile="common/coops.hpp" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structboards_1a277bb2ea397a8b6076584f07f2c4432f" prot="public" static="no" mutable="no">
+        <type>eosio::name</type>
+        <definition>eosio::name boards::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>boards::type</qualifiedname>
+        <briefdescription>
+<para>Тип доски: </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="28" column="15" bodyfile="common/coops.hpp" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structboards_1ad9a12ccbc9bdbabfe1dbd5f7cffdb06f" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string boards::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <qualifiedname>boards::name</qualifiedname>
+        <briefdescription>
+<para>Название доски. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="33" column="15" bodyfile="common/coops.hpp" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structboards_1ae8f0825aa67789f638169abf513ce674" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string boards::description</definition>
+        <argsstring></argsstring>
+        <name>description</name>
+        <qualifiedname>boards::description</qualifiedname>
+        <briefdescription>
+<para>Описание доски. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="34" column="15" bodyfile="common/coops.hpp" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structboards_1a784be337829b64e7caaa6c6657f5c262" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structboard__member" kindref="compound">board_member</ref> &gt;</type>
+        <definition>std::vector&lt;board_member&gt; boards::members</definition>
+        <argsstring></argsstring>
+        <name>members</name>
+        <qualifiedname>boards::members</qualifiedname>
+        <briefdescription>
+<para>Список членов доски. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="36" column="15" bodyfile="common/coops.hpp" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structboards_1add47e6975c343415f278a0414c714066" prot="public" static="no" mutable="no">
+        <type>eosio::time_point_sec</type>
+        <definition>eosio::time_point_sec boards::created_at</definition>
+        <argsstring></argsstring>
+        <name>created_at</name>
+        <qualifiedname>boards::created_at</qualifiedname>
+        <briefdescription>
+<para>Время создания доски. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="38" column="25" bodyfile="common/coops.hpp" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structboards_1acaad31053c6dc00a9b99faaece7213bc" prot="public" static="no" mutable="no">
+        <type>eosio::time_point_sec</type>
+        <definition>eosio::time_point_sec boards::last_update</definition>
+        <argsstring></argsstring>
+        <name>last_update</name>
+        <qualifiedname>boards::last_update</qualifiedname>
+        <briefdescription>
+<para>Время последнего обновления информации о доске. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="39" column="25" bodyfile="common/coops.hpp" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structboards_1a8a887a056d41000b8183975cc5fe0c91" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t boards::primary_key</definition>
+        <argsstring>() const</argsstring>
+        <name>primary_key</name>
+        <qualifiedname>boards::primary_key</qualifiedname>
+        <briefdescription>
+<para>Возвращает первичный ключ доски. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>uint64_t - первичный ключ, равный уникальному идентификатору доски. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="46" column="12" bodyfile="common/coops.hpp" bodystart="46" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="structboards_1a62601ce5131f1d2be8f17c3df5866f38" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t boards::by_type</definition>
+        <argsstring>() const</argsstring>
+        <name>by_type</name>
+        <qualifiedname>boards::by_type</qualifiedname>
+        <briefdescription>
+<para>Возвращает ключ для индексации по типу доски. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>uint64_t - ключ, равный значению типа доски. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="52" column="12" bodyfile="common/coops.hpp" bodystart="52" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="structboards_1a3108c80a73de20b8ad7a776e108abe26" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool boards::is_valid_member</definition>
+        <argsstring>(eosio::name member) const</argsstring>
+        <name>is_valid_member</name>
+        <qualifiedname>boards::is_valid_member</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>member</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="54" column="8" bodyfile="common/coops.hpp" bodystart="54" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="structboards_1acfe79079ce96ef59fea0f86c95506cb8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool boards::is_voting_member</definition>
+        <argsstring>(eosio::name member) const</argsstring>
+        <name>is_voting_member</name>
+        <qualifiedname>boards::is_voting_member</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>member</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="62" column="8" bodyfile="common/coops.hpp" bodystart="62" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="structboards_1ad1e613d161e0dfb3bee0b043b71c13db" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool boards::is_valid_chairman</definition>
+        <argsstring>(eosio::name chairman) const</argsstring>
+        <name>is_valid_chairman</name>
+        <qualifiedname>boards::is_valid_chairman</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>chairman</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="71" column="8" bodyfile="common/coops.hpp" bodystart="71" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="structboards_1ad04db86aca0d3390cbf18c1696818f16" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>eosio::name</type>
+        <definition>eosio::name boards::get_chairman</definition>
+        <argsstring>() const</argsstring>
+        <name>get_chairman</name>
+        <qualifiedname>boards::get_chairman</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="79" column="15" bodyfile="common/coops.hpp" bodystart="79" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="structboards_1a19e6b2ff62948b4922ea2ea945b5083a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool boards::is_valid_secretary</definition>
+        <argsstring>(eosio::name secretary) const</argsstring>
+        <name>is_valid_secretary</name>
+        <qualifiedname>boards::is_valid_secretary</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>secretary</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="87" column="8" bodyfile="common/coops.hpp" bodystart="87" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="structboards_1a151ec00b76ae9f7c7fdc1e4dee7f0412" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool boards::has_voting_right</definition>
+        <argsstring>(eosio::name member) const</argsstring>
+        <name>has_voting_right</name>
+        <qualifiedname>boards::has_voting_right</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>member</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="95" column="8" bodyfile="common/coops.hpp" bodystart="95" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="structboards_1a3eb726cb1d52d85288567c3e5848828e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t boards::get_members_count</definition>
+        <argsstring>() const</argsstring>
+        <name>get_members_count</name>
+        <qualifiedname>boards::get_members_count</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="104" column="12" bodyfile="common/coops.hpp" bodystart="104" bodyend="106"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Структура советов кооперативов </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Эта структура содержит информацию о досках кооператива, их типе, названии, описании и членах. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>boards</label>
+        <link refid="structboards"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>type</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>description</edgelabel>
+          <edgelabel>name</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>created_at</edgelabel>
+          <edgelabel>last_update</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>name</label>
+      </node>
+      <node id="4">
+        <label>time_point_sec</label>
+      </node>
+      <node id="3">
+        <label>string</label>
+      </node>
+    </collaborationgraph>
+    <location file="common/coops.hpp" line="26" column="1" bodyfile="common/coops.hpp" bodystart="26" bodyend="108"/>
+    <listofallmembers>
+      <member refid="structboards_1a62601ce5131f1d2be8f17c3df5866f38" prot="public" virt="non-virtual"><scope>boards</scope><name>by_type</name></member>
+      <member refid="structboards_1add47e6975c343415f278a0414c714066" prot="public" virt="non-virtual"><scope>boards</scope><name>created_at</name></member>
+      <member refid="structboards_1ae8f0825aa67789f638169abf513ce674" prot="public" virt="non-virtual"><scope>boards</scope><name>description</name></member>
+      <member refid="structboards_1ad04db86aca0d3390cbf18c1696818f16" prot="public" virt="non-virtual"><scope>boards</scope><name>get_chairman</name></member>
+      <member refid="structboards_1a3eb726cb1d52d85288567c3e5848828e" prot="public" virt="non-virtual"><scope>boards</scope><name>get_members_count</name></member>
+      <member refid="structboards_1a151ec00b76ae9f7c7fdc1e4dee7f0412" prot="public" virt="non-virtual"><scope>boards</scope><name>has_voting_right</name></member>
+      <member refid="structboards_1a4902e87f13247db8f837629544f12a6a" prot="public" virt="non-virtual"><scope>boards</scope><name>id</name></member>
+      <member refid="structboards_1ad1e613d161e0dfb3bee0b043b71c13db" prot="public" virt="non-virtual"><scope>boards</scope><name>is_valid_chairman</name></member>
+      <member refid="structboards_1a3108c80a73de20b8ad7a776e108abe26" prot="public" virt="non-virtual"><scope>boards</scope><name>is_valid_member</name></member>
+      <member refid="structboards_1a19e6b2ff62948b4922ea2ea945b5083a" prot="public" virt="non-virtual"><scope>boards</scope><name>is_valid_secretary</name></member>
+      <member refid="structboards_1acfe79079ce96ef59fea0f86c95506cb8" prot="public" virt="non-virtual"><scope>boards</scope><name>is_voting_member</name></member>
+      <member refid="structboards_1acaad31053c6dc00a9b99faaece7213bc" prot="public" virt="non-virtual"><scope>boards</scope><name>last_update</name></member>
+      <member refid="structboards_1a784be337829b64e7caaa6c6657f5c262" prot="public" virt="non-virtual"><scope>boards</scope><name>members</name></member>
+      <member refid="structboards_1ad9a12ccbc9bdbabfe1dbd5f7cffdb06f" prot="public" virt="non-virtual"><scope>boards</scope><name>name</name></member>
+      <member refid="structboards_1a8a887a056d41000b8183975cc5fe0c91" prot="public" virt="non-virtual"><scope>boards</scope><name>primary_key</name></member>
+      <member refid="structboards_1a277bb2ea397a8b6076584f07f2c4432f" prot="public" virt="non-virtual"><scope>boards</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

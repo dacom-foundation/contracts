@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>Документация</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="index_1md_README"/> Документация включает в себя описание КОНТРАКТОВ, ТАБЛИЦ, ДЕЙСТВИЙ и КОНСТАНТ, которые применяются в Цифровом Кооперативе. </para>
+    </detaileddescription>
+    <location file="README.md"/>
+  </compounddef>
+</doxygen>

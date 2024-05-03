@@ -1,0 +1,250 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="name__bidding_8cpp" kind="file" language="C++">
+    <compoundname>name_bidding.cpp</compoundname>
+    <includes refid="eosio_8system_8hpp" local="no">eosio.system/eosio.system.hpp</includes>
+    <includes refid="eosio_8token_8hpp" local="no">eosio.token/eosio.token.hpp</includes>
+    <includes local="no">eosio/transaction.hpp</includes>
+    <incdepgraph>
+      <node id="23">
+        <label>../../../../../common/consts.hpp</label>
+        <link refid="consts_8hpp"/>
+      </node>
+      <node id="2">
+        <label>eosio.system/eosio.system.hpp</label>
+        <link refid="eosio_8system_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>eosio.system/exchange_state.hpp</label>
+        <link refid="exchange__state_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>eosio.system/native.hpp</label>
+        <link refid="native_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>system/contracts/eosio.system/src/name_bidding.cpp</label>
+        <link refid="name__bidding_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>eosio.token/eosio.token.hpp</label>
+        <link refid="eosio_8token_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>deque</label>
+      </node>
+      <node id="13">
+        <label>eosio/action.hpp</label>
+      </node>
+      <node id="3">
+        <label>eosio/asset.hpp</label>
+      </node>
+      <node id="4">
+        <label>eosio/binary_extension.hpp</label>
+      </node>
+      <node id="14">
+        <label>eosio/contract.hpp</label>
+      </node>
+      <node id="15">
+        <label>eosio/crypto.hpp</label>
+      </node>
+      <node id="25">
+        <label>eosio/eosio.hpp</label>
+      </node>
+      <node id="16">
+        <label>eosio/fixed_bytes.hpp</label>
+      </node>
+      <node id="17">
+        <label>eosio/ignore.hpp</label>
+      </node>
+      <node id="11">
+        <label>eosio/multi_index.hpp</label>
+      </node>
+      <node id="18">
+        <label>eosio/print.hpp</label>
+      </node>
+      <node id="5">
+        <label>eosio/privileged.hpp</label>
+      </node>
+      <node id="6">
+        <label>eosio/producer_schedule.hpp</label>
+      </node>
+      <node id="7">
+        <label>eosio/singleton.hpp</label>
+      </node>
+      <node id="8">
+        <label>eosio/system.hpp</label>
+      </node>
+      <node id="9">
+        <label>eosio/time.hpp</label>
+      </node>
+      <node id="26">
+        <label>eosio/transaction.hpp</label>
+      </node>
+      <node id="20">
+        <label>optional</label>
+      </node>
+      <node id="21">
+        <label>string</label>
+      </node>
+      <node id="22">
+        <label>type_traits</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceeosiosystem">eosiosystem</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;<ref refid="eosio_8system_8hpp" kindref="compound">eosio.system/eosio.system.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="eosio_8token_8hpp" kindref="compound">eosio.token/eosio.token.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/transaction.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceeosiosystem" kindref="compound">eosiosystem</ref><sp/>{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>eosio::current_time_point;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="classeosio_1_1token" kindref="compound">eosio::token</ref>;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classeosiosystem_1_1system__contract_1af1c329fbf0e3e45b62b729e6ee743c62" kindref="member">system_contract::bidname</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>name&amp;<sp/>bidder,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>name&amp;<sp/>newname,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>asset&amp;<sp/>bid)<sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>require_auth(bidder);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>check(</highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;service<sp/>is<sp/>temporary<sp/>unavailable&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Дополнительная<sp/>проверка:<sp/>имя<sp/>должно<sp/>быть<sp/>короче<sp/>6<sp/>символов<sp/>и<sp/>не<sp/>содержать<sp/>точек</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>newname_str<sp/>=<sp/>newname.to_string();</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>check(newname_str.size()<sp/>&lt;=<sp/><ref refid="group__public__consts_1ga7907328ea2e6a0c7528a5116b1b837c1" kindref="member">_auction_name_length_limit</ref>,<sp/></highlight><highlight class="stringliteral">&quot;only<sp/>names<sp/>with<sp/>length<sp/>&lt;=<sp/>5<sp/>are<sp/>allowed<sp/>for<sp/>auction&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>check(newname_str.find(</highlight><highlight class="charliteral">&apos;.&apos;</highlight><highlight class="normal">)<sp/>==<sp/>std::string::npos,<sp/></highlight><highlight class="stringliteral">&quot;name<sp/>for<sp/>auction<sp/>should<sp/>not<sp/>contain<sp/>a<sp/>dot&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>check(!is_account(newname),<sp/></highlight><highlight class="stringliteral">&quot;account<sp/>already<sp/>exists&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>check(bid.symbol<sp/>==<sp/><ref refid="classeosiosystem_1_1system__contract_1a32504695292c0e9c2171987821bc3857" kindref="member">core_symbol</ref>(),<sp/></highlight><highlight class="stringliteral">&quot;asset<sp/>must<sp/>be<sp/>system<sp/>token&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>check(bid.amount<sp/>&gt;<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;insufficient<sp/>bid&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classeosio_1_1token_1a48e0c826f1e416bf99439b0b7e637a29" kindref="member">token::transfer_action</ref><sp/>transfer_act{<sp/><ref refid="classeosiosystem_1_1system__contract_1a21c029a978b1648e8cea9d7c60a5faf3" kindref="member">token_account</ref>,<sp/>{<sp/>{bidder,<sp/><ref refid="classeosiosystem_1_1system__contract_1adfc25b00a14e482c7fb1161dd38096bd" kindref="member">active_permission</ref>}<sp/>}<sp/>};</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>transfer_act.send(bidder,<sp/><ref refid="classeosiosystem_1_1system__contract_1a03e79dcf0584dd7fd1dbb1aa072befb1" kindref="member">names_account</ref>,<sp/>bid,<sp/></highlight><highlight class="stringliteral">&quot;bid<sp/>name<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>newname.to_string());</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceeosiosystem_1a89109f288e4d5622f4abd4c033e5698b" kindref="member">name_bid_table</ref><sp/>bids(get_self(),<sp/>get_self().value);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>current<sp/>=<sp/>bids.find(newname.value);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(current<sp/>==<sp/>bids.end())<sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bids.emplace(bidder,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>b)<sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b.newname<sp/>=<sp/>newname;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b.high_bidder<sp/>=<sp/>bidder;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b.high_bid<sp/>=<sp/>bid.amount;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b.last_bid_time<sp/>=<sp/>current_time_point();</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>check(current-&gt;high_bid<sp/>&gt;<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;this<sp/>auction<sp/>has<sp/>already<sp/>closed&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>check(bid.amount<sp/>-<sp/>current-&gt;high_bid<sp/>&gt;<sp/>(current-&gt;high_bid<sp/>/<sp/>10),<sp/></highlight><highlight class="stringliteral">&quot;must<sp/>increase<sp/>bid<sp/>by<sp/>10%&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>check(current-&gt;high_bidder<sp/>!=<sp/>bidder,<sp/></highlight><highlight class="stringliteral">&quot;account<sp/>is<sp/>already<sp/>highest<sp/>bidder&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceeosiosystem_1a9fb24f45319750acae81a7d91703ea05" kindref="member">bid_refund_table</ref><sp/><ref refid="namespaceeosiosystem_1aa3f5a7875c9a421bed214a88d78d7750" kindref="member">refunds_table</ref>(get_self(),<sp/>newname.value);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>it<sp/>=<sp/><ref refid="namespaceeosiosystem_1aa3f5a7875c9a421bed214a88d78d7750" kindref="member">refunds_table</ref>.find(current-&gt;high_bidder.value);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(it<sp/>!=<sp/><ref refid="namespaceeosiosystem_1aa3f5a7875c9a421bed214a88d78d7750" kindref="member">refunds_table</ref>.end())<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceeosiosystem_1aa3f5a7875c9a421bed214a88d78d7750" kindref="member">refunds_table</ref>.modify(it,<sp/>same_payer,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>r)<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>r.amount<sp/>+=<sp/>asset(current-&gt;high_bid,<sp/><ref refid="classeosiosystem_1_1system__contract_1a32504695292c0e9c2171987821bc3857" kindref="member">core_symbol</ref>());</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceeosiosystem_1aa3f5a7875c9a421bed214a88d78d7750" kindref="member">refunds_table</ref>.emplace(bidder,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>r)<sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>r.bidder<sp/>=<sp/>current-&gt;high_bidder;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>r.amount<sp/>=<sp/>asset(current-&gt;high_bid,<sp/><ref refid="classeosiosystem_1_1system__contract_1a32504695292c0e9c2171987821bc3857" kindref="member">core_symbol</ref>());</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::transaction<sp/>t;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>t.actions.emplace_back(permission_level{current-&gt;high_bidder,<sp/><ref refid="classeosiosystem_1_1system__contract_1adfc25b00a14e482c7fb1161dd38096bd" kindref="member">active_permission</ref>},</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>get_self(),<sp/></highlight><highlight class="stringliteral">&quot;bidrefund&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::make_tuple(current-&gt;high_bidder,<sp/>newname));</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>t.delay_sec<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint128_t<sp/>deferred_id<sp/>=<sp/>(uint128_t(newname.value)<sp/>&lt;&lt;<sp/>64)<sp/>|<sp/>current-&gt;high_bidder.value;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::cancel_deferred(deferred_id);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>t.send(deferred_id,<sp/>bidder);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bids.modify(current,<sp/>bidder,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>b)<sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b.high_bidder<sp/>=<sp/>bidder;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b.high_bid<sp/>=<sp/>bid.amount;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b.last_bid_time<sp/>=<sp/>current_time_point();</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classeosiosystem_1_1system__contract_1a1ad9f05ad7242412bf5ad87706f923ff" kindref="member">system_contract::bidrefund</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>name&amp;<sp/>bidder,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>name&amp;<sp/>newname<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceeosiosystem_1a9fb24f45319750acae81a7d91703ea05" kindref="member">bid_refund_table</ref><sp/><ref refid="namespaceeosiosystem_1aa3f5a7875c9a421bed214a88d78d7750" kindref="member">refunds_table</ref>(get_self(),<sp/>newname.value);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>it<sp/>=<sp/><ref refid="namespaceeosiosystem_1aa3f5a7875c9a421bed214a88d78d7750" kindref="member">refunds_table</ref>.find(<sp/>bidder.value<sp/>);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>check(<sp/>it<sp/>!=<sp/><ref refid="namespaceeosiosystem_1aa3f5a7875c9a421bed214a88d78d7750" kindref="member">refunds_table</ref>.end(),<sp/></highlight><highlight class="stringliteral">&quot;refund<sp/>not<sp/>found&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classeosio_1_1token_1a48e0c826f1e416bf99439b0b7e637a29" kindref="member">token::transfer_action</ref><sp/>transfer_act{<sp/><ref refid="classeosiosystem_1_1system__contract_1a21c029a978b1648e8cea9d7c60a5faf3" kindref="member">token_account</ref>,<sp/>{<sp/>{<ref refid="classeosiosystem_1_1system__contract_1a03e79dcf0584dd7fd1dbb1aa072befb1" kindref="member">names_account</ref>,<sp/><ref refid="classeosiosystem_1_1system__contract_1adfc25b00a14e482c7fb1161dd38096bd" kindref="member">active_permission</ref>},<sp/>{bidder,<sp/><ref refid="classeosiosystem_1_1system__contract_1adfc25b00a14e482c7fb1161dd38096bd" kindref="member">active_permission</ref>}<sp/>}<sp/>};</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>transfer_act.send(<sp/><ref refid="classeosiosystem_1_1system__contract_1a03e79dcf0584dd7fd1dbb1aa072befb1" kindref="member">names_account</ref>,<sp/>bidder,<sp/>asset(it-&gt;amount),<sp/>std::string(</highlight><highlight class="stringliteral">&quot;refund<sp/>bid<sp/>on<sp/>name<sp/>&quot;</highlight><highlight class="normal">)+(name{newname}).to_string()<sp/>);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceeosiosystem_1aa3f5a7875c9a421bed214a88d78d7750" kindref="member">refunds_table</ref>.erase(<sp/>it<sp/>);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="system/contracts/eosio.system/src/name_bidding.cpp"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="namespacesystem__contracts" kind="namespace" language="C++">
+    <compoundname>system_contracts</compoundname>
+    <innernamespace refid="namespacesystem__contracts_1_1testing">system_contracts::testing</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="system/contracts/test_contracts/blockinfo_tester/include/blockinfo_tester/blockinfo_tester.hpp" line="21" column="1"/>
+  </compounddef>
+</doxygen>

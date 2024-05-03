@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="dir_bdd9a5d540de89e9fe90efdfc6973a4f" kind="dir">
+    <compoundname>common</compoundname>
+    <innerfile refid="accounts_8hpp">accounts.hpp</innerfile>
+    <innerfile refid="admins_8hpp">admins.hpp</innerfile>
+    <innerfile refid="balances_8hpp">balances.hpp</innerfile>
+    <innerfile refid="changes_8hpp">changes.hpp</innerfile>
+    <innerfile refid="consts_8hpp">consts.hpp</innerfile>
+    <innerfile refid="coops_8hpp">coops.hpp</innerfile>
+    <innerfile refid="counts_8hpp">counts.hpp</innerfile>
+    <innerfile refid="drafts_8hpp">drafts.hpp</innerfile>
+    <innerfile refid="funds_8hpp">funds.hpp</innerfile>
+    <innerfile refid="permissions_8hpp">permissions.hpp</innerfile>
+    <innerfile refid="programs_8hpp">programs.hpp</innerfile>
+    <innerfile refid="rammarket_8hpp">rammarket.hpp</innerfile>
+    <innerfile refid="utils_8hpp">utils.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="common/"/>
+  </compounddef>
+</doxygen>

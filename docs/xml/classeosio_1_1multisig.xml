@@ -1,0 +1,537 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="classeosio_1_1multisig" kind="class" language="C++" prot="public">
+    <compoundname>eosio::multisig</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">contract</basecompoundref>
+    <includes refid="eosio_8msig_8hpp" local="no">eosio.msig.hpp</includes>
+    <innerclass refid="structeosio_1_1multisig_1_1approval" prot="public">eosio::multisig::approval</innerclass>
+    <innerclass refid="structeosio_1_1multisig_1_1approvals__info" prot="public">eosio::multisig::approvals_info</innerclass>
+    <innerclass refid="structeosio_1_1multisig_1_1invalidation" prot="public">eosio::multisig::invalidation</innerclass>
+    <innerclass refid="structeosio_1_1multisig_1_1old__approvals__info" prot="public">eosio::multisig::old_approvals_info</innerclass>
+    <innerclass refid="structeosio_1_1multisig_1_1proposal" prot="public">eosio::multisig::proposal</innerclass>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classeosio_1_1multisig_1a6b2b36f41c47c6cd4d93fecfd8cc60cf" prot="public" static="no">
+        <type>eosio::action_wrapper&lt;&quot;propose&quot;_n, &amp;<ref refid="classeosio_1_1multisig_1acb9cee084979625820b6f45492f13be0" kindref="member">multisig::propose</ref> &gt;</type>
+        <definition>using eosio::multisig::propose_action =  eosio::action_wrapper&lt;&quot;propose&quot;_n, &amp;multisig::propose&gt;</definition>
+        <argsstring></argsstring>
+        <name>propose_action</name>
+        <qualifiedname>eosio::multisig::propose_action</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" line="108" column="10" bodyfile="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classeosio_1_1multisig_1a78ab9fde21f9ded0848d08fa608928be" prot="public" static="no">
+        <type>eosio::action_wrapper&lt;&quot;approve&quot;_n, &amp;<ref refid="classeosio_1_1multisig_1a5cccb8b23b9fffa1b27d443fad9ce3e9" kindref="member">multisig::approve</ref> &gt;</type>
+        <definition>using eosio::multisig::approve_action =  eosio::action_wrapper&lt;&quot;approve&quot;_n, &amp;multisig::approve&gt;</definition>
+        <argsstring></argsstring>
+        <name>approve_action</name>
+        <qualifiedname>eosio::multisig::approve_action</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" line="109" column="10" bodyfile="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classeosio_1_1multisig_1a36509e236e810ab65fa9f0d4d4819a44" prot="public" static="no">
+        <type>eosio::action_wrapper&lt;&quot;unapprove&quot;_n, &amp;<ref refid="classeosio_1_1multisig_1a7d6e568f96c6697728e316557a9bcf1e" kindref="member">multisig::unapprove</ref> &gt;</type>
+        <definition>using eosio::multisig::unapprove_action =  eosio::action_wrapper&lt;&quot;unapprove&quot;_n, &amp;multisig::unapprove&gt;</definition>
+        <argsstring></argsstring>
+        <name>unapprove_action</name>
+        <qualifiedname>eosio::multisig::unapprove_action</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" line="110" column="10" bodyfile="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classeosio_1_1multisig_1aa24ce647e2b69d4def57d629b12a5947" prot="public" static="no">
+        <type>eosio::action_wrapper&lt;&quot;cancel&quot;_n, &amp;<ref refid="classeosio_1_1multisig_1a2dc849ab961ea31c0e93ebace0f0dd00" kindref="member">multisig::cancel</ref> &gt;</type>
+        <definition>using eosio::multisig::cancel_action =  eosio::action_wrapper&lt;&quot;cancel&quot;_n, &amp;multisig::cancel&gt;</definition>
+        <argsstring></argsstring>
+        <name>cancel_action</name>
+        <qualifiedname>eosio::multisig::cancel_action</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" line="111" column="10" bodyfile="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classeosio_1_1multisig_1a190673aa69f84e30b207ce0d7fcfdeaf" prot="public" static="no">
+        <type>eosio::action_wrapper&lt;&quot;exec&quot;_n, &amp;<ref refid="classeosio_1_1multisig_1ac31b3d91892bf8fcdad8d6f123c278ff" kindref="member">multisig::exec</ref> &gt;</type>
+        <definition>using eosio::multisig::exec_action =  eosio::action_wrapper&lt;&quot;exec&quot;_n, &amp;multisig::exec&gt;</definition>
+        <argsstring></argsstring>
+        <name>exec_action</name>
+        <qualifiedname>eosio::multisig::exec_action</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" line="112" column="10" bodyfile="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classeosio_1_1multisig_1ac2bc17cd429e3e5c7b5dd8469db4fb74" prot="public" static="no">
+        <type>eosio::action_wrapper&lt;&quot;invalidate&quot;_n, &amp;<ref refid="classeosio_1_1multisig_1a59e26671d5a02dd2f809b08f56b4d3b8" kindref="member">multisig::invalidate</ref> &gt;</type>
+        <definition>using eosio::multisig::invalidate_action =  eosio::action_wrapper&lt;&quot;invalidate&quot;_n, &amp;multisig::invalidate&gt;</definition>
+        <argsstring></argsstring>
+        <name>invalidate_action</name>
+        <qualifiedname>eosio::multisig::invalidate_action</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" line="113" column="10" bodyfile="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classeosio_1_1multisig_1a4f80f1ab1d2bd88d9ee3964e8cf34771" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;proposal&quot;_n, <ref refid="structeosio_1_1multisig_1_1proposal" kindref="compound">proposal</ref> &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;proposal&quot;_n, proposal &gt; eosio::multisig::proposals</definition>
+        <argsstring></argsstring>
+        <name>proposals</name>
+        <qualifiedname>eosio::multisig::proposals</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" line="122" column="31" bodyfile="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classeosio_1_1multisig_1a1ad32ac47eba850bcecb5940b21b1f04" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;approvals&quot;_n, <ref refid="structeosio_1_1multisig_1_1old__approvals__info" kindref="compound">old_approvals_info</ref> &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;approvals&quot;_n, old_approvals_info &gt; eosio::multisig::old_approvals</definition>
+        <argsstring></argsstring>
+        <name>old_approvals</name>
+        <qualifiedname>eosio::multisig::old_approvals</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" line="130" column="31" bodyfile="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classeosio_1_1multisig_1a63a04fd1cf67821038757093a19934e4" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;approvals2&quot;_n, <ref refid="structeosio_1_1multisig_1_1approvals__info" kindref="compound">approvals_info</ref> &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;approvals2&quot;_n, approvals_info &gt; eosio::multisig::approvals</definition>
+        <argsstring></argsstring>
+        <name>approvals</name>
+        <qualifiedname>eosio::multisig::approvals</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" line="146" column="31" bodyfile="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classeosio_1_1multisig_1a22ec4ca93c516c0b46aa306ef14929e6" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;invals&quot;_n, <ref refid="structeosio_1_1multisig_1_1invalidation" kindref="compound">invalidation</ref> &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;invals&quot;_n, invalidation &gt; eosio::multisig::invalidations</definition>
+        <argsstring></argsstring>
+        <name>invalidations</name>
+        <qualifiedname>eosio::multisig::invalidations</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" line="155" column="34" bodyfile="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classeosio_1_1multisig_1acb9cee084979625820b6f45492f13be0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosio::multisig::propose</definition>
+        <argsstring>(name proposer, name proposal_name, std::vector&lt; permission_level &gt; requested, ignore&lt; transaction &gt; trx)</argsstring>
+        <name>propose</name>
+        <qualifiedname>eosio::multisig::propose</qualifiedname>
+        <param>
+          <type>name</type>
+          <declname>proposer</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>proposal_name</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; permission_level &gt;</type>
+          <declname>requested</declname>
+        </param>
+        <param>
+          <type>ignore&lt; transaction &gt;</type>
+          <declname>trx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Propose action, creates a proposal containing one transaction. Allows an account <computeroutput>proposer</computeroutput> to make a proposal <computeroutput>proposal_name</computeroutput> which has <computeroutput>requested</computeroutput> permission levels expected to approve the proposal, and if approved by all expected permission levels then <computeroutput>trx</computeroutput> transaction can we executed by this proposal. The <computeroutput>proposer</computeroutput> account is authorized and the <computeroutput>trx</computeroutput> transaction is verified if it was authorized by the provided keys and permissions, and if the proposal name doesn’t already exist; if all validations pass the <computeroutput>proposal_name</computeroutput> and <computeroutput>trx</computeroutput> trasanction are saved in the proposals table and the <computeroutput>requested</computeroutput> permission levels to the approvals table (for the <computeroutput>proposer</computeroutput> context). Storage changes are billed to <computeroutput>proposer</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>proposer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- The account proposing a transaction </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>proposal_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- The name of the proposal (should be unique for proposer) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>requested</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Permission levels expected to approve the proposal </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>trx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Proposed transaction </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" line="39" column="15" bodyfile="system/contracts/eosio.msig/src/eosio.msig.cpp" bodystart="42" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio_1_1multisig_1a5cccb8b23b9fffa1b27d443fad9ce3e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosio::multisig::approve</definition>
+        <argsstring>(name proposer, name proposal_name, permission_level level, const eosio::binary_extension&lt; eosio::checksum256 &gt; &amp;proposal_hash)</argsstring>
+        <name>approve</name>
+        <qualifiedname>eosio::multisig::approve</qualifiedname>
+        <param>
+          <type>name</type>
+          <declname>proposer</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>proposal_name</declname>
+        </param>
+        <param>
+          <type>permission_level</type>
+          <declname>level</declname>
+        </param>
+        <param>
+          <type>const eosio::binary_extension&lt; eosio::checksum256 &gt; &amp;</type>
+          <declname>proposal_hash</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Approve action approves an existing proposal. Allows an account, the owner of <computeroutput>level</computeroutput> permission, to approve a proposal <computeroutput>proposal_name</computeroutput> proposed by <computeroutput>proposer</computeroutput>. If the proposal&apos;s requested approval list contains the <computeroutput>level</computeroutput> permission then the <computeroutput>level</computeroutput> permission is moved from internal <computeroutput>requested_approvals</computeroutput> list to internal <computeroutput>provided_approvals</computeroutput> list of the proposal, thus persisting the approval for the <computeroutput>proposal_name</computeroutput> proposal. Storage changes are billed to <computeroutput>proposer</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>proposer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- The account proposing a transaction </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>proposal_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- The name of the proposal (should be unique for proposer) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>level</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Permission level approving the transaction </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>proposal_hash</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Transaction&apos;s checksum </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" line="54" column="15" bodyfile="system/contracts/eosio.msig/src/eosio.msig.cpp" bodystart="92" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio_1_1multisig_1a7d6e568f96c6697728e316557a9bcf1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosio::multisig::unapprove</definition>
+        <argsstring>(name proposer, name proposal_name, permission_level level)</argsstring>
+        <name>unapprove</name>
+        <qualifiedname>eosio::multisig::unapprove</qualifiedname>
+        <param>
+          <type>name</type>
+          <declname>proposer</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>proposal_name</declname>
+        </param>
+        <param>
+          <type>permission_level</type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Unapprove action revokes an existing proposal. This action is the reverse of the <computeroutput>approve</computeroutput> action: if all validations pass the <computeroutput>level</computeroutput> permission is erased from internal <computeroutput>provided_approvals</computeroutput> and added to the internal <computeroutput>requested_approvals</computeroutput> list, and thus un-approve or revoke the proposal.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>proposer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- The account proposing a transaction </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>proposal_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- The name of the proposal (should be an existing proposal) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>level</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Permission level revoking approval for proposal </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" line="66" column="15" bodyfile="system/contracts/eosio.msig/src/eosio.msig.cpp" bodystart="143" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio_1_1multisig_1a2dc849ab961ea31c0e93ebace0f0dd00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosio::multisig::cancel</definition>
+        <argsstring>(name proposer, name proposal_name, name canceler)</argsstring>
+        <name>cancel</name>
+        <qualifiedname>eosio::multisig::cancel</qualifiedname>
+        <param>
+          <type>name</type>
+          <declname>proposer</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>proposal_name</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>canceler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Cancel action cancels an existing proposal.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>proposer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- The account proposing a transaction </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>proposal_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- The name of the proposal (should be an existing proposal) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>canceler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- The account cancelling the proposal (only the proposer can cancel an unexpired transaction, and the canceler has to be different than the proposer)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Allows the <computeroutput>canceler</computeroutput> account to cancel the <computeroutput>proposal_name</computeroutput> proposal, created by a <computeroutput>proposer</computeroutput>, only after time has expired on the proposed transaction. It removes corresponding entries from internal proptable and from approval (or old approvals) tables as well. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" line="79" column="15" bodyfile="system/contracts/eosio.msig/src/eosio.msig.cpp" bodystart="184" bodyend="206"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio_1_1multisig_1ac31b3d91892bf8fcdad8d6f123c278ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosio::multisig::exec</definition>
+        <argsstring>(name proposer, name proposal_name, name executer)</argsstring>
+        <name>exec</name>
+        <qualifiedname>eosio::multisig::exec</qualifiedname>
+        <param>
+          <type>name</type>
+          <declname>proposer</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>proposal_name</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>executer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Exec action allows an <computeroutput>executer</computeroutput> account to execute a proposal.</para>
+<para>Preconditions:<itemizedlist>
+<listitem><para><computeroutput>executer</computeroutput> has authorization,</para>
+</listitem><listitem><para><computeroutput>proposal_name</computeroutput> is found in the proposals table,</para>
+</listitem><listitem><para>all requested approvals are received,</para>
+</listitem><listitem><para>proposed transaction is not expired,</para>
+</listitem><listitem><para>and approval accounts are not found in invalidations table.</para>
+</listitem></itemizedlist>
+</para>
+<para>If all preconditions are met the transaction is executed as a deferred transaction, and the proposal is erased from the proposals table.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>proposer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- The account proposing a transaction </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>proposal_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- The name of the proposal (should be an existing proposal) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>executer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- The account executing the transaction </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" line="98" column="15" bodyfile="system/contracts/eosio.msig/src/eosio.msig.cpp" bodystart="208" bodyend="238"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio_1_1multisig_1a59e26671d5a02dd2f809b08f56b4d3b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosio::multisig::invalidate</definition>
+        <argsstring>(name account)</argsstring>
+        <name>invalidate</name>
+        <qualifiedname>eosio::multisig::invalidate</qualifiedname>
+        <param>
+          <type>name</type>
+          <declname>account</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Invalidate action allows an <computeroutput>account</computeroutput> to invalidate itself, that is, its name is added to the invalidations table and this table will be cross referenced when exec is performed.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>account</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- The account invalidating the transaction </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" line="106" column="15" bodyfile="system/contracts/eosio.msig/src/eosio.msig.cpp" bodystart="240" bodyend="254"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The <computeroutput>eosio.msig</computeroutput> system contract allows for creation of proposed transactions which require authorization from a list of accounts, approval of the proposed transactions by those accounts required to approve it, and finally, it also allows the execution of the approved transactions on the blockchain.</para>
+<para>In short, the workflow to propose, review, approve and then executed a transaction it can be described by the following:<itemizedlist>
+<listitem><para>first you create a transaction json file,</para>
+</listitem><listitem><para>then you submit this proposal to the <computeroutput>eosio.msig</computeroutput> contract, and you also insert the account permissions required to approve this proposal into the command that submits the proposal to the blockchain,</para>
+</listitem><listitem><para>the proposal then gets stored on the blockchain by the <computeroutput>eosio.msig</computeroutput> contract, and is accessible for review and approval to those accounts required to approve it,</para>
+</listitem><listitem><para>after each of the appointed accounts required to approve the proposed transactions reviews and approves it, you can execute the proposed transaction. The <computeroutput>eosio.msig</computeroutput> contract will execute it automatically, but not before validating that the transaction has not expired, it is not cancelled, and it has been signed by all the permissions in the initial proposal&apos;s required permission list. </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>contract</label>
+      </node>
+      <node id="1">
+        <label>eosio::multisig</label>
+        <link refid="classeosio_1_1multisig"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>contract</label>
+      </node>
+      <node id="1">
+        <label>eosio::multisig</label>
+        <link refid="classeosio_1_1multisig"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" line="18" column="4" bodyfile="system/contracts/eosio.msig/include/eosio.msig/eosio.msig.hpp" bodystart="18" bodyend="156"/>
+    <listofallmembers>
+      <member refid="classeosio_1_1multisig_1a63a04fd1cf67821038757093a19934e4" prot="public" virt="non-virtual"><scope>eosio::multisig</scope><name>approvals</name></member>
+      <member refid="classeosio_1_1multisig_1a5cccb8b23b9fffa1b27d443fad9ce3e9" prot="public" virt="non-virtual"><scope>eosio::multisig</scope><name>approve</name></member>
+      <member refid="classeosio_1_1multisig_1a78ab9fde21f9ded0848d08fa608928be" prot="public" virt="non-virtual"><scope>eosio::multisig</scope><name>approve_action</name></member>
+      <member refid="classeosio_1_1multisig_1a2dc849ab961ea31c0e93ebace0f0dd00" prot="public" virt="non-virtual"><scope>eosio::multisig</scope><name>cancel</name></member>
+      <member refid="classeosio_1_1multisig_1aa24ce647e2b69d4def57d629b12a5947" prot="public" virt="non-virtual"><scope>eosio::multisig</scope><name>cancel_action</name></member>
+      <member refid="classeosio_1_1multisig_1ac31b3d91892bf8fcdad8d6f123c278ff" prot="public" virt="non-virtual"><scope>eosio::multisig</scope><name>exec</name></member>
+      <member refid="classeosio_1_1multisig_1a190673aa69f84e30b207ce0d7fcfdeaf" prot="public" virt="non-virtual"><scope>eosio::multisig</scope><name>exec_action</name></member>
+      <member refid="classeosio_1_1multisig_1a59e26671d5a02dd2f809b08f56b4d3b8" prot="public" virt="non-virtual"><scope>eosio::multisig</scope><name>invalidate</name></member>
+      <member refid="classeosio_1_1multisig_1ac2bc17cd429e3e5c7b5dd8469db4fb74" prot="public" virt="non-virtual"><scope>eosio::multisig</scope><name>invalidate_action</name></member>
+      <member refid="classeosio_1_1multisig_1a22ec4ca93c516c0b46aa306ef14929e6" prot="public" virt="non-virtual"><scope>eosio::multisig</scope><name>invalidations</name></member>
+      <member refid="classeosio_1_1multisig_1a1ad32ac47eba850bcecb5940b21b1f04" prot="public" virt="non-virtual"><scope>eosio::multisig</scope><name>old_approvals</name></member>
+      <member refid="classeosio_1_1multisig_1a4f80f1ab1d2bd88d9ee3964e8cf34771" prot="public" virt="non-virtual"><scope>eosio::multisig</scope><name>proposals</name></member>
+      <member refid="classeosio_1_1multisig_1acb9cee084979625820b6f45492f13be0" prot="public" virt="non-virtual"><scope>eosio::multisig</scope><name>propose</name></member>
+      <member refid="classeosio_1_1multisig_1a6b2b36f41c47c6cd4d93fecfd8cc60cf" prot="public" virt="non-virtual"><scope>eosio::multisig</scope><name>propose_action</name></member>
+      <member refid="classeosio_1_1multisig_1a7d6e568f96c6697728e316557a9bcf1e" prot="public" virt="non-virtual"><scope>eosio::multisig</scope><name>unapprove</name></member>
+      <member refid="classeosio_1_1multisig_1a36509e236e810ab65fa9f0d4d4819a44" prot="public" virt="non-virtual"><scope>eosio::multisig</scope><name>unapprove_action</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

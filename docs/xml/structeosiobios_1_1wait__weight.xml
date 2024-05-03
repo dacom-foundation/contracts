@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="ru">
+  <compounddef id="structeosiobios_1_1wait__weight" kind="struct" language="C++" prot="public">
+    <compoundname>eosiobios::wait_weight</compoundname>
+    <includes refid="eosio_8bios_8hpp" local="no">eosio.bios.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeosiobios_1_1wait__weight_1ad5cbfb9e4e061f20ad06134ff7c7a8e9" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t eosiobios::wait_weight::wait_sec</definition>
+        <argsstring></argsstring>
+        <name>wait_sec</name>
+        <qualifiedname>eosiobios::wait_weight::wait_sec</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="37" column="26" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeosiobios_1_1wait__weight_1a9a3d73af3abe1105cbb23ea8cbdecc5c" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t eosiobios::wait_weight::weight</definition>
+        <argsstring></argsstring>
+        <name>weight</name>
+        <qualifiedname>eosiobios::wait_weight::weight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="38" column="26" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" line="36" column="4" bodyfile="system/contracts/eosio.bios/include/eosio.bios/eosio.bios.hpp" bodystart="36" bodyend="42"/>
+    <listofallmembers>
+      <member refid="structeosiobios_1_1wait__weight_1ad5cbfb9e4e061f20ad06134ff7c7a8e9" prot="public" virt="non-virtual"><scope>eosiobios::wait_weight</scope><name>wait_sec</name></member>
+      <member refid="structeosiobios_1_1wait__weight_1a9a3d73af3abe1105cbb23ea8cbdecc5c" prot="public" virt="non-virtual"><scope>eosiobios::wait_weight</scope><name>weight</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
