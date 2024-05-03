@@ -18,7 +18,9 @@
     eosio::name registrator, eosio::name referer,
     eosio::name username, eosio::public_key public_key, std::string signature_hash,
     std::string meta) {
-  print("test");
+  
+  // TODO!!! Убрать пополнение и списание баланса через таблицу, использовать автоматическое списание ликвидного баланса системным аккаунтом. 
+
   require_auth(registrator);
   
   authority active_auth;
@@ -34,6 +36,7 @@
       {eosio::name("eosio.prods"), "active"_n},
       1
   };
+  
   owner_auth.accounts.push_back(eosio_prods_plw);
   
   eosio::asset ram = asset(_ram_price_per_byte * _ram_bytes_for_new_account, _root_symbol);
@@ -94,7 +97,7 @@
    eosio::name username,
    storage storage
 ) {  
-
+  // TODO перевести на админа!
   require_auth(coopname);
   eosio::name payer = coopname;
   
@@ -239,10 +242,10 @@
 *
 * @param username Имя аккаунта, который подлежит верификации
 * 
-* @note Авторизация требуется от аккаунта: @p _ano
+* @note Авторизация требуется от аккаунта: @p _system
 */
 [[eosio::action]] void registrator::verificate(eosio::name username, eosio::name procedure){
-  require_auth(_ano);
+  require_auth(_system);
   eosio::check(procedure == "online"_n, "Только онлайн-верификация доступна сейчас");
 
   accounts_index accounts(_registrator, _registrator.value);
@@ -326,7 +329,9 @@
 */
 [[eosio::action]] void registrator::joincoop(eosio::name coopname, eosio::name username, document document){
   require_auth(coopname);
-
+  // TODO передать админу 
+  // TODO ввести пользовательскую подпись
+  
   verify(document);
 
   participants_index participants(_soviet, coopname.value);
@@ -379,11 +384,11 @@
 * @param username Имя аккаунта, ключ которого требуется изменить
 * @param public_key Новый публичный ключ для активной учетной записи
 * 
-* @note Авторизация требуется от аккаунта: @p _ano
+* @note Авторизация требуется от аккаунта: @p _system
 */
 [[eosio::action]] void registrator::changekey(eosio::name username,
                                               eosio::public_key public_key) {
-  require_auth(_ano);
+  require_auth(_system);
 
   accounts_index accounts(_registrator, _registrator.value);
 

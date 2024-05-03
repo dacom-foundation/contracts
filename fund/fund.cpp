@@ -456,11 +456,8 @@ using namespace eosio;
   };
   
 
-  //метод вывода средств из фонда или по фонду
+  //метод создания вывода средств из фонда накопления или по фонду списания
   [[eosio::action]] void fund::fundwithdraw(eosio::name coopname, eosio::name username, eosio::name type, uint64_t fund_id, document document, eosio::asset quantity, std::string bank_data_id) {
-    //используется только на фондах накопления
-    
-
     eosio::check(type == _afund_withdraw_action || type == _efund_withdraw_action, "Неверный тип фонда");
     
     eosio::name payer;

@@ -61,13 +61,6 @@ void soviet::createprog(eosio::name coopname, eosio::name chairman, std::string 
     pr.membership_percent_fee = membership_percent_fee;
   });
 
-  action(
-    permission_level{ _soviet, "active"_n},
-    _soviet,
-    "program"_n,
-    std::make_tuple(coopname, program_id)
-  ).send();
-
 };
 
 
@@ -108,13 +101,6 @@ void soviet::editprog(eosio::name coopname, uint64_t id, std::string title, std:
     pr.images = images;
   });
 
-  action(
-    permission_level{ _soviet, "active"_n},
-    _soviet,
-    "program"_n,
-    std::make_tuple(coopname, id)
-  ).send();
-
 }
 
 
@@ -140,12 +126,5 @@ void soviet::disableprog(eosio::name coopname, uint64_t id) {
     pr.is_active = false;
   });
 
-  action(
-    permission_level{ _soviet, "active"_n},
-    _soviet,
-    "program"_n,
-    std::make_tuple(coopname, id)
-  ).send();
-  
 }
 

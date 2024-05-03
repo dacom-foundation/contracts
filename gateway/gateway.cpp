@@ -44,8 +44,11 @@ void gateway::newwithdrid(eosio::name username, uint64_t id) {
  */
 
 [[eosio::action]] void gateway::deposit(eosio::name coopname, eosio::name username, eosio::name type, eosio::asset quantity) {
+  // TODO убрать пользователя здесь, перевести на выдачу разрешений специальному аккаунту от кооператива для обслуживания депозитов. 
+  // @todo добавить специальное разрешение
+  // Пользователь сам может вызвать, но ордер на оплату формируется с бэкенда и никаких ссылок здесь в процессе не фигурирует - только статус, который может быть изменен только бэкендом. 
   eosio::name payer = has_auth(coopname) ? coopname : username;
-  print("on here");
+  
   eosio::check(has_auth(payer), "Недостаточно прав доступа");
 
   deposits_index deposits(_gateway, coopname.value);
@@ -173,7 +176,7 @@ void gateway::dpcomplete(eosio::name coopname, eosio::name admin, uint64_t depos
  *
  * @details Действие `dpfail` используется для обозначения неудачи в обработке депозита, устанавливая его статус в 'failed' и обновляя заметку.
  *
- * @note Требуется авторизация аккаунта контракта `gateway`.
+ * @note Требуется авторизация аккаунта контракта `_admin`.
  * @ingroup public_actions
  *
  * @param deposit_id Идентификатор депозита, статус которого обновляется.
@@ -275,7 +278,18 @@ void gateway::withdraw(eosio::name coopname, eosio::name username, eosio::asset 
 };
 
 
-
+/**
+ * Выполняет авторизацию совета для указанного идентификатора вывода.
+ *
+ * @param coopname - имя кооператива
+ * @param withdraw_id - идентификатор вывода
+ *
+ * @pre Требуется авторизация аккаунта _soviet.
+ * @pre Объект процессинга с указанным идентификатором должен существовать.
+ * @post Статус объекта процессинга изменяется на "authorized".
+ *
+ * @throws eosio::check_failure - если объект процессинга не найден.
+ */
 void gateway::withdrawauth(eosio::name coopname, uint64_t withdraw_id) {
 
   require_auth(_soviet);

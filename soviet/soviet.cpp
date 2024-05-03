@@ -58,13 +58,6 @@ using namespace eosio;
 
 
 
-
-[[eosio::action]] void soviet::program(eosio::name coopname, uint64_t program_id) {
-  require_auth(_soviet);
-
-  require_recipient(coopname);
-};
-
 /**
 \ingroup public_actions
 \brief Исполнение решения совета
@@ -109,7 +102,7 @@ extern "C" {
         EOSIO_DISPATCH_HELPER (
             soviet, 
             //main
-            (exec)(draft)(statement)(act)(decision)(batch)(program)
+            (exec)(draft)(statement)(act)(decision)(batch)
         )
 
 
@@ -144,7 +137,13 @@ extern "C" {
             //MARKETPLACE
             (change)(cancelorder)(completed)(recieved)
         )
-
+        
+        EOSIO_DISPATCH_HELPER (
+            soviet, 
+            //fund
+            (fundwithdraw)
+        )       
+        
         EOSIO_DISPATCH_HELPER (
             soviet, 
             //AUTOMATOR
@@ -160,9 +159,9 @@ extern "C" {
 
         EOSIO_DISPATCH_HELPER (
             soviet, 
-            //CONTRIBUTE
+            //WALLET
             (addbalance)(subbalance)(blockbal)(unblockbal)(addprogbal)(subprogbal)
-            (mcontribute)(pcontribute)(withdraw)
+            (withdraw)
         )
 
         EOSIO_DISPATCH_HELPER (
@@ -171,11 +170,6 @@ extern "C" {
             (creaddress)(deladdress)(editaddress)
         )
 
-        EOSIO_DISPATCH_HELPER (
-            soviet, 
-            //fund
-            (fundwithdraw)
-        )       
         
 
       }

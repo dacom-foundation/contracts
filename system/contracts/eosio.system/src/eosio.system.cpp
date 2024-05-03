@@ -531,9 +531,9 @@ void native::setabi( const name& acnt, const std::vector<char>& abi,
       }
    }
 
-   void system_contract::init( unsigned_int version, const symbol& core ) {
+   void system_contract::init( uint64_t version, const symbol& core ) {
       require_auth( get_self() );
-      check( version.value == 0, "unsupported version for init action" );
+      check( version == 0, "unsupported version for init action" );
 
       auto itr = _rammarket.find(ramcore_symbol.raw());
       check( itr == _rammarket.end(), "system contract has already been initialized" );

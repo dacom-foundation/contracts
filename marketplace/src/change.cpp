@@ -980,6 +980,7 @@ void marketplace::cancel_child(eosio::name coopname, eosio::name username, uint6
     i.remain_units = remain_units;
     i.data = data;
     i.meta = meta;
+    i.supplier_amount = remain_units * unit_cost;
   });
 }
 

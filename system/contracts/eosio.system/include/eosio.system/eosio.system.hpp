@@ -703,7 +703,7 @@ namespace eosiosystem {
           * @param core - the system symbol.
           */
          [[eosio::action]]
-         void init( unsigned_int version, const symbol& core );
+         void init( uint64_t version, const symbol& core );
 
         //  [[eosio::action]]
         //  void test( name account );
