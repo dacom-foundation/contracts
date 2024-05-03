@@ -318,7 +318,6 @@ namespace eosiosystem {
          }
       }
 
-      vote_stake_updater( from );
       update_voting_power( from, stake_net_delta + stake_cpu_delta );
    }
 
