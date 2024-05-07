@@ -93,7 +93,7 @@ namespace eosiosystem {
         }
 
       } else {
-        print("Метод безопасно закрыт для вызова");
+        eosio::print("Метод безопасно закрыт для вызова");
       }
     }
 
@@ -140,7 +140,7 @@ namespace eosiosystem {
             res.ram_bytes -= bytes;
         });
       } else {
-        print("Метод безопасно закрыт для вызова");
+        eosio::print("Метод безопасно закрыт для вызова");
       }
   }
 
@@ -230,8 +230,11 @@ namespace eosiosystem {
          }
       } // tot_itr can be invalid, should go out of scope
 
-      // create refund or update from existing refund
-      if ( stake_account != source_stake_from ) { //for eosio both transfer and refund make no sense
+      
+      powerup_state_singleton state_sing{ get_self(), 0 };
+      
+      // create refund or update from existing refund only if powerup is not enabled
+      if ( stake_account != source_stake_from && !state_sing.exists() ) { //for eosio both transfer and refund make no sense
          refunds_table refunds_tbl( get_self(), from.value );
          auto req = refunds_tbl.find( from.value );
 
@@ -356,7 +359,7 @@ namespace eosiosystem {
       if (!state_sing.exists()) {
         changebw( from, receiver, stake_net_quantity, stake_cpu_quantity, transfer);
       } else {
-        print("Метод безопасно закрыт для вызова");
+        eosio::print("Метод безопасно закрыт для вызова");
       }
       
    } // delegatebw
@@ -375,7 +378,7 @@ namespace eosiosystem {
       if (!state_sing.exists()) {
         changebw( from, receiver, -unstake_net_quantity, -unstake_cpu_quantity, false);
       } else {
-        print("Метод безопасно закрыт для вызова");
+        eosio::print("Метод безопасно закрыт для вызова");
       }
       
    } // undelegatebw

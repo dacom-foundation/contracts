@@ -3,24 +3,26 @@
 #include <eosio/contract.hpp>
 #include <eosio/system.hpp>
 
+// struct meta {
+//   uint64_t registry_id;
+//   // std::string
+// }
 
 struct document {
   // Чексумма документа (можем использовать SHA256)
-  std::string hash;
+  checksum256 hash;
   // Публичный ключ (предполагаем, что используется тип ключа EOSIO)
-  std::string pkey;
+  public_key public_key;
   // Подпись чексуммы
-  std::string sign; 
+  signature signature; 
+  // Публичные мета-данные документа
   std::string meta; 
 };
 
 
 void verify(const document& doc) {
-    // Проверка подписи
-    
-    // assert_recover_key(doc.hash, doc.sign, doc.pkey);
-
-    // Если подпись недействительна, транзакция завершится ошибкой
+    // Проверка завершится прерыванием, если восстановление подписи провалится
+    assert_recover_key(doc.hash, doc.signature, doc.public_key);
 };
 
 

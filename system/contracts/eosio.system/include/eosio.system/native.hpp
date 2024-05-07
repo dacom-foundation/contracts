@@ -295,18 +295,20 @@ namespace eosiosystem {
          [[eosio::action]]
          void setabi( const name& account, const std::vector<char>& abi, const binary_extension<std::string>& memo );
 
-         /**
-          * Set code action sets the contract code for an account.
-          *
-          * @param account - the account for which to set the contract code.
-          * @param vmtype - reserved, set it to zero.
-          * @param vmversion - reserved, set it to zero.
-          * @param code - the code content to be set, in the form of a blob binary..
-          * @param memo - may be omitted
-          */
-         [[eosio::action]]
-         void setcode( const name& account, uint8_t vmtype, uint8_t vmversion, const std::vector<char>& code,
-                       const binary_extension<std::string>& memo ) {}
+        //  /**
+        //   * Set code action sets the contract code for an account.
+        //   *
+        //   * @param account - the account for which to set the contract code.
+        //   * @param vmtype - reserved, set it to zero.
+        //   * @param vmversion - reserved, set it to zero.
+        //   * @param code - the code content to be set, in the form of a blob binary..
+        //   * @param memo - may be omitted
+        //   */
+        //  [[eosio::action]]
+        //  void setcode( const name& account, uint8_t vmtype, uint8_t vmversion, const std::vector<char>& code,
+        //                const binary_extension<std::string>& memo ) {
+        //                 print("ON SET CODE!!!");
+        //                }
 
          using newaccount_action = eosio::action_wrapper<"newaccount"_n, &native::newaccount>;
          using updateauth_action = eosio::action_wrapper<"updateauth"_n, &native::updateauth>;
@@ -314,7 +316,7 @@ namespace eosiosystem {
          using linkauth_action = eosio::action_wrapper<"linkauth"_n, &native::linkauth>;
          using unlinkauth_action = eosio::action_wrapper<"unlinkauth"_n, &native::unlinkauth>;
          using canceldelay_action = eosio::action_wrapper<"canceldelay"_n, &native::canceldelay>;
-         using setcode_action = eosio::action_wrapper<"setcode"_n, &native::setcode>;
+        //  using setcode_action = eosio::action_wrapper<"setcode"_n, &native::setcode>;
          using setabi_action = eosio::action_wrapper<"setabi"_n, &native::setabi>;
    };
 }

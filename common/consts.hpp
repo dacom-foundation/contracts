@@ -1,3 +1,4 @@
+#pragma once
 using namespace eosio;
 // /**
 //  * @mainpage Обзор контрактов
@@ -75,7 +76,6 @@ static constexpr eosio::name _efund_withdraw_action = "subexp"_n;
     #define ANO "anotest22222"
     #define GATEWAY "gatetest2222"
     #define DRAFT "drafttest222"
-    #define TEMPLATE "template2222"
     #define MARKETPLACE "markettest22"
     #define SOVIET "soviettest22"
     #define REGISTRATOR "regtest22222"
@@ -87,7 +87,6 @@ static constexpr eosio::name _efund_withdraw_action = "subexp"_n;
     static constexpr eosio::name _ano = "anotest22222"_n;
     static constexpr eosio::name _gateway = "gatetest2222"_n;
     static constexpr eosio::name _draft = "drafttest222"_n;
-    static constexpr eosio::name _template = "template2222"_n;
     static constexpr eosio::name _marketplace = "markettest22"_n;
     static constexpr eosio::name _soviet = "soviettest22"_n;
     static constexpr eosio::name _registrator = "regtest22222"_n;
@@ -95,6 +94,30 @@ static constexpr eosio::name _efund_withdraw_action = "subexp"_n;
     static constexpr eosio::name _fund = "fundtest2222"_n;
     static constexpr eosio::name _power_account = "eosio.power"_n;
     static constexpr eosio::name _saving_account = "eosio.saving"_n;
+
+    static std::vector<name> contracts_whitelist = {
+      "anotest22222"_n,
+      "gatetest2222"_n,
+      "drafttest222"_n,
+      "markettest22"_n,
+      "soviettest22"_n,
+      "regtest22222"_n,
+      "eosio"_n,
+      "fundtest2222"_n,
+      "eosio.token"_n,
+      "eosio.msig"_n,
+      "eosio.wrap"_n,
+      "eosio.power"_n,
+      "eosio.saving"_n
+        // Добавьте остальные стандартные или пользовательские контракты по необходимости
+    };
+
+    // std::vector<name> token_whitelist = {
+    //   "eosio.vpay"_n,
+    //   "eosio.saving"_n,
+    //   "eosio.bpay"_n
+    //   // Добавьте другие аккаунты в список по мере необходимости
+    // };    
 
     static constexpr eosio::symbol _root_symbol = eosio::symbol(eosio::symbol_code("AXON"), 4); /*!< системный токен */
     static constexpr eosio::name _root_contract = "eosio.token"_n; /*!< системный контракт */
@@ -123,7 +146,6 @@ static constexpr eosio::name _efund_withdraw_action = "subexp"_n;
     #define ANO "ano"
     #define GATEWAY "gateway"
     #define DRAFT "draft"
-    #define DRAFT "template"
     #define MARKETPLACE "marketplace"
     #define SOVIET "soviet"
     #define REGISTRATOR "registrator"
@@ -137,7 +159,6 @@ static constexpr eosio::name _efund_withdraw_action = "subexp"_n;
     static constexpr eosio::name _ano = "ano"_n;
     static constexpr eosio::name _gateway = "gateway"_n;
     static constexpr eosio::name _draft = "draft"_n;
-    static constexpr eosio::name _template = "template"_n;
     static constexpr eosio::name _marketplace = "marketplace"_n;
     static constexpr eosio::name _soviet = "soviet"_n;
     static constexpr eosio::name _registrator = "registrator"_n;
@@ -146,6 +167,31 @@ static constexpr eosio::name _efund_withdraw_action = "subexp"_n;
     static constexpr eosio::name _power_account = "eosio.power"_n;
     static constexpr eosio::name _saving_account = "eosio.saving"_n;
     
+    static std::vector<name> contracts_whitelist = {
+        "ano"_n,
+        "gateway"_n,
+        "draft"_n,
+        "marketplace"_n,
+        "soviet"_n,
+        "registrator"_n,
+        "eosio"_n,
+        "fund"_n,
+        "eosio.token"_n,
+        "eosio.msig"_n,
+        "eosio.wrap"_n,
+        "eosio.power"_n,
+        "eosio.saving"_n
+        // Добавьте остальные стандартные или пользовательские контракты по необходимости
+      };
+
+      // std::vector<name> token_whitelist = {
+      //   "eosio.vpay"_n,
+      //   "eosio.saving"_n,
+      //   "eosio.bpay"_n
+      //   // Добавьте другие аккаунты в список по мере необходимости
+      // };    
+
+
     static constexpr eosio::symbol _root_symbol = eosio::symbol(eosio::symbol_code("AXON"), 4); /*!< системный токен */
     static constexpr eosio::name _root_contract = "eosio.token"_n; /*!< системный контракт */
     static constexpr eosio::symbol RAM_symbol{"RAM", 0}; /*!< токен рынка оперативной памяти */

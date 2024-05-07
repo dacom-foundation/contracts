@@ -181,15 +181,15 @@
             "fields": [
                 {
                     "name": "hash",
-                    "type": "string"
+                    "type": "checksum256"
                 },
                 {
-                    "name": "pkey",
-                    "type": "string"
+                    "name": "public_key",
+                    "type": "public_key"
                 },
                 {
-                    "name": "sign",
-                    "type": "string"
+                    "name": "signature",
+                    "type": "signature"
                 },
                 {
                     "name": "meta",

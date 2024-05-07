@@ -20,6 +20,8 @@ public:
 
   void apply(uint64_t receiver, uint64_t code, uint64_t action);
 
+  // [[eosio::action]] void verify(const checksum256& hash, const signature& sig, const public_key& pub_key);
+
   [[eosio::action]] void newid(uint64_t id);
 
   [[eosio::action]] void createdraft(uint64_t registry_id, eosio::name lang, std::string title, 

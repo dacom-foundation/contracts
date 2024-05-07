@@ -2,14 +2,16 @@
 
 # Определение ассоциативных массива для zsh
 declare -A contract_params_test=(
+  [system]="eosio"
+  # [msig]="eosio.msig"
+  # [wrap]="eosio.wrap"
+  # [token]="eosio.token"
   [ano]="anotest22222"
   [gateway]="gatetest2222"
   [draft]="drafttest222"
   [marketplace]="markettest22"
   [soviet]="soviettest22"
   [registrator]="regtest22222"
-  # [system]="eosio"
-  [eosio.token]="eosio.token"
   [fund]="fundtest2222"
 )
 

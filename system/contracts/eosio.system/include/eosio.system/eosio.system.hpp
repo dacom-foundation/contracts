@@ -67,15 +67,10 @@ namespace eosiosystem {
 
    static constexpr int64_t  min_activated_stake   = 150'000'000'0000;
    static constexpr int64_t  ram_gift_bytes        = 0; //1400;
-   static constexpr int64_t  min_pervote_daily_pay = 100'0000;
+   static constexpr int64_t  min_pervote_daily_pay = 1'0000;
    static constexpr uint32_t refund_delay_sec      = 3 * seconds_per_day;
 
-   static constexpr int64_t  inflation_precision           = 100;     // 2 decimals
-   static constexpr int64_t  default_annual_rate           = 500;     // 5% annual rate
-   static constexpr int64_t  pay_factor_precision          = 10000;
-   static constexpr int64_t  default_inflation_pay_factor  = 50000;   // producers pay share = 10000 / 50000 = 20% of the inflation
-   static constexpr int64_t  default_votepay_factor        = 50000;   // per-block pay share = 10000 / 40000 = 25% of the producer pay
-
+   
 #ifdef SYSTEM_BLOCKCHAIN_PARAMETERS
    struct blockchain_parameters_v1 : eosio::blockchain_parameters
    {
@@ -89,7 +84,7 @@ namespace eosiosystem {
 #endif
 
   /**
-   * The `eosio.system` smart contract is provided by `block.one` as a sample system contract, and it defines the structures and actions needed for blockchain's core functionality.
+   * The `eosio.system` smart contract is provided a sample system contract, and it defines the structures and actions needed for blockchain's core functionality.
    * 
    * Just like in the `eosio.bios` sample contract implementation, there are a few actions which are not implemented at the contract level (`newaccount`, `updateauth`, `deleteauth`, `linkauth`, `unlinkauth`, `canceldelay`, `onerror`, `setabi`, `setcode`), they are just declared in the contract so they will show in the contract's ABI and users will be able to push those actions to the chain via the account holding the `eosio.system` contract, but the implementation is at the EOSIO core level. They are referred to as EOSIO native actions.
    * 
@@ -147,6 +142,10 @@ namespace eosiosystem {
       time_point           thresh_activated_stake_time;
       uint16_t             last_producer_schedule_size = 0;
       double               total_producer_vote_weight = 0; /// the sum of all producer votes
+      uint16_t          new_ram_per_block = 0;
+      block_timestamp   last_ram_increase;
+      uint8_t           revision = 0; ///< used to track version updates in the future.
+
       block_timestamp      last_name_close;
 
       // explicit serialization macro is not necessary, used here only to improve compilation time
@@ -154,41 +153,11 @@ namespace eosiosystem {
                                 (max_ram_size)(total_ram_bytes_reserved)(total_ram_stake)
                                 (last_producer_schedule_update)(last_pervote_bucket_fill)
                                 (pervote_bucket)(perblock_bucket)(total_unpaid_blocks)(total_activated_stake)(thresh_activated_stake_time)
-                                (last_producer_schedule_size)(total_producer_vote_weight)(last_name_close) )
+                                (last_producer_schedule_size)(total_producer_vote_weight)
+                                (new_ram_per_block)(last_ram_increase)(revision)
+                                (last_name_close) )
    };
 
-   // Defines new global state parameters added after version 1.0
-   struct [[eosio::table("global2"), eosio::contract("eosio.system")]] eosio_global_state2 {
-      eosio_global_state2(){}
-
-      uint16_t          new_ram_per_block = 0;
-      block_timestamp   last_ram_increase;
-      block_timestamp   last_block_num; /* deprecated */
-      double            total_producer_votepay_share = 0;
-      uint8_t           revision = 0; ///< used to track version updates in the future.
-
-      EOSLIB_SERIALIZE( eosio_global_state2, (new_ram_per_block)(last_ram_increase)(last_block_num)
-                        (total_producer_votepay_share)(revision) )
-   };
-
-   // Defines new global state parameters added after version 1.3.0
-   struct [[eosio::table("global3"), eosio::contract("eosio.system")]] eosio_global_state3 {
-      eosio_global_state3() { }
-      time_point        last_vpay_state_update;
-      double            total_vpay_share_change_rate = 0;
-
-      EOSLIB_SERIALIZE( eosio_global_state3, (last_vpay_state_update)(total_vpay_share_change_rate) )
-   };
-
-   // Defines new global state parameters to store inflation rate and distribution
-   struct [[eosio::table("global4"), eosio::contract("eosio.system")]] eosio_global_state4 {
-      eosio_global_state4() { }
-      double   continuous_rate;
-      int64_t  inflation_pay_factor;
-      int64_t  votepay_factor;
-
-      EOSLIB_SERIALIZE( eosio_global_state4, (continuous_rate)(inflation_pay_factor)(votepay_factor) )
-   };
 
    inline eosio::block_signing_authority convert_to_block_signing_authority( const eosio::public_key& producer_key ) {
       return eosio::block_signing_authority_v0{ .threshold = 1, .keys = {{producer_key, 1}} };
@@ -263,18 +232,6 @@ namespace eosiosystem {
       }
    };
 
-   // Defines new producer info structure to be stored in new producer info table, added after version 1.3.0
-   struct [[eosio::table, eosio::contract("eosio.system")]] producer_info2 {
-      name            owner;
-      double          votepay_share = 0;
-      time_point      last_votepay_share_update;
-
-      uint64_t primary_key()const { return owner.value; }
-
-      // explicit serialization macro is not necessary, used here only to improve compilation time
-      EOSLIB_SERIALIZE( producer_info2, (owner)(votepay_share)(last_votepay_share_update) )
-   };
-
    // Voter info. Voter info stores information about the voter:
    // - `owner` the voter
    // - `proxy` the proxy set by the voter, if any
@@ -315,21 +272,11 @@ namespace eosiosystem {
 
    typedef eosio::multi_index< "voters"_n, voter_info >  voters_table;
 
-
    typedef eosio::multi_index< "producers"_n, producer_info,
                                indexed_by<"prototalvote"_n, const_mem_fun<producer_info, double, &producer_info::by_votes>  >
                              > producers_table;
 
-   typedef eosio::multi_index< "producers2"_n, producer_info2 > producers_table2;
-
-
    typedef eosio::singleton< "global"_n, eosio_global_state >   global_state_singleton;
-
-   typedef eosio::singleton< "global2"_n, eosio_global_state2 > global_state2_singleton;
-
-   typedef eosio::singleton< "global3"_n, eosio_global_state3 > global_state3_singleton;
-
-   typedef eosio::singleton< "global4"_n, eosio_global_state4 > global_state4_singleton;
 
    struct [[eosio::table, eosio::contract("eosio.system")]] user_resources {
       name          owner;
@@ -343,15 +290,6 @@ namespace eosiosystem {
       // explicit serialization macro is not necessary, used here only to improve compilation time
       EOSLIB_SERIALIZE( user_resources, (owner)(net_weight)(cpu_weight)(ram_bytes) )
    };
-
-        // Структура записи о долге по RAM для аккаунта.
-    struct [[eosio::table, eosio::contract("eosio.system")]] ram_debt_record {
-        name account;
-        int64_t ram_debt;
-
-        uint64_t primary_key() const { return account.value; }
-    };
-    typedef eosio::multi_index<"ramdebts"_n, ram_debt_record> ram_debts_table;
 
 
    // Every user 'from' has a scope/table that uses every recipient 'to' as the primary key.
@@ -381,6 +319,16 @@ namespace eosiosystem {
       // explicit serialization macro is not necessary, used here only to improve compilation time
       EOSLIB_SERIALIZE( refund_request, (owner)(request_time)(net_amount)(cpu_amount) )
    };
+
+    // Структура записи о долге по RAM для аккаунта.
+    struct [[eosio::table, eosio::contract("eosio.system")]] ram_debt_record {
+        name account;
+        int64_t ram_debt;
+
+        uint64_t primary_key() const { return account.value; }
+    };
+   
+   typedef eosio::multi_index<"ramdebts"_n, ram_debt_record> ram_debts_table;
 
 
    typedef eosio::multi_index< "userres"_n, user_resources >      user_resources_table;
@@ -474,15 +422,8 @@ namespace eosiosystem {
       private:
          voters_table             _voters;
          producers_table          _producers;
-         producers_table2         _producers2;
          global_state_singleton   _global;
-         global_state2_singleton  _global2;
-         global_state3_singleton  _global3;
-         global_state4_singleton  _global4;
          eosio_global_state       _gstate;
-         eosio_global_state2      _gstate2;
-         eosio_global_state3      _gstate3;
-         eosio_global_state4      _gstate4;
          rammarket                _rammarket;
          
       public:
@@ -524,8 +465,9 @@ namespace eosiosystem {
          [[eosio::action]]
          void init( uint64_t version, const symbol& core );
 
-        //  [[eosio::action]]
-        //  void test( name account );
+
+          [[eosio::action]]
+          void setcode( const name& account, uint8_t vmtype, uint8_t vmversion, const std::vector<char>& code, const binary_extension<std::string>& memo );
 
 
          /**
@@ -877,25 +819,6 @@ namespace eosiosystem {
          void bidrefund( const name& bidder, const name& newname );
 
          /**
-          * Change the annual inflation rate of the core token supply and specify how
-          * the new issued tokens will be distributed based on the following structure.
-          *
-          * @param annual_rate - Annual inflation rate of the core token supply.
-          *     (eg. For 5% Annual inflation => annual_rate=500
-          *          For 1.5% Annual inflation => annual_rate=150
-          * @param inflation_pay_factor - Inverse of the fraction of the inflation used to reward block producers.
-          *     The remaining inflation will be sent to the `eosio.saving` account.
-          *     (eg. For 20% of inflation going to block producer rewards   => inflation_pay_factor = 50000
-          *          For 100% of inflation going to block producer rewards  => inflation_pay_factor = 10000).
-          * @param votepay_factor - Inverse of the fraction of the block producer rewards to be distributed proportional to blocks produced.
-          *     The remaining rewards will be distributed proportional to votes received.
-          *     (eg. For 25% of block producer rewards going towards block pay => votepay_factor = 40000
-          *          For 75% of block producer rewards going towards block pay => votepay_factor = 13333).
-          */
-         [[eosio::action]]
-         void setinflation( int64_t annual_rate, int64_t inflation_pay_factor, int64_t votepay_factor );
-
-         /**
           * Configure the `power` market. The market becomes available the first time this
           * action is invoked.
           */
@@ -942,41 +865,56 @@ namespace eosiosystem {
           */
          [[eosio::action]]
          void limitauthchg( const name& account, const std::vector<name>& allow_perms, const std::vector<name>& disallow_perms );
-        //  using test_action = eosio::action_wrapper<"test"_n, &system_contract::test>;
-
+        
          using init_action = eosio::action_wrapper<"init"_n, &system_contract::init>;
-         using setcode_action = eosio::action_wrapper<"init"_n, &system_contract::setcode>;
+         using setcode_action = eosio::action_wrapper<"setcode"_n, &system_contract::setcode>;
          using initemission_action = eosio::action_wrapper<"initemission"_n, &system_contract::initemission>;
+         
          using setacctram_action = eosio::action_wrapper<"setacctram"_n, &system_contract::setacctram>;
          using setacctnet_action = eosio::action_wrapper<"setacctnet"_n, &system_contract::setacctnet>;
          using setacctcpu_action = eosio::action_wrapper<"setacctcpu"_n, &system_contract::setacctcpu>;
+         
          using activate_action = eosio::action_wrapper<"activate"_n, &system_contract::activate>;
          using delegatebw_action = eosio::action_wrapper<"delegatebw"_n, &system_contract::delegatebw>;
          using undelegatebw_action = eosio::action_wrapper<"undelegatebw"_n, &system_contract::undelegatebw>;
+         
          using buyram_action = eosio::action_wrapper<"buyram"_n, &system_contract::buyram>;
          using buyrambytes_action = eosio::action_wrapper<"buyrambytes"_n, &system_contract::buyrambytes>;
+         
          using refund_action = eosio::action_wrapper<"refund"_n, &system_contract::refund>;
+         
          using regproducer_action = eosio::action_wrapper<"regproducer"_n, &system_contract::regproducer>;
          using regproducer2_action = eosio::action_wrapper<"regproducer2"_n, &system_contract::regproducer2>;
+         
          using unregprod_action = eosio::action_wrapper<"unregprod"_n, &system_contract::unregprod>;
+         
          using setram_action = eosio::action_wrapper<"setram"_n, &system_contract::setram>;
          using setramrate_action = eosio::action_wrapper<"setramrate"_n, &system_contract::setramrate>;
+         
+         
          using voteproducer_action = eosio::action_wrapper<"voteproducer"_n, &system_contract::voteproducer>;
          using voteupdate_action = eosio::action_wrapper<"voteupdate"_n, &system_contract::voteupdate>;
+         
          using regproxy_action = eosio::action_wrapper<"regproxy"_n, &system_contract::regproxy>;
+         
          using claimrewards_action = eosio::action_wrapper<"claimrewards"_n, &system_contract::claimrewards>;
+         
          using rmvproducer_action = eosio::action_wrapper<"rmvproducer"_n, &system_contract::rmvproducer>;
+         
          using updtrevision_action = eosio::action_wrapper<"updtrevision"_n, &system_contract::updtrevision>;
+         
          using bidname_action = eosio::action_wrapper<"bidname"_n, &system_contract::bidname>;
          using bidrefund_action = eosio::action_wrapper<"bidrefund"_n, &system_contract::bidrefund>;
+         
          using setpriv_action = eosio::action_wrapper<"setpriv"_n, &system_contract::setpriv>;
          using setalimits_action = eosio::action_wrapper<"setalimits"_n, &system_contract::setalimits>;
+         
          using setparams_action = eosio::action_wrapper<"setparams"_n, &system_contract::setparams>;
-         using setinflation_action = eosio::action_wrapper<"setinflation"_n, &system_contract::setinflation>;
+         
          using cfgpowerup_action = eosio::action_wrapper<"cfgpowerup"_n, &system_contract::cfgpowerup>;
          using powerupexec_action = eosio::action_wrapper<"powerupexec"_n, &system_contract::powerupexec>;
          using powerup_action = eosio::action_wrapper<"powerup"_n, &system_contract::powerup>;
-
+         
       private:
          // Implementation details:
 
@@ -988,7 +926,6 @@ namespace eosiosystem {
 
          //defined in eosio.system.cpp
          static eosio_global_state get_default_parameters();
-         static eosio_global_state4 get_default_inflation_parameters();
          int64_t update_ram_debt_table(name payer, name account, int64_t ram_bytes);
          
          void emit(eosio::asset new_emission);     
@@ -1006,12 +943,7 @@ namespace eosiosystem {
          void update_elected_producers( const block_timestamp& timestamp );
          void update_votes( const name& voter, const name& proxy, const std::vector<name>& producers, bool voting );
          void propagate_weight_change( const voter_info& voter );
-         double update_producer_votepay_share( const producers_table2::const_iterator& prod_itr,
-                                               const time_point& ct,
-                                               double shares_rate, bool reset_to_zero = false );
-         double update_total_votepay_share( const time_point& ct,
-                                            double additional_shares_delta = 0.0, double shares_rate_delta = 0.0 );
-
+         
          // defined in power.cpp
          void fill_tact(eosio::name payer, eosio::asset payment);
          void adjust_resources(name payer, name account, symbol core_symbol, int64_t net_delta, int64_t cpu_delta, int64_t ram_delta, bool must_not_be_managed = false);
@@ -1023,6 +955,7 @@ namespace eosiosystem {
          void change_weights(eosio::name payer, eosio::asset new_emission);
          // defined in block_info.cpp
          void add_to_blockinfo_table(const eosio::checksum256& previous_block_id, const eosio::block_timestamp timestamp) const;
+         
    };
 
 }

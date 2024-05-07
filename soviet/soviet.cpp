@@ -135,7 +135,7 @@ extern "C" {
         EOSIO_DISPATCH_HELPER (
             soviet, 
             //MARKETPLACE
-            (change)(cancelorder)(completed)(recieved)
+            (change)(completed)(recieved)
         )
         
         EOSIO_DISPATCH_HELPER (

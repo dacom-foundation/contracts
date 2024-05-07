@@ -1,7 +1,6 @@
 #include <eosio.system/eosio.system.hpp>
 #include <eosio.token/eosio.token.hpp>
 #include <eosio/action.hpp>
-#include <eosio.system/powerup.results.hpp>
 #include <algorithm>
 #include <cmath>
 
@@ -344,11 +343,11 @@ void system_contract::fill_tact(eosio::name payer, eosio::asset payment) {
     eosio::asset fund_amount = payment * _fund_percent / HUNDR_PERCENTS; 
 
     // Передаем в фонд
-    token::transfer_action transfer_act1{ token_account, { {payer, active_permission} } };
+    eosio::token::transfer_action transfer_act1{ token_account, { {payer, active_permission} } };
     transfer_act1.send( payer, _saving_account, fund_amount, "Передача токенов в фонд" );
         
     // Передаём комиссии делегатам за подписанные блоки
-    token::transfer_action transfer_act2{ token_account, { payer, active_permission } };
+    eosio::token::transfer_action transfer_act2{ token_account, { payer, active_permission } };
     transfer_act2.send(payer, bpay_account, producers_amount, "Передача токенов делегатам");
 
     emission_state_singleton emission_state_sing{ get_self(), get_self().value};
@@ -363,7 +362,7 @@ void system_contract::fill_tact(eosio::name payer, eosio::asset payment) {
       state.back_from_producers += producers_amount;
       
       _gstate.perblock_bucket         += producers_amount.amount;
-      _gstate.last_pervote_bucket_fill = current_time_point();
+      _gstate.last_pervote_bucket_fill = eosio::current_time_point();
       
       print(" Супплай: ", state.current_supply);
       print(" Платеж: ", payment);

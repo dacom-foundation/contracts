@@ -101,6 +101,9 @@
       "__memory": "cpp",
       "regex": "cpp",
       "system.hpp": "c",
-      "contracts.hpp": "c"
+      "contracts.hpp": "c",
+      "singleton.hpp": "c",
+      "asset.hpp": "c",
+      "eosio.system.hpp": "c"
     }
 }

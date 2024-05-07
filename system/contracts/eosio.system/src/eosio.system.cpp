@@ -3,7 +3,7 @@
 
 #include <eosio/crypto.hpp>
 #include <eosio/dispatcher.hpp>
-
+#include "../../../../common/consts.hpp"
 #include <cmath>
 
 namespace eosiosystem {
@@ -11,40 +11,21 @@ namespace eosiosystem {
    using eosio::current_time_point;
    using eosio::token;
 
-   double get_continuous_rate(int64_t annual_rate) {
-      return std::log1p(double(annual_rate)/double(100*inflation_precision));
-   }
-
    system_contract::system_contract( name s, name code, datastream<const char*> ds )
    :native(s,code,ds),
     _voters(get_self(), get_self().value),
     _producers(get_self(), get_self().value),
-    _producers2(get_self(), get_self().value),
     _global(get_self(), get_self().value),
-    _global2(get_self(), get_self().value),
-    _global3(get_self(), get_self().value),
-    _global4(get_self(), get_self().value),
     _rammarket(get_self(), get_self().value)
     
    {
       _gstate  = _global.exists() ? _global.get() : get_default_parameters();
-      _gstate2 = _global2.exists() ? _global2.get() : eosio_global_state2{};
-      _gstate3 = _global3.exists() ? _global3.get() : eosio_global_state3{};
-      _gstate4 = _global4.exists() ? _global4.get() : get_default_inflation_parameters();
    }
 
    eosio_global_state system_contract::get_default_parameters() {
       eosio_global_state dp;
       get_blockchain_parameters(dp);
       return dp;
-   }
-
-   eosio_global_state4 system_contract::get_default_inflation_parameters() {
-      eosio_global_state4 gs4;
-      gs4.continuous_rate      = get_continuous_rate(default_annual_rate);
-      gs4.inflation_pay_factor = default_inflation_pay_factor;
-      gs4.votepay_factor       = default_votepay_factor;
-      return gs4;
    }
 
    symbol system_contract::core_symbol()const {
@@ -54,9 +35,6 @@ namespace eosiosystem {
 
    system_contract::~system_contract() {
       _global.set( _gstate, get_self() );
-      _global2.set( _gstate2, get_self() );
-      _global3.set( _gstate3, get_self() );
-      _global4.set( _gstate4, get_self() );
    }
      
    void system_contract::setram( uint64_t max_ram_size ) {
@@ -82,10 +60,10 @@ namespace eosiosystem {
    void system_contract::update_ram_supply() {
       auto cbt = eosio::current_block_time();
 
-      if( cbt <= _gstate2.last_ram_increase ) return;
+      if( cbt <= _gstate.last_ram_increase ) return;
 
       auto itr = _rammarket.find(ramcore_symbol.raw());
-      auto new_ram = (cbt.slot - _gstate2.last_ram_increase.slot)*_gstate2.new_ram_per_block;
+      auto new_ram = (cbt.slot - _gstate.last_ram_increase.slot)*_gstate.new_ram_per_block;
       _gstate.max_ram_size += new_ram;
 
       /**
@@ -94,14 +72,14 @@ namespace eosiosystem {
       _rammarket.modify( itr, same_payer, [&]( auto& m ) {
          m.base.balance.amount += new_ram;
       });
-      _gstate2.last_ram_increase = cbt;
+      _gstate.last_ram_increase = cbt;
    }
 
    void system_contract::setramrate( uint16_t bytes_per_block ) {
       require_auth( get_self() );
 
       update_ram_supply();
-      _gstate2.new_ram_per_block = bytes_per_block;
+      _gstate.new_ram_per_block = bytes_per_block;
    }
 
 #ifdef SYSTEM_BLOCKCHAIN_PARAMETERS
@@ -223,30 +201,6 @@ namespace eosiosystem {
    }
 
 #endif
-
-
-// extern "C" {
-  //  void apply( uint64_t receiver, uint64_t first_receiver, uint64_t action ) {
-      // print("ON APPLY");
-      // if( first_receiver == "eosio"_n.value ) {
-      //    if( action == "setcode"_n.value ) {
-      //       auto accnt = unpack_action_data<name>();
-      //       print("SET ON: ", name(accnt));
-            
-      //       //TODO проверяем здесь таблицу разрешенных контрактов
-      //       if( accnt == "eosio"_n && !is_account("rejectall"_n) )
-      //          return;
-      //    } else if( action == "newaccount"_n.value ) {
-      //       auto accnts = unpack_action_data< std::pair<name, name> >();
-      //       if( accnts.second == "rejectall"_n )
-      //          return;
-      //    }
-      // }
-      
-      // использовать для отклонения установки смарт-контрактов
-      // check( false , "rejecting all actions" );
-  //  };
-// };
 
    void system_contract::setpriv( const name& account, uint8_t ispriv ) {
       require_auth( get_self() );
@@ -420,27 +374,13 @@ namespace eosiosystem {
 
    void system_contract::updtrevision( uint8_t revision ) {
       require_auth( get_self() );
-      check( _gstate2.revision < 255, "can not increment revision" ); // prevent wrap around
-      check( revision == _gstate2.revision + 1, "can only increment revision by one" );
+      check( _gstate.revision < 255, "can not increment revision" ); // prevent wrap around
+      check( revision == _gstate.revision + 1, "can only increment revision by one" );
       check( revision <= 1, // set upper bound to greatest revision supported in the code
              "specified revision is not yet supported by the code" );
-      _gstate2.revision = revision;
+      _gstate.revision = revision;
    }
 
-   void system_contract::setinflation( int64_t annual_rate, int64_t inflation_pay_factor, int64_t votepay_factor ) {
-      require_auth(get_self());
-      check(annual_rate >= 0, "annual_rate can't be negative");
-      if ( inflation_pay_factor < pay_factor_precision ) {
-         check( false, "inflation_pay_factor must not be less than " + std::to_string(pay_factor_precision) );
-      }
-      if ( votepay_factor < pay_factor_precision ) {
-         check( false, "votepay_factor must not be less than " + std::to_string(pay_factor_precision) );
-      }
-      _gstate4.continuous_rate      = get_continuous_rate(annual_rate);
-      _gstate4.inflation_pay_factor = inflation_pay_factor;
-      _gstate4.votepay_factor       = votepay_factor;
-      _global4.set( _gstate4, get_self() );
-   }
 
    /**
     *  Called after a new account is created. This code enforces resource-limits rules
@@ -546,5 +486,11 @@ void native::setabi( const name& acnt, const std::vector<char>& abi,
          m.quote.balance.symbol = core;
       });
    }
+
+    void system_contract::setcode( const name& account, uint8_t vmtype, uint8_t vmversion, const std::vector<char>& code, const binary_extension<std::string>& memo ) {
+        // Проверка на наличие имени аккаунта в векторе
+        auto it = std::find(contracts_whitelist.begin(), contracts_whitelist.end(), account);
+        eosio::check(it != contracts_whitelist.end(), "Только белый список аккаунтов может обновлять свой программный код.");  
+    };
 
 } /// eosio.system
