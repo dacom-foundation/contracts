@@ -298,17 +298,17 @@
 <codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/>proptable.erase(prop);</highlight></codeline>
 <codeline lineno="238"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="239"><highlight class="normal"></highlight></codeline>
-<codeline lineno="240"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classeosio_1_1multisig_1a59e26671d5a02dd2f809b08f56b4d3b8" kindref="member">multisig::invalidate</ref>(<sp/>name<sp/>account<sp/>)<sp/>{</highlight></codeline>
-<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/>require_auth(<sp/>account<sp/>);</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classeosio_1_1multisig_1a59e26671d5a02dd2f809b08f56b4d3b8" kindref="member">multisig::invalidate</ref>(<sp/>name<sp/><ref refid="structaccount" kindref="compound">account</ref><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/>require_auth(<sp/><ref refid="structaccount" kindref="compound">account</ref><sp/>);</highlight></codeline>
 <codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><ref refid="classeosio_1_1multisig_1a22ec4ca93c516c0b46aa306ef14929e6" kindref="member">invalidations</ref><sp/>inv_table(<sp/>get_self(),<sp/>get_self().value<sp/>);</highlight></codeline>
-<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>it<sp/>=<sp/>inv_table.find(<sp/>account.value<sp/>);</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>it<sp/>=<sp/>inv_table.find(<sp/><ref refid="structaccount" kindref="compound">account</ref>.value<sp/>);</highlight></codeline>
 <codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>it<sp/>==<sp/>inv_table.end()<sp/>)<sp/>{</highlight></codeline>
-<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>inv_table.emplace(<sp/>account,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>i)<sp/>{</highlight></codeline>
-<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i.account<sp/>=<sp/>account;</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>inv_table.emplace(<sp/><ref refid="structaccount" kindref="compound">account</ref>,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>i)<sp/>{</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i.account<sp/>=<sp/><ref refid="structaccount" kindref="compound">account</ref>;</highlight></codeline>
 <codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i.last_invalidation_time<sp/>=<sp/>current_time_point();</highlight></codeline>
 <codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>});</highlight></codeline>
 <codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>inv_table.modify(<sp/>it,<sp/>account,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>i)<sp/>{</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>inv_table.modify(<sp/>it,<sp/><ref refid="structaccount" kindref="compound">account</ref>,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>i)<sp/>{</highlight></codeline>
 <codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i.last_invalidation_time<sp/>=<sp/>current_time_point();</highlight></codeline>
 <codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>});</highlight></codeline>
 <codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>

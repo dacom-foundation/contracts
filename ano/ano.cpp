@@ -42,8 +42,6 @@ void apply(uint64_t receiver, uint64_t code, uint64_t action) {
         auto op = eosio::unpack_action_data<transfer>();
         if (op.to == _ano) {
 
-          eosio::name username = eosio::name(op.memo.c_str());
-          add_balance(_ano, username, op.quantity, eosio::name(code));
         }
       }
     }

@@ -1,14 +1,14 @@
 using namespace eosio;
 
 
-void soviet::creaddress(eosio::name coopname, eosio::name chairman, eosio::name cooplate, address data, std::string meta) {
+void soviet::creaddress(eosio::name coopname, eosio::name chairman, eosio::name departname, address_data data, std::string meta) {
 
   require_auth(chairman);
 
   auto cooperative = get_cooperative_or_fail(coopname);  
 
-  if (cooplate != ""_n) {
-    auto cooperative_plate = get_cooplate_or_fail(coopname, cooplate);       
+  if (departname != ""_n) {
+    auto cooperative_plate = get_department_or_fail(coopname, departname);       
   }
 
   addresses_index addresses(_soviet, coopname.value);
@@ -17,7 +17,7 @@ void soviet::creaddress(eosio::name coopname, eosio::name chairman, eosio::name 
   addresses.emplace(chairman, [&](auto &a){
     a.id = id;
     a.coopname = coopname;
-    a.cooplate = cooplate;
+    a.departname = departname;
     a.data = data;
     a.meta = meta;
   });
@@ -40,14 +40,14 @@ void soviet::deladdress(eosio::name coopname, eosio::name chairman, uint64_t add
 }
 
 
-void soviet::editaddress(eosio::name coopname, eosio::name chairman, uint64_t address_id, eosio::name cooplate, address data, std::string meta) {
+void soviet::editaddress(eosio::name coopname, eosio::name chairman, uint64_t address_id, eosio::name departname, address_data data, std::string meta){
 
   require_auth(chairman);
 
   auto cooperative = get_cooperative_or_fail(coopname);  
 
-  if (cooplate != ""_n) {
-    auto cooperative_plate = get_cooplate_or_fail(coopname, cooplate);       
+  if (departname != ""_n) {
+    auto cooperative_plate = get_department_or_fail(coopname, departname);       
   }
 
   addresses_index addresses(_soviet, coopname.value);
@@ -56,7 +56,7 @@ void soviet::editaddress(eosio::name coopname, eosio::name chairman, uint64_t ad
   eosio::check(address != addresses.end(), "Адрес не найден");
 
   addresses.modify(address, chairman, [&](auto &a){
-    a.cooplate = cooplate;
+    a.departname = departname;
     a.data = data;
     a.meta = meta;
   });

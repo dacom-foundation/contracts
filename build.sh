@@ -3,14 +3,14 @@
 # Определение ассоциативных массивов
 typeset -A contract_params_test contract_params_prod
 contract_params_test=(
-  [ano]="anotest22222"
-  [gateway]="gatetest2222"
-  [draft]="drafttest222"
-  [marketplace]="markettest22"
-  [soviet]="soviettest22"
-  [registrator]="regtest22222"
+  [ano]="ano"
+  [gateway]="gateway"
+  [draft]="draft"
+  [marketplace]="marketplace"
+  [soviet]="soviet"
+  [registrator]="registrator"
   [system]="eosio"
-  [fund]="fundtest2222"
+  [fund]="fund"
 )
 contract_params_prod=(
   [ano]="ano"

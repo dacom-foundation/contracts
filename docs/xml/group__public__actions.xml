@@ -4,15 +4,19 @@
     <compoundname>public_actions</compoundname>
     <title>Действия</title>
       <sectiondef kind="func">
-      <memberdef kind="function" id="group__public__actions_1gaeae2fd664c83c2dad995c167c2566e26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__public__actions_1ga121aa737814539e14647d4fc762938ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void registrator::newaccount</definition>
-        <argsstring>(eosio::name registrator, eosio::name referer, eosio::name username, eosio::public_key public_key, std::string signature_hash, std::string meta)</argsstring>
+        <argsstring>(eosio::name registrator, eosio::name coopname, eosio::name referer, eosio::name username, eosio::public_key public_key, std::string signature_hash, std::string meta)</argsstring>
         <name>newaccount</name>
         <qualifiedname>registrator::newaccount</qualifiedname>
         <param>
           <type>eosio::name</type>
           <declname>registrator</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
         </param>
         <param>
           <type>eosio::name</type>
@@ -85,14 +89,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="registrator/registrator.hpp" line="58" column="9" bodyfile="registrator/registrator.cpp" bodystart="17" bodyend="74"/>
+        <location file="registrator/registrator.hpp" line="60" column="9" bodyfile="registrator/registrator.cpp" bodystart="17" bodyend="67"/>
       </memberdef>
-      <memberdef kind="function" id="group__public__actions_1gad6b5f40727b07cff66380feb735ff79f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__public__actions_1ga8f4b3d521cb45d617026964bbc6e302c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void registrator::reguser</definition>
-        <argsstring>(eosio::name coopname, eosio::name username, storage storage)</argsstring>
+        <argsstring>(eosio::name registrator, eosio::name coopname, eosio::name username)</argsstring>
         <name>reguser</name>
         <qualifiedname>registrator::reguser</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>registrator</declname>
+        </param>
         <param>
           <type>eosio::name</type>
           <declname>coopname</declname>
@@ -100,10 +108,6 @@
         <param>
           <type>eosio::name</type>
           <declname>username</declname>
-        </param>
-        <param>
-          <type><ref refid="structstorage" kindref="compound">storage</ref></type>
-          <declname>storage</declname>
         </param>
         <briefdescription>
 <para>Регистрация пользователя </para>
@@ -141,14 +145,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="registrator/registrator.hpp" line="45" column="9" bodyfile="registrator/registrator.cpp" bodystart="92" bodyend="126"/>
+        <location file="registrator/registrator.hpp" line="46" column="9" bodyfile="registrator/registrator.cpp" bodystart="85" bodyend="107"/>
       </memberdef>
-      <memberdef kind="function" id="group__public__actions_1gad1c42f1901b5ff1d34fbf889908675b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__public__actions_1ga4354646d3bbc28e76659cc650d2011ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void registrator::regorg</definition>
-        <argsstring>(eosio::name coopname, eosio::name username, org_data params)</argsstring>
+        <argsstring>(eosio::name registrator, eosio::name coopname, eosio::name username, org_data params)</argsstring>
         <name>regorg</name>
         <qualifiedname>registrator::regorg</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>registrator</declname>
+        </param>
         <param>
           <type>eosio::name</type>
           <declname>coopname</declname>
@@ -162,33 +170,28 @@
           <declname>params</declname>
         </param>
         <briefdescription>
-<para>Регистрация юридического лица </para>
+<para>Регистрация карточки юридического лица </para>
         </briefdescription>
         <detaileddescription>
 <para>Этот метод позволяет регистрировать аккаунт в качестве юридического лица. Все данные в карточке юридического лица публичны и хранятся в блокчейне.</para>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>params</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Структура данных нового юридического лица</para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="note"><para>Авторизация требуется от одного из аккаунтов: <computeroutput>coopname</computeroutput> || username </para>
+<para><simplesect kind="note"><para>Авторизация требуется от одного из аккаунтов: <computeroutput>coopname</computeroutput> || username </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="registrator/registrator.hpp" line="51" column="9" bodyfile="registrator/registrator.cpp" bodystart="142" bodyend="177"/>
+        <location file="registrator/registrator.hpp" line="52" column="9" bodyfile="registrator/registrator.cpp" bodystart="167" bodyend="206"/>
       </memberdef>
-      <memberdef kind="function" id="group__public__actions_1ga99b01f19b346839f0ed7a132093f74c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__public__actions_1ga4a1b949ebea1e7cc5c0929e85d184038" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void registrator::regplot</definition>
-        <argsstring>(eosio::name coopname, eosio::name username, plot_data params)</argsstring>
-        <name>regplot</name>
-        <qualifiedname>registrator::regplot</qualifiedname>
+        <definition>void registrator::regdepartmnt</definition>
+        <argsstring>(eosio::name registrator, eosio::name coopname, eosio::name username, plot_data params)</argsstring>
+        <name>regdepartmnt</name>
+        <qualifiedname>registrator::regdepartmnt</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>registrator</declname>
+        </param>
         <param>
           <type>eosio::name</type>
           <declname>coopname</declname>
@@ -221,7 +224,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="registrator/registrator.hpp" line="52" column="9" bodyfile="registrator/registrator.cpp" bodystart="193" bodyend="230"/>
+        <location file="registrator/registrator.hpp" line="53" column="9" bodyfile="registrator/registrator.cpp" bodystart="222" bodyend="254"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga4edb42d418f1b8d0a7ec00f06b9927ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -251,20 +254,24 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>_ano</computeroutput> </para>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput></computeroutput> </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="registrator/registrator.hpp" line="56" column="9" bodyfile="registrator/registrator.cpp" bodystart="244" bodyend="301"/>
+        <location file="registrator/registrator.hpp" line="57" column="9" bodyfile="registrator/registrator.cpp" bodystart="268" bodyend="300"/>
       </memberdef>
-      <memberdef kind="function" id="group__public__actions_1ga9118fec52032836986b9a60a28355039" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__public__actions_1ga369a1d99c79f0429f2d1f7182382dcd8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void registrator::joincoop</definition>
-        <argsstring>(eosio::name coopname, eosio::name username, document document)</argsstring>
+        <argsstring>(eosio::name registrator, eosio::name coopname, eosio::name username, document document)</argsstring>
         <name>joincoop</name>
         <qualifiedname>registrator::joincoop</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>registrator</declname>
+        </param>
         <param>
           <type>eosio::name</type>
           <declname>coopname</declname>
@@ -347,7 +354,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="registrator/registrator.hpp" line="54" column="9" bodyfile="registrator/registrator.cpp" bodystart="327" bodyend="339"/>
+        <location file="registrator/registrator.hpp" line="55" column="9" bodyfile="registrator/registrator.cpp" bodystart="326" bodyend="341"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gac68fe89b4be51de18ac5b5921ca56eed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -391,7 +398,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="registrator/registrator.hpp" line="42" column="9" bodyfile="registrator/registrator.cpp" bodystart="354" bodyend="367"/>
+        <location file="registrator/registrator.hpp" line="43" column="9" bodyfile="registrator/registrator.cpp" bodystart="356" bodyend="369"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga68df314fe90a719f00f0931c097bc6c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -429,13 +436,13 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>_ano</computeroutput> </para>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>_system</computeroutput> </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="registrator/registrator.hpp" line="63" column="9" bodyfile="registrator/registrator.cpp" bodystart="384" bodyend="405"/>
+        <location file="registrator/registrator.hpp" line="65" column="9" bodyfile="registrator/registrator.cpp" bodystart="386" bodyend="407"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga25e4c5c4eea2a2e1463ce911b61117aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -495,7 +502,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="registrator/registrator.hpp" line="43" column="9" bodyfile="registrator/registrator.cpp" bodystart="423" bodyend="433"/>
+        <location file="registrator/registrator.hpp" line="44" column="9" bodyfile="registrator/registrator.cpp" bodystart="425" bodyend="435"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga6d78c0a4a104abcae663754dc08d8da8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -861,7 +868,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="marketplace/marketplace.hpp" line="61" column="9" bodyfile="marketplace/src/change.cpp" bodystart="307" bodyend="346"/>
+        <location file="marketplace/marketplace.hpp" line="61" column="9" bodyfile="marketplace/src/change.cpp" bodystart="308" bodyend="350"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga9ee9ac0937429488378463abd8bc5848" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -892,7 +899,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="marketplace/marketplace.hpp" line="64" column="9" bodyfile="marketplace/src/change.cpp" bodystart="379" bodyend="423"/>
+        <location file="marketplace/marketplace.hpp" line="64" column="9" bodyfile="marketplace/src/change.cpp" bodystart="386" bodyend="433"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga084713334c8f04951ef37b2b431331ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -923,7 +930,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="marketplace/marketplace.hpp" line="67" column="9" bodyfile="marketplace/src/change.cpp" bodystart="463" bodyend="495"/>
+        <location file="marketplace/marketplace.hpp" line="67" column="9" bodyfile="marketplace/src/change.cpp" bodystart="473" bodyend="509"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga082792b887a075f6fba43280d5a5e0cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -971,7 +978,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="marketplace/marketplace.hpp" line="72" column="9" bodyfile="marketplace/src/change.cpp" bodystart="688" bodyend="771"/>
+        <location file="marketplace/marketplace.hpp" line="72" column="9" bodyfile="marketplace/src/change.cpp" bodystart="672" bodyend="755"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga632cf8b33c10b9602cb694f4cb036049" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1037,7 +1044,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="marketplace/marketplace.hpp" line="62" column="9" bodyfile="marketplace/src/change.cpp" bodystart="794" bodyend="831"/>
+        <location file="marketplace/marketplace.hpp" line="62" column="9" bodyfile="marketplace/src/change.cpp" bodystart="778" bodyend="815"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gaa0e2d4ec515205db7bc0b459c7b602d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1085,7 +1092,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="marketplace/marketplace.hpp" line="74" column="9" bodyfile="marketplace/src/change.cpp" bodystart="847" bodyend="862"/>
+        <location file="marketplace/marketplace.hpp" line="74" column="9" bodyfile="marketplace/src/change.cpp" bodystart="831" bodyend="846"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga0571c4090259fcc39ca6e64a9f94063b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1149,7 +1156,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="marketplace/marketplace.hpp" line="76" column="9" bodyfile="marketplace/src/change.cpp" bodystart="961" bodyend="984"/>
+        <location file="marketplace/marketplace.hpp" line="76" column="9" bodyfile="marketplace/src/change.cpp" bodystart="945" bodyend="969"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gac2a62dd532b9c0212270a2cbe5958b57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1209,7 +1216,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="marketplace/marketplace.hpp" line="77" column="9" bodyfile="marketplace/src/change.cpp" bodystart="999" bodyend="1013"/>
+        <location file="marketplace/marketplace.hpp" line="77" column="9" bodyfile="marketplace/src/change.cpp" bodystart="984" bodyend="998"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga006a09b0804cd50f3ec8aef8bd280fff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1317,7 +1324,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="42" column="9" bodyfile="soviet/soviet.cpp" bodystart="80" bodyend="98"/>
+        <location file="soviet/soviet.hpp" line="45" column="9" bodyfile="soviet/soviet.cpp" bodystart="137" bodyend="155"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gaed705497ce78823553360af42f1e0dc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1405,7 +1412,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="60" column="9" bodyfile="soviet/src/admin.cpp" bodystart="19" bodyend="42"/>
+        <location file="soviet/soviet.hpp" line="78" column="9" bodyfile="soviet/src/admin.cpp" bodystart="19" bodyend="42"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gab2a5baad145e14f45937617b98d7c73c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1469,7 +1476,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="61" column="9" bodyfile="soviet/src/admin.cpp" bodystart="58" bodyend="71"/>
+        <location file="soviet/soviet.hpp" line="79" column="9" bodyfile="soviet/src/admin.cpp" bodystart="58" bodyend="71"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gaff82a212963ad56c994fca0d30548802" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1545,7 +1552,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="62" column="9" bodyfile="soviet/src/admin.cpp" bodystart="88" bodyend="104"/>
+        <location file="soviet/soviet.hpp" line="80" column="9" bodyfile="soviet/src/admin.cpp" bodystart="88" bodyend="104"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga2c3e9ad00f9266432144774c17eb4b43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1609,7 +1616,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="63" column="9" bodyfile="soviet/src/admin.cpp" bodystart="120" bodyend="158"/>
+        <location file="soviet/soviet.hpp" line="81" column="9" bodyfile="soviet/src/admin.cpp" bodystart="120" bodyend="158"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gacd08501eb19d2733f9640cae3ae229f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1702,7 +1709,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="74" column="9" bodyfile="soviet/src/automator.cpp" bodystart="26" bodyend="57"/>
+        <location file="soviet/soviet.hpp" line="68" column="9" bodyfile="soviet/src/automator.cpp" bodystart="26" bodyend="57"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gaa1c59a4f419370fbe9eeedde1b315ad7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1770,7 +1777,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="75" column="9" bodyfile="soviet/src/automator.cpp" bodystart="72" bodyend="81"/>
+        <location file="soviet/soviet.hpp" line="69" column="9" bodyfile="soviet/src/automator.cpp" bodystart="72" bodyend="81"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga3ca9fb1ee5a9584303c34e391af99e6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1830,7 +1837,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="79" column="9" bodyfile="soviet/src/chairman.cpp" bodystart="16" bodyend="45"/>
+        <location file="soviet/soviet.hpp" line="73" column="9" bodyfile="soviet/src/chairman.cpp" bodystart="16" bodyend="43"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga03967c07043b14f5239e50448362287a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1928,7 +1935,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="80" column="9" bodyfile="soviet/src/chairman.cpp" bodystart="66" bodyend="144"/>
+        <location file="soviet/soviet.hpp" line="74" column="9" bodyfile="soviet/src/chairman.cpp" bodystart="64" bodyend="141"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga633d78f7717ca0b13d800f1af3b298d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2026,7 +2033,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="81" column="9" bodyfile="soviet/src/chairman.cpp" bodystart="168" bodyend="206"/>
+        <location file="soviet/soviet.hpp" line="75" column="9" bodyfile="soviet/src/chairman.cpp" bodystart="165" bodyend="203"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga46020951b62e043b52d7e7c6939684a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2063,7 +2070,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="126" column="9" bodyfile="soviet/src/fund.cpp" bodystart="9" bodyend="31"/>
+        <location file="soviet/soviet.hpp" line="124" column="9" bodyfile="soviet/src/fund.cpp" bodystart="9" bodyend="31"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gaddace7bdb215147f252a529422010022" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2123,7 +2130,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="67" column="9" bodyfile="soviet/src/joincoop.cpp" bodystart="17" bodyend="31"/>
+        <location file="soviet/soviet.hpp" line="83" column="9" bodyfile="soviet/src/joincoop.cpp" bodystart="17" bodyend="31"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gadeadfe2269b80480012be4a05a5b08ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2187,7 +2194,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="66" column="9" bodyfile="soviet/src/joincoop.cpp" bodystart="47" bodyend="80"/>
+        <location file="soviet/soviet.hpp" line="63" column="9" bodyfile="soviet/src/joincoop.cpp" bodystart="47" bodyend="80"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga3666aba8b8d5a7b8ac50abdda8eb0438" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2271,7 +2278,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="89" column="9" bodyfile="soviet/src/marketplace.cpp" bodystart="94" bodyend="153"/>
+        <location file="soviet/soviet.hpp" line="93" column="9" bodyfile="soviet/src/marketplace.cpp" bodystart="74" bodyend="134"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga0c242b184398cfcccbe628d1d9400f76" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2587,7 +2594,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="101" column="9" bodyfile="soviet/src/programs.cpp" bodystart="96" bodyend="118"/>
+        <location file="soviet/soviet.hpp" line="100" column="9" bodyfile="soviet/src/programs.cpp" bodystart="96" bodyend="111"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga8c6922ba61c30a7c6409cb48e62e08b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2631,7 +2638,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="102" column="9" bodyfile="soviet/src/programs.cpp" bodystart="132" bodyend="150"/>
+        <location file="soviet/soviet.hpp" line="101" column="9" bodyfile="soviet/src/programs.cpp" bodystart="125" bodyend="136"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga544aed065e9bdae354fab6348fc2d660" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2687,7 +2694,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="84" column="9" bodyfile="soviet/src/voting.cpp" bodystart="43" bodyend="71"/>
+        <location file="soviet/soviet.hpp" line="88" column="9" bodyfile="soviet/src/voting.cpp" bodystart="43" bodyend="71"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gae9017da5c4aea5f1fa86dc5b6f3ecf2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2743,7 +2750,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="85" column="9" bodyfile="soviet/src/voting.cpp" bodystart="85" bodyend="104"/>
+        <location file="soviet/soviet.hpp" line="89" column="9" bodyfile="soviet/src/voting.cpp" bodystart="85" bodyend="104"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga826e017b52f0b323a3339da457ecfa43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2799,7 +2806,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="86" column="9" bodyfile="soviet/src/voting.cpp" bodystart="118" bodyend="154"/>
+        <location file="soviet/soviet.hpp" line="90" column="9" bodyfile="soviet/src/voting.cpp" bodystart="118" bodyend="154"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gaa2f4b2364f09b8728cbf12eb6e9b92f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2942,7 +2949,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="gateway/gateway.hpp" line="56" column="9" bodyfile="gateway/gateway.cpp" bodystart="46" bodyend="89"/>
+        <location file="gateway/gateway.hpp" line="56" column="9" bodyfile="gateway/gateway.cpp" bodystart="46" bodyend="88"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga59936ddb45db401976fd3d404b92caa7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2995,7 +3002,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="gateway/gateway.hpp" line="57" column="9" bodyfile="gateway/gateway.cpp" bodystart="107" bodyend="172"/>
+        <location file="gateway/gateway.hpp" line="57" column="9" bodyfile="gateway/gateway.cpp" bodystart="106" bodyend="171"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga8776a33709be83c15957bc8e366db71d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -3048,7 +3055,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="gateway/gateway.hpp" line="58" column="9" bodyfile="gateway/gateway.cpp" bodystart="189" bodyend="208"/>
+        <location file="gateway/gateway.hpp" line="58" column="9" bodyfile="gateway/gateway.cpp" bodystart="188" bodyend="207"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -3133,7 +3140,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="gateway/gateway.hpp" line="62" column="9" bodyfile="gateway/gateway.cpp" bodystart="229" bodyend="278"/>
+        <location file="gateway/gateway.hpp" line="62" column="9" bodyfile="gateway/gateway.cpp" bodystart="228" bodyend="276"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga2551c736852a98d33f2fcc9f569fe836" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -3185,7 +3192,7 @@ cleos push action gateway wthdcomplete &apos;[&quot;12345&quot;, &quot;Успе�
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="gateway/gateway.hpp" line="63" column="9" bodyfile="gateway/gateway.cpp" bodystart="311" bodyend="350"/>
+        <location file="gateway/gateway.hpp" line="63" column="9" bodyfile="gateway/gateway.cpp" bodystart="320" bodyend="359"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gac0eb7373a774cec08f2017a74522b2b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -3237,7 +3244,7 @@ cleos push action gateway wthdfail &apos;[&quot;12345&quot;, &quot;Отмена 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="gateway/gateway.hpp" line="64" column="9" bodyfile="gateway/gateway.cpp" bodystart="366" bodyend="389"/>
+        <location file="gateway/gateway.hpp" line="64" column="9" bodyfile="gateway/gateway.cpp" bodystart="375" bodyend="398"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

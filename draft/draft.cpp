@@ -115,17 +115,3 @@ void draft::deltrans(uint64_t translate_id) {
   translations.erase(trans);
 
 };
-
-
-extern "C" {
-
-/// The apply method implements the dispatch of events to this contract
-void apply(uint64_t receiver, uint64_t code, uint64_t action) {
-  if (code == _draft.value) {
-    switch (action) { EOSIO_DISPATCH_HELPER(draft, 
-      (createdraft)(deldraft)
-      (createtrans)(deltrans)(edittrans)
-      ) }
-  } 
-};
-};

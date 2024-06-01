@@ -117,8 +117,6 @@ $(document).ready(function(){initNavTree('classeosiosystem_1_1native.html',''); 
 <tr class="separator:ab85b9770a900421b081ab8f339c5c71f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa83db95970cb619e8d1715e5d83bbb52"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeosiosystem_1_1native.html#aa83db95970cb619e8d1715e5d83bbb52">canceldelay_action</a> = eosio::action_wrapper&lt;&quot;canceldelay&quot;_n, &amp;<a class="el" href="classeosiosystem_1_1native.html#ac2da52c0f6c1698bbe76a84f23917feb">native::canceldelay</a> &gt;</td></tr>
 <tr class="separator:aa83db95970cb619e8d1715e5d83bbb52"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af476ff0c6f3be13b08c57b5857715766"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeosiosystem_1_1native.html#af476ff0c6f3be13b08c57b5857715766">setcode_action</a> = eosio::action_wrapper&lt;&quot;setcode&quot;_n, &amp;<a class="el" href="classeosiosystem_1_1native.html#a225a51ac200eb80061ecbea5980e0b7b">native::setcode</a> &gt;</td></tr>
-<tr class="separator:af476ff0c6f3be13b08c57b5857715766"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5db33d8b5c93fb9b60f6216d62077802"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeosiosystem_1_1native.html#a5db33d8b5c93fb9b60f6216d62077802">setabi_action</a> = eosio::action_wrapper&lt;&quot;setabi&quot;_n, &amp;<a class="el" href="classeosiosystem_1_1native.html#aff24a543859381c1670183f5b4d343aa">native::setabi</a> &gt;</td></tr>
 <tr class="separator:a5db33d8b5c93fb9b60f6216d62077802"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -126,22 +124,20 @@ $(document).ready(function(){initNavTree('classeosiosystem_1_1native.html',''); 
 Открытые члены</h2></td></tr>
 <tr class="memitem:ab81dda3be834b68780bbae5c2e8368e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeosiosystem_1_1native.html#ab81dda3be834b68780bbae5c2e8368e0">newaccount</a> (const name &amp;creator, const name &amp;name, ignore&lt; <a class="el" href="structeosiosystem_1_1authority.html">authority</a> &gt; owner, ignore&lt; <a class="el" href="structeosiosystem_1_1authority.html">authority</a> &gt; active)</td></tr>
 <tr class="separator:ab81dda3be834b68780bbae5c2e8368e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bbeca58b24029a5ab0fc90832dde56b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeosiosystem_1_1native.html#a2bbeca58b24029a5ab0fc90832dde56b">updateauth</a> (name account, name permission, name parent, <a class="el" href="structeosiosystem_1_1authority.html">authority</a> auth, binary_extension&lt; name &gt; authorized_by)</td></tr>
+<tr class="memitem:a2bbeca58b24029a5ab0fc90832dde56b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeosiosystem_1_1native.html#a2bbeca58b24029a5ab0fc90832dde56b">updateauth</a> (name <a class="el" href="structaccount.html">account</a>, name permission, name parent, <a class="el" href="structeosiosystem_1_1authority.html">authority</a> auth, binary_extension&lt; name &gt; authorized_by)</td></tr>
 <tr class="separator:a2bbeca58b24029a5ab0fc90832dde56b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49cc638f16ddc898952a8f032ffd6c2c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeosiosystem_1_1native.html#a49cc638f16ddc898952a8f032ffd6c2c">deleteauth</a> (name account, name permission, binary_extension&lt; name &gt; authorized_by)</td></tr>
+<tr class="memitem:a49cc638f16ddc898952a8f032ffd6c2c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeosiosystem_1_1native.html#a49cc638f16ddc898952a8f032ffd6c2c">deleteauth</a> (name <a class="el" href="structaccount.html">account</a>, name permission, binary_extension&lt; name &gt; authorized_by)</td></tr>
 <tr class="separator:a49cc638f16ddc898952a8f032ffd6c2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35b93b9e7ae3eaa60619189c7694499e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeosiosystem_1_1native.html#a35b93b9e7ae3eaa60619189c7694499e">linkauth</a> (name account, name code, name type, name requirement, binary_extension&lt; name &gt; authorized_by)</td></tr>
+<tr class="memitem:a35b93b9e7ae3eaa60619189c7694499e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeosiosystem_1_1native.html#a35b93b9e7ae3eaa60619189c7694499e">linkauth</a> (name <a class="el" href="structaccount.html">account</a>, name code, name type, name requirement, binary_extension&lt; name &gt; authorized_by)</td></tr>
 <tr class="separator:a35b93b9e7ae3eaa60619189c7694499e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1e2097e289d4da3acc2876cc24e8897"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeosiosystem_1_1native.html#aa1e2097e289d4da3acc2876cc24e8897">unlinkauth</a> (name account, name code, name type, binary_extension&lt; name &gt; authorized_by)</td></tr>
+<tr class="memitem:aa1e2097e289d4da3acc2876cc24e8897"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeosiosystem_1_1native.html#aa1e2097e289d4da3acc2876cc24e8897">unlinkauth</a> (name <a class="el" href="structaccount.html">account</a>, name code, name type, binary_extension&lt; name &gt; authorized_by)</td></tr>
 <tr class="separator:aa1e2097e289d4da3acc2876cc24e8897"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2da52c0f6c1698bbe76a84f23917feb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeosiosystem_1_1native.html#ac2da52c0f6c1698bbe76a84f23917feb">canceldelay</a> (ignore&lt; permission_level &gt; canceling_auth, ignore&lt; checksum256 &gt; trx_id)</td></tr>
 <tr class="separator:ac2da52c0f6c1698bbe76a84f23917feb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a379fe8f4ca5a42a6011dbf9c8f30b6ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeosiosystem_1_1native.html#a379fe8f4ca5a42a6011dbf9c8f30b6ff">onerror</a> (ignore&lt; uint128_t &gt; sender_id, ignore&lt; std::vector&lt; char &gt; &gt; sent_trx)</td></tr>
 <tr class="separator:a379fe8f4ca5a42a6011dbf9c8f30b6ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff24a543859381c1670183f5b4d343aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeosiosystem_1_1native.html#aff24a543859381c1670183f5b4d343aa">setabi</a> (const name &amp;account, const std::vector&lt; char &gt; &amp;abi, const binary_extension&lt; std::string &gt; &amp;memo)</td></tr>
+<tr class="memitem:aff24a543859381c1670183f5b4d343aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeosiosystem_1_1native.html#aff24a543859381c1670183f5b4d343aa">setabi</a> (const name &amp;<a class="el" href="structaccount.html">account</a>, const std::vector&lt; char &gt; &amp;abi, const binary_extension&lt; std::string &gt; &amp;memo)</td></tr>
 <tr class="separator:aff24a543859381c1670183f5b4d343aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a225a51ac200eb80061ecbea5980e0b7b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeosiosystem_1_1native.html#a225a51ac200eb80061ecbea5980e0b7b">setcode</a> (const name &amp;account, uint8_t vmtype, uint8_t vmversion, const std::vector&lt; char &gt; &amp;code, const binary_extension&lt; std::string &gt; &amp;memo)</td></tr>
-<tr class="separator:a225a51ac200eb80061ecbea5980e0b7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
 <div class="textblock"><p >The EOSIO core <code>native</code> contract that governs authorization and contracts' abi. </p>
@@ -210,20 +206,6 @@ $(document).ready(function(){initNavTree('classeosiosystem_1_1native.html',''); 
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="classeosiosystem_1_1native.html#a5db33d8b5c93fb9b60f6216d62077802">eosiosystem::native::setabi_action</a> =  eosio::action_wrapper&lt;&quot;setabi&quot;_n, &amp;<a class="el" href="classeosiosystem_1_1native.html#aff24a543859381c1670183f5b4d343aa">native::setabi</a>&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af476ff0c6f3be13b08c57b5857715766" name="af476ff0c6f3be13b08c57b5857715766"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af476ff0c6f3be13b08c57b5857715766">&#9670;&nbsp;</a></span>setcode_action</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="classeosiosystem_1_1native.html#af476ff0c6f3be13b08c57b5857715766">eosiosystem::native::setcode_action</a> =  eosio::action_wrapper&lt;&quot;setcode&quot;_n, &amp;<a class="el" href="classeosiosystem_1_1native.html#a225a51ac200eb80061ecbea5980e0b7b">native::setcode</a>&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -548,71 +530,6 @@ $(document).ready(function(){initNavTree('classeosiosystem_1_1native.html',''); 
   <table class="params">
     <tr><td class="paramname">account</td><td>- the account for which to set the contract abi. </td></tr>
     <tr><td class="paramname">abi</td><td>- the abi content to be set, in the form of a blob binary. </td></tr>
-    <tr><td class="paramname">memo</td><td>- may be omitted </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a225a51ac200eb80061ecbea5980e0b7b" name="a225a51ac200eb80061ecbea5980e0b7b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a225a51ac200eb80061ecbea5980e0b7b">&#9670;&nbsp;</a></span>setcode()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void eosiosystem::native::setcode </td>
-          <td>(</td>
-          <td class="paramtype">const name &amp;&#160;</td>
-          <td class="paramname"><em>account</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>vmtype</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>vmversion</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; char &gt; &amp;&#160;</td>
-          <td class="paramname"><em>code</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const binary_extension&lt; std::string &gt; &amp;&#160;</td>
-          <td class="paramname"><em>memo</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >Set code action sets the contract code for an account.</p>
-<dl class="params"><dt>Аргументы</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">account</td><td>- the account for which to set the contract code. </td></tr>
-    <tr><td class="paramname">vmtype</td><td>- reserved, set it to zero. </td></tr>
-    <tr><td class="paramname">vmversion</td><td>- reserved, set it to zero. </td></tr>
-    <tr><td class="paramname">code</td><td>- the code content to be set, in the form of a blob binary.. </td></tr>
     <tr><td class="paramname">memo</td><td>- may be omitted </td></tr>
   </table>
   </dd>

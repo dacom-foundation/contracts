@@ -111,13 +111,13 @@ $(document).ready(function(){initNavTree('coops_8hpp.html',''); initResizable();
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparticipants.html">participants</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Структура, представляющая членов кооператива.  <a href="structparticipants.html#details">Подробнее...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdecisions.html">decisions</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Структура, представляющая решения кооператива.  <a href="structdecisions.html#details">Подробнее...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdecision.html">decision</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Структура, представляющая решения кооператива.  <a href="structdecision.html#details">Подробнее...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structaddress__data.html">address_data</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structaddress.html">address</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structaddresses.html">addresses</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Структура, представляющая адреса кооператива.  <a href="structaddresses.html#details">Подробнее...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Структура, представляющая адреса кооператива.  <a href="structaddress.html#details">Подробнее...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
@@ -129,10 +129,10 @@ $(document).ready(function(){initNavTree('coops_8hpp.html',''); initResizable();
 <tr class="separator:a04b2c83df71b9adc976ae65b894f4b3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf0a04dfbe948cdf1bd01cf5b344af61"><td class="memItemLeft" align="right" valign="top">typedef eosio::multi_index&lt; &quot;participants&quot;_n, <a class="el" href="structparticipants.html">participants</a>, eosio::indexed_by&lt;&quot;bylastpay&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structparticipants.html">participants</a>, uint64_t, &amp;<a class="el" href="structparticipants.html#aa40e98abaf7212e03dd80e1f993d6c17">participants::bylastpay</a> &gt; &gt;, eosio::indexed_by&lt;&quot;createdat&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structparticipants.html">participants</a>, uint64_t, &amp;<a class="el" href="structparticipants.html#ab63c149354ae6df6a4a5de3948fdaf00">participants::by_created_at</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="coops_8hpp.html#adf0a04dfbe948cdf1bd01cf5b344af61">participants_index</a></td></tr>
 <tr class="separator:adf0a04dfbe948cdf1bd01cf5b344af61"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1a060285827fdcbe676dc431070dbce"><td class="memItemLeft" align="right" valign="top">typedef eosio::multi_index&lt; &quot;decisions&quot;_n, <a class="el" href="structdecisions.html">decisions</a>, eosio::indexed_by&lt;&quot;bysecondary&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structdecisions.html">decisions</a>, uint64_t, &amp;<a class="el" href="structdecisions.html#a9ec7ed6dab56a52187a4dcbd430b1d48">decisions::by_secondary</a> &gt; &gt;, eosio::indexed_by&lt;&quot;bytype&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structdecisions.html">decisions</a>, uint64_t, &amp;<a class="el" href="structdecisions.html#a87937d6b4c5c378d3e3ac77141b11394">decisions::bytype</a> &gt; &gt;, eosio::indexed_by&lt;&quot;byapproved&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structdecisions.html">decisions</a>, uint64_t, &amp;<a class="el" href="structdecisions.html#a6cadd228516907f8eb55f915eb03d4b8">decisions::byapproved</a> &gt; &gt;, eosio::indexed_by&lt;&quot;byvalidated&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structdecisions.html">decisions</a>, uint64_t, &amp;<a class="el" href="structdecisions.html#a9661d6706d87e72e74ad3590620e5009">decisions::byvalidated</a> &gt; &gt;, eosio::indexed_by&lt;&quot;byauthorized&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structdecisions.html">decisions</a>, uint64_t, &amp;<a class="el" href="structdecisions.html#ab166604702a060e0a03e885efa8c14b9">decisions::byauthorized</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="coops_8hpp.html#aa1a060285827fdcbe676dc431070dbce">decisions_index</a></td></tr>
-<tr class="separator:aa1a060285827fdcbe676dc431070dbce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad05b8ab165ff4c063b1363832210ae3e"><td class="memItemLeft" align="right" valign="top">typedef eosio::multi_index&lt; &quot;addresses&quot;_n, <a class="el" href="structaddresses.html">addresses</a>, eosio::indexed_by&lt;&quot;bycooplate&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structaddresses.html">addresses</a>, uint64_t, &amp;<a class="el" href="structaddresses.html#a82b8881b433938145f8d9af152cc19c3">addresses::bycooplate</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="coops_8hpp.html#ad05b8ab165ff4c063b1363832210ae3e">addresses_index</a></td></tr>
-<tr class="separator:ad05b8ab165ff4c063b1363832210ae3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4461d7de0a02a53205ba22d591e0cb99"><td class="memItemLeft" align="right" valign="top">typedef eosio::multi_index&lt; &quot;decisions&quot;_n, <a class="el" href="structdecision.html">decision</a>, eosio::indexed_by&lt;&quot;bysecondary&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structdecision.html">decision</a>, uint64_t, &amp;<a class="el" href="structdecision.html#a126af74e59573ce0c121023853d36696">decision::by_secondary</a> &gt; &gt;, eosio::indexed_by&lt;&quot;bytype&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structdecision.html">decision</a>, uint64_t, &amp;<a class="el" href="structdecision.html#a76e524deedb113f8ad6d7cc4b36b18ef">decision::bytype</a> &gt; &gt;, eosio::indexed_by&lt;&quot;byapproved&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structdecision.html">decision</a>, uint64_t, &amp;<a class="el" href="structdecision.html#abcfb5f848cc506e27149a600a725adf8">decision::byapproved</a> &gt; &gt;, eosio::indexed_by&lt;&quot;byvalidated&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structdecision.html">decision</a>, uint64_t, &amp;<a class="el" href="structdecision.html#aba735935551cd0d7eae6c5844d43b600">decision::byvalidated</a> &gt; &gt;, eosio::indexed_by&lt;&quot;byauthorized&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structdecision.html">decision</a>, uint64_t, &amp;<a class="el" href="structdecision.html#a25b3bc216e6e25da0fc58b1554edfbac">decision::byauthorized</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="coops_8hpp.html#a4461d7de0a02a53205ba22d591e0cb99">decisions_index</a></td></tr>
+<tr class="separator:a4461d7de0a02a53205ba22d591e0cb99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd66716dcec01d9355dceb10d01e882f"><td class="memItemLeft" align="right" valign="top">typedef eosio::multi_index&lt; &quot;addresses&quot;_n, <a class="el" href="structaddress.html">address</a>, eosio::indexed_by&lt;&quot;bydepartment&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structaddress.html">address</a>, uint64_t, &amp;<a class="el" href="structaddress.html#a35dc7d20f31c94caf2c5c772ab2e349f">address::bydepartment</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="coops_8hpp.html#abd66716dcec01d9355dceb10d01e882f">addresses_index</a></td></tr>
+<tr class="separator:abd66716dcec01d9355dceb10d01e882f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Функции</h2></td></tr>
@@ -142,16 +142,18 @@ $(document).ready(function(){initNavTree('coops_8hpp.html',''); initResizable();
 <tr class="separator:a5975688eadd5a074161c268985282581"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7071d280b47702321a02ac12afe8f74b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="coops_8hpp.html#a7071d280b47702321a02ac12afe8f74b">check_for_exist_board_by_type</a> (eosio::name coopname, eosio::name type)</td></tr>
 <tr class="separator:a7071d280b47702321a02ac12afe8f74b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa23eebab5f5b5b8ba3881ca62ce600d0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="coops_8hpp.html#aa23eebab5f5b5b8ba3881ca62ce600d0">is_participant_exist</a> (eosio::name coopname, eosio::name username)</td></tr>
+<tr class="separator:aa23eebab5f5b5b8ba3881ca62ce600d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Типы</h2>
-<a id="ad05b8ab165ff4c063b1363832210ae3e" name="ad05b8ab165ff4c063b1363832210ae3e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad05b8ab165ff4c063b1363832210ae3e">&#9670;&nbsp;</a></span>addresses_index</h2>
+<a id="abd66716dcec01d9355dceb10d01e882f" name="abd66716dcec01d9355dceb10d01e882f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd66716dcec01d9355dceb10d01e882f">&#9670;&nbsp;</a></span>addresses_index</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef eosio::multi_index&lt; &quot;addresses&quot;_n, <a class="el" href="structaddresses.html">addresses</a>, eosio::indexed_by&lt;&quot;bycooplate&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structaddresses.html">addresses</a>, uint64_t, &amp;<a class="el" href="structaddresses.html#a82b8881b433938145f8d9af152cc19c3">addresses::bycooplate</a>&gt; &gt;&gt; <a class="el" href="coops_8hpp.html#ad05b8ab165ff4c063b1363832210ae3e">addresses_index</a></td>
+          <td class="memname">typedef eosio::multi_index&lt; &quot;addresses&quot;_n, <a class="el" href="structaddress.html">address</a>, eosio::indexed_by&lt;&quot;bydepartment&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structaddress.html">address</a>, uint64_t, &amp;<a class="el" href="structaddress.html#a35dc7d20f31c94caf2c5c772ab2e349f">address::bydepartment</a>&gt; &gt;&gt; <a class="el" href="coops_8hpp.html#abd66716dcec01d9355dceb10d01e882f">addresses_index</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -172,14 +174,14 @@ $(document).ready(function(){initNavTree('coops_8hpp.html',''); initResizable();
 
 </div>
 </div>
-<a id="aa1a060285827fdcbe676dc431070dbce" name="aa1a060285827fdcbe676dc431070dbce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa1a060285827fdcbe676dc431070dbce">&#9670;&nbsp;</a></span>decisions_index</h2>
+<a id="a4461d7de0a02a53205ba22d591e0cb99" name="a4461d7de0a02a53205ba22d591e0cb99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4461d7de0a02a53205ba22d591e0cb99">&#9670;&nbsp;</a></span>decisions_index</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef eosio::multi_index&lt; &quot;decisions&quot;_n, <a class="el" href="structdecisions.html">decisions</a>, eosio::indexed_by&lt;&quot;bysecondary&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structdecisions.html">decisions</a>, uint64_t, &amp;<a class="el" href="structdecisions.html#a9ec7ed6dab56a52187a4dcbd430b1d48">decisions::by_secondary</a>&gt; &gt;, eosio::indexed_by&lt;&quot;bytype&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structdecisions.html">decisions</a>, uint64_t, &amp;<a class="el" href="structdecisions.html#a87937d6b4c5c378d3e3ac77141b11394">decisions::bytype</a>&gt; &gt;, eosio::indexed_by&lt;&quot;byapproved&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structdecisions.html">decisions</a>, uint64_t, &amp;<a class="el" href="structdecisions.html#a6cadd228516907f8eb55f915eb03d4b8">decisions::byapproved</a>&gt; &gt;, eosio::indexed_by&lt;&quot;byvalidated&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structdecisions.html">decisions</a>, uint64_t, &amp;<a class="el" href="structdecisions.html#a9661d6706d87e72e74ad3590620e5009">decisions::byvalidated</a>&gt; &gt;, eosio::indexed_by&lt;&quot;byauthorized&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structdecisions.html">decisions</a>, uint64_t, &amp;<a class="el" href="structdecisions.html#ab166604702a060e0a03e885efa8c14b9">decisions::byauthorized</a>&gt; &gt;&gt; <a class="el" href="coops_8hpp.html#aa1a060285827fdcbe676dc431070dbce">decisions_index</a></td>
+          <td class="memname">typedef eosio::multi_index&lt; &quot;decisions&quot;_n, <a class="el" href="structdecision.html">decision</a>, eosio::indexed_by&lt;&quot;bysecondary&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structdecision.html">decision</a>, uint64_t, &amp;<a class="el" href="structdecision.html#a126af74e59573ce0c121023853d36696">decision::by_secondary</a>&gt; &gt;, eosio::indexed_by&lt;&quot;bytype&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structdecision.html">decision</a>, uint64_t, &amp;<a class="el" href="structdecision.html#a76e524deedb113f8ad6d7cc4b36b18ef">decision::bytype</a>&gt; &gt;, eosio::indexed_by&lt;&quot;byapproved&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structdecision.html">decision</a>, uint64_t, &amp;<a class="el" href="structdecision.html#abcfb5f848cc506e27149a600a725adf8">decision::byapproved</a>&gt; &gt;, eosio::indexed_by&lt;&quot;byvalidated&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structdecision.html">decision</a>, uint64_t, &amp;<a class="el" href="structdecision.html#aba735935551cd0d7eae6c5844d43b600">decision::byvalidated</a>&gt; &gt;, eosio::indexed_by&lt;&quot;byauthorized&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structdecision.html">decision</a>, uint64_t, &amp;<a class="el" href="structdecision.html#a25b3bc216e6e25da0fc58b1554edfbac">decision::byauthorized</a>&gt; &gt;&gt; <a class="el" href="coops_8hpp.html#a4461d7de0a02a53205ba22d591e0cb99">decisions_index</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -290,6 +292,34 @@ $(document).ready(function(){initNavTree('coops_8hpp.html',''); initResizable();
           <td></td>
           <td class="paramtype">eosio::name&#160;</td>
           <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa23eebab5f5b5b8ba3881ca62ce600d0" name="aa23eebab5f5b5b8ba3881ca62ce600d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa23eebab5f5b5b8ba3881ca62ce600d0">&#9670;&nbsp;</a></span>is_participant_exist()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool is_participant_exist </td>
+          <td>(</td>
+          <td class="paramtype">eosio::name&#160;</td>
+          <td class="paramname"><em>coopname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">eosio::name&#160;</td>
+          <td class="paramname"><em>username</em>&#160;</td>
         </tr>
         <tr>
           <td></td>

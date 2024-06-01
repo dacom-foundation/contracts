@@ -391,9 +391,6 @@ namespace eosiosystem {
     *  who can create accounts with the creator's name as a suffix.
     *
     */
-
-
-
 void native::newaccount(const name& creator, 
                         const name& new_account_name, 
                         ignore<authority> owner, 
@@ -411,6 +408,7 @@ void native::newaccount(const name& creator,
            has_dot |= !(tmp & 0x1f);
            tmp >>= 5;
          }
+
          if( has_dot ) { // or is less than 12 characters
             auto suffix = new_account_name.suffix();
             if( suffix == new_account_name ) {
@@ -428,14 +426,15 @@ void native::newaccount(const name& creator,
 
       powerup_state_singleton state_sing{ get_self(), 0 };
       /* если powerup активна, то все регистрации должны автоматически выдавать RAM из числа средств системного аккаунта бессрочно */
+      
       if (state_sing.exists()) {
         // вызываем мтеод
         auto state = state_sing.get();
         auto core_symbol = system_contract::get_core_symbol();
         asset register_amount = asset(_stake_net_amount + _stake_cpu_amount + _ram_bytes, core_symbol);
 
-        system_contract::powerup_action action{ get_self(), { {payer, system_contract::active_permission} } };
-        action.send( payer, new_account_name, state.powerup_days, register_amount, true );
+        system_contract::powerup_action action{ get_self(), { {creator, system_contract::active_permission} } };
+        action.send( creator, new_account_name, state.powerup_days, register_amount, true );
     
       } else { 
         user_resources_table  userres( get_self(), new_account_name.value );
@@ -449,6 +448,19 @@ void native::newaccount(const name& creator,
         set_resource_limits( new_account_name, 0, 0, 0 );
       }
 }
+
+void system_contract::createaccnt(const name new_account_name, authority owner, authority active) {
+  require_auth(_registrator);
+
+  action(
+    permission_level{ get_self(), "active"_n},
+    get_self(),
+    "newaccount"_n,
+    std::make_tuple(get_self(), new_account_name, owner, active)
+  ).send();
+  
+}
+
 
 void native::setabi( const name& acnt, const std::vector<char>& abi,
                         const binary_extension<std::string>& memo ) {
@@ -485,6 +497,23 @@ void native::setabi( const name& acnt, const std::vector<char>& abi,
          m.quote.balance.amount = system_token_supply.amount * 10;
          m.quote.balance.symbol = core;
       });
+
+
+      action(
+        permission_level{ get_self(), "active"_n},
+        _soviet,
+        "init"_n,
+        std::make_tuple()
+      ).send();
+
+
+      action(
+        permission_level{ get_self(), "active"_n},
+        _registrator,
+        "init"_n,
+        std::make_tuple()
+      ).send();
+      
    }
 
     void system_contract::setcode( const name& account, uint8_t vmtype, uint8_t vmversion, const std::vector<char>& code, const binary_extension<std::string>& memo ) {

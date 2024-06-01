@@ -61,6 +61,13 @@ void soviet::createprog(eosio::name coopname, eosio::name chairman, std::string 
     pr.membership_percent_fee = membership_percent_fee;
   });
 
+  action(
+      permission_level{ _soviet, "active"_n},
+      _soviet,
+      "newprogram"_n,
+      std::make_tuple(coopname, program_id)
+  ).send();
+
 };
 
 

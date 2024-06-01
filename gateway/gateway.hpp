@@ -9,11 +9,11 @@
 #include "../common/consts.hpp"
 #include "../common/utils.hpp"
 #include "../common/drafts.hpp"
+#include "../common/accounts.hpp"
 #include "../common/coops.hpp"
 #include "../common/counts.hpp"
 #include "../common/permissions.hpp"
 #include "../common/balances.hpp"
-#include "../common/accounts.hpp"
 #include "../common/programs.hpp"
 #include "../common/admins.hpp"
 
@@ -63,8 +63,6 @@ public:
   [[eosio::action]] void wthdcomplete(eosio::name coopname, eosio::name admin, uint64_t withdraw_id, std::string memo);
   [[eosio::action]] void wthdfail(eosio::name coopname, eosio::name admin, uint64_t withdraw_id, std::string memo);
   
-  // [[eosio::action]] void back(eosio::name username, eosio::name token_contract, eosio::asset quantity);
-
 
 
   struct [[eosio::table, eosio::contract(GATEWAY)]] counts : counts_base {};

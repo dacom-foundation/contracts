@@ -104,6 +104,8 @@
       "contracts.hpp": "c",
       "singleton.hpp": "c",
       "asset.hpp": "c",
-      "eosio.system.hpp": "c"
+      "eosio.system.hpp": "c",
+      "accounts.hpp": "c",
+      "balances.hpp": "c"
     }
 }

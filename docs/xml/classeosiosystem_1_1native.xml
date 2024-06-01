@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/native.hpp" line="311" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/native.hpp" bodystart="311" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/native.hpp" line="298" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/native.hpp" bodystart="298" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1native_1a10fb5510d34718e92de6b0491d1eaf53" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;updateauth&quot;_n, &amp;<ref refid="classeosiosystem_1_1native_1a2bbeca58b24029a5ab0fc90832dde56b" kindref="member">native::updateauth</ref> &gt;</type>
@@ -32,7 +32,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/native.hpp" line="312" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/native.hpp" bodystart="312" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/native.hpp" line="299" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/native.hpp" bodystart="299" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1native_1ab75271688a763dacb3e2fa6cddae04e4" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;deleteauth&quot;_n, &amp;<ref refid="classeosiosystem_1_1native_1a49cc638f16ddc898952a8f032ffd6c2c" kindref="member">native::deleteauth</ref> &gt;</type>
@@ -46,7 +46,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/native.hpp" line="313" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/native.hpp" bodystart="313" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/native.hpp" line="300" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/native.hpp" bodystart="300" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1native_1a9003ba3e7e55f294f3d028f02873d5f9" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;linkauth&quot;_n, &amp;<ref refid="classeosiosystem_1_1native_1a35b93b9e7ae3eaa60619189c7694499e" kindref="member">native::linkauth</ref> &gt;</type>
@@ -60,7 +60,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/native.hpp" line="314" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/native.hpp" bodystart="314" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/native.hpp" line="301" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/native.hpp" bodystart="301" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1native_1ab85b9770a900421b081ab8f339c5c71f" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;unlinkauth&quot;_n, &amp;<ref refid="classeosiosystem_1_1native_1aa1e2097e289d4da3acc2876cc24e8897" kindref="member">native::unlinkauth</ref> &gt;</type>
@@ -74,7 +74,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/native.hpp" line="315" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/native.hpp" bodystart="315" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/native.hpp" line="302" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/native.hpp" bodystart="302" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1native_1aa83db95970cb619e8d1715e5d83bbb52" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;canceldelay&quot;_n, &amp;<ref refid="classeosiosystem_1_1native_1ac2da52c0f6c1698bbe76a84f23917feb" kindref="member">native::canceldelay</ref> &gt;</type>
@@ -88,21 +88,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/native.hpp" line="316" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/native.hpp" bodystart="316" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="classeosiosystem_1_1native_1af476ff0c6f3be13b08c57b5857715766" prot="public" static="no">
-        <type>eosio::action_wrapper&lt;&quot;setcode&quot;_n, &amp;<ref refid="classeosiosystem_1_1native_1a225a51ac200eb80061ecbea5980e0b7b" kindref="member">native::setcode</ref> &gt;</type>
-        <definition>using eosiosystem::native::setcode_action =  eosio::action_wrapper&lt;&quot;setcode&quot;_n, &amp;native::setcode&gt;</definition>
-        <argsstring></argsstring>
-        <name>setcode_action</name>
-        <qualifiedname>eosiosystem::native::setcode_action</qualifiedname>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/native.hpp" line="317" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/native.hpp" bodystart="317" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/native.hpp" line="303" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/native.hpp" bodystart="303" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1native_1a5db33d8b5c93fb9b60f6216d62077802" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;setabi&quot;_n, &amp;<ref refid="classeosiosystem_1_1native_1aff24a543859381c1670183f5b4d343aa" kindref="member">native::setabi</ref> &gt;</type>
@@ -116,7 +102,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/native.hpp" line="318" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/native.hpp" bodystart="318" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/native.hpp" line="304" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/native.hpp" bodystart="304" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -152,7 +138,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/native.hpp" line="146" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="462" bodyend="516"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/native.hpp" line="146" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="394" bodyend="450"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1native_1a2bbeca58b24029a5ab0fc90832dde56b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -591,84 +577,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/native.hpp" line="296" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="518" bodyend="532"/>
-      </memberdef>
-      <memberdef kind="function" id="classeosiosystem_1_1native_1a225a51ac200eb80061ecbea5980e0b7b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void eosiosystem::native::setcode</definition>
-        <argsstring>(const name &amp;account, uint8_t vmtype, uint8_t vmversion, const std::vector&lt; char &gt; &amp;code, const binary_extension&lt; std::string &gt; &amp;memo)</argsstring>
-        <name>setcode</name>
-        <qualifiedname>eosiosystem::native::setcode</qualifiedname>
-        <param>
-          <type>const name &amp;</type>
-          <declname>account</declname>
-        </param>
-        <param>
-          <type>uint8_t</type>
-          <declname>vmtype</declname>
-        </param>
-        <param>
-          <type>uint8_t</type>
-          <declname>vmversion</declname>
-        </param>
-        <param>
-          <type>const std::vector&lt; char &gt; &amp;</type>
-          <declname>code</declname>
-        </param>
-        <param>
-          <type>const binary_extension&lt; std::string &gt; &amp;</type>
-          <declname>memo</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Set code action sets the contract code for an account.</para>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>account</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>- the account for which to set the contract code. </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>vmtype</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>- reserved, set it to zero. </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>vmversion</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>- reserved, set it to zero. </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>code</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>- the code content to be set, in the form of a blob binary.. </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>memo</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>- may be omitted </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/native.hpp" line="308" column="15" bodyfile="system/contracts/eosio.system/include/eosio.system/native.hpp" bodystart="308" bodyend="309"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/native.hpp" line="296" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="465" bodyend="479"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -704,7 +613,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="system/contracts/eosio.system/include/eosio.system/native.hpp" line="128" column="4" bodyfile="system/contracts/eosio.system/include/eosio.system/native.hpp" bodystart="128" bodyend="319"/>
+    <location file="system/contracts/eosio.system/include/eosio.system/native.hpp" line="128" column="4" bodyfile="system/contracts/eosio.system/include/eosio.system/native.hpp" bodystart="128" bodyend="305"/>
     <listofallmembers>
       <member refid="classeosiosystem_1_1native_1ac2da52c0f6c1698bbe76a84f23917feb" prot="public" virt="non-virtual"><scope>eosiosystem::native</scope><name>canceldelay</name></member>
       <member refid="classeosiosystem_1_1native_1aa83db95970cb619e8d1715e5d83bbb52" prot="public" virt="non-virtual"><scope>eosiosystem::native</scope><name>canceldelay_action</name></member>
@@ -717,8 +626,6 @@
       <member refid="classeosiosystem_1_1native_1a379fe8f4ca5a42a6011dbf9c8f30b6ff" prot="public" virt="non-virtual"><scope>eosiosystem::native</scope><name>onerror</name></member>
       <member refid="classeosiosystem_1_1native_1aff24a543859381c1670183f5b4d343aa" prot="public" virt="non-virtual"><scope>eosiosystem::native</scope><name>setabi</name></member>
       <member refid="classeosiosystem_1_1native_1a5db33d8b5c93fb9b60f6216d62077802" prot="public" virt="non-virtual"><scope>eosiosystem::native</scope><name>setabi_action</name></member>
-      <member refid="classeosiosystem_1_1native_1a225a51ac200eb80061ecbea5980e0b7b" prot="public" virt="non-virtual"><scope>eosiosystem::native</scope><name>setcode</name></member>
-      <member refid="classeosiosystem_1_1native_1af476ff0c6f3be13b08c57b5857715766" prot="public" virt="non-virtual"><scope>eosiosystem::native</scope><name>setcode_action</name></member>
       <member refid="classeosiosystem_1_1native_1aa1e2097e289d4da3acc2876cc24e8897" prot="public" virt="non-virtual"><scope>eosiosystem::native</scope><name>unlinkauth</name></member>
       <member refid="classeosiosystem_1_1native_1ab85b9770a900421b081ab8f339c5c71f" prot="public" virt="non-virtual"><scope>eosiosystem::native</scope><name>unlinkauth_action</name></member>
       <member refid="classeosiosystem_1_1native_1a2bbeca58b24029a5ab0fc90832dde56b" prot="public" virt="non-virtual"><scope>eosiosystem::native</scope><name>updateauth</name></member>

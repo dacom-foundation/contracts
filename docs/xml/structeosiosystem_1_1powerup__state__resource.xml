@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="570" column="22" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="570" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="348" column="22" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="348" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeosiosystem_1_1powerup__state__resource_1a57a7d6c1f329f96a1964815e67bf5948" prot="public" static="no" mutable="no">
         <type>int64_t</type>
@@ -32,14 +32,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="573" column="22" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="573" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="351" column="22" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="351" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="569" column="4" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="569" bodyend="575"/>
+    <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="347" column="4" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="347" bodyend="353"/>
     <listofallmembers>
       <member refid="structeosiosystem_1_1powerup__state__resource_1a57a7d6c1f329f96a1964815e67bf5948" prot="public" virt="non-virtual"><scope>eosiosystem::powerup_state_resource</scope><name>utilization</name></member>
       <member refid="structeosiosystem_1_1powerup__state__resource_1ae11adb8af7452cc4b56b3c4efd27c4b5" prot="public" virt="non-virtual"><scope>eosiosystem::powerup_state_resource</scope><name>weight</name></member>

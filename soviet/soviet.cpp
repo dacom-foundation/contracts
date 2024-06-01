@@ -15,15 +15,73 @@
 
 using namespace eosio;
 
-[[eosio::action]] void soviet::draft(eosio::name coopname, eosio::name username, uint64_t decision_id) {
-  // require_auth(_soviet);
+[[eosio::action]] void soviet::init() {
+  require_auth(_system);
+  
+  participants_index participants(_soviet, _provider.value);
+    
+  participants.emplace(_system, [&](auto &m){
+      m.username = _provider_chairman;
+      m.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+      m.last_update = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+      m.last_min_pay = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+      m.status = "accepted"_n;
+      m.is_initial = true;
+      m.is_minimum = true;
+      m.has_vote = true;    
+    });
 
-  // require_recipient(coopname);
-  // require_recipient(username);
+    wallets_index wallets(_soviet, _provider.value);
+
+    wallets.emplace(_system, [&](auto &w) {
+      w.username = _provider_chairman;
+      w.coopname = _provider;
+      w.available = asset(0, _root_govern_symbol);
+      w.blocked = asset(0, _root_govern_symbol);
+      w.minimum = _provider_minimum; 
+    });
+
+
+    board_member member {
+        .username = _provider_chairman,
+        .is_voting = true,
+        .position_title = "Председатель",
+        .position = "chairman"_n
+    };
+
+    std::vector<board_member> members;
+    members.push_back(member);    
+
+    boards_index boards(_soviet, _provider.value);
+    
+    boards.emplace(_system, [&](auto &b) {
+      b.id = boards.available_primary_key();
+      b.type = "soviet"_n;
+      b.members = members;
+      b.name = "Совет провайдера";
+      b.description = "";
+      b.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+      b.last_update = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+    });
+
+    action(
+      permission_level{ _soviet, "active"_n},
+      _fund,
+      "init"_n,
+      std::make_tuple(_provider, _provider_initial)
+    ).send();
+
+}
+
+[[eosio::action]] void soviet::newsubmitted(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, document document) {
+  require_auth(_soviet);
+
+  require_recipient(coopname);
+  require_recipient(username);
 
 };
 
-[[eosio::action]] void soviet::statement(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, document document) {
+[[eosio::action]] void soviet::newresolved(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, document document) {
   require_auth(_soviet);
 
   require_recipient(coopname);
@@ -32,7 +90,7 @@ using namespace eosio;
 };
 
 
-[[eosio::action]] void soviet::act(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, document document) {
+[[eosio::action]] void soviet::newact(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, document document) {
   require_auth(_soviet);
 
   require_recipient(coopname);
@@ -41,7 +99,7 @@ using namespace eosio;
 };
 
 
-[[eosio::action]] void soviet::decision(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, document document) {
+[[eosio::action]] void soviet::newdecision(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, document document) {
   require_auth(_soviet);
 
   require_recipient(coopname);
@@ -50,12 +108,18 @@ using namespace eosio;
 };
 
 
-[[eosio::action]] void soviet::batch(eosio::name coopname, eosio::name action, uint64_t batch_id) {
+[[eosio::action]] void soviet::newbatch(eosio::name coopname, eosio::name action, uint64_t batch_id) {
   require_auth(_soviet);
 
   require_recipient(coopname);
 };
 
+
+[[eosio::action]] void soviet::newprogram(eosio::name coopname, uint64_t program_id) {
+  require_auth(_soviet);
+
+  require_recipient(coopname);
+};
 
 
 /**
@@ -89,110 +153,3 @@ void soviet::exec(eosio::name executer, eosio::name coopname, uint64_t decision_
     soviet::subaccum_effect(executer, coopname, decision->id, decision->batch_id);
   }
 }
-
-
-extern "C" {
-
-  /// The apply method implements the dispatch of events to this contract
-  void apply(uint64_t receiver, uint64_t code, uint64_t action) {
-
-    if (code == _soviet.value) {
-      switch (action) {
-
-        EOSIO_DISPATCH_HELPER (
-            soviet, 
-            //main
-            (exec)(draft)(statement)(act)(decision)(batch)
-        )
-
-
-        EOSIO_DISPATCH_HELPER (
-            soviet, 
-            //ADMIN
-            (addstaff)(rmstaff)(setrights)(validate)
-        )
-
-
-        EOSIO_DISPATCH_HELPER (
-            soviet, 
-            //CHAIRMAN
-            (authorize)(createboard)(updateboard)
-        )
-
-        EOSIO_DISPATCH_HELPER (
-            soviet, 
-            //VOTING
-            (votefor)(voteagainst)(cancelvote)
-        )
-
-
-        EOSIO_DISPATCH_HELPER (
-            soviet, 
-            //REGACCOUNT
-            (joincoop)(regpaid)
-        )
-
-        EOSIO_DISPATCH_HELPER (
-            soviet, 
-            //MARKETPLACE
-            (change)(completed)(recieved)
-        )
-        
-        EOSIO_DISPATCH_HELPER (
-            soviet, 
-            //fund
-            (fundwithdraw)
-        )       
-        
-        EOSIO_DISPATCH_HELPER (
-            soviet, 
-            //AUTOMATOR
-            (automate)(disautomate)
-        )
-
-
-        EOSIO_DISPATCH_HELPER (
-            soviet, 
-            //PROGRAMS
-            (createprog)(editprog)(disableprog)
-        )
-
-        EOSIO_DISPATCH_HELPER (
-            soviet, 
-            //WALLET
-            (addbalance)(subbalance)(blockbal)(unblockbal)(addprogbal)(subprogbal)
-            (withdraw)
-        )
-
-        EOSIO_DISPATCH_HELPER (
-            soviet, 
-            //addresses
-            (creaddress)(deladdress)(editaddress)
-        )
-
-        
-
-      }
-
-    } else {
-
-      if (action == "transfer"_n.value) {
-
-        struct transfer {
-          eosio::name from;
-          eosio::name to;
-          eosio::asset quantity;
-          std::string memo;
-        };
-
-        auto op = eosio::unpack_action_data<transfer>();
-
-        if (op.to == _soviet) {
-          
-        }
-      }
-    }
-  };
-
-};
-

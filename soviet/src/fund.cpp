@@ -10,7 +10,7 @@ void soviet::fundwithdraw(eosio::name coopname, eosio::name username, eosio::nam
   require_auth(_fund);
   
   decisions_index decisions(_soviet, coopname.value);
-  auto decision_id = get_global_id(_soviet, "decisions"_n);
+  auto decision_id = get_id(_soviet, coopname, "decisions"_n);
   
   decisions.emplace(_registrator, [&](auto &d){
     d.id = decision_id;
@@ -24,8 +24,8 @@ void soviet::fundwithdraw(eosio::name coopname, eosio::name username, eosio::nam
   action(
     permission_level{ _soviet, "active"_n},
     _soviet,
-    "draft"_n,
-    std::make_tuple(coopname, username, decision_id)
+    "newsubmitted"_n,
+    std::make_tuple(coopname, username, "fundwithdraw"_n, decision_id, document)
   ).send();
   
 };
@@ -52,14 +52,14 @@ void soviet::subaccum_effect(eosio::name executer, eosio::name coopname, uint64_
   action(
       permission_level{ _soviet, "active"_n},
       _soviet,
-      "statement"_n,
+      "newresolved"_n,
       std::make_tuple(coopname, withdraw -> username, decision -> type, decision_id, document)
   ).send();
   
   action(
       permission_level{ _soviet, "active"_n},
       _soviet,
-      "decision"_n,
+      "newdecision"_n,
       std::make_tuple(coopname, withdraw -> username, decision -> type, decision_id, decision -> authorization)
   ).send();
 

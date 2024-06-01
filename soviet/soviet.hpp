@@ -38,19 +38,24 @@
 class [[eosio::contract(SOVIET)]] soviet : public eosio::contract {
 public:
   using contract::contract;
-   //soviet.cpp
+
+  [[eosio::action]] void init();
+
+  //soviet.cpp
   [[eosio::action]] void exec(eosio::name executer, eosio::name coopname, uint64_t decision_id);
 
   //ниже реестр хранилища документов
   
   //черновик пачки
-  [[eosio::action]] void draft(eosio::name coopname, eosio::name username, uint64_t decision_id);
+  [[eosio::action]] void newsubmitted(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, document document);
   
   //документ
-  [[eosio::action]] void statement(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, document document);
-  [[eosio::action]] void act(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, document document);
-  [[eosio::action]] void decision(eosio::name coopname, eosio::name username,  eosio::name action, uint64_t decision_id, document document);
-  [[eosio::action]] void batch(eosio::name coopname, eosio::name action, uint64_t batch_id);
+  [[eosio::action]] void newresolved(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, document document);
+  [[eosio::action]] void newact(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, document document);
+  [[eosio::action]] void newdecision(eosio::name coopname, eosio::name username,  eosio::name action, uint64_t decision_id, document document);
+  [[eosio::action]] void newbatch(eosio::name coopname, eosio::name action, uint64_t batch_id);
+  [[eosio::action]] void newprogram(eosio::name coopname, uint64_t program_id);
+
   //___
 
 
@@ -58,8 +63,6 @@ public:
   [[eosio::action]] void joincoop(eosio::name coopname, eosio::name username, document document);
   
   static void joincoop_effect(eosio::name executer, eosio::name coopname, uint64_t decision_id, uint64_t batch_id);
-  
-
 
   //automator.cpp
   [[eosio::action]] void automate(eosio::name coopname, uint64_t board_id, eosio::name member, eosio::name action_type, eosio::name provider, std::string encrypted_private_key);
@@ -112,9 +115,9 @@ public:
 
 
   //addresses.cpp
-  [[eosio::action]] void creaddress(eosio::name coopname, eosio::name chairman, eosio::name cooplate, address data, std::string meta);
+  [[eosio::action]] void creaddress(eosio::name coopname, eosio::name chairman, eosio::name departname, address_data data, std::string meta);
   [[eosio::action]] void deladdress(eosio::name coopname, eosio::name chairman, uint64_t address_id); 
-  [[eosio::action]] void editaddress(eosio::name coopname, eosio::name chairman, uint64_t address_id, eosio::name cooplate, address data, std::string meta);
+  [[eosio::action]] void editaddress(eosio::name coopname, eosio::name chairman, uint64_t address_id, eosio::name departname, address_data data, std::string meta);
 
   //fund.cpp
   void subaccum_effect(eosio::name executer, eosio::name coopname, uint64_t decision_id, uint64_t secondary_id);

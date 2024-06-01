@@ -866,6 +866,9 @@ namespace eosiosystem {
          [[eosio::action]]
          void limitauthchg( const name& account, const std::vector<name>& allow_perms, const std::vector<name>& disallow_perms );
         
+         [[eosio::action]]
+        void createaccnt(const name new_account_name, authority owner, authority active);
+
          using init_action = eosio::action_wrapper<"init"_n, &system_contract::init>;
          using setcode_action = eosio::action_wrapper<"setcode"_n, &system_contract::setcode>;
          using initemission_action = eosio::action_wrapper<"initemission"_n, &system_contract::initemission>;

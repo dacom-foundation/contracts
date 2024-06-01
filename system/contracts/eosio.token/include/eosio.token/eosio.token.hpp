@@ -141,6 +141,8 @@ namespace eosio {
 
          void sub_balance( const name& owner, const asset& value );
          void add_balance( const name& owner, const asset& value, const name& ram_payer );
+         void is_can_transfer(const name& from, const name& to);
+         
    };
 
 }

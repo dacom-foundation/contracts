@@ -174,26 +174,29 @@ void soviet::withdraw(eosio::name coopname, eosio::name username, uint64_t withd
 
   require_auth(_gateway);
 
-  auto cooperative = get_cooperative_or_fail(coopname);  
+  // auto cooperative = get_cooperative_or_fail(coopname);  
   
-  decisions_index decisions(_soviet, coopname.value);
-  auto decision_id = get_global_id(_soviet, "decisions"_n);
+  // decisions_index decisions(_soviet, coopname.value);
+  // auto decision_id = get_id(_soviet, coopname, "decisions"_n);
+    
+  // decisions.emplace(_gateway, [&](auto &d){
+  //   d.id = decision_id;
+    
+  //   d.coopname = coopname;
+  //   d.username = username;
+  //   d.type = _withdraw_action;
+  //   d.batch_id = withdraw_id;
+  //   d.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+  // });
 
-  decisions.emplace(_gateway, [&](auto &d){
-    d.id = decision_id;
-    d.coopname = coopname;
-    d.username = username;
-    d.type = _withdraw_action;
-    d.batch_id = withdraw_id;
-    d.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
-  });
+  // TODO получить заявление и зафиксировать его здесь или там
 
-  action(
-    permission_level{ _soviet, "active"_n},
-    _soviet,
-    "draft"_n,
-    std::make_tuple(coopname, username, decision_id)
-  ).send();
+  // action(
+  //   permission_level{ _soviet, "active"_n},
+  //   _soviet,
+  //   "newsubmitted"_n,
+  //   std::make_tuple(coopname, username, decision_id)
+  // ).send();
   
 };
 
@@ -218,14 +221,14 @@ void soviet::withdraw_effect(eosio::name executer, eosio::name coopname, uint64_
   action(
       permission_level{ _soviet, "active"_n},
       _soviet,
-      "statement"_n,
+      "newresolved"_n,
       std::make_tuple(coopname, decision -> username, _withdraw_action, decision_id, withdraw -> document)
   ).send();
   
   action(
       permission_level{ _soviet, "active"_n},
       _soviet,
-      "decision"_n,
+      "newdecision"_n,
       std::make_tuple(coopname, decision -> username, _withdraw_action, decision_id, decision -> authorization)
   ).send();
 

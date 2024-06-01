@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="578" column="33" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="578" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="356" column="33" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="356" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="579" column="34" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="579" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="357" column="34" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="357" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeosiosystem_1_1powerup__state_1ac00370168898d00ee8c2793728e45636" prot="public" static="no" mutable="no">
         <type><ref refid="structeosiosystem_1_1powerup__state__resource" kindref="compound">powerup_state_resource</ref></type>
@@ -49,7 +49,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="580" column="34" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="580" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="358" column="34" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="358" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeosiosystem_1_1powerup__state_1a66206e7637b2d175a702678ce0f858c3" prot="public" static="no" mutable="no">
         <type><ref refid="structeosiosystem_1_1powerup__state__resource" kindref="compound">powerup_state_resource</ref></type>
@@ -64,7 +64,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="581" column="34" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="581" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="359" column="34" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="359" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeosiosystem_1_1powerup__state_1a41192b702d0a81d46a3f19e87149c740" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -79,7 +79,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="583" column="34" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="583" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="361" column="34" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="361" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeosiosystem_1_1powerup__state_1a1e3527154e64dac849d3a04037ff131a" prot="public" static="no" mutable="no">
         <type>asset</type>
@@ -94,7 +94,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="584" column="34" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="584" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="362" column="34" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="362" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -110,7 +110,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="586" column="16" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="586" bodyend="586"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="364" column="16" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="364" bodyend="364"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -138,7 +138,7 @@
         <link refid="structeosiosystem_1_1powerup__state__resource"/>
       </node>
     </collaborationgraph>
-    <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="577" column="4" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="577" bodyend="587"/>
+    <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="355" column="4" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="355" bodyend="365"/>
     <listofallmembers>
       <member refid="structeosiosystem_1_1powerup__state_1ac00370168898d00ee8c2793728e45636" prot="public" virt="non-virtual"><scope>eosiosystem::powerup_state</scope><name>cpu</name></member>
       <member refid="structeosiosystem_1_1powerup__state_1a7ac8f24cd2c7173d15f1919fa6aff42b" prot="public" virt="non-virtual"><scope>eosiosystem::powerup_state</scope><name>default_powerup_days</name></member>

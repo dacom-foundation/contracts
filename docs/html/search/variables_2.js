@@ -1,12 +1,12 @@
 var searchData=
 [
   ['back_5ffrom_5fproducers_0',['back_from_producers',['../structeosiosystem_1_1emission__state.html#a11f8ea9b43b4483e667bc2359e30a710',1,'eosiosystem::emission_state']]],
-  ['balance_1',['balance',['../structeosiosystem_1_1exchange__state_1_1connector.html#aa0c34b770479927ae7d4f0760bc0e574',1,'eosiosystem::exchange_state::connector::balance()'],['../structeosiosystem_1_1rex__fund.html#af8fa096b0e2c5d24798a659aa5ddb309',1,'eosiosystem::rex_fund::balance()'],['../structeosiosystem_1_1rex__loan.html#aaa8b37af599e458df1cc4a4557558c34',1,'eosiosystem::rex_loan::balance()'],['../structeosio_1_1token_1_1account.html#a6d6aaf37aa4e794b64a1b04990339043',1,'eosio::token::account::balance()']]],
-  ['bank_5fdata_5fid_2',['bank_data_id',['../structwithdraws.html#a8ffde0a7ea12626e021d4556726d2cf1',1,'withdraws::bank_data_id()'],['../structfwithdraws.html#a450ab8e004e6fca3d6a8dad17629b701',1,'fwithdraws::bank_data_id()']]],
+  ['balance_1',['balance',['../structeosiosystem_1_1exchange__state_1_1connector.html#aa0c34b770479927ae7d4f0760bc0e574',1,'eosiosystem::exchange_state::connector::balance()'],['../structeosio_1_1token_1_1account.html#a6d6aaf37aa4e794b64a1b04990339043',1,'eosio::token::account::balance()']]],
+  ['bank_5fdata_5fid_2',['bank_data_id',['../structonewithdraw.html#ac4d03975a2de70c9108dc809723d9ace',1,'onewithdraw::bank_data_id()'],['../structfwithdraw.html#aeab9fd0569cda6b199a66af465bfa18d',1,'fwithdraw::bank_data_id()']]],
   ['base_3',['base',['../structeosiosystem_1_1exchange__state.html#a64022b0822ac4b53ff484590f76ef021',1,'eosiosystem::exchange_state']]],
   ['batch_5fcurrent_5fend_5fheight_4',['batch_current_end_height',['../structeosiosystem_1_1block__info_1_1block__batch__info.html#a54af69850d006e2a43fdea538f5c0695',1,'eosiosystem::block_info::block_batch_info']]],
   ['batch_5fcurrent_5fend_5ftimestamp_5',['batch_current_end_timestamp',['../structeosiosystem_1_1block__info_1_1block__batch__info.html#aef63da736d0ed2568917a4e9aeb44931',1,'eosiosystem::block_info::block_batch_info']]],
-  ['batch_5fid_6',['batch_id',['../structdecisions.html#a4a5595962b6b67447b283aed64d24b87',1,'decisions']]],
+  ['batch_5fid_6',['batch_id',['../structdecision.html#a6728d16176fe0983ec043b8a87b809a2',1,'decision']]],
   ['batch_5fsize_7',['batch_size',['../structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1get__latest__block__batch__info.html#a82ebd86affa47e2f8024b9083374ed8a',1,'system_contracts::testing::test_contracts::blockinfo_tester::get_latest_block_batch_info']]],
   ['batch_5fstart_5fheight_8',['batch_start_height',['../structeosiosystem_1_1block__info_1_1block__batch__info.html#aabf1478c4a361b8fc044f77c4617e32b',1,'eosiosystem::block_info::block_batch_info']]],
   ['batch_5fstart_5fheight_5foffset_9',['batch_start_height_offset',['../structsystem__contracts_1_1testing_1_1test__contracts_1_1blockinfo__tester_1_1get__latest__block__batch__info.html#ac601553260c24e5fe6ed17828e4a41ef',1,'system_contracts::testing::test_contracts::blockinfo_tester::get_latest_block_batch_info']]],
@@ -14,11 +14,11 @@ var searchData=
   ['bidder_11',['bidder',['../structeosiosystem_1_1bid__refund.html#ae6bd67f412850f81514ea8b5a5ad4abd',1,'eosiosystem::bid_refund']]],
   ['block_5fheight_12',['block_height',['../structeosiosystem_1_1block__info_1_1block__info__record.html#a7e0b0f4b78c5dcdff23495596e7cb488',1,'eosiosystem::block_info::block_info_record']]],
   ['block_5ftimestamp_13',['block_timestamp',['../structeosiosystem_1_1block__info_1_1block__info__record.html#afaa04cfe4be674be7f3d4d497e90c072',1,'eosiosystem::block_info::block_info_record']]],
-  ['blocked_14',['blocked',['../structwallets.html#a46f39ef4eb3a087abb588d747f4c3cf7',1,'wallets']]],
-  ['blocked_5funits_15',['blocked_units',['../structexchange.html#a6fd079725783b578fd72e9dba31eb6e7',1,'exchange']]],
+  ['blocked_14',['blocked',['../structonewallet.html#a59b90255c9c947a96328566b68701771',1,'onewallet']]],
+  ['blocked_5funits_15',['blocked_units',['../structrequest.html#a3a5a895c9c2fc364275bccacf5f41df2',1,'request']]],
   ['blocks_5fper_5fday_16',['blocks_per_day',['../namespaceeosiosystem.html#a0a989239fac055dbc55e5e6bd05f8f5f',1,'eosiosystem']]],
   ['board_5fid_17',['board_id',['../structautomator.html#af9991df3151a7d8205c4205caf993a92',1,'automator']]],
   ['bpay_5faccount_18',['bpay_account',['../classeosiosystem_1_1system__contract.html#aeec189aa121eaf90aee0c180cd59cc26',1,'eosiosystem::system_contract']]],
-  ['building_5fsection_19',['building_section',['../structaddress.html#aa714c4baddf02fffea8834660e39118a',1,'address']]],
-  ['business_5fhours_20',['business_hours',['../structaddress.html#adf8eb6a178e4938ce78a51a5acba0183',1,'address']]]
+  ['building_5fsection_19',['building_section',['../structaddress__data.html#a403717a4fba75af0ce7a79f66489d529',1,'address_data']]],
+  ['business_5fhours_20',['business_hours',['../structaddress__data.html#ad37c48bf079e77c72da8c0206f2a053b',1,'address_data']]]
 ];

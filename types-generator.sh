@@ -2,17 +2,17 @@
 
 # Определение ассоциативных массива для zsh
 declare -A contract_params_test=(
-  [system]="eosio"
-  # [msig]="eosio.msig"
+#  [system]="eosio"
+  #[msig]="eosio.msig"
   # [wrap]="eosio.wrap"
-  # [token]="eosio.token"
-  [ano]="anotest22222"
-  [gateway]="gatetest2222"
-  [draft]="drafttest222"
-  [marketplace]="markettest22"
-  [soviet]="soviettest22"
-  [registrator]="regtest22222"
-  [fund]="fundtest2222"
+#  [token]="eosio.token"
+  #[ano]="anotest22222"
+#  [gateway]="gateway"
+#  [draft]="draft"
+#  [marketplace]="marketplace"
+  [soviet]="soviet"
+#  [registrator]="registrator"
+#  [fund]="fund"
 )
 
 # Алиас для cleos через Docker

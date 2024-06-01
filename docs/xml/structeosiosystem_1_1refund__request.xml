@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="381" column="23" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="381" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="311" column="23" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="311" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeosiosystem_1_1refund__request_1ac5513485aad2e2e0de4717ca1b06530e" prot="public" static="no" mutable="no">
         <type>time_point_sec</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="382" column="23" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="382" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="312" column="23" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="312" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeosiosystem_1_1refund__request_1a5f314641a1ad02216a89275dd38c8b8b" prot="public" static="no" mutable="no">
         <type>eosio::asset</type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="383" column="23" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="383" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="313" column="23" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="313" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeosiosystem_1_1refund__request_1a8d8e9e6b4bcdbdc1b30b045feb58c6fa" prot="public" static="no" mutable="no">
         <type>eosio::asset</type>
@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="384" column="23" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="384" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="314" column="23" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="314" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -74,7 +74,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="386" column="12" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="386" bodyend="386"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="316" column="12" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="316" bodyend="316"/>
       </memberdef>
       <memberdef kind="function" id="structeosiosystem_1_1refund__request_1a527ccee1812739017b22d69139b2e40b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>uint64_t</type>
@@ -88,7 +88,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="387" column="17" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="387" bodyend="387"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="317" column="17" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="317" bodyend="317"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -120,7 +120,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="380" column="4" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="380" bodyend="391"/>
+    <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="310" column="4" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="310" bodyend="321"/>
     <listofallmembers>
       <member refid="structeosiosystem_1_1refund__request_1a8d8e9e6b4bcdbdc1b30b045feb58c6fa" prot="public" virt="non-virtual"><scope>eosiosystem::refund_request</scope><name>cpu_amount</name></member>
       <member refid="structeosiosystem_1_1refund__request_1a2061e7187b06f1adb76043b7935bd091" prot="public" virt="non-virtual"><scope>eosiosystem::refund_request</scope><name>is_empty</name></member>

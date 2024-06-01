@@ -36,19 +36,17 @@ struct verification {
  * @brief Структура, представляющая учетные записи аккаунтов.
  * @details Эта структура хранит информацию о пользователях аккаунта и их статусе, репутации и других параметрах.
  */
-struct [[eosio::table, eosio::contract(REGISTRATOR)]] accounts {
+struct [[eosio::table, eosio::contract(REGISTRATOR)]] account {
   eosio::name username; ///< Имя аккаунта гостя. Имя пользователя в системе.
   eosio::name referer; ///< Имя аккаунта, который был реферером при регистрации.
   eosio::name registrator; ///< Имя аккаунта регистратора, который создал этот аккаунт.
   eosio::name type; ///< Тип аккаунта: user (пользователь) | org (организация).
-  eosio::name status; ///< Статус аккаунта:
+  eosio::name status; ///< Статус аккаунта
   std::string meta; ///< Дополнительная мета-информация о аккаунте.
-  // "pending" - ожидание утверждения советом,
-  // "active" - активный аккаунт;
-  // "blocked" - заблокированный аккаунт;
-  // "deleted" - удален пользователем;
-  uint64_t reputation; ///< Репутация аккаунта
-  eosio::asset registration_amount; ///< Количество токенов, которое требуется для регистрации.
+  
+  std::vector<name> storages; ///< Хранилища персональных данных и идентификаторы данных в них.
+  std::vector<verification> verifications; ///< Информация о верификации пользователя.
+  
   eosio::time_point_sec registered_at; ///< Время регистрации аккаунта.
   eosio::time_point_sec signature_expires_at; ///< Время истечения срока действия подписи аккаунта.
 
@@ -84,76 +82,53 @@ struct [[eosio::table, eosio::contract(REGISTRATOR)]] accounts {
    */
   uint64_t by_registr() const { return registrator.value; }
 
+  bool is_active() const {
+    return status == "active"_n;
+  }
+
   uint64_t by_registered_at() const {
     return registered_at.sec_since_epoch();
   }
 
+  /**
+   * @brief Проверяет, верифицирована ли организация.
+   * @return bool - true, если организация верифицирована, иначе false.
+   */
+  bool is_verified() const {
+    for (const auto& v : verifications) {
+      if (v.is_verified) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+
+  /**
+   * @brief Возвращает индекс для определения, является ли организация верифицированной.
+   * @return uint64_t - ключ, равный 1, если организация верифицирована, иначе 0.
+   */
+  uint64_t is_verified_index() const {
+    for (const auto& v : verifications) {
+      if (v.is_verified) {
+        return 1;
+      }
+    }
+    return 0;
+  }
 };
 
 typedef eosio::multi_index<
-    "accounts"_n, accounts,
-    eosio::indexed_by<
-        "byreferer"_n,
-        eosio::const_mem_fun<accounts, uint64_t, &accounts::by_referer>>,
-    eosio::indexed_by<"bytype"_n, eosio::const_mem_fun<accounts, uint64_t,
-                                                       &accounts::by_type>>,
-    eosio::indexed_by<
-        "bystatus"_n,
-        eosio::const_mem_fun<accounts, uint64_t, &accounts::by_status>>,
-    eosio::indexed_by<
-        "byregistr"_n,
-        eosio::const_mem_fun<accounts, uint64_t, &accounts::by_registr>>,
-    eosio::indexed_by<
-        "byregistred"_n,
-        eosio::const_mem_fun<accounts, uint64_t, &accounts::by_registered_at>>
-        >
+    "accounts"_n, account,
+      eosio::indexed_by< "byreferer"_n, eosio::const_mem_fun<account, uint64_t, &account::by_referer>>,
+      eosio::indexed_by<"bytype"_n, eosio::const_mem_fun<account, uint64_t, &account::by_type>>,
+      eosio::indexed_by<"bystatus"_n, eosio::const_mem_fun<account, uint64_t, &account::by_status>>,
+      eosio::indexed_by<"byregistr"_n, eosio::const_mem_fun<account, uint64_t, &account::by_registr>>,
+      eosio::indexed_by<"byregistred"_n, eosio::const_mem_fun<account, uint64_t, &account::by_registered_at>>,
+      eosio::indexed_by<"byverif"_n, eosio::const_mem_fun<account, uint64_t,&account::is_verified_index>>
+    >
     accounts_index;
 
-
-/**
- * @ingroup public_structs
- * @brief Структура, представляющая хранилища данных, в которых хранятся персональные данные и их идентификаторы.
- */
-struct storage {
-  eosio::name storage_username; ///< Имя аккаунта хранилища персональных данных
-};
-
-
-/**
- * @ingroup public_tables
- * @brief Структура, представляющая учетные записи пользователей.
- * @details Эта структура хранит информацию о пользователях, их профилях и верификации.
- */
-struct [[eosio::table, eosio::contract(REGISTRATOR)]] users {
-  eosio::name username; ///< Имя аккаунта пользователя.
-  bool is_active = false; ///< Флаг активности.
-  std::vector<storage> storages; ///< Хранилища персональных данных и идентификаторы данных в них.
-  std::vector<verification> verifications; ///< Информация о верификации пользователя.
-  
-  /**
-   * @brief Возвращает первичный ключ учетной записи пользователя.
-   * @return uint64_t - первичный ключ, равный значению имени аккаунта пользователя.
-   */
-  uint64_t primary_key() const {
-    return username.value;
-  } /*!< return username - primary_key */
-  
-};
-
-typedef eosio::multi_index<"users"_n, users>users_index;
-
-
-/**
- * @ingroup public_tables
- * @brief Структура, представляющая информацию о банке.
- * @details Эта структура содержит информацию о номере расчётного счёта банка, времени создания, времени последнего обновления и статусе активности.
- */
-struct bank {
-  std::string account; ///< Номер расчётного счёта банка.
-  eosio::time_point_sec created_at; ///< Время создания записи.
-  eosio::time_point_sec last_update; ///< Время последнего обновления записи.
-  bool is_active; ///< Флаг, указывающий, активен ли банк.
-};
 
 
 
@@ -164,11 +139,8 @@ struct bank {
 * Данная структура содержит всю необходимую информацию для регистрации нового юридического лица в блокчейне.
 */
 struct org_data {
-    storage storage; ///< Хранилища персональных данных и идентификаторы данных в них.
-
     bool is_cooperative = false; ///< Является ли кооперативом
     eosio::name coop_type; ///< Тип кооператива (union, conscoop, prodcoop, agricoop, builderscoop, nonprofitorg)
-    eosio::name token_contract; ///< Контракт токена
     std::string announce; ///< Анонс
     std::string description; ///< Описание
     eosio::asset initial; ///< Вступительный взнос
@@ -183,7 +155,6 @@ struct org_data {
 * Данная структура содержит всю необходимую информацию для регистрации нового юридического лица в блокчейне.
 */
 struct plot_data {
-    storage storage; ///< Хранилища персональных данных и идентификаторы данных в них.
     std::string announce; ///< Анонс
     std::string description; ///< Описание
 };
@@ -194,30 +165,22 @@ struct plot_data {
  * @brief Структура, представляющая организации.
  * @details Эта структура содержит информацию о юридических лицах (организациях), их верификации и других параметрах.
  */
-struct [[eosio::table, eosio::contract(REGISTRATOR)]] orgs {
+struct [[eosio::table, eosio::contract(REGISTRATOR)]] organization {
   eosio::name username; ///< Имя аккаунта организации.
   eosio::name parent_username; ///< Имя родительской организации, если есть.
-  std::vector<verification> verifications; ///< Информация о верификации организации.
-  std::vector<storage> storages; ///< Хранилища персональных данных и идентификаторы данных в них.
-  bool is_cooperative = false; ///< Флаг, указывающий, является ли организация кооперативом.
-  bool is_active = false; ///< Флаг, указывающий, что организация активна.
-  eosio::name coop_type; ///< Тип некоммерческой организации (если это кооператив).
   
-  eosio::name token_contract; ///< Контракт токена, связанного с организацией.
   std::string announce; ///< Анонс организации.
   std::string description; ///< Описание организации.
+  bool is_cooperative = false; ///< Флаг, указывающий, является ли организация кооперативом.
+  
+  bool is_branched = false; ///< Флаг, указывающий, перешел ли кооператив на собрания уполномоченных
+  bool is_enrolled = false; ///< Флаг, указывающий, подключил ли кооператив себе ПО
+  
+  eosio::name coop_type; ///< Тип некоммерческой организации (если это кооператив).
   eosio::asset registration; ///< Регистрационный взнос 
   eosio::asset initial; ///< Вступительный членский взнос
   eosio::asset minimum; ///< Минимальный паевый взнос
   
-  // Тип некоммерческой организации
-  // (0, _('Union of Societies')),
-  // (1, _('Consumer Cooperative')),
-  // (2, _('Production Cooperative')),
-  // (3, _('Agriculture Cooperative')),
-  // (4, _('Builder\'s Societes')),
-  // (5, _('Non-profit organization'))
-
   /**
    * @brief Возвращает первичный ключ учетной записи организации.
    * @return uint64_t - первичный ключ, равный значению имени аккаунта организации.
@@ -225,13 +188,6 @@ struct [[eosio::table, eosio::contract(REGISTRATOR)]] orgs {
   
   uint64_t primary_key() const {
     return username.value;
-  }
-
-  /**
-   * @brief Сравнивает контракт токена кооператива и представленный
-   */
-  void check_contract_or_fail(eosio::name contract) {
-    eosio::check(token_contract == contract, "Неверный контракт токена");
   }
 
   /**
@@ -275,19 +231,6 @@ struct [[eosio::table, eosio::contract(REGISTRATOR)]] orgs {
 
 
   /**
-   * @brief Возвращает индекс для определения, является ли организация верифицированной.
-   * @return uint64_t - ключ, равный 1, если организация верифицирована, иначе 0.
-   */
-  uint64_t is_verified_index() const {
-    for (const auto& v : verifications) {
-      if (v.is_verified) {
-        return 1;
-      }
-    }
-    return 0;
-  }
-
-  /**
    * @brief Проверяет, является ли организация кооперативом.
    * @return bool - true, если организация является кооперативом, иначе false.
    */
@@ -295,36 +238,22 @@ struct [[eosio::table, eosio::contract(REGISTRATOR)]] orgs {
     return is_cooperative;
   }
 
-  /**
-   * @brief Проверяет, верифицирована ли организация.
-   * @return bool - true, если организация верифицирована, иначе false.
-   */
-  bool is_verified() const {
-    for (const auto& v : verifications) {
-      if (v.is_verified) {
-        return true;
-      }
-    }
-    return false;
-  }
 };
 
-typedef eosio::multi_index<"orgs"_n, orgs,
-eosio::indexed_by<"iscoop"_n, eosio::const_mem_fun<orgs, uint64_t,
-                                                       &orgs::is_coop_index>>,
-eosio::indexed_by<"byparent"_n, eosio::const_mem_fun<orgs, uint64_t,
-                                                       &orgs::by_parent>>,
-eosio::indexed_by<"bycoopchilds"_n, eosio::const_mem_fun<orgs, uint128_t, &orgs::by_coop_childs>>,
-eosio::indexed_by<"bycooptype"_n, eosio::const_mem_fun<orgs, uint64_t, &orgs::bycooptype>>,
-eosio::indexed_by<"byverif"_n, eosio::const_mem_fun<orgs, uint64_t,
-                                                       &orgs::is_verified_index>>
-> orgs_index;
+typedef eosio::multi_index<"orgs"_n, organization,
+eosio::indexed_by<"iscoop"_n, eosio::const_mem_fun<organization, uint64_t,
+                                                       &organization::is_coop_index>>,
+eosio::indexed_by<"byparent"_n, eosio::const_mem_fun<organization, uint64_t,
+                                                       &organization::by_parent>>,
+eosio::indexed_by<"bycoopchilds"_n, eosio::const_mem_fun<organization, uint128_t, &organization::by_coop_childs>>,
+eosio::indexed_by<"bycooptype"_n, eosio::const_mem_fun<organization, uint64_t, &organization::bycooptype>>
+> organizations_index;
 
 
 
 
-orgs get_cooperative_or_fail(eosio::name coopname) {
-  orgs_index orgs(_registrator, _registrator.value);
+organization get_cooperative_or_fail(eosio::name coopname) {
+  organizations_index orgs(_registrator, _registrator.value);
   auto org = orgs.find(coopname.value);
   eosio::check(org != orgs.end(), "Организация не найдена");
   eosio::check(org -> is_coop(), "Организация - не кооператив");
@@ -333,13 +262,13 @@ orgs get_cooperative_or_fail(eosio::name coopname) {
 };
 
 
-orgs get_cooplate_or_fail(eosio::name coopname, eosio::name cooplate) {
-  orgs_index orgs(_registrator, _registrator.value);
+organization get_department_or_fail(eosio::name coopname, eosio::name departname) {
+  organizations_index orgs(_registrator, _registrator.value);
   auto org = orgs.find(coopname.value);
   eosio::check(org != orgs.end(), "Организация не найдена");
   eosio::check(org -> is_coop(), "Организация - не кооператив");
 
-  auto org2 = orgs.find(cooplate.value);
+  auto org2 = orgs.find(departname.value);
   eosio::check(org2 != orgs.end(), "Организация не найдена");
   eosio::check(org2 -> is_coop(), "Организация - не кооператив");
 

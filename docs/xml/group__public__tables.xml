@@ -4,24 +4,21 @@
     <compoundname>public_tables</compoundname>
     <title>Таблицы</title>
     <innerclass refid="structverification" prot="public">verification</innerclass>
-    <innerclass refid="structaccounts" prot="public">accounts</innerclass>
-    <innerclass refid="structusers" prot="public">users</innerclass>
-    <innerclass refid="structbank" prot="public">bank</innerclass>
+    <innerclass refid="structaccount" prot="public">account</innerclass>
     <innerclass refid="structorg__data" prot="public">org_data</innerclass>
     <innerclass refid="structplot__data" prot="public">plot_data</innerclass>
-    <innerclass refid="structorgs" prot="public">orgs</innerclass>
-    <innerclass refid="structdeposits" prot="public">deposits</innerclass>
-    <innerclass refid="structwithdraws" prot="public">withdraws</innerclass>
+    <innerclass refid="structorganization" prot="public">organization</innerclass>
+    <innerclass refid="structonedeposit" prot="public">onedeposit</innerclass>
+    <innerclass refid="structonewithdraw" prot="public">onewithdraw</innerclass>
     <innerclass refid="structbalances__base" prot="public">balances_base</innerclass>
     <innerclass refid="structexchange__params" prot="public">exchange_params</innerclass>
-    <innerclass refid="structexchange" prot="public">exchange</innerclass>
+    <innerclass refid="structrequest" prot="public">request</innerclass>
     <innerclass refid="structboard__member" prot="public">board_member</innerclass>
     <innerclass refid="structboards" prot="public">boards</innerclass>
     <innerclass refid="structstaff" prot="public">staff</innerclass>
     <innerclass refid="structparticipants" prot="public">participants</innerclass>
-    <innerclass refid="structdecisions" prot="public">decisions</innerclass>
-    <innerclass refid="structaddresses" prot="public">addresses</innerclass>
-    <innerclass refid="structregistrator_1_1balances" prot="public">registrator::balances</innerclass>
+    <innerclass refid="structdecision" prot="public">decision</innerclass>
+    <innerclass refid="structaddress" prot="public">address</innerclass>
     <innerclass refid="structautomator" prot="public">automator</innerclass>
     <innerclass refid="structgateway_1_1balances" prot="public">gateway::balances</innerclass>
     <briefdescription>

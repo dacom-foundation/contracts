@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['withdraw_0',['withdraw',['../classsoviet.html#a7089fa0bf46043a738f2080a110d6565',1,'soviet::withdraw()'],['../classeosiosystem_1_1system__contract.html#a45eea3c4ce35174eb1c3ad1e64954d5e',1,'eosiosystem::system_contract::withdraw()'],['../group__public__actions.html#ga5b0187a0110b5d1f1ca9296a4ed4156a',1,'gateway::withdraw()']]],
+  ['withdraw_0',['withdraw',['../classsoviet.html#a7089fa0bf46043a738f2080a110d6565',1,'soviet::withdraw()'],['../group__public__actions.html#ga5b0187a0110b5d1f1ca9296a4ed4156a',1,'gateway::withdraw()']]],
   ['withdraw_5feffect_1',['withdraw_effect',['../classsoviet.html#a74775bb15963afd3dec409c7a4df4b7a',1,'soviet']]],
   ['withdrawauth_2',['withdrawauth',['../classgateway.html#a5b244fde939d3cf2aaa7c36f91c228cb',1,'gateway']]],
   ['wthdcomplete_3',['wthdcomplete',['../group__public__actions.html#ga2551c736852a98d33f2fcc9f569fe836',1,'gateway']]],

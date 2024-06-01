@@ -14,7 +14,7 @@ struct [[eosio::table, eosio::contract(FUND)]] fundwallet { // фонд член
 typedef eosio::multi_index< "fundwallet"_n, fundwallet> fundwallet_index;
 
 
-struct [[eosio::table, eosio::contract(FUND)]] accfunds { //фонды накопления
+struct [[eosio::table, eosio::contract(FUND)]] accfund { //фонды накопления
   uint64_t id; ///< нулевой идентификатор изменять нельзя вообще
   eosio::name coopname; ///< идентификатор кооператива
   eosio::name contract; ///< внешний контракт, которому передано управление фондом
@@ -29,10 +29,10 @@ struct [[eosio::table, eosio::contract(FUND)]] accfunds { //фонды нако�
   uint64_t primary_key() const { return id; } ///< Первичный ключ для индексации по идентификатору фонда
 };
 
-typedef eosio::multi_index< "accfunds"_n, accfunds> accfunds_index;
+typedef eosio::multi_index< "accfunds"_n, accfund> accfunds_index;
 
 
-struct [[eosio::table, eosio::contract(FUND)]] expfunds { //фонды списания
+struct [[eosio::table, eosio::contract(FUND)]] expfund { //фонды списания
   uint64_t id;  ///< идентификатор
   eosio::name coopname; ///< идентификатор кооператива 
   eosio::name contract; ///< внешний контракт, которому передано управление фондом
@@ -48,10 +48,10 @@ struct [[eosio::table, eosio::contract(FUND)]] expfunds { //фонды спис�
 
 };
 
-typedef eosio::multi_index< "expfunds"_n, expfunds> expfunds_index;
+typedef eosio::multi_index< "expfunds"_n, expfund> expfunds_index;
 
 
-struct [[eosio::table, eosio::contract(FUND)]] fwithdraws { //таблица ожидания решения совета о использовании фонда накопления
+struct [[eosio::table, eosio::contract(FUND)]] fwithdraw { //таблица ожидания решения совета о использовании фонда накопления
   uint64_t id;
   eosio::name coopname;
   eosio::name username;
@@ -72,8 +72,8 @@ struct [[eosio::table, eosio::contract(FUND)]] fwithdraws { //таблица о�
 
 };
 
-typedef eosio::multi_index< "fwithdraws"_n, fwithdraws,
-  eosio::indexed_by<"byusername"_n, eosio::const_mem_fun<fwithdraws, uint64_t, &fwithdraws::by_username>>,
-  eosio::indexed_by<"bystatus"_n, eosio::const_mem_fun<fwithdraws, uint64_t, &fwithdraws::by_status>>,
-  eosio::indexed_by<"byexpired"_n, eosio::const_mem_fun<fwithdraws, uint64_t, &fwithdraws::by_expired>>
+typedef eosio::multi_index< "fwithdraws"_n, fwithdraw,
+  eosio::indexed_by<"byusername"_n, eosio::const_mem_fun<fwithdraw, uint64_t, &fwithdraw::by_username>>,
+  eosio::indexed_by<"bystatus"_n, eosio::const_mem_fun<fwithdraw, uint64_t, &fwithdraw::by_status>>,
+  eosio::indexed_by<"byexpired"_n, eosio::const_mem_fun<fwithdraw, uint64_t, &fwithdraw::by_expired>>
 > fundwithdraws_index;

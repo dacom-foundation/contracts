@@ -4,10 +4,12 @@
     <compoundname>utils.hpp</compoundname>
     <includes local="no">eosio/eosio.hpp</includes>
     <includes local="no">eosio/transaction.hpp</includes>
+    <includes local="no">eosio/crypto.hpp</includes>
     <includedby refid="gateway_8hpp" local="yes">gateway/gateway.hpp</includedby>
     <includedby refid="marketplace_8hpp" local="yes">marketplace/marketplace.hpp</includedby>
     <includedby refid="registrator_8hpp" local="yes">registrator/registrator.hpp</includedby>
     <includedby refid="soviet_8hpp" local="yes">soviet/soviet.hpp</includedby>
+    <includedby refid="eosio_8token_8cpp" local="yes">system/contracts/eosio.token/src/eosio.token.cpp</includedby>
     <incdepgraph>
       <node id="1">
         <label>common/utils.hpp</label>
@@ -16,6 +18,11 @@
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>eosio/crypto.hpp</label>
       </node>
       <node id="2">
         <label>eosio/eosio.hpp</label>
@@ -35,6 +42,8 @@
         <childnode refid="6" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
         </childnode>
       </node>
       <node id="3">
@@ -77,6 +86,10 @@
         <childnode refid="9" relation="include">
         </childnode>
       </node>
+      <node id="10">
+        <label>system/contracts/eosio.token/src/eosio.token.cpp</label>
+        <link refid="eosio_8token_8cpp"/>
+      </node>
     </invincdepgraph>
       <sectiondef kind="func">
       <memberdef kind="function" id="utils_8hpp_1a9674246df019d9c71da6884b1fd0fe39" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -98,7 +111,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/utils.hpp" line="4" column="18" bodyfile="common/utils.hpp" bodystart="4" bodyend="6"/>
+        <location file="common/utils.hpp" line="5" column="18" bodyfile="common/utils.hpp" bodystart="5" bodyend="7"/>
       </memberdef>
       <memberdef kind="function" id="utils_8hpp_1a64d2f38da75830fc3ccd9826391cfdc8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -111,7 +124,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/utils.hpp" line="8" column="13" bodyfile="common/utils.hpp" bodystart="8" bodyend="25"/>
+        <location file="common/utils.hpp" line="9" column="13" bodyfile="common/utils.hpp" bodystart="9" bodyend="26"/>
       </memberdef>
       <memberdef kind="function" id="utils_8hpp_1a13e31620411de1a426d18d70a2e86b17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>eosio::checksum256</type>
@@ -128,7 +141,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/utils.hpp" line="27" column="20" bodyfile="common/utils.hpp" bodystart="27" bodyend="29"/>
+        <location file="common/utils.hpp" line="28" column="20" bodyfile="common/utils.hpp" bodystart="28" bodyend="30"/>
       </memberdef>
       <memberdef kind="function" id="utils_8hpp_1ada508335b1eaf3038f9f3a69d2f584a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>uint64_t</type>
@@ -149,7 +162,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/utils.hpp" line="31" column="10" bodyfile="common/utils.hpp" bodystart="31" bodyend="34"/>
+        <location file="common/utils.hpp" line="32" column="10" bodyfile="common/utils.hpp" bodystart="32" bodyend="35"/>
       </memberdef>
       <memberdef kind="function" id="utils_8hpp_1ab7a22a1903f5bfdad00a096b273691c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>uint64_t</type>
@@ -166,7 +179,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/utils.hpp" line="36" column="10" bodyfile="common/utils.hpp" bodystart="36" bodyend="38"/>
+        <location file="common/utils.hpp" line="37" column="10" bodyfile="common/utils.hpp" bodystart="37" bodyend="39"/>
       </memberdef>
       <memberdef kind="function" id="utils_8hpp_1a36967481836d936c693f124a9ce33735" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>uint64_t</type>
@@ -179,7 +192,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/utils.hpp" line="40" column="10" bodyfile="common/utils.hpp" bodystart="40" bodyend="52"/>
+        <location file="common/utils.hpp" line="41" column="10" bodyfile="common/utils.hpp" bodystart="41" bodyend="53"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -189,56 +202,57 @@
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;eosio/eosio.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/transaction.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"></highlight></codeline>
-<codeline lineno="4" refid="utils_8hpp_1a9674246df019d9c71da6884b1fd0fe39" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>uint128_t<sp/><ref refid="utils_8hpp_1a9674246df019d9c71da6884b1fd0fe39" kindref="member">combine_ids</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint64_t<sp/>&amp;x,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint64_t<sp/>&amp;y)<sp/>{</highlight></codeline>
-<codeline lineno="5"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(uint128_t{x}<sp/>&lt;&lt;<sp/>64)<sp/>|<sp/>y;</highlight></codeline>
-<codeline lineno="6"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="7"><highlight class="normal"></highlight></codeline>
-<codeline lineno="8" refid="utils_8hpp_1a64d2f38da75830fc3ccd9826391cfdc8" refkind="member"><highlight class="normal">std::string<sp/><ref refid="utils_8hpp_1a64d2f38da75830fc3ccd9826391cfdc8" kindref="member">generate_random_name</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="9"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>ALPHABET[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;abcdefghijklmnopqrstuvwxyz&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="10"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ALPHABET_SIZE<sp/>=<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(ALPHABET)<sp/>-<sp/>1;</highlight></codeline>
-<codeline lineno="11"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>NAME_LENGTH<sp/>=<sp/>12;</highlight></codeline>
-<codeline lineno="12"><highlight class="normal"></highlight></codeline>
-<codeline lineno="13"><highlight class="normal"><sp/><sp/>uint64_t<sp/>current_time<sp/>=</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::current_time_point().sec_since_epoch();<sp/></highlight><highlight class="comment">//<sp/>Получаем<sp/>текущее<sp/>время</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="15"><highlight class="normal"><sp/><sp/>std::string<sp/>random_name;</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight></codeline>
-<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>NAME_LENGTH;<sp/>++i)<sp/>{</highlight></codeline>
-<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>current_time<sp/>=<sp/>(current_time<sp/>*<sp/>1103515245<sp/>+<sp/>12345)<sp/>%</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x100000000;<sp/></highlight><highlight class="comment">//<sp/>Линейный<sp/>конгруэнтный<sp/>метод</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>random_index<sp/>=<sp/>(current_time<sp/>%<sp/>ALPHABET_SIZE);</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>random_name<sp/>+=<sp/>ALPHABET[random_index];</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>random_name;</highlight></codeline>
-<codeline lineno="25"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"></highlight></codeline>
-<codeline lineno="27" refid="utils_8hpp_1a13e31620411de1a426d18d70a2e86b17" refkind="member"><highlight class="normal">eosio::checksum256<sp/><ref refid="utils_8hpp_1a13e31620411de1a426d18d70a2e86b17" kindref="member">hashit</ref>(std::string<sp/>str)<sp/>{</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eosio::sha256(</highlight><highlight class="keyword">const_cast&lt;</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(str.c_str()),<sp/>str.size());</highlight></codeline>
-<codeline lineno="29"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight></codeline>
-<codeline lineno="31" refid="utils_8hpp_1ada508335b1eaf3038f9f3a69d2f584a5" refkind="member"><highlight class="normal">uint64_t<sp/><ref refid="utils_8hpp_1ada508335b1eaf3038f9f3a69d2f584a5" kindref="member">hash64</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*buf,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>len)<sp/>{</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/>eosio::checksum256<sp/>hash<sp/>=<sp/>eosio::sha256(buf,<sp/>len);</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*(</highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="keyword">const<sp/></highlight><highlight class="normal">uint64_t<sp/>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(&amp;hash));</highlight></codeline>
-<codeline lineno="34"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight></codeline>
-<codeline lineno="36" refid="utils_8hpp_1ab7a22a1903f5bfdad00a096b273691c1" refkind="member"><highlight class="normal">uint64_t<sp/><ref refid="utils_8hpp_1ada508335b1eaf3038f9f3a69d2f584a5" kindref="member">hash64</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;arg)<sp/>{</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="utils_8hpp_1ada508335b1eaf3038f9f3a69d2f584a5" kindref="member">hash64</ref>(arg.c_str(),<sp/>arg.size());</highlight></codeline>
-<codeline lineno="38"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"></highlight></codeline>
-<codeline lineno="40" refid="utils_8hpp_1a36967481836d936c693f124a9ce33735" refkind="member"><highlight class="normal">uint64_t<sp/><ref refid="utils_8hpp_1a36967481836d936c693f124a9ce33735" kindref="member">generate</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>size<sp/>=<sp/>eosio::transaction_size();</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>buf[size];</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>read<sp/>=<sp/>eosio::read_transaction(buf,<sp/>size);</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::check(size<sp/>==<sp/>read,<sp/></highlight><highlight class="stringliteral">&quot;read_transaction<sp/>failed&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"></highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/>seed<sp/>=<sp/>eosio::current_time_point().sec_since_epoch();</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>size;<sp/>i++)<sp/>{</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>seed<sp/>^=<sp/>((uint64_t)buf[i]<sp/>&lt;&lt;<sp/>(i<sp/>%<sp/>8));</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"></highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>seed;</highlight></codeline>
-<codeline lineno="52"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/crypto.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5" refid="utils_8hpp_1a9674246df019d9c71da6884b1fd0fe39" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>uint128_t<sp/><ref refid="utils_8hpp_1a9674246df019d9c71da6884b1fd0fe39" kindref="member">combine_ids</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint64_t<sp/>&amp;x,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint64_t<sp/>&amp;y)<sp/>{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(uint128_t{x}<sp/>&lt;&lt;<sp/>64)<sp/>|<sp/>y;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="utils_8hpp_1a64d2f38da75830fc3ccd9826391cfdc8" refkind="member"><highlight class="normal">std::string<sp/><ref refid="utils_8hpp_1a64d2f38da75830fc3ccd9826391cfdc8" kindref="member">generate_random_name</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>ALPHABET[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;abcdefghijklmnopqrstuvwxyz&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ALPHABET_SIZE<sp/>=<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(ALPHABET)<sp/>-<sp/>1;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>NAME_LENGTH<sp/>=<sp/>12;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>uint64_t<sp/>current_time<sp/>=</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::current_time_point().sec_since_epoch();<sp/></highlight><highlight class="comment">//<sp/>Получаем<sp/>текущее<sp/>время</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>std::string<sp/>random_name;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>NAME_LENGTH;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>current_time<sp/>=<sp/>(current_time<sp/>*<sp/>1103515245<sp/>+<sp/>12345)<sp/>%</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x100000000;<sp/></highlight><highlight class="comment">//<sp/>Линейный<sp/>конгруэнтный<sp/>метод</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>random_index<sp/>=<sp/>(current_time<sp/>%<sp/>ALPHABET_SIZE);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>random_name<sp/>+=<sp/>ALPHABET[random_index];</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>random_name;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="utils_8hpp_1a13e31620411de1a426d18d70a2e86b17" refkind="member"><highlight class="normal">eosio::checksum256<sp/><ref refid="utils_8hpp_1a13e31620411de1a426d18d70a2e86b17" kindref="member">hashit</ref>(std::string<sp/>str)<sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eosio::sha256(</highlight><highlight class="keyword">const_cast&lt;</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(str.c_str()),<sp/>str.size());</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="utils_8hpp_1ada508335b1eaf3038f9f3a69d2f584a5" refkind="member"><highlight class="normal">uint64_t<sp/><ref refid="utils_8hpp_1ada508335b1eaf3038f9f3a69d2f584a5" kindref="member">hash64</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*buf,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>len)<sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>eosio::checksum256<sp/>hash<sp/>=<sp/>eosio::sha256(buf,<sp/>len);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*(</highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="keyword">const<sp/></highlight><highlight class="normal">uint64_t<sp/>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(&amp;hash));</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="utils_8hpp_1ab7a22a1903f5bfdad00a096b273691c1" refkind="member"><highlight class="normal">uint64_t<sp/><ref refid="utils_8hpp_1ada508335b1eaf3038f9f3a69d2f584a5" kindref="member">hash64</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;arg)<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="utils_8hpp_1ada508335b1eaf3038f9f3a69d2f584a5" kindref="member">hash64</ref>(arg.c_str(),<sp/>arg.size());</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="utils_8hpp_1a36967481836d936c693f124a9ce33735" refkind="member"><highlight class="normal">uint64_t<sp/><ref refid="utils_8hpp_1a36967481836d936c693f124a9ce33735" kindref="member">generate</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>size<sp/>=<sp/>eosio::transaction_size();</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>buf[size];</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>read<sp/>=<sp/>eosio::read_transaction(buf,<sp/>size);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::check(size<sp/>==<sp/>read,<sp/></highlight><highlight class="stringliteral">&quot;read_transaction<sp/>failed&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/>seed<sp/>=<sp/>eosio::current_time_point().sec_since_epoch();</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>size;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>seed<sp/>^=<sp/>((uint64_t)buf[i]<sp/>&lt;&lt;<sp/>(i<sp/>%<sp/>8));</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>seed;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="common/utils.hpp"/>
   </compounddef>

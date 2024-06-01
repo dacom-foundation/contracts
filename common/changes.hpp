@@ -25,7 +25,7 @@ struct exchange_params {
   uint64_t pieces; /*!< Количество частей (штук) товара или услуги */
   eosio::asset unit_cost; /*!< Цена за единицу (штуку) товара или услуги */
   uint64_t product_lifecycle_secs; /*!< Время жизни продукта, заявляемое поставщиком */
-  document document; /*!< Сопутствующий подписанный документ на взнос или возврат взноса */
+  std::optional<document> document; /*!< Сопутствующий подписанный документ на взнос или возврат взноса */
   std::string data; /*!< Дополнительные данные, специфичные для заявки */
   std::string meta; /*!< Метаданные о заявке */
 };
@@ -53,12 +53,12 @@ struct exchange_params {
  *
  * Пример использования:
  * @code
- * exchange_index exchange(_me, coopname.value);
+ * requests_index exchange(_me, coopname.value);
  * auto exchange_order = exchange.find(id);
  * @endcode
  */
 
-struct [[eosio::table, eosio::contract(MARKETPLACE)]] exchange {
+struct [[eosio::table, eosio::contract(MARKETPLACE)]] request {
   uint64_t id;                 /*!< идентификатор обмена */
   uint64_t parent_id;          /*!< идентификатор родительской заявки */
   uint64_t program_id;         /*!< идентификатор программы */
@@ -137,21 +137,21 @@ struct [[eosio::table, eosio::contract(MARKETPLACE)]] exchange {
 };
 
 typedef eosio::multi_index<
-    "exchange"_n, exchange,
-    eosio::indexed_by<"bycoop"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_coop>>,
-    eosio::indexed_by<"bystatus"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_status>>,
-    eosio::indexed_by<"bytype"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_type>>,
-    eosio::indexed_by<"byprogram"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_program>>,
-    eosio::indexed_by<"byparent"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_parent>>,
-    eosio::indexed_by<"byusername"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_username>>,
-    eosio::indexed_by<"bypausername"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_parent_username>>,
-    eosio::indexed_by<"bycreated"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_created>>,
-    eosio::indexed_by<"bycompleted"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_completed>>,
-    eosio::indexed_by<"bydeclined"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_declined>>,
-    eosio::indexed_by<"bycanceled"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_canceled>>,
-    eosio::indexed_by<"bywarrantyid"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_warranty_id>>
-    // eosio::indexed_by<"byexpired"_n, eosio::const_mem_fun<exchange, uint64_t, &exchange::by_expired>>
+    "requests"_n, request,
+    eosio::indexed_by<"bycoop"_n, eosio::const_mem_fun<request, uint64_t, &request::by_coop>>,
+    eosio::indexed_by<"bystatus"_n, eosio::const_mem_fun<request, uint64_t, &request::by_status>>,
+    eosio::indexed_by<"bytype"_n, eosio::const_mem_fun<request, uint64_t, &request::by_type>>,
+    eosio::indexed_by<"byprogram"_n, eosio::const_mem_fun<request, uint64_t, &request::by_program>>,
+    eosio::indexed_by<"byparent"_n, eosio::const_mem_fun<request, uint64_t, &request::by_parent>>,
+    eosio::indexed_by<"byusername"_n, eosio::const_mem_fun<request, uint64_t, &request::by_username>>,
+    eosio::indexed_by<"bypausername"_n, eosio::const_mem_fun<request, uint64_t, &request::by_parent_username>>,
+    eosio::indexed_by<"bycreated"_n, eosio::const_mem_fun<request, uint64_t, &request::by_created>>,
+    eosio::indexed_by<"bycompleted"_n, eosio::const_mem_fun<request, uint64_t, &request::by_completed>>,
+    eosio::indexed_by<"bydeclined"_n, eosio::const_mem_fun<request, uint64_t, &request::by_declined>>,
+    eosio::indexed_by<"bycanceled"_n, eosio::const_mem_fun<request, uint64_t, &request::by_canceled>>,
+    eosio::indexed_by<"bywarrantyid"_n, eosio::const_mem_fun<request, uint64_t, &request::by_warranty_id>>
+    // eosio::indexed_by<"byexpired"_n, eosio::const_mem_fun<request, uint64_t, &request::by_expired>>
   >
-    exchange_index; /*!< Тип мультииндекса для таблицы обменов */
+    requests_index; /*!< Тип мультииндекса для таблицы обменов */
 
 

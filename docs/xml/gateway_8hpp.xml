@@ -12,16 +12,16 @@
     <includes refid="consts_8hpp" local="yes">../common/consts.hpp</includes>
     <includes refid="utils_8hpp" local="yes">../common/utils.hpp</includes>
     <includes refid="drafts_8hpp" local="yes">../common/drafts.hpp</includes>
+    <includes refid="accounts_8hpp" local="yes">../common/accounts.hpp</includes>
     <includes refid="coops_8hpp" local="yes">../common/coops.hpp</includes>
     <includes refid="counts_8hpp" local="yes">../common/counts.hpp</includes>
     <includes refid="permissions_8hpp" local="yes">../common/permissions.hpp</includes>
     <includes refid="balances_8hpp" local="yes">../common/balances.hpp</includes>
-    <includes refid="accounts_8hpp" local="yes">../common/accounts.hpp</includes>
     <includes refid="programs_8hpp" local="yes">../common/programs.hpp</includes>
     <includes refid="admins_8hpp" local="yes">../common/admins.hpp</includes>
     <includedby refid="gateway_8cpp" local="yes">gateway/gateway.cpp</includedby>
     <incdepgraph>
-      <node id="17">
+      <node id="13">
         <label>../common/accounts.hpp</label>
         <link refid="accounts_8hpp"/>
       </node>
@@ -29,7 +29,7 @@
         <label>../common/admins.hpp</label>
         <link refid="admins_8hpp"/>
       </node>
-      <node id="16">
+      <node id="17">
         <label>../common/balances.hpp</label>
         <link refid="balances_8hpp"/>
       </node>
@@ -37,11 +37,11 @@
         <label>../common/consts.hpp</label>
         <link refid="consts_8hpp"/>
       </node>
-      <node id="13">
+      <node id="14">
         <label>../common/coops.hpp</label>
         <link refid="coops_8hpp"/>
       </node>
-      <node id="14">
+      <node id="15">
         <label>../common/counts.hpp</label>
         <link refid="counts_8hpp"/>
       </node>
@@ -57,7 +57,7 @@
         <childnode refid="7" relation="include">
         </childnode>
       </node>
-      <node id="15">
+      <node id="16">
         <label>../common/permissions.hpp</label>
         <link refid="permissions_8hpp"/>
       </node>
@@ -71,6 +71,8 @@
         <childnode refid="5" relation="include">
         </childnode>
         <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
         </childnode>
       </node>
       <node id="1">
@@ -167,11 +169,11 @@
 <codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../common/consts.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../common/utils.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../common/drafts.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../common/coops.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../common/counts.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../common/permissions.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../common/balances.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../common/accounts.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../common/accounts.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../common/coops.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../common/counts.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../common/permissions.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../common/balances.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../common/programs.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../common/admins.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="19"><highlight class="normal"></highlight></codeline>
@@ -197,15 +199,13 @@
 <codeline lineno="63"><highlight class="normal"><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>wthdcomplete(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>admin,<sp/>uint64_t<sp/>withdraw_id,<sp/>std::string<sp/>memo);</highlight></codeline>
 <codeline lineno="64"><highlight class="normal"><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>wthdfail(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>admin,<sp/>uint64_t<sp/>withdraw_id,<sp/>std::string<sp/>memo);</highlight></codeline>
 <codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>[[eosio::action]]<sp/>void<sp/>back(eosio::name<sp/>username,<sp/>eosio::name<sp/>token_contract,<sp/>eosio::asset<sp/>quantity);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
 <codeline lineno="67"><highlight class="normal"></highlight></codeline>
-<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="structgateway_1_1counts" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(GATEWAY)]]<sp/><ref refid="structgateway_1_1counts" kindref="compound">counts</ref><sp/>:<sp/><ref refid="structcounts__base" kindref="compound">counts_base</ref><sp/>{};</highlight></codeline>
 <codeline lineno="69"><highlight class="normal"></highlight></codeline>
-<codeline lineno="70" refid="structgateway_1_1counts" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(GATEWAY)]]<sp/><ref refid="structgateway_1_1counts" kindref="compound">counts</ref><sp/>:<sp/><ref refid="structcounts__base" kindref="compound">counts_base</ref><sp/>{};</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"></highlight></codeline>
-<codeline lineno="72"><highlight class="normal"></highlight></codeline>
-<codeline lineno="77" refid="structgateway_1_1balances" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(GATEWAY)]]<sp/><ref refid="structgateway_1_1balances" kindref="compound">balances</ref><sp/>:<sp/><ref refid="structbalances__base" kindref="compound">balances_base</ref><sp/>{};</highlight></codeline>
-<codeline lineno="78"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75" refid="structgateway_1_1balances" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(GATEWAY)]]<sp/><ref refid="structgateway_1_1balances" kindref="compound">balances</ref><sp/>:<sp/><ref refid="structbalances__base" kindref="compound">balances_base</ref><sp/>{};</highlight></codeline>
+<codeline lineno="76"><highlight class="normal">};</highlight></codeline>
     </programlisting>
     <location file="gateway/gateway.hpp"/>
   </compounddef>

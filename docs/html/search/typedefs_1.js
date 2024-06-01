@@ -8,7 +8,5 @@ var searchData=
   ['blockchain_5fparameters_5ft_5',['blockchain_parameters_t',['../namespaceeosiosystem.html#a5e1fbfc9229b1616bfc70a519e26e9c2',1,'eosiosystem']]],
   ['boards_5findex_6',['boards_index',['../coops_8hpp.html#a78302821fd10bd5b552f1c9cf16d57f7',1,'coops.hpp']]],
   ['buyram_5faction_7',['buyram_action',['../classeosiosystem_1_1system__contract.html#a379cc18be05f0d81a71f15a52f7c6f48',1,'eosiosystem::system_contract']]],
-  ['buyrambytes_5faction_8',['buyrambytes_action',['../classeosiosystem_1_1system__contract.html#af7ddbe541c404f6a8d1094b8278e6128',1,'eosiosystem::system_contract']]],
-  ['buyresult_5faction_9',['buyresult_action',['../classrex__results.html#ae4ba8a63313cdfe4cac719d785a38ea7',1,'rex_results']]],
-  ['buyrex_5faction_10',['buyrex_action',['../classeosiosystem_1_1system__contract.html#a6d5c3ebf5382ac0b4d56869192e9823f',1,'eosiosystem::system_contract']]]
+  ['buyrambytes_5faction_8',['buyrambytes_action',['../classeosiosystem_1_1system__contract.html#af7ddbe541c404f6a8d1094b8278e6128',1,'eosiosystem::system_contract']]]
 ];

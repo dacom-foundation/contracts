@@ -15,6 +15,7 @@ var classeosio_1_1token =
     [ "create", "classeosio_1_1token.html#a5277670549e2458dd4a4fab4c56a9599", null ],
     [ "get_balance", "classeosio_1_1token.html#a65b248b1427e4ae01523d6f59f6a71ba", null ],
     [ "get_supply", "classeosio_1_1token.html#af0ca80206f8f0131147b0bec367c62d3", null ],
+    [ "is_can_transfer", "classeosio_1_1token.html#a5b2edc4577c88d5bccecb7e44536ff04", null ],
     [ "issue", "classeosio_1_1token.html#a3a62d2a7493710b3e34fbdfd4fe81d59", null ],
     [ "open", "classeosio_1_1token.html#a4da303699332aacdc69f3ff582477141", null ],
     [ "retire", "classeosio_1_1token.html#a4bf7770086ab81931c6c5a22265bae4f", null ],

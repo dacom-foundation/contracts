@@ -292,6 +292,24 @@ $(document).ready(function(){initNavTree('classgateway.html',''); initResizable(
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Выполняет авторизацию совета для указанного идентификатора вывода.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">coopname</td><td>- имя кооператива </td></tr>
+    <tr><td class="paramname">withdraw_id</td><td>- идентификатор вывода</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Предусловие</dt><dd>Требуется авторизация аккаунта _soviet. </dd>
+<dd>
+Объект процессинга с указанным идентификатором должен существовать. </dd></dl>
+<dl class="section post"><dt>Постусловие</dt><dd>Статус объекта процессинга изменяется на "authorized".</dd></dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">eosio::check_failure</td><td>- если объект процессинга не найден. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

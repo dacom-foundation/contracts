@@ -8,13 +8,13 @@
 
 #include "../common/utils.hpp"
 #include "../common/consts.hpp"
+#include "../common/accounts.hpp"
 #include "../common/drafts.hpp"
 #include "../common/coops.hpp"
 #include "../common/permissions.hpp"
 #include "../common/rammarket.hpp"
 #include "../common/balances.hpp"
-#include "../common/accounts.hpp"
-
+#include "../common/admins.hpp"
 
 /**
  *  \ingroup public_contracts
@@ -38,102 +38,35 @@ public:
   registrator(eosio::name receiver, eosio::name code,
               eosio::datastream<const char *> ds)
       : eosio::contract(receiver, code, ds) {}
-
+  
+  [[eosio::action]] void init();
   [[eosio::action]] void update(eosio::name username, std::string meta);
   [[eosio::action]] void confirmreg(eosio::name coopname, eosio::name member);
 
   [[eosio::action]] void reguser(
+    eosio::name registrator,
     eosio::name coopname,
-     eosio::name username,
-     storage storage
+    eosio::name username
   );
 
-  [[eosio::action]] void regorg(eosio::name coopname, eosio::name username, org_data params);
-  [[eosio::action]] void regplot(eosio::name coopname, eosio::name username, plot_data params);
+  [[eosio::action]] void regorg(eosio::name registrator, eosio::name coopname, eosio::name username, org_data params);
+  [[eosio::action]] void regdepartmnt(eosio::name registrator, eosio::name coopname, eosio::name username, plot_data params);
 
-  [[eosio::action]] void joincoop(eosio::name coopname, eosio::name username, document document);
+  [[eosio::action]] void joincoop(eosio::name registrator, eosio::name coopname, eosio::name username, document document);
 
   [[eosio::action]] void verificate(eosio::name username, eosio::name procedure);
+  
 
   [[eosio::action]] void newaccount(
-    eosio::name registrator, eosio::name referer,
+    eosio::name registrator, eosio::name coopname, eosio::name referer,
     eosio::name username, eosio::public_key public_key, std::string signature_hash,
     std::string meta);
 
   [[eosio::action]] void changekey(eosio::name username,
                                    eosio::public_key public_key);
 
-  void apply(uint64_t receiver, uint64_t code, uint64_t action);
   
-  /**
-     * @brief      Таблица хранения глобальной сети партнёров
-     * @ingroup public_tables
-     * @contract _me
-     * @scope _me
-     * @table partners
-     * @details Таблица хранит реферальные связи партнёров, их профили и глобальные статусы.
-  */
   struct [[eosio::table, eosio::contract(REGISTRATOR)]] balances : balances_base {};
   
 
-  static void add_balance(eosio::name source, eosio::name username, eosio::asset quantity,
-                                    eosio::name contract) {
-    // Если баланс не найден, создаем новую запись.
-    // В противном случае, увеличиваем существующий баланс.
-
-    
-    eosio::check(username != ""_n, "В поле memo должен быть указан получатель баланса");
-    balances_index balances(source, username.value);
-
-    auto balances_by_contract_and_symbol =
-        balances.template get_index<"byconsym"_n>();
-    auto contract_and_symbol_index =
-        combine_ids(contract.value, quantity.symbol.code().raw());
-
-    auto balance =
-        balances_by_contract_and_symbol.find(contract_and_symbol_index);
-
-    if (balance == balances_by_contract_and_symbol.end()) {
-      balances.emplace(source, [&](auto &b) {
-        b.id = balances.available_primary_key();
-        b.contract = contract;
-        b.quantity = quantity;
-      });
-    } else {
-      balances_by_contract_and_symbol.modify(
-          balance, source, [&](auto &b) { b.quantity += quantity; });
-    };
-  }
-
-
-  static void sub_balance(eosio::name source, eosio::name username, eosio::asset quantity,
-                                eosio::name contract) {
-    // Если после вычитания баланс равен нулю, удаляем запись.
-    // В противном случае, уменьшаем существующий баланс.
-    
-    balances_index balances(source, username.value);
-
-    auto balances_by_contract_and_symbol =
-        balances.template get_index<"byconsym"_n>();
-    auto contract_and_symbol_index =
-        combine_ids(contract.value, quantity.symbol.code().raw());
-
-    auto balance =
-        balances_by_contract_and_symbol.find(contract_and_symbol_index);
-
-    eosio::check(balance != balances_by_contract_and_symbol.end(),
-                 "Баланс не найден");
-
-    eosio::check(balance->quantity >= quantity, "Недостаточный баланс");
-
-    if (balance->quantity == quantity) {
-
-      balances_by_contract_and_symbol.erase(balance);
-
-    } else {
-
-      balances_by_contract_and_symbol.modify(
-          balance, source, [&](auto &b) { b.quantity -= quantity; });
-    }
-  }
 };

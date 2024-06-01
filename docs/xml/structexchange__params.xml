@@ -109,9 +109,9 @@
         </inbodydescription>
         <location file="common/changes.hpp" line="27" column="12" bodyfile="common/changes.hpp" bodystart="27" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structexchange__params_1acd228f83a4f786bc1f98a51d0c9c49fb" prot="public" static="no" mutable="no">
-        <type><ref refid="structdocument" kindref="compound">document</ref></type>
-        <definition>document exchange_params::document</definition>
+      <memberdef kind="variable" id="structexchange__params_1a86765a5769defdc2e1aefb64b8350abe" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structdocument" kindref="compound">document</ref> &gt;</type>
+        <definition>std::optional&lt;document&gt; exchange_params::document</definition>
         <argsstring></argsstring>
         <name>document</name>
         <qualifiedname>exchange_params::document</qualifiedname>
@@ -122,7 +122,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/changes.hpp" line="28" column="12" bodyfile="common/changes.hpp" bodystart="28" bodyend="-1"/>
+        <location file="common/changes.hpp" line="28" column="17" bodyfile="common/changes.hpp" bodystart="28" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structexchange__params_1ae14b0160b59af35e8e4786811398b314" prot="public" static="no" mutable="no">
         <type>std::string</type>
@@ -172,16 +172,6 @@
 </para>
     </detaileddescription>
     <collaborationgraph>
-      <node id="4">
-        <label>document</label>
-        <link refid="structdocument"/>
-        <childnode refid="5" relation="usage">
-          <edgelabel>hash</edgelabel>
-          <edgelabel>meta</edgelabel>
-          <edgelabel>pkey</edgelabel>
-          <edgelabel>sign</edgelabel>
-        </childnode>
-      </node>
       <node id="3">
         <label>asset</label>
       </node>
@@ -199,14 +189,11 @@
           <edgelabel>unit_cost</edgelabel>
         </childnode>
         <childnode refid="4" relation="usage">
-          <edgelabel>document</edgelabel>
-        </childnode>
-        <childnode refid="5" relation="usage">
           <edgelabel>data</edgelabel>
           <edgelabel>meta</edgelabel>
         </childnode>
       </node>
-      <node id="5">
+      <node id="4">
         <label>string</label>
       </node>
     </collaborationgraph>
@@ -214,7 +201,7 @@
     <listofallmembers>
       <member refid="structexchange__params_1a8db71147b1b1a925d77a234a0e37fdc5" prot="public" virt="non-virtual"><scope>exchange_params</scope><name>coopname</name></member>
       <member refid="structexchange__params_1ae14b0160b59af35e8e4786811398b314" prot="public" virt="non-virtual"><scope>exchange_params</scope><name>data</name></member>
-      <member refid="structexchange__params_1acd228f83a4f786bc1f98a51d0c9c49fb" prot="public" virt="non-virtual"><scope>exchange_params</scope><name>document</name></member>
+      <member refid="structexchange__params_1a86765a5769defdc2e1aefb64b8350abe" prot="public" virt="non-virtual"><scope>exchange_params</scope><name>document</name></member>
       <member refid="structexchange__params_1aa769a0dcb11b34cad0d0cef89d2e2952" prot="public" virt="non-virtual"><scope>exchange_params</scope><name>meta</name></member>
       <member refid="structexchange__params_1af3e8005efedfb42d53c5d141f9d35885" prot="public" virt="non-virtual"><scope>exchange_params</scope><name>parent_id</name></member>
       <member refid="structexchange__params_1a4984c8df3dba7213b1cd36e9c3886f8b" prot="public" virt="non-virtual"><scope>exchange_params</scope><name>pieces</name></member>

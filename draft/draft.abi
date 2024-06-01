@@ -99,7 +99,31 @@
             ]
         },
         {
-            "name": "drafts",
+            "name": "edittrans",
+            "base": "",
+            "fields": [
+                {
+                    "name": "translate_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "data",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "newid",
+            "base": "",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "onedraft",
             "base": "",
             "fields": [
                 {
@@ -109,14 +133,6 @@
                 {
                     "name": "registry_id",
                     "type": "uint64"
-                },
-                {
-                    "name": "creator",
-                    "type": "name"
-                },
-                {
-                    "name": "actions",
-                    "type": "name[]"
                 },
                 {
                     "name": "version",
@@ -145,40 +161,12 @@
             ]
         },
         {
-            "name": "edittrans",
-            "base": "",
-            "fields": [
-                {
-                    "name": "translate_id",
-                    "type": "uint64"
-                },
-                {
-                    "name": "data",
-                    "type": "string"
-                }
-            ]
-        },
-        {
-            "name": "newid",
+            "name": "translation",
             "base": "",
             "fields": [
                 {
                     "name": "id",
                     "type": "uint64"
-                }
-            ]
-        },
-        {
-            "name": "translations",
-            "base": "",
-            "fields": [
-                {
-                    "name": "id",
-                    "type": "uint64"
-                },
-                {
-                    "name": "creator",
-                    "type": "name"
                 },
                 {
                     "name": "draft_id",
@@ -191,14 +179,6 @@
                 {
                     "name": "data",
                     "type": "string"
-                },
-                {
-                    "name": "is_published",
-                    "type": "bool"
-                },
-                {
-                    "name": "is_approved",
-                    "type": "bool"
                 }
             ]
         }
@@ -245,20 +225,25 @@
         },
         {
             "name": "drafts",
-            "type": "drafts",
+            "type": "onedraft",
             "index_type": "i64",
             "key_names": [],
             "key_types": []
         },
         {
             "name": "translations",
-            "type": "translations",
+            "type": "translation",
             "index_type": "i64",
             "key_names": [],
             "key_types": []
         }
     ],
-    "ricardian_clauses": [],
+    "ricardian_clauses": [
+        {
+            "id": "UserAgreement",
+            "body": "User agreement for the chain can go here."
+        }
+    ],
     "variants": [],
     "action_results": []
 }

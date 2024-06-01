@@ -222,7 +222,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="gateway/gateway.hpp" line="56" column="9" bodyfile="gateway/gateway.cpp" bodystart="46" bodyend="89"/>
+        <location file="gateway/gateway.hpp" line="56" column="9" bodyfile="gateway/gateway.cpp" bodystart="46" bodyend="88"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga59936ddb45db401976fd3d404b92caa7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -275,7 +275,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="gateway/gateway.hpp" line="57" column="9" bodyfile="gateway/gateway.cpp" bodystart="107" bodyend="172"/>
+        <location file="gateway/gateway.hpp" line="57" column="9" bodyfile="gateway/gateway.cpp" bodystart="106" bodyend="171"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga8776a33709be83c15957bc8e366db71d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -328,7 +328,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="gateway/gateway.hpp" line="58" column="9" bodyfile="gateway/gateway.cpp" bodystart="189" bodyend="208"/>
+        <location file="gateway/gateway.hpp" line="58" column="9" bodyfile="gateway/gateway.cpp" bodystart="188" bodyend="207"/>
       </memberdef>
       <memberdef kind="function" id="classgateway_1a5b244fde939d3cf2aaa7c36f91c228cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -347,10 +347,44 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Выполняет авторизацию совета для указанного идентификатора вывода.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coopname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- имя кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>withdraw_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- идентификатор вывода</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="pre"><para>Требуется авторизация аккаунта _soviet. </para>
+</simplesect>
+<simplesect kind="pre"><para>Объект процессинга с указанным идентификатором должен существовать. </para>
+</simplesect>
+<simplesect kind="post"><para>Статус объекта процессинга изменяется на &quot;authorized&quot;.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>eosio::check_failure</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- если объект процессинга не найден. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="gateway/gateway.hpp" line="60" column="9" bodyfile="gateway/gateway.cpp" bodystart="282" bodyend="295"/>
+        <location file="gateway/gateway.hpp" line="60" column="9" bodyfile="gateway/gateway.cpp" bodystart="291" bodyend="304"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -435,7 +469,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="gateway/gateway.hpp" line="62" column="9" bodyfile="gateway/gateway.cpp" bodystart="229" bodyend="278"/>
+        <location file="gateway/gateway.hpp" line="62" column="9" bodyfile="gateway/gateway.cpp" bodystart="228" bodyend="276"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga2551c736852a98d33f2fcc9f569fe836" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -487,7 +521,7 @@ cleos push action gateway wthdcomplete &apos;[&quot;12345&quot;, &quot;Успе�
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="gateway/gateway.hpp" line="63" column="9" bodyfile="gateway/gateway.cpp" bodystart="311" bodyend="350"/>
+        <location file="gateway/gateway.hpp" line="63" column="9" bodyfile="gateway/gateway.cpp" bodystart="320" bodyend="359"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gac0eb7373a774cec08f2017a74522b2b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -539,7 +573,7 @@ cleos push action gateway wthdfail &apos;[&quot;12345&quot;, &quot;Отмена 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="gateway/gateway.hpp" line="64" column="9" bodyfile="gateway/gateway.cpp" bodystart="366" bodyend="389"/>
+        <location file="gateway/gateway.hpp" line="64" column="9" bodyfile="gateway/gateway.cpp" bodystart="375" bodyend="398"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -587,7 +621,7 @@ cleos push action gateway wthdfail &apos;[&quot;12345&quot;, &quot;Отмена 
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="gateway/gateway.hpp" line="44" column="1" bodyfile="gateway/gateway.hpp" bodystart="44" bodyend="78"/>
+    <location file="gateway/gateway.hpp" line="44" column="1" bodyfile="gateway/gateway.hpp" bodystart="44" bodyend="76"/>
     <listofallmembers>
       <member refid="classgateway_1a69b49209b2cc17da42aa66890e2ca080" prot="public" virt="non-virtual"><scope>gateway</scope><name>apply</name></member>
       <member refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" prot="public" virt="non-virtual"><scope>gateway</scope><name>deposit</name></member>

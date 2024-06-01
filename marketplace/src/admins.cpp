@@ -13,7 +13,7 @@
 [[eosio::action]] void marketplace::moderate(eosio::name coopname, eosio::name username, uint64_t exchange_id, uint64_t cancellation_fee) { 
   require_auth(username);
   
-  exchange_index exchange(_marketplace, coopname.value);
+  requests_index exchange(_marketplace, coopname.value);
   
   auto change = exchange.find(exchange_id);
   eosio::check(change != exchange.end(), "Ордер не найден");
@@ -52,7 +52,7 @@
 [[eosio::action]] void marketplace::prohibit(eosio::name coopname, eosio::name username, uint64_t exchange_id, std::string meta) { 
   require_auth(username);
   
-  exchange_index exchange(_marketplace, coopname.value);
+  requests_index exchange(_marketplace, coopname.value);
   auto change = exchange.find(exchange_id);
   eosio::check(change != exchange.end(), "Ордер не найден");
 
@@ -82,7 +82,7 @@
 [[eosio::action]] void marketplace::unpublish(eosio::name coopname, eosio::name username, uint64_t exchange_id) { 
   require_auth(username);
   
-  exchange_index exchange(_marketplace, coopname.value);
+  requests_index exchange(_marketplace, coopname.value);
   auto change = exchange.find(exchange_id);
   eosio::check(change != exchange.end(), "Ордер не найден");
 
@@ -110,7 +110,7 @@
 [[eosio::action]] void marketplace::publish(eosio::name coopname, eosio::name username, uint64_t exchange_id) { 
   require_auth(username);
   
-  exchange_index exchange(_marketplace, coopname.value);
+  requests_index exchange(_marketplace, coopname.value);
   auto change = exchange.find(exchange_id);
 
   staff_index staff(_soviet, coopname.value);

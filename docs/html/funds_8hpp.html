@@ -97,47 +97,47 @@ $(document).ready(function(){initNavTree('funds_8hpp.html',''); initResizable();
 Классы</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfundwallet.html">fundwallet</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structaccfunds.html">accfunds</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structaccfund.html">accfund</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structexpfunds.html">expfunds</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structexpfund.html">expfund</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfwithdraws.html">fwithdraws</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfwithdraw.html">fwithdraw</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Определения типов</h2></td></tr>
 <tr class="memitem:adeeb57b03a577ea6e9e3b0000a50afb3"><td class="memItemLeft" align="right" valign="top">typedef eosio::multi_index&lt; &quot;fundwallet&quot;_n, <a class="el" href="structfundwallet.html">fundwallet</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="funds_8hpp.html#adeeb57b03a577ea6e9e3b0000a50afb3">fundwallet_index</a></td></tr>
 <tr class="separator:adeeb57b03a577ea6e9e3b0000a50afb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a890c4b0ee350111e0ea2df7d721462"><td class="memItemLeft" align="right" valign="top">typedef eosio::multi_index&lt; &quot;accfunds&quot;_n, <a class="el" href="structaccfunds.html">accfunds</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="funds_8hpp.html#a7a890c4b0ee350111e0ea2df7d721462">accfunds_index</a></td></tr>
-<tr class="separator:a7a890c4b0ee350111e0ea2df7d721462"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc3ed84f562dbf7d9768e962194a2aab"><td class="memItemLeft" align="right" valign="top">typedef eosio::multi_index&lt; &quot;expfunds&quot;_n, <a class="el" href="structexpfunds.html">expfunds</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="funds_8hpp.html#adc3ed84f562dbf7d9768e962194a2aab">expfunds_index</a></td></tr>
-<tr class="separator:adc3ed84f562dbf7d9768e962194a2aab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17d7df6720b663ac48d59a902d3d858b"><td class="memItemLeft" align="right" valign="top">typedef eosio::multi_index&lt; &quot;fwithdraws&quot;_n, <a class="el" href="structfwithdraws.html">fwithdraws</a>, eosio::indexed_by&lt;&quot;byusername&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structfwithdraws.html">fwithdraws</a>, uint64_t, &amp;<a class="el" href="structfwithdraws.html#abd60956d0d3e9ed918869a51aea1607a">fwithdraws::by_username</a> &gt; &gt;, eosio::indexed_by&lt;&quot;bystatus&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structfwithdraws.html">fwithdraws</a>, uint64_t, &amp;<a class="el" href="structfwithdraws.html#a60fa7497fb02d85a90f473b5bca4ea02">fwithdraws::by_status</a> &gt; &gt;, eosio::indexed_by&lt;&quot;byexpired&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structfwithdraws.html">fwithdraws</a>, uint64_t, &amp;<a class="el" href="structfwithdraws.html#a02eb4b02215e0e13184515ea062df127">fwithdraws::by_expired</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="funds_8hpp.html#a17d7df6720b663ac48d59a902d3d858b">fundwithdraws_index</a></td></tr>
-<tr class="separator:a17d7df6720b663ac48d59a902d3d858b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8533c1fc298be8b7feae6014d892e63c"><td class="memItemLeft" align="right" valign="top">typedef eosio::multi_index&lt; &quot;accfunds&quot;_n, <a class="el" href="structaccfund.html">accfund</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="funds_8hpp.html#a8533c1fc298be8b7feae6014d892e63c">accfunds_index</a></td></tr>
+<tr class="separator:a8533c1fc298be8b7feae6014d892e63c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00071f5fe5a49ef3beb3496c52e28801"><td class="memItemLeft" align="right" valign="top">typedef eosio::multi_index&lt; &quot;expfunds&quot;_n, <a class="el" href="structexpfund.html">expfund</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="funds_8hpp.html#a00071f5fe5a49ef3beb3496c52e28801">expfunds_index</a></td></tr>
+<tr class="separator:a00071f5fe5a49ef3beb3496c52e28801"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4699088483ec7eeb6f610b52f95e7d4b"><td class="memItemLeft" align="right" valign="top">typedef eosio::multi_index&lt; &quot;fwithdraws&quot;_n, <a class="el" href="structfwithdraw.html">fwithdraw</a>, eosio::indexed_by&lt;&quot;byusername&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structfwithdraw.html">fwithdraw</a>, uint64_t, &amp;<a class="el" href="structfwithdraw.html#a80ac904627052d45b57170d87252897f">fwithdraw::by_username</a> &gt; &gt;, eosio::indexed_by&lt;&quot;bystatus&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structfwithdraw.html">fwithdraw</a>, uint64_t, &amp;<a class="el" href="structfwithdraw.html#a9f164e957fc95159dc5aca03faed4967">fwithdraw::by_status</a> &gt; &gt;, eosio::indexed_by&lt;&quot;byexpired&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structfwithdraw.html">fwithdraw</a>, uint64_t, &amp;<a class="el" href="structfwithdraw.html#ad472c3a1808148ab8481f87801f69a75">fwithdraw::by_expired</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="funds_8hpp.html#a4699088483ec7eeb6f610b52f95e7d4b">fundwithdraws_index</a></td></tr>
+<tr class="separator:a4699088483ec7eeb6f610b52f95e7d4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Типы</h2>
-<a id="a7a890c4b0ee350111e0ea2df7d721462" name="a7a890c4b0ee350111e0ea2df7d721462"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a890c4b0ee350111e0ea2df7d721462">&#9670;&nbsp;</a></span>accfunds_index</h2>
+<a id="a8533c1fc298be8b7feae6014d892e63c" name="a8533c1fc298be8b7feae6014d892e63c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8533c1fc298be8b7feae6014d892e63c">&#9670;&nbsp;</a></span>accfunds_index</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef eosio::multi_index&lt; &quot;accfunds&quot;_n, <a class="el" href="structaccfunds.html">accfunds</a>&gt; <a class="el" href="funds_8hpp.html#a7a890c4b0ee350111e0ea2df7d721462">accfunds_index</a></td>
+          <td class="memname">typedef eosio::multi_index&lt; &quot;accfunds&quot;_n, <a class="el" href="structaccfund.html">accfund</a>&gt; <a class="el" href="funds_8hpp.html#a8533c1fc298be8b7feae6014d892e63c">accfunds_index</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="adc3ed84f562dbf7d9768e962194a2aab" name="adc3ed84f562dbf7d9768e962194a2aab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc3ed84f562dbf7d9768e962194a2aab">&#9670;&nbsp;</a></span>expfunds_index</h2>
+<a id="a00071f5fe5a49ef3beb3496c52e28801" name="a00071f5fe5a49ef3beb3496c52e28801"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00071f5fe5a49ef3beb3496c52e28801">&#9670;&nbsp;</a></span>expfunds_index</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef eosio::multi_index&lt; &quot;expfunds&quot;_n, <a class="el" href="structexpfunds.html">expfunds</a>&gt; <a class="el" href="funds_8hpp.html#adc3ed84f562dbf7d9768e962194a2aab">expfunds_index</a></td>
+          <td class="memname">typedef eosio::multi_index&lt; &quot;expfunds&quot;_n, <a class="el" href="structexpfund.html">expfund</a>&gt; <a class="el" href="funds_8hpp.html#a00071f5fe5a49ef3beb3496c52e28801">expfunds_index</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -158,14 +158,14 @@ $(document).ready(function(){initNavTree('funds_8hpp.html',''); initResizable();
 
 </div>
 </div>
-<a id="a17d7df6720b663ac48d59a902d3d858b" name="a17d7df6720b663ac48d59a902d3d858b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17d7df6720b663ac48d59a902d3d858b">&#9670;&nbsp;</a></span>fundwithdraws_index</h2>
+<a id="a4699088483ec7eeb6f610b52f95e7d4b" name="a4699088483ec7eeb6f610b52f95e7d4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4699088483ec7eeb6f610b52f95e7d4b">&#9670;&nbsp;</a></span>fundwithdraws_index</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef eosio::multi_index&lt; &quot;fwithdraws&quot;_n, <a class="el" href="structfwithdraws.html">fwithdraws</a>, eosio::indexed_by&lt;&quot;byusername&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structfwithdraws.html">fwithdraws</a>, uint64_t, &amp;<a class="el" href="structfwithdraws.html#abd60956d0d3e9ed918869a51aea1607a">fwithdraws::by_username</a>&gt; &gt;, eosio::indexed_by&lt;&quot;bystatus&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structfwithdraws.html">fwithdraws</a>, uint64_t, &amp;<a class="el" href="structfwithdraws.html#a60fa7497fb02d85a90f473b5bca4ea02">fwithdraws::by_status</a>&gt; &gt;, eosio::indexed_by&lt;&quot;byexpired&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structfwithdraws.html">fwithdraws</a>, uint64_t, &amp;<a class="el" href="structfwithdraws.html#a02eb4b02215e0e13184515ea062df127">fwithdraws::by_expired</a>&gt; &gt;&gt; <a class="el" href="funds_8hpp.html#a17d7df6720b663ac48d59a902d3d858b">fundwithdraws_index</a></td>
+          <td class="memname">typedef eosio::multi_index&lt; &quot;fwithdraws&quot;_n, <a class="el" href="structfwithdraw.html">fwithdraw</a>, eosio::indexed_by&lt;&quot;byusername&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structfwithdraw.html">fwithdraw</a>, uint64_t, &amp;<a class="el" href="structfwithdraw.html#a80ac904627052d45b57170d87252897f">fwithdraw::by_username</a>&gt; &gt;, eosio::indexed_by&lt;&quot;bystatus&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structfwithdraw.html">fwithdraw</a>, uint64_t, &amp;<a class="el" href="structfwithdraw.html#a9f164e957fc95159dc5aca03faed4967">fwithdraw::by_status</a>&gt; &gt;, eosio::indexed_by&lt;&quot;byexpired&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structfwithdraw.html">fwithdraw</a>, uint64_t, &amp;<a class="el" href="structfwithdraw.html#ad472c3a1808148ab8481f87801f69a75">fwithdraw::by_expired</a>&gt; &gt;&gt; <a class="el" href="funds_8hpp.html#a4699088483ec7eeb6f610b52f95e7d4b">fundwithdraws_index</a></td>
         </tr>
       </table>
 </div><div class="memdoc">

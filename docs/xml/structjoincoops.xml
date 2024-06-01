@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="171" column="14" bodyfile="soviet/soviet.hpp" bodystart="171" bodyend="-1"/>
+        <location file="soviet/soviet.hpp" line="169" column="14" bodyfile="soviet/soviet.hpp" bodystart="169" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structjoincoops_1ad104e0cf15859a44c59c4a4ddb78f7ad" prot="public" static="no" mutable="no">
         <type>eosio::name</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="172" column="17" bodyfile="soviet/soviet.hpp" bodystart="172" bodyend="-1"/>
+        <location file="soviet/soviet.hpp" line="170" column="17" bodyfile="soviet/soviet.hpp" bodystart="170" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structjoincoops_1ad10d6d51a81f467d3827bded4b0cebcd" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -45,7 +45,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="173" column="10" bodyfile="soviet/soviet.hpp" bodystart="173" bodyend="-1"/>
+        <location file="soviet/soviet.hpp" line="171" column="10" bodyfile="soviet/soviet.hpp" bodystart="171" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structjoincoops_1ac9fb7c4a331725c153affefeb8955416" prot="public" static="no" mutable="no">
         <type><ref refid="structdocument" kindref="compound">document</ref></type>
@@ -59,7 +59,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="174" column="14" bodyfile="soviet/soviet.hpp" bodystart="174" bodyend="-1"/>
+        <location file="soviet/soviet.hpp" line="172" column="14" bodyfile="soviet/soviet.hpp" bodystart="172" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structjoincoops_1a2aa5cf144690ce5d537aceb9e68e15cf" prot="public" static="no" mutable="no">
         <type>std::string</type>
@@ -73,7 +73,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="176" column="17" bodyfile="soviet/soviet.hpp" bodystart="176" bodyend="-1"/>
+        <location file="soviet/soviet.hpp" line="174" column="17" bodyfile="soviet/soviet.hpp" bodystart="174" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -89,7 +89,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="178" column="14" bodyfile="soviet/soviet.hpp" bodystart="178" bodyend="180"/>
+        <location file="soviet/soviet.hpp" line="176" column="14" bodyfile="soviet/soviet.hpp" bodystart="176" bodyend="178"/>
       </memberdef>
       <memberdef kind="function" id="structjoincoops_1ab1dcb94186977ce2bd13899656f41a7f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>uint64_t</type>
@@ -103,7 +103,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="182" column="14" bodyfile="soviet/soviet.hpp" bodystart="182" bodyend="182"/>
+        <location file="soviet/soviet.hpp" line="180" column="14" bodyfile="soviet/soviet.hpp" bodystart="180" bodyend="180"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -116,13 +116,22 @@
         <link refid="structdocument"/>
         <childnode refid="4" relation="usage">
           <edgelabel>hash</edgelabel>
-          <edgelabel>meta</edgelabel>
-          <edgelabel>pkey</edgelabel>
-          <edgelabel>sign</edgelabel>
         </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>public_key</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>meta</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>checksum256</label>
       </node>
       <node id="2">
         <label>name</label>
+      </node>
+      <node id="5">
+        <label>public_key</label>
       </node>
       <node id="1">
         <label>joincoops</label>
@@ -133,15 +142,15 @@
         <childnode refid="3" relation="usage">
           <edgelabel>statement</edgelabel>
         </childnode>
-        <childnode refid="4" relation="usage">
+        <childnode refid="6" relation="usage">
           <edgelabel>notice</edgelabel>
         </childnode>
       </node>
-      <node id="4">
+      <node id="6">
         <label>string</label>
       </node>
     </collaborationgraph>
-    <location file="soviet/soviet.hpp" line="170" column="3" bodyfile="soviet/soviet.hpp" bodystart="170" bodyend="184"/>
+    <location file="soviet/soviet.hpp" line="168" column="3" bodyfile="soviet/soviet.hpp" bodystart="168" bodyend="182"/>
     <listofallmembers>
       <member refid="structjoincoops_1ab1dcb94186977ce2bd13899656f41a7f" prot="public" virt="non-virtual"><scope>joincoops</scope><name>byusername</name></member>
       <member refid="structjoincoops_1ac4a3e9cdd6ef21101afeae01c2ed2be1" prot="public" virt="non-virtual"><scope>joincoops</scope><name>id</name></member>

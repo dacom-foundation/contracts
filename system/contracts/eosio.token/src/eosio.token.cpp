@@ -1,4 +1,9 @@
 #include <eosio.token/eosio.token.hpp>
+#include "../../../../common/consts.hpp"
+#include "../../../../common/utils.hpp"
+#include "../../../../common/drafts.hpp"
+#include "../../../../common/accounts.hpp"
+#include "../../../../common/coops.hpp"
 
 namespace eosio {
 
@@ -22,6 +27,18 @@ void token::create( const name&   issuer,
     });
 }
 
+void token::is_can_transfer(const name& from, const name& to) {
+  bool from_exist_in_provider = is_participant_exist(_provider, from);
+  bool to_exist_in_provider = is_participant_exist(_provider, to);
+  
+  if (!to_exist_in_provider && std::find(token_whitelist.begin(), token_whitelist.end(), from) == token_whitelist.end()) {
+    check(false, "Отправитель не является членом кооператива-провайдера");
+  }
+
+  if (!to_exist_in_provider && std::find(token_whitelist.begin(), token_whitelist.end(), to) == token_whitelist.end()) {
+      check(false, "Получатель не является членом кооператива-провайдера");
+  }
+}
 
 void token::issue( const name& to, const asset& quantity, const string& memo )
 {
@@ -45,8 +62,9 @@ void token::issue( const name& to, const asset& quantity, const string& memo )
     statstable.modify( st, same_payer, [&]( auto& s ) {
        s.supply += quantity;
     });
-   
-    //временно для тестов выпускаем на to. Потом сменим выпуск строго на эмитента (ANO)
+    
+    is_can_transfer(st.issuer, to);
+    //
     add_balance( to, quantity, st.issuer );
 }
 
@@ -95,6 +113,8 @@ void token::transfer( const name&    from,
     check( memo.size() <= 256, "memo has more than 256 bytes" );
 
     auto payer = has_auth( to ) ? to : from;
+
+    is_can_transfer(from, to);
 
     sub_balance( from, quantity );
     add_balance( to, quantity, payer );

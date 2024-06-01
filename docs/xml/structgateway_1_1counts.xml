@@ -39,7 +39,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="gateway/gateway.hpp" line="70" column="3" bodyfile="gateway/gateway.hpp" bodystart="70" bodyend="70"/>
+    <location file="gateway/gateway.hpp" line="68" column="3" bodyfile="gateway/gateway.hpp" bodystart="68" bodyend="68"/>
     <listofallmembers>
       <member refid="structcounts__base_1a190877bf5f40a7a357007574c5ecc1d7" prot="public" virt="non-virtual"><scope>gateway::counts</scope><name>key</name></member>
       <member refid="structcounts__base_1acabcbd93c1b35dca98c77646bbfda21d" prot="public" virt="non-virtual"><scope>gateway::counts</scope><name>keyskey</name></member>

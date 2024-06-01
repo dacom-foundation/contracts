@@ -72,66 +72,20 @@
             ]
         },
         {
-            "name": "deposits",
-            "base": "",
-            "fields": [
-                {
-                    "name": "id",
-                    "type": "uint64"
-                },
-                {
-                    "name": "username",
-                    "type": "name"
-                },
-                {
-                    "name": "coopname",
-                    "type": "name"
-                },
-                {
-                    "name": "type",
-                    "type": "name"
-                },
-                {
-                    "name": "token_contract",
-                    "type": "name"
-                },
-                {
-                    "name": "quantity",
-                    "type": "asset"
-                },
-                {
-                    "name": "status",
-                    "type": "name"
-                },
-                {
-                    "name": "link",
-                    "type": "string"
-                },
-                {
-                    "name": "memo",
-                    "type": "string"
-                },
-                {
-                    "name": "expired_at",
-                    "type": "time_point_sec"
-                }
-            ]
-        },
-        {
             "name": "document",
             "base": "",
             "fields": [
                 {
                     "name": "hash",
-                    "type": "string"
+                    "type": "checksum256"
                 },
                 {
-                    "name": "pkey",
-                    "type": "string"
+                    "name": "public_key",
+                    "type": "public_key"
                 },
                 {
-                    "name": "sign",
-                    "type": "string"
+                    "name": "signature",
+                    "type": "signature"
                 },
                 {
                     "name": "meta",
@@ -212,15 +166,27 @@
             ]
         },
         {
-            "name": "withdraw",
+            "name": "onedeposit",
             "base": "",
             "fields": [
+                {
+                    "name": "id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
                 {
                     "name": "coopname",
                     "type": "name"
                 },
                 {
-                    "name": "username",
+                    "name": "type",
+                    "type": "name"
+                },
+                {
+                    "name": "token_contract",
                     "type": "name"
                 },
                 {
@@ -228,35 +194,25 @@
                     "type": "asset"
                 },
                 {
-                    "name": "document",
-                    "type": "document"
+                    "name": "status",
+                    "type": "name"
                 },
                 {
-                    "name": "bank_data_id",
+                    "name": "link",
                     "type": "string"
                 },
                 {
                     "name": "memo",
                     "type": "string"
-                }
-            ]
-        },
-        {
-            "name": "withdrawauth",
-            "base": "",
-            "fields": [
-                {
-                    "name": "coopname",
-                    "type": "name"
                 },
                 {
-                    "name": "withdraw_id",
-                    "type": "uint64"
+                    "name": "expired_at",
+                    "type": "time_point_sec"
                 }
             ]
         },
         {
-            "name": "withdraws",
+            "name": "onewithdraw",
             "base": "",
             "fields": [
                 {
@@ -298,6 +254,50 @@
                 {
                     "name": "created_at",
                     "type": "time_point_sec"
+                }
+            ]
+        },
+        {
+            "name": "withdraw",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "quantity",
+                    "type": "asset"
+                },
+                {
+                    "name": "document",
+                    "type": "document"
+                },
+                {
+                    "name": "bank_data_id",
+                    "type": "string"
+                },
+                {
+                    "name": "memo",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "withdrawauth",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "withdraw_id",
+                    "type": "uint64"
                 }
             ]
         },
@@ -410,14 +410,14 @@
         },
         {
             "name": "deposits",
-            "type": "deposits",
+            "type": "onedeposit",
             "index_type": "i64",
             "key_names": [],
             "key_types": []
         },
         {
             "name": "withdraws",
-            "type": "withdraws",
+            "type": "onewithdraw",
             "index_type": "i64",
             "key_names": [],
             "key_types": []

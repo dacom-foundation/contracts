@@ -2,11 +2,7 @@
 #include <eosio/crypto.hpp>
 #include <eosio/contract.hpp>
 #include <eosio/system.hpp>
-
-// struct meta {
-//   uint64_t registry_id;
-//   // std::string
-// }
+      
 
 struct document {
   // Чексумма документа (можем использовать SHA256)
@@ -20,17 +16,15 @@ struct document {
 };
 
 
-void verify(const document& doc) {
+void verify_document_or_fail(const document& doc) {
     // Проверка завершится прерыванием, если восстановление подписи провалится
     assert_recover_key(doc.hash, doc.signature, doc.public_key);
 };
 
 
-struct [[eosio::table, eosio::contract(DRAFT)]] drafts {
+struct [[eosio::table, eosio::contract(DRAFT)]] onedraft {
   uint64_t id;
   uint64_t registry_id;
-  eosio::name creator;
-  std::vector<eosio::name> actions;
   uint64_t version;
   uint64_t default_translation_id;
   std::string title;
@@ -45,19 +39,16 @@ struct [[eosio::table, eosio::contract(DRAFT)]] drafts {
 };
 
 typedef eosio::multi_index<
-    "drafts"_n, drafts,
-    eosio::indexed_by< "byregistryid"_n, eosio::const_mem_fun<drafts, uint64_t, &drafts::by_registry_id>>
+    "drafts"_n, onedraft,
+    eosio::indexed_by< "byregistryid"_n, eosio::const_mem_fun<onedraft, uint64_t, &onedraft::by_registry_id>>
 > drafts_index;
 
 
-struct [[eosio::table, eosio::contract(DRAFT)]] translations {
+struct [[eosio::table, eosio::contract(DRAFT)]] translation {
   uint64_t id;
-  eosio::name creator;
   uint64_t draft_id;
   eosio::name lang;
   std::string data;
-  bool is_published;
-  bool is_approved;
   
   uint64_t primary_key() const { return id; };
   uint64_t by_draft() const { return draft_id;};
@@ -67,11 +58,11 @@ struct [[eosio::table, eosio::contract(DRAFT)]] translations {
 };
 
 typedef eosio::multi_index<
-    "translations"_n, translations,
-    eosio::indexed_by<"bydraft"_n, eosio::const_mem_fun<translations, uint64_t, &translations::by_draft>>,
+    "translations"_n, translation,
+    eosio::indexed_by<"bydraft"_n, eosio::const_mem_fun<translation, uint64_t, &translation::by_draft>>,
     eosio::indexed_by<
         "bydraftlang"_n,
-        eosio::const_mem_fun<translations, uint128_t, &translations::by_draft_lang>>> translations_index;
+        eosio::const_mem_fun<translation, uint128_t, &translation::by_draft_lang>>> translations_index;
 
 
 

@@ -46,12 +46,13 @@ var menudata={children:[
 {text:"r",url:"globals.html#index_r"},
 {text:"s",url:"globals.html#index_s"},
 {text:"t",url:"globals.html#index_t"},
-{text:"u",url:"globals.html#index_u"},
 {text:"v",url:"globals.html#index_v"},
 {text:"w",url:"globals.html#index_w"}]},
 {text:"Функции",url:"globals_func.html"},
 {text:"Переменные",url:"globals_vars.html",children:[
 {text:"_",url:"globals_vars.html#index__5F"},
-{text:"r",url:"globals_vars.html#index_r"}]},
+{text:"c",url:"globals_vars.html#index_c"},
+{text:"r",url:"globals_vars.html#index_r"},
+{text:"t",url:"globals_vars.html#index_t"}]},
 {text:"Определения типов",url:"globals_type.html"},
 {text:"Макросы",url:"globals_defs.html"}]}]}]}

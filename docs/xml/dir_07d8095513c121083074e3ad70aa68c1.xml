@@ -7,8 +7,6 @@
     <innerfile refid="exchange__state_8hpp">exchange_state.hpp</innerfile>
     <innerfile refid="limit__auth__changes_8hpp">limit_auth_changes.hpp</innerfile>
     <innerfile refid="native_8hpp">native.hpp</innerfile>
-    <innerfile refid="powerup_8results_8hpp">powerup.results.hpp</innerfile>
-    <innerfile refid="rex_8results_8hpp">rex.results.hpp</innerfile>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

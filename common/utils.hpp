@@ -1,5 +1,6 @@
 #include <eosio/eosio.hpp>
 #include <eosio/transaction.hpp>
+#include <eosio/crypto.hpp>
 
 static uint128_t combine_ids(const uint64_t &x, const uint64_t &y) {
   return (uint128_t{x} << 64) | y;

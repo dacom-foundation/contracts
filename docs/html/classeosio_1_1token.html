@@ -161,6 +161,8 @@ $(document).ready(function(){initNavTree('classeosio_1_1token.html',''); initRes
 <tr class="separator:a28f25eaa6d0e7017f3d8760ad16960bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1eaa2275ba3d2da2663dd8c6595a598"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeosio_1_1token.html#ad1eaa2275ba3d2da2663dd8c6595a598">add_balance</a> (const name &amp;owner, const asset &amp;value, const name &amp;ram_payer)</td></tr>
 <tr class="separator:ad1eaa2275ba3d2da2663dd8c6595a598"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b2edc4577c88d5bccecb7e44536ff04"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeosio_1_1token.html#a5b2edc4577c88d5bccecb7e44536ff04">is_can_transfer</a> (const name &amp;from, const name &amp;to)</td></tr>
+<tr class="separator:a5b2edc4577c88d5bccecb7e44536ff04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
 <div class="textblock"><p >The <code><a class="el" href="classeosio_1_1token.html">eosio.token</a></code> sample system contract defines the structures and actions that allow users to create, issue, and manage tokens for EOSIO based blockchains. It demonstrates one way to implement a smart contract which allows for creation and management of tokens. It is possible for one to create a similar contract which suits different needs. However, it is recommended that if one only needs a token with the below listed actions, that one uses the <code><a class="el" href="classeosio_1_1token.html">eosio.token</a></code> contract instead of developing their own.</p>
@@ -493,6 +495,42 @@ Maximum supply must be positive; </dd></dl>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5b2edc4577c88d5bccecb7e44536ff04" name="a5b2edc4577c88d5bccecb7e44536ff04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b2edc4577c88d5bccecb7e44536ff04">&#9670;&nbsp;</a></span>is_can_transfer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void eosio::token::is_can_transfer </td>
+          <td>(</td>
+          <td class="paramtype">const name &amp;&#160;</td>
+          <td class="paramname"><em>from</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const name &amp;&#160;</td>
+          <td class="paramname"><em>to</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

@@ -54,7 +54,7 @@ void gateway::newwithdrid(eosio::name username, uint64_t id) {
   deposits_index deposits(_gateway, coopname.value);
 
   uint64_t id = get_global_id(_gateway, "deposits"_n);
-
+  
   auto cooperative = get_cooperative_or_fail(coopname);
   
   eosio::check(type == "registration"_n || type == "deposit"_n, "Неверный тип заявки");
@@ -73,7 +73,6 @@ void gateway::newwithdrid(eosio::name username, uint64_t id) {
     d.type = type;
     d.username = username;
     d.coopname = coopname;
-    d.token_contract = cooperative.token_contract;
     d.quantity = quantity;
     d.status = "pending"_n;
     d.expired_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch() + _deposit_expiration_seconds);
@@ -244,7 +243,6 @@ void gateway::withdraw(eosio::name coopname, eosio::name username, eosio::asset 
     d.username = username;
     d.coopname = coopname;
     d.bank_data_id = bank_data_id;
-    d.token_contract = cooperative.token_contract;
     d.document = document;
     d.quantity = quantity;
     d.status = "pending"_n;    
@@ -398,53 +396,3 @@ void gateway::wthdfail(eosio::name coopname, eosio::name admin, uint64_t withdra
   ).send();
 
 }
-
-
-
-
-
-extern "C" {
-
-/// The apply method implements the dispatch of events to this contract
-void apply(uint64_t receiver, uint64_t code, uint64_t action) {
-  if (code == _gateway.value) {
-    switch (action) {
-      EOSIO_DISPATCH_HELPER(
-          gateway, (newdepositid)(newwithdrid)
-
-          (deposit)(dpcomplete)(dpfail)
-          (withdraw)(withdrawauth)(wthdcomplete)(wthdfail)
-      )
-    }
-  } else {
-    if (action == "transfer"_n.value) {
-      struct transfer {
-        eosio::name from;
-        eosio::name to;
-        eosio::asset quantity;
-        std::string memo;
-      };
-
-      auto op = eosio::unpack_action_data<transfer>();
-
-      if (op.to == _gateway) {
-        // вызов функции-обработчика пополнения баланса
-        struct transfer {
-          eosio::name from;
-          eosio::name to;
-          eosio::asset quantity;
-          std::string memo;
-        };
-
-        auto op = eosio::unpack_action_data<transfer>();
-        
-        if (op.to == _gateway) {
-
-          //nothing
-
-        }
-      }
-    }
-  }
-};
-};

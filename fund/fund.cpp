@@ -578,26 +578,3 @@ using namespace eosio;
     }
 
   };
-
-
-
-extern "C" {
-
-/// The apply method implements the dispatch of events to this contract
-void fund::apply(uint64_t receiver, uint64_t code, uint64_t action) {
-  if (code == _fund.value) {
-    switch (action) {
-      EOSIO_DISPATCH_HELPER(
-          fund, (newfund)(newwithdraw)
-          (init)
-          (createfund)(editfund)(delfund)
-          (addcirculate)(subcirculate)
-          (addaccum)(subaccum)
-          (addexpense)
-          (spreadamount)(fundwithdraw)
-          (authorize)(complete)
-      )
-    }
-  }
-};
-};

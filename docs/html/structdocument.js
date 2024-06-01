@@ -1,7 +1,7 @@
 var structdocument =
 [
-    [ "hash", "structdocument.html#a974c7e2fc7d1331789ef2fadffe810d5", null ],
+    [ "hash", "structdocument.html#a45763224394ca879e133b8a4bdad75d2", null ],
     [ "meta", "structdocument.html#ad6e940cca29c2ca96fb1f740d3f2dc90", null ],
-    [ "pkey", "structdocument.html#a5ac94be6f1dab06a1de785c6cb7be25b", null ],
-    [ "sign", "structdocument.html#ad4244e8a2d23974528c6dc33bfb08794", null ]
+    [ "public_key", "structdocument.html#ad991dff7669688e9d726253bf16f64df", null ],
+    [ "signature", "structdocument.html#a9fd2739490e87378f466df2a0c65bd58", null ]
 ];

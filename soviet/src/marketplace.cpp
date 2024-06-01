@@ -6,7 +6,7 @@ using namespace eosio;
 void soviet::recieved (eosio::name coopname, uint64_t exchange_id) {
   require_auth(_marketplace);
 
-  exchange_index exchange(_marketplace, coopname.value);
+  requests_index exchange(_marketplace, coopname.value);
   auto request = exchange.find(exchange_id);
   eosio::check(request != exchange.end(), "Заявка не обнаружена");
   eosio::check(request -> parent_id > 0, "Только встречная заявка может быть обработана");
@@ -14,42 +14,42 @@ void soviet::recieved (eosio::name coopname, uint64_t exchange_id) {
   action(
       permission_level{ _soviet, "active"_n},
       _soviet,
-      "decision"_n,
+      "newdecision"_n,
       std::make_tuple(coopname, request -> money_contributor, _product_return_action, request -> return_product_decision_id, request -> return_product_authorization)
   ).send();
 
   action(
       permission_level{ _soviet, "active"_n},
       _soviet,
-      "statement"_n,
+      "newresolved"_n,
       std::make_tuple(coopname, request -> money_contributor, _product_return_action, request -> return_product_decision_id, request -> return_product_statement)
   ).send();
   
   action(
       permission_level{ _soviet, "active"_n},
       _soviet,
-      "act"_n,
+      "newact"_n,
       std::make_tuple(coopname, request -> money_contributor, _product_return_action, request -> return_product_decision_id, request -> product_recieve_act_validation)
   ).send();
   
   action(
       permission_level{ _soviet, "active"_n},
       _soviet,
-      "decision"_n,
+      "newdecision"_n,
       std::make_tuple(coopname, request -> product_contributor, _product_contribution_action, request -> contribution_product_decision_id, request -> contribution_product_authorization)
   ).send();
 
   action(
       permission_level{ _soviet, "active"_n},
       _soviet,
-      "statement"_n,
+      "newresolved"_n,
       std::make_tuple(coopname, request -> product_contributor, _product_contribution_action, request -> contribution_product_decision_id, request -> contribute_product_statement)
   ).send();
   
   action(
       permission_level{ _soviet, "active"_n},
       _soviet,
-      "act"_n,
+      "newact"_n,
       std::make_tuple(coopname, request -> product_contributor, _product_contribution_action, request -> contribution_product_decision_id, request -> product_contribution_act_validation)
   ).send();
 
@@ -75,13 +75,13 @@ void soviet::change(eosio::name coopname, eosio::name parent_username, eosio::na
   require_auth(_marketplace);  
 
   decisions_index decisions(_soviet, coopname.value);
-  auto decision_id_1 = get_global_id(_soviet, "decisions"_n);
-  auto decision_id_2 = get_global_id(_soviet, "decisions"_n);
-
+  auto decision_id_1 = get_id(_soviet, coopname, "decisions"_n);
+  auto decision_id_2 = get_id(_soviet, coopname, "decisions"_n);
+    
   changes_index changes(_soviet, coopname.value);
   auto batch_id = get_global_id(_soviet, "change"_n);
 
-  exchange_index exchange(_marketplace, coopname.value);
+  requests_index exchange(_marketplace, coopname.value);
   auto change = exchange.find(exchange_id);
   eosio::check(change != exchange.end(), "Заявка не обнаружена");
 
@@ -92,6 +92,7 @@ void soviet::change(eosio::name coopname, eosio::name parent_username, eosio::na
     c.return_product_decision_id = decision_id_2;
   });
 
+  
   decisions.emplace(_soviet, [&](auto &d) {
     d.id = decision_id_1;
     d.type = _change_action;
@@ -105,28 +106,28 @@ void soviet::change(eosio::name coopname, eosio::name parent_username, eosio::na
     d.type = _change_action;
     d.batch_id = batch_id;
     d.coopname = coopname;
-    d.username = money_contributor;  
+    d.username = money_contributor;
   });
 
   action(
     permission_level{ _soviet, "active"_n},
     _soviet,
-    "draft"_n,
-    std::make_tuple(coopname, product_contributor, decision_id_1)
+    "newsubmitted"_n,
+    std::make_tuple(coopname, product_contributor, _product_contribution_action, decision_id_1, change -> contribute_product_statement)
   ).send();
   
   action(
     permission_level{ _soviet, "active"_n},
     _soviet,
-    "draft"_n,
-    std::make_tuple(coopname, money_contributor, decision_id_2)
+    "newsubmitted"_n,
+    std::make_tuple(coopname, money_contributor, _product_return_action, decision_id_2, change -> return_product_statement)
   ).send();
   
 
   action(
     permission_level{ _soviet, "active"_n},
     _soviet,
-    "batch"_n,
+    "newbatch"_n,
     std::make_tuple(coopname, _change_action, batch_id)
   ).send();
 

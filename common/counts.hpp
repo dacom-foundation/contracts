@@ -23,6 +23,24 @@ typedef eosio::multi_index<
     counts_index;
 
 
+uint64_t get_id(eosio::name code, eosio::name scope, eosio::name key) {
+    counts_index counts(code, scope.value);
+    auto count = counts.find(key.value);
+    uint64_t id = 1;
+
+    if (count == counts.end()) {
+      counts.emplace(code, [&](auto &c) {
+        c.key = key;
+        c.value = id;
+      });
+    } else {
+      id = count->value + 1;
+      counts.modify(count, code, [&](auto &c) { c.value = id; });
+    }
+
+    return id;
+};
+
 uint64_t get_global_id(eosio::name _me, eosio::name key) {
     counts_index counts(_me, _me.value);
     auto count = counts.find(key.value);

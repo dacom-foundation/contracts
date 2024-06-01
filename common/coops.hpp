@@ -210,7 +210,7 @@ typedef eosio::multi_index< "participants"_n, participants,
  * @details Эта структура содержит информацию о решениях, включая уникальный идентификатор, имя кооператива, тип решения,
  * идентификатор карточки, списки голосов "за" и "против", а также различные флаги состояния решения.
  */
-struct [[eosio::table, eosio::contract(SOVIET)]] decisions {
+struct [[eosio::table, eosio::contract(SOVIET)]] decision {
   uint64_t id; ///< Уникальный идентификатор решения.
   eosio::name coopname; ///< Имя кооператива, связанного с решением.
   eosio::name username; ///< Имя пользователя, связанного с решением.
@@ -224,7 +224,7 @@ struct [[eosio::table, eosio::contract(SOVIET)]] decisions {
   bool validated = false; ///< Сигнальный флаг, указывающий, что администратор подтверждает валидность решения.
   bool approved = false; ///< Сигнальный флаг, указывающий, что решение советом принято.
   bool authorized = false; ///< Флаг, указывающий, что получена авторизация председателя после голосования и валидации до исполнения.
-  
+  eosio::name authorized_by; ///< Имя аккаунта председателя
   document authorization; ///< Документ подписанного решения председателем
 
   eosio::time_point_sec created_at; ///< Время создания карточки решения.
@@ -280,12 +280,12 @@ struct [[eosio::table, eosio::contract(SOVIET)]] decisions {
 };
 
 
-typedef eosio::multi_index< "decisions"_n, decisions,
-  eosio::indexed_by<"bysecondary"_n, eosio::const_mem_fun<decisions, uint64_t, &decisions::by_secondary>>,
-  eosio::indexed_by<"bytype"_n, eosio::const_mem_fun<decisions, uint64_t, &decisions::bytype>>,
-  eosio::indexed_by<"byapproved"_n, eosio::const_mem_fun<decisions, uint64_t, &decisions::byapproved>>,
-  eosio::indexed_by<"byvalidated"_n, eosio::const_mem_fun<decisions, uint64_t, &decisions::byvalidated>>,
-  eosio::indexed_by<"byauthorized"_n, eosio::const_mem_fun<decisions, uint64_t, &decisions::byauthorized>>
+typedef eosio::multi_index< "decisions"_n, decision,
+  eosio::indexed_by<"bysecondary"_n, eosio::const_mem_fun<decision, uint64_t, &decision::by_secondary>>,
+  eosio::indexed_by<"bytype"_n, eosio::const_mem_fun<decision, uint64_t, &decision::bytype>>,
+  eosio::indexed_by<"byapproved"_n, eosio::const_mem_fun<decision, uint64_t, &decision::byapproved>>,
+  eosio::indexed_by<"byvalidated"_n, eosio::const_mem_fun<decision, uint64_t, &decision::byvalidated>>,
+  eosio::indexed_by<"byauthorized"_n, eosio::const_mem_fun<decision, uint64_t, &decision::byauthorized>>
 > decisions_index;
 
 
@@ -325,7 +325,7 @@ bool check_for_exist_board_by_type(eosio::name coopname, eosio::name type){
 }
 
 
-struct address { 
+struct address_data { 
   std::string latitude;
   std::string longitude;
   std::string country;
@@ -346,17 +346,32 @@ struct address {
  * @brief Структура, представляющая адреса кооператива.
  * @details Эта структура содержит информацию о адресах кооператива, которые используются как точки приёма-выдачи товаров на кооплейсе.
  */
-struct [[eosio::table, eosio::contract(SOVIET)]] addresses {
+struct [[eosio::table, eosio::contract(SOVIET)]] address {
   uint64_t id;
   eosio::name coopname;
-  eosio::name cooplate; //юзернейм организации кооперативного участка, если есть
-  address data;
+  eosio::name departname; //юзернейм организации кооперативного участка, если есть
+  address_data data;
   std::string meta;
   uint64_t primary_key() const { return id; }
-  uint64_t bycooplate() const { return cooplate.value; }
+  uint64_t bydepartment() const { return departname.value; }
 };
 
 
-typedef eosio::multi_index< "addresses"_n, addresses,
-  eosio::indexed_by<"bycooplate"_n, eosio::const_mem_fun<addresses, uint64_t, &addresses::bycooplate>>
+typedef eosio::multi_index< "addresses"_n, address,
+  eosio::indexed_by<"bydepartment"_n, eosio::const_mem_fun<address, uint64_t, &address::bydepartment>>
 > addresses_index;
+
+
+bool is_participant_exist(eosio::name coopname, eosio::name username) {
+  participants_index participants(_soviet, coopname.value);
+  auto participant = participants.find(username.value);
+
+  accounts_index accounts(_registrator, _registrator.value);
+  auto account = accounts.find(username.value);
+  
+  if (participant != participants.end() && account -> status == "active"_n && participant->status == "accepted"_n) {
+    return true;
+  }
+  
+  return false;
+}

@@ -2,16 +2,11 @@
 
 export type IAsset = string
 export type IName = string
+export type IChecksum256 = string
+export type IPublicKey = string
+export type ISignature = string
 export type ITimePointSec = string
 export type IUint64 = number | string
-
-export interface IAct {
-  coopname: IName
-  username: IName
-  action: IName
-  decision_id: IUint64
-  document: IDocument
-}
 
 export interface IAddbalance {
   coopname: IName
@@ -27,6 +22,14 @@ export interface IAddprogbal {
 }
 
 export interface IAddress {
+  id: IUint64
+  coopname: IName
+  departname: IName
+  data: IAddressData
+  meta: string
+}
+
+export interface IAddressData {
   latitude: string
   longitude: string
   country: string
@@ -40,14 +43,6 @@ export interface IAddress {
   directions: string
   phone_number: string
   business_hours: string
-}
-
-export interface IAddresses {
-  id: IUint64
-  coopname: IName
-  cooplate: IName
-  data: IAddress
-  meta: string
 }
 
 export interface IAddstaff {
@@ -88,12 +83,6 @@ export interface IAutosigner {
   decision_id: IUint64
 }
 
-export interface IBatch {
-  coopname: IName
-  action: IName
-  batch_id: IUint64
-}
-
 export interface IBlockbal {
   coopname: IName
   username: IName
@@ -115,12 +104,6 @@ export interface IBoards {
   members: IBoardMember[]
   created_at: ITimePointSec
   last_update: ITimePointSec
-}
-
-export interface ICancelorder {
-  coopname: IName
-  username: IName
-  exchange_id: IUint64
 }
 
 export interface ICancelvote {
@@ -145,11 +128,6 @@ export interface IChanges {
   return_product_decision_id: IUint64
 }
 
-export interface ICompleted {
-  coopname: IName
-  exchange_id: IUint64
-}
-
 export interface ICounts extends ICountsBase {
 }
 
@@ -162,8 +140,8 @@ export interface ICountsBase {
 export interface ICreaddress {
   coopname: IName
   chairman: IName
-  cooplate: IName
-  data: IAddress
+  departname: IName
+  data: IAddressData
   meta: string
 }
 
@@ -190,14 +168,6 @@ export interface ICreateprog {
 }
 
 export interface IDecision {
-  coopname: IName
-  username: IName
-  action: IName
-  decision_id: IUint64
-  document: IDocument
-}
-
-export interface IDecisions {
   id: IUint64
   coopname: IName
   username: IName
@@ -208,6 +178,7 @@ export interface IDecisions {
   validated: boolean
   approved: boolean
   authorized: boolean
+  authorized_by: IName
   authorization: IDocument
   created_at: ITimePointSec
 }
@@ -231,24 +202,18 @@ export interface IDisautomate {
 }
 
 export interface IDocument {
-  hash: string
-  pkey: string
-  sign: string
+  hash: IChecksum256
+  public_key: IPublicKey
+  signature: ISignature
   meta: string
-}
-
-export interface IDraft {
-  coopname: IName
-  username: IName
-  decision_id: IUint64
 }
 
 export interface IEditaddress {
   coopname: IName
   chairman: IName
   address_id: IUint64
-  cooplate: IName
-  data: IAddress
+  departname: IName
+  data: IAddressData
   meta: string
 }
 
@@ -276,6 +241,9 @@ export interface IFundwithdraw {
   document: IDocument
 }
 
+export interface IInit {
+}
+
 export interface IJoincoop {
   coopname: IName
   username: IName
@@ -290,12 +258,55 @@ export interface IJoincoops {
   notice: string
 }
 
-export interface IMcontribute {
+export interface INewact {
   coopname: IName
   username: IName
+  action: IName
+  decision_id: IUint64
+  document: IDocument
+}
+
+export interface INewbatch {
+  coopname: IName
+  action: IName
+  batch_id: IUint64
+}
+
+export interface INewdecision {
+  coopname: IName
+  username: IName
+  action: IName
+  decision_id: IUint64
+  document: IDocument
+}
+
+export interface INewprogram {
+  coopname: IName
   program_id: IUint64
-  type: IName
-  secondary_id: IUint64
+}
+
+export interface INewresolved {
+  coopname: IName
+  username: IName
+  action: IName
+  decision_id: IUint64
+  document: IDocument
+}
+
+export interface INewsubmitted {
+  coopname: IName
+  username: IName
+  action: IName
+  decision_id: IUint64
+  document: IDocument
+}
+
+export interface IOnewallet {
+  username: IName
+  coopname: IName
+  available: IAsset
+  blocked: IAsset
+  minimum: IAsset
 }
 
 export interface IParticipants {
@@ -307,14 +318,6 @@ export interface IParticipants {
   is_initial: boolean
   is_minimum: boolean
   has_vote: boolean
-}
-
-export interface IPcontribute {
-  coopname: IName
-  username: IName
-  program_id: IUint64
-  type: IName
-  secondary_id: IUint64
 }
 
 export interface IProgcomarket {
@@ -332,12 +335,7 @@ export interface IProgcomarket {
   fixed_membership_contribution: IAsset
 }
 
-export interface IProgram {
-  coopname: IName
-  program_id: IUint64
-}
-
-export interface IProgwallets {
+export interface IProgwallet {
   id: IUint64
   coopname: IName
   program_id: IUint64
@@ -380,14 +378,6 @@ export interface IStaff {
   rights: IRight[]
   created_at: ITimePointSec
   updated_at: ITimePointSec
-}
-
-export interface IStatement {
-  coopname: IName
-  username: IName
-  action: IName
-  decision_id: IUint64
-  document: IDocument
 }
 
 export interface ISubbalance {
@@ -434,14 +424,6 @@ export interface IVotefor {
   coopname: IName
   member: IName
   decision_id: IUint64
-}
-
-export interface IWallets {
-  username: IName
-  coopname: IName
-  available: IAsset
-  blocked: IAsset
-  minimum: IAsset
 }
 
 export interface IWithdraw {

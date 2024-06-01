@@ -27,14 +27,12 @@ void soviet::authorize(eosio::name coopname, eosio::name chairman, uint64_t deci
   
   eosio::check(decision -> approved == true, "Консенсус совета по решению не достигнут");
 
-  struct document clean;
+  verify_document_or_fail(document);
 
   decisions.modify(decision, chairman, [&](auto &d){
+    d.authorized_by = chairman;
     d.authorized = !decision -> authorized;
     d.authorization = document;
-    // if (!decision -> authorized == true)
-    //   d.authorization = document;
-    // else d.authorization = clean;
   });
 
   auto signer = autosigner.find(decision -> id);
@@ -64,11 +62,10 @@ void soviet::authorize(eosio::name coopname, eosio::name chairman, uint64_t deci
 * @note Авторизация требуется от аккаунта: @p chairman
 */
 void soviet::createboard(eosio::name coopname, eosio::name chairman, eosio::name type, std::vector<board_member> members, std::string name, std::string description){
+  eosio::check(has_auth(chairman), "Недостаточно прав доступа");
+  eosio::name payer = chairman;
 
-  eosio::check(has_auth(chairman) || has_auth(coopname), "Недостаточно прав доступа");
-  eosio::name payer = has_auth(chairman) ? chairman : coopname;
-
-  orgs_index orgs(_registrator, _registrator.value);
+  organizations_index orgs(_registrator, _registrator.value);
   auto org = orgs.find(coopname.value);
   eosio::check(org != orgs.end(), "Организация не найдена");
   eosio::check(org -> is_coop(), "Организация - не кооператив");
@@ -95,7 +92,8 @@ void soviet::createboard(eosio::name coopname, eosio::name chairman, eosio::name
     //Добавляем председателя в пайщики кооператива автоматически
     participants_index participants(_soviet, coopname.value);
     auto cooperative = get_cooperative_or_fail(coopname);
-    participants.emplace(_soviet, [&](auto &m){
+    
+    participants.emplace(payer, [&](auto &m){
       m.username = chairman;
       m.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
       m.last_update = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
@@ -104,7 +102,6 @@ void soviet::createboard(eosio::name coopname, eosio::name chairman, eosio::name
       m.is_initial = true;
       m.is_minimum = true;
       m.has_vote = true;    
-
     });
 
     wallets_index wallets(_soviet, coopname.value);
@@ -168,7 +165,7 @@ void soviet::createboard(eosio::name coopname, eosio::name chairman, eosio::name
 void soviet::updateboard(eosio::name coopname, eosio::name chairman, uint64_t board_id, std::vector<board_member> members, std::string name, std::string description){
 
   require_auth(chairman);
-  orgs_index orgs(_registrator, _registrator.value);
+  organizations_index orgs(_registrator, _registrator.value);
   auto org = orgs.find(coopname.value);
   eosio::check(org != orgs.end(), "Организация не найдена");
   eosio::check(org -> is_coop(), "Организация - не кооператив");

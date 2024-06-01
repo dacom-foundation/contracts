@@ -78,6 +78,29 @@
             ]
         },
         {
+            "name": "balances",
+            "base": "balances_base",
+            "fields": []
+        },
+        {
+            "name": "balances_base",
+            "base": "",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "contract",
+                    "type": "name"
+                },
+                {
+                    "name": "quantity",
+                    "type": "asset"
+                }
+            ]
+        },
+        {
             "name": "cancel",
             "base": "",
             "fields": [
@@ -109,6 +132,29 @@
                 },
                 {
                     "name": "exchange_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "counts",
+            "base": "counts_base",
+            "fields": []
+        },
+        {
+            "name": "counts_base",
+            "base": "",
+            "fields": [
+                {
+                    "name": "key",
+                    "type": "name"
+                },
+                {
+                    "name": "secondary_key",
+                    "type": "name"
+                },
+                {
+                    "name": "value",
                     "type": "uint64"
                 }
             ]
@@ -198,7 +244,193 @@
             ]
         },
         {
-            "name": "exchange",
+            "name": "exchange_params",
+            "base": "",
+            "fields": [
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "parent_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "program_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "pieces",
+                    "type": "uint64"
+                },
+                {
+                    "name": "unit_cost",
+                    "type": "asset"
+                },
+                {
+                    "name": "product_lifecycle_secs",
+                    "type": "uint64"
+                },
+                {
+                    "name": "document",
+                    "type": "document?"
+                },
+                {
+                    "name": "data",
+                    "type": "string"
+                },
+                {
+                    "name": "meta",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "moderate",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "exchange_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "cancellation_fee",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "newid",
+            "base": "",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "type",
+                    "type": "name"
+                }
+            ]
+        },
+        {
+            "name": "offer",
+            "base": "",
+            "fields": [
+                {
+                    "name": "params",
+                    "type": "exchange_params"
+                }
+            ]
+        },
+        {
+            "name": "order",
+            "base": "",
+            "fields": [
+                {
+                    "name": "params",
+                    "type": "exchange_params"
+                }
+            ]
+        },
+        {
+            "name": "prohibit",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "exchange_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "meta",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "publish",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "exchange_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "recieve",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "exchange_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "document",
+                    "type": "document"
+                }
+            ]
+        },
+        {
+            "name": "recievecnfrm",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "exchange_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "document",
+                    "type": "document"
+                }
+            ]
+        },
+        {
+            "name": "request",
             "base": "",
             "fields": [
                 {
@@ -384,192 +616,6 @@
                 {
                     "name": "warranty_return_id",
                     "type": "uint64"
-                }
-            ]
-        },
-        {
-            "name": "exchange_params",
-            "base": "",
-            "fields": [
-                {
-                    "name": "username",
-                    "type": "name"
-                },
-                {
-                    "name": "parent_id",
-                    "type": "uint64"
-                },
-                {
-                    "name": "program_id",
-                    "type": "uint64"
-                },
-                {
-                    "name": "coopname",
-                    "type": "name"
-                },
-                {
-                    "name": "pieces",
-                    "type": "uint64"
-                },
-                {
-                    "name": "unit_cost",
-                    "type": "asset"
-                },
-                {
-                    "name": "product_lifecycle_secs",
-                    "type": "uint64"
-                },
-                {
-                    "name": "document",
-                    "type": "document"
-                },
-                {
-                    "name": "data",
-                    "type": "string"
-                },
-                {
-                    "name": "meta",
-                    "type": "string"
-                }
-            ]
-        },
-        {
-            "name": "moderate",
-            "base": "",
-            "fields": [
-                {
-                    "name": "coopname",
-                    "type": "name"
-                },
-                {
-                    "name": "username",
-                    "type": "name"
-                },
-                {
-                    "name": "exchange_id",
-                    "type": "uint64"
-                },
-                {
-                    "name": "cancellation_fee",
-                    "type": "uint64"
-                }
-            ]
-        },
-        {
-            "name": "newid",
-            "base": "",
-            "fields": [
-                {
-                    "name": "id",
-                    "type": "uint64"
-                },
-                {
-                    "name": "type",
-                    "type": "name"
-                }
-            ]
-        },
-        {
-            "name": "offer",
-            "base": "",
-            "fields": [
-                {
-                    "name": "params",
-                    "type": "exchange_params"
-                }
-            ]
-        },
-        {
-            "name": "order",
-            "base": "",
-            "fields": [
-                {
-                    "name": "params",
-                    "type": "exchange_params"
-                }
-            ]
-        },
-        {
-            "name": "prohibit",
-            "base": "",
-            "fields": [
-                {
-                    "name": "coopname",
-                    "type": "name"
-                },
-                {
-                    "name": "username",
-                    "type": "name"
-                },
-                {
-                    "name": "exchange_id",
-                    "type": "uint64"
-                },
-                {
-                    "name": "meta",
-                    "type": "string"
-                }
-            ]
-        },
-        {
-            "name": "publish",
-            "base": "",
-            "fields": [
-                {
-                    "name": "coopname",
-                    "type": "name"
-                },
-                {
-                    "name": "username",
-                    "type": "name"
-                },
-                {
-                    "name": "exchange_id",
-                    "type": "uint64"
-                }
-            ]
-        },
-        {
-            "name": "recieve",
-            "base": "",
-            "fields": [
-                {
-                    "name": "coopname",
-                    "type": "name"
-                },
-                {
-                    "name": "username",
-                    "type": "name"
-                },
-                {
-                    "name": "exchange_id",
-                    "type": "uint64"
-                },
-                {
-                    "name": "document",
-                    "type": "document"
-                }
-            ]
-        },
-        {
-            "name": "recievecnfrm",
-            "base": "",
-            "fields": [
-                {
-                    "name": "coopname",
-                    "type": "name"
-                },
-                {
-                    "name": "username",
-                    "type": "name"
-                },
-                {
-                    "name": "exchange_id",
-                    "type": "uint64"
-                },
-                {
-                    "name": "document",
-                    "type": "document"
                 }
             ]
         },
@@ -774,8 +820,22 @@
     ],
     "tables": [
         {
-            "name": "exchange",
-            "type": "exchange",
+            "name": "balances",
+            "type": "balances",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "counts",
+            "type": "counts",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "requests",
+            "type": "request",
             "index_type": "i64",
             "key_names": [],
             "key_types": []

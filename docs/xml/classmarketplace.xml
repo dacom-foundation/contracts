@@ -267,7 +267,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="marketplace/marketplace.hpp" line="61" column="9" bodyfile="marketplace/src/change.cpp" bodystart="307" bodyend="346"/>
+        <location file="marketplace/marketplace.hpp" line="61" column="9" bodyfile="marketplace/src/change.cpp" bodystart="308" bodyend="350"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga632cf8b33c10b9602cb694f4cb036049" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -333,7 +333,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="marketplace/marketplace.hpp" line="62" column="9" bodyfile="marketplace/src/change.cpp" bodystart="794" bodyend="831"/>
+        <location file="marketplace/marketplace.hpp" line="62" column="9" bodyfile="marketplace/src/change.cpp" bodystart="778" bodyend="815"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga9ee9ac0937429488378463abd8bc5848" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -364,7 +364,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="marketplace/marketplace.hpp" line="64" column="9" bodyfile="marketplace/src/change.cpp" bodystart="379" bodyend="423"/>
+        <location file="marketplace/marketplace.hpp" line="64" column="9" bodyfile="marketplace/src/change.cpp" bodystart="386" bodyend="433"/>
       </memberdef>
       <memberdef kind="function" id="classmarketplace_1ad941ef50a391bbda6af90e38e67d0777" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -394,7 +394,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="marketplace/marketplace.hpp" line="65" column="9" bodyfile="marketplace/src/change.cpp" bodystart="350" bodyend="371"/>
+        <location file="marketplace/marketplace.hpp" line="65" column="9" bodyfile="marketplace/src/change.cpp" bodystart="354" bodyend="378"/>
       </memberdef>
       <memberdef kind="function" id="classmarketplace_1a9f7209cdd4797a171c4c0f9c4bfbd188" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -420,7 +420,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="marketplace/marketplace.hpp" line="66" column="9" bodyfile="marketplace/src/change.cpp" bodystart="429" bodyend="451"/>
+        <location file="marketplace/marketplace.hpp" line="66" column="9" bodyfile="marketplace/src/change.cpp" bodystart="439" bodyend="461"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga084713334c8f04951ef37b2b431331ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -451,7 +451,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="marketplace/marketplace.hpp" line="67" column="9" bodyfile="marketplace/src/change.cpp" bodystart="463" bodyend="495"/>
+        <location file="marketplace/marketplace.hpp" line="67" column="9" bodyfile="marketplace/src/change.cpp" bodystart="473" bodyend="509"/>
       </memberdef>
       <memberdef kind="function" id="classmarketplace_1a4ad158db16c8c5772026fedd3ad0ae05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -481,7 +481,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="marketplace/marketplace.hpp" line="68" column="9" bodyfile="marketplace/src/change.cpp" bodystart="499" bodyend="525"/>
+        <location file="marketplace/marketplace.hpp" line="68" column="9" bodyfile="marketplace/src/change.cpp" bodystart="513" bodyend="542"/>
       </memberdef>
       <memberdef kind="function" id="classmarketplace_1af5741e1afd512d7480cec3f54586e0a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -511,7 +511,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="marketplace/marketplace.hpp" line="70" column="9" bodyfile="marketplace/src/change.cpp" bodystart="530" bodyend="641"/>
+        <location file="marketplace/marketplace.hpp" line="70" column="9" bodyfile="marketplace/src/change.cpp" bodystart="547" bodyend="659"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga082792b887a075f6fba43280d5a5e0cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -559,7 +559,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="marketplace/marketplace.hpp" line="72" column="9" bodyfile="marketplace/src/change.cpp" bodystart="688" bodyend="771"/>
+        <location file="marketplace/marketplace.hpp" line="72" column="9" bodyfile="marketplace/src/change.cpp" bodystart="672" bodyend="755"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gaa0e2d4ec515205db7bc0b459c7b602d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -607,7 +607,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="marketplace/marketplace.hpp" line="74" column="9" bodyfile="marketplace/src/change.cpp" bodystart="847" bodyend="862"/>
+        <location file="marketplace/marketplace.hpp" line="74" column="9" bodyfile="marketplace/src/change.cpp" bodystart="831" bodyend="846"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga0571c4090259fcc39ca6e64a9f94063b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -671,7 +671,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="marketplace/marketplace.hpp" line="76" column="9" bodyfile="marketplace/src/change.cpp" bodystart="961" bodyend="984"/>
+        <location file="marketplace/marketplace.hpp" line="76" column="9" bodyfile="marketplace/src/change.cpp" bodystart="945" bodyend="969"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gac2a62dd532b9c0212270a2cbe5958b57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -731,7 +731,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="marketplace/marketplace.hpp" line="77" column="9" bodyfile="marketplace/src/change.cpp" bodystart="999" bodyend="1013"/>
+        <location file="marketplace/marketplace.hpp" line="77" column="9" bodyfile="marketplace/src/change.cpp" bodystart="984" bodyend="998"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gaa94f8cc59c762e8dc2d059d8cba5e20d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1023,7 +1023,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="marketplace/marketplace.hpp" line="56" column="15" bodyfile="marketplace/src/change.cpp" bodystart="91" bodyend="166"/>
+        <location file="marketplace/marketplace.hpp" line="56" column="15" bodyfile="marketplace/src/change.cpp" bodystart="91" bodyend="165"/>
       </memberdef>
       <memberdef kind="function" id="classmarketplace_1a20268b1b8b02ed38a812054f97f35a89" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1064,7 +1064,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="marketplace/marketplace.hpp" line="57" column="15" bodyfile="marketplace/src/change.cpp" bodystart="178" bodyend="292"/>
+        <location file="marketplace/marketplace.hpp" line="57" column="15" bodyfile="marketplace/src/change.cpp" bodystart="177" bodyend="293"/>
       </memberdef>
       <memberdef kind="function" id="classmarketplace_1a1808808b13809e91e25b0958f67c4d45" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1110,7 +1110,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="marketplace/marketplace.hpp" line="58" column="15" bodyfile="marketplace/src/change.cpp" bodystart="874" bodyend="881"/>
+        <location file="marketplace/marketplace.hpp" line="58" column="15" bodyfile="marketplace/src/change.cpp" bodystart="858" bodyend="865"/>
       </memberdef>
       <memberdef kind="function" id="classmarketplace_1ac5fc689c4e4972094be4a899c3b77658" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1156,7 +1156,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="marketplace/marketplace.hpp" line="59" column="15" bodyfile="marketplace/src/change.cpp" bodystart="893" bodyend="947"/>
+        <location file="marketplace/marketplace.hpp" line="59" column="15" bodyfile="marketplace/src/change.cpp" bodystart="877" bodyend="931"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

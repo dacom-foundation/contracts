@@ -5,6 +5,20 @@
     <basecompoundref prot="public" virt="non-virtual">eosio::contract</basecompoundref>
     <includes refid="soviet_8hpp" local="no">soviet.hpp</includes>
       <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsoviet_1a3cbffb11d43c698868e90f0c20d59eaf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void soviet::init</definition>
+        <argsstring>()</argsstring>
+        <name>init</name>
+        <qualifiedname>soviet::init</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="42" column="9" bodyfile="soviet/soviet.cpp" bodystart="18" bodyend="74"/>
+      </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga2df3ffc1ac9da194963f3be0aadc4139" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void soviet::exec</definition>
@@ -59,62 +73,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="42" column="9" bodyfile="soviet/soviet.cpp" bodystart="80" bodyend="98"/>
+        <location file="soviet/soviet.hpp" line="45" column="9" bodyfile="soviet/soviet.cpp" bodystart="137" bodyend="155"/>
       </memberdef>
-      <memberdef kind="function" id="classsoviet_1ac45321a36a937e85fc0387200de54140" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classsoviet_1a75bfcecd10ad37dd53a733623ed0cbdb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void soviet::draft</definition>
-        <argsstring>(eosio::name coopname, eosio::name username, uint64_t decision_id)</argsstring>
-        <name>draft</name>
-        <qualifiedname>soviet::draft</qualifiedname>
-        <param>
-          <type>eosio::name</type>
-          <declname>coopname</declname>
-        </param>
-        <param>
-          <type>eosio::name</type>
-          <declname>username</declname>
-        </param>
-        <param>
-          <type>uint64_t</type>
-          <declname>decision_id</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="soviet/soviet.hpp" line="47" column="9" bodyfile="soviet/soviet.cpp" bodystart="18" bodyend="24"/>
-      </memberdef>
-      <memberdef kind="function" id="classsoviet_1a7219e152230eb53d532bb8a7049d9747" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void soviet::program</definition>
-        <argsstring>(eosio::name coopname, uint64_t program_id)</argsstring>
-        <name>program</name>
-        <qualifiedname>soviet::program</qualifiedname>
-        <param>
-          <type>eosio::name</type>
-          <declname>coopname</declname>
-        </param>
-        <param>
-          <type>uint64_t</type>
-          <declname>program_id</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="soviet/soviet.hpp" line="50" column="9" bodyfile="soviet/soviet.cpp" bodystart="62" bodyend="66"/>
-      </memberdef>
-      <memberdef kind="function" id="classsoviet_1abfbbf9b41520e2813aec2c5022c6d743" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void soviet::statement</definition>
+        <definition>void soviet::newsubmitted</definition>
         <argsstring>(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, document document)</argsstring>
-        <name>statement</name>
-        <qualifiedname>soviet::statement</qualifiedname>
+        <name>newsubmitted</name>
+        <qualifiedname>soviet::newsubmitted</qualifiedname>
         <param>
           <type>eosio::name</type>
           <declname>coopname</declname>
@@ -141,14 +107,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="53" column="9" bodyfile="soviet/soviet.cpp" bodystart="26" bodyend="32"/>
+        <location file="soviet/soviet.hpp" line="50" column="9" bodyfile="soviet/soviet.cpp" bodystart="76" bodyend="82"/>
       </memberdef>
-      <memberdef kind="function" id="classsoviet_1a10ddd26be5208f41bd2b13498eb282a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classsoviet_1aa80fc272e5a034ce31c7077159273c32" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void soviet::act</definition>
+        <definition>void soviet::newresolved</definition>
         <argsstring>(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, document document)</argsstring>
-        <name>act</name>
-        <qualifiedname>soviet::act</qualifiedname>
+        <name>newresolved</name>
+        <qualifiedname>soviet::newresolved</qualifiedname>
         <param>
           <type>eosio::name</type>
           <declname>coopname</declname>
@@ -175,14 +141,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="54" column="9" bodyfile="soviet/soviet.cpp" bodystart="35" bodyend="41"/>
+        <location file="soviet/soviet.hpp" line="53" column="9" bodyfile="soviet/soviet.cpp" bodystart="84" bodyend="90"/>
       </memberdef>
-      <memberdef kind="function" id="classsoviet_1a7d1953dc4d198269e15d7e35df7b63ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classsoviet_1af9362d3131fcfbcff448f77038ecf6b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void soviet::decision</definition>
+        <definition>void soviet::newact</definition>
         <argsstring>(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, document document)</argsstring>
-        <name>decision</name>
-        <qualifiedname>soviet::decision</qualifiedname>
+        <name>newact</name>
+        <qualifiedname>soviet::newact</qualifiedname>
         <param>
           <type>eosio::name</type>
           <declname>coopname</declname>
@@ -209,14 +175,48 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="55" column="9" bodyfile="soviet/soviet.cpp" bodystart="44" bodyend="50"/>
+        <location file="soviet/soviet.hpp" line="54" column="9" bodyfile="soviet/soviet.cpp" bodystart="93" bodyend="99"/>
       </memberdef>
-      <memberdef kind="function" id="classsoviet_1a9f422007a4ed36736212a6a04f252a7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classsoviet_1a5887bef257ef79352e5a2d093e076d67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void soviet::batch</definition>
+        <definition>void soviet::newdecision</definition>
+        <argsstring>(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, document document)</argsstring>
+        <name>newdecision</name>
+        <qualifiedname>soviet::newdecision</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>action</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>decision_id</declname>
+        </param>
+        <param>
+          <type><ref refid="structdocument" kindref="compound">document</ref></type>
+          <declname>document</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="55" column="9" bodyfile="soviet/soviet.cpp" bodystart="102" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classsoviet_1a5d6245a8abf1705be860dac5f9340573" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void soviet::newbatch</definition>
         <argsstring>(eosio::name coopname, eosio::name action, uint64_t batch_id)</argsstring>
-        <name>batch</name>
-        <qualifiedname>soviet::batch</qualifiedname>
+        <name>newbatch</name>
+        <qualifiedname>soviet::newbatch</qualifiedname>
         <param>
           <type>eosio::name</type>
           <declname>coopname</declname>
@@ -235,299 +235,29 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="56" column="9" bodyfile="soviet/soviet.cpp" bodystart="53" bodyend="57"/>
+        <location file="soviet/soviet.hpp" line="56" column="9" bodyfile="soviet/soviet.cpp" bodystart="111" bodyend="115"/>
       </memberdef>
-      <memberdef kind="function" id="group__public__actions_1gaed705497ce78823553360af42f1e0dc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classsoviet_1a2ff1f3be14701afe025d92c6da3d1507" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void soviet::addstaff</definition>
-        <argsstring>(eosio::name coopname, eosio::name chairman, eosio::name username, std::vector&lt; right &gt; rights, std::string position_title)</argsstring>
-        <name>addstaff</name>
-        <qualifiedname>soviet::addstaff</qualifiedname>
+        <definition>void soviet::newprogram</definition>
+        <argsstring>(eosio::name coopname, uint64_t program_id)</argsstring>
+        <name>newprogram</name>
+        <qualifiedname>soviet::newprogram</qualifiedname>
         <param>
           <type>eosio::name</type>
           <declname>coopname</declname>
-        </param>
-        <param>
-          <type>eosio::name</type>
-          <declname>chairman</declname>
-        </param>
-        <param>
-          <type>eosio::name</type>
-          <declname>username</declname>
-        </param>
-        <param>
-          <type>std::vector&lt; <ref refid="structright" kindref="compound">right</ref> &gt;</type>
-          <declname>rights</declname>
-        </param>
-        <param>
-          <type>std::string</type>
-          <declname>position_title</declname>
-        </param>
-        <briefdescription>
-<para>Добавление персонала кооператива </para>
-        </briefdescription>
-        <detaileddescription>
-<para>Данный метод позволяет добавить в кооператив нового члена персонала с указанием определенных прав на выполнение методов действий вместо совета. Авторизация для выполнения этого метода требуется только от председателя совета кооператива.</para>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>coopname</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Имя кооператива </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>board_id</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>ID совета кооператива </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>chairman</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Имя председателя совета </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>username</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Имя нового члена персонала </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>rights</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Список прав, разрешенных для выполнения указанным членом персонала </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>position_title</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Название должности нового члена персонала</para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>chairman</computeroutput> </para>
-</simplesect>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="soviet/soviet.hpp" line="60" column="9" bodyfile="soviet/src/admin.cpp" bodystart="19" bodyend="42"/>
-      </memberdef>
-      <memberdef kind="function" id="group__public__actions_1gab2a5baad145e14f45937617b98d7c73c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void soviet::rmstaff</definition>
-        <argsstring>(eosio::name coopname, eosio::name chairman, eosio::name username)</argsstring>
-        <name>rmstaff</name>
-        <qualifiedname>soviet::rmstaff</qualifiedname>
-        <param>
-          <type>eosio::name</type>
-          <declname>coopname</declname>
-        </param>
-        <param>
-          <type>eosio::name</type>
-          <declname>chairman</declname>
-        </param>
-        <param>
-          <type>eosio::name</type>
-          <declname>username</declname>
-        </param>
-        <briefdescription>
-<para>Удаление персонала из кооператива </para>
-        </briefdescription>
-        <detaileddescription>
-<para>Данный метод позволяет удалить члена персонала из кооператива. Авторизация для выполнения этого метода требуется только от председателя совета кооператива.</para>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>coopname</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Имя кооператива </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>board_id</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>ID совета кооператива </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>chairman</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Имя председателя совета </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>username</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Имя удаляемого члена персонала</para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>chairman</computeroutput> </para>
-</simplesect>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="soviet/soviet.hpp" line="61" column="9" bodyfile="soviet/src/admin.cpp" bodystart="58" bodyend="71"/>
-      </memberdef>
-      <memberdef kind="function" id="group__public__actions_1gaff82a212963ad56c994fca0d30548802" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void soviet::setrights</definition>
-        <argsstring>(eosio::name coopname, eosio::name chairman, eosio::name username, std::vector&lt; right &gt; rights)</argsstring>
-        <name>setrights</name>
-        <qualifiedname>soviet::setrights</qualifiedname>
-        <param>
-          <type>eosio::name</type>
-          <declname>coopname</declname>
-        </param>
-        <param>
-          <type>eosio::name</type>
-          <declname>chairman</declname>
-        </param>
-        <param>
-          <type>eosio::name</type>
-          <declname>username</declname>
-        </param>
-        <param>
-          <type>std::vector&lt; <ref refid="structright" kindref="compound">right</ref> &gt;</type>
-          <declname>rights</declname>
-        </param>
-        <briefdescription>
-<para>Установка прав для персонала кооператива </para>
-        </briefdescription>
-        <detaileddescription>
-<para>Этот метод позволяет установить конкретные права для члена персонала в кооперативе. Авторизация для выполнения этого метода требуется только от председателя совета кооператива.</para>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>coopname</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Имя кооператива </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>board_id</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>ID совета кооператива </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>chairman</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Имя председателя совета </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>username</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Имя члена персонала, для которого устанавливаются права </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>rights</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Вектор прав, которые будут установлены для указанного члена персонала</para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>chairman</computeroutput> </para>
-</simplesect>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="soviet/soviet.hpp" line="62" column="9" bodyfile="soviet/src/admin.cpp" bodystart="88" bodyend="104"/>
-      </memberdef>
-      <memberdef kind="function" id="group__public__actions_1ga2c3e9ad00f9266432144774c17eb4b43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void soviet::validate</definition>
-        <argsstring>(eosio::name coopname, eosio::name username, uint64_t decision_id)</argsstring>
-        <name>validate</name>
-        <qualifiedname>soviet::validate</qualifiedname>
-        <param>
-          <type>eosio::name</type>
-          <declname>coopname</declname>
-        </param>
-        <param>
-          <type>eosio::name</type>
-          <declname>username</declname>
         </param>
         <param>
           <type>uint64_t</type>
-          <declname>decision_id</declname>
+          <declname>program_id</declname>
         </param>
         <briefdescription>
-<para>Предварительная валидация решения совета персоналом </para>
         </briefdescription>
         <detaileddescription>
-<para>Этот метод позволяет персоналу подтвердить поступление оплаты или провести другую форму валидации перед принятием советом какого-либо решения.</para>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>coopname</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Имя кооператива </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>board_id</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>ID совета кооператива </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>username</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Имя члена персонала, проводящего валидацию </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>decision_id</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>ID решения, которое подлежит валидации</para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>username</computeroutput> </para>
-</simplesect>
-</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="63" column="9" bodyfile="soviet/src/admin.cpp" bodystart="120" bodyend="158"/>
+        <location file="soviet/soviet.hpp" line="57" column="9" bodyfile="soviet/soviet.cpp" bodystart="118" bodyend="122"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gadeadfe2269b80480012be4a05a5b08ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -591,67 +321,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="66" column="9" bodyfile="soviet/src/joincoop.cpp" bodystart="47" bodyend="80"/>
-      </memberdef>
-      <memberdef kind="function" id="group__public__actions_1gaddace7bdb215147f252a529422010022" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void soviet::regpaid</definition>
-        <argsstring>(eosio::name coopname, eosio::name username)</argsstring>
-        <name>regpaid</name>
-        <qualifiedname>soviet::regpaid</qualifiedname>
-        <param>
-          <type>eosio::name</type>
-          <declname>coopname</declname>
-        </param>
-        <param>
-          <type>eosio::name</type>
-          <declname>username</declname>
-        </param>
-        <briefdescription>
-<para>Подтверждение оплаты регистрационного взноса </para>
-        </briefdescription>
-        <detaileddescription>
-<para>Этот метод вызывается контрактом gateway при поступлении оплаты регистрационного взноса, что изменяет состояние объекта joincoop и сообщает администраторам, что оплата взноса произведена.</para>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>coopname</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Имя кооператива </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>username</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Имя пользователя </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>position_title</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Заголовок должности </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>position</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Должность</para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>_registrator</computeroutput> </para>
-</simplesect>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="soviet/soviet.hpp" line="67" column="9" bodyfile="soviet/src/joincoop.cpp" bodystart="17" bodyend="31"/>
+        <location file="soviet/soviet.hpp" line="63" column="9" bodyfile="soviet/src/joincoop.cpp" bodystart="47" bodyend="80"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gacd08501eb19d2733f9640cae3ae229f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -744,7 +414,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="74" column="9" bodyfile="soviet/src/automator.cpp" bodystart="26" bodyend="57"/>
+        <location file="soviet/soviet.hpp" line="68" column="9" bodyfile="soviet/src/automator.cpp" bodystart="26" bodyend="57"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gaa1c59a4f419370fbe9eeedde1b315ad7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -812,7 +482,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="75" column="9" bodyfile="soviet/src/automator.cpp" bodystart="72" bodyend="81"/>
+        <location file="soviet/soviet.hpp" line="69" column="9" bodyfile="soviet/src/automator.cpp" bodystart="72" bodyend="81"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga3ca9fb1ee5a9584303c34e391af99e6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -872,7 +542,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="79" column="9" bodyfile="soviet/src/chairman.cpp" bodystart="16" bodyend="45"/>
+        <location file="soviet/soviet.hpp" line="73" column="9" bodyfile="soviet/src/chairman.cpp" bodystart="16" bodyend="43"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga03967c07043b14f5239e50448362287a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -970,7 +640,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="80" column="9" bodyfile="soviet/src/chairman.cpp" bodystart="66" bodyend="144"/>
+        <location file="soviet/soviet.hpp" line="74" column="9" bodyfile="soviet/src/chairman.cpp" bodystart="64" bodyend="141"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga633d78f7717ca0b13d800f1af3b298d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1068,7 +738,359 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="81" column="9" bodyfile="soviet/src/chairman.cpp" bodystart="168" bodyend="206"/>
+        <location file="soviet/soviet.hpp" line="75" column="9" bodyfile="soviet/src/chairman.cpp" bodystart="165" bodyend="203"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gaed705497ce78823553360af42f1e0dc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void soviet::addstaff</definition>
+        <argsstring>(eosio::name coopname, eosio::name chairman, eosio::name username, std::vector&lt; right &gt; rights, std::string position_title)</argsstring>
+        <name>addstaff</name>
+        <qualifiedname>soviet::addstaff</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>chairman</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="structright" kindref="compound">right</ref> &gt;</type>
+          <declname>rights</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>position_title</declname>
+        </param>
+        <briefdescription>
+<para>Добавление персонала кооператива </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Данный метод позволяет добавить в кооператив нового члена персонала с указанием определенных прав на выполнение методов действий вместо совета. Авторизация для выполнения этого метода требуется только от председателя совета кооператива.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coopname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>board_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID совета кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>chairman</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя председателя совета </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя нового члена персонала </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rights</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Список прав, разрешенных для выполнения указанным членом персонала </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>position_title</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Название должности нового члена персонала</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>chairman</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="78" column="9" bodyfile="soviet/src/admin.cpp" bodystart="19" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gab2a5baad145e14f45937617b98d7c73c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void soviet::rmstaff</definition>
+        <argsstring>(eosio::name coopname, eosio::name chairman, eosio::name username)</argsstring>
+        <name>rmstaff</name>
+        <qualifiedname>soviet::rmstaff</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>chairman</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <briefdescription>
+<para>Удаление персонала из кооператива </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Данный метод позволяет удалить члена персонала из кооператива. Авторизация для выполнения этого метода требуется только от председателя совета кооператива.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coopname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>board_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID совета кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>chairman</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя председателя совета </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя удаляемого члена персонала</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>chairman</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="79" column="9" bodyfile="soviet/src/admin.cpp" bodystart="58" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gaff82a212963ad56c994fca0d30548802" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void soviet::setrights</definition>
+        <argsstring>(eosio::name coopname, eosio::name chairman, eosio::name username, std::vector&lt; right &gt; rights)</argsstring>
+        <name>setrights</name>
+        <qualifiedname>soviet::setrights</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>chairman</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="structright" kindref="compound">right</ref> &gt;</type>
+          <declname>rights</declname>
+        </param>
+        <briefdescription>
+<para>Установка прав для персонала кооператива </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет установить конкретные права для члена персонала в кооперативе. Авторизация для выполнения этого метода требуется только от председателя совета кооператива.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coopname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>board_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID совета кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>chairman</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя председателя совета </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя члена персонала, для которого устанавливаются права </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rights</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Вектор прав, которые будут установлены для указанного члена персонала</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>chairman</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="80" column="9" bodyfile="soviet/src/admin.cpp" bodystart="88" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga2c3e9ad00f9266432144774c17eb4b43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void soviet::validate</definition>
+        <argsstring>(eosio::name coopname, eosio::name username, uint64_t decision_id)</argsstring>
+        <name>validate</name>
+        <qualifiedname>soviet::validate</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>decision_id</declname>
+        </param>
+        <briefdescription>
+<para>Предварительная валидация решения совета персоналом </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет персоналу подтвердить поступление оплаты или провести другую форму валидации перед принятием советом какого-либо решения.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coopname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>board_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID совета кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя члена персонала, проводящего валидацию </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>decision_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID решения, которое подлежит валидации</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>username</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="81" column="9" bodyfile="soviet/src/admin.cpp" bodystart="120" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gaddace7bdb215147f252a529422010022" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void soviet::regpaid</definition>
+        <argsstring>(eosio::name coopname, eosio::name username)</argsstring>
+        <name>regpaid</name>
+        <qualifiedname>soviet::regpaid</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <briefdescription>
+<para>Подтверждение оплаты регистрационного взноса </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод вызывается контрактом gateway при поступлении оплаты регистрационного взноса, что изменяет состояние объекта joincoop и сообщает администраторам, что оплата взноса произведена.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coopname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя кооператива </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>position_title</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Заголовок должности </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>position</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Должность</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>_registrator</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="83" column="9" bodyfile="soviet/src/joincoop.cpp" bodystart="17" bodyend="31"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga544aed065e9bdae354fab6348fc2d660" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1124,7 +1146,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="84" column="9" bodyfile="soviet/src/voting.cpp" bodystart="43" bodyend="71"/>
+        <location file="soviet/soviet.hpp" line="88" column="9" bodyfile="soviet/src/voting.cpp" bodystart="43" bodyend="71"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gae9017da5c4aea5f1fa86dc5b6f3ecf2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1180,7 +1202,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="85" column="9" bodyfile="soviet/src/voting.cpp" bodystart="85" bodyend="104"/>
+        <location file="soviet/soviet.hpp" line="89" column="9" bodyfile="soviet/src/voting.cpp" bodystart="85" bodyend="104"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga826e017b52f0b323a3339da457ecfa43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1236,7 +1258,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="86" column="9" bodyfile="soviet/src/voting.cpp" bodystart="118" bodyend="154"/>
+        <location file="soviet/soviet.hpp" line="90" column="9" bodyfile="soviet/src/voting.cpp" bodystart="118" bodyend="154"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga3666aba8b8d5a7b8ac50abdda8eb0438" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1320,7 +1342,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="89" column="9" bodyfile="soviet/src/marketplace.cpp" bodystart="94" bodyend="153"/>
+        <location file="soviet/soviet.hpp" line="93" column="9" bodyfile="soviet/src/marketplace.cpp" bodystart="74" bodyend="134"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1a955e0e3734f5d04715310aa967d099be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1342,55 +1364,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="91" column="9" bodyfile="soviet/src/marketplace.cpp" bodystart="20" bodyend="76"/>
-      </memberdef>
-      <memberdef kind="function" id="classsoviet_1adc44b622f3151c6f829098de97bd143e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void soviet::completed</definition>
-        <argsstring>(eosio::name coopname, uint64_t exchange_id)</argsstring>
-        <name>completed</name>
-        <qualifiedname>soviet::completed</qualifiedname>
-        <param>
-          <type>eosio::name</type>
-          <declname>coopname</declname>
-        </param>
-        <param>
-          <type>uint64_t</type>
-          <declname>exchange_id</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="soviet/soviet.hpp" line="92" column="9" bodyfile="soviet/src/marketplace.cpp" bodystart="5" bodyend="15"/>
-      </memberdef>
-      <memberdef kind="function" id="classsoviet_1ab52c060e18912de951d6dc27bf31bc2e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void soviet::cancelorder</definition>
-        <argsstring>(eosio::name coopname, eosio::name username, uint64_t exchange_id)</argsstring>
-        <name>cancelorder</name>
-        <qualifiedname>soviet::cancelorder</qualifiedname>
-        <param>
-          <type>eosio::name</type>
-          <declname>coopname</declname>
-        </param>
-        <param>
-          <type>eosio::name</type>
-          <declname>username</declname>
-        </param>
-        <param>
-          <type>uint64_t</type>
-          <declname>exchange_id</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="soviet/soviet.hpp" line="96" column="9" bodyfile="soviet/src/marketplace.cpp" bodystart="203" bodyend="232"/>
+        <location file="soviet/soviet.hpp" line="94" column="9" bodyfile="soviet/src/marketplace.cpp" bodystart="6" bodyend="56"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga0c242b184398cfcccbe628d1d9400f76" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1706,7 +1680,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="101" column="9" bodyfile="soviet/src/programs.cpp" bodystart="96" bodyend="118"/>
+        <location file="soviet/soviet.hpp" line="100" column="9" bodyfile="soviet/src/programs.cpp" bodystart="96" bodyend="111"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga8c6922ba61c30a7c6409cb48e62e08b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1750,7 +1724,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="102" column="9" bodyfile="soviet/src/programs.cpp" bodystart="132" bodyend="150"/>
+        <location file="soviet/soviet.hpp" line="101" column="9" bodyfile="soviet/src/programs.cpp" bodystart="125" bodyend="136"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1a7089fa0bf46043a738f2080a110d6565" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1776,75 +1750,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="105" column="9" bodyfile="soviet/src/contributions.cpp" bodystart="173" bodyend="198"/>
-      </memberdef>
-      <memberdef kind="function" id="classsoviet_1ac73800247a33859d93b5605548d0a23c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void soviet::mcontribute</definition>
-        <argsstring>(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::name type, uint64_t secondary_id)</argsstring>
-        <name>mcontribute</name>
-        <qualifiedname>soviet::mcontribute</qualifiedname>
-        <param>
-          <type>eosio::name</type>
-          <declname>coopname</declname>
-        </param>
-        <param>
-          <type>eosio::name</type>
-          <declname>username</declname>
-        </param>
-        <param>
-          <type>uint64_t</type>
-          <declname>program_id</declname>
-        </param>
-        <param>
-          <type>eosio::name</type>
-          <declname>type</declname>
-        </param>
-        <param>
-          <type>uint64_t</type>
-          <declname>secondary_id</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="soviet/soviet.hpp" line="106" column="9" bodyfile="soviet/src/marketplace.cpp" bodystart="235" bodyend="269"/>
-      </memberdef>
-      <memberdef kind="function" id="classsoviet_1ab36cfa04af88729fbf088d7260c85e0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void soviet::pcontribute</definition>
-        <argsstring>(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::name type, uint64_t secondary_id)</argsstring>
-        <name>pcontribute</name>
-        <qualifiedname>soviet::pcontribute</qualifiedname>
-        <param>
-          <type>eosio::name</type>
-          <declname>coopname</declname>
-        </param>
-        <param>
-          <type>eosio::name</type>
-          <declname>username</declname>
-        </param>
-        <param>
-          <type>uint64_t</type>
-          <declname>program_id</declname>
-        </param>
-        <param>
-          <type>eosio::name</type>
-          <declname>type</declname>
-        </param>
-        <param>
-          <type>uint64_t</type>
-          <declname>secondary_id</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="soviet/soviet.hpp" line="107" column="9" bodyfile="soviet/src/marketplace.cpp" bodystart="273" bodyend="317"/>
+        <location file="soviet/soviet.hpp" line="104" column="9" bodyfile="soviet/src/contributions.cpp" bodystart="173" bodyend="201"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1aa5c5dfbe8b9210547f4fefc2f0276648" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1870,7 +1776,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="109" column="9" bodyfile="soviet/src/contributions.cpp" bodystart="3" bodyend="21"/>
+        <location file="soviet/soviet.hpp" line="108" column="9" bodyfile="soviet/src/contributions.cpp" bodystart="3" bodyend="21"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1adf1b3f69ebcb2cff6d0bce0862b47404" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1896,7 +1802,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="110" column="9" bodyfile="soviet/src/contributions.cpp" bodystart="23" bodyend="43"/>
+        <location file="soviet/soviet.hpp" line="109" column="9" bodyfile="soviet/src/contributions.cpp" bodystart="23" bodyend="43"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1a6ca3c6a47edfec5e63d90abbee746eee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1922,7 +1828,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="111" column="9" bodyfile="soviet/src/contributions.cpp" bodystart="47" bodyend="70"/>
+        <location file="soviet/soviet.hpp" line="110" column="9" bodyfile="soviet/src/contributions.cpp" bodystart="47" bodyend="70"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1a6a6f4fbdbddc4ee02db668e4b5e4fcf5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1948,7 +1854,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="112" column="9" bodyfile="soviet/src/contributions.cpp" bodystart="74" bodyend="97"/>
+        <location file="soviet/soviet.hpp" line="111" column="9" bodyfile="soviet/src/contributions.cpp" bodystart="74" bodyend="97"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1a90e03b9865a377dd6299fcadc69ea1f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1978,7 +1884,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="113" column="9" bodyfile="soviet/src/contributions.cpp" bodystart="101" bodyend="135"/>
+        <location file="soviet/soviet.hpp" line="112" column="9" bodyfile="soviet/src/contributions.cpp" bodystart="101" bodyend="135"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1a99d0b2ee673a5daf92b1e55027a0d4b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2008,7 +1914,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="114" column="9" bodyfile="soviet/src/contributions.cpp" bodystart="138" bodyend="170"/>
+        <location file="soviet/soviet.hpp" line="113" column="9" bodyfile="soviet/src/contributions.cpp" bodystart="138" bodyend="170"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1a74775bb15963afd3dec409c7a4df4b7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2038,12 +1944,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="115" column="8" bodyfile="soviet/src/contributions.cpp" bodystart="201" bodyend="234"/>
+        <location file="soviet/soviet.hpp" line="114" column="8" bodyfile="soviet/src/contributions.cpp" bodystart="204" bodyend="237"/>
       </memberdef>
-      <memberdef kind="function" id="classsoviet_1a8aea397e24b8dd9f3005414cdac0b05b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classsoviet_1abbb251c81fa2277e5709bb0acf8648d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void soviet::creaddress</definition>
-        <argsstring>(eosio::name coopname, eosio::name chairman, eosio::name cooplate, address data, std::string meta)</argsstring>
+        <argsstring>(eosio::name coopname, eosio::name chairman, eosio::name departname, address_data data, std::string meta)</argsstring>
         <name>creaddress</name>
         <qualifiedname>soviet::creaddress</qualifiedname>
         <param>
@@ -2056,10 +1962,10 @@
         </param>
         <param>
           <type>eosio::name</type>
-          <declname>cooplate</declname>
+          <declname>departname</declname>
         </param>
         <param>
-          <type><ref refid="structaddress" kindref="compound">address</ref></type>
+          <type><ref refid="structaddress__data" kindref="compound">address_data</ref></type>
           <declname>data</declname>
         </param>
         <param>
@@ -2072,7 +1978,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="120" column="9" bodyfile="soviet/src/addresses.cpp" bodystart="4" bodyend="25"/>
+        <location file="soviet/soviet.hpp" line="118" column="9" bodyfile="soviet/src/addresses.cpp" bodystart="4" bodyend="25"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1ab294d7ecdfdb12636d28e7dc65524e68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2098,12 +2004,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="121" column="9" bodyfile="soviet/src/addresses.cpp" bodystart="28" bodyend="40"/>
+        <location file="soviet/soviet.hpp" line="119" column="9" bodyfile="soviet/src/addresses.cpp" bodystart="28" bodyend="40"/>
       </memberdef>
-      <memberdef kind="function" id="classsoviet_1af411937e4647e3754a5d272d08802f34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classsoviet_1a770a3710f7ef8e22ac72f4b26fb73a1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void soviet::editaddress</definition>
-        <argsstring>(eosio::name coopname, eosio::name chairman, uint64_t address_id, eosio::name cooplate, address data, std::string meta)</argsstring>
+        <argsstring>(eosio::name coopname, eosio::name chairman, uint64_t address_id, eosio::name departname, address_data data, std::string meta)</argsstring>
         <name>editaddress</name>
         <qualifiedname>soviet::editaddress</qualifiedname>
         <param>
@@ -2120,10 +2026,10 @@
         </param>
         <param>
           <type>eosio::name</type>
-          <declname>cooplate</declname>
+          <declname>departname</declname>
         </param>
         <param>
-          <type><ref refid="structaddress" kindref="compound">address</ref></type>
+          <type><ref refid="structaddress__data" kindref="compound">address_data</ref></type>
           <declname>data</declname>
         </param>
         <param>
@@ -2136,7 +2042,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="122" column="9" bodyfile="soviet/src/addresses.cpp" bodystart="43" bodyend="64"/>
+        <location file="soviet/soviet.hpp" line="120" column="9" bodyfile="soviet/src/addresses.cpp" bodystart="43" bodyend="64"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1addadc5c1117f1c87a20d3ce3ebc0a311" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2166,7 +2072,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="125" column="8" bodyfile="soviet/src/fund.cpp" bodystart="34" bodyend="69"/>
+        <location file="soviet/soviet.hpp" line="123" column="8" bodyfile="soviet/src/fund.cpp" bodystart="34" bodyend="69"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga46020951b62e043b52d7e7c6939684a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2203,7 +2109,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="126" column="9" bodyfile="soviet/src/fund.cpp" bodystart="9" bodyend="31"/>
+        <location file="soviet/soviet.hpp" line="124" column="9" bodyfile="soviet/src/fund.cpp" bodystart="9" bodyend="31"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -2235,7 +2141,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="69" column="15" bodyfile="soviet/src/joincoop.cpp" bodystart="83" bodyend="147"/>
+        <location file="soviet/soviet.hpp" line="65" column="15" bodyfile="soviet/src/joincoop.cpp" bodystart="83" bodyend="147"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1abe351d4443e3fc5d242876592132f56a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2253,7 +2159,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="76" column="15" bodyfile="soviet/src/automator.cpp" bodystart="3" bodyend="8"/>
+        <location file="soviet/soviet.hpp" line="70" column="15" bodyfile="soviet/src/automator.cpp" bodystart="3" bodyend="8"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1a23926d9a06011b3bb37fe74d820fd41f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2283,7 +2189,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="95" column="15" bodyfile="soviet/src/marketplace.cpp" bodystart="157" bodyend="195"/>
+        <location file="soviet/soviet.hpp" line="95" column="15" bodyfile="soviet/src/marketplace.cpp" bodystart="138" bodyend="176"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -2323,44 +2229,41 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="soviet/soviet.hpp" line="38" column="1" bodyfile="soviet/soviet.hpp" bodystart="38" bodyend="127"/>
+    <location file="soviet/soviet.hpp" line="38" column="1" bodyfile="soviet/soviet.hpp" bodystart="38" bodyend="125"/>
     <listofallmembers>
-      <member refid="classsoviet_1a10ddd26be5208f41bd2b13498eb282a3" prot="public" virt="non-virtual"><scope>soviet</scope><name>act</name></member>
       <member refid="classsoviet_1aa5c5dfbe8b9210547f4fefc2f0276648" prot="public" virt="non-virtual"><scope>soviet</scope><name>addbalance</name></member>
       <member refid="classsoviet_1a90e03b9865a377dd6299fcadc69ea1f8" prot="public" virt="non-virtual"><scope>soviet</scope><name>addprogbal</name></member>
       <member refid="group__public__actions_1gaed705497ce78823553360af42f1e0dc6" prot="public" virt="non-virtual"><scope>soviet</scope><name>addstaff</name></member>
       <member refid="group__public__actions_1ga3ca9fb1ee5a9584303c34e391af99e6c" prot="public" virt="non-virtual"><scope>soviet</scope><name>authorize</name></member>
       <member refid="group__public__actions_1gacd08501eb19d2733f9640cae3ae229f0" prot="public" virt="non-virtual"><scope>soviet</scope><name>automate</name></member>
-      <member refid="classsoviet_1a9f422007a4ed36736212a6a04f252a7a" prot="public" virt="non-virtual"><scope>soviet</scope><name>batch</name></member>
       <member refid="classsoviet_1a6ca3c6a47edfec5e63d90abbee746eee" prot="public" virt="non-virtual"><scope>soviet</scope><name>blockbal</name></member>
-      <member refid="classsoviet_1ab52c060e18912de951d6dc27bf31bc2e" prot="public" virt="non-virtual"><scope>soviet</scope><name>cancelorder</name></member>
       <member refid="group__public__actions_1ga826e017b52f0b323a3339da457ecfa43" prot="public" virt="non-virtual"><scope>soviet</scope><name>cancelvote</name></member>
       <member refid="group__public__actions_1ga3666aba8b8d5a7b8ac50abdda8eb0438" prot="public" virt="non-virtual"><scope>soviet</scope><name>change</name></member>
       <member refid="classsoviet_1a23926d9a06011b3bb37fe74d820fd41f" prot="public" virt="non-virtual"><scope>soviet</scope><name>change_effect</name></member>
-      <member refid="classsoviet_1adc44b622f3151c6f829098de97bd143e" prot="public" virt="non-virtual"><scope>soviet</scope><name>completed</name></member>
-      <member refid="classsoviet_1a8aea397e24b8dd9f3005414cdac0b05b" prot="public" virt="non-virtual"><scope>soviet</scope><name>creaddress</name></member>
+      <member refid="classsoviet_1abbb251c81fa2277e5709bb0acf8648d3" prot="public" virt="non-virtual"><scope>soviet</scope><name>creaddress</name></member>
       <member refid="group__public__actions_1ga03967c07043b14f5239e50448362287a" prot="public" virt="non-virtual"><scope>soviet</scope><name>createboard</name></member>
       <member refid="group__public__actions_1ga0c242b184398cfcccbe628d1d9400f76" prot="public" virt="non-virtual"><scope>soviet</scope><name>createprog</name></member>
-      <member refid="classsoviet_1a7d1953dc4d198269e15d7e35df7b63ba" prot="public" virt="non-virtual"><scope>soviet</scope><name>decision</name></member>
       <member refid="classsoviet_1ab294d7ecdfdb12636d28e7dc65524e68" prot="public" virt="non-virtual"><scope>soviet</scope><name>deladdress</name></member>
       <member refid="group__public__actions_1ga8c6922ba61c30a7c6409cb48e62e08b5" prot="public" virt="non-virtual"><scope>soviet</scope><name>disableprog</name></member>
       <member refid="group__public__actions_1gaa1c59a4f419370fbe9eeedde1b315ad7" prot="public" virt="non-virtual"><scope>soviet</scope><name>disautomate</name></member>
-      <member refid="classsoviet_1ac45321a36a937e85fc0387200de54140" prot="public" virt="non-virtual"><scope>soviet</scope><name>draft</name></member>
-      <member refid="classsoviet_1af411937e4647e3754a5d272d08802f34" prot="public" virt="non-virtual"><scope>soviet</scope><name>editaddress</name></member>
+      <member refid="classsoviet_1a770a3710f7ef8e22ac72f4b26fb73a1b" prot="public" virt="non-virtual"><scope>soviet</scope><name>editaddress</name></member>
       <member refid="group__public__actions_1ga5630c673f95331a1796fda2dcc878803" prot="public" virt="non-virtual"><scope>soviet</scope><name>editprog</name></member>
       <member refid="group__public__actions_1ga2df3ffc1ac9da194963f3be0aadc4139" prot="public" virt="non-virtual"><scope>soviet</scope><name>exec</name></member>
       <member refid="group__public__actions_1ga46020951b62e043b52d7e7c6939684a7" prot="public" virt="non-virtual"><scope>soviet</scope><name>fundwithdraw</name></member>
+      <member refid="classsoviet_1a3cbffb11d43c698868e90f0c20d59eaf" prot="public" virt="non-virtual"><scope>soviet</scope><name>init</name></member>
       <member refid="classsoviet_1abe351d4443e3fc5d242876592132f56a" prot="public" virt="non-virtual"><scope>soviet</scope><name>is_valid_action_for_automation</name></member>
       <member refid="group__public__actions_1gadeadfe2269b80480012be4a05a5b08ab" prot="public" virt="non-virtual"><scope>soviet</scope><name>joincoop</name></member>
       <member refid="classsoviet_1a7fd72ab47d0d66be292668ebc77f23ef" prot="public" virt="non-virtual"><scope>soviet</scope><name>joincoop_effect</name></member>
-      <member refid="classsoviet_1ac73800247a33859d93b5605548d0a23c" prot="public" virt="non-virtual"><scope>soviet</scope><name>mcontribute</name></member>
-      <member refid="classsoviet_1ab36cfa04af88729fbf088d7260c85e0c" prot="public" virt="non-virtual"><scope>soviet</scope><name>pcontribute</name></member>
-      <member refid="classsoviet_1a7219e152230eb53d532bb8a7049d9747" prot="public" virt="non-virtual"><scope>soviet</scope><name>program</name></member>
+      <member refid="classsoviet_1af9362d3131fcfbcff448f77038ecf6b2" prot="public" virt="non-virtual"><scope>soviet</scope><name>newact</name></member>
+      <member refid="classsoviet_1a5d6245a8abf1705be860dac5f9340573" prot="public" virt="non-virtual"><scope>soviet</scope><name>newbatch</name></member>
+      <member refid="classsoviet_1a5887bef257ef79352e5a2d093e076d67" prot="public" virt="non-virtual"><scope>soviet</scope><name>newdecision</name></member>
+      <member refid="classsoviet_1a2ff1f3be14701afe025d92c6da3d1507" prot="public" virt="non-virtual"><scope>soviet</scope><name>newprogram</name></member>
+      <member refid="classsoviet_1aa80fc272e5a034ce31c7077159273c32" prot="public" virt="non-virtual"><scope>soviet</scope><name>newresolved</name></member>
+      <member refid="classsoviet_1a75bfcecd10ad37dd53a733623ed0cbdb" prot="public" virt="non-virtual"><scope>soviet</scope><name>newsubmitted</name></member>
       <member refid="classsoviet_1a955e0e3734f5d04715310aa967d099be" prot="public" virt="non-virtual"><scope>soviet</scope><name>recieved</name></member>
       <member refid="group__public__actions_1gaddace7bdb215147f252a529422010022" prot="public" virt="non-virtual"><scope>soviet</scope><name>regpaid</name></member>
       <member refid="group__public__actions_1gab2a5baad145e14f45937617b98d7c73c" prot="public" virt="non-virtual"><scope>soviet</scope><name>rmstaff</name></member>
       <member refid="group__public__actions_1gaff82a212963ad56c994fca0d30548802" prot="public" virt="non-virtual"><scope>soviet</scope><name>setrights</name></member>
-      <member refid="classsoviet_1abfbbf9b41520e2813aec2c5022c6d743" prot="public" virt="non-virtual"><scope>soviet</scope><name>statement</name></member>
       <member refid="classsoviet_1addadc5c1117f1c87a20d3ce3ebc0a311" prot="public" virt="non-virtual"><scope>soviet</scope><name>subaccum_effect</name></member>
       <member refid="classsoviet_1adf1b3f69ebcb2cff6d0bce0862b47404" prot="public" virt="non-virtual"><scope>soviet</scope><name>subbalance</name></member>
       <member refid="classsoviet_1a99d0b2ee673a5daf92b1e55027a0d4b0" prot="public" virt="non-virtual"><scope>soviet</scope><name>subprogbal</name></member>

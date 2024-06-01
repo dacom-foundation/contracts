@@ -87,7 +87,6 @@ $(document).ready(function(){initNavTree('classregistrator.html',''); initResiza
   <div class="summary">
 <a href="#nested-classes">Классы</a> &#124;
 <a href="#pub-methods">Открытые члены</a> &#124;
-<a href="#pub-static-methods">Открытые статические члены</a> &#124;
 <a href="classregistrator-members.html">Полный список членов класса</a>  </div>
   <div class="headertitle"><div class="title">Класс registrator<div class="ingroups"><a class="el" href="group__public__contracts.html">Контракты</a></div></div></div>
 </div><!--header-->
@@ -107,49 +106,41 @@ $(document).ready(function(){initNavTree('classregistrator.html',''); initResiza
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Классы</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structregistrator_1_1balances.html">balances</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Таблица хранения глобальной сети партнёров@contract _me @scope _me @table partners.  <a href="structregistrator_1_1balances.html#details">Подробнее...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Открытые члены</h2></td></tr>
 <tr class="memitem:a5031045fe1736a84cd445be212673c0b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregistrator.html#a5031045fe1736a84cd445be212673c0b">registrator</a> (eosio::name receiver, eosio::name code, eosio::datastream&lt; const char * &gt; ds)</td></tr>
 <tr class="separator:a5031045fe1736a84cd445be212673c0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a640dbd37c2d97cc93ff00ec0dc4116be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregistrator.html#a640dbd37c2d97cc93ff00ec0dc4116be">init</a> ()</td></tr>
+<tr class="separator:a640dbd37c2d97cc93ff00ec0dc4116be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac68fe89b4be51de18ac5b5921ca56eed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__public__actions.html#gac68fe89b4be51de18ac5b5921ca56eed">update</a> (eosio::name username, std::string meta)</td></tr>
 <tr class="memdesc:gac68fe89b4be51de18ac5b5921ca56eed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обновление метаданных аккаунта  <a href="group__public__actions.html#gac68fe89b4be51de18ac5b5921ca56eed">Подробнее...</a><br /></td></tr>
 <tr class="separator:gac68fe89b4be51de18ac5b5921ca56eed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga25e4c5c4eea2a2e1463ce911b61117aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__public__actions.html#ga25e4c5c4eea2a2e1463ce911b61117aa">confirmreg</a> (eosio::name coopname, eosio::name member)</td></tr>
 <tr class="memdesc:ga25e4c5c4eea2a2e1463ce911b61117aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Подтверждение регистрации члена кооператива  <a href="group__public__actions.html#ga25e4c5c4eea2a2e1463ce911b61117aa">Подробнее...</a><br /></td></tr>
 <tr class="separator:ga25e4c5c4eea2a2e1463ce911b61117aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad6b5f40727b07cff66380feb735ff79f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__public__actions.html#gad6b5f40727b07cff66380feb735ff79f">reguser</a> (eosio::name coopname, eosio::name username, <a class="el" href="structstorage.html">storage</a> <a class="el" href="structstorage.html">storage</a>)</td></tr>
-<tr class="memdesc:gad6b5f40727b07cff66380feb735ff79f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Регистрация пользователя  <a href="group__public__actions.html#gad6b5f40727b07cff66380feb735ff79f">Подробнее...</a><br /></td></tr>
-<tr class="separator:gad6b5f40727b07cff66380feb735ff79f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad1c42f1901b5ff1d34fbf889908675b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__public__actions.html#gad1c42f1901b5ff1d34fbf889908675b5">regorg</a> (eosio::name coopname, eosio::name username, <a class="el" href="structorg__data.html">org_data</a> params)</td></tr>
-<tr class="memdesc:gad1c42f1901b5ff1d34fbf889908675b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Регистрация юридического лица  <a href="group__public__actions.html#gad1c42f1901b5ff1d34fbf889908675b5">Подробнее...</a><br /></td></tr>
-<tr class="separator:gad1c42f1901b5ff1d34fbf889908675b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga99b01f19b346839f0ed7a132093f74c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__public__actions.html#ga99b01f19b346839f0ed7a132093f74c5">regplot</a> (eosio::name coopname, eosio::name username, <a class="el" href="structplot__data.html">plot_data</a> params)</td></tr>
-<tr class="memdesc:ga99b01f19b346839f0ed7a132093f74c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Регистрация юридического лица  <a href="group__public__actions.html#ga99b01f19b346839f0ed7a132093f74c5">Подробнее...</a><br /></td></tr>
-<tr class="separator:ga99b01f19b346839f0ed7a132093f74c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9118fec52032836986b9a60a28355039"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__public__actions.html#ga9118fec52032836986b9a60a28355039">joincoop</a> (eosio::name coopname, eosio::name username, <a class="el" href="structdocument.html">document</a> <a class="el" href="structdocument.html">document</a>)</td></tr>
-<tr class="memdesc:ga9118fec52032836986b9a60a28355039"><td class="mdescLeft">&#160;</td><td class="mdescRight">Подача заявления на членство в кооперативе  <a href="group__public__actions.html#ga9118fec52032836986b9a60a28355039">Подробнее...</a><br /></td></tr>
-<tr class="separator:ga9118fec52032836986b9a60a28355039"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8f4b3d521cb45d617026964bbc6e302c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__public__actions.html#ga8f4b3d521cb45d617026964bbc6e302c">reguser</a> (eosio::name <a class="el" href="classregistrator.html">registrator</a>, eosio::name coopname, eosio::name username)</td></tr>
+<tr class="memdesc:ga8f4b3d521cb45d617026964bbc6e302c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Регистрация пользователя  <a href="group__public__actions.html#ga8f4b3d521cb45d617026964bbc6e302c">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga8f4b3d521cb45d617026964bbc6e302c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4354646d3bbc28e76659cc650d2011ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__public__actions.html#ga4354646d3bbc28e76659cc650d2011ec">regorg</a> (eosio::name <a class="el" href="classregistrator.html">registrator</a>, eosio::name coopname, eosio::name username, <a class="el" href="structorg__data.html">org_data</a> params)</td></tr>
+<tr class="memdesc:ga4354646d3bbc28e76659cc650d2011ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Регистрация карточки юридического лица  <a href="group__public__actions.html#ga4354646d3bbc28e76659cc650d2011ec">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga4354646d3bbc28e76659cc650d2011ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4a1b949ebea1e7cc5c0929e85d184038"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__public__actions.html#ga4a1b949ebea1e7cc5c0929e85d184038">regdepartmnt</a> (eosio::name <a class="el" href="classregistrator.html">registrator</a>, eosio::name coopname, eosio::name username, <a class="el" href="structplot__data.html">plot_data</a> params)</td></tr>
+<tr class="memdesc:ga4a1b949ebea1e7cc5c0929e85d184038"><td class="mdescLeft">&#160;</td><td class="mdescRight">Регистрация юридического лица  <a href="group__public__actions.html#ga4a1b949ebea1e7cc5c0929e85d184038">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga4a1b949ebea1e7cc5c0929e85d184038"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga369a1d99c79f0429f2d1f7182382dcd8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__public__actions.html#ga369a1d99c79f0429f2d1f7182382dcd8">joincoop</a> (eosio::name <a class="el" href="classregistrator.html">registrator</a>, eosio::name coopname, eosio::name username, <a class="el" href="structdocument.html">document</a> <a class="el" href="structdocument.html">document</a>)</td></tr>
+<tr class="memdesc:ga369a1d99c79f0429f2d1f7182382dcd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Подача заявления на членство в кооперативе  <a href="group__public__actions.html#ga369a1d99c79f0429f2d1f7182382dcd8">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga369a1d99c79f0429f2d1f7182382dcd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4edb42d418f1b8d0a7ec00f06b9927ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__public__actions.html#ga4edb42d418f1b8d0a7ec00f06b9927ae">verificate</a> (eosio::name username, eosio::name procedure)</td></tr>
 <tr class="memdesc:ga4edb42d418f1b8d0a7ec00f06b9927ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Верификация аккаунта  <a href="group__public__actions.html#ga4edb42d418f1b8d0a7ec00f06b9927ae">Подробнее...</a><br /></td></tr>
 <tr class="separator:ga4edb42d418f1b8d0a7ec00f06b9927ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaeae2fd664c83c2dad995c167c2566e26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__public__actions.html#gaeae2fd664c83c2dad995c167c2566e26">newaccount</a> (eosio::name <a class="el" href="classregistrator.html">registrator</a>, eosio::name referer, eosio::name username, eosio::public_key public_key, std::string signature_hash, std::string meta)</td></tr>
-<tr class="memdesc:gaeae2fd664c83c2dad995c167c2566e26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Регистрирует новый аккаунт.  <a href="group__public__actions.html#gaeae2fd664c83c2dad995c167c2566e26">Подробнее...</a><br /></td></tr>
-<tr class="separator:gaeae2fd664c83c2dad995c167c2566e26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga121aa737814539e14647d4fc762938ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__public__actions.html#ga121aa737814539e14647d4fc762938ba">newaccount</a> (eosio::name <a class="el" href="classregistrator.html">registrator</a>, eosio::name coopname, eosio::name referer, eosio::name username, eosio::public_key public_key, std::string signature_hash, std::string meta)</td></tr>
+<tr class="memdesc:ga121aa737814539e14647d4fc762938ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Регистрирует новый аккаунт.  <a href="group__public__actions.html#ga121aa737814539e14647d4fc762938ba">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga121aa737814539e14647d4fc762938ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga68df314fe90a719f00f0931c097bc6c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__public__actions.html#ga68df314fe90a719f00f0931c097bc6c5">changekey</a> (eosio::name username, eosio::public_key public_key)</td></tr>
 <tr class="memdesc:ga68df314fe90a719f00f0931c097bc6c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Изменение ключа активной учетной записи  <a href="group__public__actions.html#ga68df314fe90a719f00f0931c097bc6c5">Подробнее...</a><br /></td></tr>
 <tr class="separator:ga68df314fe90a719f00f0931c097bc6c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a459e96e1cc7864c070000cbdcdad1d82"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregistrator.html#a459e96e1cc7864c070000cbdcdad1d82">apply</a> (uint64_t receiver, uint64_t code, uint64_t action)</td></tr>
-<tr class="separator:a459e96e1cc7864c070000cbdcdad1d82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
-Открытые статические члены</h2></td></tr>
-<tr class="memitem:a3e9acbee2d392e2cbf80cd79475f847f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregistrator.html#a3e9acbee2d392e2cbf80cd79475f847f">add_balance</a> (eosio::name source, eosio::name username, eosio::asset quantity, eosio::name contract)</td></tr>
-<tr class="separator:a3e9acbee2d392e2cbf80cd79475f847f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac761520ce6bb378a4224b1e3b570138d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregistrator.html#ac761520ce6bb378a4224b1e3b570138d">sub_balance</a> (eosio::name source, eosio::name username, eosio::asset quantity, eosio::name contract)</td></tr>
-<tr class="separator:ac761520ce6bb378a4224b1e3b570138d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
 <div class="textblock"><p >Класс <code>registrator</code> служит воротами в блокчейн-систему для новых участников, позволяя регистрировать аккаунты, а также карточки физических и юридических лиц. Через данный контракт участники могут посылать заявления в совет кооперативов на вступление и получать подтверждения о принятии их заявлений. </p>
@@ -205,132 +196,19 @@ $(document).ready(function(){initNavTree('classregistrator.html',''); initResiza
 </div>
 </div>
 <h2 class="groupheader">Методы</h2>
-<a id="a3e9acbee2d392e2cbf80cd79475f847f" name="a3e9acbee2d392e2cbf80cd79475f847f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e9acbee2d392e2cbf80cd79475f847f">&#9670;&nbsp;</a></span>add_balance()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void registrator::add_balance </td>
-          <td>(</td>
-          <td class="paramtype">eosio::name&#160;</td>
-          <td class="paramname"><em>source</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">eosio::name&#160;</td>
-          <td class="paramname"><em>username</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">eosio::asset&#160;</td>
-          <td class="paramname"><em>quantity</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">eosio::name&#160;</td>
-          <td class="paramname"><em>contract</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a459e96e1cc7864c070000cbdcdad1d82" name="a459e96e1cc7864c070000cbdcdad1d82"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a459e96e1cc7864c070000cbdcdad1d82">&#9670;&nbsp;</a></span>apply()</h2>
+<a id="a640dbd37c2d97cc93ff00ec0dc4116be" name="a640dbd37c2d97cc93ff00ec0dc4116be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a640dbd37c2d97cc93ff00ec0dc4116be">&#9670;&nbsp;</a></span>init()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void registrator::apply </td>
+          <td class="memname">void registrator::init </td>
           <td>(</td>
-          <td class="paramtype">uint64_t&#160;</td>
-          <td class="paramname"><em>receiver</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">uint64_t&#160;</td>
-          <td class="paramname"><em>code</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint64_t&#160;</td>
-          <td class="paramname"><em>action</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac761520ce6bb378a4224b1e3b570138d" name="ac761520ce6bb378a4224b1e3b570138d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac761520ce6bb378a4224b1e3b570138d">&#9670;&nbsp;</a></span>sub_balance()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void registrator::sub_balance </td>
-          <td>(</td>
-          <td class="paramtype">eosio::name&#160;</td>
-          <td class="paramname"><em>source</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">eosio::name&#160;</td>
-          <td class="paramname"><em>username</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">eosio::asset&#160;</td>
-          <td class="paramname"><em>quantity</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">eosio::name&#160;</td>
-          <td class="paramname"><em>contract</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>

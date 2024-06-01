@@ -10,7 +10,6 @@
     <includedby refid="name__bidding_8cpp" local="no">system/contracts/eosio.system/src/name_bidding.cpp</includedby>
     <includedby refid="powerup_8cpp" local="no">system/contracts/eosio.system/src/powerup.cpp</includedby>
     <includedby refid="producer__pay_8cpp" local="no">system/contracts/eosio.system/src/producer_pay.cpp</includedby>
-    <includedby refid="rex_8cpp" local="no">system/contracts/eosio.system/src/rex.cpp</includedby>
     <includedby refid="system_2contracts_2eosio_8system_2src_2voting_8cpp" local="no">system/contracts/eosio.system/src/voting.cpp</includedby>
     <includedby refid="eosio_8token_8cpp" local="no">system/contracts/eosio.token/src/eosio.token.cpp</includedby>
     <incdepgraph>
@@ -56,10 +55,6 @@
         <link refid="producer__pay_8cpp"/>
       </node>
       <node id="7">
-        <label>system/contracts/eosio.system/src/rex.cpp</label>
-        <link refid="rex_8cpp"/>
-      </node>
-      <node id="8">
         <label>system/contracts/eosio.system/src/voting.cpp</label>
         <link refid="system_2contracts_2eosio_8system_2src_2voting_8cpp"/>
       </node>
@@ -80,10 +75,8 @@
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
       </node>
-      <node id="9">
+      <node id="8">
         <label>system/contracts/eosio.token/src/eosio.token.cpp</label>
         <link refid="eosio_8token_8cpp"/>
       </node>
@@ -146,7 +139,7 @@
 <codeline lineno="110"><highlight class="normal"></highlight></codeline>
 <codeline lineno="111" refid="classeosio_1_1token_1a65b248b1427e4ae01523d6f59f6a71ba" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>asset<sp/><ref refid="classeosio_1_1token_1a65b248b1427e4ae01523d6f59f6a71ba" kindref="member">get_balance</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>name&amp;<sp/>token_contract_account,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>name&amp;<sp/>owner,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>symbol_code&amp;<sp/>sym_code<sp/>)</highlight></codeline>
 <codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structaccounts" kindref="compound">accounts</ref><sp/>accountstable(<sp/>token_contract_account,<sp/>owner.value<sp/>);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classeosio_1_1token_1aef73052a1688f86f1afb92879130e147" kindref="member">accounts</ref><sp/>accountstable(<sp/>token_contract_account,<sp/>owner.value<sp/>);</highlight></codeline>
 <codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>ac<sp/>=<sp/>accountstable.get(<sp/>sym_code.raw(),<sp/></highlight><highlight class="stringliteral">&quot;no<sp/>balance<sp/>with<sp/>specified<sp/>symbol&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
 <codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ac.balance;</highlight></codeline>
 <codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -177,9 +170,11 @@
 <codeline lineno="141"><highlight class="normal"></highlight></codeline>
 <codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="balances_8hpp_1a535cbf0e546fa5cf6eaaca63d2d1d854" kindref="member">sub_balance</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>name&amp;<sp/>owner,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>asset&amp;<sp/>value<sp/>);</highlight></codeline>
 <codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="balances_8hpp_1ac392247269dae8fe58bcebe2a0b14133" kindref="member">add_balance</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>name&amp;<sp/>owner,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>asset&amp;<sp/>value,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>name&amp;<sp/>ram_payer<sp/>);</highlight></codeline>
-<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/>};</highlight></codeline>
-<codeline lineno="145"><highlight class="normal"></highlight></codeline>
-<codeline lineno="146"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>is_can_transfer(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>name&amp;<sp/>from,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>name&amp;<sp/>to);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp"/>
   </compounddef>

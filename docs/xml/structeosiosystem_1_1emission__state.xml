@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="594" column="34" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="594" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="372" column="34" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="372" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeosiosystem_1_1emission__state_1a26bf3ccc4fe249c2942f01dcd7eccd27" prot="public" static="no" mutable="no">
         <type>uint64_t</type>
@@ -32,7 +32,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="595" column="34" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="595" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="373" column="34" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="373" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeosiosystem_1_1emission__state_1aa8f63ed17d431571d06f606ee145cda4" prot="public" static="no" mutable="no">
         <type>double</type>
@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="596" column="34" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="596" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="374" column="34" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="374" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeosiosystem_1_1emission__state_1aa9e84158684b5b7099a9f9a62ce68696" prot="public" static="no" mutable="no">
         <type>asset</type>
@@ -61,7 +61,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="597" column="34" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="597" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="375" column="34" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="375" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeosiosystem_1_1emission__state_1a1baf62f98563e7c24c38d655f4f8a315" prot="public" static="no" mutable="no">
         <type>eosio::time_point_sec</type>
@@ -75,7 +75,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="598" column="34" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="598" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="376" column="34" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="376" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeosiosystem_1_1emission__state_1a6b88f044bf9958e9d172cc45779b36b9" prot="public" static="no" mutable="no">
         <type>eosio::time_point_sec</type>
@@ -89,7 +89,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="599" column="34" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="599" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="377" column="34" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="377" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeosiosystem_1_1emission__state_1aa6924a38f97224ec4b2c2e6dcb765273" prot="public" static="no" mutable="no">
         <type>asset</type>
@@ -103,7 +103,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="600" column="34" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="600" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="378" column="34" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="378" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeosiosystem_1_1emission__state_1a11f8ea9b43b4483e667bc2359e30a710" prot="public" static="no" mutable="no">
         <type>asset</type>
@@ -117,7 +117,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="601" column="34" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="601" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="379" column="34" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="379" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeosiosystem_1_1emission__state_1afd847a2833d395f5557de05b87610cce" prot="public" static="no" mutable="no">
         <type>asset</type>
@@ -131,7 +131,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="602" column="34" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="602" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="380" column="34" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="380" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeosiosystem_1_1emission__state_1aabed9cdc75418feb33d5870f8a59b25d" prot="public" static="no" mutable="no">
         <type>asset</type>
@@ -145,7 +145,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="603" column="34" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="603" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="381" column="34" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="381" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -161,7 +161,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="604" column="16" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="604" bodyend="604"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="382" column="16" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="382" bodyend="382"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -191,7 +191,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="593" column="3" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="593" bodyend="605"/>
+    <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="371" column="3" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="371" bodyend="383"/>
     <listofallmembers>
       <member refid="structeosiosystem_1_1emission__state_1a11f8ea9b43b4483e667bc2359e30a710" prot="public" virt="non-virtual"><scope>eosiosystem::emission_state</scope><name>back_from_producers</name></member>
       <member refid="structeosiosystem_1_1emission__state_1aa9e84158684b5b7099a9f9a62ce68696" prot="public" virt="non-virtual"><scope>eosiosystem::emission_state</scope><name>current_supply</name></member>

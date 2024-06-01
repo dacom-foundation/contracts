@@ -98,11 +98,11 @@ $(document).ready(function(){initNavTree('gateway_8hpp_source.html',''); initRes
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;../common/consts.hpp&quot;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;../common/utils.hpp&quot;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;../common/drafts.hpp&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;../common/coops.hpp&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;../common/counts.hpp&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;../common/permissions.hpp&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;../common/balances.hpp&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;../common/accounts.hpp&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;../common/accounts.hpp&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;../common/coops.hpp&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;../common/counts.hpp&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;../common/permissions.hpp&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;../common/balances.hpp&quot;</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;../common/programs.hpp&quot;</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;../common/admins.hpp&quot;</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
@@ -128,25 +128,23 @@ $(document).ready(function(){initNavTree('gateway_8hpp_source.html',''); initRes
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>  [[eosio::action]] <span class="keywordtype">void</span> wthdcomplete(eosio::name coopname, eosio::name admin, uint64_t withdraw_id, std::string memo);</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>  [[eosio::action]] <span class="keywordtype">void</span> wthdfail(eosio::name coopname, eosio::name admin, uint64_t withdraw_id, std::string memo);</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>  </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>  <span class="comment">// [[eosio::action]] void back(eosio::name username, eosio::name token_contract, eosio::asset quantity);</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="structgateway_1_1counts.html">   68</a></span>  <span class="keyword">struct </span>[[eosio::table, <a class="code hl_namespace" href="namespaceeosio.html">eosio</a>::contract(GATEWAY)]] <a class="code hl_struct" href="structgateway_1_1counts.html">counts</a> : <a class="code hl_struct" href="structcounts__base.html">counts_base</a> {};</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="structgateway_1_1counts.html">   70</a></span>  <span class="keyword">struct </span>[[eosio::table, <a class="code hl_namespace" href="namespaceeosio.html">eosio</a>::contract(GATEWAY)]] <a class="code hl_struct" href="structgateway_1_1counts.html">counts</a> : <a class="code hl_struct" href="structcounts__base.html">counts_base</a> {};</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="structgateway_1_1balances.html">   77</a></span>  <span class="keyword">struct </span>[[eosio::table, <a class="code hl_namespace" href="namespaceeosio.html">eosio</a>::contract(GATEWAY)]] <a class="code hl_struct" href="structgateway_1_1balances.html">balances</a> : <a class="code hl_struct" href="structbalances__base.html">balances_base</a> {};</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>};</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="structgateway_1_1balances.html">   75</a></span>  <span class="keyword">struct </span>[[eosio::table, <a class="code hl_namespace" href="namespaceeosio.html">eosio</a>::contract(GATEWAY)]] <a class="code hl_struct" href="structgateway_1_1balances.html">balances</a> : <a class="code hl_struct" href="structbalances__base.html">balances_base</a> {};</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>};</div>
 <div class="ttc" id="aclassgateway_html"><div class="ttname"><a href="classgateway.html">gateway</a></div><div class="ttdoc">Класс gateway обеспечивает процессинг банковских и криптовалютных платежей в кооперативах.</div><div class="ttdef"><b>Definition:</b> gateway.hpp:44</div></div>
 <div class="ttc" id="aclassgateway_html_a61f6973ac320eea0ad63680cfe3317ae"><div class="ttname"><a href="classgateway.html#a61f6973ac320eea0ad63680cfe3317ae">gateway::gateway</a></div><div class="ttdeci">gateway(eosio::name receiver, eosio::name code, eosio::datastream&lt; const char * &gt; ds)</div><div class="ttdef"><b>Definition:</b> gateway.hpp:47</div></div>
 <div class="ttc" id="aclassgateway_html_a69b49209b2cc17da42aa66890e2ca080"><div class="ttname"><a href="classgateway.html#a69b49209b2cc17da42aa66890e2ca080">gateway::apply</a></div><div class="ttdeci">void apply(uint64_t receiver, uint64_t code, uint64_t action)</div></div>
-<div class="ttc" id="aconsts_8hpp_html_a861181f1d81b4ccb482b33c7bffad5d1"><div class="ttname"><a href="consts_8hpp.html#a861181f1d81b4ccb482b33c7bffad5d1">GATEWAY</a></div><div class="ttdeci">#define GATEWAY</div><div class="ttdef"><b>Definition:</b> consts.hpp:124</div></div>
+<div class="ttc" id="aconsts_8hpp_html_a861181f1d81b4ccb482b33c7bffad5d1"><div class="ttname"><a href="consts_8hpp.html#a861181f1d81b4ccb482b33c7bffad5d1">GATEWAY</a></div><div class="ttdeci">#define GATEWAY</div><div class="ttdef"><b>Definition:</b> consts.hpp:159</div></div>
 <div class="ttc" id="anamespaceeosio_html"><div class="ttname"><a href="namespaceeosio.html">eosio</a></div><div class="ttdef"><b>Definition:</b> eosio.msig.hpp:8</div></div>
 <div class="ttc" id="astructbalances__base_html"><div class="ttname"><a href="structbalances__base.html">balances_base</a></div><div class="ttdoc">Структура таблицы баланса.</div><div class="ttdef"><b>Definition:</b> balances.hpp:77</div></div>
 <div class="ttc" id="astructcounts__base_html"><div class="ttname"><a href="structcounts__base.html">counts_base</a></div><div class="ttdef"><b>Definition:</b> counts.hpp:1</div></div>
 <div class="ttc" id="astructdocument_html"><div class="ttname"><a href="structdocument.html">document</a></div><div class="ttdef"><b>Definition:</b> drafts.hpp:7</div></div>
-<div class="ttc" id="astructgateway_1_1balances_html"><div class="ttname"><a href="structgateway_1_1balances.html">gateway::balances</a></div><div class="ttdoc">Таблица balances отслеживает внутренние балансы пользователей в контракте GATEWAY.</div><div class="ttdef"><b>Definition:</b> gateway.hpp:77</div></div>
-<div class="ttc" id="astructgateway_1_1counts_html"><div class="ttname"><a href="structgateway_1_1counts.html">gateway::counts</a></div><div class="ttdef"><b>Definition:</b> gateway.hpp:70</div></div>
+<div class="ttc" id="astructgateway_1_1balances_html"><div class="ttname"><a href="structgateway_1_1balances.html">gateway::balances</a></div><div class="ttdoc">Таблица balances отслеживает внутренние балансы пользователей в контракте GATEWAY.</div><div class="ttdef"><b>Definition:</b> gateway.hpp:75</div></div>
+<div class="ttc" id="astructgateway_1_1counts_html"><div class="ttname"><a href="structgateway_1_1counts.html">gateway::counts</a></div><div class="ttdef"><b>Definition:</b> gateway.hpp:68</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

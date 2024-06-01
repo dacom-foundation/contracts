@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="613" column="28" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="613" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="391" column="28" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="391" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeosiosystem_1_1powerup__order_1a0c852ce9dc447d27818c6f76c9966f5b" prot="public" static="no" mutable="no">
         <type>uint64_t</type>
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="614" column="28" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="614" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="392" column="28" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="392" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeosiosystem_1_1powerup__order_1a7367e434fe5c04cc3eea0a4e79d925f4" prot="public" static="no" mutable="no">
         <type>name</type>
@@ -45,7 +45,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="615" column="28" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="615" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="393" column="28" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="393" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeosiosystem_1_1powerup__order_1a4ef585bec4e45a5643280a2be23c8abe" prot="public" static="no" mutable="no">
         <type>int64_t</type>
@@ -59,7 +59,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="616" column="28" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="616" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="394" column="28" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="394" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeosiosystem_1_1powerup__order_1afedd41b2e48a95941cf15b1a44dc401c" prot="public" static="no" mutable="no">
         <type>int64_t</type>
@@ -73,7 +73,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="617" column="28" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="617" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="395" column="28" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="395" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeosiosystem_1_1powerup__order_1ab74ec855ca847ed930eb17b1c800eadb" prot="public" static="no" mutable="no">
         <type>int64_t</type>
@@ -87,7 +87,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="618" column="28" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="618" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="396" column="28" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="396" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeosiosystem_1_1powerup__order_1a2d6b97d6744b9d46cb2fa6f64ecbcc9e" prot="public" static="no" mutable="no">
         <type>time_point_sec</type>
@@ -101,7 +101,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="619" column="28" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="619" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="397" column="28" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="397" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -117,7 +117,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="621" column="16" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="621" bodyend="621"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="399" column="16" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="399" bodyend="399"/>
       </memberdef>
       <memberdef kind="function" id="structeosiosystem_1_1powerup__order_1ad6f472ce4c90343ff6c3a2a312ac64ab" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>uint64_t</type>
@@ -131,7 +131,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="622" column="16" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="622" bodyend="622"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="400" column="16" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="400" bodyend="400"/>
       </memberdef>
       <memberdef kind="function" id="structeosiosystem_1_1powerup__order_1a9a404ef12847703055ba5da5b47af05a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>uint64_t</type>
@@ -145,7 +145,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="623" column="16" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="623" bodyend="623"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="401" column="16" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="401" bodyend="401"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -170,7 +170,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="612" column="4" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="612" bodyend="624"/>
+    <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="390" column="4" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="390" bodyend="402"/>
     <listofallmembers>
       <member refid="structeosiosystem_1_1powerup__order_1a9a404ef12847703055ba5da5b47af05a" prot="public" virt="non-virtual"><scope>eosiosystem::powerup_order</scope><name>by_expires</name></member>
       <member refid="structeosiosystem_1_1powerup__order_1ad6f472ce4c90343ff6c3a2a312ac64ab" prot="public" virt="non-virtual"><scope>eosiosystem::powerup_order</scope><name>by_owner</name></member>

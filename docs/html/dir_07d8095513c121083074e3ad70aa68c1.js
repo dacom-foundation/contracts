@@ -7,11 +7,5 @@ var dir_07d8095513c121083074e3ad70aa68c1 =
       [ "eosiosystem::exchange_state::connector", "structeosiosystem_1_1exchange__state_1_1connector.html", "structeosiosystem_1_1exchange__state_1_1connector" ]
     ] ],
     [ "limit_auth_changes.hpp", "limit__auth__changes_8hpp.html", "limit__auth__changes_8hpp" ],
-    [ "native.hpp", "native_8hpp.html", "native_8hpp" ],
-    [ "powerup.results.hpp", "powerup_8results_8hpp.html", [
-      [ "powup_results", "classpowup__results.html", "classpowup__results" ]
-    ] ],
-    [ "rex.results.hpp", "rex_8results_8hpp.html", [
-      [ "rex_results", "classrex__results.html", "classrex__results" ]
-    ] ]
+    [ "native.hpp", "native_8hpp.html", "native_8hpp" ]
 ];

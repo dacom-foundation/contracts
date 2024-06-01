@@ -170,7 +170,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" line="41" column="15" bodyfile="system/contracts/eosio.token/src/eosio.token.cpp" bodystart="5" bodyend="23"/>
+        <location file="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" line="41" column="15" bodyfile="system/contracts/eosio.token/src/eosio.token.cpp" bodystart="10" bodyend="28"/>
       </memberdef>
       <memberdef kind="function" id="classeosio_1_1token_1a3a62d2a7493710b3e34fbdfd4fe81d59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -215,7 +215,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" line="51" column="15" bodyfile="system/contracts/eosio.token/src/eosio.token.cpp" bodystart="26" bodyend="51"/>
+        <location file="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" line="51" column="15" bodyfile="system/contracts/eosio.token/src/eosio.token.cpp" bodystart="43" bodyend="69"/>
       </memberdef>
       <memberdef kind="function" id="classeosio_1_1token_1a4bf7770086ab81931c6c5a22265bae4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -256,7 +256,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" line="61" column="15" bodyfile="system/contracts/eosio.token/src/eosio.token.cpp" bodystart="53" bodyend="75"/>
+        <location file="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" line="61" column="15" bodyfile="system/contracts/eosio.token/src/eosio.token.cpp" bodystart="71" bodyend="93"/>
       </memberdef>
       <memberdef kind="function" id="classeosio_1_1token_1a8a9d08a9791d818797dc5f70ed8f826f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -321,7 +321,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" line="73" column="15" bodyfile="system/contracts/eosio.token/src/eosio.token.cpp" bodystart="77" bodyend="101"/>
+        <location file="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" line="73" column="15" bodyfile="system/contracts/eosio.token/src/eosio.token.cpp" bodystart="95" bodyend="121"/>
       </memberdef>
       <memberdef kind="function" id="classeosio_1_1token_1a4da303699332aacdc69f3ff582477141" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -374,7 +374,7 @@ More information can be read <ulink url="https://github.com/EOSIO/eosio.contract
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" line="89" column="15" bodyfile="system/contracts/eosio.token/src/eosio.token.cpp" bodystart="129" bodyend="147"/>
+        <location file="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" line="89" column="15" bodyfile="system/contracts/eosio.token/src/eosio.token.cpp" bodystart="149" bodyend="167"/>
       </memberdef>
       <memberdef kind="function" id="classeosio_1_1token_1a88402f75888c4cfe6a3ef0391bd7ecbd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -419,7 +419,7 @@ More information can be read <ulink url="https://github.com/EOSIO/eosio.contract
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" line="102" column="15" bodyfile="system/contracts/eosio.token/src/eosio.token.cpp" bodystart="149" bodyend="157"/>
+        <location file="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" line="102" column="15" bodyfile="system/contracts/eosio.token/src/eosio.token.cpp" bodystart="169" bodyend="177"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -493,7 +493,7 @@ More information can be read <ulink url="https://github.com/EOSIO/eosio.contract
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" line="142" column="15" bodyfile="system/contracts/eosio.token/src/eosio.token.cpp" bodystart="103" bodyend="112"/>
+        <location file="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" line="142" column="15" bodyfile="system/contracts/eosio.token/src/eosio.token.cpp" bodystart="123" bodyend="132"/>
       </memberdef>
       <memberdef kind="function" id="classeosio_1_1token_1ad1eaa2275ba3d2da2663dd8c6595a598" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -519,7 +519,29 @@ More information can be read <ulink url="https://github.com/EOSIO/eosio.contract
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" line="143" column="15" bodyfile="system/contracts/eosio.token/src/eosio.token.cpp" bodystart="114" bodyend="127"/>
+        <location file="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" line="143" column="15" bodyfile="system/contracts/eosio.token/src/eosio.token.cpp" bodystart="134" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosio_1_1token_1a5b2edc4577c88d5bccecb7e44536ff04" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosio::token::is_can_transfer</definition>
+        <argsstring>(const name &amp;from, const name &amp;to)</argsstring>
+        <name>is_can_transfer</name>
+        <qualifiedname>eosio::token::is_can_transfer</qualifiedname>
+        <param>
+          <type>const name &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const name &amp;</type>
+          <declname>to</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" line="144" column="15" bodyfile="system/contracts/eosio.token/src/eosio.token.cpp" bodystart="30" bodyend="41"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -552,7 +574,7 @@ More information can be read <ulink url="https://github.com/EOSIO/eosio.contract
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" line="25" column="4" bodyfile="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" bodystart="25" bodyend="144"/>
+    <location file="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" line="25" column="4" bodyfile="system/contracts/eosio.token/include/eosio.token/eosio.token.hpp" bodystart="25" bodyend="146"/>
     <listofallmembers>
       <member refid="classeosio_1_1token_1aef73052a1688f86f1afb92879130e147" prot="private" virt="non-virtual"><scope>eosio::token</scope><name>accounts</name></member>
       <member refid="classeosio_1_1token_1ad1eaa2275ba3d2da2663dd8c6595a598" prot="private" virt="non-virtual"><scope>eosio::token</scope><name>add_balance</name></member>
@@ -562,6 +584,7 @@ More information can be read <ulink url="https://github.com/EOSIO/eosio.contract
       <member refid="classeosio_1_1token_1ab6f5f8e8c550b3ae9492fcde3f04458a" prot="public" virt="non-virtual"><scope>eosio::token</scope><name>create_action</name></member>
       <member refid="classeosio_1_1token_1a65b248b1427e4ae01523d6f59f6a71ba" prot="public" virt="non-virtual"><scope>eosio::token</scope><name>get_balance</name></member>
       <member refid="classeosio_1_1token_1af0ca80206f8f0131147b0bec367c62d3" prot="public" virt="non-virtual"><scope>eosio::token</scope><name>get_supply</name></member>
+      <member refid="classeosio_1_1token_1a5b2edc4577c88d5bccecb7e44536ff04" prot="private" virt="non-virtual"><scope>eosio::token</scope><name>is_can_transfer</name></member>
       <member refid="classeosio_1_1token_1a3a62d2a7493710b3e34fbdfd4fe81d59" prot="public" virt="non-virtual"><scope>eosio::token</scope><name>issue</name></member>
       <member refid="classeosio_1_1token_1a0a264928ea4b4c3056884cc95c9bea49" prot="public" virt="non-virtual"><scope>eosio::token</scope><name>issue_action</name></member>
       <member refid="classeosio_1_1token_1a4da303699332aacdc69f3ff582477141" prot="public" virt="non-virtual"><scope>eosio::token</scope><name>open</name></member>
