@@ -62,8 +62,9 @@ var NAVTREEINDEX0 =
 "classmarketplace.html#ad941ef50a391bbda6af90e38e67d0777":[1,0,1,25],
 "classmarketplace.html#af5741e1afd512d7480cec3f54586e0a6":[1,0,1,16],
 "classregistrator.html":[1,0,0],
+"classregistrator.html#a23c67801d0d0f374ba1160537ba314fb":[1,0,0,3],
 "classregistrator.html#a5031045fe1736a84cd445be212673c0b":[1,0,0,1],
-"classregistrator.html#a640dbd37c2d97cc93ff00ec0dc4116be":[1,0,0,4],
+"classregistrator.html#a640dbd37c2d97cc93ff00ec0dc4116be":[1,0,0,5],
 "classsoviet.html":[1,0,2],
 "classsoviet.html#a23926d9a06011b3bb37fe74d820fd41f":[1,0,2,8],
 "classsoviet.html#a2ff1f3be14701afe025d92c6da3d1507":[1,0,2,26],
@@ -169,7 +170,7 @@ var NAVTREEINDEX0 =
 "dir_ffef2b95cecc8775c327d00648f9c8c4.html":[2,0,5,0],
 "drafts_8hpp.html":[2,0,0,7],
 "drafts_8hpp.html#a51dcf5aff7c16f157d08dc80f2176efa":[2,0,0,7,5],
-"drafts_8hpp.html#aa7dc3040c14d85f47b681a67bdb7aade":[2,0,0,7,3],
+"drafts_8hpp.html#a7c328e5af991679fc7547bcb89a8f5c7":[2,0,0,7,3],
 "drafts_8hpp.html#ab33f9403422d20c5528e4da3ddfbe417":[2,0,0,7,4],
 "drafts_8hpp_source.html":[2,0,0,7],
 "eosio_8bios_8cpp.html":[2,0,5,0,0,1,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "group__public__actions.html#ga0571c4090259fcc39ca6e64a9f94063b":[1,2,42],
 "group__public__actions.html#ga082792b887a075f6fba43280d5a5e0cc":[1,2,10],
 "group__public__actions.html#ga084713334c8f04951ef37b2b431331ca":[1,2,33],
-"group__public__actions.html#ga0c242b184398cfcccbe628d1d9400f76":[1,2,13],
-"group__public__actions.html#ga121aa737814539e14647d4fc762938ba":[1,2,26]
+"group__public__actions.html#ga0c242b184398cfcccbe628d1d9400f76":[1,2,13]
 };

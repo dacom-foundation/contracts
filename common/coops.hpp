@@ -217,7 +217,8 @@ struct [[eosio::table, eosio::contract(SOVIET)]] decision {
   
   eosio::name type; ///< Тип решения: // joincoop | change | ...
   uint64_t batch_id; ///< Идентификатор карточки, связанной с типом решения.
-
+  document statement; ///< Документ заявления
+  
   std::vector<eosio::name> votes_for; ///< Список имен, голосовавших "за" решение.
   std::vector<eosio::name> votes_against; ///< Список имен, голосовавших "против" решения.
   
@@ -365,10 +366,8 @@ typedef eosio::multi_index< "addresses"_n, address,
 bool is_participant_exist(eosio::name coopname, eosio::name username) {
   participants_index participants(_soviet, coopname.value);
   auto participant = participants.find(username.value);
-
   accounts_index accounts(_registrator, _registrator.value);
   auto account = accounts.find(username.value);
-  
   if (participant != participants.end() && account -> status == "active"_n && participant->status == "accepted"_n) {
     return true;
   }

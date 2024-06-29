@@ -201,7 +201,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="186" column="2" bodyfile="soviet/soviet.hpp" bodystart="186" bodyend="-1"/>
+        <location file="soviet/soviet.hpp" line="185" column="2" bodyfile="soviet/soviet.hpp" bodystart="185" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="soviet_8hpp_1adb4c954f37b3a716672d5a866f9daa55" prot="public" static="no">
         <type>eosio::multi_index&lt;&quot;changes&quot;_n, <ref refid="structchanges" kindref="compound">changes</ref>, eosio::indexed_by&lt;&quot;byexchange&quot;_n, eosio::const_mem_fun&lt; <ref refid="structchanges" kindref="compound">changes</ref>, uint64_t, &amp;<ref refid="structchanges_1ae81e67349741bfa93d1367311b3b99c4" kindref="member">changes::byexchange</ref> &gt; &gt; &gt;</type>
@@ -214,7 +214,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="206" column="2" bodyfile="soviet/soviet.hpp" bodystart="206" bodyend="-1"/>
+        <location file="soviet/soviet.hpp" line="205" column="2" bodyfile="soviet/soviet.hpp" bodystart="205" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -370,44 +370,43 @@
 <codeline lineno="169" refid="structjoincoops_1ac4a3e9cdd6ef21101afeae01c2ed2be1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structjoincoops_1ac4a3e9cdd6ef21101afeae01c2ed2be1" kindref="member">id</ref>;</highlight></codeline>
 <codeline lineno="170" refid="structjoincoops_1ad104e0cf15859a44c59c4a4ddb78f7ad" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="structjoincoops_1ad104e0cf15859a44c59c4a4ddb78f7ad" kindref="member">username</ref>;</highlight></codeline>
 <codeline lineno="171" refid="structjoincoops_1ad10d6d51a81f467d3827bded4b0cebcd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is_paid<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/></highlight></codeline>
-<codeline lineno="172" refid="structjoincoops_1ac9fb7c4a331725c153affefeb8955416" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structdocument" kindref="compound">document</ref><sp/><ref refid="structjoincoops_1ac9fb7c4a331725c153affefeb8955416" kindref="member">statement</ref>;</highlight></codeline>
-<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="174" refid="structjoincoops_1a2aa5cf144690ce5d537aceb9e68e15cf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structjoincoops_1a2aa5cf144690ce5d537aceb9e68e15cf" kindref="member">notice</ref>;</highlight></codeline>
-<codeline lineno="175"><highlight class="normal"></highlight></codeline>
-<codeline lineno="176" refid="structjoincoops_1a6de49204f0f1ca75f68f2d1bf473ddc9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structjoincoops_1a6de49204f0f1ca75f68f2d1bf473ddc9" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>id;</highlight></codeline>
-<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
-<codeline lineno="179"><highlight class="normal"></highlight></codeline>
-<codeline lineno="180" refid="structjoincoops_1ab1dcb94186977ce2bd13899656f41a7f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structjoincoops_1ab1dcb94186977ce2bd13899656f41a7f" kindref="member">byusername</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>username.value;}</highlight></codeline>
-<codeline lineno="181"><highlight class="normal"></highlight></codeline>
-<codeline lineno="182"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
-<codeline lineno="183"><highlight class="normal"></highlight></codeline>
-<codeline lineno="184"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;</highlight><highlight class="stringliteral">&quot;joincoops&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structjoincoops" kindref="compound">joincoops</ref>,</highlight></codeline>
-<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byusername&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;joincoops,<sp/>uint64_t,<sp/>&amp;joincoops::byusername&gt;&gt;</highlight></codeline>
-<codeline lineno="186" refid="soviet_8hpp_1afd6126a5358b6aaf707523b09d3a3f8d" refkind="member"><highlight class="normal"><sp/><sp/>&gt;<sp/><ref refid="soviet_8hpp_1afd6126a5358b6aaf707523b09d3a3f8d" kindref="member">joincoops_index</ref>;<sp/></highlight></codeline>
-<codeline lineno="187"><highlight class="normal"></highlight></codeline>
-<codeline lineno="188" refid="structchanges" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(SOVIET)]]<sp/><ref refid="structchanges" kindref="compound">changes</ref><sp/>{</highlight></codeline>
-<codeline lineno="189" refid="structchanges_1a0c37e4322ad12ebbb02e2f3d68a0aadd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structchanges_1a0c37e4322ad12ebbb02e2f3d68a0aadd" kindref="member">id</ref>;</highlight></codeline>
-<codeline lineno="190" refid="structchanges_1a3c3ab08bf6376ebb8b88d5aa808d0bd5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structchanges_1a3c3ab08bf6376ebb8b88d5aa808d0bd5" kindref="member">exchange_id</ref>;<sp/></highlight><highlight class="comment">//<sp/>идентификатор<sp/>обмена<sp/>в<sp/>контракте<sp/>marketplace</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="191" refid="structchanges_1a354d3fdf5288abccfe91a9197d34744c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structchanges_1a354d3fdf5288abccfe91a9197d34744c" kindref="member">contribution_product_decision_id</ref>;</highlight></codeline>
-<codeline lineno="192" refid="structchanges_1a1f53ddc615f0b3ec60d9e332d94286fe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structchanges_1a1f53ddc615f0b3ec60d9e332d94286fe" kindref="member">return_product_decision_id</ref>;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="173" refid="structjoincoops_1a2aa5cf144690ce5d537aceb9e68e15cf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structjoincoops_1a2aa5cf144690ce5d537aceb9e68e15cf" kindref="member">notice</ref>;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175" refid="structjoincoops_1a6de49204f0f1ca75f68f2d1bf473ddc9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structjoincoops_1a6de49204f0f1ca75f68f2d1bf473ddc9" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>id;</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179" refid="structjoincoops_1ab1dcb94186977ce2bd13899656f41a7f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structjoincoops_1ab1dcb94186977ce2bd13899656f41a7f" kindref="member">byusername</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>username.value;}</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;</highlight><highlight class="stringliteral">&quot;joincoops&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structjoincoops" kindref="compound">joincoops</ref>,</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byusername&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;joincoops,<sp/>uint64_t,<sp/>&amp;joincoops::byusername&gt;&gt;</highlight></codeline>
+<codeline lineno="185" refid="soviet_8hpp_1afd6126a5358b6aaf707523b09d3a3f8d" refkind="member"><highlight class="normal"><sp/><sp/>&gt;<sp/><ref refid="soviet_8hpp_1afd6126a5358b6aaf707523b09d3a3f8d" kindref="member">joincoops_index</ref>;<sp/></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187" refid="structchanges" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(SOVIET)]]<sp/><ref refid="structchanges" kindref="compound">changes</ref><sp/>{</highlight></codeline>
+<codeline lineno="188" refid="structchanges_1a0c37e4322ad12ebbb02e2f3d68a0aadd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structchanges_1a0c37e4322ad12ebbb02e2f3d68a0aadd" kindref="member">id</ref>;</highlight></codeline>
+<codeline lineno="189" refid="structchanges_1a3c3ab08bf6376ebb8b88d5aa808d0bd5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structchanges_1a3c3ab08bf6376ebb8b88d5aa808d0bd5" kindref="member">exchange_id</ref>;<sp/></highlight><highlight class="comment">//<sp/>идентификатор<sp/>обмена<sp/>в<sp/>контракте<sp/>marketplace</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190" refid="structchanges_1a354d3fdf5288abccfe91a9197d34744c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structchanges_1a354d3fdf5288abccfe91a9197d34744c" kindref="member">contribution_product_decision_id</ref>;</highlight></codeline>
+<codeline lineno="191" refid="structchanges_1a1f53ddc615f0b3ec60d9e332d94286fe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structchanges_1a1f53ddc615f0b3ec60d9e332d94286fe" kindref="member">return_product_decision_id</ref>;</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
 <codeline lineno="193"><highlight class="normal"></highlight></codeline>
-<codeline lineno="194"><highlight class="normal"></highlight></codeline>
-<codeline lineno="195" refid="structchanges_1a133052a9a076552c4760f1976bf4d1ee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structchanges_1a133052a9a076552c4760f1976bf4d1ee" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>id;<sp/></highlight></codeline>
-<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
-<codeline lineno="198"><highlight class="normal"></highlight></codeline>
-<codeline lineno="199" refid="structchanges_1ae81e67349741bfa93d1367311b3b99c4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structchanges_1ae81e67349741bfa93d1367311b3b99c4" kindref="member">byexchange</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>exchange_id;</highlight></codeline>
-<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
-<codeline lineno="202"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
-<codeline lineno="203"><highlight class="normal"></highlight></codeline>
-<codeline lineno="204"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;</highlight><highlight class="stringliteral">&quot;changes&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structchanges" kindref="compound">changes</ref>,</highlight></codeline>
-<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byexchange&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;changes,<sp/>uint64_t,<sp/>&amp;changes::byexchange&gt;&gt;</highlight></codeline>
-<codeline lineno="206" refid="soviet_8hpp_1adb4c954f37b3a716672d5a866f9daa55" refkind="member"><highlight class="normal"><sp/><sp/>&gt;<sp/><ref refid="soviet_8hpp_1adb4c954f37b3a716672d5a866f9daa55" kindref="member">changes_index</ref>;</highlight></codeline>
+<codeline lineno="194" refid="structchanges_1a133052a9a076552c4760f1976bf4d1ee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structchanges_1a133052a9a076552c4760f1976bf4d1ee" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>id;<sp/></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198" refid="structchanges_1ae81e67349741bfa93d1367311b3b99c4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structchanges_1ae81e67349741bfa93d1367311b3b99c4" kindref="member">byexchange</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>exchange_id;</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;</highlight><highlight class="stringliteral">&quot;changes&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structchanges" kindref="compound">changes</ref>,</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byexchange&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;changes,<sp/>uint64_t,<sp/>&amp;changes::byexchange&gt;&gt;</highlight></codeline>
+<codeline lineno="205" refid="soviet_8hpp_1adb4c954f37b3a716672d5a866f9daa55" refkind="member"><highlight class="normal"><sp/><sp/>&gt;<sp/><ref refid="soviet_8hpp_1adb4c954f37b3a716672d5a866f9daa55" kindref="member">changes_index</ref>;</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
 <codeline lineno="207"><highlight class="normal"></highlight></codeline>
 <codeline lineno="208"><highlight class="normal"></highlight></codeline>
-<codeline lineno="209"><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="soviet/soviet.hpp"/>
   </compounddef>

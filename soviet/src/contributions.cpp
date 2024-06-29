@@ -186,6 +186,7 @@ void soviet::withdraw(eosio::name coopname, eosio::name username, uint64_t withd
   //   d.username = username;
   //   d.type = _withdraw_action;
   //   d.batch_id = withdraw_id;
+  //   d.statement
   //   d.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
   // });
 

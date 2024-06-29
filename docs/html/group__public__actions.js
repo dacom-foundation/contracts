@@ -26,7 +26,7 @@ var group__public__actions =
     [ "soviet::joincoop", "group__public__actions.html#gadeadfe2269b80480012be4a05a5b08ab", null ],
     [ "registrator::joincoop", "group__public__actions.html#ga369a1d99c79f0429f2d1f7182382dcd8", null ],
     [ "marketplace::moderate", "group__public__actions.html#gaa94f8cc59c762e8dc2d059d8cba5e20d", null ],
-    [ "registrator::newaccount", "group__public__actions.html#ga121aa737814539e14647d4fc762938ba", null ],
+    [ "registrator::newaccount", "group__public__actions.html#ga7f70d64012305e3dfca7990bffd3af82", null ],
     [ "gateway::newdepositid", "group__public__actions.html#gaa2f4b2364f09b8728cbf12eb6e9b92f1", null ],
     [ "marketplace::newid", "group__public__actions.html#ga6d78c0a4a104abcae663754dc08d8da8", null ],
     [ "marketplace::offer", "group__public__actions.html#ga74c30d5573748d4cf4c5a660568b2a60", null ],

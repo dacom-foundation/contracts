@@ -99,6 +99,7 @@ void soviet::change(eosio::name coopname, eosio::name parent_username, eosio::na
     d.batch_id = batch_id;
     d.coopname = coopname;
     d.username = product_contributor;  
+    d.statement = change -> contribute_product_statement;
   });
   
   decisions.emplace(_soviet, [&](auto &d){
@@ -107,6 +108,7 @@ void soviet::change(eosio::name coopname, eosio::name parent_username, eosio::na
     d.batch_id = batch_id;
     d.coopname = coopname;
     d.username = money_contributor;
+    d.statement = change -> return_product_statement;
   });
 
   action(

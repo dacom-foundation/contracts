@@ -173,6 +173,7 @@ export interface IDecision {
   username: IName
   type: IName
   batch_id: IUint64
+  statement: IDocument
   votes_for: IName[]
   votes_against: IName[]
   validated: boolean

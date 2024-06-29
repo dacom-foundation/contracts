@@ -51,18 +51,18 @@
 <codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>a.id<sp/>=<sp/>batch_id;</highlight></codeline>
 <codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>a.username<sp/>=<sp/>username;</highlight></codeline>
 <codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>a.is_paid<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>a.statement<sp/>=<sp/><ref refid="structdocument" kindref="compound">document</ref>;</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><ref refid="coops_8hpp_1a4461d7de0a02a53205ba22d591e0cb99" kindref="member">decisions_index</ref><sp/>decisions(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>coopname.value);</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>decision_id<sp/>=<sp/><ref refid="counts_8hpp_1ac5a56feb4e32856beed484ddddf4a3b8" kindref="member">get_id</ref>(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>coopname,<sp/></highlight><highlight class="stringliteral">&quot;decisions&quot;</highlight><highlight class="normal">_n);</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/>decisions.emplace(<ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;d){</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>d.id<sp/>=<sp/>decision_id;</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>d.coopname<sp/>=<sp/>coopname;</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>d.username<sp/>=<sp/>username;</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>d.type<sp/>=<sp/><ref refid="consts_8hpp_1ace206e4d1676c54066a8ed734347d072" kindref="member">_regaccount_action</ref>;</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>d.batch_id<sp/>=<sp/>batch_id;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><ref refid="coops_8hpp_1a4461d7de0a02a53205ba22d591e0cb99" kindref="member">decisions_index</ref><sp/>decisions(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>coopname.value);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>decision_id<sp/>=<sp/><ref refid="counts_8hpp_1ac5a56feb4e32856beed484ddddf4a3b8" kindref="member">get_id</ref>(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>coopname,<sp/></highlight><highlight class="stringliteral">&quot;decisions&quot;</highlight><highlight class="normal">_n);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>decisions.emplace(<ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;d){</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>d.id<sp/>=<sp/>decision_id;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>d.coopname<sp/>=<sp/>coopname;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>d.username<sp/>=<sp/>username;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>d.type<sp/>=<sp/><ref refid="consts_8hpp_1ace206e4d1676c54066a8ed734347d072" kindref="member">_regaccount_action</ref>;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>d.batch_id<sp/>=<sp/>batch_id;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>d.statement<sp/>=<sp/><ref refid="structdocument" kindref="compound">document</ref>;</highlight></codeline>
 <codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>d.created_at<sp/>=<sp/>eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());</highlight></codeline>
 <codeline lineno="71"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
 <codeline lineno="72"><highlight class="normal"><sp/><sp/></highlight></codeline>
@@ -120,7 +120,7 @@
 <codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
 <codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,</highlight></codeline>
 <codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;newresolved&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::make_tuple(coopname,<sp/>joincoop_action<sp/>-&gt;<sp/>username,<sp/><ref refid="consts_8hpp_1ace206e4d1676c54066a8ed734347d072" kindref="member">_regaccount_action</ref>,<sp/>decision_id,<sp/>joincoop_action<sp/>-&gt;<sp/>statement)</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::make_tuple(coopname,<sp/>joincoop_action<sp/>-&gt;<sp/>username,<sp/><ref refid="consts_8hpp_1ace206e4d1676c54066a8ed734347d072" kindref="member">_regaccount_action</ref>,<sp/>decision_id,<sp/><ref refid="structdecision" kindref="compound">decision</ref><sp/>-&gt;<sp/>statement)</highlight></codeline>
 <codeline lineno="128"><highlight class="normal"><sp/><sp/>).send();</highlight></codeline>
 <codeline lineno="129"><highlight class="normal"><sp/><sp/></highlight></codeline>
 <codeline lineno="130"><highlight class="normal"><sp/><sp/>action(</highlight></codeline>

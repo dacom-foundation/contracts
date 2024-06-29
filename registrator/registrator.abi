@@ -42,10 +42,6 @@
                 {
                     "name": "registered_at",
                     "type": "time_point_sec"
-                },
-                {
-                    "name": "signature_expires_at",
-                    "type": "time_point_sec"
                 }
             ]
         },
@@ -87,6 +83,24 @@
             ]
         },
         {
+            "name": "check",
+            "base": "",
+            "fields": [
+                {
+                    "name": "hash",
+                    "type": "checksum256"
+                },
+                {
+                    "name": "public_key",
+                    "type": "public_key"
+                },
+                {
+                    "name": "signature",
+                    "type": "signature"
+                }
+            ]
+        },
+        {
             "name": "confirmreg",
             "base": "",
             "fields": [
@@ -95,7 +109,7 @@
                     "type": "name"
                 },
                 {
-                    "name": "member",
+                    "name": "username",
                     "type": "name"
                 }
             ]
@@ -172,10 +186,6 @@
                 {
                     "name": "public_key",
                     "type": "public_key"
-                },
-                {
-                    "name": "signature_hash",
-                    "type": "string"
                 },
                 {
                     "name": "meta",
@@ -402,6 +412,11 @@
         {
             "name": "changekey",
             "type": "changekey",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "check",
+            "type": "check",
             "ricardian_contract": ""
         },
         {

@@ -180,22 +180,22 @@
 <codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../common/balances.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../common/admins.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="18"><highlight class="normal"></highlight></codeline>
-<codeline lineno="35" refid="classregistrator" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">[[eosio::contract(<ref refid="consts_8hpp_1ae4acce2da4b2736a1fedfa921d84e32b" kindref="member">REGISTRATOR</ref>)]]<sp/><ref refid="classregistrator" kindref="compound">registrator</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>eosio::contract<sp/>{</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="38" refid="classregistrator_1a5031045fe1736a84cd445be212673c0b" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classregistrator_1a5031045fe1736a84cd445be212673c0b" kindref="member">registrator</ref>(eosio::name<sp/>receiver,<sp/>eosio::name<sp/>code,</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::datastream&lt;const<sp/>char<sp/>*&gt;<sp/>ds)</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(receiver,<sp/>code,<sp/>ds)<sp/>{}</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>init();</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>update(eosio::name<sp/>username,<sp/>std::string<sp/>meta);</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>confirmreg(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>member);</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"></highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>reguser(</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="classregistrator" kindref="compound">registrator</ref>,</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::name<sp/>coopname,</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::name<sp/>username</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="35" refid="classregistrator" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">[[eosio::contract(<ref refid="consts_8hpp_1ae4acce2da4b2736a1fedfa921d84e32b" kindref="member">REGISTRATOR</ref>)]]<sp/><ref refid="classregistrator" kindref="compound">registrator</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>eosio::contract</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="39" refid="classregistrator_1a5031045fe1736a84cd445be212673c0b" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classregistrator_1a5031045fe1736a84cd445be212673c0b" kindref="member">registrator</ref>(eosio::name<sp/>receiver,<sp/>eosio::name<sp/>code,</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::datastream&lt;const<sp/>char<sp/>*&gt;<sp/>ds)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(receiver,<sp/>code,<sp/>ds)<sp/>{}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>init();</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>update(eosio::name<sp/>username,<sp/>std::string<sp/>meta);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>confirmreg(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>member);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>reguser(</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="classregistrator" kindref="compound">registrator</ref>,</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/>coopname,</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/>username);</highlight></codeline>
 <codeline lineno="51"><highlight class="normal"></highlight></codeline>
 <codeline lineno="52"><highlight class="normal"><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>regorg(eosio::name<sp/><ref refid="classregistrator" kindref="compound">registrator</ref>,<sp/>eosio::name<sp/>coopname,<sp/>eosio::name<sp/>username,<sp/><ref refid="structorg__data" kindref="compound">org_data</ref><sp/>params);</highlight></codeline>
 <codeline lineno="53"><highlight class="normal"><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>regdepartmnt(eosio::name<sp/><ref refid="classregistrator" kindref="compound">registrator</ref>,<sp/>eosio::name<sp/>coopname,<sp/>eosio::name<sp/>username,<sp/><ref refid="structplot__data" kindref="compound">plot_data</ref><sp/>params);</highlight></codeline>
@@ -203,21 +203,20 @@
 <codeline lineno="55"><highlight class="normal"><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>joincoop(eosio::name<sp/><ref refid="classregistrator" kindref="compound">registrator</ref>,<sp/>eosio::name<sp/>coopname,<sp/>eosio::name<sp/>username,<sp/><ref refid="structdocument" kindref="compound">document</ref><sp/><ref refid="structdocument" kindref="compound">document</ref>);</highlight></codeline>
 <codeline lineno="56"><highlight class="normal"></highlight></codeline>
 <codeline lineno="57"><highlight class="normal"><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>verificate(eosio::name<sp/>username,<sp/>eosio::name<sp/>procedure);</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="59"><highlight class="normal"></highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>newaccount(</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="classregistrator" kindref="compound">registrator</ref>,<sp/>eosio::name<sp/>coopname,<sp/>eosio::name<sp/>referer,</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::name<sp/>username,<sp/>eosio::public_key<sp/>public_key,<sp/>std::string<sp/>signature_hash,</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>meta);</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"></highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>changekey(eosio::name<sp/>username,</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::public_key<sp/>public_key);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>newaccount(</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="classregistrator" kindref="compound">registrator</ref>,<sp/>eosio::name<sp/>coopname,<sp/>eosio::name<sp/>referer,</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/>username,<sp/>eosio::public_key<sp/>public_key,<sp/>std::string<sp/>meta);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>changekey(eosio::name<sp/>username,</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::public_key<sp/>public_key);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>check(checksum256<sp/>hash,<sp/>public_key<sp/>public_key,<sp/>signature<sp/>signature);</highlight></codeline>
 <codeline lineno="67"><highlight class="normal"></highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="69" refid="structregistrator_1_1balances" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(REGISTRATOR)]]<sp/><ref refid="structregistrator_1_1balances" kindref="compound">balances</ref><sp/>:<sp/><ref refid="structbalances__base" kindref="compound">balances_base</ref><sp/>{};</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="71"><highlight class="normal"></highlight></codeline>
-<codeline lineno="72"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="68" refid="structregistrator_1_1balances" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(REGISTRATOR)]]<sp/><ref refid="structregistrator_1_1balances" kindref="compound">balances</ref><sp/>:<sp/><ref refid="structbalances__base" kindref="compound">balances_base</ref></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">};</highlight></codeline>
     </programlisting>
     <location file="registrator/registrator.hpp"/>
   </compounddef>

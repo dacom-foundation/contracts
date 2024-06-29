@@ -164,6 +164,8 @@ void soviet::createboard(eosio::name coopname, eosio::name chairman, eosio::name
 */
 void soviet::updateboard(eosio::name coopname, eosio::name chairman, uint64_t board_id, std::vector<board_member> members, std::string name, std::string description){
 
+
+
   require_auth(chairman);
   organizations_index orgs(_registrator, _registrator.value);
   auto org = orgs.find(coopname.value);

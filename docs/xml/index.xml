@@ -31,7 +31,6 @@
     <member refid="structaccount_1a4945411679ccea1992bf4ea47f468862" kind="variable"><name>storages</name></member>
     <member refid="structaccount_1ae7df3e4e5504129a4e0275b4a7264614" kind="variable"><name>verifications</name></member>
     <member refid="structaccount_1a32c91ba498b674bee1658b1c5eaf0dc9" kind="variable"><name>registered_at</name></member>
-    <member refid="structaccount_1a5f42e1f2868a55685e0a085bd6efb337" kind="variable"><name>signature_expires_at</name></member>
     <member refid="structaccount_1a69acdb708adce988c16e5c4e46d631d1" kind="function"><name>primary_key</name></member>
     <member refid="structaccount_1ae83306a3d2a29ab942504ebb68e42d71" kind="function"><name>by_referer</name></member>
     <member refid="structaccount_1ab9e111ab46596e20d058891f9d24efac" kind="function"><name>by_type</name></member>
@@ -290,6 +289,7 @@
     <member refid="structdecision_1ab342c9e6c178e6b618032badf562884f" kind="variable"><name>username</name></member>
     <member refid="structdecision_1a201b377cbc190ff0b22f271f17b502de" kind="variable"><name>type</name></member>
     <member refid="structdecision_1a6728d16176fe0983ec043b8a87b809a2" kind="variable"><name>batch_id</name></member>
+    <member refid="structdecision_1a5cc1903525dabf6808282f521f065d14" kind="variable"><name>statement</name></member>
     <member refid="structdecision_1ab4dd0cf2e35bbea166ea7a60f7713c69" kind="variable"><name>votes_for</name></member>
     <member refid="structdecision_1a684d6c4cd9033cd2656f68c1e58b4e3e" kind="variable"><name>votes_against</name></member>
     <member refid="structdecision_1a09bb1322795b6253c0b731f666ca2bb0" kind="variable"><name>validated</name></member>
@@ -443,7 +443,6 @@
     <member refid="structjoincoops_1ac4a3e9cdd6ef21101afeae01c2ed2be1" kind="variable"><name>id</name></member>
     <member refid="structjoincoops_1ad104e0cf15859a44c59c4a4ddb78f7ad" kind="variable"><name>username</name></member>
     <member refid="structjoincoops_1ad10d6d51a81f467d3827bded4b0cebcd" kind="variable"><name>is_paid</name></member>
-    <member refid="structjoincoops_1ac9fb7c4a331725c153affefeb8955416" kind="variable"><name>statement</name></member>
     <member refid="structjoincoops_1a2aa5cf144690ce5d537aceb9e68e15cf" kind="variable"><name>notice</name></member>
     <member refid="structjoincoops_1a6de49204f0f1ca75f68f2d1bf473ddc9" kind="function"><name>primary_key</name></member>
     <member refid="structjoincoops_1ab1dcb94186977ce2bd13899656f41a7f" kind="function"><name>byusername</name></member>
@@ -786,8 +785,9 @@
     <member refid="group__public__actions_1ga4a1b949ebea1e7cc5c0929e85d184038" kind="function"><name>regdepartmnt</name></member>
     <member refid="group__public__actions_1ga369a1d99c79f0429f2d1f7182382dcd8" kind="function"><name>joincoop</name></member>
     <member refid="group__public__actions_1ga4edb42d418f1b8d0a7ec00f06b9927ae" kind="function"><name>verificate</name></member>
-    <member refid="group__public__actions_1ga121aa737814539e14647d4fc762938ba" kind="function"><name>newaccount</name></member>
+    <member refid="group__public__actions_1ga7f70d64012305e3dfca7990bffd3af82" kind="function"><name>newaccount</name></member>
     <member refid="group__public__actions_1ga68df314fe90a719f00f0931c097bc6c5" kind="function"><name>changekey</name></member>
+    <member refid="classregistrator_1a23c67801d0d0f374ba1160537ba314fb" kind="function"><name>check</name></member>
   </compound>
   <compound refid="structrequest" kind="struct"><name>request</name>
     <member refid="structrequest_1a371bc20bccafbe2d1e4c5b4d62942d93" kind="variable"><name>id</name></member>
@@ -1258,7 +1258,7 @@
     <member refid="counts_8hpp_1aeb06beaf4402f0222167ef9d12eacd5c" kind="function"><name>get_global_id</name></member>
   </compound>
   <compound refid="drafts_8hpp" kind="file"><name>drafts.hpp</name>
-    <member refid="drafts_8hpp_1aa7dc3040c14d85f47b681a67bdb7aade" kind="typedef"><name>drafts_index</name></member>
+    <member refid="drafts_8hpp_1a7c328e5af991679fc7547bcb89a8f5c7" kind="typedef"><name>drafts_index</name></member>
     <member refid="drafts_8hpp_1ab33f9403422d20c5528e4da3ddfbe417" kind="typedef"><name>translations_index</name></member>
     <member refid="drafts_8hpp_1a51dcf5aff7c16f157d08dc80f2176efa" kind="function"><name>verify_document_or_fail</name></member>
   </compound>
@@ -1426,7 +1426,7 @@
     <member refid="group__public__consts_1ga6d8fd359800ecc9d5a1e2adff5e55b29" kind="variable"><name>_fund_percent</name></member>
   </compound>
   <compound refid="group__public__actions" kind="group"><name>public_actions</name>
-    <member refid="group__public__actions_1ga121aa737814539e14647d4fc762938ba" kind="function"><name>newaccount</name></member>
+    <member refid="group__public__actions_1ga7f70d64012305e3dfca7990bffd3af82" kind="function"><name>newaccount</name></member>
     <member refid="group__public__actions_1ga8f4b3d521cb45d617026964bbc6e302c" kind="function"><name>reguser</name></member>
     <member refid="group__public__actions_1ga4354646d3bbc28e76659cc650d2011ec" kind="function"><name>regorg</name></member>
     <member refid="group__public__actions_1ga4a1b949ebea1e7cc5c0929e85d184038" kind="function"><name>regdepartmnt</name></member>

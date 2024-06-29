@@ -208,56 +208,56 @@
 <codeline lineno="186"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>d.username<sp/>=<sp/>username;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="187"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>d.type<sp/>=<sp/>_withdraw_action;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="188"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>d.batch_id<sp/>=<sp/>withdraw_id;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="189"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>d.created_at<sp/>=<sp/>eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="190"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>});</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="191"><highlight class="normal"></highlight></codeline>
-<codeline lineno="192"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO<sp/>получить<sp/>заявление<sp/>и<sp/>зафиксировать<sp/>его<sp/>здесь<sp/>или<sp/>там</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="193"><highlight class="normal"></highlight></codeline>
-<codeline lineno="194"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>action(</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="195"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>permission_level{<sp/>_soviet,<sp/>&quot;active&quot;_n},</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="196"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>_soviet,</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="197"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>&quot;newsubmitted&quot;_n,</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="198"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>std::make_tuple(coopname,<sp/>username,<sp/>decision_id)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="199"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>).send();</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="200"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="201"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>d.statement</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>d.created_at<sp/>=<sp/>eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>});</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO<sp/>получить<sp/>заявление<sp/>и<sp/>зафиксировать<sp/>его<sp/>здесь<sp/>или<sp/>там</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>action(</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>permission_level{<sp/>_soviet,<sp/>&quot;active&quot;_n},</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>_soviet,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>&quot;newsubmitted&quot;_n,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>std::make_tuple(coopname,<sp/>username,<sp/>decision_id)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>).send();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="202"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="203"><highlight class="normal"></highlight></codeline>
-<codeline lineno="204"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsoviet_1a74775bb15963afd3dec409c7a4df4b7a" kindref="member">soviet::withdraw_effect</ref>(eosio::name<sp/>executer,<sp/>eosio::name<sp/>coopname,<sp/>uint64_t<sp/>decision_id,<sp/>uint64_t<sp/>batch_id)<sp/>{<sp/></highlight></codeline>
-<codeline lineno="205"><highlight class="normal"></highlight></codeline>
-<codeline lineno="206"><highlight class="normal"><sp/><sp/><ref refid="coops_8hpp_1a4461d7de0a02a53205ba22d591e0cb99" kindref="member">decisions_index</ref><sp/>decisions(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>coopname.value);</highlight></codeline>
-<codeline lineno="207"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="structdecision" kindref="compound">decision</ref><sp/>=<sp/>decisions.find(decision_id);</highlight></codeline>
-<codeline lineno="208"><highlight class="normal"><sp/><sp/>eosio::check(<ref refid="structdecision" kindref="compound">decision</ref><sp/>!=<sp/>decisions.end(),<sp/></highlight><highlight class="stringliteral">&quot;Решение<sp/>не<sp/>найдено&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="209"><highlight class="normal"></highlight></codeline>
-<codeline lineno="210"><highlight class="normal"><sp/><sp/><ref refid="balances_8hpp_1a8689bd711e5cf08e0910f6bb2aaa96ba" kindref="member">withdraws_index</ref><sp/>withdraws(<ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/>coopname.value);</highlight></codeline>
-<codeline lineno="211"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="classsoviet_1a7089fa0bf46043a738f2080a110d6565" kindref="member">withdraw</ref><sp/>=<sp/>withdraws.find(batch_id);</highlight></codeline>
-<codeline lineno="212"><highlight class="normal"><sp/><sp/>eosio::check(<ref refid="classsoviet_1a7089fa0bf46043a738f2080a110d6565" kindref="member">withdraw</ref><sp/>!=<sp/>withdraws.end(),<sp/></highlight><highlight class="stringliteral">&quot;Вывод<sp/>не<sp/>найден&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="213"><highlight class="normal"></highlight></codeline>
-<codeline lineno="214"><highlight class="normal"><sp/><sp/>action(</highlight></codeline>
-<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
-<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,</highlight></codeline>
-<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;withdrawauth&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::make_tuple(coopname,<sp/>batch_id)</highlight></codeline>
-<codeline lineno="219"><highlight class="normal"><sp/><sp/>).send();</highlight></codeline>
-<codeline lineno="220"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="221"><highlight class="normal"><sp/><sp/>action(</highlight></codeline>
-<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
-<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,</highlight></codeline>
-<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;newresolved&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::make_tuple(coopname,<sp/><ref refid="structdecision" kindref="compound">decision</ref><sp/>-&gt;<sp/>username,<sp/><ref refid="consts_8hpp_1a9e2440f7709ebcf63b4e0f7ca5c65fe5" kindref="member">_withdraw_action</ref>,<sp/>decision_id,<sp/><ref refid="classsoviet_1a7089fa0bf46043a738f2080a110d6565" kindref="member">withdraw</ref><sp/>-&gt;<sp/><ref refid="structdocument" kindref="compound">document</ref>)</highlight></codeline>
-<codeline lineno="226"><highlight class="normal"><sp/><sp/>).send();</highlight></codeline>
-<codeline lineno="227"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="228"><highlight class="normal"><sp/><sp/>action(</highlight></codeline>
-<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
-<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,</highlight></codeline>
-<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;newdecision&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::make_tuple(coopname,<sp/><ref refid="structdecision" kindref="compound">decision</ref><sp/>-&gt;<sp/>username,<sp/><ref refid="consts_8hpp_1a9e2440f7709ebcf63b4e0f7ca5c65fe5" kindref="member">_withdraw_action</ref>,<sp/>decision_id,<sp/><ref refid="structdecision" kindref="compound">decision</ref><sp/>-&gt;<sp/>authorization)</highlight></codeline>
-<codeline lineno="233"><highlight class="normal"><sp/><sp/>).send();</highlight></codeline>
-<codeline lineno="234"><highlight class="normal"></highlight></codeline>
-<codeline lineno="235"><highlight class="normal"><sp/><sp/>decisions.erase(<ref refid="structdecision" kindref="compound">decision</ref>);</highlight></codeline>
-<codeline lineno="236"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="237"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="238"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsoviet_1a74775bb15963afd3dec409c7a4df4b7a" kindref="member">soviet::withdraw_effect</ref>(eosio::name<sp/>executer,<sp/>eosio::name<sp/>coopname,<sp/>uint64_t<sp/>decision_id,<sp/>uint64_t<sp/>batch_id)<sp/>{<sp/></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><ref refid="coops_8hpp_1a4461d7de0a02a53205ba22d591e0cb99" kindref="member">decisions_index</ref><sp/>decisions(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>coopname.value);</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="structdecision" kindref="compound">decision</ref><sp/>=<sp/>decisions.find(decision_id);</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/>eosio::check(<ref refid="structdecision" kindref="compound">decision</ref><sp/>!=<sp/>decisions.end(),<sp/></highlight><highlight class="stringliteral">&quot;Решение<sp/>не<sp/>найдено&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><ref refid="balances_8hpp_1a8689bd711e5cf08e0910f6bb2aaa96ba" kindref="member">withdraws_index</ref><sp/>withdraws(<ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/>coopname.value);</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="classsoviet_1a7089fa0bf46043a738f2080a110d6565" kindref="member">withdraw</ref><sp/>=<sp/>withdraws.find(batch_id);</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/>eosio::check(<ref refid="classsoviet_1a7089fa0bf46043a738f2080a110d6565" kindref="member">withdraw</ref><sp/>!=<sp/>withdraws.end(),<sp/></highlight><highlight class="stringliteral">&quot;Вывод<sp/>не<sp/>найден&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/>action(</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;withdrawauth&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::make_tuple(coopname,<sp/>batch_id)</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/>).send();</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/>action(</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;newresolved&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::make_tuple(coopname,<sp/><ref refid="structdecision" kindref="compound">decision</ref><sp/>-&gt;<sp/>username,<sp/><ref refid="consts_8hpp_1a9e2440f7709ebcf63b4e0f7ca5c65fe5" kindref="member">_withdraw_action</ref>,<sp/>decision_id,<sp/><ref refid="classsoviet_1a7089fa0bf46043a738f2080a110d6565" kindref="member">withdraw</ref><sp/>-&gt;<sp/><ref refid="structdocument" kindref="compound">document</ref>)</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/>).send();</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/>action(</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;newdecision&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::make_tuple(coopname,<sp/><ref refid="structdecision" kindref="compound">decision</ref><sp/>-&gt;<sp/>username,<sp/><ref refid="consts_8hpp_1a9e2440f7709ebcf63b4e0f7ca5c65fe5" kindref="member">_withdraw_action</ref>,<sp/>decision_id,<sp/><ref refid="structdecision" kindref="compound">decision</ref><sp/>-&gt;<sp/>authorization)</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/>).send();</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/>decisions.erase(<ref refid="structdecision" kindref="compound">decision</ref>);</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="238"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="239"><highlight class="normal"></highlight></codeline>
 <codeline lineno="240"><highlight class="normal"></highlight></codeline>
 <codeline lineno="241"><highlight class="normal"></highlight></codeline>
@@ -276,6 +276,7 @@
 <codeline lineno="254"><highlight class="normal"></highlight></codeline>
 <codeline lineno="255"><highlight class="normal"></highlight></codeline>
 <codeline lineno="256"><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="soviet/src/contributions.cpp"/>
   </compounddef>

@@ -738,7 +738,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="75" column="9" bodyfile="soviet/src/chairman.cpp" bodystart="165" bodyend="203"/>
+        <location file="soviet/soviet.hpp" line="75" column="9" bodyfile="soviet/src/chairman.cpp" bodystart="165" bodyend="205"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gaed705497ce78823553360af42f1e0dc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1342,7 +1342,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="93" column="9" bodyfile="soviet/src/marketplace.cpp" bodystart="74" bodyend="134"/>
+        <location file="soviet/soviet.hpp" line="93" column="9" bodyfile="soviet/src/marketplace.cpp" bodystart="74" bodyend="136"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1a955e0e3734f5d04715310aa967d099be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1750,7 +1750,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="104" column="9" bodyfile="soviet/src/contributions.cpp" bodystart="173" bodyend="201"/>
+        <location file="soviet/soviet.hpp" line="104" column="9" bodyfile="soviet/src/contributions.cpp" bodystart="173" bodyend="202"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1aa5c5dfbe8b9210547f4fefc2f0276648" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1944,7 +1944,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="114" column="8" bodyfile="soviet/src/contributions.cpp" bodystart="204" bodyend="237"/>
+        <location file="soviet/soviet.hpp" line="114" column="8" bodyfile="soviet/src/contributions.cpp" bodystart="205" bodyend="238"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1abbb251c81fa2277e5709bb0acf8648d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2072,7 +2072,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="123" column="8" bodyfile="soviet/src/fund.cpp" bodystart="34" bodyend="69"/>
+        <location file="soviet/soviet.hpp" line="123" column="8" bodyfile="soviet/src/fund.cpp" bodystart="35" bodyend="70"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga46020951b62e043b52d7e7c6939684a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2109,7 +2109,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="124" column="9" bodyfile="soviet/src/fund.cpp" bodystart="9" bodyend="31"/>
+        <location file="soviet/soviet.hpp" line="124" column="9" bodyfile="soviet/src/fund.cpp" bodystart="9" bodyend="32"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -2189,7 +2189,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="95" column="15" bodyfile="soviet/src/marketplace.cpp" bodystart="138" bodyend="176"/>
+        <location file="soviet/soviet.hpp" line="95" column="15" bodyfile="soviet/src/marketplace.cpp" bodystart="140" bodyend="178"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

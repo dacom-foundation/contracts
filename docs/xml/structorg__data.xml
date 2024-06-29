@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/accounts.hpp" line="142" column="10" bodyfile="common/accounts.hpp" bodystart="142" bodyend="-1"/>
+        <location file="common/accounts.hpp" line="141" column="10" bodyfile="common/accounts.hpp" bodystart="141" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structorg__data_1a879607268d761ab2fb337ac067234678" prot="public" static="no" mutable="no">
         <type>eosio::name</type>
@@ -33,7 +33,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/accounts.hpp" line="143" column="17" bodyfile="common/accounts.hpp" bodystart="143" bodyend="-1"/>
+        <location file="common/accounts.hpp" line="142" column="17" bodyfile="common/accounts.hpp" bodystart="142" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structorg__data_1af31eb176481e60108b902def456ff225" prot="public" static="no" mutable="no">
         <type>std::string</type>
@@ -48,7 +48,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/accounts.hpp" line="144" column="17" bodyfile="common/accounts.hpp" bodystart="144" bodyend="-1"/>
+        <location file="common/accounts.hpp" line="143" column="17" bodyfile="common/accounts.hpp" bodystart="143" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structorg__data_1a53f757c92b8548c72cb7edc7bb97663a" prot="public" static="no" mutable="no">
         <type>std::string</type>
@@ -63,7 +63,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/accounts.hpp" line="145" column="17" bodyfile="common/accounts.hpp" bodystart="145" bodyend="-1"/>
+        <location file="common/accounts.hpp" line="144" column="17" bodyfile="common/accounts.hpp" bodystart="144" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structorg__data_1a46f196bb722c9e9218cb972193a676ff" prot="public" static="no" mutable="no">
         <type>eosio::asset</type>
@@ -78,7 +78,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/accounts.hpp" line="146" column="18" bodyfile="common/accounts.hpp" bodystart="146" bodyend="-1"/>
+        <location file="common/accounts.hpp" line="145" column="18" bodyfile="common/accounts.hpp" bodystart="145" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structorg__data_1a0e181c3124d29937b16b0bef4b2bdafa" prot="public" static="no" mutable="no">
         <type>eosio::asset</type>
@@ -93,7 +93,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/accounts.hpp" line="147" column="18" bodyfile="common/accounts.hpp" bodystart="147" bodyend="-1"/>
+        <location file="common/accounts.hpp" line="146" column="18" bodyfile="common/accounts.hpp" bodystart="146" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -128,7 +128,7 @@
         <label>string</label>
       </node>
     </collaborationgraph>
-    <location file="common/accounts.hpp" line="141" column="1" bodyfile="common/accounts.hpp" bodystart="141" bodyend="148"/>
+    <location file="common/accounts.hpp" line="140" column="1" bodyfile="common/accounts.hpp" bodystart="140" bodyend="147"/>
     <listofallmembers>
       <member refid="structorg__data_1af31eb176481e60108b902def456ff225" prot="public" virt="non-virtual"><scope>org_data</scope><name>announce</name></member>
       <member refid="structorg__data_1a879607268d761ab2fb337ac067234678" prot="public" virt="non-virtual"><scope>org_data</scope><name>coop_type</name></member>

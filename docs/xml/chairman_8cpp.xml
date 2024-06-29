@@ -136,43 +136,45 @@
 <codeline lineno="145"><highlight class="normal"></highlight></codeline>
 <codeline lineno="165"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1ga633d78f7717ca0b13d800f1af3b298d3" kindref="member">soviet::updateboard</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>chairman,<sp/>uint64_t<sp/>board_id,<sp/>std::vector&lt;board_member&gt;<sp/>members,<sp/>std::string<sp/>name,<sp/>std::string<sp/>description){</highlight></codeline>
 <codeline lineno="166"><highlight class="normal"></highlight></codeline>
-<codeline lineno="167"><highlight class="normal"><sp/><sp/>require_auth(chairman);</highlight></codeline>
-<codeline lineno="168"><highlight class="normal"><sp/><sp/><ref refid="accounts_8hpp_1a216c9600f34a4338ccb257aeba1bd763" kindref="member">organizations_index</ref><sp/>orgs(<ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>,<sp/><ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>.value);</highlight></codeline>
-<codeline lineno="169"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>org<sp/>=<sp/>orgs.find(coopname.value);</highlight></codeline>
-<codeline lineno="170"><highlight class="normal"><sp/><sp/>eosio::check(org<sp/>!=<sp/>orgs.end(),<sp/></highlight><highlight class="stringliteral">&quot;Организация<sp/>не<sp/>найдена&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="171"><highlight class="normal"><sp/><sp/>eosio::check(org<sp/>-&gt;<sp/>is_coop(),<sp/></highlight><highlight class="stringliteral">&quot;Организация<sp/>-<sp/>не<sp/>кооператив&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="172"><highlight class="normal"></highlight></codeline>
-<codeline lineno="173"><highlight class="normal"><sp/><sp/><ref refid="coops_8hpp_1a78302821fd10bd5b552f1c9cf16d57f7" kindref="member">boards_index</ref><sp/><ref refid="structboards" kindref="compound">boards</ref>(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>coopname.value);</highlight></codeline>
-<codeline lineno="174"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>board<sp/>=<sp/><ref refid="structboards" kindref="compound">boards</ref>.find(board_id);</highlight></codeline>
-<codeline lineno="175"><highlight class="normal"><sp/><sp/>eosio::check(board<sp/>!=<sp/><ref refid="structboards" kindref="compound">boards</ref>.end(),<sp/></highlight><highlight class="stringliteral">&quot;Доска<sp/>не<sp/>найдена&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="176"><highlight class="normal"></highlight></codeline>
-<codeline lineno="177"><highlight class="normal"><sp/><sp/>eosio::check(board<sp/>-&gt;<sp/>is_valid_chairman(chairman),<sp/></highlight><highlight class="stringliteral">&quot;Только<sp/>председатель<sp/>кооператива<sp/>может<sp/>обновить<sp/>доску&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/>require_auth(chairman);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><ref refid="accounts_8hpp_1a216c9600f34a4338ccb257aeba1bd763" kindref="member">organizations_index</ref><sp/>orgs(<ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>,<sp/><ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>.value);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>org<sp/>=<sp/>orgs.find(coopname.value);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/>eosio::check(org<sp/>!=<sp/>orgs.end(),<sp/></highlight><highlight class="stringliteral">&quot;Организация<sp/>не<sp/>найдена&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/>eosio::check(org<sp/>-&gt;<sp/>is_coop(),<sp/></highlight><highlight class="stringliteral">&quot;Организация<sp/>-<sp/>не<sp/>кооператив&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><ref refid="coops_8hpp_1a78302821fd10bd5b552f1c9cf16d57f7" kindref="member">boards_index</ref><sp/><ref refid="structboards" kindref="compound">boards</ref>(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>coopname.value);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>board<sp/>=<sp/><ref refid="structboards" kindref="compound">boards</ref>.find(board_id);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/>eosio::check(board<sp/>!=<sp/><ref refid="structboards" kindref="compound">boards</ref>.end(),<sp/></highlight><highlight class="stringliteral">&quot;Доска<sp/>не<sp/>найдена&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="178"><highlight class="normal"></highlight></codeline>
-<codeline lineno="179"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(board<sp/>-&gt;<sp/>type<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;soviet&quot;</highlight><highlight class="normal">_n)<sp/>{</highlight></codeline>
-<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>has_chairman<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/>std::set&lt;eosio::name&gt;<sp/>usernames;</highlight></codeline>
-<codeline lineno="182"><highlight class="normal"></highlight></codeline>
-<codeline lineno="183"><highlight class="normal"></highlight></codeline>
-<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>m<sp/>:<sp/>members)<sp/>{</highlight></codeline>
-<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::check(usernames.insert(m.username).second,<sp/></highlight><highlight class="stringliteral">&quot;Обнаружено<sp/>повторение<sp/>username&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="186"><highlight class="normal"></highlight></codeline>
-<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m.position<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;chairman&quot;</highlight><highlight class="normal">_n)<sp/>{</highlight></codeline>
-<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::check(m.username<sp/>==<sp/>chairman,<sp/></highlight><highlight class="stringliteral">&quot;Только<sp/>председатель<sp/>может<sp/>создать<sp/>совет<sp/>кооператива&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>has_chairman<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
-<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
-<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::check(has_chairman,<sp/></highlight><highlight class="stringliteral">&quot;Председатель<sp/>кооператива<sp/>должен<sp/>быть<sp/>указан<sp/>в<sp/>членах<sp/>совета&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="193"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
-<codeline lineno="194"><highlight class="normal"></highlight></codeline>
-<codeline lineno="195"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="196"><highlight class="normal"><sp/><sp/><ref refid="structboards" kindref="compound">boards</ref>.modify(board,<sp/>chairman,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;b)<sp/>{</highlight></codeline>
-<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>b.members<sp/>=<sp/>members;</highlight></codeline>
-<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>b.name<sp/>=<sp/>name;</highlight></codeline>
-<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>b.description<sp/>=<sp/>description;</highlight></codeline>
-<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>b.last_update<sp/>=<sp/>eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());</highlight></codeline>
-<codeline lineno="201"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
-<codeline lineno="202"><highlight class="normal"></highlight></codeline>
-<codeline lineno="203"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/>eosio::check(board<sp/>-&gt;<sp/>is_valid_chairman(chairman),<sp/></highlight><highlight class="stringliteral">&quot;Только<sp/>председатель<sp/>кооператива<sp/>может<sp/>обновить<sp/>доску&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(board<sp/>-&gt;<sp/>type<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;soviet&quot;</highlight><highlight class="normal">_n)<sp/>{</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>has_chairman<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/>std::set&lt;eosio::name&gt;<sp/>usernames;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>m<sp/>:<sp/>members)<sp/>{</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::check(usernames.insert(m.username).second,<sp/></highlight><highlight class="stringliteral">&quot;Обнаружено<sp/>повторение<sp/>username&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m.position<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;chairman&quot;</highlight><highlight class="normal">_n)<sp/>{</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::check(m.username<sp/>==<sp/>chairman,<sp/></highlight><highlight class="stringliteral">&quot;Только<sp/>председатель<sp/>может<sp/>создать<sp/>совет<sp/>кооператива&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>has_chairman<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::check(has_chairman,<sp/></highlight><highlight class="stringliteral">&quot;Председатель<sp/>кооператива<sp/>должен<sp/>быть<sp/>указан<sp/>в<sp/>членах<sp/>совета&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><ref refid="structboards" kindref="compound">boards</ref>.modify(board,<sp/>chairman,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;b)<sp/>{</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>b.members<sp/>=<sp/>members;</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>b.name<sp/>=<sp/>name;</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>b.description<sp/>=<sp/>description;</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>b.last_update<sp/>=<sp/>eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="soviet/src/chairman.cpp"/>
   </compounddef>

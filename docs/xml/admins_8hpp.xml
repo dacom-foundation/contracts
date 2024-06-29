@@ -71,7 +71,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/admins.hpp" line="3" column="6" bodyfile="common/admins.hpp" bodystart="3" bodyend="18"/>
+        <location file="common/admins.hpp" line="3" column="6" bodyfile="common/admins.hpp" bodystart="3" bodyend="23"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -81,22 +81,27 @@
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="2"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3" refid="admins_8hpp_1a8b2cff2f5076afcf685cdb60a6521702" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="admins_8hpp_1a8b2cff2f5076afcf685cdb60a6521702" kindref="member">check_auth_or_fail</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>admin,<sp/>eosio::name<sp/>action_name){</highlight></codeline>
-<codeline lineno="4"><highlight class="normal"><sp/><sp/>require_auth(admin);</highlight></codeline>
-<codeline lineno="5"><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>board<sp/>=<sp/><ref refid="coops_8hpp_1a5975688eadd5a074161c268985282581" kindref="member">get_board_by_type_or_fail</ref>(coopname,<sp/></highlight><highlight class="stringliteral">&quot;soviet&quot;</highlight><highlight class="normal">_n);</highlight></codeline>
-<codeline lineno="7"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="8"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is_valid<sp/>=<sp/>board.is_valid_chairman(admin);</highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight></codeline>
-<codeline lineno="10"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!is_valid)<sp/>{</highlight></codeline>
-<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="coops_8hpp_1a04b2c83df71b9adc976ae65b894f4b3d" kindref="member">staff_index</ref><sp/><ref refid="structstaff" kindref="compound">staff</ref>(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>coopname.value);</highlight></codeline>
-<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>administrator<sp/>=<sp/><ref refid="structstaff" kindref="compound">staff</ref>.find(admin.value);</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::check(administrator<sp/>!=<sp/><ref refid="structstaff" kindref="compound">staff</ref>.end(),<sp/></highlight><highlight class="stringliteral">&quot;Администратор<sp/>не<sp/>найден&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>has_right<sp/>=<sp/>administrator<sp/>-&gt;<sp/>has_right(<ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/>action_name);</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::check(has_right,<sp/></highlight><highlight class="stringliteral">&quot;Недостаточно<sp/>прав<sp/>доступа<sp/>к<sp/>действию&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="18"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="3" refid="admins_8hpp_1a8b2cff2f5076afcf685cdb60a6521702" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="admins_8hpp_1a8b2cff2f5076afcf685cdb60a6521702" kindref="member">check_auth_or_fail</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>admin,<sp/>eosio::name<sp/>action_name)</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/>require_auth(admin);</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(coopname<sp/>!=<sp/>admin)</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>board<sp/>=<sp/><ref refid="coops_8hpp_1a5975688eadd5a074161c268985282581" kindref="member">get_board_by_type_or_fail</ref>(coopname,<sp/></highlight><highlight class="stringliteral">&quot;soviet&quot;</highlight><highlight class="normal">_n);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is_valid<sp/>=<sp/>board.is_valid_chairman(admin);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!is_valid)</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="coops_8hpp_1a04b2c83df71b9adc976ae65b894f4b3d" kindref="member">staff_index</ref><sp/><ref refid="structstaff" kindref="compound">staff</ref>(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>coopname.value);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>administrator<sp/>=<sp/><ref refid="structstaff" kindref="compound">staff</ref>.find(admin.value);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::check(administrator<sp/>!=<sp/><ref refid="structstaff" kindref="compound">staff</ref>.end(),<sp/></highlight><highlight class="stringliteral">&quot;Администратор<sp/>не<sp/>найден&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>has_right<sp/>=<sp/>administrator-&gt;has_right(<ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/>action_name);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::check(has_right,<sp/></highlight><highlight class="stringliteral">&quot;Недостаточно<sp/>прав<sp/>доступа<sp/>к<sp/>действию&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">};</highlight></codeline>
     </programlisting>
     <location file="common/admins.hpp"/>
   </compounddef>

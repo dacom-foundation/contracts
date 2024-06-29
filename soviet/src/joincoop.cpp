@@ -55,7 +55,6 @@ void soviet::joincoop(eosio::name coopname, eosio::name username, document docum
     a.id = batch_id;
     a.username = username;
     a.is_paid = false;
-    a.statement = document;
   });
   
   decisions_index decisions(_soviet, coopname.value);
@@ -67,6 +66,7 @@ void soviet::joincoop(eosio::name coopname, eosio::name username, document docum
     d.username = username;
     d.type = _regaccount_action;
     d.batch_id = batch_id;
+    d.statement = document;
     d.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
   });
   
@@ -124,7 +124,7 @@ void soviet::joincoop_effect(eosio::name executer, eosio::name coopname, uint64_
       permission_level{ _soviet, "active"_n},
       _soviet,
       "newresolved"_n,
-      std::make_tuple(coopname, joincoop_action -> username, _regaccount_action, decision_id, joincoop_action -> statement)
+      std::make_tuple(coopname, joincoop_action -> username, _regaccount_action, decision_id, decision -> statement)
   ).send();
   
   action(

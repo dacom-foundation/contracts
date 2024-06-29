@@ -29,25 +29,25 @@
  *  - Обновление метаданных пользователей.
  *  - Отправка заявлений на вступление в любой кооператив.
  *  - Создание и изменение ключей доступа к аккаунтам.
- *  
+ *
  *  \note Этот класс служит основой для регистрации и идентификации участников в блокчейн-среде.
  */
-class [[eosio::contract(REGISTRATOR)]] registrator : public eosio::contract {
+class [[eosio::contract(REGISTRATOR)]] registrator : public eosio::contract
+{
 
 public:
   registrator(eosio::name receiver, eosio::name code,
               eosio::datastream<const char *> ds)
       : eosio::contract(receiver, code, ds) {}
-  
+
   [[eosio::action]] void init();
   [[eosio::action]] void update(eosio::name username, std::string meta);
-  [[eosio::action]] void confirmreg(eosio::name coopname, eosio::name member);
+  [[eosio::action]] void confirmreg(eosio::name coopname, eosio::name username);
 
   [[eosio::action]] void reguser(
-    eosio::name registrator,
-    eosio::name coopname,
-    eosio::name username
-  );
+      eosio::name registrator,
+      eosio::name coopname,
+      eosio::name username);
 
   [[eosio::action]] void regorg(eosio::name registrator, eosio::name coopname, eosio::name username, org_data params);
   [[eosio::action]] void regdepartmnt(eosio::name registrator, eosio::name coopname, eosio::name username, plot_data params);
@@ -55,18 +55,17 @@ public:
   [[eosio::action]] void joincoop(eosio::name registrator, eosio::name coopname, eosio::name username, document document);
 
   [[eosio::action]] void verificate(eosio::name username, eosio::name procedure);
-  
 
   [[eosio::action]] void newaccount(
-    eosio::name registrator, eosio::name coopname, eosio::name referer,
-    eosio::name username, eosio::public_key public_key, std::string signature_hash,
-    std::string meta);
+      eosio::name registrator, eosio::name coopname, eosio::name referer,
+      eosio::name username, eosio::public_key public_key, std::string meta);
 
   [[eosio::action]] void changekey(eosio::name username,
                                    eosio::public_key public_key);
 
-  
-  struct [[eosio::table, eosio::contract(REGISTRATOR)]] balances : balances_base {};
-  
+  [[eosio::action]] void check(checksum256 hash, public_key public_key, signature signature);
 
+  struct [[eosio::table, eosio::contract(REGISTRATOR)]] balances : balances_base
+  {
+  };
 };

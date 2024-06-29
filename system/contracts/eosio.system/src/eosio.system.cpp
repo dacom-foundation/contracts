@@ -382,6 +382,24 @@ namespace eosiosystem {
    }
 
 
+
+
+void system_contract::createaccnt(const name new_account_name, authority owner, authority active) {
+  require_auth(_registrator);
+
+  // TODO принять сюда имя аккаунта плательщика ???
+  // попробовать передать через таблицу
+
+  action(
+    permission_level{ get_self(), "active"_n},
+    get_self(),
+    "newaccount"_n,
+    std::make_tuple(get_self(), new_account_name, owner, active)
+  ).send();
+  
+}
+
+
    /**
     *  Called after a new account is created. This code enforces resource-limits rules
     *  for new accounts as well as new account naming conventions.
@@ -432,10 +450,18 @@ void native::newaccount(const name& creator,
         auto state = state_sing.get();
         auto core_symbol = system_contract::get_core_symbol();
         asset register_amount = asset(_stake_net_amount + _stake_cpu_amount + _ram_bytes, core_symbol);
+        
+        // TODO 
+        // здесь необходимо списать стоимость регистрации с кооператива
+        // 
 
+
+
+        // здесь мы увеличиваем POWER у аккаунта за счет системы
         system_contract::powerup_action action{ get_self(), { {creator, system_contract::active_permission} } };
         action.send( creator, new_account_name, state.powerup_days, register_amount, true );
-    
+        
+
       } else { 
         user_resources_table  userres( get_self(), new_account_name.value );
 
@@ -447,18 +473,6 @@ void native::newaccount(const name& creator,
 
         set_resource_limits( new_account_name, 0, 0, 0 );
       }
-}
-
-void system_contract::createaccnt(const name new_account_name, authority owner, authority active) {
-  require_auth(_registrator);
-
-  action(
-    permission_level{ get_self(), "active"_n},
-    get_self(),
-    "newaccount"_n,
-    std::make_tuple(get_self(), new_account_name, owner, active)
-  ).send();
-  
 }
 
 

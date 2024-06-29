@@ -138,7 +138,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/native.hpp" line="146" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="394" bodyend="450"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/native.hpp" line="146" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="412" bodyend="476"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1native_1a2bbeca58b24029a5ab0fc90832dde56b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -577,7 +577,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/native.hpp" line="296" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="465" bodyend="479"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/native.hpp" line="296" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="479" bodyend="493"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

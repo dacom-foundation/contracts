@@ -89,7 +89,7 @@
         <label>string</label>
       </node>
     </collaborationgraph>
-    <location file="common/drafts.hpp" line="7" column="1" bodyfile="common/drafts.hpp" bodystart="7" bodyend="16"/>
+    <location file="common/drafts.hpp" line="6" column="1" bodyfile="common/drafts.hpp" bodystart="7" bodyend="16"/>
     <listofallmembers>
       <member refid="structdocument_1a45763224394ca879e133b8a4bdad75d2" prot="public" virt="non-virtual"><scope>document</scope><name>hash</name></member>
       <member refid="structdocument_1ad6e940cca29c2ca96fb1f740d3f2dc90" prot="public" virt="non-virtual"><scope>document</scope><name>meta</name></member>

@@ -31,8 +31,8 @@ void token::is_can_transfer(const name& from, const name& to) {
   bool from_exist_in_provider = is_participant_exist(_provider, from);
   bool to_exist_in_provider = is_participant_exist(_provider, to);
   
-  if (!to_exist_in_provider && std::find(token_whitelist.begin(), token_whitelist.end(), from) == token_whitelist.end()) {
-    check(false, "Отправитель не является членом кооператива-провайдера");
+  if (!from_exist_in_provider && std::find(token_whitelist.begin(), token_whitelist.end(), from) == token_whitelist.end()) {
+      check(false, "Отправитель не является членом кооператива-провайдера");
   }
 
   if (!to_exist_in_provider && std::find(token_whitelist.begin(), token_whitelist.end(), to) == token_whitelist.end()) {

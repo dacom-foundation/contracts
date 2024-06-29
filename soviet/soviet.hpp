@@ -169,7 +169,6 @@ struct [[eosio::table, eosio::contract(SOVIET)]] automator {
     uint64_t id;
     eosio::name username;
     bool is_paid = false; 
-    document statement;
     
     std::string notice;
 

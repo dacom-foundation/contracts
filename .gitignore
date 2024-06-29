@@ -9,6 +9,6 @@ ano/ano.wasm
 ano/ano.abi
 lib/
 Testing/
-docs/html
-docs/xml
-docs/node_modules
+docs/html/*
+docs/xml/*
+docs/node_modules/*

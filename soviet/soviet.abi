@@ -543,6 +543,10 @@
                     "type": "uint64"
                 },
                 {
+                    "name": "statement",
+                    "type": "document"
+                },
+                {
                     "name": "votes_for",
                     "type": "name[]"
                 },
@@ -798,10 +802,6 @@
                 {
                     "name": "is_paid",
                     "type": "bool"
-                },
-                {
-                    "name": "statement",
-                    "type": "document"
                 },
                 {
                     "name": "notice",

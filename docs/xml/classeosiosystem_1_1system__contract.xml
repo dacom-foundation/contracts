@@ -765,7 +765,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="466" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="481" bodyend="517"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="466" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="495" bodyend="531"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1a56c686a08fd581a617980500efd795ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -799,7 +799,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="470" column="16" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="519" bodyend="523"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="470" column="16" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="533" bodyend="537"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1af6ed697e2d198ca5bce29cbacb682490" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2276,7 +2276,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="870" column="14" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="452" bodyend="462"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="870" column="14" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="387" bodyend="400"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">

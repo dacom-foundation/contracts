@@ -1,6 +1,7 @@
 {
     "workbench.editor.enablePreview": false,
     "cmake.configureOnOpen": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "C_Cpp.errorSquiggles": "disabled",
     "files.associations": {
       "*.cpp": "c",
@@ -106,6 +107,7 @@
       "asset.hpp": "c",
       "eosio.system.hpp": "c",
       "accounts.hpp": "c",
-      "balances.hpp": "c"
-    }
+      "balances.hpp": "c",
+      "__verbose_abort": "c"
+    },
 }

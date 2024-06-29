@@ -101,9 +101,9 @@
     <innerclass refid="structonedraft" prot="public">onedraft</innerclass>
     <innerclass refid="structtranslation" prot="public">translation</innerclass>
       <sectiondef kind="typedef">
-      <memberdef kind="typedef" id="drafts_8hpp_1aa7dc3040c14d85f47b681a67bdb7aade" prot="public" static="no">
-        <type>eosio::multi_index&lt; &quot;drafts&quot;_n, <ref refid="structonedraft" kindref="compound">onedraft</ref>, eosio::indexed_by&lt; &quot;byregistryid&quot;_n, eosio::const_mem_fun&lt; <ref refid="structonedraft" kindref="compound">onedraft</ref>, uint64_t, &amp;<ref refid="structonedraft_1a86d18e5742bd37e212b32c7251f34abb" kindref="member">onedraft::by_registry_id</ref> &gt; &gt; &gt;</type>
-        <definition>typedef eosio::multi_index&lt; &quot;drafts&quot;_n, onedraft, eosio::indexed_by&lt; &quot;byregistryid&quot;_n, eosio::const_mem_fun&lt;onedraft, uint64_t, &amp;onedraft::by_registry_id&gt; &gt;&gt; drafts_index</definition>
+      <memberdef kind="typedef" id="drafts_8hpp_1a7c328e5af991679fc7547bcb89a8f5c7" prot="public" static="no">
+        <type>eosio::multi_index&lt; &quot;drafts&quot;_n, <ref refid="structonedraft" kindref="compound">onedraft</ref>, eosio::indexed_by&lt;&quot;byregistryid&quot;_n, eosio::const_mem_fun&lt; <ref refid="structonedraft" kindref="compound">onedraft</ref>, uint64_t, &amp;<ref refid="structonedraft_1a86d18e5742bd37e212b32c7251f34abb" kindref="member">onedraft::by_registry_id</ref> &gt; &gt; &gt;</type>
+        <definition>typedef eosio::multi_index&lt; &quot;drafts&quot;_n, onedraft, eosio::indexed_by&lt;&quot;byregistryid&quot;_n, eosio::const_mem_fun&lt;onedraft, uint64_t, &amp;onedraft::by_registry_id&gt; &gt; &gt; drafts_index</definition>
         <argsstring></argsstring>
         <name>drafts_index</name>
         <briefdescription>
@@ -112,7 +112,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/drafts.hpp" line="44" column="2" bodyfile="common/drafts.hpp" bodystart="44" bodyend="-1"/>
+        <location file="common/drafts.hpp" line="43" column="5" bodyfile="common/drafts.hpp" bodystart="43" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="drafts_8hpp_1ab33f9403422d20c5528e4da3ddfbe417" prot="public" static="no">
         <type>eosio::multi_index&lt; &quot;translations&quot;_n, <ref refid="structtranslation" kindref="compound">translation</ref>, eosio::indexed_by&lt;&quot;bydraft&quot;_n, eosio::const_mem_fun&lt; <ref refid="structtranslation" kindref="compound">translation</ref>, uint64_t, &amp;<ref refid="structtranslation_1a17121e2068a26547b2db19de299cfae4" kindref="member">translation::by_draft</ref> &gt; &gt;, eosio::indexed_by&lt; &quot;bydraftlang&quot;_n, eosio::const_mem_fun&lt; <ref refid="structtranslation" kindref="compound">translation</ref>, uint128_t, &amp;<ref refid="structtranslation_1a3700267e3a8241b50d4df712d9e80e75" kindref="member">translation::by_draft_lang</ref> &gt; &gt; &gt;</type>
@@ -125,7 +125,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/drafts.hpp" line="65" column="2" bodyfile="common/drafts.hpp" bodystart="65" bodyend="-1"/>
+        <location file="common/drafts.hpp" line="64" column="5" bodyfile="common/drafts.hpp" bodystart="64" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -144,7 +144,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/drafts.hpp" line="19" column="6" bodyfile="common/drafts.hpp" bodystart="19" bodyend="22"/>
+        <location file="common/drafts.hpp" line="18" column="6" bodyfile="common/drafts.hpp" bodystart="18" bodyend="22"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -156,27 +156,27 @@
 <codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/crypto.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/contract.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/system.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight></codeline>
-<codeline lineno="7" refid="structdocument" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structdocument" kindref="compound">document</ref><sp/>{</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="structdocument" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structdocument" kindref="compound">document</ref></highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="8"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Чексумма<sp/>документа<sp/>(можем<sp/>использовать<sp/>SHA256)</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="9" refid="structdocument_1a45763224394ca879e133b8a4bdad75d2" refkind="member"><highlight class="normal"><sp/><sp/>checksum256<sp/><ref refid="structdocument_1a45763224394ca879e133b8a4bdad75d2" kindref="member">hash</ref>;</highlight></codeline>
 <codeline lineno="10"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Публичный<sp/>ключ<sp/>(предполагаем,<sp/>что<sp/>используется<sp/>тип<sp/>ключа<sp/>EOSIO)</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="11" refid="structdocument_1ad991dff7669688e9d726253bf16f64df" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="structdocument_1ad991dff7669688e9d726253bf16f64df" kindref="member">public_key</ref><sp/><ref refid="structdocument_1ad991dff7669688e9d726253bf16f64df" kindref="member">public_key</ref>;</highlight></codeline>
 <codeline lineno="12"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Подпись<sp/>чексуммы</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="13" refid="structdocument_1a9fd2739490e87378f466df2a0c65bd58" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="structdocument_1a9fd2739490e87378f466df2a0c65bd58" kindref="member">signature</ref><sp/><ref refid="structdocument_1a9fd2739490e87378f466df2a0c65bd58" kindref="member">signature</ref>;<sp/></highlight></codeline>
+<codeline lineno="13" refid="structdocument_1a9fd2739490e87378f466df2a0c65bd58" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="structdocument_1a9fd2739490e87378f466df2a0c65bd58" kindref="member">signature</ref><sp/><ref refid="structdocument_1a9fd2739490e87378f466df2a0c65bd58" kindref="member">signature</ref>;</highlight></codeline>
 <codeline lineno="14"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Публичные<sp/>мета-данные<sp/>документа</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="15" refid="structdocument_1ad6e940cca29c2ca96fb1f740d3f2dc90" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structdocument_1ad6e940cca29c2ca96fb1f740d3f2dc90" kindref="member">meta</ref>;<sp/></highlight></codeline>
+<codeline lineno="15" refid="structdocument_1ad6e940cca29c2ca96fb1f740d3f2dc90" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structdocument_1ad6e940cca29c2ca96fb1f740d3f2dc90" kindref="member">meta</ref>;</highlight></codeline>
 <codeline lineno="16"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="17"><highlight class="normal"></highlight></codeline>
-<codeline lineno="18"><highlight class="normal"></highlight></codeline>
-<codeline lineno="19" refid="drafts_8hpp_1a51dcf5aff7c16f157d08dc80f2176efa" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="drafts_8hpp_1a51dcf5aff7c16f157d08dc80f2176efa" kindref="member">verify_document_or_fail</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structdocument" kindref="compound">document</ref>&amp;<sp/>doc)<sp/>{</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Проверка<sp/>завершится<sp/>прерыванием,<sp/>если<sp/>восстановление<sp/>подписи<sp/>провалится</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>assert_recover_key(doc.<ref refid="structdocument_1a45763224394ca879e133b8a4bdad75d2" kindref="member">hash</ref>,<sp/>doc.<ref refid="structdocument_1a9fd2739490e87378f466df2a0c65bd58" kindref="member">signature</ref>,<sp/>doc.<ref refid="structdocument_1ad991dff7669688e9d726253bf16f64df" kindref="member">public_key</ref>);</highlight></codeline>
+<codeline lineno="18" refid="drafts_8hpp_1a51dcf5aff7c16f157d08dc80f2176efa" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="drafts_8hpp_1a51dcf5aff7c16f157d08dc80f2176efa" kindref="member">verify_document_or_fail</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structdocument" kindref="compound">document</ref><sp/>&amp;doc)</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Проверка<sp/>завершится<sp/>прерыванием,<sp/>если<sp/>восстановление<sp/>подписи<sp/>провалится</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/>assert_recover_key(doc.<ref refid="structdocument_1a45763224394ca879e133b8a4bdad75d2" kindref="member">hash</ref>,<sp/>doc.<ref refid="structdocument_1a9fd2739490e87378f466df2a0c65bd58" kindref="member">signature</ref>,<sp/>doc.<ref refid="structdocument_1ad991dff7669688e9d726253bf16f64df" kindref="member">public_key</ref>);</highlight></codeline>
 <codeline lineno="22"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="23"><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight></codeline>
-<codeline lineno="25" refid="structonedraft" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(DRAFT)]]<sp/><ref refid="structonedraft" kindref="compound">onedraft</ref><sp/>{</highlight></codeline>
+<codeline lineno="24" refid="structonedraft" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(DRAFT)]]<sp/><ref refid="structonedraft" kindref="compound">onedraft</ref></highlight></codeline>
+<codeline lineno="25"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="26" refid="structonedraft_1afcb9605f6196cfc05fae05641d4c61e1" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structonedraft_1afcb9605f6196cfc05fae05641d4c61e1" kindref="member">id</ref>;</highlight></codeline>
 <codeline lineno="27" refid="structonedraft_1a15552c3fd1f5207e7cd3ab0b4a789fce" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structonedraft_1a15552c3fd1f5207e7cd3ab0b4a789fce" kindref="member">registry_id</ref>;</highlight></codeline>
 <codeline lineno="28" refid="structonedraft_1a32e4777a8617210181260229c4d872af" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structonedraft_1a32e4777a8617210181260229c4d872af" kindref="member">version</ref>;</highlight></codeline>
@@ -185,41 +185,37 @@
 <codeline lineno="31" refid="structonedraft_1ace57b74dd5e0c9b46f79a6ef96d69727" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structonedraft_1ace57b74dd5e0c9b46f79a6ef96d69727" kindref="member">description</ref>;</highlight></codeline>
 <codeline lineno="32" refid="structonedraft_1a0789742f73c87731246e1fc3bf364477" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structonedraft_1a0789742f73c87731246e1fc3bf364477" kindref="member">context</ref>;</highlight></codeline>
 <codeline lineno="33" refid="structonedraft_1a2c904caf541396520243493a78f058cd" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structonedraft_1a2c904caf541396520243493a78f058cd" kindref="member">model</ref>;</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
 <codeline lineno="35" refid="structonedraft_1addbe571021695f9aaec8988033f191dc" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structonedraft_1addbe571021695f9aaec8988033f191dc" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structonedraft_1afcb9605f6196cfc05fae05641d4c61e1" kindref="member">id</ref>;<sp/>};</highlight></codeline>
 <codeline lineno="36"><highlight class="normal"></highlight></codeline>
-<codeline lineno="37" refid="structonedraft_1a86d18e5742bd37e212b32c7251f34abb" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structonedraft_1a86d18e5742bd37e212b32c7251f34abb" kindref="member">by_registry_id</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structonedraft_1a15552c3fd1f5207e7cd3ab0b4a789fce" kindref="member">registry_id</ref>;}</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"></highlight></codeline>
-<codeline lineno="39"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"></highlight></codeline>
-<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;drafts&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structonedraft" kindref="compound">onedraft</ref>,</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;<sp/></highlight><highlight class="stringliteral">&quot;byregistryid&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;onedraft,<sp/>uint64_t,<sp/>&amp;onedraft::by_registry_id&gt;&gt;</highlight></codeline>
-<codeline lineno="44" refid="drafts_8hpp_1aa7dc3040c14d85f47b681a67bdb7aade" refkind="member"><highlight class="normal">&gt;<sp/><ref refid="drafts_8hpp_1aa7dc3040c14d85f47b681a67bdb7aade" kindref="member">drafts_index</ref>;</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"></highlight></codeline>
-<codeline lineno="46"><highlight class="normal"></highlight></codeline>
-<codeline lineno="47" refid="structtranslation" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(DRAFT)]]<sp/><ref refid="structtranslation" kindref="compound">translation</ref><sp/>{</highlight></codeline>
-<codeline lineno="48" refid="structtranslation_1abd4eb0141053f4624437fa657c508ece" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structtranslation_1abd4eb0141053f4624437fa657c508ece" kindref="member">id</ref>;</highlight></codeline>
-<codeline lineno="49" refid="structtranslation_1a971a02e842e4750af9f64a2113735726" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structtranslation_1a971a02e842e4750af9f64a2113735726" kindref="member">draft_id</ref>;</highlight></codeline>
-<codeline lineno="50" refid="structtranslation_1a30da3077304d7b5d6042b7a2fbd6c775" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structtranslation_1a30da3077304d7b5d6042b7a2fbd6c775" kindref="member">lang</ref>;</highlight></codeline>
-<codeline lineno="51" refid="structtranslation_1ab0c91e1bbc71567f34f88f2eb32e1653" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structtranslation_1ab0c91e1bbc71567f34f88f2eb32e1653" kindref="member">data</ref>;</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="53" refid="structtranslation_1a38c080360d9246d918eaeb828b4ec2fb" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structtranslation_1a38c080360d9246d918eaeb828b4ec2fb" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structonedraft_1afcb9605f6196cfc05fae05641d4c61e1" kindref="member">id</ref>;<sp/>};</highlight></codeline>
-<codeline lineno="54" refid="structtranslation_1a17121e2068a26547b2db19de299cfae4" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structtranslation_1a17121e2068a26547b2db19de299cfae4" kindref="member">by_draft</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>draft_id;};</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight></codeline>
-<codeline lineno="56" refid="structtranslation_1a3700267e3a8241b50d4df712d9e80e75" refkind="member"><highlight class="normal"><sp/><sp/>uint128_t<sp/><ref refid="structtranslation_1a3700267e3a8241b50d4df712d9e80e75" kindref="member">by_draft_lang</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="utils_8hpp_1a9674246df019d9c71da6884b1fd0fe39" kindref="member">combine_ids</ref>(draft_id,<sp/>lang.value);};</highlight></codeline>
+<codeline lineno="37" refid="structonedraft_1a86d18e5742bd37e212b32c7251f34abb" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structonedraft_1a86d18e5742bd37e212b32c7251f34abb" kindref="member">by_registry_id</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structonedraft_1a15552c3fd1f5207e7cd3ab0b4a789fce" kindref="member">registry_id</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;drafts&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structonedraft" kindref="compound">onedraft</ref>,</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byregistryid&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;onedraft,<sp/>uint64_t,<sp/>&amp;onedraft::by_registry_id&gt;&gt;&gt;</highlight></codeline>
+<codeline lineno="43" refid="drafts_8hpp_1a7c328e5af991679fc7547bcb89a8f5c7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="drafts_8hpp_1a7c328e5af991679fc7547bcb89a8f5c7" kindref="member">drafts_index</ref>;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="structtranslation" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table,<sp/><ref refid="namespaceeosio" kindref="compound">eosio</ref>::contract(DRAFT)]]<sp/><ref refid="structtranslation" kindref="compound">translation</ref></highlight></codeline>
+<codeline lineno="46"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="47" refid="structtranslation_1abd4eb0141053f4624437fa657c508ece" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structtranslation_1abd4eb0141053f4624437fa657c508ece" kindref="member">id</ref>;</highlight></codeline>
+<codeline lineno="48" refid="structtranslation_1a971a02e842e4750af9f64a2113735726" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structtranslation_1a971a02e842e4750af9f64a2113735726" kindref="member">draft_id</ref>;</highlight></codeline>
+<codeline lineno="49" refid="structtranslation_1a30da3077304d7b5d6042b7a2fbd6c775" refkind="member"><highlight class="normal"><sp/><sp/>eosio::name<sp/><ref refid="structtranslation_1a30da3077304d7b5d6042b7a2fbd6c775" kindref="member">lang</ref>;</highlight></codeline>
+<codeline lineno="50" refid="structtranslation_1ab0c91e1bbc71567f34f88f2eb32e1653" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structtranslation_1ab0c91e1bbc71567f34f88f2eb32e1653" kindref="member">data</ref>;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="structtranslation_1a38c080360d9246d918eaeb828b4ec2fb" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structtranslation_1a38c080360d9246d918eaeb828b4ec2fb" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structonedraft_1afcb9605f6196cfc05fae05641d4c61e1" kindref="member">id</ref>;<sp/>};</highlight></codeline>
+<codeline lineno="53" refid="structtranslation_1a17121e2068a26547b2db19de299cfae4" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="structtranslation_1a17121e2068a26547b2db19de299cfae4" kindref="member">by_draft</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>draft_id;<sp/>};</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="structtranslation_1a3700267e3a8241b50d4df712d9e80e75" refkind="member"><highlight class="normal"><sp/><sp/>uint128_t<sp/><ref refid="structtranslation_1a3700267e3a8241b50d4df712d9e80e75" kindref="member">by_draft_lang</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="utils_8hpp_1a9674246df019d9c71da6884b1fd0fe39" kindref="member">combine_ids</ref>(draft_id,<sp/>lang.value);<sp/>};</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="57"><highlight class="normal"></highlight></codeline>
-<codeline lineno="58"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"></highlight></codeline>
-<codeline lineno="60"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;translations&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structtranslation" kindref="compound">translation</ref>,</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bydraft&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;translation,<sp/>uint64_t,<sp/>&amp;translation::by_draft&gt;&gt;,</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;bydraftlang&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="65" refid="drafts_8hpp_1ab33f9403422d20c5528e4da3ddfbe417" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::const_mem_fun&lt;translation,<sp/>uint128_t,<sp/>&amp;translation::by_draft_lang&gt;&gt;&gt;<sp/><ref refid="drafts_8hpp_1ab33f9403422d20c5528e4da3ddfbe417" kindref="member">translations_index</ref>;</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"></highlight></codeline>
-<codeline lineno="67"><highlight class="normal"></highlight></codeline>
-<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;translations&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structtranslation" kindref="compound">translation</ref>,</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bydraft&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;translation,<sp/>uint64_t,<sp/>&amp;translation::by_draft&gt;&gt;,</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;bydraftlang&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::const_mem_fun&lt;translation,<sp/>uint128_t,<sp/>&amp;translation::by_draft_lang&gt;&gt;&gt;</highlight></codeline>
+<codeline lineno="64" refid="drafts_8hpp_1ab33f9403422d20c5528e4da3ddfbe417" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="drafts_8hpp_1ab33f9403422d20c5528e4da3ddfbe417" kindref="member">translations_index</ref>;</highlight></codeline>
     </programlisting>
     <location file="common/drafts.hpp"/>
   </compounddef>

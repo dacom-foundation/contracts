@@ -44,7 +44,7 @@ var NAVTREEINDEX =
 [
 "accounts_8hpp.html",
 "group__public__actions.html#ga2551c736852a98d33f2fcc9f569fe836",
-"structonewithdraw.html#a518fe0603ce9dde951e6970f93953be2"
+"structonewithdraw.html#a3d3a4a9a789ea7b8300775dc3cfffe95"
 ];
 
 var SYNCONMSG = 'нажмите на выключить для синхронизации панелей';

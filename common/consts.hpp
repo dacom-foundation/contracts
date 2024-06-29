@@ -69,7 +69,7 @@ static constexpr eosio::name _efund_withdraw_action = "subexp"_n;
 #define ONE_PERCENT 10000
 
 // Определение флага IS_TESTNET
-#define IS_TESTNET true
+#define IS_TESTNET false
 
 #if IS_TESTNET
     // Дефайны для тестовой сети
@@ -123,19 +123,19 @@ static constexpr eosio::name _efund_withdraw_action = "subexp"_n;
       "eosio.saving"_n,
       "eosio.power"_n,
       "fund"_n,
-      "voskhod"_n,
+      _provider
       // Добавьте другие аккаунты в список по мере необходимости
     };    
 
-    static constexpr eosio::symbol _root_symbol = eosio::symbol(eosio::symbol_code("AXON"), 4); /*!< системный токен */
-    static constexpr eosio::symbol _root_govern_symbol = eosio::symbol(eosio::symbol_code("RUB"), 4); 
-    static const eosio::asset _provider_initial = eosio::asset(10000, _root_govern_symbol);
-    static const eosio::asset _provider_minimum = eosio::asset(10000, _root_govern_symbol);
+    static constexpr eosio::symbol _root_symbol = eosio::symbol(eosio::symbol_code("TAXON"), 4); /*!< системный токен */
+    static constexpr eosio::symbol _root_govern_symbol = eosio::symbol(eosio::symbol_code("TRUB"), 4); 
+    static const eosio::asset _provider_initial = eosio::asset(1000000, _root_govern_symbol);
+    static const eosio::asset _provider_minimum = eosio::asset(1000000, _root_govern_symbol);
 
     static constexpr eosio::name _root_contract = "eosio.token"_n; /*!< системный контракт */
     static constexpr eosio::symbol RAM_symbol{"RAM", 0}; /*!< токен рынка оперативной памяти */
     static constexpr eosio::symbol _ramcore_symbol = eosio::symbol(eosio::symbol_code("RAMCORE"),4); /*!< идентификационный токен рынка оперативной памяти */
-    static constexpr uint64_t _ram_price_per_byte = 1; /*!< стоимость 1 байта в сатоши */
+    static constexpr uint64_t _ram_price_per_byte = 1; /*!< стоимость 1 байта в эпсилон */
     static constexpr uint64_t _ram_bytes_for_new_account = 16 * 1024; /*!< оперативная память нового аккаунта */
     
     static constexpr uint64_t _ram_bytes = 16384; /*!< оперативная память нового аккаунта */
@@ -206,8 +206,8 @@ static constexpr eosio::name _efund_withdraw_action = "subexp"_n;
         "eosio.bpay"_n,
         "eosio.saving"_n,
         "eosio.power"_n,
-        "voskhod"_n,
         "fund"_n,
+        _provider
         // Добавьте другие аккаунты в список по мере необходимости
       };    
 
@@ -220,6 +220,9 @@ static constexpr eosio::name _efund_withdraw_action = "subexp"_n;
     static constexpr eosio::name _root_contract = "eosio.token"_n; /*!< системный контракт */
     static constexpr eosio::symbol RAM_symbol{"RAM", 0}; /*!< токен рынка оперативной памяти */
     static constexpr eosio::symbol _ramcore_symbol = eosio::symbol(eosio::symbol_code("RAMCORE"),4); /*!< идентификационный токен рынка оперативной памяти */
+    static constexpr uint64_t _ram_price_per_byte = 1; /*!< стоимость 1 байта в эпсилон */
+    static constexpr uint64_t _ram_bytes_for_new_account = 16 * 1024; /*!< оперативная память нового аккаунта */
+    
     static constexpr uint64_t _ram_bytes = 16384; /*!< оперативная память нового аккаунта */
     static constexpr uint64_t _stake_cpu_amount = 10000; /*!< оперативная память нового аккаунта */
     static constexpr uint64_t _stake_net_amount = 10000; /*!< оперативная память нового аккаунта */

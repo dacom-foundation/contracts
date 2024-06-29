@@ -48,8 +48,7 @@ struct [[eosio::table, eosio::contract(REGISTRATOR)]] account {
   std::vector<verification> verifications; ///< Информация о верификации пользователя.
   
   eosio::time_point_sec registered_at; ///< Время регистрации аккаунта.
-  eosio::time_point_sec signature_expires_at; ///< Время истечения срока действия подписи аккаунта.
-
+  
   /**
    * @brief Возвращает первичный ключ учетной записи аккаунта.
    * @return uint64_t - первичный ключ, равный значению имени аккаунта.

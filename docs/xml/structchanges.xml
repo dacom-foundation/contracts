@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="189" column="14" bodyfile="soviet/soviet.hpp" bodystart="189" bodyend="-1"/>
+        <location file="soviet/soviet.hpp" line="188" column="14" bodyfile="soviet/soviet.hpp" bodystart="188" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structchanges_1a3c3ab08bf6376ebb8b88d5aa808d0bd5" prot="public" static="no" mutable="no">
         <type>uint64_t</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="190" column="14" bodyfile="soviet/soviet.hpp" bodystart="190" bodyend="-1"/>
+        <location file="soviet/soviet.hpp" line="189" column="14" bodyfile="soviet/soviet.hpp" bodystart="189" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structchanges_1a354d3fdf5288abccfe91a9197d34744c" prot="public" static="no" mutable="no">
         <type>uint64_t</type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="191" column="14" bodyfile="soviet/soviet.hpp" bodystart="191" bodyend="-1"/>
+        <location file="soviet/soviet.hpp" line="190" column="14" bodyfile="soviet/soviet.hpp" bodystart="190" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structchanges_1a1f53ddc615f0b3ec60d9e332d94286fe" prot="public" static="no" mutable="no">
         <type>uint64_t</type>
@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="192" column="14" bodyfile="soviet/soviet.hpp" bodystart="192" bodyend="-1"/>
+        <location file="soviet/soviet.hpp" line="191" column="14" bodyfile="soviet/soviet.hpp" bodystart="191" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -74,7 +74,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="195" column="14" bodyfile="soviet/soviet.hpp" bodystart="195" bodyend="197"/>
+        <location file="soviet/soviet.hpp" line="194" column="14" bodyfile="soviet/soviet.hpp" bodystart="194" bodyend="196"/>
       </memberdef>
       <memberdef kind="function" id="structchanges_1ae81e67349741bfa93d1367311b3b99c4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>uint64_t</type>
@@ -88,14 +88,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="199" column="14" bodyfile="soviet/soviet.hpp" bodystart="199" bodyend="201"/>
+        <location file="soviet/soviet.hpp" line="198" column="14" bodyfile="soviet/soviet.hpp" bodystart="198" bodyend="200"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="soviet/soviet.hpp" line="188" column="3" bodyfile="soviet/soviet.hpp" bodystart="188" bodyend="202"/>
+    <location file="soviet/soviet.hpp" line="187" column="3" bodyfile="soviet/soviet.hpp" bodystart="187" bodyend="201"/>
     <listofallmembers>
       <member refid="structchanges_1ae81e67349741bfa93d1367311b3b99c4" prot="public" virt="non-virtual"><scope>changes</scope><name>byexchange</name></member>
       <member refid="structchanges_1a354d3fdf5288abccfe91a9197d34744c" prot="public" virt="non-virtual"><scope>changes</scope><name>contribution_product_decision_id</name></member>
