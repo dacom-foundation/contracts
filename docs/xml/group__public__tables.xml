@@ -6,8 +6,7 @@
     <innerclass refid="structverification" prot="public">verification</innerclass>
     <innerclass refid="structaccount" prot="public">account</innerclass>
     <innerclass refid="structorg__data" prot="public">org_data</innerclass>
-    <innerclass refid="structplot__data" prot="public">plot_data</innerclass>
-    <innerclass refid="structorganization" prot="public">organization</innerclass>
+    <innerclass refid="structcooperative" prot="public">cooperative</innerclass>
     <innerclass refid="structonedeposit" prot="public">onedeposit</innerclass>
     <innerclass refid="structonewithdraw" prot="public">onewithdraw</innerclass>
     <innerclass refid="structbalances__base" prot="public">balances_base</innerclass>

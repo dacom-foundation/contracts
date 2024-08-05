@@ -65,9 +65,10 @@ void gateway::newwithdrid(eosio::name username, uint64_t id) {
     auto participant = participants.find(username.value);
     eosio::check(participant != participants.end(), "Вы не являетесь пайщиком указанного кооператива");
     eosio::check(participant -> is_active(), "Ваш аккаунт не активен в указанном кооперативе");
-  } else {
-    eosio::check(quantity == cooperative.registration, "Сумма минимального взноса не соответствует установленной в кооперативе");
+  } else { //registration
+    eosio::check(quantity == cooperative.registration || quantity == cooperative.org_registration.value(), "Сумма минимального взноса не соответствует установленной в кооперативе");
   }
+
   deposits.emplace(payer, [&](auto &d) {
     d.id = id;
     d.type = type;
@@ -144,19 +145,21 @@ void gateway::dpcomplete(eosio::name coopname, eosio::name admin, uint64_t depos
   
   } else {
     //TODO spread to funds
+    eosio::asset to_circulation = deposit -> quantity == cooperative.registration ? cooperative.minimum : cooperative.org_minimum.value();
+    eosio::asset to_spread = deposit -> quantity == cooperative.registration ? cooperative.initial : cooperative.org_initial.value();
 
     action(
       permission_level{ _gateway, "active"_n},
       _fund,
       "addcirculate"_n,
-      std::make_tuple(coopname, cooperative.minimum)
+      std::make_tuple(coopname, to_circulation)
     ).send();
     
     action(
       permission_level{ _gateway, "active"_n},
       _fund,
       "spreadamount"_n,
-      std::make_tuple(coopname, cooperative.initial)
+      std::make_tuple(coopname, to_spread)
     ).send();
 
     action(
@@ -250,7 +253,7 @@ void gateway::withdraw(eosio::name coopname, eosio::name username, eosio::asset 
   });
 
 
-  //TODO здесь необходимо запросить авторизацию совета и там и заблокировать баланс кошелька
+  //здесь необходимо запросить авторизацию совета и там и заблокировать баланс кошелька
   action(
     permission_level{ _gateway, "active"_n},
     _soviet,

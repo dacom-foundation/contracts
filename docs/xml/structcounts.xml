@@ -39,7 +39,7 @@
         <label>name</label>
       </node>
     </collaborationgraph>
-    <location file="soviet/soviet.hpp" line="128" column="3" bodyfile="soviet/soviet.hpp" bodystart="128" bodyend="128"/>
+    <location file="soviet/soviet.hpp" line="134" column="3" bodyfile="soviet/soviet.hpp" bodystart="134" bodyend="134"/>
     <listofallmembers>
       <member refid="structcounts__base_1a190877bf5f40a7a357007574c5ecc1d7" prot="public" virt="non-virtual"><scope>counts</scope><name>key</name></member>
       <member refid="structcounts__base_1acabcbd93c1b35dca98c77646bbfda21d" prot="public" virt="non-virtual"><scope>counts</scope><name>keyskey</name></member>

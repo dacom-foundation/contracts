@@ -6,14 +6,16 @@ var searchData=
   ['unlinkauth_3',['unlinkauth',['../classeosiobios_1_1bios.html#a754f09c20691df6b7292dad22b3a80c9',1,'eosiobios::bios::unlinkauth()'],['../classeosioboot_1_1boot.html#a870947efb13e3dbe8347896a0bc50c30',1,'eosioboot::boot::unlinkauth()'],['../classeosiosystem_1_1native.html#aa1e2097e289d4da3acc2876cc24e8897',1,'eosiosystem::native::unlinkauth()']]],
   ['unpublish_4',['unpublish',['../group__public__actions.html#gab0b3a052f2caa13fa75d7f50ff3658bb',1,'marketplace']]],
   ['unregprod_5',['unregprod',['../classeosiosystem_1_1system__contract.html#a0b8c45d3226929472bc5785742c05152',1,'eosiosystem::system_contract']]],
-  ['update_6',['update',['../group__public__actions.html#gac68fe89b4be51de18ac5b5921ca56eed',1,'registrator::update()'],['../group__public__actions.html#ga0571c4090259fcc39ca6e64a9f94063b',1,'marketplace::update()']]],
+  ['update_6',['update',['../group__public__actions.html#ga0571c4090259fcc39ca6e64a9f94063b',1,'marketplace']]],
   ['update_5felected_5fproducers_7',['update_elected_producers',['../classeosiosystem_1_1system__contract.html#a616d617680f7ed47eb3f7fc2b984650f',1,'eosiosystem::system_contract']]],
   ['update_5fram_5fdebt_5ftable_8',['update_ram_debt_table',['../classeosiosystem_1_1system__contract.html#a04a864fd31b03ca4e7ce3a9fd65476c7',1,'eosiosystem::system_contract']]],
   ['update_5fram_5fsupply_9',['update_ram_supply',['../classeosiosystem_1_1system__contract.html#ae248c8483e7ff56c697793c49bd58700',1,'eosiosystem::system_contract']]],
   ['update_5ftact_10',['update_tact',['../classeosiosystem_1_1system__contract.html#a426f4cdbba6766820a8625a6dcb6ee04',1,'eosiosystem::system_contract']]],
   ['update_5fvotes_11',['update_votes',['../classeosiosystem_1_1system__contract.html#aac11a1b221a613107fb8ca99e080a616',1,'eosiosystem::system_contract']]],
   ['update_5fvoting_5fpower_12',['update_voting_power',['../classeosiosystem_1_1system__contract.html#aa192ed8af461c5162749a1a7f3886f06',1,'eosiosystem::system_contract']]],
-  ['updateauth_13',['updateauth',['../classeosiobios_1_1bios.html#a6da029e3f9ffbcb2bfc3cc6f555a3bcd',1,'eosiobios::bios::updateauth()'],['../classeosioboot_1_1boot.html#a1f7d810103d9bbbecdb702c09ee99395',1,'eosioboot::boot::updateauth()'],['../classeosiosystem_1_1native.html#a2bbeca58b24029a5ab0fc90832dde56b',1,'eosiosystem::native::updateauth()']]],
-  ['updateboard_14',['updateboard',['../group__public__actions.html#ga633d78f7717ca0b13d800f1af3b298d3',1,'soviet']]],
-  ['updtrevision_15',['updtrevision',['../classeosiosystem_1_1system__contract.html#a0af4a55018801131ae7dc7a923bead0b',1,'eosiosystem::system_contract']]]
+  ['updateaccnt_13',['updateaccnt',['../group__public__actions.html#ga4bd57034d65697891fa59255c92435bf',1,'registrator']]],
+  ['updateauth_14',['updateauth',['../classeosiobios_1_1bios.html#a6da029e3f9ffbcb2bfc3cc6f555a3bcd',1,'eosiobios::bios::updateauth()'],['../classeosioboot_1_1boot.html#a1f7d810103d9bbbecdb702c09ee99395',1,'eosioboot::boot::updateauth()'],['../classeosiosystem_1_1native.html#a2bbeca58b24029a5ab0fc90832dde56b',1,'eosiosystem::native::updateauth()']]],
+  ['updateboard_15',['updateboard',['../group__public__actions.html#ga633d78f7717ca0b13d800f1af3b298d3',1,'soviet']]],
+  ['updatecoop_16',['updatecoop',['../group__public__actions.html#ga9b31f8344a801600abe636d4fa6a2ad8',1,'registrator']]],
+  ['updtrevision_17',['updtrevision',['../classeosiosystem_1_1system__contract.html#a0af4a55018801131ae7dc7a923bead0b',1,'eosiosystem::system_contract']]]
 ];

@@ -13,7 +13,7 @@ var searchData=
   ['referer_10',['referer',['../structaccount.html#ad816d8356a21e2b77c6d4f35b1b4ae3a',1,'account']]],
   ['refund_5fdelay_5fsec_11',['refund_delay_sec',['../namespaceeosiosystem.html#ac8dd7319fe241152601b25ac397495f9',1,'eosiosystem']]],
   ['registered_5fat_12',['registered_at',['../structaccount.html#a32c91ba498b674bee1658b1c5eaf0dc9',1,'account']]],
-  ['registration_13',['registration',['../structorganization.html#a0eccb57daedef69a0267bafc69c3ce84',1,'organization']]],
+  ['registration_13',['registration',['../structcooperative.html#abfbc7ba6cae286087631a3f221a7b676',1,'cooperative']]],
   ['registrator_14',['registrator',['../structaccount.html#a753aadd7880d6e4a20a4de3da9b415bf',1,'account']]],
   ['registry_5fid_15',['registry_id',['../structonedraft.html#a15552c3fd1f5207e7cd3ab0b4a789fce',1,'onedraft']]],
   ['remain_5funits_16',['remain_units',['../structrequest.html#a5c9e4d2d33ce36259bbf439ea7ad1cf1',1,'request']]],

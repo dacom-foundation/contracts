@@ -65,11 +65,13 @@ void soviet::createboard(eosio::name coopname, eosio::name chairman, eosio::name
   eosio::check(has_auth(chairman), "Недостаточно прав доступа");
   eosio::name payer = chairman;
 
-  organizations_index orgs(_registrator, _registrator.value);
-  auto org = orgs.find(coopname.value);
-  eosio::check(org != orgs.end(), "Организация не найдена");
+  cooperatives_index coops(_registrator, _registrator.value);
+  auto org = coops.find(coopname.value);
+  eosio::check(org != coops.end(), "Организация не найдена");
   eosio::check(org -> is_coop(), "Организация - не кооператив");
-  
+    
+  participants_index participants(_soviet, coopname.value);
+
   if (type == "soviet"_n) {
     bool is_exist = check_for_exist_board_by_type(coopname, "soviet"_n);
     eosio::check(is_exist == false, "Совет кооператива уже создан");
@@ -79,6 +81,10 @@ void soviet::createboard(eosio::name coopname, eosio::name chairman, eosio::name
 
     // Проверка на наличие председателя в списке членов совета
     for (const auto& m : members) {
+        auto participant = participants.find(m.username.value);
+        eosio::check(participant != participants.end(), "Один из аккаунтов не найден в реестре пайщиков");
+        eosio::check(participant -> type.value() == "individual"_n, "Только физическое лицо может быть членом Совета");
+
         eosio::check(usernames.insert(m.username).second, "Обнаружено повторение username");
 
         if (m.position == "chairman"_n) {
@@ -111,6 +117,15 @@ void soviet::createboard(eosio::name coopname, eosio::name chairman, eosio::name
       w.available = asset(0, cooperative.initial.symbol);
       w.blocked = asset(0, cooperative.initial.symbol);
       w.minimum = cooperative.minimum; 
+    });
+
+    addresses_index addresses(_soviet, _provider.value);
+    address_data data;
+
+    addresses.emplace(payer, [&](auto &a) {
+      a.id = 0;
+      a.coopname = coopname;
+      a.data = data;
     });
 
     action(
@@ -164,12 +179,10 @@ void soviet::createboard(eosio::name coopname, eosio::name chairman, eosio::name
 */
 void soviet::updateboard(eosio::name coopname, eosio::name chairman, uint64_t board_id, std::vector<board_member> members, std::string name, std::string description){
 
-
-
   require_auth(chairman);
-  organizations_index orgs(_registrator, _registrator.value);
-  auto org = orgs.find(coopname.value);
-  eosio::check(org != orgs.end(), "Организация не найдена");
+  cooperatives_index coops(_registrator, _registrator.value);
+  auto org = coops.find(coopname.value);
+  eosio::check(org != coops.end(), "Организация не найдена");
   eosio::check(org -> is_coop(), "Организация - не кооператив");
 
   boards_index boards(_soviet, coopname.value);
@@ -178,18 +191,24 @@ void soviet::updateboard(eosio::name coopname, eosio::name chairman, uint64_t bo
 
   eosio::check(board -> is_valid_chairman(chairman), "Только председатель кооператива может обновить доску");
 
+  participants_index participants(_soviet, coopname.value);
+
   if (board -> type == "soviet"_n) {
     bool has_chairman = false;
     std::set<eosio::name> usernames;
 
-
     for (const auto& m : members) {
-        eosio::check(usernames.insert(m.username).second, "Обнаружено повторение username");
+      auto participant = participants.find(m.username.value);
+      eosio::check(participant != participants.end(), "Один из аккаунтов не найден в реестре пайщиков");
+      print(participant -> username);
+      eosio::check(participant -> type.value() == "individual"_n, "Только физическое лицо может быть членом Совета");
 
-        if (m.position == "chairman"_n) {
-            eosio::check(m.username == chairman, "Только председатель может создать совет кооператива");
-            has_chairman = true;
-        };
+      eosio::check(usernames.insert(m.username).second, "Обнаружено повторение username");
+
+      if (m.position == "chairman"_n) {
+          eosio::check(m.username == chairman, "Только председатель может создать совет кооператива");
+          has_chairman = true;
+      };
     };
     eosio::check(has_chairman, "Председатель кооператива должен быть указан в членах совета");
   };

@@ -3,6 +3,7 @@ var dir_27832d3dfb1b61b60980c0b3d05084e7 =
     [ "addresses.cpp", "addresses_8cpp.html", null ],
     [ "admin.cpp", "admin_8cpp.html", null ],
     [ "automator.cpp", "automator_8cpp.html", null ],
+    [ "branches.cpp", "branches_8cpp.html", null ],
     [ "chairman.cpp", "chairman_8cpp.html", null ],
     [ "contributions.cpp", "contributions_8cpp.html", null ],
     [ "fund.cpp", "fund_8cpp.html", null ],

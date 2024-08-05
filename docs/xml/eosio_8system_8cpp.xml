@@ -555,8 +555,8 @@
 <codeline lineno="388"><highlight class="normal"><sp/><sp/>require_auth(<ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>);</highlight></codeline>
 <codeline lineno="389"><highlight class="normal"></highlight></codeline>
 <codeline lineno="390"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO<sp/>принять<sp/>сюда<sp/>имя<sp/>аккаунта<sp/>плательщика<sp/>???</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="391"><highlight class="normal"></highlight></codeline>
-<codeline lineno="392"><highlight class="normal"></highlight></codeline>
+<codeline lineno="391"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>через<sp/>параметры<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="392"><highlight class="normal"><sp/><sp/></highlight></codeline>
 <codeline lineno="393"><highlight class="normal"><sp/><sp/>action(</highlight></codeline>
 <codeline lineno="394"><highlight class="normal"><sp/><sp/><sp/><sp/>permission_level{<sp/>get_self(),<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
 <codeline lineno="395"><highlight class="normal"><sp/><sp/><sp/><sp/>get_self(),</highlight></codeline>

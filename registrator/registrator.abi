@@ -73,30 +73,20 @@
             "base": "",
             "fields": [
                 {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "changer",
+                    "type": "name"
+                },
+                {
                     "name": "username",
                     "type": "name"
                 },
                 {
                     "name": "public_key",
                     "type": "public_key"
-                }
-            ]
-        },
-        {
-            "name": "check",
-            "base": "",
-            "fields": [
-                {
-                    "name": "hash",
-                    "type": "checksum256"
-                },
-                {
-                    "name": "public_key",
-                    "type": "public_key"
-                },
-                {
-                    "name": "signature",
-                    "type": "signature"
                 }
             ]
         },
@@ -111,6 +101,68 @@
                 {
                     "name": "username",
                     "type": "name"
+                }
+            ]
+        },
+        {
+            "name": "cooperative",
+            "base": "",
+            "fields": [
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "parent_username",
+                    "type": "name"
+                },
+                {
+                    "name": "announce",
+                    "type": "string"
+                },
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "is_cooperative",
+                    "type": "bool"
+                },
+                {
+                    "name": "is_branched",
+                    "type": "bool"
+                },
+                {
+                    "name": "is_enrolled",
+                    "type": "bool"
+                },
+                {
+                    "name": "coop_type",
+                    "type": "name"
+                },
+                {
+                    "name": "registration",
+                    "type": "asset"
+                },
+                {
+                    "name": "initial",
+                    "type": "asset"
+                },
+                {
+                    "name": "minimum",
+                    "type": "asset"
+                },
+                {
+                    "name": "org_registration",
+                    "type": "asset$"
+                },
+                {
+                    "name": "org_initial",
+                    "type": "asset$"
+                },
+                {
+                    "name": "org_minimum",
+                    "type": "asset$"
                 }
             ]
         },
@@ -137,6 +189,11 @@
             ]
         },
         {
+            "name": "fix",
+            "base": "",
+            "fields": []
+        },
+        {
             "name": "init",
             "base": "",
             "fields": []
@@ -160,6 +217,16 @@
                 {
                     "name": "document",
                     "type": "document"
+                }
+            ]
+        },
+        {
+            "name": "login",
+            "base": "",
+            "fields": [
+                {
+                    "name": "email",
+                    "type": "string"
                 }
             ]
         },
@@ -220,97 +287,19 @@
                 {
                     "name": "minimum",
                     "type": "asset"
-                }
-            ]
-        },
-        {
-            "name": "organization",
-            "base": "",
-            "fields": [
-                {
-                    "name": "username",
-                    "type": "name"
                 },
                 {
-                    "name": "parent_username",
-                    "type": "name"
-                },
-                {
-                    "name": "announce",
-                    "type": "string"
-                },
-                {
-                    "name": "description",
-                    "type": "string"
-                },
-                {
-                    "name": "is_cooperative",
-                    "type": "bool"
-                },
-                {
-                    "name": "is_branched",
-                    "type": "bool"
-                },
-                {
-                    "name": "is_enrolled",
-                    "type": "bool"
-                },
-                {
-                    "name": "coop_type",
-                    "type": "name"
-                },
-                {
-                    "name": "registration",
+                    "name": "org_initial",
                     "type": "asset"
                 },
                 {
-                    "name": "initial",
-                    "type": "asset"
-                },
-                {
-                    "name": "minimum",
+                    "name": "org_minimum",
                     "type": "asset"
                 }
             ]
         },
         {
-            "name": "plot_data",
-            "base": "",
-            "fields": [
-                {
-                    "name": "announce",
-                    "type": "string"
-                },
-                {
-                    "name": "description",
-                    "type": "string"
-                }
-            ]
-        },
-        {
-            "name": "regdepartmnt",
-            "base": "",
-            "fields": [
-                {
-                    "name": "registrator",
-                    "type": "name"
-                },
-                {
-                    "name": "coopname",
-                    "type": "name"
-                },
-                {
-                    "name": "username",
-                    "type": "name"
-                },
-                {
-                    "name": "params",
-                    "type": "plot_data"
-                }
-            ]
-        },
-        {
-            "name": "regorg",
+            "name": "regcoop",
             "base": "",
             "fields": [
                 {
@@ -346,11 +335,15 @@
                 {
                     "name": "username",
                     "type": "name"
+                },
+                {
+                    "name": "type",
+                    "type": "name"
                 }
             ]
         },
         {
-            "name": "update",
+            "name": "updateaccnt",
             "base": "",
             "fields": [
                 {
@@ -358,7 +351,49 @@
                     "type": "name"
                 },
                 {
+                    "name": "account_to_change",
+                    "type": "name"
+                },
+                {
                     "name": "meta",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "updatecoop",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "initial",
+                    "type": "asset"
+                },
+                {
+                    "name": "minimum",
+                    "type": "asset"
+                },
+                {
+                    "name": "org_initial",
+                    "type": "asset"
+                },
+                {
+                    "name": "org_minimum",
+                    "type": "asset"
+                },
+                {
+                    "name": "announce",
+                    "type": "string"
+                },
+                {
+                    "name": "description",
                     "type": "string"
                 }
             ]
@@ -415,13 +450,13 @@
             "ricardian_contract": ""
         },
         {
-            "name": "check",
-            "type": "check",
+            "name": "confirmreg",
+            "type": "confirmreg",
             "ricardian_contract": ""
         },
         {
-            "name": "confirmreg",
-            "type": "confirmreg",
+            "name": "fix",
+            "type": "fix",
             "ricardian_contract": ""
         },
         {
@@ -435,18 +470,18 @@
             "ricardian_contract": "<!DOCTYPE html>\n<html lang=\"en\"> \n  <head>\n    <meta charset=\"utf-8\">\n    <title>Заявление //заголовок</title>\n    <meta name=\"description\" content=\"Контракт предоставляет форму заявления на вступление в цифровой кооператив //краткое описание\">\n    <meta name=\"version\" content=\"0.0.1\">\n  </head>\n  <body>\n\n<h1>Заявление</h1>\n<p>о приёме {% if member.is_organization %}юридического{% else %}физического{% endif %} лица в пайщики {{coop.shortname}}.</p>\n<h2>Заявитель:</h2>\n<ul>\n  {% if member %}\n    <li>{{ member.shortname }} {% trans ‘represented by’ %} {{ user.first_name }} {{ user.last_name }}, {{ user.position }}</li>\n  {% else %}\n    <li>{{ user.first_name }} {{ user.last_name }}</li>\n  {% endif %}\n</ul>\n\n<p>Прошу принять меня в пайщики потребительского кооператива {{ coop.shortname }}, далее по тексту заявления \"Общество\". Подтверждаю, что с Уставом и иными публичными нормативными документами Общества ознакомлен(а).</p>\n\n<p>Став пайщиком Общества, обязуюсь соблюдать требования Устава и иных публичных нормативных документов Общества и выполнять обязанности члена Общества, а также уполномачиваю Председателя кооперативного участка \"Центр\" принимать участие с правом голоса в Общих собраниях уполномоченных Общества, на период моего членства в Обществе при собственноручно мною указанном кооперативном участке. </p>\n\n<p>Обязуюсь своевременно внести в Общество {% if coop.initial %} вступительный {{ coop.initial }} {{ coop.currency }}{% endif %} {% if coop.minimum %} и минимальный паевой {{ coop.minimum }} {{ coop.currency }}{% endif %} взносы в порядке, предусмотренном Уставом Общества.</p>\n\n<p>Выражаю своё согласие на генерацию моей внутренней ЭЦП (Электронно-Цифровой Подписи) для подписания документооборота в моём Личном Кабинете, в рамках внутренней деятельности Общества, в соответствии с Положением о внутренней ЭЦП Общества.</p>\n\n<p>Выражаю своё согласие с тем, что информация, отправляемая Обществом в sms-сообщениях на указанный мной номер телефона или в сообщениях на указанный мной адрес электронной почты или в сообщениях телеграм-бота, привязанного к моему телефону, приравняется к уведомлению меня Обществом в письменной форме.</p>\n\n  </body>\n</html>"
         },
         {
+            "name": "login",
+            "type": "login",
+            "ricardian_contract": ""
+        },
+        {
             "name": "newaccount",
             "type": "newaccount",
             "ricardian_contract": ""
         },
         {
-            "name": "regdepartmnt",
-            "type": "regdepartmnt",
-            "ricardian_contract": ""
-        },
-        {
-            "name": "regorg",
-            "type": "regorg",
+            "name": "regcoop",
+            "type": "regcoop",
             "ricardian_contract": ""
         },
         {
@@ -455,8 +490,13 @@
             "ricardian_contract": ""
         },
         {
-            "name": "update",
-            "type": "update",
+            "name": "updateaccnt",
+            "type": "updateaccnt",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "updatecoop",
+            "type": "updatecoop",
             "ricardian_contract": ""
         },
         {
@@ -482,7 +522,7 @@
         },
         {
             "name": "orgs",
-            "type": "organization",
+            "type": "cooperative",
             "index_type": "i64",
             "key_names": [],
             "key_types": []

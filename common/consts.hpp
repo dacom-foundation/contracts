@@ -69,7 +69,7 @@ static constexpr eosio::name _efund_withdraw_action = "subexp"_n;
 #define ONE_PERCENT 10000
 
 // Определение флага IS_TESTNET
-#define IS_TESTNET false
+#define IS_TESTNET true
 
 #if IS_TESTNET
     // Дефайны для тестовой сети
@@ -131,6 +131,9 @@ static constexpr eosio::name _efund_withdraw_action = "subexp"_n;
     static constexpr eosio::symbol _root_govern_symbol = eosio::symbol(eosio::symbol_code("TRUB"), 4); 
     static const eosio::asset _provider_initial = eosio::asset(1000000, _root_govern_symbol);
     static const eosio::asset _provider_minimum = eosio::asset(1000000, _root_govern_symbol);
+
+    static const eosio::asset _provider_org_initial = eosio::asset(10000000, _root_govern_symbol);
+    static const eosio::asset _provider_org_minimum = eosio::asset(10000000, _root_govern_symbol);
 
     static constexpr eosio::name _root_contract = "eosio.token"_n; /*!< системный контракт */
     static constexpr eosio::symbol RAM_symbol{"RAM", 0}; /*!< токен рынка оперативной памяти */
@@ -214,8 +217,11 @@ static constexpr eosio::name _efund_withdraw_action = "subexp"_n;
 
     static constexpr eosio::symbol _root_symbol = eosio::symbol(eosio::symbol_code("AXON"), 4); /*!< системный токен */
     static constexpr eosio::symbol _root_govern_symbol = eosio::symbol(eosio::symbol_code("RUB"), 4); 
-    static const eosio::asset _provider_initial = eosio::asset(10000, _root_govern_symbol);
-    static const eosio::asset _provider_minimum = eosio::asset(10000, _root_govern_symbol);
+    static const eosio::asset _provider_initial = eosio::asset(1000000, _root_govern_symbol);
+    static const eosio::asset _provider_minimum = eosio::asset(1000000, _root_govern_symbol);
+    
+    static const eosio::asset _provider_org_initial = eosio::asset(10000000, _root_govern_symbol);
+    static const eosio::asset _provider_org_minimum = eosio::asset(10000000, _root_govern_symbol);
 
     static constexpr eosio::name _root_contract = "eosio.token"_n; /*!< системный контракт */
     static constexpr eosio::symbol RAM_symbol{"RAM", 0}; /*!< токен рынка оперативной памяти */

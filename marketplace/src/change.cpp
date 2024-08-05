@@ -65,9 +65,9 @@
  * Общая функция для создания как родительских, так и дочерних заявок.
  */
 void marketplace::create (eosio::name type, const exchange_params& params) {
-  organizations_index orgs(_registrator, _registrator.value);
-  auto coop = orgs.find(params.coopname.value);
-  eosio::check(coop != orgs.end() && coop -> is_coop(), "Кооператив не найден");
+  cooperatives_index coops(_registrator, _registrator.value);
+  auto coop = coops.find(params.coopname.value);
+  eosio::check(coop != coops.end() && coop -> is_coop(), "Кооператив не найден");
   eosio::check(params.unit_cost.symbol == coop -> initial.symbol, "Неверный символ токен");
   eosio::check(params.pieces > 0, "Количество единиц в заявке должно быть больше нуля");
   eosio::check(params.unit_cost.amount >= 0, "Цена не может быть отрицательной");
@@ -96,9 +96,9 @@ void marketplace::create_parent(eosio::name type, const exchange_params& params)
   
   eosio::check(params.parent_id == 0, "Родительская заявка создаётся без указания родителя");
 
-  organizations_index orgs(_registrator, _registrator.value);
-  auto coop = orgs.find(params.coopname.value);
-  eosio::check(coop != orgs.end(), "Кооператив не найден");
+  cooperatives_index coops(_registrator, _registrator.value);
+  auto coop = coops.find(params.coopname.value);
+  eosio::check(coop != coops.end(), "Кооператив не найден");
   eosio::check(coop -> is_coop() == true, "Организация - не кооператив");
     
   participants_index participants(_soviet, params.coopname.value);
@@ -182,9 +182,9 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
   eosio::check(parent_change != exchange.end(), "Заявка не обнаружена");
   eosio::check(parent_change -> status == "published"_n, "Заявка не опубликована или не прошла модерацию");
 
-  organizations_index orgs(_registrator, _registrator.value);
-  auto coop = orgs.find(params.coopname.value);
-  eosio::check(coop != orgs.end(), "Кооператив не найден");
+  cooperatives_index coops(_registrator, _registrator.value);
+  auto coop = coops.find(params.coopname.value);
+  eosio::check(coop != coops.end(), "Кооператив не найден");
   eosio::check(coop -> is_coop() == true, "Организация - не кооператив");
   
   eosio::check(parent_change -> unit_cost.amount == params.unit_cost.amount, "Торги запрещены");

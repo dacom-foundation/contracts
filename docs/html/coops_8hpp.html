@@ -119,6 +119,8 @@ $(document).ready(function(){initNavTree('coops_8hpp.html',''); initResizable();
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structaddress.html">address</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Структура, представляющая адреса кооператива.  <a href="structaddress.html#details">Подробнее...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbranch.html">branch</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Определения типов</h2></td></tr>
@@ -131,8 +133,10 @@ $(document).ready(function(){initNavTree('coops_8hpp.html',''); initResizable();
 <tr class="separator:adf0a04dfbe948cdf1bd01cf5b344af61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4461d7de0a02a53205ba22d591e0cb99"><td class="memItemLeft" align="right" valign="top">typedef eosio::multi_index&lt; &quot;decisions&quot;_n, <a class="el" href="structdecision.html">decision</a>, eosio::indexed_by&lt;&quot;bysecondary&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structdecision.html">decision</a>, uint64_t, &amp;<a class="el" href="structdecision.html#a126af74e59573ce0c121023853d36696">decision::by_secondary</a> &gt; &gt;, eosio::indexed_by&lt;&quot;bytype&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structdecision.html">decision</a>, uint64_t, &amp;<a class="el" href="structdecision.html#a76e524deedb113f8ad6d7cc4b36b18ef">decision::bytype</a> &gt; &gt;, eosio::indexed_by&lt;&quot;byapproved&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structdecision.html">decision</a>, uint64_t, &amp;<a class="el" href="structdecision.html#abcfb5f848cc506e27149a600a725adf8">decision::byapproved</a> &gt; &gt;, eosio::indexed_by&lt;&quot;byvalidated&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structdecision.html">decision</a>, uint64_t, &amp;<a class="el" href="structdecision.html#aba735935551cd0d7eae6c5844d43b600">decision::byvalidated</a> &gt; &gt;, eosio::indexed_by&lt;&quot;byauthorized&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structdecision.html">decision</a>, uint64_t, &amp;<a class="el" href="structdecision.html#a25b3bc216e6e25da0fc58b1554edfbac">decision::byauthorized</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="coops_8hpp.html#a4461d7de0a02a53205ba22d591e0cb99">decisions_index</a></td></tr>
 <tr class="separator:a4461d7de0a02a53205ba22d591e0cb99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd66716dcec01d9355dceb10d01e882f"><td class="memItemLeft" align="right" valign="top">typedef eosio::multi_index&lt; &quot;addresses&quot;_n, <a class="el" href="structaddress.html">address</a>, eosio::indexed_by&lt;&quot;bydepartment&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structaddress.html">address</a>, uint64_t, &amp;<a class="el" href="structaddress.html#a35dc7d20f31c94caf2c5c772ab2e349f">address::bydepartment</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="coops_8hpp.html#abd66716dcec01d9355dceb10d01e882f">addresses_index</a></td></tr>
-<tr class="separator:abd66716dcec01d9355dceb10d01e882f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c81b62c4039360ceb1e61d409b58bff"><td class="memItemLeft" align="right" valign="top">typedef eosio::multi_index&lt; &quot;addresses&quot;_n, <a class="el" href="structaddress.html">address</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="coops_8hpp.html#a6c81b62c4039360ceb1e61d409b58bff">addresses_index</a></td></tr>
+<tr class="separator:a6c81b62c4039360ceb1e61d409b58bff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af57fc7cab63a37ffe009a32836dd78af"><td class="memItemLeft" align="right" valign="top">typedef eosio::multi_index&lt;&quot;branches&quot;_n, <a class="el" href="structbranch.html">branch</a>, eosio::indexed_by&lt;&quot;byauthorizer&quot;_n, eosio::const_mem_fun&lt; <a class="el" href="structbranch.html">branch</a>, uint64_t, &amp;<a class="el" href="structbranch.html#ae15b93c39ea24841be709e4faf73106a">branch::by_authorizer</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="coops_8hpp.html#af57fc7cab63a37ffe009a32836dd78af">branch_index</a></td></tr>
+<tr class="separator:af57fc7cab63a37ffe009a32836dd78af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Функции</h2></td></tr>
@@ -144,16 +148,18 @@ $(document).ready(function(){initNavTree('coops_8hpp.html',''); initResizable();
 <tr class="separator:a7071d280b47702321a02ac12afe8f74b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa23eebab5f5b5b8ba3881ca62ce600d0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="coops_8hpp.html#aa23eebab5f5b5b8ba3881ca62ce600d0">is_participant_exist</a> (eosio::name coopname, eosio::name username)</td></tr>
 <tr class="separator:aa23eebab5f5b5b8ba3881ca62ce600d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ffb5444e9a916e7f96c624b030a3e3b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbranch.html">branch</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="coops_8hpp.html#a4ffb5444e9a916e7f96c624b030a3e3b">get_branch_or_fail</a> (eosio::name coopname, eosio::name braname)</td></tr>
+<tr class="separator:a4ffb5444e9a916e7f96c624b030a3e3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Типы</h2>
-<a id="abd66716dcec01d9355dceb10d01e882f" name="abd66716dcec01d9355dceb10d01e882f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abd66716dcec01d9355dceb10d01e882f">&#9670;&nbsp;</a></span>addresses_index</h2>
+<a id="a6c81b62c4039360ceb1e61d409b58bff" name="a6c81b62c4039360ceb1e61d409b58bff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c81b62c4039360ceb1e61d409b58bff">&#9670;&nbsp;</a></span>addresses_index</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef eosio::multi_index&lt; &quot;addresses&quot;_n, <a class="el" href="structaddress.html">address</a>, eosio::indexed_by&lt;&quot;bydepartment&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structaddress.html">address</a>, uint64_t, &amp;<a class="el" href="structaddress.html#a35dc7d20f31c94caf2c5c772ab2e349f">address::bydepartment</a>&gt; &gt;&gt; <a class="el" href="coops_8hpp.html#abd66716dcec01d9355dceb10d01e882f">addresses_index</a></td>
+          <td class="memname">typedef eosio::multi_index&lt; &quot;addresses&quot;_n, <a class="el" href="structaddress.html">address</a>&gt; <a class="el" href="coops_8hpp.html#a6c81b62c4039360ceb1e61d409b58bff">addresses_index</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -168,6 +174,20 @@ $(document).ready(function(){initNavTree('coops_8hpp.html',''); initResizable();
       <table class="memname">
         <tr>
           <td class="memname">typedef eosio::multi_index&lt; &quot;boards&quot;_n, <a class="el" href="structboards.html">boards</a>,eosio::indexed_by&lt;&quot;bytype&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structboards.html">boards</a>, uint64_t, &amp;<a class="el" href="structboards.html#a62601ce5131f1d2be8f17c3df5866f38">boards::by_type</a>&gt; &gt; &gt; <a class="el" href="coops_8hpp.html#a78302821fd10bd5b552f1c9cf16d57f7">boards_index</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af57fc7cab63a37ffe009a32836dd78af" name="af57fc7cab63a37ffe009a32836dd78af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af57fc7cab63a37ffe009a32836dd78af">&#9670;&nbsp;</a></span>branch_index</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef eosio::multi_index&lt;&quot;branches&quot;_n, <a class="el" href="structbranch.html">branch</a>, eosio::indexed_by&lt;&quot;byauthorizer&quot;_n, eosio::const_mem_fun&lt;<a class="el" href="structbranch.html">branch</a>, uint64_t, &amp;<a class="el" href="structbranch.html#ae15b93c39ea24841be709e4faf73106a">branch::by_authorizer</a>&gt; &gt;&gt; <a class="el" href="coops_8hpp.html#af57fc7cab63a37ffe009a32836dd78af">branch_index</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -292,6 +312,34 @@ $(document).ready(function(){initNavTree('coops_8hpp.html',''); initResizable();
           <td></td>
           <td class="paramtype">eosio::name&#160;</td>
           <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4ffb5444e9a916e7f96c624b030a3e3b" name="a4ffb5444e9a916e7f96c624b030a3e3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ffb5444e9a916e7f96c624b030a3e3b">&#9670;&nbsp;</a></span>get_branch_or_fail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structbranch.html">branch</a> get_branch_or_fail </td>
+          <td>(</td>
+          <td class="paramtype">eosio::name&#160;</td>
+          <td class="paramname"><em>coopname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">eosio::name&#160;</td>
+          <td class="paramname"><em>braname</em>&#160;</td>
         </tr>
         <tr>
           <td></td>

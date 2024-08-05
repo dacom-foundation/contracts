@@ -1,4 +1,5 @@
 #!/bin/bash
 
 local="-u http://localhost:8888"
-prod="-u https://api.copenomics.world"
+test="-u https://testnet.coopenomics.world/api"
+prod="-u https://voskhod.coopenomics.world/api"

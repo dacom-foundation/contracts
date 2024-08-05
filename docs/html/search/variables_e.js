@@ -2,7 +2,7 @@ var searchData=
 [
   ['packed_5ftransaction_0',['packed_transaction',['../structeosio_1_1multisig_1_1proposal.html#af9a7406b371dbf10a78ce56f9f921f84',1,'eosio::multisig::proposal']]],
   ['parent_5fid_1',['parent_id',['../structexchange__params.html#af3e8005efedfb42d53c5d141f9d35885',1,'exchange_params::parent_id()'],['../structrequest.html#a6627b37d1388033724a80ee118bb9d48',1,'request::parent_id()']]],
-  ['parent_5fusername_2',['parent_username',['../structorganization.html#a6eab8b6ffb9641c78b01b24f2b6768e4',1,'organization::parent_username()'],['../structrequest.html#a32b1e4984649967696305ad49675b987',1,'request::parent_username()']]],
+  ['parent_5fusername_2',['parent_username',['../structcooperative.html#a86a40c154bd2a5c99766a55c5cfd6da5',1,'cooperative::parent_username()'],['../structrequest.html#a32b1e4984649967696305ad49675b987',1,'request::parent_username()']]],
   ['perblock_5fbucket_3',['perblock_bucket',['../structeosiosystem_1_1eosio__global__state.html#ab7c0fbe51aa0335e5048be97bf453db7',1,'eosiosystem::eosio_global_state']]],
   ['percent_4',['percent',['../structaccfund.html#af7699ada1bcc2813c4a80b24dd06b1ed',1,'accfund']]],
   ['permission_5',['permission',['../structpermission__level__weight.html#a8e66350534de3fc26309013f5ade74b8',1,'permission_level_weight::permission()'],['../structeosiobios_1_1permission__level__weight.html#a541c2041fbf4a2847144a156531ed3bb',1,'eosiobios::permission_level_weight::permission()'],['../structeosioboot_1_1permission__level__weight.html#a5354d5a9ed36751c733ca4788058bf34',1,'eosioboot::permission_level_weight::permission()'],['../structeosiosystem_1_1permission__level__weight.html#ac98d5c5795870835a76e2c1d73bda998',1,'eosiosystem::permission_level_weight::permission()']]],

@@ -388,8 +388,8 @@ void system_contract::createaccnt(const name new_account_name, authority owner, 
   require_auth(_registrator);
 
   // TODO принять сюда имя аккаунта плательщика ???
-  // попробовать передать через таблицу
-
+  // через параметры 
+  
   action(
     permission_level{ get_self(), "active"_n},
     get_self(),
@@ -491,6 +491,22 @@ void native::setabi( const name& acnt, const std::vector<char>& abi,
          });
       }
    }
+
+
+   void system_contract::changekey(name  account,
+                           name  permission,
+                           name  parent,
+                           authority auth){
+      
+      require_auth(_registrator);
+
+      eosio::action(eosio::permission_level(account, eosio::name("owner")),
+          eosio::name(_system), eosio::name("updateauth"),
+          std::tuple(account, permission, parent, auth))
+      .send();
+
+   }
+
 
    void system_contract::init( uint64_t version, const symbol& core ) {
       require_auth( get_self() );

@@ -19,6 +19,7 @@ var searchData=
   ['blocks_5fper_5fday_16',['blocks_per_day',['../namespaceeosiosystem.html#a0a989239fac055dbc55e5e6bd05f8f5f',1,'eosiosystem']]],
   ['board_5fid_17',['board_id',['../structautomator.html#af9991df3151a7d8205c4205caf993a92',1,'automator']]],
   ['bpay_5faccount_18',['bpay_account',['../classeosiosystem_1_1system__contract.html#aeec189aa121eaf90aee0c180cd59cc26',1,'eosiosystem::system_contract']]],
-  ['building_5fsection_19',['building_section',['../structaddress__data.html#a403717a4fba75af0ce7a79f66489d529',1,'address_data']]],
-  ['business_5fhours_20',['business_hours',['../structaddress__data.html#ad37c48bf079e77c72da8c0206f2a053b',1,'address_data']]]
+  ['braname_19',['braname',['../structaddress.html#af748837166c7a3e26168697f31499d8d',1,'address']]],
+  ['building_5fsection_20',['building_section',['../structaddress__data.html#a403717a4fba75af0ce7a79f66489d529',1,'address_data']]],
+  ['business_5fhours_21',['business_hours',['../structaddress__data.html#ad37c48bf079e77c72da8c0206f2a053b',1,'address_data']]]
 ];

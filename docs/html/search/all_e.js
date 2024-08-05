@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['name_0',['name',['../structexpfund.html#a624ee2b084e8ad9f7eea86d31d53c37f',1,'expfund::name()'],['../structaccfund.html#a0f3f14cbb379224c56ca44b7c7a7cfbb',1,'accfund::name()'],['../structboards.html#ad9a12ccbc9bdbabfe1dbd5f7cffdb06f',1,'boards::name()']]],
+  ['name_0',['name',['../structexpfund.html#a624ee2b084e8ad9f7eea86d31d53c37f',1,'expfund::name()'],['../structaccfund.html#a0f3f14cbb379224c56ca44b7c7a7cfbb',1,'accfund::name()'],['../structbranch.html#ac66d4c7c435a8dd1272a133ff3f5bc21',1,'branch::name()'],['../structboards.html#ad9a12ccbc9bdbabfe1dbd5f7cffdb06f',1,'boards::name()']]],
   ['name_5fbid_1',['name_bid',['../structeosiosystem_1_1name__bid.html',1,'eosiosystem']]],
   ['name_5fbid_5ftable_2',['name_bid_table',['../namespaceeosiosystem.html#a89109f288e4d5622f4abd4c033e5698b',1,'eosiosystem']]],
   ['name_5fbidding_2ecpp_3',['name_bidding.cpp',['../name__bidding_8cpp.html',1,'']]],
