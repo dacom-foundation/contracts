@@ -123,6 +123,21 @@
         </inbodydescription>
         <location file="common/coops.hpp" line="169" column="8" bodyfile="common/coops.hpp" bodystart="169" bodyend="-1"/>
       </memberdef>
+      <memberdef kind="variable" id="structparticipants_1a6ff4bb88ba64ac27e29914aac9c915ef" prot="public" static="no" mutable="no">
+        <type>eosio::binary_extension&lt; eosio::name &gt;</type>
+        <definition>eosio::binary_extension&lt;eosio::name&gt; participants::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>participants::type</qualifiedname>
+        <briefdescription>
+<para>individual | entrepreneur | organization </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="common/coops.hpp" line="171" column="27" bodyfile="common/coops.hpp" bodystart="171" bodyend="-1"/>
+      </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
       <memberdef kind="function" id="structparticipants_1a8623d16a26dea29aaf14d87f10ecf3c9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
@@ -141,7 +156,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/coops.hpp" line="175" column="12" bodyfile="common/coops.hpp" bodystart="175" bodyend="-1"/>
+        <location file="common/coops.hpp" line="177" column="12" bodyfile="common/coops.hpp" bodystart="177" bodyend="-1"/>
       </memberdef>
       <memberdef kind="function" id="structparticipants_1aa40e98abaf7212e03dd80e1f993d6c17" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>uint64_t</type>
@@ -159,7 +174,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/coops.hpp" line="183" column="12" bodyfile="common/coops.hpp" bodystart="183" bodyend="185"/>
+        <location file="common/coops.hpp" line="185" column="12" bodyfile="common/coops.hpp" bodystart="185" bodyend="187"/>
       </memberdef>
       <memberdef kind="function" id="structparticipants_1ab63c149354ae6df6a4a5de3948fdaf00" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>uint64_t</type>
@@ -177,7 +192,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/coops.hpp" line="191" column="12" bodyfile="common/coops.hpp" bodystart="191" bodyend="193"/>
+        <location file="common/coops.hpp" line="193" column="12" bodyfile="common/coops.hpp" bodystart="193" bodyend="195"/>
       </memberdef>
       <memberdef kind="function" id="structparticipants_1a755cb10cc54ed15fcf4849ace4c679ad" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -191,7 +206,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/coops.hpp" line="195" column="8" bodyfile="common/coops.hpp" bodystart="195" bodyend="197"/>
+        <location file="common/coops.hpp" line="197" column="8" bodyfile="common/coops.hpp" bodystart="197" bodyend="199"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -221,7 +236,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="common/coops.hpp" line="159" column="1" bodyfile="common/coops.hpp" bodystart="159" bodyend="199"/>
+    <location file="common/coops.hpp" line="159" column="1" bodyfile="common/coops.hpp" bodystart="159" bodyend="201"/>
     <listofallmembers>
       <member refid="structparticipants_1ab63c149354ae6df6a4a5de3948fdaf00" prot="public" virt="non-virtual"><scope>participants</scope><name>by_created_at</name></member>
       <member refid="structparticipants_1aa40e98abaf7212e03dd80e1f993d6c17" prot="public" virt="non-virtual"><scope>participants</scope><name>bylastpay</name></member>
@@ -234,6 +249,7 @@
       <member refid="structparticipants_1a4f914f47ab6ea9ff77135d13f71f361d" prot="public" virt="non-virtual"><scope>participants</scope><name>last_update</name></member>
       <member refid="structparticipants_1a8623d16a26dea29aaf14d87f10ecf3c9" prot="public" virt="non-virtual"><scope>participants</scope><name>primary_key</name></member>
       <member refid="structparticipants_1a3c39e76b933e59ec19db7205337b5a9a" prot="public" virt="non-virtual"><scope>participants</scope><name>status</name></member>
+      <member refid="structparticipants_1a6ff4bb88ba64ac27e29914aac9c915ef" prot="public" virt="non-virtual"><scope>participants</scope><name>type</name></member>
       <member refid="structparticipants_1ae5560052371e0cc4d94f156f8d732fe1" prot="public" virt="non-virtual"><scope>participants</scope><name>username</name></member>
     </listofallmembers>
   </compounddef>

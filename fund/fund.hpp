@@ -70,6 +70,7 @@ public:
   //метод авторизации средств из кошелька
   [[eosio::action]] void authorize(eosio::name coopname, eosio::name type, uint64_t withdraw_id);
 
+
   //используется авторизованными участником для подтверждения совершения выплаты
   [[eosio::action]] void complete(eosio::name coopname, eosio::name username, uint64_t withdraw_id);
 

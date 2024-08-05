@@ -16,10 +16,13 @@
     <includes refid="contributions_8cpp" local="yes">src/contributions.cpp</includes>
     <includes refid="addresses_8cpp" local="yes">src/addresses.cpp</includes>
     <includes refid="fund_8cpp" local="yes">src/fund.cpp</includes>
+    <includes refid="branches_8cpp" local="yes">src/branches.cpp</includes>
     <incdepgraph>
       <node id="18">
         <label>../common/accounts.hpp</label>
         <link refid="accounts_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
       </node>
       <node id="22">
         <label>../common/admins.hpp</label>
@@ -106,6 +109,8 @@
         </childnode>
         <childnode refid="34" relation="include">
         </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
       </node>
       <node id="5">
         <label>soviet.hpp</label>
@@ -156,6 +161,10 @@
       <node id="29">
         <label>src/automator.cpp</label>
         <link refid="automator_8cpp"/>
+      </node>
+      <node id="35">
+        <label>src/branches.cpp</label>
+        <link refid="branches_8cpp"/>
       </node>
       <node id="26">
         <label>src/chairman.cpp</label>
@@ -238,135 +247,163 @@
 <codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="contributions_8cpp" kindref="compound">src/contributions.cpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="addresses_8cpp" kindref="compound">src/addresses.cpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="fund_8cpp" kindref="compound">src/fund.cpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceeosio" kindref="compound">eosio</ref>;</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight></codeline>
-<codeline lineno="18"><highlight class="normal">[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsoviet_1a3cbffb11d43c698868e90f0c20d59eaf" kindref="member">soviet::init</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"><sp/><sp/>require_auth(<ref refid="group__public__consts_1ga52724c95f23545d7efc4db16f3fe42ce" kindref="member">_system</ref>);</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/><ref refid="coops_8hpp_1adf0a04dfbe948cdf1bd01cf5b344af61" kindref="member">participants_index</ref><sp/><ref refid="structparticipants" kindref="compound">participants</ref>(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/><ref refid="group__public__consts_1ga1ff8113eaea18bd553df59b9ad7df01a" kindref="member">_provider</ref>.value);</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/><ref refid="structparticipants" kindref="compound">participants</ref>.emplace(<ref refid="group__public__consts_1ga52724c95f23545d7efc4db16f3fe42ce" kindref="member">_system</ref>,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;m){</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m.username<sp/>=<sp/><ref refid="group__public__consts_1ga42013fa54096a8d11445a6006eaa0771" kindref="member">_provider_chairman</ref>;</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m.created_at<sp/>=<sp/>eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m.last_update<sp/>=<sp/>eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m.last_min_pay<sp/>=<sp/>eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m.status<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;accepted&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m.is_initial<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m.is_minimum<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m.has_vote<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;<sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="balances_8hpp_1ac2b3e80527b4d9d46875dea6388de66c" kindref="member">wallets_index</ref><sp/>wallets(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/><ref refid="group__public__consts_1ga1ff8113eaea18bd553df59b9ad7df01a" kindref="member">_provider</ref>.value);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="branches_8cpp" kindref="compound">src/branches.cpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceeosio" kindref="compound">eosio</ref>;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal">[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsoviet_1a8013f13876ba1b7e40677cd1a72539a1" kindref="member">soviet::fix</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>require_auth(<ref refid="group__public__consts_1ga52724c95f23545d7efc4db16f3fe42ce" kindref="member">_system</ref>);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><ref refid="coops_8hpp_1a6c81b62c4039360ceb1e61d409b58bff" kindref="member">addresses_index</ref><sp/>addresses(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/><ref refid="group__public__consts_1ga1ff8113eaea18bd553df59b9ad7df01a" kindref="member">_provider</ref>.value);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><ref refid="structaddress__data" kindref="compound">address_data</ref><sp/>data;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>addresses.emplace(<ref refid="group__public__consts_1ga52724c95f23545d7efc4db16f3fe42ce" kindref="member">_system</ref>,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;a)<sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>a.id<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>a.coopname<sp/>=<sp/><ref refid="group__public__consts_1ga1ff8113eaea18bd553df59b9ad7df01a" kindref="member">_provider</ref>;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>a.data<sp/>=<sp/>data;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
 <codeline lineno="35"><highlight class="normal"></highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>wallets.emplace(<ref refid="group__public__consts_1ga52724c95f23545d7efc4db16f3fe42ce" kindref="member">_system</ref>,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;w)<sp/>{</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>w.username<sp/>=<sp/><ref refid="group__public__consts_1ga42013fa54096a8d11445a6006eaa0771" kindref="member">_provider_chairman</ref>;</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>w.coopname<sp/>=<sp/><ref refid="group__public__consts_1ga1ff8113eaea18bd553df59b9ad7df01a" kindref="member">_provider</ref>;</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>w.available<sp/>=<sp/>asset(0,<sp/><ref refid="group__public__consts_1ga5c15ddd21a87c0b286a24580936dc4b7" kindref="member">_root_govern_symbol</ref>);</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>w.blocked<sp/>=<sp/>asset(0,<sp/><ref refid="group__public__consts_1ga5c15ddd21a87c0b286a24580936dc4b7" kindref="member">_root_govern_symbol</ref>);</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>w.minimum<sp/>=<sp/><ref refid="group__public__consts_1gacf903cac90cfb816da7c0498d6ba77db" kindref="member">_provider_minimum</ref>;<sp/></highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"></highlight></codeline>
-<codeline lineno="44"><highlight class="normal"></highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structboard__member" kindref="compound">board_member</ref><sp/>member<sp/>{</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.<ref refid="structboard__member_1adf5286ff237471ceabc65d4d091972d0" kindref="member">username</ref><sp/>=<sp/><ref refid="group__public__consts_1ga42013fa54096a8d11445a6006eaa0771" kindref="member">_provider_chairman</ref>,</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.is_voting<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.position_title<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Председатель&quot;</highlight><highlight class="normal">,</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.position<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;chairman&quot;</highlight><highlight class="normal">_n</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"></highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;board_member&gt;<sp/>members;</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>members.push_back(member);<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="36"><highlight class="normal">[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsoviet_1a3cbffb11d43c698868e90f0c20d59eaf" kindref="member">soviet::init</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>require_auth(<ref refid="group__public__consts_1ga52724c95f23545d7efc4db16f3fe42ce" kindref="member">_system</ref>);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><ref refid="coops_8hpp_1adf0a04dfbe948cdf1bd01cf5b344af61" kindref="member">participants_index</ref><sp/><ref refid="structparticipants" kindref="compound">participants</ref>(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/><ref refid="group__public__consts_1ga1ff8113eaea18bd553df59b9ad7df01a" kindref="member">_provider</ref>.value);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><ref refid="structparticipants" kindref="compound">participants</ref>.emplace(<ref refid="group__public__consts_1ga52724c95f23545d7efc4db16f3fe42ce" kindref="member">_system</ref>,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;m){</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m.username<sp/>=<sp/><ref refid="group__public__consts_1ga42013fa54096a8d11445a6006eaa0771" kindref="member">_provider_chairman</ref>;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m.created_at<sp/>=<sp/>eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m.last_update<sp/>=<sp/>eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m.last_min_pay<sp/>=<sp/>eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m.status<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;accepted&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m.is_initial<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m.is_minimum<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m.has_vote<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;<sp/><sp/></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m.type=</highlight><highlight class="stringliteral">&quot;individual&quot;</highlight><highlight class="normal">_n;<sp/><sp/></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="balances_8hpp_1ac2b3e80527b4d9d46875dea6388de66c" kindref="member">wallets_index</ref><sp/>wallets(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/><ref refid="group__public__consts_1ga1ff8113eaea18bd553df59b9ad7df01a" kindref="member">_provider</ref>.value);</highlight></codeline>
 <codeline lineno="54"><highlight class="normal"></highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="coops_8hpp_1a78302821fd10bd5b552f1c9cf16d57f7" kindref="member">boards_index</ref><sp/><ref refid="structboards" kindref="compound">boards</ref>(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/><ref refid="group__public__consts_1ga1ff8113eaea18bd553df59b9ad7df01a" kindref="member">_provider</ref>.value);</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structboards" kindref="compound">boards</ref>.emplace(<ref refid="group__public__consts_1ga52724c95f23545d7efc4db16f3fe42ce" kindref="member">_system</ref>,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;b)<sp/>{</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>b.id<sp/>=<sp/><ref refid="structboards" kindref="compound">boards</ref>.available_primary_key();</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>b.<ref refid="structboards_1a277bb2ea397a8b6076584f07f2c4432f" kindref="member">type</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;soviet&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>b.members<sp/>=<sp/>members;</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>b.name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Совет<sp/>провайдера&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>b.description<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>b.created_at<sp/>=<sp/>eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>b.last_update<sp/>=<sp/>eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"></highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>action(</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1ga4538cae0be703aafb0a4e4ec9d2e3b53" kindref="member">_fund</ref>,</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;init&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::make_tuple(<ref refid="group__public__consts_1ga1ff8113eaea18bd553df59b9ad7df01a" kindref="member">_provider</ref>,<sp/><ref refid="group__public__consts_1ga3a2b682d2d7616aee19abf3001792595" kindref="member">_provider_initial</ref>)</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>).send();</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>wallets.emplace(<ref refid="group__public__consts_1ga52724c95f23545d7efc4db16f3fe42ce" kindref="member">_system</ref>,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;w)<sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>w.username<sp/>=<sp/><ref refid="group__public__consts_1ga42013fa54096a8d11445a6006eaa0771" kindref="member">_provider_chairman</ref>;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>w.coopname<sp/>=<sp/><ref refid="group__public__consts_1ga1ff8113eaea18bd553df59b9ad7df01a" kindref="member">_provider</ref>;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>w.available<sp/>=<sp/>asset(0,<sp/><ref refid="group__public__consts_1ga5c15ddd21a87c0b286a24580936dc4b7" kindref="member">_root_govern_symbol</ref>);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>w.blocked<sp/>=<sp/>asset(0,<sp/><ref refid="group__public__consts_1ga5c15ddd21a87c0b286a24580936dc4b7" kindref="member">_root_govern_symbol</ref>);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>w.minimum<sp/>=<sp/><ref refid="group__public__consts_1gacf903cac90cfb816da7c0498d6ba77db" kindref="member">_provider_minimum</ref>;<sp/></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structboard__member" kindref="compound">board_member</ref><sp/>member<sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.<ref refid="structboard__member_1adf5286ff237471ceabc65d4d091972d0" kindref="member">username</ref><sp/>=<sp/><ref refid="group__public__consts_1ga42013fa54096a8d11445a6006eaa0771" kindref="member">_provider_chairman</ref>,</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.is_voting<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.position_title<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Председатель&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.position<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;chairman&quot;</highlight><highlight class="normal">_n</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;board_member&gt;<sp/>members;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>members.push_back(member);<sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="73"><highlight class="normal"></highlight></codeline>
-<codeline lineno="74"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"></highlight></codeline>
-<codeline lineno="76"><highlight class="normal">[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsoviet_1a75bfcecd10ad37dd53a733623ed0cbdb" kindref="member">soviet::newsubmitted</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>username,<sp/>eosio::name<sp/>action,<sp/>uint64_t<sp/>decision_id,<sp/><ref refid="structdocument" kindref="compound">document</ref><sp/><ref refid="structdocument" kindref="compound">document</ref>)<sp/>{</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/>require_auth(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>);</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"></highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/>require_recipient(coopname);</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/>require_recipient(username);</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"></highlight></codeline>
-<codeline lineno="82"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"></highlight></codeline>
-<codeline lineno="84"><highlight class="normal">[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsoviet_1aa80fc272e5a034ce31c7077159273c32" kindref="member">soviet::newresolved</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>username,<sp/>eosio::name<sp/>action,<sp/>uint64_t<sp/>decision_id,<sp/><ref refid="structdocument" kindref="compound">document</ref><sp/><ref refid="structdocument" kindref="compound">document</ref>)<sp/>{</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/>require_auth(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>);</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"></highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/>require_recipient(coopname);</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/>require_recipient(username);</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"></highlight></codeline>
-<codeline lineno="90"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="91"><highlight class="normal"></highlight></codeline>
-<codeline lineno="92"><highlight class="normal"></highlight></codeline>
-<codeline lineno="93"><highlight class="normal">[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsoviet_1af9362d3131fcfbcff448f77038ecf6b2" kindref="member">soviet::newact</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>username,<sp/>eosio::name<sp/>action,<sp/>uint64_t<sp/>decision_id,<sp/><ref refid="structdocument" kindref="compound">document</ref><sp/><ref refid="structdocument" kindref="compound">document</ref>)<sp/>{</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/>require_auth(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>);</highlight></codeline>
-<codeline lineno="95"><highlight class="normal"></highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/>require_recipient(coopname);</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/>require_recipient(username);</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"></highlight></codeline>
-<codeline lineno="99"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="coops_8hpp_1a78302821fd10bd5b552f1c9cf16d57f7" kindref="member">boards_index</ref><sp/><ref refid="structboards" kindref="compound">boards</ref>(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/><ref refid="group__public__consts_1ga1ff8113eaea18bd553df59b9ad7df01a" kindref="member">_provider</ref>.value);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structboards" kindref="compound">boards</ref>.emplace(<ref refid="group__public__consts_1ga52724c95f23545d7efc4db16f3fe42ce" kindref="member">_system</ref>,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;b)<sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>b.id<sp/>=<sp/><ref refid="structboards" kindref="compound">boards</ref>.available_primary_key();</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>b.<ref refid="structboards_1a277bb2ea397a8b6076584f07f2c4432f" kindref="member">type</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;soviet&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>b.members<sp/>=<sp/>members;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>b.name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Совет<sp/>провайдера&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>b.description<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>b.created_at<sp/>=<sp/>eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>b.last_update<sp/>=<sp/>eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="coops_8hpp_1a6c81b62c4039360ceb1e61d409b58bff" kindref="member">addresses_index</ref><sp/>addresses(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/><ref refid="group__public__consts_1ga1ff8113eaea18bd553df59b9ad7df01a" kindref="member">_provider</ref>.value);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structaddress__data" kindref="compound">address_data</ref><sp/>data;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>addresses.emplace(<ref refid="group__public__consts_1ga52724c95f23545d7efc4db16f3fe42ce" kindref="member">_system</ref>,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;a)<sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>a.id<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>a.coopname<sp/>=<sp/><ref refid="group__public__consts_1ga1ff8113eaea18bd553df59b9ad7df01a" kindref="member">_provider</ref>;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>a.data<sp/>=<sp/>data;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>action(</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1ga4538cae0be703aafb0a4e4ec9d2e3b53" kindref="member">_fund</ref>,</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;init&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::make_tuple(<ref refid="group__public__consts_1ga1ff8113eaea18bd553df59b9ad7df01a" kindref="member">_provider</ref>,<sp/><ref refid="group__public__consts_1ga3a2b682d2d7616aee19abf3001792595" kindref="member">_provider_initial</ref>)</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>).send();</highlight></codeline>
 <codeline lineno="101"><highlight class="normal"></highlight></codeline>
-<codeline lineno="102"><highlight class="normal">[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsoviet_1a5887bef257ef79352e5a2d093e076d67" kindref="member">soviet::newdecision</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>username,<sp/>eosio::name<sp/>action,<sp/>uint64_t<sp/>decision_id,<sp/><ref refid="structdocument" kindref="compound">document</ref><sp/><ref refid="structdocument" kindref="compound">document</ref>)<sp/>{</highlight></codeline>
-<codeline lineno="103"><highlight class="normal"><sp/><sp/>require_auth(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>);</highlight></codeline>
-<codeline lineno="104"><highlight class="normal"></highlight></codeline>
-<codeline lineno="105"><highlight class="normal"><sp/><sp/>require_recipient(coopname);</highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><sp/><sp/>require_recipient(username);</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"></highlight></codeline>
-<codeline lineno="108"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="102"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal">[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsoviet_1a75bfcecd10ad37dd53a733623ed0cbdb" kindref="member">soviet::newsubmitted</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>username,<sp/>eosio::name<sp/>action,<sp/>uint64_t<sp/>decision_id,<sp/><ref refid="structdocument" kindref="compound">document</ref><sp/><ref refid="structdocument" kindref="compound">document</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/>require_auth(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/>require_recipient(coopname);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>require_recipient(username);</highlight></codeline>
 <codeline lineno="109"><highlight class="normal"></highlight></codeline>
-<codeline lineno="110"><highlight class="normal"></highlight></codeline>
-<codeline lineno="111"><highlight class="normal">[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsoviet_1a5d6245a8abf1705be860dac5f9340573" kindref="member">soviet::newbatch</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>action,<sp/>uint64_t<sp/>batch_id)<sp/>{</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/>require_auth(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>);</highlight></codeline>
-<codeline lineno="113"><highlight class="normal"></highlight></codeline>
-<codeline lineno="114"><highlight class="normal"><sp/><sp/>require_recipient(coopname);</highlight></codeline>
-<codeline lineno="115"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal">[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsoviet_1aa80fc272e5a034ce31c7077159273c32" kindref="member">soviet::newresolved</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>username,<sp/>eosio::name<sp/>action,<sp/>uint64_t<sp/>decision_id,<sp/><ref refid="structdocument" kindref="compound">document</ref><sp/><ref refid="structdocument" kindref="compound">document</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/>require_auth(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/>require_recipient(coopname);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/>require_recipient(username);</highlight></codeline>
 <codeline lineno="117"><highlight class="normal"></highlight></codeline>
-<codeline lineno="118"><highlight class="normal">[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsoviet_1a2ff1f3be14701afe025d92c6da3d1507" kindref="member">soviet::newprogram</ref>(eosio::name<sp/>coopname,<sp/>uint64_t<sp/>program_id)<sp/>{</highlight></codeline>
-<codeline lineno="119"><highlight class="normal"><sp/><sp/>require_auth(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
 <codeline lineno="120"><highlight class="normal"></highlight></codeline>
-<codeline lineno="121"><highlight class="normal"><sp/><sp/>require_recipient(coopname);</highlight></codeline>
-<codeline lineno="122"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="121"><highlight class="normal">[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsoviet_1af9362d3131fcfbcff448f77038ecf6b2" kindref="member">soviet::newact</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>username,<sp/>eosio::name<sp/>action,<sp/>uint64_t<sp/>decision_id,<sp/><ref refid="structdocument" kindref="compound">document</ref><sp/><ref refid="structdocument" kindref="compound">document</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/>require_auth(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>);</highlight></codeline>
 <codeline lineno="123"><highlight class="normal"></highlight></codeline>
-<codeline lineno="124"><highlight class="normal"></highlight></codeline>
-<codeline lineno="137"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1ga2df3ffc1ac9da194963f3be0aadc4139" kindref="member">soviet::exec</ref>(eosio::name<sp/>executer,<sp/>eosio::name<sp/>coopname,<sp/>uint64_t<sp/>decision_id)<sp/>{<sp/></highlight></codeline>
-<codeline lineno="138"><highlight class="normal"><sp/><sp/>require_auth(executer);</highlight></codeline>
-<codeline lineno="139"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="140"><highlight class="normal"><sp/><sp/><ref refid="coops_8hpp_1a4461d7de0a02a53205ba22d591e0cb99" kindref="member">decisions_index</ref><sp/>decisions(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>coopname.value);</highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="structdecision" kindref="compound">decision</ref><sp/>=<sp/>decisions.find(decision_id);</highlight></codeline>
-<codeline lineno="142"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="143"><highlight class="normal"><sp/><sp/>eosio::check(<ref refid="structdecision" kindref="compound">decision</ref><sp/>!=<sp/>decisions.end(),</highlight><highlight class="stringliteral">&quot;Решение<sp/>не<sp/>найдено<sp/>в<sp/>оперативной<sp/>памяти&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="144"><highlight class="normal"><sp/><sp/>eosio::check(<ref refid="structdecision" kindref="compound">decision</ref><sp/>-&gt;<sp/>authorized<sp/>==<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Только<sp/>авторизованное<sp/>решение<sp/>может<sp/>быть<sp/>исполнено&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="145"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="146"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="structdecision" kindref="compound">decision</ref><sp/>-&gt;<sp/>type<sp/>==<sp/><ref refid="consts_8hpp_1ace206e4d1676c54066a8ed734347d072" kindref="member">_regaccount_action</ref>)<sp/>{</highlight></codeline>
-<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsoviet_1a7fd72ab47d0d66be292668ebc77f23ef" kindref="member">soviet::joincoop_effect</ref>(executer,<sp/>coopname,<sp/><ref refid="structdecision" kindref="compound">decision</ref>-&gt;<ref refid="structdecision_1a86975765d5b9f938fa95448b05e2c0c2" kindref="member">id</ref>,<sp/><ref refid="structdecision" kindref="compound">decision</ref>-&gt;<ref refid="structdecision_1a6728d16176fe0983ec043b8a87b809a2" kindref="member">batch_id</ref>);</highlight></codeline>
-<codeline lineno="148"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="structdecision" kindref="compound">decision</ref><sp/>-&gt;<sp/>type<sp/>==<sp/><ref refid="consts_8hpp_1a4815e0ccce32e816ccd173a076751310" kindref="member">_change_action</ref>){</highlight></codeline>
-<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsoviet_1a23926d9a06011b3bb37fe74d820fd41f" kindref="member">soviet::change_effect</ref>(executer,<sp/>coopname,<sp/><ref refid="structdecision" kindref="compound">decision</ref>-&gt;<ref refid="structdecision_1a86975765d5b9f938fa95448b05e2c0c2" kindref="member">id</ref>,<sp/><ref refid="structdecision" kindref="compound">decision</ref>-&gt;<ref refid="structdecision_1a6728d16176fe0983ec043b8a87b809a2" kindref="member">batch_id</ref>);</highlight></codeline>
-<codeline lineno="150"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="structdecision" kindref="compound">decision</ref><sp/>-&gt;<sp/>type<sp/>==<sp/><ref refid="consts_8hpp_1a9e2440f7709ebcf63b4e0f7ca5c65fe5" kindref="member">_withdraw_action</ref>){</highlight></codeline>
-<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsoviet_1a74775bb15963afd3dec409c7a4df4b7a" kindref="member">soviet::withdraw_effect</ref>(executer,<sp/>coopname,<sp/><ref refid="structdecision" kindref="compound">decision</ref>-&gt;<ref refid="structdecision_1a86975765d5b9f938fa95448b05e2c0c2" kindref="member">id</ref>,<sp/><ref refid="structdecision" kindref="compound">decision</ref>-&gt;<ref refid="structdecision_1a6728d16176fe0983ec043b8a87b809a2" kindref="member">batch_id</ref>);</highlight></codeline>
-<codeline lineno="152"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="structdecision" kindref="compound">decision</ref><sp/>-&gt;<sp/>type<sp/>==<sp/><ref refid="consts_8hpp_1adc98edb1ff07b01925c99c424e7fa7e3" kindref="member">_afund_withdraw_action</ref>)<sp/>{</highlight></codeline>
-<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsoviet_1addadc5c1117f1c87a20d3ce3ebc0a311" kindref="member">soviet::subaccum_effect</ref>(executer,<sp/>coopname,<sp/><ref refid="structdecision" kindref="compound">decision</ref>-&gt;<ref refid="structdecision_1a86975765d5b9f938fa95448b05e2c0c2" kindref="member">id</ref>,<sp/><ref refid="structdecision" kindref="compound">decision</ref>-&gt;<ref refid="structdecision_1a6728d16176fe0983ec043b8a87b809a2" kindref="member">batch_id</ref>);</highlight></codeline>
-<codeline lineno="154"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="155"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/>require_recipient(coopname);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/>require_recipient(username);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal">[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsoviet_1a5887bef257ef79352e5a2d093e076d67" kindref="member">soviet::newdecision</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>username,<sp/>eosio::name<sp/>action,<sp/>uint64_t<sp/>decision_id,<sp/><ref refid="structdocument" kindref="compound">document</ref><sp/><ref refid="structdocument" kindref="compound">document</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/>require_auth(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/>require_recipient(coopname);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/>require_recipient(username);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal">[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsoviet_1a5d6245a8abf1705be860dac5f9340573" kindref="member">soviet::newbatch</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>action,<sp/>uint64_t<sp/>batch_id)<sp/>{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/>require_auth(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/>require_recipient(coopname);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal">[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsoviet_1a2ff1f3be14701afe025d92c6da3d1507" kindref="member">soviet::newprogram</ref>(eosio::name<sp/>coopname,<sp/>uint64_t<sp/>program_id)<sp/>{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/>require_auth(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/>require_recipient(coopname);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1ga2df3ffc1ac9da194963f3be0aadc4139" kindref="member">soviet::exec</ref>(eosio::name<sp/>executer,<sp/>eosio::name<sp/>coopname,<sp/>uint64_t<sp/>decision_id)<sp/>{<sp/></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/>require_auth(executer);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><ref refid="coops_8hpp_1a4461d7de0a02a53205ba22d591e0cb99" kindref="member">decisions_index</ref><sp/>decisions(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>coopname.value);</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="structdecision" kindref="compound">decision</ref><sp/>=<sp/>decisions.find(decision_id);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/>eosio::check(<ref refid="structdecision" kindref="compound">decision</ref><sp/>!=<sp/>decisions.end(),</highlight><highlight class="stringliteral">&quot;Решение<sp/>не<sp/>найдено<sp/>в<sp/>оперативной<sp/>памяти&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/>eosio::check(<ref refid="structdecision" kindref="compound">decision</ref><sp/>-&gt;<sp/>authorized<sp/>==<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Только<sp/>авторизованное<sp/>решение<sp/>может<sp/>быть<sp/>исполнено&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="structdecision" kindref="compound">decision</ref><sp/>-&gt;<sp/>type<sp/>==<sp/><ref refid="consts_8hpp_1ace206e4d1676c54066a8ed734347d072" kindref="member">_regaccount_action</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsoviet_1a7fd72ab47d0d66be292668ebc77f23ef" kindref="member">soviet::joincoop_effect</ref>(executer,<sp/>coopname,<sp/><ref refid="structdecision" kindref="compound">decision</ref>-&gt;<ref refid="structdecision_1a86975765d5b9f938fa95448b05e2c0c2" kindref="member">id</ref>,<sp/><ref refid="structdecision" kindref="compound">decision</ref>-&gt;<ref refid="structdecision_1a6728d16176fe0983ec043b8a87b809a2" kindref="member">batch_id</ref>);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="structdecision" kindref="compound">decision</ref><sp/>-&gt;<sp/>type<sp/>==<sp/><ref refid="consts_8hpp_1a4815e0ccce32e816ccd173a076751310" kindref="member">_change_action</ref>){</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsoviet_1a23926d9a06011b3bb37fe74d820fd41f" kindref="member">soviet::change_effect</ref>(executer,<sp/>coopname,<sp/><ref refid="structdecision" kindref="compound">decision</ref>-&gt;<ref refid="structdecision_1a86975765d5b9f938fa95448b05e2c0c2" kindref="member">id</ref>,<sp/><ref refid="structdecision" kindref="compound">decision</ref>-&gt;<ref refid="structdecision_1a6728d16176fe0983ec043b8a87b809a2" kindref="member">batch_id</ref>);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="structdecision" kindref="compound">decision</ref><sp/>-&gt;<sp/>type<sp/>==<sp/><ref refid="consts_8hpp_1a9e2440f7709ebcf63b4e0f7ca5c65fe5" kindref="member">_withdraw_action</ref>){</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsoviet_1a74775bb15963afd3dec409c7a4df4b7a" kindref="member">soviet::withdraw_effect</ref>(executer,<sp/>coopname,<sp/><ref refid="structdecision" kindref="compound">decision</ref>-&gt;<ref refid="structdecision_1a86975765d5b9f938fa95448b05e2c0c2" kindref="member">id</ref>,<sp/><ref refid="structdecision" kindref="compound">decision</ref>-&gt;<ref refid="structdecision_1a6728d16176fe0983ec043b8a87b809a2" kindref="member">batch_id</ref>);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="structdecision" kindref="compound">decision</ref><sp/>-&gt;<sp/>type<sp/>==<sp/><ref refid="consts_8hpp_1adc98edb1ff07b01925c99c424e7fa7e3" kindref="member">_afund_withdraw_action</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsoviet_1addadc5c1117f1c87a20d3ce3ebc0a311" kindref="member">soviet::subaccum_effect</ref>(executer,<sp/>coopname,<sp/><ref refid="structdecision" kindref="compound">decision</ref>-&gt;<ref refid="structdecision_1a86975765d5b9f938fa95448b05e2c0c2" kindref="member">id</ref>,<sp/><ref refid="structdecision" kindref="compound">decision</ref>-&gt;<ref refid="structdecision_1a6728d16176fe0983ec043b8a87b809a2" kindref="member">batch_id</ref>);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="183"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="soviet/soviet.cpp"/>
   </compounddef>

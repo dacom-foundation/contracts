@@ -11,12 +11,14 @@
       <node id="14">
         <label>../common/accounts.hpp</label>
         <link refid="accounts_8hpp"/>
+        <childnode refid="15" relation="include">
+        </childnode>
       </node>
-      <node id="16">
+      <node id="17">
         <label>../common/balances.hpp</label>
         <link refid="balances_8hpp"/>
       </node>
-      <node id="17">
+      <node id="18">
         <label>../common/changes.hpp</label>
         <link refid="changes_8hpp"/>
       </node>
@@ -24,11 +26,11 @@
         <label>../common/consts.hpp</label>
         <link refid="consts_8hpp"/>
       </node>
-      <node id="18">
+      <node id="19">
         <label>../common/coops.hpp</label>
         <link refid="coops_8hpp"/>
       </node>
-      <node id="15">
+      <node id="16">
         <label>../common/counts.hpp</label>
         <link refid="counts_8hpp"/>
       </node>
@@ -44,7 +46,7 @@
         <childnode refid="8" relation="include">
         </childnode>
       </node>
-      <node id="19">
+      <node id="20">
         <label>../common/programs.hpp</label>
         <link refid="programs_8hpp"/>
       </node>
@@ -65,11 +67,11 @@
         </childnode>
         <childnode refid="12" relation="include">
         </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
         <childnode refid="21" relation="include">
         </childnode>
         <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
         </childnode>
       </node>
       <node id="2">
@@ -97,8 +99,6 @@
         </childnode>
         <childnode refid="14" relation="include">
         </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
         <childnode refid="16" relation="include">
         </childnode>
         <childnode refid="17" relation="include">
@@ -107,21 +107,26 @@
         </childnode>
         <childnode refid="19" relation="include">
         </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
       </node>
-      <node id="21">
+      <node id="22">
         <label>src/admins.cpp</label>
         <link refid="admins_8cpp"/>
       </node>
-      <node id="22">
+      <node id="23">
         <label>src/change.cpp</label>
         <link refid="change_8cpp"/>
       </node>
-      <node id="20">
+      <node id="21">
         <label>src/soviet.cpp</label>
         <link refid="marketplace_2src_2soviet_8cpp"/>
       </node>
       <node id="3">
         <label>eosio/asset.hpp</label>
+      </node>
+      <node id="15">
+        <label>eosio/binary_extension.hpp</label>
       </node>
       <node id="4">
         <label>eosio/contract.hpp</label>

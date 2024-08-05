@@ -56,16 +56,12 @@
                     "type": "name"
                 },
                 {
-                    "name": "departname",
+                    "name": "braname",
                     "type": "name"
                 },
                 {
                     "name": "data",
                     "type": "address_data"
-                },
-                {
-                    "name": "meta",
-                    "type": "string"
                 }
             ]
         },
@@ -73,6 +69,10 @@
             "name": "address_data",
             "base": "",
             "fields": [
+                {
+                    "name": "full_address",
+                    "type": "string"
+                },
                 {
                     "name": "latitude",
                     "type": "string"
@@ -122,7 +122,15 @@
                     "type": "string"
                 },
                 {
+                    "name": "email",
+                    "type": "string"
+                },
+                {
                     "name": "business_hours",
+                    "type": "string"
+                },
+                {
+                    "name": "meta",
                     "type": "string"
                 }
             ]
@@ -429,16 +437,12 @@
                     "type": "name"
                 },
                 {
-                    "name": "departname",
+                    "name": "braname",
                     "type": "name"
                 },
                 {
                     "name": "data",
                     "type": "address_data"
-                },
-                {
-                    "name": "meta",
-                    "type": "string"
                 }
             ]
         },
@@ -469,6 +473,40 @@
                 {
                     "name": "description",
                     "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "createbranch",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "chairman",
+                    "type": "name"
+                },
+                {
+                    "name": "braname",
+                    "type": "name"
+                },
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "authorizer",
+                    "type": "name"
+                },
+                {
+                    "name": "trusted",
+                    "type": "name[]"
                 }
             ]
         },
@@ -599,6 +637,24 @@
             ]
         },
         {
+            "name": "deletebranch",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "chairman",
+                    "type": "name"
+                },
+                {
+                    "name": "braname",
+                    "type": "name"
+                }
+            ]
+        },
+        {
             "name": "disableprog",
             "base": "",
             "fields": [
@@ -669,20 +725,50 @@
                     "type": "name"
                 },
                 {
+                    "name": "braname",
+                    "type": "name"
+                },
+                {
                     "name": "address_id",
                     "type": "uint64"
                 },
                 {
-                    "name": "departname",
+                    "name": "data",
+                    "type": "address_data"
+                }
+            ]
+        },
+        {
+            "name": "editbranch",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
                     "type": "name"
                 },
                 {
-                    "name": "data",
-                    "type": "address_data"
+                    "name": "chairman",
+                    "type": "name"
                 },
                 {
-                    "name": "meta",
+                    "name": "braname",
+                    "type": "name"
+                },
+                {
+                    "name": "name",
                     "type": "string"
+                },
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "authorizer",
+                    "type": "name"
+                },
+                {
+                    "name": "trusted",
+                    "type": "name[]"
                 }
             ]
         },
@@ -737,6 +823,11 @@
                     "type": "uint64"
                 }
             ]
+        },
+        {
+            "name": "fix",
+            "base": "",
+            "fields": []
         },
         {
             "name": "fundwithdraw",
@@ -1006,6 +1097,10 @@
                 {
                     "name": "has_vote",
                     "type": "bool"
+                },
+                {
+                    "name": "type",
+                    "type": "name$"
                 }
             ]
         },
@@ -1414,6 +1509,11 @@
             "ricardian_contract": ""
         },
         {
+            "name": "createbranch",
+            "type": "createbranch",
+            "ricardian_contract": ""
+        },
+        {
             "name": "createprog",
             "type": "createprog",
             "ricardian_contract": ""
@@ -1421,6 +1521,11 @@
         {
             "name": "deladdress",
             "type": "deladdress",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "deletebranch",
+            "type": "deletebranch",
             "ricardian_contract": ""
         },
         {
@@ -1439,6 +1544,11 @@
             "ricardian_contract": ""
         },
         {
+            "name": "editbranch",
+            "type": "editbranch",
+            "ricardian_contract": ""
+        },
+        {
             "name": "editprog",
             "type": "editprog",
             "ricardian_contract": ""
@@ -1446,6 +1556,11 @@
         {
             "name": "exec",
             "type": "exec",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "fix",
+            "type": "fix",
             "ricardian_contract": ""
         },
         {

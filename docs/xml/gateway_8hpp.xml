@@ -24,12 +24,14 @@
       <node id="13">
         <label>../common/accounts.hpp</label>
         <link refid="accounts_8hpp"/>
+        <childnode refid="14" relation="include">
+        </childnode>
       </node>
-      <node id="19">
+      <node id="20">
         <label>../common/admins.hpp</label>
         <link refid="admins_8hpp"/>
       </node>
-      <node id="17">
+      <node id="18">
         <label>../common/balances.hpp</label>
         <link refid="balances_8hpp"/>
       </node>
@@ -37,11 +39,11 @@
         <label>../common/consts.hpp</label>
         <link refid="consts_8hpp"/>
       </node>
-      <node id="14">
+      <node id="15">
         <label>../common/coops.hpp</label>
         <link refid="coops_8hpp"/>
       </node>
-      <node id="15">
+      <node id="16">
         <label>../common/counts.hpp</label>
         <link refid="counts_8hpp"/>
       </node>
@@ -57,11 +59,11 @@
         <childnode refid="7" relation="include">
         </childnode>
       </node>
-      <node id="16">
+      <node id="17">
         <label>../common/permissions.hpp</label>
         <link refid="permissions_8hpp"/>
       </node>
-      <node id="18">
+      <node id="19">
         <label>../common/programs.hpp</label>
         <link refid="programs_8hpp"/>
       </node>
@@ -100,8 +102,6 @@
         </childnode>
         <childnode refid="13" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
         <childnode refid="15" relation="include">
         </childnode>
         <childnode refid="16" relation="include">
@@ -112,9 +112,14 @@
         </childnode>
         <childnode refid="19" relation="include">
         </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
       </node>
       <node id="2">
         <label>eosio/asset.hpp</label>
+      </node>
+      <node id="14">
+        <label>eosio/binary_extension.hpp</label>
       </node>
       <node id="3">
         <label>eosio/contract.hpp</label>

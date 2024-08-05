@@ -85,12 +85,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="registrator/registrator.hpp" line="59" column="9" bodyfile="registrator/registrator.cpp" bodystart="22" bodyend="71"/>
+        <location file="registrator/registrator.hpp" line="64" column="9" bodyfile="registrator/registrator.cpp" bodystart="85" bodyend="135"/>
       </memberdef>
-      <memberdef kind="function" id="group__public__actions_1ga8f4b3d521cb45d617026964bbc6e302c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__public__actions_1gaeb171065ea29f9b5e485a34102ee6291" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void registrator::reguser</definition>
-        <argsstring>(eosio::name registrator, eosio::name coopname, eosio::name username)</argsstring>
+        <argsstring>(eosio::name registrator, eosio::name coopname, eosio::name username, eosio::name type)</argsstring>
         <name>reguser</name>
         <qualifiedname>registrator::reguser</qualifiedname>
         <param>
@@ -105,11 +105,15 @@
           <type>eosio::name</type>
           <declname>username</declname>
         </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>type</declname>
+        </param>
         <briefdescription>
 <para>Регистрация пользователя </para>
         </briefdescription>
         <detaileddescription>
-<para>Этот метод предназначен для регистрации аккаунта в качестве физического лица. После регистрации пользователь получает статус &quot;user&quot;. Принимает хэш-ссылку на зашифрованный профиль, сохраненный в IPFS.</para>
+<para>Этот метод предназначен для регистрации аккаунта в качестве физического лица. После регистрации пользователь получает статус &quot;user&quot;.</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>registrator</parametername>
@@ -141,14 +145,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="registrator/registrator.hpp" line="47" column="9" bodyfile="registrator/registrator.cpp" bodystart="86" bodyend="106"/>
+        <location file="registrator/registrator.hpp" line="51" column="9" bodyfile="registrator/registrator.cpp" bodystart="150" bodyend="173"/>
       </memberdef>
-      <memberdef kind="function" id="group__public__actions_1ga4354646d3bbc28e76659cc650d2011ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__public__actions_1ga20903d322ad4dab2a4d2b3b0871f5e26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void registrator::regorg</definition>
+        <definition>void registrator::regcoop</definition>
         <argsstring>(eosio::name registrator, eosio::name coopname, eosio::name username, org_data params)</argsstring>
-        <name>regorg</name>
-        <qualifiedname>registrator::regorg</qualifiedname>
+        <name>regcoop</name>
+        <qualifiedname>registrator::regcoop</qualifiedname>
         <param>
           <type>eosio::name</type>
           <declname>registrator</declname>
@@ -176,51 +180,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="registrator/registrator.hpp" line="52" column="9" bodyfile="registrator/registrator.cpp" bodystart="163" bodyend="201"/>
-      </memberdef>
-      <memberdef kind="function" id="group__public__actions_1ga4a1b949ebea1e7cc5c0929e85d184038" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void registrator::regdepartmnt</definition>
-        <argsstring>(eosio::name registrator, eosio::name coopname, eosio::name username, plot_data params)</argsstring>
-        <name>regdepartmnt</name>
-        <qualifiedname>registrator::regdepartmnt</qualifiedname>
-        <param>
-          <type>eosio::name</type>
-          <declname>registrator</declname>
-        </param>
-        <param>
-          <type>eosio::name</type>
-          <declname>coopname</declname>
-        </param>
-        <param>
-          <type>eosio::name</type>
-          <declname>username</declname>
-        </param>
-        <param>
-          <type><ref refid="structplot__data" kindref="compound">plot_data</ref></type>
-          <declname>params</declname>
-        </param>
-        <briefdescription>
-<para>Регистрация юридического лица </para>
-        </briefdescription>
-        <detaileddescription>
-<para>Этот метод позволяет регистрировать аккаунт в качестве юридического лица. Все данные в карточке юридического лица публичны и хранятся в блокчейне.</para>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>params</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Структура данных нового юридического лица</para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="note"><para>Авторизация требуется от одного из аккаунтов: <computeroutput>coopname</computeroutput> || username </para>
-</simplesect>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="registrator/registrator.hpp" line="53" column="9" bodyfile="registrator/registrator.cpp" bodystart="214" bodyend="246"/>
+        <location file="registrator/registrator.hpp" line="58" column="9" bodyfile="registrator/registrator.cpp" bodystart="186" bodyend="230"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga4edb42d418f1b8d0a7ec00f06b9927ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -256,7 +216,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="registrator/registrator.hpp" line="57" column="9" bodyfile="registrator/registrator.cpp" bodystart="259" bodyend="295"/>
+        <location file="registrator/registrator.hpp" line="62" column="9" bodyfile="registrator/registrator.cpp" bodystart="244" bodyend="280"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga369a1d99c79f0429f2d1f7182382dcd8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -350,17 +310,21 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="registrator/registrator.hpp" line="55" column="9" bodyfile="registrator/registrator.cpp" bodystart="321" bodyend="337"/>
+        <location file="registrator/registrator.hpp" line="60" column="9" bodyfile="registrator/registrator.cpp" bodystart="306" bodyend="323"/>
       </memberdef>
-      <memberdef kind="function" id="group__public__actions_1gac68fe89b4be51de18ac5b5921ca56eed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__public__actions_1ga4bd57034d65697891fa59255c92435bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void registrator::update</definition>
-        <argsstring>(eosio::name username, std::string meta)</argsstring>
-        <name>update</name>
-        <qualifiedname>registrator::update</qualifiedname>
+        <definition>void registrator::updateaccnt</definition>
+        <argsstring>(eosio::name username, eosio::name account_to_change, std::string meta)</argsstring>
+        <name>updateaccnt</name>
+        <qualifiedname>registrator::updateaccnt</qualifiedname>
         <param>
           <type>eosio::name</type>
           <declname>username</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>account_to_change</declname>
         </param>
         <param>
           <type>std::string</type>
@@ -394,7 +358,75 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="registrator/registrator.hpp" line="44" column="9" bodyfile="registrator/registrator.cpp" bodystart="351" bodyend="364"/>
+        <location file="registrator/registrator.hpp" line="46" column="9" bodyfile="registrator/registrator.cpp" bodystart="337" bodyend="352"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga9b31f8344a801600abe636d4fa6a2ad8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void registrator::updatecoop</definition>
+        <argsstring>(eosio::name coopname, eosio::name username, eosio::asset initial, eosio::asset minimum, eosio::asset org_initial, eosio::asset org_minimum, std::string announce, std::string description)</argsstring>
+        <name>updatecoop</name>
+        <qualifiedname>registrator::updatecoop</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>eosio::asset</type>
+          <declname>initial</declname>
+        </param>
+        <param>
+          <type>eosio::asset</type>
+          <declname>minimum</declname>
+        </param>
+        <param>
+          <type>eosio::asset</type>
+          <declname>org_initial</declname>
+        </param>
+        <param>
+          <type>eosio::asset</type>
+          <declname>org_minimum</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>announce</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>description</declname>
+        </param>
+        <briefdescription>
+<para>Обновление метаданных аккаунта </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Этот метод позволяет обновить метаданные указанного аккаунта. Только владелец аккаунта имеет право обновлять его метаданные.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя аккаунта, который требуется обновить </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>meta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Новые метаданные для аккаунта</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>username</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator/registrator.hpp" line="47" column="9" bodyfile="registrator/registrator.cpp" bodystart="367" bodyend="403"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga68df314fe90a719f00f0931c097bc6c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -438,12 +470,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="registrator/registrator.hpp" line="63" column="9" bodyfile="registrator/registrator.cpp" bodystart="378" bodyend="401"/>
+        <location file="registrator/registrator.hpp" line="68" column="9" bodyfile="registrator/registrator.cpp" bodystart="417" bodyend="440"/>
       </memberdef>
-      <memberdef kind="function" id="group__public__actions_1ga25e4c5c4eea2a2e1463ce911b61117aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__public__actions_1gad0c0f6b1b9a5a3d8f14ca8adf71cf477" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void registrator::confirmreg</definition>
-        <argsstring>(eosio::name coopname, eosio::name member)</argsstring>
+        <argsstring>(eosio::name coopname, eosio::name username)</argsstring>
         <name>confirmreg</name>
         <qualifiedname>registrator::confirmreg</qualifiedname>
         <param>
@@ -452,7 +484,7 @@
         </param>
         <param>
           <type>eosio::name</type>
-          <declname>member</declname>
+          <declname>username</declname>
         </param>
         <briefdescription>
 <para>Подтверждение регистрации члена кооператива </para>
@@ -469,7 +501,7 @@
 </parameteritem>
 <parameteritem>
 <parameternamelist>
-<parametername>member</parametername>
+<parametername>username</parametername>
 </parameternamelist>
 <parameterdescription>
 <para>Имя члена кооператива </para>
@@ -498,7 +530,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="registrator/registrator.hpp" line="45" column="9" bodyfile="registrator/registrator.cpp" bodystart="417" bodyend="428"/>
+        <location file="registrator/registrator.hpp" line="49" column="9" bodyfile="registrator/registrator.cpp" bodystart="456" bodyend="469"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga6d78c0a4a104abcae663754dc08d8da8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1320,7 +1352,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="45" column="9" bodyfile="soviet/soviet.cpp" bodystart="137" bodyend="155"/>
+        <location file="soviet/soviet.hpp" line="45" column="9" bodyfile="soviet/soviet.cpp" bodystart="165" bodyend="183"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gaed705497ce78823553360af42f1e0dc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1931,7 +1963,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="74" column="9" bodyfile="soviet/src/chairman.cpp" bodystart="64" bodyend="141"/>
+        <location file="soviet/soviet.hpp" line="74" column="9" bodyfile="soviet/src/chairman.cpp" bodystart="64" bodyend="156"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga633d78f7717ca0b13d800f1af3b298d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2029,7 +2061,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="75" column="9" bodyfile="soviet/src/chairman.cpp" bodystart="165" bodyend="205"/>
+        <location file="soviet/soviet.hpp" line="75" column="9" bodyfile="soviet/src/chairman.cpp" bodystart="180" bodyend="224"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga46020951b62e043b52d7e7c6939684a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2066,7 +2098,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="124" column="9" bodyfile="soviet/src/fund.cpp" bodystart="9" bodyend="32"/>
+        <location file="soviet/soviet.hpp" line="130" column="9" bodyfile="soviet/src/fund.cpp" bodystart="9" bodyend="32"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gaddace7bdb215147f252a529422010022" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2945,7 +2977,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="gateway/gateway.hpp" line="56" column="9" bodyfile="gateway/gateway.cpp" bodystart="46" bodyend="88"/>
+        <location file="gateway/gateway.hpp" line="56" column="9" bodyfile="gateway/gateway.cpp" bodystart="46" bodyend="89"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga59936ddb45db401976fd3d404b92caa7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2998,7 +3030,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="gateway/gateway.hpp" line="57" column="9" bodyfile="gateway/gateway.cpp" bodystart="106" bodyend="171"/>
+        <location file="gateway/gateway.hpp" line="57" column="9" bodyfile="gateway/gateway.cpp" bodystart="107" bodyend="174"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga8776a33709be83c15957bc8e366db71d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -3051,7 +3083,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="gateway/gateway.hpp" line="58" column="9" bodyfile="gateway/gateway.cpp" bodystart="188" bodyend="207"/>
+        <location file="gateway/gateway.hpp" line="58" column="9" bodyfile="gateway/gateway.cpp" bodystart="191" bodyend="210"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -3136,7 +3168,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="gateway/gateway.hpp" line="62" column="9" bodyfile="gateway/gateway.cpp" bodystart="228" bodyend="276"/>
+        <location file="gateway/gateway.hpp" line="62" column="9" bodyfile="gateway/gateway.cpp" bodystart="231" bodyend="279"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga2551c736852a98d33f2fcc9f569fe836" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -3188,7 +3220,7 @@ cleos push action gateway wthdcomplete &apos;[&quot;12345&quot;, &quot;Успе�
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="gateway/gateway.hpp" line="63" column="9" bodyfile="gateway/gateway.cpp" bodystart="320" bodyend="359"/>
+        <location file="gateway/gateway.hpp" line="63" column="9" bodyfile="gateway/gateway.cpp" bodystart="323" bodyend="362"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gac0eb7373a774cec08f2017a74522b2b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -3240,7 +3272,7 @@ cleos push action gateway wthdfail &apos;[&quot;12345&quot;, &quot;Отмена 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="gateway/gateway.hpp" line="64" column="9" bodyfile="gateway/gateway.cpp" bodystart="375" bodyend="398"/>
+        <location file="gateway/gateway.hpp" line="64" column="9" bodyfile="gateway/gateway.cpp" bodystart="378" bodyend="401"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

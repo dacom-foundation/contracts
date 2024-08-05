@@ -19,7 +19,6 @@
 #include "../common/programs.hpp"
 #include "../common/funds.hpp"
 
-
 /**
  *  \ingroup public_contracts
  *
@@ -40,7 +39,8 @@ public:
   using contract::contract;
 
   [[eosio::action]] void init();
-
+  [[eosio::action]] void fix();
+  
   //soviet.cpp
   [[eosio::action]] void exec(eosio::name executer, eosio::name coopname, uint64_t decision_id);
 
@@ -115,9 +115,15 @@ public:
 
 
   //addresses.cpp
-  [[eosio::action]] void creaddress(eosio::name coopname, eosio::name chairman, eosio::name departname, address_data data, std::string meta);
-  [[eosio::action]] void deladdress(eosio::name coopname, eosio::name chairman, uint64_t address_id); 
-  [[eosio::action]] void editaddress(eosio::name coopname, eosio::name chairman, uint64_t address_id, eosio::name departname, address_data data, std::string meta);
+  [[eosio::action]] void creaddress(eosio::name coopname, eosio::name chairman, eosio::name braname, address_data data);
+  [[eosio::action]] void deladdress(eosio::name coopname, eosio::name chairman, uint64_t address_id);
+  [[eosio::action]] void editaddress(eosio::name coopname, eosio::name chairman, eosio::name braname, uint64_t address_id, address_data data);
+
+
+  //branches.cpp
+  [[eosio::action]] void createbranch(eosio::name coopname, eosio::name chairman, eosio::name braname, std::string name, std::string description, eosio::name authorizer, std::vector<eosio::name> trusted);
+  [[eosio::action]] void editbranch(eosio::name coopname, eosio::name chairman, eosio::name braname, std::string name, std::string description, eosio::name authorizer, std::vector<eosio::name> trusted);
+  [[eosio::action]] void deletebranch(eosio::name coopname, eosio::name chairman, eosio::name braname);
 
   //fund.cpp
   void subaccum_effect(eosio::name executer, eosio::name coopname, uint64_t decision_id, uint64_t secondary_id);

@@ -9,5 +9,6 @@ var searchData=
   ['block_5finfo_5frecord_6',['block_info_record',['../structeosiosystem_1_1block__info_1_1block__info__record.html',1,'eosiosystem::block_info']]],
   ['board_5fmember_7',['board_member',['../structboard__member.html',1,'']]],
   ['boards_8',['boards',['../structboards.html',1,'']]],
-  ['boot_9',['boot',['../classeosioboot_1_1boot.html',1,'eosioboot']]]
+  ['boot_9',['boot',['../classeosioboot_1_1boot.html',1,'eosioboot']]],
+  ['branch_10',['branch',['../structbranch.html',1,'']]]
 ];

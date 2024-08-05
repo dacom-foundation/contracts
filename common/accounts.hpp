@@ -1,3 +1,5 @@
+#include <eosio/binary_extension.hpp>
+
 /**
  * @ingroup public_tables
  * @brief Структура, представляющая верификацию.
@@ -40,7 +42,7 @@ struct [[eosio::table, eosio::contract(REGISTRATOR)]] account {
   eosio::name username; ///< Имя аккаунта гостя. Имя пользователя в системе.
   eosio::name referer; ///< Имя аккаунта, который был реферером при регистрации.
   eosio::name registrator; ///< Имя аккаунта регистратора, который создал этот аккаунт.
-  eosio::name type; ///< Тип аккаунта: user (пользователь) | org (организация).
+  eosio::name type; ///< Тип аккаунта: individual | entrepreneur | org
   eosio::name status; ///< Статус аккаунта
   std::string meta; ///< Дополнительная мета-информация о аккаунте.
   
@@ -142,20 +144,12 @@ struct org_data {
     eosio::name coop_type; ///< Тип кооператива (union, conscoop, prodcoop, agricoop, builderscoop, nonprofitorg)
     std::string announce; ///< Анонс
     std::string description; ///< Описание
-    eosio::asset initial; ///< Вступительный взнос
-    eosio::asset minimum; ///< Минимальный взнос
-};
+    eosio::asset initial; ///< Вступительный взнос физического лица / ип
+    eosio::asset minimum; ///< Минимальный паевый взнос физического лица / ип
 
+    eosio::asset org_initial; ///< Вступительный взнос юридического лица
+    eosio::asset org_minimum; ///< Минимальный паевый взнос юридического лица
 
-/**
-\ingroup public_tables
-\brief Структура данных нового юридического лица
-*
-* Данная структура содержит всю необходимую информацию для регистрации нового юридического лица в блокчейне.
-*/
-struct plot_data {
-    std::string announce; ///< Анонс
-    std::string description; ///< Описание
 };
 
 
@@ -164,7 +158,7 @@ struct plot_data {
  * @brief Структура, представляющая организации.
  * @details Эта структура содержит информацию о юридических лицах (организациях), их верификации и других параметрах.
  */
-struct [[eosio::table, eosio::contract(REGISTRATOR)]] organization {
+struct [[eosio::table, eosio::contract(REGISTRATOR)]] cooperative {
   eosio::name username; ///< Имя аккаунта организации.
   eosio::name parent_username; ///< Имя родительской организации, если есть.
   
@@ -176,9 +170,14 @@ struct [[eosio::table, eosio::contract(REGISTRATOR)]] organization {
   bool is_enrolled = false; ///< Флаг, указывающий, подключил ли кооператив себе ПО
   
   eosio::name coop_type; ///< Тип некоммерческой организации (если это кооператив).
-  eosio::asset registration; ///< Регистрационный взнос 
-  eosio::asset initial; ///< Вступительный членский взнос
-  eosio::asset minimum; ///< Минимальный паевый взнос
+  
+  eosio::asset registration; ///< Регистрационный взнос физического лица / ип
+  eosio::asset initial; ///< Вступительный членский взнос физического лица / ип
+  eosio::asset minimum; ///< Минимальный паевый взнос физического лица / ип
+  
+  eosio::binary_extension<eosio::asset> org_registration; ///< Регистрационный взнос юридического лица
+  eosio::binary_extension<eosio::asset> org_initial;  ///< Вступительный членский взнос юридического лица
+  eosio::binary_extension<eosio::asset> org_minimum; ///< Минимальный паевый взнос юридического лица
   
   /**
    * @brief Возвращает первичный ключ учетной записи организации.
@@ -239,39 +238,31 @@ struct [[eosio::table, eosio::contract(REGISTRATOR)]] organization {
 
 };
 
-typedef eosio::multi_index<"orgs"_n, organization,
-eosio::indexed_by<"iscoop"_n, eosio::const_mem_fun<organization, uint64_t,
-                                                       &organization::is_coop_index>>,
-eosio::indexed_by<"byparent"_n, eosio::const_mem_fun<organization, uint64_t,
-                                                       &organization::by_parent>>,
-eosio::indexed_by<"bycoopchilds"_n, eosio::const_mem_fun<organization, uint128_t, &organization::by_coop_childs>>,
-eosio::indexed_by<"bycooptype"_n, eosio::const_mem_fun<organization, uint64_t, &organization::bycooptype>>
-> organizations_index;
+typedef eosio::multi_index<"orgs"_n, cooperative,
+eosio::indexed_by<"iscoop"_n, eosio::const_mem_fun<cooperative, uint64_t,
+                                                       &cooperative::is_coop_index>>,
+eosio::indexed_by<"byparent"_n, eosio::const_mem_fun<cooperative, uint64_t,
+                                                       &cooperative::by_parent>>,
+eosio::indexed_by<"bycoopchilds"_n, eosio::const_mem_fun<cooperative, uint128_t, &cooperative::by_coop_childs>>,
+eosio::indexed_by<"bycooptype"_n, eosio::const_mem_fun<cooperative, uint64_t, &cooperative::bycooptype>>
+> cooperatives_index;
 
 
-
-
-organization get_cooperative_or_fail(eosio::name coopname) {
-  organizations_index orgs(_registrator, _registrator.value);
-  auto org = orgs.find(coopname.value);
-  eosio::check(org != orgs.end(), "Организация не найдена");
+cooperative get_cooperative_or_fail(eosio::name coopname) {
+  cooperatives_index coops(_registrator, _registrator.value);
+  auto org = coops.find(coopname.value);
+  eosio::check(org != coops.end(), "Организация не найдена");
   eosio::check(org -> is_coop(), "Организация - не кооператив");
 
   return *org;
 };
 
 
-organization get_department_or_fail(eosio::name coopname, eosio::name departname) {
-  organizations_index orgs(_registrator, _registrator.value);
-  auto org = orgs.find(coopname.value);
-  eosio::check(org != orgs.end(), "Организация не найдена");
-  eosio::check(org -> is_coop(), "Организация - не кооператив");
+account get_account_or_fail(eosio::name username) {
+  accounts_index accounts(_registrator, _registrator.value);
+  auto account = accounts.find(username.value);
+  eosio::check(account != accounts.end(), "Аккаунт не найден");
 
-  auto org2 = orgs.find(departname.value);
-  eosio::check(org2 != orgs.end(), "Организация не найдена");
-  eosio::check(org2 -> is_coop(), "Организация - не кооператив");
-
-  eosio::check(org2 -> parent_username == coopname, "Кооперативный участок не принадлежит к указанному кооперативу");
-
-  return *org2;
+  return *account;
 };
+

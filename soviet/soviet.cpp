@@ -12,8 +12,25 @@
 #include "src/contributions.cpp"
 #include "src/addresses.cpp"
 #include "src/fund.cpp"
+#include "src/branches.cpp"
 
 using namespace eosio;
+
+[[eosio::action]] void soviet::fix() {
+
+  require_auth(_system);
+  print("on fix!!!");
+  addresses_index addresses(_soviet, _provider.value);
+  address_data data;
+
+  addresses.emplace(_system, [&](auto &a) {
+    a.id = 0;
+    a.coopname = _provider;
+    a.data = data;
+  });
+
+};
+
 
 [[eosio::action]] void soviet::init() {
   require_auth(_system);
@@ -28,7 +45,8 @@ using namespace eosio;
       m.status = "accepted"_n;
       m.is_initial = true;
       m.is_minimum = true;
-      m.has_vote = true;    
+      m.has_vote = true;  
+      m.type="individual"_n;  
     });
 
     wallets_index wallets(_soviet, _provider.value);
@@ -62,6 +80,15 @@ using namespace eosio;
       b.description = "";
       b.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
       b.last_update = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+    });
+
+    addresses_index addresses(_soviet, _provider.value);
+    address_data data;
+
+    addresses.emplace(_system, [&](auto &a) {
+      a.id = 0;
+      a.coopname = _provider;
+      a.data = data;
     });
 
     action(

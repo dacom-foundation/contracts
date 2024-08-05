@@ -180,9 +180,7 @@ using namespace eosio;
       "newfund"_n,
       std::make_tuple(coopname, type, id)
     ).send();
-    
-    
-
+  
   };
 
 
@@ -206,7 +204,7 @@ using namespace eosio;
       auto afund = accfunds.find(fund_id);
       eosio::check(afund != accfunds.end(), "Фонд не найден");
 
-      eosio::check(percent > 0 && percent <= HUNDR_PERCENTS, "Процент фонда накопления должен быть больше нуля и меньше 1 000 000 (= 100%)");
+      eosio::check(percent > 0 && percent <= HUNDR_PERCENTS, "Процент фонда накопления должен быть больше нуля и меньше 100%");
       uint64_t total_percent = 0;
 
       //получаем сумму процентов всех фондов
@@ -218,7 +216,7 @@ using namespace eosio;
       total_percent += percent - afund -> percent;
 
       //сумма процентов не должна превышать 100%
-      check(total_percent <= HUNDR_PERCENTS, "Сумма всех процентов превышает 100% (1 000 000)");
+      check(total_percent <= HUNDR_PERCENTS, "Сумма всех процентов превышает 100%");
 
       accfunds.modify(afund, username, [&](auto &a){
         a.contract = contract;
@@ -242,10 +240,6 @@ using namespace eosio;
       });
 
     };
-
-
-
-
   };
 
   [[eosio::action]] void fund::delfund(eosio::name coopname, eosio::name username, eosio::name type, uint64_t fund_id){

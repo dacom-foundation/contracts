@@ -156,7 +156,7 @@ typedef eosio::multi_index<"staff"_n, staff> staff_index; ///< Тип мульт
  * @details Эта структура содержит информацию о членах кооператива, включая их уникальные имена, дату создания, дату последнего обновления,
  * дату последнего минимального платежа, должность, позицию, флаги их статуса и участия.
  */
-struct [[eosio::table, eosio::contract(SOVIET)]] participants {
+struct [[eosio::table, eosio::contract(SOVIET)]] participant {
   eosio::name username; ///< Уникальное имя члена кооператива.
   eosio::time_point_sec created_at; ///< Время создания записи о члене.
   eosio::time_point_sec last_update; ///< Время последнего обновления информации о члене.
@@ -167,6 +167,8 @@ struct [[eosio::table, eosio::contract(SOVIET)]] participants {
   bool is_initial; ///< Флаг, указывающий, внесен ли регистрационный взнос.
   bool is_minimum; ///< Флаг, указывающий, внесен ли минимальный паевый взнос.
   bool has_vote; ///< Флаг, указывающий, имеет ли член право голоса.
+  
+  eosio::binary_extension<eosio::name> type; ///< individual | entrepreneur | organization
 
   /**
    * @brief Возвращает первичный ключ учетной записи члена кооператива.
@@ -198,11 +200,19 @@ struct [[eosio::table, eosio::contract(SOVIET)]] participants {
 
 };
 
-typedef eosio::multi_index< "participants"_n, participants,
-  eosio::indexed_by<"bylastpay"_n, eosio::const_mem_fun<participants, uint64_t, &participants::bylastpay>>,
-  eosio::indexed_by<"createdat"_n, eosio::const_mem_fun<participants, uint64_t, &participants::by_created_at>>
+typedef eosio::multi_index< "participants"_n, participant,
+  eosio::indexed_by<"bylastpay"_n, eosio::const_mem_fun<participant, uint64_t, &participant::bylastpay>>,
+  eosio::indexed_by<"createdat"_n, eosio::const_mem_fun<participant, uint64_t, &participant::by_created_at>>
 > participants_index;
 
+
+participant get_participant_or_fail(eosio::name coopname, eosio::name username){
+  participants_index participants(_soviet, coopname.value);
+  auto participant = participants.find(username.value);
+  eosio::check(participant != participants.end(), "Пайщик не найден в кооперативе");
+
+  return *participant;
+}
 
 /**
  * @ingroup public_tables
@@ -325,8 +335,8 @@ bool check_for_exist_board_by_type(eosio::name coopname, eosio::name type){
   else return false;
 }
 
-
-struct address_data { 
+struct address_data {
+  std::string full_address;
   std::string latitude;
   std::string longitude;
   std::string country;
@@ -339,8 +349,11 @@ struct address_data {
   std::string unit_number;
   std::string directions; //как добраться
   std::string phone_number;
+  std::string email;
   std::string business_hours;  
+  std::string meta;
 };
+
 
 /**
  * @ingroup public_tables
@@ -350,17 +363,15 @@ struct address_data {
 struct [[eosio::table, eosio::contract(SOVIET)]] address {
   uint64_t id;
   eosio::name coopname;
-  eosio::name departname; //юзернейм организации кооперативного участка, если есть
+  eosio::name braname;
   address_data data;
-  std::string meta;
+  
   uint64_t primary_key() const { return id; }
-  uint64_t bydepartment() const { return departname.value; }
 };
 
 
-typedef eosio::multi_index< "addresses"_n, address,
-  eosio::indexed_by<"bydepartment"_n, eosio::const_mem_fun<address, uint64_t, &address::bydepartment>>
-> addresses_index;
+typedef eosio::multi_index< "addresses"_n, address> addresses_index;
+
 
 
 bool is_participant_exist(eosio::name coopname, eosio::name username) {
@@ -374,3 +385,52 @@ bool is_participant_exist(eosio::name coopname, eosio::name username) {
   
   return false;
 }
+
+
+struct [[eosio::table, eosio::contract("SOVIET")]] branch {
+  eosio::name username;
+  std::string name;
+  std::string description;
+
+  eosio::name authorizer;
+  std::vector<eosio::name> trusted;
+  
+
+  uint64_t primary_key() const { return username.value; }
+  uint64_t by_authorizer() const { return authorizer.value; }
+  
+  void add_account_to_trusted(const eosio::name& account) {
+    trusted.push_back(account);
+  }
+
+  void remove_account_from_trusted(const eosio::name& account) {
+    auto itr = std::remove(trusted.begin(), trusted.end(), account);
+    check(itr != trusted.end(), "Account not found in trusted list");
+    trusted.erase(itr, trusted.end());
+  }
+
+  bool is_account_in_trusted(const eosio::name& account) const {
+    return std::find(trusted.begin(), trusted.end(), account) != trusted.end();
+  }
+};
+
+typedef eosio::multi_index<"branches"_n, branch,
+  eosio::indexed_by<"byauthorizer"_n, eosio::const_mem_fun<branch, uint64_t, &branch::by_authorizer>>
+> branch_index;
+
+
+branch get_branch_or_fail(eosio::name coopname, eosio::name braname) {
+  branch_index branches(_soviet, coopname.value);
+  auto branch = branches.find(braname.value);
+
+  eosio::check(branch != branches.end(), "Кооперативный Участок не найден");
+  
+  return *branch;
+};
+
+
+
+
+
+
+

@@ -43,8 +43,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "accounts_8hpp.html",
-"group__public__actions.html#ga2551c736852a98d33f2fcc9f569fe836",
-"structonewithdraw.html#a3d3a4a9a789ea7b8300775dc3cfffe95"
+"globals_vars.html",
+"structexchange__params.html#a4984c8df3dba7213b1cd36e9c3886f8b"
 ];
 
 var SYNCONMSG = 'нажмите на выключить для синхронизации панелей';

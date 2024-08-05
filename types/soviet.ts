@@ -24,12 +24,12 @@ export interface IAddprogbal {
 export interface IAddress {
   id: IUint64
   coopname: IName
-  departname: IName
+  braname: IName
   data: IAddressData
-  meta: string
 }
 
 export interface IAddressData {
+  full_address: string
   latitude: string
   longitude: string
   country: string
@@ -42,7 +42,9 @@ export interface IAddressData {
   unit_number: string
   directions: string
   phone_number: string
+  email: string
   business_hours: string
+  meta: string
 }
 
 export interface IAddstaff {
@@ -140,9 +142,8 @@ export interface ICountsBase {
 export interface ICreaddress {
   coopname: IName
   chairman: IName
-  departname: IName
+  braname: IName
   data: IAddressData
-  meta: string
 }
 
 export interface ICreateboard {
@@ -152,6 +153,16 @@ export interface ICreateboard {
   members: IBoardMember[]
   name: string
   description: string
+}
+
+export interface ICreatebranch {
+  coopname: IName
+  chairman: IName
+  braname: IName
+  name: string
+  description: string
+  authorizer: IName
+  trusted: IName[]
 }
 
 export interface ICreateprog {
@@ -190,6 +201,12 @@ export interface IDeladdress {
   address_id: IUint64
 }
 
+export interface IDeletebranch {
+  coopname: IName
+  chairman: IName
+  braname: IName
+}
+
 export interface IDisableprog {
   coopname: IName
   id: IUint64
@@ -212,10 +229,19 @@ export interface IDocument {
 export interface IEditaddress {
   coopname: IName
   chairman: IName
+  braname: IName
   address_id: IUint64
-  departname: IName
   data: IAddressData
-  meta: string
+}
+
+export interface IEditbranch {
+  coopname: IName
+  chairman: IName
+  braname: IName
+  name: string
+  description: string
+  authorizer: IName
+  trusted: IName[]
 }
 
 export interface IEditprog {
@@ -232,6 +258,9 @@ export interface IExec {
   executer: IName
   coopname: IName
   decision_id: IUint64
+}
+
+export interface IFix {
 }
 
 export interface IFundwithdraw {
@@ -255,7 +284,6 @@ export interface IJoincoops {
   id: IUint64
   username: IName
   is_paid: boolean
-  statement: IDocument
   notice: string
 }
 
@@ -319,6 +347,7 @@ export interface IParticipants {
   is_initial: boolean
   is_minimum: boolean
   has_vote: boolean
+  type: IName$
 }
 
 export interface IProgcomarket {

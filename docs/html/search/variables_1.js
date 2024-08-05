@@ -10,10 +10,11 @@ var searchData=
   ['active_5fpermission_7',['active_permission',['../classeosiosystem_1_1system__contract.html#adfc25b00a14e482c7fb1161dd38096bd',1,'eosiosystem::system_contract']]],
   ['allow_5fperms_8',['allow_perms',['../structeosiosystem_1_1limit__auth__change.html#a9535c07d3294a3a65a69adb9ff8f6301',1,'eosiosystem::limit_auth_change']]],
   ['amount_9',['amount',['../structeosiosystem_1_1bid__refund.html#aec14d41b70f2332af3e94d84f480077f',1,'eosiosystem::bid_refund']]],
-  ['announce_10',['announce',['../structorg__data.html#af31eb176481e60108b902def456ff225',1,'org_data::announce()'],['../structplot__data.html#a5fb18fab386662439ed945d5a2ef73bb',1,'plot_data::announce()'],['../structorganization.html#a0e1eb4516b3796ff040fb665a8d6f01c',1,'organization::announce()'],['../structprogcomarket.html#ae62aa2f18cc0ce05663bdc7d40bbead5',1,'progcomarket::announce()']]],
+  ['announce_10',['announce',['../structorg__data.html#af31eb176481e60108b902def456ff225',1,'org_data::announce()'],['../structcooperative.html#a6fcf1c32b85b25d98dc49c1f8efebd5f',1,'cooperative::announce()'],['../structprogcomarket.html#ae62aa2f18cc0ce05663bdc7d40bbead5',1,'progcomarket::announce()']]],
   ['approved_11',['approved',['../structdecision.html#a176e851e5b953c0e9b9c39cc0b39f871',1,'decision']]],
   ['authorization_12',['authorization',['../structdecision.html#a6f4192f7f409f46d36cd0e649f21d97b',1,'decision']]],
   ['authorized_13',['authorized',['../structdecision.html#a98b195cb10f2bda166de4f2e62537b4a',1,'decision']]],
   ['authorized_5fby_14',['authorized_by',['../structdecision.html#ae2660e98aa74206d24703002be0b51c0',1,'decision']]],
-  ['available_15',['available',['../structonewallet.html#aa659b93abb2fa5ebbf504275bf22c20c',1,'onewallet::available()'],['../structprogwallet.html#a2af4089401221ea41833056eac18f538',1,'progwallet::available()'],['../structfundwallet.html#aa706c9090b7457a98ad757e007b47418',1,'fundwallet::available()'],['../structaccfund.html#ae566206b604a1307539d3c8fdf2beebd',1,'accfund::available()']]]
+  ['authorizer_15',['authorizer',['../structbranch.html#a58cd189a529c380c356183f1adcce3f7',1,'branch']]],
+  ['available_16',['available',['../structonewallet.html#aa659b93abb2fa5ebbf504275bf22c20c',1,'onewallet::available()'],['../structprogwallet.html#a2af4089401221ea41833056eac18f538',1,'progwallet::available()'],['../structfundwallet.html#aa706c9090b7457a98ad757e007b47418',1,'fundwallet::available()'],['../structaccfund.html#ae566206b604a1307539d3c8fdf2beebd',1,'accfund::available()']]]
 ];

@@ -12,12 +12,14 @@
       <node id="13">
         <label>../../../../common/accounts.hpp</label>
         <link refid="accounts_8hpp"/>
+        <childnode refid="14" relation="include">
+        </childnode>
       </node>
       <node id="6">
         <label>../../../../common/consts.hpp</label>
         <link refid="consts_8hpp"/>
       </node>
-      <node id="14">
+      <node id="15">
         <label>../../../../common/coops.hpp</label>
         <link refid="coops_8hpp"/>
       </node>
@@ -66,11 +68,14 @@
         </childnode>
         <childnode refid="13" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
+        <childnode refid="15" relation="include">
         </childnode>
       </node>
       <node id="3">
         <label>eosio/asset.hpp</label>
+      </node>
+      <node id="14">
+        <label>eosio/binary_extension.hpp</label>
       </node>
       <node id="11">
         <label>eosio/contract.hpp</label>
@@ -130,8 +135,8 @@
 <codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>from_exist_in_provider<sp/>=<sp/><ref refid="coops_8hpp_1aa23eebab5f5b5b8ba3881ca62ce600d0" kindref="member">is_participant_exist</ref>(<ref refid="group__public__consts_1ga1ff8113eaea18bd553df59b9ad7df01a" kindref="member">_provider</ref>,<sp/>from);</highlight></codeline>
 <codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>to_exist_in_provider<sp/>=<sp/><ref refid="coops_8hpp_1aa23eebab5f5b5b8ba3881ca62ce600d0" kindref="member">is_participant_exist</ref>(<ref refid="group__public__consts_1ga1ff8113eaea18bd553df59b9ad7df01a" kindref="member">_provider</ref>,<sp/>to);</highlight></codeline>
 <codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!to_exist_in_provider<sp/>&amp;&amp;<sp/>std::find(<ref refid="group__public__consts_1gaf042516f92d25052ae67d9224b34bea6" kindref="member">token_whitelist</ref>.begin(),<sp/><ref refid="group__public__consts_1gaf042516f92d25052ae67d9224b34bea6" kindref="member">token_whitelist</ref>.end(),<sp/>from)<sp/>==<sp/><ref refid="group__public__consts_1gaf042516f92d25052ae67d9224b34bea6" kindref="member">token_whitelist</ref>.end())<sp/>{</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>check(</highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Отправитель<sp/>не<sp/>является<sp/>членом<sp/>кооператива-провайдера&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!from_exist_in_provider<sp/>&amp;&amp;<sp/>std::find(<ref refid="group__public__consts_1gaf042516f92d25052ae67d9224b34bea6" kindref="member">token_whitelist</ref>.begin(),<sp/><ref refid="group__public__consts_1gaf042516f92d25052ae67d9224b34bea6" kindref="member">token_whitelist</ref>.end(),<sp/>from)<sp/>==<sp/><ref refid="group__public__consts_1gaf042516f92d25052ae67d9224b34bea6" kindref="member">token_whitelist</ref>.end())<sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>check(</highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Отправитель<sp/>не<sp/>является<sp/>членом<sp/>кооператива-провайдера&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="36"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
 <codeline lineno="37"><highlight class="normal"></highlight></codeline>
 <codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!to_exist_in_provider<sp/>&amp;&amp;<sp/>std::find(<ref refid="group__public__consts_1gaf042516f92d25052ae67d9224b34bea6" kindref="member">token_whitelist</ref>.begin(),<sp/><ref refid="group__public__consts_1gaf042516f92d25052ae67d9224b34bea6" kindref="member">token_whitelist</ref>.end(),<sp/>to)<sp/>==<sp/><ref refid="group__public__consts_1gaf042516f92d25052ae67d9224b34bea6" kindref="member">token_whitelist</ref>.end())<sp/>{</highlight></codeline>

@@ -91,6 +91,10 @@ void soviet::joincoop_effect(eosio::name executer, eosio::name coopname, uint64_
   participants_index participants(_soviet, coopname.value);
   auto cooperative = get_cooperative_or_fail(coopname);
 
+  accounts_index accounts(_registrator, _registrator.value);
+  auto account = accounts.find(joincoop_action -> username.value);
+  eosio::check(account != accounts.end(), "Аккаунт не найден");
+  
   participants.emplace(_soviet, [&](auto &m){
     m.username = joincoop_action -> username;
     m.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
@@ -100,7 +104,7 @@ void soviet::joincoop_effect(eosio::name executer, eosio::name coopname, uint64_
     m.is_initial = true;
     m.is_minimum = true;
     m.has_vote = true;    
-    
+    m.type = account -> type;
   });
 
   wallets_index wallets(_soviet, coopname.value);

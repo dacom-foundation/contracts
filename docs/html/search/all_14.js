@@ -29,6 +29,7 @@ var searchData=
   ['transfer_5faction_26',['transfer_action',['../classeosio_1_1token.html#a48e0c826f1e416bf99439b0b7e637a29',1,'eosio::token']]],
   ['translation_27',['translation',['../structtranslation.html',1,'']]],
   ['translations_5findex_28',['translations_index',['../drafts_8hpp.html#ab33f9403422d20c5528e4da3ddfbe417',1,'drafts.hpp']]],
-  ['trx_5fis_5fauthorized_29',['trx_is_authorized',['../namespaceeosio.html#af902933339a070f5af0f38e4c4af7f07',1,'eosio']]],
-  ['type_30',['type',['../structaccount.html#a2e46c559f699df03e1820bf710e778fd',1,'account::type()'],['../structonedeposit.html#a17c93f62db5cb099f7376e393ba8297b',1,'onedeposit::type()'],['../structrequest.html#a732305a1ef95919adae39460b33646db',1,'request::type()'],['../structboards.html#a277bb2ea397a8b6076584f07f2c4432f',1,'boards::type()'],['../structdecision.html#a201b377cbc190ff0b22f271f17b502de',1,'decision::type()'],['../structfwithdraw.html#ac6fdc1eb3848db2f330f6c0c9cadb27f',1,'fwithdraw::type()']]]
+  ['trusted_29',['trusted',['../structbranch.html#a503f6a8dc1e1a9f38be4f329e6d1dee4',1,'branch']]],
+  ['trx_5fis_5fauthorized_30',['trx_is_authorized',['../namespaceeosio.html#af902933339a070f5af0f38e4c4af7f07',1,'eosio']]],
+  ['type_31',['type',['../structaccount.html#a2e46c559f699df03e1820bf710e778fd',1,'account::type()'],['../structonedeposit.html#a17c93f62db5cb099f7376e393ba8297b',1,'onedeposit::type()'],['../structrequest.html#a732305a1ef95919adae39460b33646db',1,'request::type()'],['../structboards.html#a277bb2ea397a8b6076584f07f2c4432f',1,'boards::type()'],['../structparticipants.html#a6ff4bb88ba64ac27e29914aac9c915ef',1,'participants::type()'],['../structdecision.html#a201b377cbc190ff0b22f271f17b502de',1,'decision::type()'],['../structfwithdraw.html#ac6fdc1eb3848db2f330f6c0c9cadb27f',1,'fwithdraw::type()']]]
 ];

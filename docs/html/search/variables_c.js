@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['name_0',['name',['../structboards.html#ad9a12ccbc9bdbabfe1dbd5f7cffdb06f',1,'boards::name()'],['../structaccfund.html#a0f3f14cbb379224c56ca44b7c7a7cfbb',1,'accfund::name()'],['../structexpfund.html#a624ee2b084e8ad9f7eea86d31d53c37f',1,'expfund::name()']]],
+  ['name_0',['name',['../structboards.html#ad9a12ccbc9bdbabfe1dbd5f7cffdb06f',1,'boards::name()'],['../structbranch.html#ac66d4c7c435a8dd1272a133ff3f5bc21',1,'branch::name()'],['../structaccfund.html#a0f3f14cbb379224c56ca44b7c7a7cfbb',1,'accfund::name()'],['../structexpfund.html#a624ee2b084e8ad9f7eea86d31d53c37f',1,'expfund::name()']]],
   ['names_5faccount_1',['names_account',['../classeosiosystem_1_1system__contract.html#a03e79dcf0584dd7fd1dbb1aa072befb1',1,'eosiosystem::system_contract']]],
   ['net_2',['net',['../structeosiosystem_1_1powerup__state.html#a50378b359db22153b5767eebf3d5e91e',1,'eosiosystem::powerup_state']]],
   ['net_5famount_3',['net_amount',['../structeosiosystem_1_1refund__request.html#a5f314641a1ad02216a89275dd38c8b8b',1,'eosiosystem::refund_request']]],

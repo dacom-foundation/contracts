@@ -7,11 +7,11 @@ declare -A contract_params_test=(
   # [wrap]="eosio.wrap"
 #  [token]="eosio.token"
   #[ano]="anotest22222"
-#  [gateway]="gateway"
-#  [draft]="draft"
+  [gateway]="gateway"
+  [draft]="draft"
 #  [marketplace]="marketplace"
   [soviet]="soviet"
-#  [registrator]="registrator"
+  [registrator]="registrator"
 #  [fund]="fund"
 )
 
@@ -26,4 +26,4 @@ for contract in "${(@k)contract_params_test}"; do
   cleos get abi "$abi_contract" | eosio-abi2ts -e "types/${contract}.ts"  -p I -n 2 
 done
 
-cp -r types/* ../cooptypes/src/interfaces
+#cp -r types/* ../cooptypes/src/interfaces

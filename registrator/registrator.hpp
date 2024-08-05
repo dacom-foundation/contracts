@@ -41,17 +41,24 @@ public:
       : eosio::contract(receiver, code, ds) {}
 
   [[eosio::action]] void init();
-  [[eosio::action]] void update(eosio::name username, std::string meta);
+  [[eosio::action]] void fix();
+  [[eosio::action]] void login(std::string email);
+  
+
+  [[eosio::action]] void updateaccnt(eosio::name username, eosio::name account_to_change, std::string meta);
+  [[eosio::action]] void updatecoop(eosio::name coopname, eosio::name username, eosio::asset initial, eosio::asset minimum, eosio::asset org_initial, eosio::asset org_minimum, std::string announce, std::string description);
+
   [[eosio::action]] void confirmreg(eosio::name coopname, eosio::name username);
 
   [[eosio::action]] void reguser(
       eosio::name registrator,
       eosio::name coopname,
-      eosio::name username);
+      eosio::name username,
+      eosio::name type
+      );
 
-  [[eosio::action]] void regorg(eosio::name registrator, eosio::name coopname, eosio::name username, org_data params);
-  [[eosio::action]] void regdepartmnt(eosio::name registrator, eosio::name coopname, eosio::name username, plot_data params);
-
+  [[eosio::action]] void regcoop(eosio::name registrator, eosio::name coopname, eosio::name username, org_data params);
+  
   [[eosio::action]] void joincoop(eosio::name registrator, eosio::name coopname, eosio::name username, document document);
 
   [[eosio::action]] void verificate(eosio::name username, eosio::name procedure);
@@ -60,10 +67,9 @@ public:
       eosio::name registrator, eosio::name coopname, eosio::name referer,
       eosio::name username, eosio::public_key public_key, std::string meta);
 
-  [[eosio::action]] void changekey(eosio::name username,
-                                   eosio::public_key public_key);
+  [[eosio::action]] void changekey(eosio::name coopname, eosio::name changer, eosio::name username, eosio::public_key public_key);
 
-  [[eosio::action]] void check(checksum256 hash, public_key public_key, signature signature);
+  // [[eosio::action]] void check(checksum256 hash, public_key public_key, signature signature);
 
   struct [[eosio::table, eosio::contract(REGISTRATOR)]] balances : balances_base
   {

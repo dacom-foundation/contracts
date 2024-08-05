@@ -34,31 +34,32 @@ var group__public__tables =
       [ "description", "structorg__data.html#a53f757c92b8548c72cb7edc7bb97663a", null ],
       [ "initial", "structorg__data.html#a46f196bb722c9e9218cb972193a676ff", null ],
       [ "is_cooperative", "structorg__data.html#a73a9e2d8573545f8852ff0dda1c860e5", null ],
-      [ "minimum", "structorg__data.html#a0e181c3124d29937b16b0bef4b2bdafa", null ]
+      [ "minimum", "structorg__data.html#a0e181c3124d29937b16b0bef4b2bdafa", null ],
+      [ "org_initial", "structorg__data.html#a347a2dbd1b13763c210e15d81ab2764f", null ],
+      [ "org_minimum", "structorg__data.html#af68fc1fe5696c2872122d978c9933793", null ]
     ] ],
-    [ "plot_data", "structplot__data.html", [
-      [ "announce", "structplot__data.html#a5fb18fab386662439ed945d5a2ef73bb", null ],
-      [ "description", "structplot__data.html#abd7a5526c0912ce5e7be26ec188a2b0d", null ]
-    ] ],
-    [ "organization", "structorganization.html", [
-      [ "by_coop_childs", "structorganization.html#a4a0a54678fa448aa54e46f3044dd95fd", null ],
-      [ "by_parent", "structorganization.html#ac24d6f0861d5583bd0c4bf012117d52e", null ],
-      [ "bycooptype", "structorganization.html#a156c6db13e3dc08edd94c90c298c2b24", null ],
-      [ "check_symbol_or_fail", "structorganization.html#a4b020add509c65e06296205396dd3726", null ],
-      [ "is_coop", "structorganization.html#adce5e818b68af3bfe2af110222649679", null ],
-      [ "is_coop_index", "structorganization.html#af804cb0fad1884c38bf95ea23423e8a5", null ],
-      [ "primary_key", "structorganization.html#a2622b36f7bb50ac106c5c10f62818720", null ],
-      [ "announce", "structorganization.html#a0e1eb4516b3796ff040fb665a8d6f01c", null ],
-      [ "coop_type", "structorganization.html#a13f6d92dbc8a8ce1f7a85a7eee6af92c", null ],
-      [ "description", "structorganization.html#a5ebada8f61f07290c0b98601a270d934", null ],
-      [ "initial", "structorganization.html#a64af4e3da71dfad7ec38e3457a716b95", null ],
-      [ "is_branched", "structorganization.html#af5c05911588847c430a56389d12e5ce3", null ],
-      [ "is_cooperative", "structorganization.html#a55e8a7cd344e8b216bf959428a2a15d3", null ],
-      [ "is_enrolled", "structorganization.html#aba08abfe3dab64cb2120c944e8f43693", null ],
-      [ "minimum", "structorganization.html#af5a96078078f2fbe3cc2184822602bbd", null ],
-      [ "parent_username", "structorganization.html#a6eab8b6ffb9641c78b01b24f2b6768e4", null ],
-      [ "registration", "structorganization.html#a0eccb57daedef69a0267bafc69c3ce84", null ],
-      [ "username", "structorganization.html#a61762d013c911068ff746bae4240963f", null ]
+    [ "cooperative", "structcooperative.html", [
+      [ "by_coop_childs", "structcooperative.html#abde2010f6927d64d5d468bf8eee91add", null ],
+      [ "by_parent", "structcooperative.html#a520610090826f8da13096d28052cdd5e", null ],
+      [ "bycooptype", "structcooperative.html#ab7d5ffb70648499fb3afc8d0235da9c8", null ],
+      [ "check_symbol_or_fail", "structcooperative.html#ade071f5cdf6c434868aa63a2467c7b10", null ],
+      [ "is_coop", "structcooperative.html#ab2a0cbb5cea98aa5534f18425e2d95c2", null ],
+      [ "is_coop_index", "structcooperative.html#a4feb9c6a43ca54359b2358ba1fff05d5", null ],
+      [ "primary_key", "structcooperative.html#aeaf841dc184ee73ca1ccbfabdee29052", null ],
+      [ "announce", "structcooperative.html#a6fcf1c32b85b25d98dc49c1f8efebd5f", null ],
+      [ "coop_type", "structcooperative.html#aad0f80407a24306c7daae8ab9685e516", null ],
+      [ "description", "structcooperative.html#a622edee9edae0426d7c47dce3c1784a1", null ],
+      [ "initial", "structcooperative.html#ac30eaeb313177bfbf7ce04f4ff76e419", null ],
+      [ "is_branched", "structcooperative.html#ac75f0a78989d3eb7ca79e88e0abb01d4", null ],
+      [ "is_cooperative", "structcooperative.html#a744786f71268846d241a351d3a5b7acd", null ],
+      [ "is_enrolled", "structcooperative.html#ad0b15a1ce03e04b357ed9b93117e327d", null ],
+      [ "minimum", "structcooperative.html#a447514af219d34d23db91a9e695ee548", null ],
+      [ "org_initial", "structcooperative.html#a5c5336993628f9656944345a5d490ed8", null ],
+      [ "org_minimum", "structcooperative.html#a70599503a9c4ff138df62996ac236660", null ],
+      [ "org_registration", "structcooperative.html#a9ed49665e29d8c8017b751b7e953b624", null ],
+      [ "parent_username", "structcooperative.html#a86a40c154bd2a5c99766a55c5cfd6da5", null ],
+      [ "registration", "structcooperative.html#abfbc7ba6cae286087631a3f221a7b676", null ],
+      [ "username", "structcooperative.html#aee387af39bb9fabf2303864db1793fea", null ]
     ] ],
     [ "onedeposit", "structonedeposit.html", [
       [ "by_expired", "structonedeposit.html#a54009c69fca6db3304f12cb39cdd2581", null ],
@@ -219,6 +220,7 @@ var group__public__tables =
       [ "last_min_pay", "structparticipants.html#acb3931363302e336cfb0c62e3a2d9abc", null ],
       [ "last_update", "structparticipants.html#a4f914f47ab6ea9ff77135d13f71f361d", null ],
       [ "status", "structparticipants.html#a3c39e76b933e59ec19db7205337b5a9a", null ],
+      [ "type", "structparticipants.html#a6ff4bb88ba64ac27e29914aac9c915ef", null ],
       [ "username", "structparticipants.html#ae5560052371e0cc4d94f156f8d732fe1", null ]
     ] ],
     [ "decision", "structdecision.html", [
@@ -246,13 +248,11 @@ var group__public__tables =
       [ "votes_for", "structdecision.html#ab4dd0cf2e35bbea166ea7a60f7713c69", null ]
     ] ],
     [ "address", "structaddress.html", [
-      [ "bydepartment", "structaddress.html#a35dc7d20f31c94caf2c5c772ab2e349f", null ],
       [ "primary_key", "structaddress.html#ac17670d77124e31915f628941594b4dd", null ],
+      [ "braname", "structaddress.html#af748837166c7a3e26168697f31499d8d", null ],
       [ "coopname", "structaddress.html#ad9edc77ee23956092e27a52d1f1daee9", null ],
       [ "data", "structaddress.html#a811d5c14ce10ef99c7f89ec3870a4996", null ],
-      [ "departname", "structaddress.html#a0b2f50f5511cbdf8b6c56bb59fd86fde", null ],
-      [ "id", "structaddress.html#abc8aec5b1bd9fe5715797a8185c5ad52", null ],
-      [ "meta", "structaddress.html#a91297aa58be8be3b6b3ea70ebb6e3d4b", null ]
+      [ "id", "structaddress.html#abc8aec5b1bd9fe5715797a8185c5ad52", null ]
     ] ],
     [ "automator", "structautomator.html", [
       [ "by_action", "structautomator.html#a7690ecf690fe20aaed35f277330e2e5f", null ],

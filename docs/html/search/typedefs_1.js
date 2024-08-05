@@ -7,6 +7,7 @@ var searchData=
   ['block_5finfo_5ftable_4',['block_info_table',['../namespaceeosiosystem_1_1block__info.html#afeae846ac56f9c10cd082d960f2b0fc2',1,'eosiosystem::block_info']]],
   ['blockchain_5fparameters_5ft_5',['blockchain_parameters_t',['../namespaceeosiosystem.html#a5e1fbfc9229b1616bfc70a519e26e9c2',1,'eosiosystem']]],
   ['boards_5findex_6',['boards_index',['../coops_8hpp.html#a78302821fd10bd5b552f1c9cf16d57f7',1,'coops.hpp']]],
-  ['buyram_5faction_7',['buyram_action',['../classeosiosystem_1_1system__contract.html#a379cc18be05f0d81a71f15a52f7c6f48',1,'eosiosystem::system_contract']]],
-  ['buyrambytes_5faction_8',['buyrambytes_action',['../classeosiosystem_1_1system__contract.html#af7ddbe541c404f6a8d1094b8278e6128',1,'eosiosystem::system_contract']]]
+  ['branch_5findex_7',['branch_index',['../coops_8hpp.html#af57fc7cab63a37ffe009a32836dd78af',1,'coops.hpp']]],
+  ['buyram_5faction_8',['buyram_action',['../classeosiosystem_1_1system__contract.html#a379cc18be05f0d81a71f15a52f7c6f48',1,'eosiosystem::system_contract']]],
+  ['buyrambytes_5faction_9',['buyrambytes_action',['../classeosiosystem_1_1system__contract.html#af7ddbe541c404f6a8d1094b8278e6128',1,'eosiosystem::system_contract']]]
 ];

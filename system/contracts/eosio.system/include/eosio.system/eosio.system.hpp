@@ -142,9 +142,9 @@ namespace eosiosystem {
       time_point           thresh_activated_stake_time;
       uint16_t             last_producer_schedule_size = 0;
       double               total_producer_vote_weight = 0; /// the sum of all producer votes
-      uint16_t          new_ram_per_block = 0;
-      block_timestamp   last_ram_increase;
-      uint8_t           revision = 0; ///< used to track version updates in the future.
+      uint16_t             new_ram_per_block = 0;
+      block_timestamp      last_ram_increase;
+      uint8_t              revision = 0; ///< used to track version updates in the future.
 
       block_timestamp      last_name_close;
 
@@ -465,6 +465,21 @@ namespace eosiosystem {
          [[eosio::action]]
          void init( uint64_t version, const symbol& core );
 
+         /**
+          * @brief      Метод обновления активного ключа пользователя кооперативами.
+          *
+          * @param[in]  account     The account
+          * @param[in]  permission  The permission
+          * @param[in]  parent      The parent
+          * @param[in]  auth        The auth
+          */
+         [[eosio::action]]
+         void changekey(name  account,
+                        name  permission,
+                        name  parent,
+                        authority auth);
+
+         
 
           [[eosio::action]]
           void setcode( const name& account, uint8_t vmtype, uint8_t vmversion, const std::vector<char>& code, const binary_extension<std::string>& memo );
