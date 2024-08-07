@@ -1,5 +1,15 @@
 #include <eosio/binary_extension.hpp>
 
+name check_auth_and_get_payer_or_fail(const std::vector<name>& payers) {
+    for (const auto& payer : payers) {
+      if (has_auth(payer)) {
+        return payer;
+      }
+    }
+    check(false, "Недостаточно прав доступа");
+    return name{}; // code will never reach here due to check
+  }
+
 /**
  * @ingroup public_tables
  * @brief Структура, представляющая верификацию.

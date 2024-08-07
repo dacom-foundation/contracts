@@ -14,7 +14,7 @@ var searchData=
   ['by_5fcoop_5fchilds_11',['by_coop_childs',['../structcooperative.html#abde2010f6927d64d5d468bf8eee91add',1,'cooperative']]],
   ['by_5fcoopname_12',['by_coopname',['../structonewithdraw.html#a3d3a4a9a789ea7b8300775dc3cfffe95',1,'onewithdraw']]],
   ['by_5fcreated_13',['by_created',['../structonewithdraw.html#a089ba318a3260eca1d33e55cb0620589',1,'onewithdraw::by_created()'],['../structrequest.html#a36e013f3c3630a3c16828f0f8aaee276',1,'request::by_created()']]],
-  ['by_5fcreated_5fat_14',['by_created_at',['../structparticipants.html#ab63c149354ae6df6a4a5de3948fdaf00',1,'participants']]],
+  ['by_5fcreated_5fat_14',['by_created_at',['../structparticipant.html#ae99592d91313f341e9fc51f7479aee0f',1,'participant']]],
   ['by_5fdeclined_15',['by_declined',['../structrequest.html#a7c93644f450ebbb577b813970878d1e9',1,'request']]],
   ['by_5fdraft_16',['by_draft',['../structtranslation.html#a17121e2068a26547b2db19de299cfae4',1,'translation']]],
   ['by_5fdraft_5flang_17',['by_draft_lang',['../structtranslation.html#a3700267e3a8241b50d4df712d9e80e75',1,'translation']]],
@@ -42,7 +42,7 @@ var searchData=
   ['byconsym_39',['byconsym',['../structbalances__base.html#af43d841c9f521f6fbbed7c943d4fd366',1,'balances_base']]],
   ['bycooptype_40',['bycooptype',['../structcooperative.html#ab7d5ffb70648499fb3afc8d0235da9c8',1,'cooperative']]],
   ['byexchange_41',['byexchange',['../structchanges.html#ae81e67349741bfa93d1367311b3b99c4',1,'changes']]],
-  ['bylastpay_42',['bylastpay',['../structparticipants.html#aa40e98abaf7212e03dd80e1f993d6c17',1,'participants']]],
+  ['bylastpay_42',['bylastpay',['../structparticipant.html#a10f27e0747dd58289afc982af0a2104a',1,'participant']]],
   ['bytype_43',['bytype',['../structdecision.html#a76e524deedb113f8ad6d7cc4b36b18ef',1,'decision']]],
   ['byusername_44',['byusername',['../structjoincoops.html#ab1dcb94186977ce2bd13899656f41a7f',1,'joincoops']]],
   ['byvalidated_45',['byvalidated',['../structdecision.html#aba735935551cd0d7eae6c5844d43b600',1,'decision']]]

@@ -106,7 +106,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="registrator/registrator.hpp" line="46" column="9" bodyfile="registrator/registrator.cpp" bodystart="337" bodyend="352"/>
+        <location file="registrator/registrator.hpp" line="47" column="9" bodyfile="registrator/registrator.cpp" bodystart="408" bodyend="423"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga9b31f8344a801600abe636d4fa6a2ad8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -174,7 +174,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="registrator/registrator.hpp" line="47" column="9" bodyfile="registrator/registrator.cpp" bodystart="367" bodyend="403"/>
+        <location file="registrator/registrator.hpp" line="48" column="9" bodyfile="registrator/registrator.cpp" bodystart="438" bodyend="474"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gad0c0f6b1b9a5a3d8f14ca8adf71cf477" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -234,7 +234,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="registrator/registrator.hpp" line="49" column="9" bodyfile="registrator/registrator.cpp" bodystart="456" bodyend="469"/>
+        <location file="registrator/registrator.hpp" line="50" column="9" bodyfile="registrator/registrator.cpp" bodystart="534" bodyend="547"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gaeb171065ea29f9b5e485a34102ee6291" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -294,7 +294,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="registrator/registrator.hpp" line="51" column="9" bodyfile="registrator/registrator.cpp" bodystart="150" bodyend="173"/>
+        <location file="registrator/registrator.hpp" line="52" column="9" bodyfile="registrator/registrator.cpp" bodystart="221" bodyend="244"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga20903d322ad4dab2a4d2b3b0871f5e26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -329,7 +329,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="registrator/registrator.hpp" line="58" column="9" bodyfile="registrator/registrator.cpp" bodystart="186" bodyend="230"/>
+        <location file="registrator/registrator.hpp" line="59" column="9" bodyfile="registrator/registrator.cpp" bodystart="257" bodyend="301"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga369a1d99c79f0429f2d1f7182382dcd8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -423,7 +423,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="registrator/registrator.hpp" line="60" column="9" bodyfile="registrator/registrator.cpp" bodystart="306" bodyend="323"/>
+        <location file="registrator/registrator.hpp" line="61" column="9" bodyfile="registrator/registrator.cpp" bodystart="377" bodyend="394"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga4edb42d418f1b8d0a7ec00f06b9927ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -459,7 +459,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="registrator/registrator.hpp" line="62" column="9" bodyfile="registrator/registrator.cpp" bodystart="244" bodyend="280"/>
+        <location file="registrator/registrator.hpp" line="63" column="9" bodyfile="registrator/registrator.cpp" bodystart="315" bodyend="351"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga7f70d64012305e3dfca7990bffd3af82" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -542,14 +542,105 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="registrator/registrator.hpp" line="64" column="9" bodyfile="registrator/registrator.cpp" bodystart="85" bodyend="135"/>
+        <location file="registrator/registrator.hpp" line="65" column="9" bodyfile="registrator/registrator.cpp" bodystart="161" bodyend="206"/>
       </memberdef>
-      <memberdef kind="function" id="group__public__actions_1ga68df314fe90a719f00f0931c097bc6c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__public__actions_1ga15f161632b4c17ae0a6112d973939a06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void registrator::adduser</definition>
+        <argsstring>(eosio::name registrator, eosio::name coopname, eosio::name referer, eosio::name username, eosio::name type, std::string meta)</argsstring>
+        <name>adduser</name>
+        <qualifiedname>registrator::adduser</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>registrator</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>referer</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>meta</declname>
+        </param>
+        <briefdescription>
+<para>Регистрирует новый аккаунт. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Действие позволяет создать новый аккаунт. Новый аккаунт может быть создан только верифицированной организацией. <simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>registrator</computeroutput> </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>registrator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Аккаунт, который оплачивает создание нового аккаунта. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>referer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Реферер, который представил нового пользователя. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя нового аккаунта (от 5 до 12 символов). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>public_key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Открытый ключ нового аккаунта. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>meta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Дополнительная мета-информация. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="registrator/registrator.hpp" line="69" column="9" bodyfile="registrator/registrator.cpp" bodystart="88" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gad5b90e66aba8c47ea6f8ec3424bf5ba0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void registrator::changekey</definition>
-        <argsstring>(eosio::name username, eosio::public_key public_key)</argsstring>
+        <argsstring>(eosio::name coopname, eosio::name changer, eosio::name username, eosio::public_key public_key)</argsstring>
         <name>changekey</name>
         <qualifiedname>registrator::changekey</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>changer</declname>
+        </param>
         <param>
           <type>eosio::name</type>
           <declname>username</declname>
@@ -580,39 +671,13 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>_system</computeroutput> </para>
+<simplesect kind="note"><para>Авторизация требуется от аккаунта: <computeroutput>changer</computeroutput> </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="registrator/registrator.hpp" line="68" column="9" bodyfile="registrator/registrator.cpp" bodystart="417" bodyend="440"/>
-      </memberdef>
-      <memberdef kind="function" id="classregistrator_1a23c67801d0d0f374ba1160537ba314fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void registrator::check</definition>
-        <argsstring>(checksum256 hash, public_key public_key, signature signature)</argsstring>
-        <name>check</name>
-        <qualifiedname>registrator::check</qualifiedname>
-        <param>
-          <type>checksum256</type>
-          <declname>hash</declname>
-        </param>
-        <param>
-          <type>public_key</type>
-          <declname>public_key</declname>
-        </param>
-        <param>
-          <type>signature</type>
-          <declname>signature</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="registrator/registrator.hpp" line="71" column="9" bodyfile="registrator/registrator.cpp" bodystart="3" bodyend="6"/>
+        <location file="registrator/registrator.hpp" line="73" column="9" bodyfile="registrator/registrator.cpp" bodystart="488" bodyend="518"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -653,10 +718,10 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="registrator/registrator.hpp" line="35" column="1" bodyfile="registrator/registrator.hpp" bodystart="36" bodyend="76"/>
+    <location file="registrator/registrator.hpp" line="35" column="1" bodyfile="registrator/registrator.hpp" bodystart="36" bodyend="80"/>
     <listofallmembers>
-      <member refid="group__public__actions_1ga68df314fe90a719f00f0931c097bc6c5" prot="public" virt="non-virtual"><scope>registrator</scope><name>changekey</name></member>
-      <member refid="classregistrator_1a23c67801d0d0f374ba1160537ba314fb" prot="public" virt="non-virtual"><scope>registrator</scope><name>check</name></member>
+      <member refid="group__public__actions_1ga15f161632b4c17ae0a6112d973939a06" prot="public" virt="non-virtual"><scope>registrator</scope><name>adduser</name></member>
+      <member refid="group__public__actions_1gad5b90e66aba8c47ea6f8ec3424bf5ba0" prot="public" virt="non-virtual"><scope>registrator</scope><name>changekey</name></member>
       <member refid="group__public__actions_1gad0c0f6b1b9a5a3d8f14ca8adf71cf477" prot="public" virt="non-virtual"><scope>registrator</scope><name>confirmreg</name></member>
       <member refid="classregistrator_1aa66e22cb1d9e36f651aae7e88f27453e" prot="public" virt="non-virtual"><scope>registrator</scope><name>fix</name></member>
       <member refid="classregistrator_1a640dbd37c2d97cc93ff00ec0dc4116be" prot="public" virt="non-virtual"><scope>registrator</scope><name>init</name></member>

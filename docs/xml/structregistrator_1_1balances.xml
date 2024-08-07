@@ -44,7 +44,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="registrator/registrator.hpp" line="73" column="3" bodyfile="registrator/registrator.hpp" bodystart="74" bodyend="75"/>
+    <location file="registrator/registrator.hpp" line="77" column="3" bodyfile="registrator/registrator.hpp" bodystart="78" bodyend="79"/>
     <listofallmembers>
       <member refid="structbalances__base_1af43d841c9f521f6fbbed7c943d4fd366" prot="public" virt="non-virtual"><scope>registrator::balances</scope><name>byconsym</name></member>
       <member refid="structbalances__base_1acebf235da280f8d16533b6913912da41" prot="public" virt="non-virtual"><scope>registrator::balances</scope><name>contract</name></member>

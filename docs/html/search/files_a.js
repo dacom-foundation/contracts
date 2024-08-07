@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['name_5fbidding_2ecpp_0',['name_bidding.cpp',['../name__bidding_8cpp.html',1,'']]],
-  ['native_2ecpp_1',['native.cpp',['../native_8cpp.html',1,'']]],
-  ['native_2ehpp_2',['native.hpp',['../native_8hpp.html',1,'']]]
+  ['permissions_2ehpp_0',['permissions.hpp',['../permissions_8hpp.html',1,'']]],
+  ['powerup_2ecpp_1',['powerup.cpp',['../powerup_8cpp.html',1,'']]],
+  ['producer_5fpay_2ecpp_2',['producer_pay.cpp',['../producer__pay_8cpp.html',1,'']]],
+  ['programs_2ecpp_3',['programs.cpp',['../programs_8cpp.html',1,'']]],
+  ['programs_2ehpp_4',['programs.hpp',['../programs_8hpp.html',1,'']]]
 ];

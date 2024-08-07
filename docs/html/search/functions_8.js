@@ -4,7 +4,7 @@ var searchData=
   ['initemission_1',['initemission',['../classeosiosystem_1_1system__contract.html#af6ed697e2d198ca5bce29cbacb682490',1,'eosiosystem::system_contract']]],
   ['invalidate_2',['invalidate',['../classeosio_1_1multisig.html#a59e26671d5a02dd2f809b08f56b4d3b8',1,'eosio::multisig']]],
   ['is_5faccount_5fin_5ftrusted_3',['is_account_in_trusted',['../structbranch.html#a4d3485bad89ba466c9e71b3253bf6608',1,'branch']]],
-  ['is_5factive_4',['is_active',['../structaccount.html#a3d7a160d5b2d34e3e5273fd1dda9cba7',1,'account::is_active()'],['../structparticipants.html#a755cb10cc54ed15fcf4849ace4c679ad',1,'participants::is_active()']]],
+  ['is_5factive_4',['is_active',['../structaccount.html#a3d7a160d5b2d34e3e5273fd1dda9cba7',1,'account::is_active()'],['../structparticipant.html#afc41b4f39fe346424c690d4ab60098f8',1,'participant::is_active()']]],
   ['is_5fcan_5ftransfer_5',['is_can_transfer',['../classeosio_1_1token.html#a5b2edc4577c88d5bccecb7e44536ff04',1,'eosio::token']]],
   ['is_5fcoop_6',['is_coop',['../structcooperative.html#ab2a0cbb5cea98aa5534f18425e2d95c2',1,'cooperative']]],
   ['is_5fcoop_5findex_7',['is_coop_index',['../structcooperative.html#a4feb9c6a43ca54359b2358ba1fff05d5',1,'cooperative']]],

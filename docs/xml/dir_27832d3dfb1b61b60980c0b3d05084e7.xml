@@ -9,9 +9,9 @@
     <innerfile refid="chairman_8cpp">chairman.cpp</innerfile>
     <innerfile refid="contributions_8cpp">contributions.cpp</innerfile>
     <innerfile refid="fund_8cpp">fund.cpp</innerfile>
-    <innerfile refid="joincoop_8cpp">joincoop.cpp</innerfile>
     <innerfile refid="soviet_2src_2marketplace_8cpp">marketplace.cpp</innerfile>
     <innerfile refid="programs_8cpp">programs.cpp</innerfile>
+    <innerfile refid="soviet_2src_2registrator_8cpp">registrator.cpp</innerfile>
     <innerfile refid="soviet_2src_2voting_8cpp">voting.cpp</innerfile>
     <briefdescription>
     </briefdescription>

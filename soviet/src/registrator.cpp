@@ -1,5 +1,71 @@
 using namespace eosio;
 
+/**
+ * @ingroup public_actions
+ * @brief  Добавление пайщика по API без процедуры подписания заявления на вступление.
+ * Действие добавляет действующего пайщика в систему, пропуская этап подписи заявления на вступление и оплату вступительного и минимального паевого взносов.
+ * Система позволяет установить дату регистрации участника, которая будет соответствовать дате уплаты им минимального и вступительного взносов.
+ * Если spread_initial установлен в false, то сумма вступительного взноса не распределяется среди фондов. Тогда система считает, что учет распределения вступительного взноса произошел за её пределами. 
+ * Если spread_initial установлен в true, то сумма вступительного взноса распределяется по фондам согласно правилам распределения кооператива в контракте fund.
+ * Минимальный паевый взнос всегда добавляется в кошелёк пайщика и отмечается в статистике оборотного фонда кооператива.
+ *
+ * @param[in]  coopname        The coopname
+ * @param[in]  username        The username
+ * @param[in]  type            The type
+ * @param[in]  created_at      The created at
+ * @param[in]  initial         The initial
+ * @param[in]  minimum         The minimum
+ * @param[in]  spread_initial  The spread initial
+ *
+ */
+
+  
+void soviet::adduser(eosio::name coopname, eosio::name username, eosio::name type, eosio::time_point_sec created_at, eosio::asset initial, eosio::asset minimum, bool spread_initial) {
+
+  require_auth(_registrator);
+
+  auto cooperative = get_cooperative_or_fail(coopname);
+
+  accounts_index accounts(_registrator, _registrator.value);
+  auto account = accounts.find(username.value);
+
+  eosio::check(account != accounts.end(), "Аккаунт не найден");
+  
+  participants_index participants(_soviet, coopname.value);
+  
+  participants.emplace(_soviet, [&](auto &m){
+    m.username = username;
+    m.created_at = created_at;
+    m.last_update = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+    m.last_min_pay = created_at;
+    m.status = "accepted"_n;
+    m.is_initial = true;
+    m.is_minimum = true;
+    m.has_vote = true;    
+    m.type = type;
+  });
+
+  wallets_index wallets(_soviet, coopname.value);
+
+  wallets.emplace(_soviet, [&](auto &w){
+    w.username = username;
+    w.coopname = coopname;
+    w.available = asset(0, cooperative.initial.symbol);
+    w.blocked = asset(0, cooperative.initial.symbol);
+    w.minimum = minimum; 
+  });
+
+  /**
+   * Добавляем в оборотный фонд минимальный паевый взнос и распределяем по всем прочим фондам значение вступительного взноса.
+   */
+  action(
+    permission_level{ _gateway, "active"_n},
+    _gateway,
+    "adduser"_n,
+    std::make_tuple(coopname, username, initial, minimum, created_at, spread_initial)
+  ).send();
+
+}
 
 /**
 \ingroup public_actions
@@ -108,13 +174,14 @@ void soviet::joincoop_effect(eosio::name executer, eosio::name coopname, uint64_
   });
 
   wallets_index wallets(_soviet, coopname.value);
+  eosio::asset minimum = account -> type == "organization"_n ? cooperative.org_minimum.value() : cooperative.minimum; 
 
   wallets.emplace(_soviet, [&](auto &w){
     w.username = joincoop_action -> username;
     w.coopname = coopname;
     w.available = asset(0, cooperative.initial.symbol);
     w.blocked = asset(0, cooperative.initial.symbol);
-    w.minimum = cooperative.minimum; //TODO add minimum amount here
+    w.minimum = minimum;
   });
 
   action(
@@ -137,13 +204,6 @@ void soviet::joincoop_effect(eosio::name executer, eosio::name coopname, uint64_
       "newdecision"_n,
       std::make_tuple(coopname, joincoop_action -> username, _regaccount_action, decision_id, decision -> authorization)
   ).send();
-
-  // action(
-  //     permission_level{ _soviet, "active"_n},
-  //     _soviet,
-  //     "batch"_n,
-  //     std::make_tuple(coopname, _regaccount_action, decision -> batch_id)
-  // ).send();
 
   decisions.erase(decision);
   joincoops.erase(joincoop_action);

@@ -434,21 +434,6 @@
         </inbodydescription>
         <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="71" column="30" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="71" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="namespaceeosiosystem_1a2bf66ae74712f288511596991a953dbf" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>constexpr int64_t</type>
-        <definition>constexpr int64_t eosiosystem::_ram_price_per_byte</definition>
-        <argsstring></argsstring>
-        <name>_ram_price_per_byte</name>
-        <qualifiedname>eosiosystem::_ram_price_per_byte</qualifiedname>
-        <initializer>= 1</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="system/contracts/eosio.system/src/exchange_state.cpp" line="10" column="21" bodyfile="system/contracts/eosio.system/src/exchange_state.cpp" bodystart="10" bodyend="-1"/>
-      </memberdef>
       </sectiondef>
       <sectiondef kind="func">
       <memberdef kind="function" id="namespaceeosiosystem_1a554d168bb3ecdd68b09cabaabe5a90a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">

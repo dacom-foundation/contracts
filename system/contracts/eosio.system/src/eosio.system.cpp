@@ -384,12 +384,33 @@ namespace eosiosystem {
 
 
 
-void system_contract::createaccnt(const name new_account_name, authority owner, authority active) {
+void system_contract::createaccnt(const name coopname, const name new_account_name, authority owner, authority active) {
   require_auth(_registrator);
-
-  // TODO принять сюда имя аккаунта плательщика ???
-  // через параметры 
   
+  print("here");
+
+  // TODO принять сюда имя аккаунта плательщика
+
+  auto core_symbol = system_contract::get_core_symbol();
+  eosio::asset register_amount = asset(_register_amount, core_symbol);
+
+  /* компенсируем затраты на регистрацию системным аккаунтом переводом токенов на системный аккаунт
+   * Далее в методе newaccount происходит powerup за счет средств системного аккаунта, поэтому, 
+   * мы компенсируем его расходы. Это сделано для того, чтобы для пользователя списание за регистрацию
+   * пайщика было в AXON, а не в вычислительных ресурсах его POWERuppенного аккаунта кооператива.
+   */
+
+  token::transfer_action transfer_act{ token_account, { {coopname, active_permission} } };
+  transfer_act.send( coopname, get_self(), register_amount, "Оплата регистрации аккаунта" );
+
+
+  /* эти пляски с внутренним вызовом newaccount необходимы потому что в протоколе EOSIO
+   * захардкодено требование наличия авторизации в первом параметре (creator) метода newaccount, а сам список параметров не изменяемый.
+   * именно поэтому мы не можем сразу вызвать этот метод из контракта registrator, т.к.
+   * нам необходимо разделить регистратора и сам кооператив для списания оплаты, 
+   * а передать информацию о кооперативе с его подписью в newaccount мы не можем.
+  */
+
   action(
     permission_level{ get_self(), "active"_n},
     get_self(),
@@ -447,20 +468,14 @@ void native::newaccount(const name& creator,
       
       if (state_sing.exists()) {
         // вызываем мтеод
-        auto state = state_sing.get();
         auto core_symbol = system_contract::get_core_symbol();
-        asset register_amount = asset(_stake_net_amount + _stake_cpu_amount + _ram_bytes, core_symbol);
-        
-        // TODO 
-        // здесь необходимо списать стоимость регистрации с кооператива
-        // 
-
-
+        eosio::asset register_amount = asset(_register_amount, core_symbol);
+        auto state = state_sing.get();
 
         // здесь мы увеличиваем POWER у аккаунта за счет системы
+        // оплату за это увеличения мы списываем в промежуточном методе createaccnt
         system_contract::powerup_action action{ get_self(), { {creator, system_contract::active_permission} } };
         action.send( creator, new_account_name, state.powerup_days, register_amount, true );
-        
 
       } else { 
         user_resources_table  userres( get_self(), new_account_name.value );

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['participants_0',['participants',['../structparticipants.html',1,'']]],
+  ['participant_0',['participant',['../structparticipant.html',1,'']]],
   ['permission_5flevel_5fweight_1',['permission_level_weight',['../structeosiobios_1_1permission__level__weight.html',1,'eosiobios::permission_level_weight'],['../structeosioboot_1_1permission__level__weight.html',1,'eosioboot::permission_level_weight'],['../structeosiosystem_1_1permission__level__weight.html',1,'eosiosystem::permission_level_weight'],['../structpermission__level__weight.html',1,'permission_level_weight']]],
   ['powerup_5fconfig_2',['powerup_config',['../structeosiosystem_1_1powerup__config.html',1,'eosiosystem']]],
   ['powerup_5forder_3',['powerup_order',['../structeosiosystem_1_1powerup__order.html',1,'eosiosystem']]],

@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="145" column="14" bodyfile="soviet/soviet.hpp" bodystart="145" bodyend="-1"/>
+        <location file="soviet/soviet.hpp" line="146" column="14" bodyfile="soviet/soviet.hpp" bodystart="146" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structautomator_1a020dc5169affb64d4df454bd10d8176f" prot="public" static="no" mutable="no">
         <type>eosio::name</type>
@@ -32,7 +32,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="146" column="17" bodyfile="soviet/soviet.hpp" bodystart="146" bodyend="-1"/>
+        <location file="soviet/soviet.hpp" line="147" column="17" bodyfile="soviet/soviet.hpp" bodystart="147" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structautomator_1af9991df3151a7d8205c4205caf993a92" prot="public" static="no" mutable="no">
         <type>uint64_t</type>
@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="147" column="14" bodyfile="soviet/soviet.hpp" bodystart="147" bodyend="-1"/>
+        <location file="soviet/soviet.hpp" line="148" column="14" bodyfile="soviet/soviet.hpp" bodystart="148" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structautomator_1a7bb8cdadaa140b733497e80fdecf49ab" prot="public" static="no" mutable="no">
         <type>eosio::name</type>
@@ -62,7 +62,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="148" column="17" bodyfile="soviet/soviet.hpp" bodystart="148" bodyend="-1"/>
+        <location file="soviet/soviet.hpp" line="149" column="17" bodyfile="soviet/soviet.hpp" bodystart="149" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structautomator_1afcb1a4bcd330d3e3cb50fe5f977cc069" prot="public" static="no" mutable="no">
         <type>eosio::name</type>
@@ -77,7 +77,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="149" column="17" bodyfile="soviet/soviet.hpp" bodystart="149" bodyend="-1"/>
+        <location file="soviet/soviet.hpp" line="150" column="17" bodyfile="soviet/soviet.hpp" bodystart="150" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structautomator_1a4d145638d25608ddf9c5d737f9fe6da2" prot="public" static="no" mutable="no">
         <type>eosio::name</type>
@@ -92,7 +92,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="150" column="17" bodyfile="soviet/soviet.hpp" bodystart="150" bodyend="-1"/>
+        <location file="soviet/soviet.hpp" line="151" column="17" bodyfile="soviet/soviet.hpp" bodystart="151" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structautomator_1a94be657d9e8d176482eee2a344bb6665" prot="public" static="no" mutable="no">
         <type>std::string</type>
@@ -107,7 +107,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="151" column="17" bodyfile="soviet/soviet.hpp" bodystart="151" bodyend="-1"/>
+        <location file="soviet/soviet.hpp" line="152" column="17" bodyfile="soviet/soviet.hpp" bodystart="152" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -123,7 +123,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="153" column="14" bodyfile="soviet/soviet.hpp" bodystart="153" bodyend="153"/>
+        <location file="soviet/soviet.hpp" line="154" column="14" bodyfile="soviet/soviet.hpp" bodystart="154" bodyend="154"/>
       </memberdef>
       <memberdef kind="function" id="structautomator_1a7f20068251bdaec35114f83497ca3411" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>uint128_t</type>
@@ -138,7 +138,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="154" column="15" bodyfile="soviet/soviet.hpp" bodystart="154" bodyend="-1"/>
+        <location file="soviet/soviet.hpp" line="155" column="15" bodyfile="soviet/soviet.hpp" bodystart="155" bodyend="-1"/>
       </memberdef>
       <memberdef kind="function" id="structautomator_1a7690ecf690fe20aaed35f277330e2e5f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>uint64_t</type>
@@ -153,7 +153,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="155" column="14" bodyfile="soviet/soviet.hpp" bodystart="155" bodyend="154"/>
+        <location file="soviet/soviet.hpp" line="156" column="14" bodyfile="soviet/soviet.hpp" bodystart="156" bodyend="155"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -186,7 +186,7 @@
         <label>string</label>
       </node>
     </collaborationgraph>
-    <location file="soviet/soviet.hpp" line="144" column="1" bodyfile="soviet/soviet.hpp" bodystart="144" bodyend="157"/>
+    <location file="soviet/soviet.hpp" line="145" column="1" bodyfile="soviet/soviet.hpp" bodystart="145" bodyend="158"/>
     <listofallmembers>
       <member refid="structautomator_1afcb1a4bcd330d3e3cb50fe5f977cc069" prot="public" virt="non-virtual"><scope>automator</scope><name>action_type</name></member>
       <member refid="structautomator_1af9991df3151a7d8205c4205caf993a92" prot="public" virt="non-virtual"><scope>automator</scope><name>board_id</name></member>

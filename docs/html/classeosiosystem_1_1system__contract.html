@@ -196,6 +196,9 @@ $(document).ready(function(){initNavTree('classeosiosystem_1_1system__contract.h
 <tr class="separator:ae0264c3f2d2a640d9a60a4c9c9ca089c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a314f5afbd81e51d5e319ba81398f2e06"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeosiosystem_1_1system__contract.html#a314f5afbd81e51d5e319ba81398f2e06">init</a> (uint64_t version, const symbol &amp;core)</td></tr>
 <tr class="separator:a314f5afbd81e51d5e319ba81398f2e06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cfe0acba41778a7fd2af66056af68b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeosiosystem_1_1system__contract.html#a6cfe0acba41778a7fd2af66056af68b1">changekey</a> (name <a class="el" href="structaccount.html">account</a>, name permission, name parent, <a class="el" href="structeosiosystem_1_1authority.html">authority</a> auth)</td></tr>
+<tr class="memdesc:a6cfe0acba41778a7fd2af66056af68b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Метод обновления активного ключа пользователя кооперативами.  <a href="classeosiosystem_1_1system__contract.html#a6cfe0acba41778a7fd2af66056af68b1">Подробнее...</a><br /></td></tr>
+<tr class="separator:a6cfe0acba41778a7fd2af66056af68b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56c686a08fd581a617980500efd795ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeosiosystem_1_1system__contract.html#a56c686a08fd581a617980500efd795ad">setcode</a> (const name &amp;<a class="el" href="structaccount.html">account</a>, uint8_t vmtype, uint8_t vmversion, const std::vector&lt; char &gt; &amp;code, const binary_extension&lt; std::string &gt; &amp;memo)</td></tr>
 <tr class="separator:a56c686a08fd581a617980500efd795ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6ed697e2d198ca5bce29cbacb682490"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeosiosystem_1_1system__contract.html#af6ed697e2d198ca5bce29cbacb682490">initemission</a> (eosio::asset init_supply, uint64_t tact_duration, double emission_factor)</td></tr>
@@ -262,8 +265,8 @@ $(document).ready(function(){initNavTree('classeosiosystem_1_1system__contract.h
 <tr class="separator:ab3d6d9e77d6b9ac63b79e6d8104d8312"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab940f454d4d3d0018f22bf472caf3b52"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeosiosystem_1_1system__contract.html#ab940f454d4d3d0018f22bf472caf3b52">limitauthchg</a> (const name &amp;<a class="el" href="structaccount.html">account</a>, const std::vector&lt; name &gt; &amp;allow_perms, const std::vector&lt; name &gt; &amp;disallow_perms)</td></tr>
 <tr class="separator:ab940f454d4d3d0018f22bf472caf3b52"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c394fb4ae2451d0b44c543258d72f02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeosiosystem_1_1system__contract.html#a2c394fb4ae2451d0b44c543258d72f02">createaccnt</a> (const name new_account_name, <a class="el" href="structeosiosystem_1_1authority.html">authority</a> owner, <a class="el" href="structeosiosystem_1_1authority.html">authority</a> active)</td></tr>
-<tr class="separator:a2c394fb4ae2451d0b44c543258d72f02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ca6a4de00cf033d13ed6d587440d2fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeosiosystem_1_1system__contract.html#a9ca6a4de00cf033d13ed6d587440d2fc">createaccnt</a> (const name coopname, const name new_account_name, <a class="el" href="structeosiosystem_1_1authority.html">authority</a> owner, <a class="el" href="structeosiosystem_1_1authority.html">authority</a> active)</td></tr>
+<tr class="separator:a9ca6a4de00cf033d13ed6d587440d2fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classeosiosystem_1_1native"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classeosiosystem_1_1native')"><img src="closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="classeosiosystem_1_1native.html">eosiosystem::native</a></td></tr>
 <tr class="memitem:ab81dda3be834b68780bbae5c2e8368e0 inherit pub_methods_classeosiosystem_1_1native"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeosiosystem_1_1native.html#ab81dda3be834b68780bbae5c2e8368e0">newaccount</a> (const name &amp;creator, const name &amp;name, ignore&lt; <a class="el" href="structeosiosystem_1_1authority.html">authority</a> &gt; owner, ignore&lt; <a class="el" href="structeosiosystem_1_1authority.html">authority</a> &gt; active)</td></tr>
 <tr class="separator:ab81dda3be834b68780bbae5c2e8368e0 inherit pub_methods_classeosiosystem_1_1native"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1285,6 +1288,57 @@ Auction must still be opened. </dd></dl>
 
 </div>
 </div>
+<a id="a6cfe0acba41778a7fd2af66056af68b1" name="a6cfe0acba41778a7fd2af66056af68b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cfe0acba41778a7fd2af66056af68b1">&#9670;&nbsp;</a></span>changekey()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void eosiosystem::system_contract::changekey </td>
+          <td>(</td>
+          <td class="paramtype">name&#160;</td>
+          <td class="paramname"><em>account</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">name&#160;</td>
+          <td class="paramname"><em>permission</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">name&#160;</td>
+          <td class="paramname"><em>parent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structeosiosystem_1_1authority.html">authority</a>&#160;</td>
+          <td class="paramname"><em>auth</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Метод обновления активного ключа пользователя кооперативами. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">account</td><td>The account </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">permission</td><td>The permission </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">parent</td><td>The parent </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">auth</td><td>The auth </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a34b35d1f073383e599d4e2bb56e20524" name="a34b35d1f073383e599d4e2bb56e20524"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a34b35d1f073383e599d4e2bb56e20524">&#9670;&nbsp;</a></span>claimrewards()</h2>
 
@@ -1334,8 +1388,8 @@ Auction must still be opened. </dd></dl>
 
 </div>
 </div>
-<a id="a2c394fb4ae2451d0b44c543258d72f02" name="a2c394fb4ae2451d0b44c543258d72f02"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c394fb4ae2451d0b44c543258d72f02">&#9670;&nbsp;</a></span>createaccnt()</h2>
+<a id="a9ca6a4de00cf033d13ed6d587440d2fc" name="a9ca6a4de00cf033d13ed6d587440d2fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ca6a4de00cf033d13ed6d587440d2fc">&#9670;&nbsp;</a></span>createaccnt()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1343,6 +1397,12 @@ Auction must still be opened. </dd></dl>
         <tr>
           <td class="memname">void eosiosystem::system_contract::createaccnt </td>
           <td>(</td>
+          <td class="paramtype">const name&#160;</td>
+          <td class="paramname"><em>coopname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">const name&#160;</td>
           <td class="paramname"><em>new_account_name</em>, </td>
         </tr>

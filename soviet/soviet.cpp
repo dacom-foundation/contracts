@@ -4,7 +4,7 @@
 #include "soviet.hpp"
 #include "src/admin.cpp"
 #include "src/chairman.cpp"
-#include "src/joincoop.cpp"
+#include "src/registrator.cpp"
 #include "src/voting.cpp"
 #include "src/automator.cpp"
 #include "src/marketplace.cpp"

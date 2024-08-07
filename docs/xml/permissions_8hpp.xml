@@ -25,7 +25,7 @@
       </node>
       <node id="5">
         <label>registrator/registrator.cpp</label>
-        <link refid="registrator_8cpp"/>
+        <link refid="registrator_2registrator_8cpp"/>
       </node>
       <node id="4">
         <label>registrator/registrator.hpp</label>

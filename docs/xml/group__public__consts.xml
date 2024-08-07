@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="174" column="34" bodyfile="common/consts.hpp" bodystart="174" bodyend="-1"/>
+        <location file="common/consts.hpp" line="171" column="34" bodyfile="common/consts.hpp" bodystart="171" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga42013fa54096a8d11445a6006eaa0771" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr eosio::name</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="175" column="34" bodyfile="common/consts.hpp" bodystart="175" bodyend="-1"/>
+        <location file="common/consts.hpp" line="172" column="34" bodyfile="common/consts.hpp" bodystart="172" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga341b71e63284ca16c8b1561cb0cb0da4" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr eosio::name</type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="177" column="34" bodyfile="common/consts.hpp" bodystart="177" bodyend="-1"/>
+        <location file="common/consts.hpp" line="174" column="34" bodyfile="common/consts.hpp" bodystart="174" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr eosio::name</type>
@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="178" column="34" bodyfile="common/consts.hpp" bodystart="178" bodyend="-1"/>
+        <location file="common/consts.hpp" line="175" column="34" bodyfile="common/consts.hpp" bodystart="175" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga774dd561cf17ec65e59129b5ad8690d6" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr eosio::name</type>
@@ -72,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="179" column="34" bodyfile="common/consts.hpp" bodystart="179" bodyend="-1"/>
+        <location file="common/consts.hpp" line="176" column="34" bodyfile="common/consts.hpp" bodystart="176" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1gafeb0e2ab01520072c8305917005018a1" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr eosio::name</type>
@@ -86,7 +86,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="180" column="34" bodyfile="common/consts.hpp" bodystart="180" bodyend="-1"/>
+        <location file="common/consts.hpp" line="177" column="34" bodyfile="common/consts.hpp" bodystart="177" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr eosio::name</type>
@@ -100,7 +100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="181" column="34" bodyfile="common/consts.hpp" bodystart="181" bodyend="-1"/>
+        <location file="common/consts.hpp" line="178" column="34" bodyfile="common/consts.hpp" bodystart="178" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr eosio::name</type>
@@ -114,7 +114,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="182" column="34" bodyfile="common/consts.hpp" bodystart="182" bodyend="-1"/>
+        <location file="common/consts.hpp" line="179" column="34" bodyfile="common/consts.hpp" bodystart="179" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga52724c95f23545d7efc4db16f3fe42ce" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr eosio::name</type>
@@ -128,7 +128,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="183" column="34" bodyfile="common/consts.hpp" bodystart="183" bodyend="-1"/>
+        <location file="common/consts.hpp" line="180" column="34" bodyfile="common/consts.hpp" bodystart="180" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga4538cae0be703aafb0a4e4ec9d2e3b53" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr eosio::name</type>
@@ -142,7 +142,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="184" column="34" bodyfile="common/consts.hpp" bodystart="184" bodyend="-1"/>
+        <location file="common/consts.hpp" line="181" column="34" bodyfile="common/consts.hpp" bodystart="181" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga98383cb202d2d3d56f7796a53a7f3d03" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr eosio::name</type>
@@ -156,7 +156,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="185" column="34" bodyfile="common/consts.hpp" bodystart="185" bodyend="-1"/>
+        <location file="common/consts.hpp" line="182" column="34" bodyfile="common/consts.hpp" bodystart="182" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1gad32963d71641affbcefb02212f3166f3" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr eosio::name</type>
@@ -170,7 +170,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="186" column="34" bodyfile="common/consts.hpp" bodystart="186" bodyend="-1"/>
+        <location file="common/consts.hpp" line="183" column="34" bodyfile="common/consts.hpp" bodystart="183" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga5a01bac354ffb617c620091722ac5469" prot="public" static="yes" mutable="no">
         <type>std::vector&lt; name &gt;</type>
@@ -199,7 +199,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="188" column="24" bodyfile="common/consts.hpp" bodystart="188" bodyend="-1"/>
+        <location file="common/consts.hpp" line="185" column="24" bodyfile="common/consts.hpp" bodystart="185" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1gaf042516f92d25052ae67d9224b34bea6" prot="public" static="yes" mutable="no">
         <type>std::vector&lt; name &gt;</type>
@@ -223,7 +223,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="205" column="24" bodyfile="common/consts.hpp" bodystart="205" bodyend="-1"/>
+        <location file="common/consts.hpp" line="202" column="24" bodyfile="common/consts.hpp" bodystart="202" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga6b01540b618a86e6bd5303db76e3b45f" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr eosio::symbol</type>
@@ -238,7 +238,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="218" column="36" bodyfile="common/consts.hpp" bodystart="218" bodyend="-1"/>
+        <location file="common/consts.hpp" line="215" column="36" bodyfile="common/consts.hpp" bodystart="215" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga5c15ddd21a87c0b286a24580936dc4b7" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr eosio::symbol</type>
@@ -252,7 +252,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="219" column="36" bodyfile="common/consts.hpp" bodystart="219" bodyend="-1"/>
+        <location file="common/consts.hpp" line="216" column="36" bodyfile="common/consts.hpp" bodystart="216" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga3a2b682d2d7616aee19abf3001792595" prot="public" static="yes" mutable="no">
         <type>const eosio::asset</type>
@@ -266,7 +266,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="220" column="31" bodyfile="common/consts.hpp" bodystart="220" bodyend="-1"/>
+        <location file="common/consts.hpp" line="217" column="31" bodyfile="common/consts.hpp" bodystart="217" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1gacf903cac90cfb816da7c0498d6ba77db" prot="public" static="yes" mutable="no">
         <type>const eosio::asset</type>
@@ -280,7 +280,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="221" column="31" bodyfile="common/consts.hpp" bodystart="221" bodyend="-1"/>
+        <location file="common/consts.hpp" line="218" column="31" bodyfile="common/consts.hpp" bodystart="218" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1gab17a40fe9229dfa6f28be4de7f739feb" prot="public" static="yes" mutable="no">
         <type>const eosio::asset</type>
@@ -294,7 +294,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="223" column="31" bodyfile="common/consts.hpp" bodystart="223" bodyend="-1"/>
+        <location file="common/consts.hpp" line="220" column="31" bodyfile="common/consts.hpp" bodystart="220" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga03d73e3110b452143134592d7af9b672" prot="public" static="yes" mutable="no">
         <type>const eosio::asset</type>
@@ -308,7 +308,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="224" column="31" bodyfile="common/consts.hpp" bodystart="224" bodyend="-1"/>
+        <location file="common/consts.hpp" line="221" column="31" bodyfile="common/consts.hpp" bodystart="221" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga905130dd4c8fc18bfffe9eec68f9061c" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr eosio::name</type>
@@ -323,7 +323,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="226" column="34" bodyfile="common/consts.hpp" bodystart="226" bodyend="-1"/>
+        <location file="common/consts.hpp" line="223" column="34" bodyfile="common/consts.hpp" bodystart="223" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga53c8b80330465342487f78d14fad4ce7" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr eosio::symbol</type>
@@ -338,7 +338,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="227" column="36" bodyfile="common/consts.hpp" bodystart="227" bodyend="-1"/>
+        <location file="common/consts.hpp" line="224" column="36" bodyfile="common/consts.hpp" bodystart="224" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga4977cb29c847a5a4fce4cce4b753c914" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr eosio::symbol</type>
@@ -353,7 +353,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="228" column="36" bodyfile="common/consts.hpp" bodystart="228" bodyend="-1"/>
+        <location file="common/consts.hpp" line="225" column="36" bodyfile="common/consts.hpp" bodystart="225" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1gae0aa0d721b6159491c68d947cd7dc8be" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint64_t</type>
@@ -364,71 +364,26 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>стоимость 1 байта в эпсилон </para>
+<para>стоимость 1 байта в эпсилон AXON (0.0001) </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="229" column="31" bodyfile="common/consts.hpp" bodystart="229" bodyend="-1"/>
+        <location file="common/consts.hpp" line="226" column="31" bodyfile="common/consts.hpp" bodystart="226" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="group__public__consts_1ga417d739fab2765427376cba4df6b3b03" prot="public" static="yes" constexpr="yes" mutable="no">
+      <memberdef kind="variable" id="group__public__consts_1gaf525e3bc464504ee975a366f5f1cc4fc" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint64_t</type>
-        <definition>constexpr uint64_t _ram_bytes_for_new_account</definition>
+        <definition>constexpr uint64_t _register_amount</definition>
         <argsstring></argsstring>
-        <name>_ram_bytes_for_new_account</name>
-        <initializer>= 16 * 1024</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>оперативная память нового аккаунта </para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="common/consts.hpp" line="230" column="31" bodyfile="common/consts.hpp" bodystart="230" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="group__public__consts_1ga8486c7b646ce00b3e04773a00cf1e5a6" prot="public" static="yes" constexpr="yes" mutable="no">
-        <type>constexpr uint64_t</type>
-        <definition>constexpr uint64_t _ram_bytes</definition>
-        <argsstring></argsstring>
-        <name>_ram_bytes</name>
-        <initializer>= 16384</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>оперативная память нового аккаунта </para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="common/consts.hpp" line="232" column="31" bodyfile="common/consts.hpp" bodystart="232" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="group__public__consts_1ga835d48268b6c17e01d290de412eb4c81" prot="public" static="yes" constexpr="yes" mutable="no">
-        <type>constexpr uint64_t</type>
-        <definition>constexpr uint64_t _stake_cpu_amount</definition>
-        <argsstring></argsstring>
-        <name>_stake_cpu_amount</name>
+        <name>_register_amount</name>
         <initializer>= 10000</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>оперативная память нового аккаунта </para>
+<para>стоимость регистрации нового аккаунта </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="233" column="31" bodyfile="common/consts.hpp" bodystart="233" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="group__public__consts_1gae58ff0a7ec09c8cfd9d7ccd76d5f2c24" prot="public" static="yes" constexpr="yes" mutable="no">
-        <type>constexpr uint64_t</type>
-        <definition>constexpr uint64_t _stake_net_amount</definition>
-        <argsstring></argsstring>
-        <name>_stake_net_amount</name>
-        <initializer>= 10000</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>оперативная память нового аккаунта </para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="common/consts.hpp" line="234" column="31" bodyfile="common/consts.hpp" bodystart="234" bodyend="-1"/>
+        <location file="common/consts.hpp" line="228" column="31" bodyfile="common/consts.hpp" bodystart="228" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga3c1178761f963d8c1b074a29b7d7732d" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint64_t</type>
@@ -442,7 +397,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="236" column="31" bodyfile="common/consts.hpp" bodystart="236" bodyend="-1"/>
+        <location file="common/consts.hpp" line="230" column="31" bodyfile="common/consts.hpp" bodystart="230" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga7907328ea2e6a0c7528a5116b1b837c1" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint64_t</type>
@@ -456,7 +411,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="237" column="31" bodyfile="common/consts.hpp" bodystart="237" bodyend="-1"/>
+        <location file="common/consts.hpp" line="231" column="31" bodyfile="common/consts.hpp" bodystart="231" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1gaad53f3329a5e977fbcf8ebc0b9670d7d" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint64_t</type>
@@ -470,7 +425,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="239" column="31" bodyfile="common/consts.hpp" bodystart="239" bodyend="-1"/>
+        <location file="common/consts.hpp" line="233" column="31" bodyfile="common/consts.hpp" bodystart="233" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga37aa40ea0f7329fa18e7e9be9d1d52ba" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint64_t</type>
@@ -484,7 +439,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="241" column="31" bodyfile="common/consts.hpp" bodystart="241" bodyend="-1"/>
+        <location file="common/consts.hpp" line="235" column="31" bodyfile="common/consts.hpp" bodystart="235" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga6d8fd359800ecc9d5a1e2adff5e55b29" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint64_t</type>
@@ -498,7 +453,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="242" column="31" bodyfile="common/consts.hpp" bodystart="242" bodyend="-1"/>
+        <location file="common/consts.hpp" line="236" column="31" bodyfile="common/consts.hpp" bodystart="236" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

@@ -32,7 +32,7 @@ var searchData=
   ['registration_29',['registration',['../structcooperative.html#abfbc7ba6cae286087631a3f221a7b676',1,'cooperative']]],
   ['registrator_30',['registrator',['../structaccount.html#a753aadd7880d6e4a20a4de3da9b415bf',1,'account::registrator()'],['../classregistrator.html#a5031045fe1736a84cd445be212673c0b',1,'registrator::registrator()'],['../classregistrator.html',1,'registrator']]],
   ['registrator_31',['REGISTRATOR',['../consts_8hpp.html#ae4acce2da4b2736a1fedfa921d84e32b',1,'consts.hpp']]],
-  ['registrator_2ecpp_32',['registrator.cpp',['../registrator_8cpp.html',1,'']]],
+  ['registrator_2ecpp_32',['registrator.cpp',['../soviet_2src_2registrator_8cpp.html',1,'(Глобальное пространство имён)'],['../registrator_2registrator_8cpp.html',1,'(Глобальное пространство имён)']]],
   ['registrator_2ehpp_33',['registrator.hpp',['../registrator_8hpp.html',1,'']]],
   ['registry_5fid_34',['registry_id',['../structonedraft.html#a15552c3fd1f5207e7cd3ab0b4a789fce',1,'onedraft']]],
   ['regpaid_35',['regpaid',['../group__public__actions.html#gaddace7bdb215147f252a529422010022',1,'soviet']]],

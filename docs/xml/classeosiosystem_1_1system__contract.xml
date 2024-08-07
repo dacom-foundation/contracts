@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="872" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="872" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="887" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="887" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1system__contract_1aa1920281d36995e7a5017a5369b68a4b" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;setcode&quot;_n, &amp;<ref refid="classeosiosystem_1_1system__contract_1a56c686a08fd581a617980500efd795ad" kindref="member">system_contract::setcode</ref> &gt;</type>
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="873" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="873" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="888" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="888" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1system__contract_1ac0dff966e1b20b198bd7057c2d643538" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;initemission&quot;_n, &amp;<ref refid="classeosiosystem_1_1system__contract_1af6ed697e2d198ca5bce29cbacb682490" kindref="member">system_contract::initemission</ref> &gt;</type>
@@ -45,7 +45,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="874" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="874" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="889" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="889" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1system__contract_1a405cf7f71120642d5d043fa4648be9b1" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;setacctram&quot;_n, &amp;<ref refid="classeosiosystem_1_1system__contract_1acdd7c75402f43876338d33649d2e6903" kindref="member">system_contract::setacctram</ref> &gt;</type>
@@ -59,7 +59,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="876" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="876" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="891" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="891" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1system__contract_1add114cf85734d0c85edacb0eb7167883" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;setacctnet&quot;_n, &amp;<ref refid="classeosiosystem_1_1system__contract_1aa4559928f468c62867916d1251fa33b3" kindref="member">system_contract::setacctnet</ref> &gt;</type>
@@ -73,7 +73,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="877" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="877" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="892" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="892" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1system__contract_1a7a538179a1332d7f139e881cff0c04cc" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;setacctcpu&quot;_n, &amp;<ref refid="classeosiosystem_1_1system__contract_1a9a005d230746b68cafa934a067f287af" kindref="member">system_contract::setacctcpu</ref> &gt;</type>
@@ -87,7 +87,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="878" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="878" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="893" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="893" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1system__contract_1a0cca489c98b5874f5493f4447e7c52a9" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;activate&quot;_n, &amp;<ref refid="classeosiosystem_1_1system__contract_1a1873247483b285e19010b7469419a60d" kindref="member">system_contract::activate</ref> &gt;</type>
@@ -101,7 +101,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="880" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="880" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="895" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="895" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1system__contract_1a1f08c7b7252348f1b64ad4f2699c4de5" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;delegatebw&quot;_n, &amp;<ref refid="classeosiosystem_1_1system__contract_1aa54b498595abb1a3ad9c62c597d4f7b5" kindref="member">system_contract::delegatebw</ref> &gt;</type>
@@ -115,7 +115,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="881" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="881" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="896" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="896" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1system__contract_1a5751bdd1f68be3270595b4bba1a241f4" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;undelegatebw&quot;_n, &amp;<ref refid="classeosiosystem_1_1system__contract_1a4db0be2c90d342ecd269fdbb57c51091" kindref="member">system_contract::undelegatebw</ref> &gt;</type>
@@ -129,7 +129,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="882" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="882" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="897" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="897" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1system__contract_1a379cc18be05f0d81a71f15a52f7c6f48" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;buyram&quot;_n, &amp;<ref refid="classeosiosystem_1_1system__contract_1a04be77ea83f87d1533606390c37cf5d1" kindref="member">system_contract::buyram</ref> &gt;</type>
@@ -143,7 +143,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="884" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="884" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="899" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="899" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1system__contract_1af7ddbe541c404f6a8d1094b8278e6128" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;buyrambytes&quot;_n, &amp;<ref refid="classeosiosystem_1_1system__contract_1a93950629ac6f931b47542727a5411097" kindref="member">system_contract::buyrambytes</ref> &gt;</type>
@@ -157,7 +157,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="885" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="885" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="900" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="900" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1system__contract_1a5ef59ea3e3db4bb9bbe075531109d687" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;refund&quot;_n, &amp;<ref refid="classeosiosystem_1_1system__contract_1a10a63e006f9869caeaf2592bdfbccc42" kindref="member">system_contract::refund</ref> &gt;</type>
@@ -171,7 +171,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="887" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="887" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="902" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="902" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1system__contract_1ab5efbdbade110f33fed3c39083d3f76f" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;regproducer&quot;_n, &amp;<ref refid="classeosiosystem_1_1system__contract_1a252441c7b5811068d336f37ab627ecd9" kindref="member">system_contract::regproducer</ref> &gt;</type>
@@ -185,7 +185,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="889" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="889" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="904" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="904" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1system__contract_1ae39dfe220205b48d192a90abc3e790da" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;regproducer2&quot;_n, &amp;<ref refid="classeosiosystem_1_1system__contract_1a6c1143de786b7d7601ac0b0968cb0f19" kindref="member">system_contract::regproducer2</ref> &gt;</type>
@@ -199,7 +199,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="890" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="890" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="905" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="905" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1system__contract_1a34d06c5e737193d6cf707edc7d57407e" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;unregprod&quot;_n, &amp;<ref refid="classeosiosystem_1_1system__contract_1a0b8c45d3226929472bc5785742c05152" kindref="member">system_contract::unregprod</ref> &gt;</type>
@@ -213,7 +213,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="892" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="892" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="907" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="907" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1system__contract_1a4caad060672784b32a36a2d634a5f3b3" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;setram&quot;_n, &amp;<ref refid="classeosiosystem_1_1system__contract_1ad8a6eb47fd97c9f243019d93916ff78f" kindref="member">system_contract::setram</ref> &gt;</type>
@@ -227,7 +227,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="894" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="894" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="909" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="909" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1system__contract_1aad4ad84241c38c3541a0438fbca0cc9b" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;setramrate&quot;_n, &amp;<ref refid="classeosiosystem_1_1system__contract_1a7d984add31b6060bb59d472f9f1bd1a1" kindref="member">system_contract::setramrate</ref> &gt;</type>
@@ -241,7 +241,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="895" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="895" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="910" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="910" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1system__contract_1aab2cd194b5dbe033163f2ed21c28ebc4" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;voteproducer&quot;_n, &amp;<ref refid="classeosiosystem_1_1system__contract_1a19d51a2b9b57ffb656612c280ee4ab4e" kindref="member">system_contract::voteproducer</ref> &gt;</type>
@@ -255,7 +255,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="898" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="898" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="913" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="913" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1system__contract_1aad3da6aae1bb02b7c177b98796a5107a" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;voteupdate&quot;_n, &amp;<ref refid="classeosiosystem_1_1system__contract_1afd8f9ea7890c647010bc9bccdcda6ba9" kindref="member">system_contract::voteupdate</ref> &gt;</type>
@@ -269,7 +269,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="899" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="899" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="914" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="914" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1system__contract_1a8b1c5e40db2dd35043dc289fec274da2" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;regproxy&quot;_n, &amp;<ref refid="classeosiosystem_1_1system__contract_1a7192c64e5a9d0b9b202390dbfade0858" kindref="member">system_contract::regproxy</ref> &gt;</type>
@@ -283,7 +283,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="901" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="901" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="916" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="916" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1system__contract_1a6fb5d3547618397ee9411fe31c549565" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;claimrewards&quot;_n, &amp;<ref refid="classeosiosystem_1_1system__contract_1a34b35d1f073383e599d4e2bb56e20524" kindref="member">system_contract::claimrewards</ref> &gt;</type>
@@ -297,7 +297,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="903" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="903" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="918" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="918" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1system__contract_1a9cd7fa6413479ac6ffe3e548b847ea64" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;rmvproducer&quot;_n, &amp;<ref refid="classeosiosystem_1_1system__contract_1a2a41dc1871059a536a55626b8c76f5b9" kindref="member">system_contract::rmvproducer</ref> &gt;</type>
@@ -311,7 +311,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="905" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="905" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="920" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="920" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1system__contract_1a56315050770b4f79af95042a95b58507" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;updtrevision&quot;_n, &amp;<ref refid="classeosiosystem_1_1system__contract_1a0af4a55018801131ae7dc7a923bead0b" kindref="member">system_contract::updtrevision</ref> &gt;</type>
@@ -325,7 +325,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="907" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="907" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="922" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="922" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1system__contract_1a4061267666d68ba49beda47dc1440194" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;bidname&quot;_n, &amp;<ref refid="classeosiosystem_1_1system__contract_1af1c329fbf0e3e45b62b729e6ee743c62" kindref="member">system_contract::bidname</ref> &gt;</type>
@@ -339,7 +339,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="909" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="909" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="924" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="924" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1system__contract_1a6d35995c9e7932d40ea91609744c9aa3" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;bidrefund&quot;_n, &amp;<ref refid="classeosiosystem_1_1system__contract_1a1ad9f05ad7242412bf5ad87706f923ff" kindref="member">system_contract::bidrefund</ref> &gt;</type>
@@ -353,7 +353,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="910" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="910" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="925" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="925" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1system__contract_1a7c19bb1d99d1abbd00be825f69fbfc3f" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;setpriv&quot;_n, &amp;<ref refid="classeosiosystem_1_1system__contract_1a648ec27a9bc3bf7e36c5c88f6932b9ca" kindref="member">system_contract::setpriv</ref> &gt;</type>
@@ -367,7 +367,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="912" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="912" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="927" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="927" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1system__contract_1a5546364ddc017d87f96ed0e9a6b1f931" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;setalimits&quot;_n, &amp;<ref refid="classeosiosystem_1_1system__contract_1ad5b9178dfbe60ba6059c52d488ecf303" kindref="member">system_contract::setalimits</ref> &gt;</type>
@@ -381,7 +381,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="913" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="913" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="928" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="928" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1system__contract_1ae0cbe561757f43c3856caf74ff58ea2b" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;setparams&quot;_n, &amp;<ref refid="classeosiosystem_1_1system__contract_1aa4ea1b93cfb3d99fcaaabb994c711bee" kindref="member">system_contract::setparams</ref> &gt;</type>
@@ -395,7 +395,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="915" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="915" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="930" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="930" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1system__contract_1a752504e09e8196326e836ef099588650" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;cfgpowerup&quot;_n, &amp;<ref refid="classeosiosystem_1_1system__contract_1ae71212071f747832a2a56eb4868d9c81" kindref="member">system_contract::cfgpowerup</ref> &gt;</type>
@@ -409,7 +409,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="917" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="917" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="932" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="932" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1system__contract_1ac85b9bef9b3fc161a14712f52ec31e5b" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;powerupexec&quot;_n, &amp;<ref refid="classeosiosystem_1_1system__contract_1aa573d628b237c167aa99fc71cb150736" kindref="member">system_contract::powerupexec</ref> &gt;</type>
@@ -423,7 +423,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="918" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="918" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="933" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="933" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classeosiosystem_1_1system__contract_1ac3cd9f92205bbc3ba9fdfdaacdeedf61" prot="public" static="no">
         <type>eosio::action_wrapper&lt;&quot;powerup&quot;_n, &amp;<ref refid="classeosiosystem_1_1system__contract_1ab3d6d9e77d6b9ac63b79e6d8104d8312" kindref="member">system_contract::powerup</ref> &gt;</type>
@@ -437,7 +437,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="919" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="919" bodyend="-1"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="934" column="10" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="934" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -765,7 +765,72 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="466" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="495" bodyend="531"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="466" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="526" bodyend="562"/>
+      </memberdef>
+      <memberdef kind="function" id="classeosiosystem_1_1system__contract_1a6cfe0acba41778a7fd2af66056af68b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eosiosystem::system_contract::changekey</definition>
+        <argsstring>(name account, name permission, name parent, authority auth)</argsstring>
+        <name>changekey</name>
+        <qualifiedname>eosiosystem::system_contract::changekey</qualifiedname>
+        <param>
+          <type>name</type>
+          <declname>account</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>permission</declname>
+        </param>
+        <param>
+          <type>name</type>
+          <declname>parent</declname>
+        </param>
+        <param>
+          <type><ref refid="structeosiosystem_1_1authority" kindref="compound">authority</ref></type>
+          <declname>auth</declname>
+        </param>
+        <briefdescription>
+<para>Метод обновления активного ключа пользователя кооперативами. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">account</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The account </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">permission</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The permission </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">parent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The parent </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">auth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The auth </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="477" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="511" bodyend="523"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1a56c686a08fd581a617980500efd795ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -799,7 +864,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="470" column="16" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="533" bodyend="537"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="485" column="16" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="564" bodyend="568"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1af6ed697e2d198ca5bce29cbacb682490" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -843,7 +908,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="479" column="15" bodyfile="system/contracts/eosio.system/src/powerup.cpp" bodystart="280" bodyend="309"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="494" column="15" bodyfile="system/contracts/eosio.system/src/powerup.cpp" bodystart="280" bodyend="309"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1ae75458e3f898b3bc834311fa54abc6a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -876,7 +941,7 @@
 <para>At startup the initial producer may not be one that is registered / elected and therefore there may be no producer object for them.</para>
 <para>only update block producers once every minute, block_timestamp is in half seconds</para>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="492" column="15" bodyfile="system/contracts/eosio.system/src/producer_pay.cpp" bodystart="10" bodyend="71"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="507" column="15" bodyfile="system/contracts/eosio.system/src/producer_pay.cpp" bodystart="10" bodyend="71"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1ad5b9178dfbe60ba6059c52d488ecf303" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -941,7 +1006,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="503" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="210" bodyend="226"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="518" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="210" bodyend="226"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1acdd7c75402f43876338d33649d2e6903" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -982,7 +1047,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="512" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="228" bodyend="271"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="527" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="228" bodyend="271"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1aa4559928f468c62867916d1251fa33b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1023,7 +1088,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="521" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="273" bodyend="315"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="536" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="273" bodyend="315"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1a9a005d230746b68cafa934a067f287af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1064,7 +1129,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="530" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="317" bodyend="359"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="545" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="317" bodyend="359"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1a1873247483b285e19010b7469419a60d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1093,7 +1158,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="539" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="361" bodyend="364"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="554" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="361" bodyend="364"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1aa54b498595abb1a3ad9c62c597d4f7b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1172,7 +1237,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="557" column="15" bodyfile="system/contracts/eosio.system/src/delegate_bandwidth.cpp" bodystart="348" bodyend="365"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="572" column="15" bodyfile="system/contracts/eosio.system/src/delegate_bandwidth.cpp" bodystart="348" bodyend="365"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1a4db0be2c90d342ecd269fdbb57c51091" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1245,7 +1310,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="589" column="15" bodyfile="system/contracts/eosio.system/src/delegate_bandwidth.cpp" bodystart="367" bodyend="384"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="604" column="15" bodyfile="system/contracts/eosio.system/src/delegate_bandwidth.cpp" bodystart="367" bodyend="384"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1a04be77ea83f87d1533606390c37cf5d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1299,7 +1364,7 @@ When buying ram the payer irreversibly transfers quant to system contract and on
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="602" column="15" bodyfile="system/contracts/eosio.system/src/delegate_bandwidth.cpp" bodystart="42" bodyend="98"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="617" column="15" bodyfile="system/contracts/eosio.system/src/delegate_bandwidth.cpp" bodystart="42" bodyend="98"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1a6b00b900a128d2718244ac8a408f65d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1321,7 +1386,7 @@ When buying ram the payer irreversibly transfers quant to system contract and on
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="606" column="15" bodyfile="system/contracts/eosio.system/src/delegate_bandwidth.cpp" bodystart="101" bodyend="145"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="621" column="15" bodyfile="system/contracts/eosio.system/src/delegate_bandwidth.cpp" bodystart="101" bodyend="145"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1a93950629ac6f931b47542727a5411097" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1374,7 +1439,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="618" column="15" bodyfile="system/contracts/eosio.system/src/delegate_bandwidth.cpp" bodystart="25" bodyend="31"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="633" column="15" bodyfile="system/contracts/eosio.system/src/delegate_bandwidth.cpp" bodystart="25" bodyend="31"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1a10a63e006f9869caeaf2592bdfbccc42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1403,7 +1468,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="627" column="15" bodyfile="system/contracts/eosio.system/src/delegate_bandwidth.cpp" bodystart="387" bodyend="398"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="642" column="15" bodyfile="system/contracts/eosio.system/src/delegate_bandwidth.cpp" bodystart="387" bodyend="398"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1a252441c7b5811068d336f37ab627ecd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1472,7 +1537,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="645" column="15" bodyfile="system/contracts/eosio.system/src/voting.cpp" bodystart="66" bodyend="71"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="660" column="15" bodyfile="system/contracts/eosio.system/src/voting.cpp" bodystart="66" bodyend="71"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1a6c1143de786b7d7601ac0b0968cb0f19" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1541,7 +1606,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="661" column="15" bodyfile="system/contracts/eosio.system/src/voting.cpp" bodystart="73" bodyend="82"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="676" column="15" bodyfile="system/contracts/eosio.system/src/voting.cpp" bodystart="73" bodyend="82"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1a0b8c45d3226929472bc5785742c05152" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1570,7 +1635,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="670" column="15" bodyfile="system/contracts/eosio.system/src/voting.cpp" bodystart="84" bodyend="91"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="685" column="15" bodyfile="system/contracts/eosio.system/src/voting.cpp" bodystart="84" bodyend="91"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1ad8a6eb47fd97c9f243019d93916ff78f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1600,7 +1665,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
 <para>decreasing ram might result market maker issues</para>
 <para>Increase the amount of ram for sale based upon the change in max ram size.</para>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="677" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="40" bodyend="58"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="692" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="40" bodyend="58"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1a7d984add31b6060bb59d472f9f1bd1a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1629,7 +1694,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="687" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="78" bodyend="83"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="702" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="78" bodyend="83"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1a19d51a2b9b57ffb656612c280ee4ab4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1704,7 +1769,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="713" column="15" bodyfile="system/contracts/eosio.system/src/voting.cpp" bodystart="136" bodyend="141"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="728" column="15" bodyfile="system/contracts/eosio.system/src/voting.cpp" bodystart="136" bodyend="141"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1afd8f9ea7890c647010bc9bccdcda6ba9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1739,7 +1804,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="725" column="15" bodyfile="system/contracts/eosio.system/src/voting.cpp" bodystart="143" bodyend="165"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="740" column="15" bodyfile="system/contracts/eosio.system/src/voting.cpp" bodystart="143" bodyend="165"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1a7192c64e5a9d0b9b202390dbfade0858" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1784,7 +1849,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="741" column="15" bodyfile="system/contracts/eosio.system/src/voting.cpp" bodystart="272" bodyend="289"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="756" column="15" bodyfile="system/contracts/eosio.system/src/voting.cpp" bodystart="272" bodyend="289"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1aa4ea1b93cfb3d99fcaaabb994c711bee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1812,7 +1877,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="749" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="89" bodyend="129"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="764" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="89" bodyend="129"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1a34b35d1f073383e599d4e2bb56e20524" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1840,7 +1905,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="766" column="15" bodyfile="system/contracts/eosio.system/src/producer_pay.cpp" bodystart="83" bodyend="131"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="781" column="15" bodyfile="system/contracts/eosio.system/src/producer_pay.cpp" bodystart="83" bodyend="131"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1a648ec27a9bc3bf7e36c5c88f6932b9ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1880,7 +1945,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="774" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="205" bodyend="208"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="789" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="205" bodyend="208"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1a2a41dc1871059a536a55626b8c76f5b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1908,7 +1973,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="781" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="366" bodyend="373"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="796" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="366" bodyend="373"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1a0af4a55018801131ae7dc7a923bead0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1938,7 +2003,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="791" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="375" bodyend="382"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="806" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="375" bodyend="382"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1af1c329fbf0e3e45b62b729e6ee743c62" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2008,7 +2073,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="810" column="15" bodyfile="system/contracts/eosio.system/src/name_bidding.cpp" bodystart="12" bodyend="73"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="825" column="15" bodyfile="system/contracts/eosio.system/src/name_bidding.cpp" bodystart="12" bodyend="73"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1a1ad9f05ad7242412bf5ad87706f923ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2049,7 +2114,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="819" column="15" bodyfile="system/contracts/eosio.system/src/name_bidding.cpp" bodystart="75" bodyend="83"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="834" column="15" bodyfile="system/contracts/eosio.system/src/name_bidding.cpp" bodystart="75" bodyend="83"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1ae71212071f747832a2a56eb4868d9c81" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2068,7 +2133,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="826" column="15" bodyfile="system/contracts/eosio.system/src/powerup.cpp" bodystart="98" bodyend="141"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="841" column="15" bodyfile="system/contracts/eosio.system/src/powerup.cpp" bodystart="98" bodyend="141"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1aa573d628b237c167aa99fc71cb150736" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2109,7 +2174,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="835" column="15" bodyfile="system/contracts/eosio.system/src/powerup.cpp" bodystart="144" bodyend="160"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="850" column="15" bodyfile="system/contracts/eosio.system/src/powerup.cpp" bodystart="144" bodyend="160"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1ab3d6d9e77d6b9ac63b79e6d8104d8312" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2195,7 +2260,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="849" column="15" bodyfile="system/contracts/eosio.system/src/powerup.cpp" bodystart="162" bodyend="244"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="864" column="15" bodyfile="system/contracts/eosio.system/src/powerup.cpp" bodystart="162" bodyend="244"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1ab940f454d4d3d0018f22bf472caf3b52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2250,14 +2315,18 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="867" column="15" bodyfile="system/contracts/eosio.system/src/limit_auth_changes.cpp" bodystart="6" bodyend="35"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="882" column="15" bodyfile="system/contracts/eosio.system/src/limit_auth_changes.cpp" bodystart="6" bodyend="35"/>
       </memberdef>
-      <memberdef kind="function" id="classeosiosystem_1_1system__contract_1a2c394fb4ae2451d0b44c543258d72f02" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classeosiosystem_1_1system__contract_1a9ca6a4de00cf033d13ed6d587440d2fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void eosiosystem::system_contract::createaccnt</definition>
-        <argsstring>(const name new_account_name, authority owner, authority active)</argsstring>
+        <argsstring>(const name coopname, const name new_account_name, authority owner, authority active)</argsstring>
         <name>createaccnt</name>
         <qualifiedname>eosiosystem::system_contract::createaccnt</qualifiedname>
+        <param>
+          <type>const name</type>
+          <declname>coopname</declname>
+        </param>
         <param>
           <type>const name</type>
           <declname>new_account_name</declname>
@@ -2276,7 +2345,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="870" column="14" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="387" bodyend="400"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="885" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="387" bodyend="421"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -2317,7 +2386,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="924" column="24" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="924" bodyend="928"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="939" column="24" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="939" bodyend="943"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1aa7000a5c93cf390e5495e65704919674" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeosiosystem_1_1eosio__global__state" kindref="compound">eosio_global_state</ref></type>
@@ -2331,7 +2400,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="931" column="36" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="25" bodyend="29"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="946" column="36" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="25" bodyend="29"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -2359,7 +2428,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="932" column="18" bodyfile="system/contracts/eosio.system/src/powerup.cpp" bodystart="246" bodyend="277"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="947" column="18" bodyfile="system/contracts/eosio.system/src/powerup.cpp" bodystart="246" bodyend="277"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1a7e80c965d15f6613db3ee04188d68af5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2377,7 +2446,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="934" column="15" bodyfile="system/contracts/eosio.system/src/producer_pay.cpp" bodystart="73" bodyend="81"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="949" column="15" bodyfile="system/contracts/eosio.system/src/producer_pay.cpp" bodystart="73" bodyend="81"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1a32504695292c0e9c2171987821bc3857" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>symbol</type>
@@ -2391,7 +2460,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="936" column="17" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="31" bodyend="34"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="951" column="17" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="31" bodyend="34"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1ae248c8483e7ff56c697793c49bd58700" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2406,7 +2475,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         <inbodydescription>
 <para>Increase the amount of ram for sale based upon the change in max ram size.</para>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="937" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="60" bodyend="76"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="952" column="15" bodyfile="system/contracts/eosio.system/src/eosio.system.cpp" bodystart="60" bodyend="76"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1aa4121046f43083640f3276a4e7974572" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2441,7 +2510,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         <inbodydescription>
 <para>end if is_delegating_to_self || is_undelegating</para>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="940" column="15" bodyfile="system/contracts/eosio.system/src/delegate_bandwidth.cpp" bodystart="147" bodyend="325"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="955" column="15" bodyfile="system/contracts/eosio.system/src/delegate_bandwidth.cpp" bodystart="147" bodyend="325"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1aa192ed8af461c5162749a1a7f3886f06" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2463,7 +2532,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="942" column="15" bodyfile="system/contracts/eosio.system/src/delegate_bandwidth.cpp" bodystart="327" bodyend="346"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="957" column="15" bodyfile="system/contracts/eosio.system/src/delegate_bandwidth.cpp" bodystart="327" bodyend="346"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1a0709db97aa347d697fb4cbf3f67f2a96" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2493,7 +2562,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="945" column="15" bodyfile="system/contracts/eosio.system/src/voting.cpp" bodystart="27" bodyend="64"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="960" column="15" bodyfile="system/contracts/eosio.system/src/voting.cpp" bodystart="27" bodyend="64"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1a616d617680f7ed47eb3f7fc2b984650f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2511,7 +2580,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="946" column="15" bodyfile="system/contracts/eosio.system/src/voting.cpp" bodystart="93" bodyend="130"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="961" column="15" bodyfile="system/contracts/eosio.system/src/voting.cpp" bodystart="93" bodyend="130"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1aac11a1b221a613107fb8ca99e080a616" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2543,7 +2612,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
 <para>staking creates voter object</para>
 <para>The first time someone votes we calculate and set last_vote_weight. Since they cannot unstake until after the chain has been activated, we can use last_vote_weight to determine that this is their first vote and should consider their stake activated.</para>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="947" column="15" bodyfile="system/contracts/eosio.system/src/voting.cpp" bodystart="168" bodyend="270"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="962" column="15" bodyfile="system/contracts/eosio.system/src/voting.cpp" bodystart="168" bodyend="270"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1a91084ea3aa4700b2565afd34f9faff31" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2562,7 +2631,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         <inbodydescription>
 <para>don&apos;t propagate small changes (1 ~= epsilon)</para>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="948" column="15" bodyfile="system/contracts/eosio.system/src/voting.cpp" bodystart="291" bodyend="327"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="963" column="15" bodyfile="system/contracts/eosio.system/src/voting.cpp" bodystart="291" bodyend="327"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1a682be09e4bcb430df8e2ce98f1912563" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2584,7 +2653,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="951" column="15" bodyfile="system/contracts/eosio.system/src/powerup.cpp" bodystart="335" bodyend="395"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="966" column="15" bodyfile="system/contracts/eosio.system/src/powerup.cpp" bodystart="335" bodyend="395"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1af207e91e13bb386b49b1e1c2ed0fb616" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2627,7 +2696,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="952" column="15" bodyfile="system/contracts/eosio.system/src/powerup.cpp" bodystart="9" bodyend="75"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="967" column="15" bodyfile="system/contracts/eosio.system/src/powerup.cpp" bodystart="9" bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1a0fd50f24c66c025a7efd13b0cc24e23e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2673,7 +2742,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="953" column="15" bodyfile="system/contracts/eosio.system/src/powerup.cpp" bodystart="77" bodyend="96"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="968" column="15" bodyfile="system/contracts/eosio.system/src/powerup.cpp" bodystart="77" bodyend="96"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1a426f4cdbba6766820a8625a6dcb6ee04" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2687,7 +2756,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="957" column="15" bodyfile="system/contracts/eosio.system/src/powerup.cpp" bodystart="311" bodyend="333"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="972" column="15" bodyfile="system/contracts/eosio.system/src/powerup.cpp" bodystart="311" bodyend="333"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1a7180a3661c6dcf143333569d64dc9a27" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2709,7 +2778,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="958" column="15" bodyfile="system/contracts/eosio.system/src/powerup.cpp" bodystart="397" bodyend="407"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="973" column="15" bodyfile="system/contracts/eosio.system/src/powerup.cpp" bodystart="397" bodyend="407"/>
       </memberdef>
       <memberdef kind="function" id="classeosiosystem_1_1system__contract_1a7cabfe02d2b7028ec0a2e2aae10c1155" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2731,7 +2800,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="960" column="15" bodyfile="system/contracts/eosio.system/src/block_info.cpp" bodystart="17" bodyend="45"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="975" column="15" bodyfile="system/contracts/eosio.system/src/block_info.cpp" bodystart="17" bodyend="45"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -2815,7 +2884,7 @@ This action will buy an exact amount of ram and bill the payer the current marke
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="420" column="4" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="420" bodyend="962"/>
+    <location file="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" line="420" column="4" bodyfile="system/contracts/eosio.system/include/eosio.system/eosio.system.hpp" bodystart="420" bodyend="977"/>
     <listofallmembers>
       <member refid="classeosiosystem_1_1system__contract_1ae0fead4e6333fb6ff81b38c873beb484" prot="private" virt="non-virtual"><scope>eosiosystem::system_contract</scope><name>_global</name></member>
       <member refid="classeosiosystem_1_1system__contract_1a40e74853eda24e1b15d8f5b6499c8820" prot="private" virt="non-virtual"><scope>eosiosystem::system_contract</scope><name>_gstate</name></member>
@@ -2842,10 +2911,11 @@ This action will buy an exact amount of ram and bill the payer the current marke
       <member refid="classeosiosystem_1_1system__contract_1a752504e09e8196326e836ef099588650" prot="public" virt="non-virtual"><scope>eosiosystem::system_contract</scope><name>cfgpowerup_action</name></member>
       <member refid="classeosiosystem_1_1system__contract_1a7180a3661c6dcf143333569d64dc9a27" prot="private" virt="non-virtual"><scope>eosiosystem::system_contract</scope><name>change_weights</name></member>
       <member refid="classeosiosystem_1_1system__contract_1aa4121046f43083640f3276a4e7974572" prot="private" virt="non-virtual"><scope>eosiosystem::system_contract</scope><name>changebw</name></member>
+      <member refid="classeosiosystem_1_1system__contract_1a6cfe0acba41778a7fd2af66056af68b1" prot="public" virt="non-virtual"><scope>eosiosystem::system_contract</scope><name>changekey</name></member>
       <member refid="classeosiosystem_1_1system__contract_1a34b35d1f073383e599d4e2bb56e20524" prot="public" virt="non-virtual"><scope>eosiosystem::system_contract</scope><name>claimrewards</name></member>
       <member refid="classeosiosystem_1_1system__contract_1a6fb5d3547618397ee9411fe31c549565" prot="public" virt="non-virtual"><scope>eosiosystem::system_contract</scope><name>claimrewards_action</name></member>
       <member refid="classeosiosystem_1_1system__contract_1a32504695292c0e9c2171987821bc3857" prot="private" virt="non-virtual"><scope>eosiosystem::system_contract</scope><name>core_symbol</name></member>
-      <member refid="classeosiosystem_1_1system__contract_1a2c394fb4ae2451d0b44c543258d72f02" prot="public" virt="non-virtual"><scope>eosiosystem::system_contract</scope><name>createaccnt</name></member>
+      <member refid="classeosiosystem_1_1system__contract_1a9ca6a4de00cf033d13ed6d587440d2fc" prot="public" virt="non-virtual"><scope>eosiosystem::system_contract</scope><name>createaccnt</name></member>
       <member refid="classeosiosystem_1_1system__contract_1aa54b498595abb1a3ad9c62c597d4f7b5" prot="public" virt="non-virtual"><scope>eosiosystem::system_contract</scope><name>delegatebw</name></member>
       <member refid="classeosiosystem_1_1system__contract_1a1f08c7b7252348f1b64ad4f2699c4de5" prot="public" virt="non-virtual"><scope>eosiosystem::system_contract</scope><name>delegatebw_action</name></member>
       <member refid="classeosiosystem_1_1native_1a49cc638f16ddc898952a8f032ffd6c2c" prot="public" virt="non-virtual"><scope>eosiosystem::system_contract</scope><name>deleteauth</name></member>

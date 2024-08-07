@@ -1,13 +1,14 @@
 #include <eosio.system/exchange_state.hpp>
 #include <eosio/check.hpp>
 #include <cmath>
+#include "../../../../common/consts.hpp"
 
 namespace eosiosystem {
 
   using eosio::check;
 
-  // Цена за байт в малых единицах токена
-  constexpr int64_t _ram_price_per_byte = 1; //что даёт 10000 байт или 9.76 кб за 1.0000 AXON
+  // // Цена за байт в малых единицах токена
+  // constexpr int64_t _ram_price_per_byte = _ram_price_per_byte; //что даёт 10000 байт или 9.76 кб за 1.0000 AXON
 
   asset exchange_state::convert_to_exchange(connector& reserve_connector, const asset& payment) {
     int64_t ram_bytes = payment.amount / _ram_price_per_byte;

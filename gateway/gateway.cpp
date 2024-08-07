@@ -4,6 +4,15 @@
 
 using namespace eosio;
 
+[[eosio::action]]
+void gateway::newdeposit(eosio::name coopname, eosio::name username, uint64_t deposit_id, eosio::name type, eosio::asset amount, eosio::time_point_sec deposited_at){
+  require_auth(_gateway);
+}
+
+[[eosio::action]]
+void gateway::newwithdraw(eosio::name coopname, eosio::name username, uint64_t withdraw_id, eosio::name type, eosio::asset amount){
+  require_auth(_gateway);
+}
 
 /**
  * @brief Пустой метод регистрации нового идентификатора
@@ -20,6 +29,36 @@ void gateway::newwithdrid(eosio::name username, uint64_t id) {
   require_auth(_gateway);
 };
 
+void gateway::newuser(eosio::name coopname, eosio::name username, eosio::asset initial, eosio::asset minimum, eosio::time_point_sec created_at, bool spread_initial) {
+  check_auth_and_get_payer_or_fail({_gateway, _registrator});
+  
+  uint64_t deposit_id = 0; //фактически депозит через контракт не проводился
+
+  action(
+    permission_level{ _gateway, "active"_n},
+    _gateway,
+    "newdeposit"_n,
+    std::make_tuple(coopname, username, deposit_id, "registration"_n, initial + minimum, created_at)
+  ).send();
+
+  action(
+    permission_level{ _gateway, "active"_n},
+    _fund,
+    "addcirculate"_n,
+    std::make_tuple(coopname, minimum)
+  ).send();
+  
+
+  if (spread_initial)
+    action(
+      permission_level{ _gateway, "active"_n},
+      _fund,
+      "spreadamount"_n,
+      std::make_tuple(coopname, initial)
+    ).send();
+
+
+}
 
 /**
 \ingroup public_actions
@@ -127,7 +166,14 @@ void gateway::dpcomplete(eosio::name coopname, eosio::name admin, uint64_t depos
     d.expired_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch() + _deposit_expiration_seconds);
   });
   
+
   if (deposit -> type == "deposit"_n) {
+    action(
+      permission_level{ _gateway, "active"_n},
+      _gateway,
+      "newdeposit"_n,
+      std::make_tuple(coopname, deposit -> username, deposit_id, deposit->type, deposit -> quantity, eosio::current_time_point())
+    ).send();
   
     action(
       permission_level{ _gateway, "active"_n},
@@ -150,16 +196,9 @@ void gateway::dpcomplete(eosio::name coopname, eosio::name admin, uint64_t depos
 
     action(
       permission_level{ _gateway, "active"_n},
-      _fund,
-      "addcirculate"_n,
-      std::make_tuple(coopname, to_circulation)
-    ).send();
-    
-    action(
-      permission_level{ _gateway, "active"_n},
-      _fund,
-      "spreadamount"_n,
-      std::make_tuple(coopname, to_spread)
+      _gateway,
+      "newuser"_n,
+      std::make_tuple(coopname, deposit->username, to_spread, to_circulation, eosio::current_time_point())
     ).send();
 
     action(
@@ -358,6 +397,15 @@ void gateway::wthdcomplete(eosio::name coopname, eosio::name admin, uint64_t wit
     "subcirculate"_n,
     std::make_tuple(coopname, withdraw -> quantity)
   ).send();
+
+
+  action(
+    permission_level{ _gateway, "active"_n},
+    _gateway,
+    "newwithdraw"_n,
+    std::make_tuple(coopname, withdraw -> username, withdraw -> quantity)
+  ).send();
+
 
 }
 

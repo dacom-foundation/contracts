@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/coops.hpp" line="356" column="12" bodyfile="common/coops.hpp" bodystart="356" bodyend="-1"/>
+        <location file="common/coops.hpp" line="364" column="12" bodyfile="common/coops.hpp" bodystart="364" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structaddress_1ad9edc77ee23956092e27a52d1f1daee9" prot="public" static="no" mutable="no">
         <type>eosio::name</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/coops.hpp" line="357" column="15" bodyfile="common/coops.hpp" bodystart="357" bodyend="-1"/>
+        <location file="common/coops.hpp" line="365" column="15" bodyfile="common/coops.hpp" bodystart="365" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structaddress_1af748837166c7a3e26168697f31499d8d" prot="public" static="no" mutable="no">
         <type>eosio::name</type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/coops.hpp" line="358" column="15" bodyfile="common/coops.hpp" bodystart="358" bodyend="-1"/>
+        <location file="common/coops.hpp" line="366" column="15" bodyfile="common/coops.hpp" bodystart="366" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structaddress_1a811d5c14ce10ef99c7f89ec3870a4996" prot="public" static="no" mutable="no">
         <type><ref refid="structaddress__data" kindref="compound">address_data</ref></type>
@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/coops.hpp" line="359" column="16" bodyfile="common/coops.hpp" bodystart="359" bodyend="-1"/>
+        <location file="common/coops.hpp" line="367" column="16" bodyfile="common/coops.hpp" bodystart="367" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -74,7 +74,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/coops.hpp" line="361" column="12" bodyfile="common/coops.hpp" bodystart="361" bodyend="361"/>
+        <location file="common/coops.hpp" line="369" column="12" bodyfile="common/coops.hpp" bodystart="369" bodyend="369"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -119,7 +119,7 @@
         <label>string</label>
       </node>
     </collaborationgraph>
-    <location file="common/coops.hpp" line="355" column="1" bodyfile="common/coops.hpp" bodystart="355" bodyend="362"/>
+    <location file="common/coops.hpp" line="363" column="1" bodyfile="common/coops.hpp" bodystart="363" bodyend="370"/>
     <listofallmembers>
       <member refid="structaddress_1af748837166c7a3e26168697f31499d8d" prot="public" virt="non-virtual"><scope>address</scope><name>braname</name></member>
       <member refid="structaddress_1ad9edc77ee23956092e27a52d1f1daee9" prot="public" virt="non-virtual"><scope>address</scope><name>coopname</name></member>

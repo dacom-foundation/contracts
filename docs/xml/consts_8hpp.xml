@@ -8,6 +8,7 @@
     <includedby refid="soviet_8hpp" local="yes">soviet/soviet.hpp</includedby>
     <includedby refid="eosio_8system_8hpp" local="yes">system/contracts/eosio.system/include/eosio.system/eosio.system.hpp</includedby>
     <includedby refid="eosio_8system_8cpp" local="yes">system/contracts/eosio.system/src/eosio.system.cpp</includedby>
+    <includedby refid="exchange__state_8cpp" local="yes">system/contracts/eosio.system/src/exchange_state.cpp</includedby>
     <includedby refid="eosio_8token_8cpp" local="yes">system/contracts/eosio.token/src/eosio.token.cpp</includedby>
     <invincdepgraph>
       <node id="1">
@@ -26,6 +27,8 @@
         <childnode refid="13" relation="include">
         </childnode>
         <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
         </childnode>
       </node>
       <node id="3">
@@ -50,7 +53,7 @@
       </node>
       <node id="7">
         <label>registrator/registrator.cpp</label>
-        <link refid="registrator_8cpp"/>
+        <link refid="registrator_2registrator_8cpp"/>
       </node>
       <node id="6">
         <label>registrator/registrator.hpp</label>
@@ -100,6 +103,10 @@
         <label>system/contracts/eosio.system/src/eosio.system.cpp</label>
         <link refid="eosio_8system_8cpp"/>
       </node>
+      <node id="19">
+        <label>system/contracts/eosio.system/src/exchange_state.cpp</label>
+        <link refid="exchange__state_8cpp"/>
+      </node>
       <node id="14">
         <label>system/contracts/eosio.system/src/limit_auth_changes.cpp</label>
         <link refid="limit__auth__changes_8cpp"/>
@@ -120,7 +127,7 @@
         <label>system/contracts/eosio.system/src/voting.cpp</label>
         <link refid="system_2contracts_2eosio_8system_2src_2voting_8cpp"/>
       </node>
-      <node id="19">
+      <node id="20">
         <label>system/contracts/eosio.token/src/eosio.token.cpp</label>
         <link refid="eosio_8token_8cpp"/>
       </node>
@@ -138,7 +145,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="174" column="34" bodyfile="common/consts.hpp" bodystart="174" bodyend="-1"/>
+        <location file="common/consts.hpp" line="171" column="34" bodyfile="common/consts.hpp" bodystart="171" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga42013fa54096a8d11445a6006eaa0771" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr eosio::name</type>
@@ -152,7 +159,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="175" column="34" bodyfile="common/consts.hpp" bodystart="175" bodyend="-1"/>
+        <location file="common/consts.hpp" line="172" column="34" bodyfile="common/consts.hpp" bodystart="172" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga341b71e63284ca16c8b1561cb0cb0da4" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr eosio::name</type>
@@ -166,7 +173,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="177" column="34" bodyfile="common/consts.hpp" bodystart="177" bodyend="-1"/>
+        <location file="common/consts.hpp" line="174" column="34" bodyfile="common/consts.hpp" bodystart="174" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr eosio::name</type>
@@ -180,7 +187,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="178" column="34" bodyfile="common/consts.hpp" bodystart="178" bodyend="-1"/>
+        <location file="common/consts.hpp" line="175" column="34" bodyfile="common/consts.hpp" bodystart="175" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga774dd561cf17ec65e59129b5ad8690d6" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr eosio::name</type>
@@ -194,7 +201,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="179" column="34" bodyfile="common/consts.hpp" bodystart="179" bodyend="-1"/>
+        <location file="common/consts.hpp" line="176" column="34" bodyfile="common/consts.hpp" bodystart="176" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1gafeb0e2ab01520072c8305917005018a1" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr eosio::name</type>
@@ -208,7 +215,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="180" column="34" bodyfile="common/consts.hpp" bodystart="180" bodyend="-1"/>
+        <location file="common/consts.hpp" line="177" column="34" bodyfile="common/consts.hpp" bodystart="177" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr eosio::name</type>
@@ -222,7 +229,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="181" column="34" bodyfile="common/consts.hpp" bodystart="181" bodyend="-1"/>
+        <location file="common/consts.hpp" line="178" column="34" bodyfile="common/consts.hpp" bodystart="178" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr eosio::name</type>
@@ -236,7 +243,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="182" column="34" bodyfile="common/consts.hpp" bodystart="182" bodyend="-1"/>
+        <location file="common/consts.hpp" line="179" column="34" bodyfile="common/consts.hpp" bodystart="179" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga52724c95f23545d7efc4db16f3fe42ce" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr eosio::name</type>
@@ -250,7 +257,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="183" column="34" bodyfile="common/consts.hpp" bodystart="183" bodyend="-1"/>
+        <location file="common/consts.hpp" line="180" column="34" bodyfile="common/consts.hpp" bodystart="180" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga4538cae0be703aafb0a4e4ec9d2e3b53" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr eosio::name</type>
@@ -264,7 +271,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="184" column="34" bodyfile="common/consts.hpp" bodystart="184" bodyend="-1"/>
+        <location file="common/consts.hpp" line="181" column="34" bodyfile="common/consts.hpp" bodystart="181" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga98383cb202d2d3d56f7796a53a7f3d03" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr eosio::name</type>
@@ -278,7 +285,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="185" column="34" bodyfile="common/consts.hpp" bodystart="185" bodyend="-1"/>
+        <location file="common/consts.hpp" line="182" column="34" bodyfile="common/consts.hpp" bodystart="182" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1gad32963d71641affbcefb02212f3166f3" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr eosio::name</type>
@@ -292,7 +299,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="186" column="34" bodyfile="common/consts.hpp" bodystart="186" bodyend="-1"/>
+        <location file="common/consts.hpp" line="183" column="34" bodyfile="common/consts.hpp" bodystart="183" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga5a01bac354ffb617c620091722ac5469" prot="public" static="yes" mutable="no">
         <type>std::vector&lt; name &gt;</type>
@@ -321,7 +328,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="188" column="24" bodyfile="common/consts.hpp" bodystart="188" bodyend="-1"/>
+        <location file="common/consts.hpp" line="185" column="24" bodyfile="common/consts.hpp" bodystart="185" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1gaf042516f92d25052ae67d9224b34bea6" prot="public" static="yes" mutable="no">
         <type>std::vector&lt; name &gt;</type>
@@ -345,7 +352,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="205" column="24" bodyfile="common/consts.hpp" bodystart="205" bodyend="-1"/>
+        <location file="common/consts.hpp" line="202" column="24" bodyfile="common/consts.hpp" bodystart="202" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga6b01540b618a86e6bd5303db76e3b45f" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr eosio::symbol</type>
@@ -360,7 +367,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="218" column="36" bodyfile="common/consts.hpp" bodystart="218" bodyend="-1"/>
+        <location file="common/consts.hpp" line="215" column="36" bodyfile="common/consts.hpp" bodystart="215" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga5c15ddd21a87c0b286a24580936dc4b7" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr eosio::symbol</type>
@@ -374,7 +381,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="219" column="36" bodyfile="common/consts.hpp" bodystart="219" bodyend="-1"/>
+        <location file="common/consts.hpp" line="216" column="36" bodyfile="common/consts.hpp" bodystart="216" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga3a2b682d2d7616aee19abf3001792595" prot="public" static="yes" mutable="no">
         <type>const eosio::asset</type>
@@ -388,7 +395,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="220" column="31" bodyfile="common/consts.hpp" bodystart="220" bodyend="-1"/>
+        <location file="common/consts.hpp" line="217" column="31" bodyfile="common/consts.hpp" bodystart="217" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1gacf903cac90cfb816da7c0498d6ba77db" prot="public" static="yes" mutable="no">
         <type>const eosio::asset</type>
@@ -402,7 +409,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="221" column="31" bodyfile="common/consts.hpp" bodystart="221" bodyend="-1"/>
+        <location file="common/consts.hpp" line="218" column="31" bodyfile="common/consts.hpp" bodystart="218" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1gab17a40fe9229dfa6f28be4de7f739feb" prot="public" static="yes" mutable="no">
         <type>const eosio::asset</type>
@@ -416,7 +423,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="223" column="31" bodyfile="common/consts.hpp" bodystart="223" bodyend="-1"/>
+        <location file="common/consts.hpp" line="220" column="31" bodyfile="common/consts.hpp" bodystart="220" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga03d73e3110b452143134592d7af9b672" prot="public" static="yes" mutable="no">
         <type>const eosio::asset</type>
@@ -430,7 +437,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="224" column="31" bodyfile="common/consts.hpp" bodystart="224" bodyend="-1"/>
+        <location file="common/consts.hpp" line="221" column="31" bodyfile="common/consts.hpp" bodystart="221" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga905130dd4c8fc18bfffe9eec68f9061c" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr eosio::name</type>
@@ -445,7 +452,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="226" column="34" bodyfile="common/consts.hpp" bodystart="226" bodyend="-1"/>
+        <location file="common/consts.hpp" line="223" column="34" bodyfile="common/consts.hpp" bodystart="223" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga53c8b80330465342487f78d14fad4ce7" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr eosio::symbol</type>
@@ -460,7 +467,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="227" column="36" bodyfile="common/consts.hpp" bodystart="227" bodyend="-1"/>
+        <location file="common/consts.hpp" line="224" column="36" bodyfile="common/consts.hpp" bodystart="224" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga4977cb29c847a5a4fce4cce4b753c914" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr eosio::symbol</type>
@@ -475,7 +482,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="228" column="36" bodyfile="common/consts.hpp" bodystart="228" bodyend="-1"/>
+        <location file="common/consts.hpp" line="225" column="36" bodyfile="common/consts.hpp" bodystart="225" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1gae0aa0d721b6159491c68d947cd7dc8be" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint64_t</type>
@@ -486,71 +493,26 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>стоимость 1 байта в эпсилон </para>
+<para>стоимость 1 байта в эпсилон AXON (0.0001) </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="229" column="31" bodyfile="common/consts.hpp" bodystart="229" bodyend="-1"/>
+        <location file="common/consts.hpp" line="226" column="31" bodyfile="common/consts.hpp" bodystart="226" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="group__public__consts_1ga417d739fab2765427376cba4df6b3b03" prot="public" static="yes" constexpr="yes" mutable="no">
+      <memberdef kind="variable" id="group__public__consts_1gaf525e3bc464504ee975a366f5f1cc4fc" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint64_t</type>
-        <definition>constexpr uint64_t _ram_bytes_for_new_account</definition>
+        <definition>constexpr uint64_t _register_amount</definition>
         <argsstring></argsstring>
-        <name>_ram_bytes_for_new_account</name>
-        <initializer>= 16 * 1024</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>оперативная память нового аккаунта </para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="common/consts.hpp" line="230" column="31" bodyfile="common/consts.hpp" bodystart="230" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="group__public__consts_1ga8486c7b646ce00b3e04773a00cf1e5a6" prot="public" static="yes" constexpr="yes" mutable="no">
-        <type>constexpr uint64_t</type>
-        <definition>constexpr uint64_t _ram_bytes</definition>
-        <argsstring></argsstring>
-        <name>_ram_bytes</name>
-        <initializer>= 16384</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>оперативная память нового аккаунта </para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="common/consts.hpp" line="232" column="31" bodyfile="common/consts.hpp" bodystart="232" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="group__public__consts_1ga835d48268b6c17e01d290de412eb4c81" prot="public" static="yes" constexpr="yes" mutable="no">
-        <type>constexpr uint64_t</type>
-        <definition>constexpr uint64_t _stake_cpu_amount</definition>
-        <argsstring></argsstring>
-        <name>_stake_cpu_amount</name>
+        <name>_register_amount</name>
         <initializer>= 10000</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>оперативная память нового аккаунта </para>
+<para>стоимость регистрации нового аккаунта </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="233" column="31" bodyfile="common/consts.hpp" bodystart="233" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="group__public__consts_1gae58ff0a7ec09c8cfd9d7ccd76d5f2c24" prot="public" static="yes" constexpr="yes" mutable="no">
-        <type>constexpr uint64_t</type>
-        <definition>constexpr uint64_t _stake_net_amount</definition>
-        <argsstring></argsstring>
-        <name>_stake_net_amount</name>
-        <initializer>= 10000</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>оперативная память нового аккаунта </para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="common/consts.hpp" line="234" column="31" bodyfile="common/consts.hpp" bodystart="234" bodyend="-1"/>
+        <location file="common/consts.hpp" line="228" column="31" bodyfile="common/consts.hpp" bodystart="228" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga3c1178761f963d8c1b074a29b7d7732d" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint64_t</type>
@@ -564,7 +526,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="236" column="31" bodyfile="common/consts.hpp" bodystart="236" bodyend="-1"/>
+        <location file="common/consts.hpp" line="230" column="31" bodyfile="common/consts.hpp" bodystart="230" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga7907328ea2e6a0c7528a5116b1b837c1" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint64_t</type>
@@ -578,7 +540,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="237" column="31" bodyfile="common/consts.hpp" bodystart="237" bodyend="-1"/>
+        <location file="common/consts.hpp" line="231" column="31" bodyfile="common/consts.hpp" bodystart="231" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1gaad53f3329a5e977fbcf8ebc0b9670d7d" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint64_t</type>
@@ -592,7 +554,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="239" column="31" bodyfile="common/consts.hpp" bodystart="239" bodyend="-1"/>
+        <location file="common/consts.hpp" line="233" column="31" bodyfile="common/consts.hpp" bodystart="233" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga37aa40ea0f7329fa18e7e9be9d1d52ba" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint64_t</type>
@@ -606,7 +568,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="241" column="31" bodyfile="common/consts.hpp" bodystart="241" bodyend="-1"/>
+        <location file="common/consts.hpp" line="235" column="31" bodyfile="common/consts.hpp" bodystart="235" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__public__consts_1ga6d8fd359800ecc9d5a1e2adff5e55b29" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint64_t</type>
@@ -620,7 +582,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="242" column="31" bodyfile="common/consts.hpp" bodystart="242" bodyend="-1"/>
+        <location file="common/consts.hpp" line="236" column="31" bodyfile="common/consts.hpp" bodystart="236" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="define">
@@ -666,7 +628,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="161" column="13" bodyfile="common/consts.hpp" bodystart="161" bodyend="-1"/>
+        <location file="common/consts.hpp" line="158" column="13" bodyfile="common/consts.hpp" bodystart="158" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="consts_8hpp_1a861181f1d81b4ccb482b33c7bffad5d1" prot="public" static="no">
         <name>GATEWAY</name>
@@ -677,7 +639,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="162" column="13" bodyfile="common/consts.hpp" bodystart="162" bodyend="-1"/>
+        <location file="common/consts.hpp" line="159" column="13" bodyfile="common/consts.hpp" bodystart="159" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="consts_8hpp_1a190d95586c2d20966655dbb2e51295d1" prot="public" static="no">
         <name>DRAFT</name>
@@ -688,7 +650,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="163" column="13" bodyfile="common/consts.hpp" bodystart="163" bodyend="-1"/>
+        <location file="common/consts.hpp" line="160" column="13" bodyfile="common/consts.hpp" bodystart="160" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="consts_8hpp_1a49f9e6e30c4b39068965aa387ae6bf1f" prot="public" static="no">
         <name>MARKETPLACE</name>
@@ -699,7 +661,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="164" column="13" bodyfile="common/consts.hpp" bodystart="164" bodyend="-1"/>
+        <location file="common/consts.hpp" line="161" column="13" bodyfile="common/consts.hpp" bodystart="161" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="consts_8hpp_1a37a9762fc7553d1d410dc6e5c9c61e76" prot="public" static="no">
         <name>SOVIET</name>
@@ -710,7 +672,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="165" column="13" bodyfile="common/consts.hpp" bodystart="165" bodyend="-1"/>
+        <location file="common/consts.hpp" line="162" column="13" bodyfile="common/consts.hpp" bodystart="162" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="consts_8hpp_1ae4acce2da4b2736a1fedfa921d84e32b" prot="public" static="no">
         <name>REGISTRATOR</name>
@@ -721,7 +683,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="166" column="13" bodyfile="common/consts.hpp" bodystart="166" bodyend="-1"/>
+        <location file="common/consts.hpp" line="163" column="13" bodyfile="common/consts.hpp" bodystart="163" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="consts_8hpp_1a21b97df85e65556468b28a576311271c" prot="public" static="no">
         <name>SYSTEM</name>
@@ -732,7 +694,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="167" column="13" bodyfile="common/consts.hpp" bodystart="167" bodyend="-1"/>
+        <location file="common/consts.hpp" line="164" column="13" bodyfile="common/consts.hpp" bodystart="164" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="consts_8hpp_1a0d37aec7ee39964f2e44caa6ad8ef88e" prot="public" static="no">
         <name>FUND</name>
@@ -743,7 +705,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="common/consts.hpp" line="168" column="13" bodyfile="common/consts.hpp" bodystart="168" bodyend="-1"/>
+        <location file="common/consts.hpp" line="165" column="13" bodyfile="common/consts.hpp" bodystart="165" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="var">
@@ -957,101 +919,95 @@
 <codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="group__public__consts_1ga905130dd4c8fc18bfffe9eec68f9061c" kindref="member">_root_contract</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;eosio.token&quot;</highlight><highlight class="normal">_n;<sp/></highlight></codeline>
 <codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::symbol<sp/><ref refid="group__public__consts_1ga53c8b80330465342487f78d14fad4ce7" kindref="member">RAM_symbol</ref>{</highlight><highlight class="stringliteral">&quot;RAM&quot;</highlight><highlight class="normal">,<sp/>0};<sp/></highlight></codeline>
 <codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::symbol<sp/><ref refid="group__public__consts_1ga4977cb29c847a5a4fce4cce4b753c914" kindref="member">_ramcore_symbol</ref><sp/>=<sp/>eosio::symbol(eosio::symbol_code(</highlight><highlight class="stringliteral">&quot;RAMCORE&quot;</highlight><highlight class="normal">),4);<sp/></highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group__public__consts_1gae0aa0d721b6159491c68d947cd7dc8be" kindref="member">_ram_price_per_byte</ref><sp/>=<sp/>1;<sp/></highlight></codeline>
-<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group__public__consts_1ga417d739fab2765427376cba4df6b3b03" kindref="member">_ram_bytes_for_new_account</ref><sp/>=<sp/>16<sp/>*<sp/>1024;<sp/></highlight></codeline>
-<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group__public__consts_1ga8486c7b646ce00b3e04773a00cf1e5a6" kindref="member">_ram_bytes</ref><sp/>=<sp/>16384;<sp/></highlight></codeline>
-<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group__public__consts_1ga835d48268b6c17e01d290de412eb4c81" kindref="member">_stake_cpu_amount</ref><sp/>=<sp/>10000;<sp/></highlight></codeline>
-<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group__public__consts_1gae58ff0a7ec09c8cfd9d7ccd76d5f2c24" kindref="member">_stake_net_amount</ref><sp/>=<sp/>10000;<sp/></highlight></codeline>
-<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group__public__consts_1ga3c1178761f963d8c1b074a29b7d7732d" kindref="member">_signature_expiration</ref><sp/>=<sp/>86400<sp/>*<sp/>365<sp/>*<sp/>2;</highlight></codeline>
-<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group__public__consts_1ga7907328ea2e6a0c7528a5116b1b837c1" kindref="member">_auction_name_length_limit</ref><sp/>=<sp/>12;</highlight></codeline>
-<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group__public__consts_1gaad53f3329a5e977fbcf8ebc0b9670d7d" kindref="member">_deposit_expiration_seconds</ref><sp/>=<sp/>3600;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group__public__consts_1gae0aa0d721b6159491c68d947cd7dc8be" kindref="member">_ram_price_per_byte</ref><sp/>=<sp/>1;<sp/><sp/></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group__public__consts_1gaf525e3bc464504ee975a366f5f1cc4fc" kindref="member">_register_amount</ref><sp/>=<sp/>10000;<sp/></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group__public__consts_1ga3c1178761f963d8c1b074a29b7d7732d" kindref="member">_signature_expiration</ref><sp/>=<sp/>86400<sp/>*<sp/>365<sp/>*<sp/>2;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group__public__consts_1ga7907328ea2e6a0c7528a5116b1b837c1" kindref="member">_auction_name_length_limit</ref><sp/>=<sp/>12;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group__public__consts_1gaad53f3329a5e977fbcf8ebc0b9670d7d" kindref="member">_deposit_expiration_seconds</ref><sp/>=<sp/>3600;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group__public__consts_1ga37aa40ea0f7329fa18e7e9be9d1d52ba" kindref="member">_producers_percent</ref><sp/>=<sp/>900000;<sp/></highlight><highlight class="comment">//<sp/>90%</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group__public__consts_1ga6d8fd359800ecc9d5a1e2adff5e55b29" kindref="member">_fund_percent</ref><sp/>=<sp/>100000;<sp/></highlight><highlight class="comment">//<sp/>10%</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group__public__consts_1ga37aa40ea0f7329fa18e7e9be9d1d52ba" kindref="member">_producers_percent</ref><sp/>=<sp/>900000;<sp/></highlight><highlight class="comment">//<sp/>90%</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group__public__consts_1ga6d8fd359800ecc9d5a1e2adff5e55b29" kindref="member">_fund_percent</ref><sp/>=<sp/>100000;<sp/></highlight><highlight class="comment">//<sp/>10%</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="159"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Дефайны<sp/>для<sp/>основной<sp/>сети</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="161" refid="consts_8hpp_1a53678aa3958110e34fce3501d7da1bdf" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>ANO<sp/>&quot;ano&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="162" refid="consts_8hpp_1a861181f1d81b4ccb482b33c7bffad5d1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>GATEWAY<sp/>&quot;gateway&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="163" refid="consts_8hpp_1a190d95586c2d20966655dbb2e51295d1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>DRAFT<sp/>&quot;draft&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="164" refid="consts_8hpp_1a49f9e6e30c4b39068965aa387ae6bf1f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>MARKETPLACE<sp/>&quot;marketplace&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="165" refid="consts_8hpp_1a37a9762fc7553d1d410dc6e5c9c61e76" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>SOVIET<sp/>&quot;soviet&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="166" refid="consts_8hpp_1ae4acce2da4b2736a1fedfa921d84e32b" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>REGISTRATOR<sp/>&quot;registrator&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="167" refid="consts_8hpp_1a21b97df85e65556468b28a576311271c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>SYSTEM<sp/>&quot;eosio&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="168" refid="consts_8hpp_1a0d37aec7ee39964f2e44caa6ad8ef88e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FUND<sp/>&quot;fund&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="174" refid="group__public__consts_1ga1ff8113eaea18bd553df59b9ad7df01a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="group__public__consts_1ga1ff8113eaea18bd553df59b9ad7df01a" kindref="member">_provider</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;voskhod&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
-<codeline lineno="175" refid="group__public__consts_1ga42013fa54096a8d11445a6006eaa0771" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="group__public__consts_1ga42013fa54096a8d11445a6006eaa0771" kindref="member">_provider_chairman</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;ant&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
-<codeline lineno="176"><highlight class="normal"></highlight></codeline>
-<codeline lineno="177" refid="group__public__consts_1ga341b71e63284ca16c8b1561cb0cb0da4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="group__public__consts_1ga341b71e63284ca16c8b1561cb0cb0da4" kindref="member">_ano</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;ano&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
-<codeline lineno="178" refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;gateway&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
-<codeline lineno="179" refid="group__public__consts_1ga774dd561cf17ec65e59129b5ad8690d6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="group__public__consts_1ga774dd561cf17ec65e59129b5ad8690d6" kindref="member">_draft</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;draft&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
-<codeline lineno="180" refid="group__public__consts_1gafeb0e2ab01520072c8305917005018a1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="group__public__consts_1gafeb0e2ab01520072c8305917005018a1" kindref="member">_marketplace</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;marketplace&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
-<codeline lineno="181" refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;soviet&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
-<codeline lineno="182" refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;registrator&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
-<codeline lineno="183" refid="group__public__consts_1ga52724c95f23545d7efc4db16f3fe42ce" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="group__public__consts_1ga52724c95f23545d7efc4db16f3fe42ce" kindref="member">_system</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;eosio&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
-<codeline lineno="184" refid="group__public__consts_1ga4538cae0be703aafb0a4e4ec9d2e3b53" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="group__public__consts_1ga4538cae0be703aafb0a4e4ec9d2e3b53" kindref="member">_fund</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;fund&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
-<codeline lineno="185" refid="group__public__consts_1ga98383cb202d2d3d56f7796a53a7f3d03" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="group__public__consts_1ga98383cb202d2d3d56f7796a53a7f3d03" kindref="member">_power_account</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;eosio.power&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
-<codeline lineno="186" refid="group__public__consts_1gad32963d71641affbcefb02212f3166f3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="group__public__consts_1gad32963d71641affbcefb02212f3166f3" kindref="member">_saving_account</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;eosio.saving&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
-<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="188" refid="group__public__consts_1ga5a01bac354ffb617c620091722ac5469" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::vector&lt;name&gt;<sp/><ref refid="group__public__consts_1ga5a01bac354ffb617c620091722ac5469" kindref="member">contracts_whitelist</ref><sp/>=<sp/>{</highlight></codeline>
-<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;ano&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;gateway&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;draft&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;marketplace&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;soviet&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;registrator&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;eosio&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;fund&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;eosio.token&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;eosio.msig&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;eosio.wrap&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;eosio.power&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;eosio.saving&quot;</highlight><highlight class="normal">_n</highlight></codeline>
-<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Добавьте<sp/>остальные<sp/>стандартные<sp/>или<sp/>пользовательские<sp/>контракты<sp/>по<sp/>необходимости</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
-<codeline lineno="204"><highlight class="normal"></highlight></codeline>
-<codeline lineno="205" refid="group__public__consts_1gaf042516f92d25052ae67d9224b34bea6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::vector&lt;name&gt;<sp/><ref refid="group__public__consts_1gaf042516f92d25052ae67d9224b34bea6" kindref="member">token_whitelist</ref><sp/>=<sp/>{</highlight></codeline>
-<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;eosio&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;eosio.vpay&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;eosio.saving&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;eosio.bpay&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;eosio.saving&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;eosio.power&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;fund&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1ga1ff8113eaea18bd553df59b9ad7df01a" kindref="member">_provider</ref></highlight></codeline>
-<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Добавьте<sp/>другие<sp/>аккаунты<sp/>в<sp/>список<sp/>по<sp/>мере<sp/>необходимости</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>};<sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="216"><highlight class="normal"></highlight></codeline>
-<codeline lineno="217"><highlight class="normal"></highlight></codeline>
-<codeline lineno="218" refid="group__public__consts_1ga6b01540b618a86e6bd5303db76e3b45f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::symbol<sp/><ref refid="group__public__consts_1ga6b01540b618a86e6bd5303db76e3b45f" kindref="member">_root_symbol</ref><sp/>=<sp/>eosio::symbol(eosio::symbol_code(</highlight><highlight class="stringliteral">&quot;AXON&quot;</highlight><highlight class="normal">),<sp/>4);<sp/></highlight></codeline>
-<codeline lineno="219" refid="group__public__consts_1ga5c15ddd21a87c0b286a24580936dc4b7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::symbol<sp/><ref refid="group__public__consts_1ga5c15ddd21a87c0b286a24580936dc4b7" kindref="member">_root_govern_symbol</ref><sp/>=<sp/>eosio::symbol(eosio::symbol_code(</highlight><highlight class="stringliteral">&quot;RUB&quot;</highlight><highlight class="normal">),<sp/>4);<sp/></highlight></codeline>
-<codeline lineno="220" refid="group__public__consts_1ga3a2b682d2d7616aee19abf3001792595" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>eosio::asset<sp/><ref refid="group__public__consts_1ga3a2b682d2d7616aee19abf3001792595" kindref="member">_provider_initial</ref><sp/>=<sp/>eosio::asset(1000000,<sp/><ref refid="group__public__consts_1ga5c15ddd21a87c0b286a24580936dc4b7" kindref="member">_root_govern_symbol</ref>);</highlight></codeline>
-<codeline lineno="221" refid="group__public__consts_1gacf903cac90cfb816da7c0498d6ba77db" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>eosio::asset<sp/><ref refid="group__public__consts_1gacf903cac90cfb816da7c0498d6ba77db" kindref="member">_provider_minimum</ref><sp/>=<sp/>eosio::asset(1000000,<sp/><ref refid="group__public__consts_1ga5c15ddd21a87c0b286a24580936dc4b7" kindref="member">_root_govern_symbol</ref>);</highlight></codeline>
-<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="223" refid="group__public__consts_1gab17a40fe9229dfa6f28be4de7f739feb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>eosio::asset<sp/><ref refid="group__public__consts_1gab17a40fe9229dfa6f28be4de7f739feb" kindref="member">_provider_org_initial</ref><sp/>=<sp/>eosio::asset(10000000,<sp/><ref refid="group__public__consts_1ga5c15ddd21a87c0b286a24580936dc4b7" kindref="member">_root_govern_symbol</ref>);</highlight></codeline>
-<codeline lineno="224" refid="group__public__consts_1ga03d73e3110b452143134592d7af9b672" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>eosio::asset<sp/><ref refid="group__public__consts_1ga03d73e3110b452143134592d7af9b672" kindref="member">_provider_org_minimum</ref><sp/>=<sp/>eosio::asset(10000000,<sp/><ref refid="group__public__consts_1ga5c15ddd21a87c0b286a24580936dc4b7" kindref="member">_root_govern_symbol</ref>);</highlight></codeline>
-<codeline lineno="225"><highlight class="normal"></highlight></codeline>
-<codeline lineno="226" refid="group__public__consts_1ga905130dd4c8fc18bfffe9eec68f9061c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="group__public__consts_1ga905130dd4c8fc18bfffe9eec68f9061c" kindref="member">_root_contract</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;eosio.token&quot;</highlight><highlight class="normal">_n;<sp/></highlight></codeline>
-<codeline lineno="227" refid="group__public__consts_1ga53c8b80330465342487f78d14fad4ce7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::symbol<sp/><ref refid="group__public__consts_1ga53c8b80330465342487f78d14fad4ce7" kindref="member">RAM_symbol</ref>{</highlight><highlight class="stringliteral">&quot;RAM&quot;</highlight><highlight class="normal">,<sp/>0};<sp/></highlight></codeline>
-<codeline lineno="228" refid="group__public__consts_1ga4977cb29c847a5a4fce4cce4b753c914" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::symbol<sp/><ref refid="group__public__consts_1ga4977cb29c847a5a4fce4cce4b753c914" kindref="member">_ramcore_symbol</ref><sp/>=<sp/>eosio::symbol(eosio::symbol_code(</highlight><highlight class="stringliteral">&quot;RAMCORE&quot;</highlight><highlight class="normal">),4);<sp/></highlight></codeline>
-<codeline lineno="229" refid="group__public__consts_1gae0aa0d721b6159491c68d947cd7dc8be" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group__public__consts_1gae0aa0d721b6159491c68d947cd7dc8be" kindref="member">_ram_price_per_byte</ref><sp/>=<sp/>1;<sp/></highlight></codeline>
-<codeline lineno="230" refid="group__public__consts_1ga417d739fab2765427376cba4df6b3b03" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group__public__consts_1ga417d739fab2765427376cba4df6b3b03" kindref="member">_ram_bytes_for_new_account</ref><sp/>=<sp/>16<sp/>*<sp/>1024;<sp/></highlight></codeline>
-<codeline lineno="232" refid="group__public__consts_1ga8486c7b646ce00b3e04773a00cf1e5a6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group__public__consts_1ga8486c7b646ce00b3e04773a00cf1e5a6" kindref="member">_ram_bytes</ref><sp/>=<sp/>16384;<sp/></highlight></codeline>
-<codeline lineno="233" refid="group__public__consts_1ga835d48268b6c17e01d290de412eb4c81" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group__public__consts_1ga835d48268b6c17e01d290de412eb4c81" kindref="member">_stake_cpu_amount</ref><sp/>=<sp/>10000;<sp/></highlight></codeline>
-<codeline lineno="234" refid="group__public__consts_1gae58ff0a7ec09c8cfd9d7ccd76d5f2c24" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group__public__consts_1gae58ff0a7ec09c8cfd9d7ccd76d5f2c24" kindref="member">_stake_net_amount</ref><sp/>=<sp/>10000;<sp/></highlight></codeline>
-<codeline lineno="236" refid="group__public__consts_1ga3c1178761f963d8c1b074a29b7d7732d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group__public__consts_1ga3c1178761f963d8c1b074a29b7d7732d" kindref="member">_signature_expiration</ref><sp/>=<sp/>86400<sp/>*<sp/>365<sp/>*<sp/>2;</highlight></codeline>
-<codeline lineno="237" refid="group__public__consts_1ga7907328ea2e6a0c7528a5116b1b837c1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group__public__consts_1ga7907328ea2e6a0c7528a5116b1b837c1" kindref="member">_auction_name_length_limit</ref><sp/>=<sp/>12;</highlight></codeline>
-<codeline lineno="238"><highlight class="normal"></highlight></codeline>
-<codeline lineno="239" refid="group__public__consts_1gaad53f3329a5e977fbcf8ebc0b9670d7d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group__public__consts_1gaad53f3329a5e977fbcf8ebc0b9670d7d" kindref="member">_deposit_expiration_seconds</ref><sp/>=<sp/>3600;</highlight></codeline>
-<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="241" refid="group__public__consts_1ga37aa40ea0f7329fa18e7e9be9d1d52ba" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group__public__consts_1ga37aa40ea0f7329fa18e7e9be9d1d52ba" kindref="member">_producers_percent</ref><sp/>=<sp/>900000;<sp/></highlight><highlight class="comment">//<sp/>90%</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="242" refid="group__public__consts_1ga6d8fd359800ecc9d5a1e2adff5e55b29" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group__public__consts_1ga6d8fd359800ecc9d5a1e2adff5e55b29" kindref="member">_fund_percent</ref><sp/>=<sp/>100000;<sp/></highlight><highlight class="comment">//<sp/>10%</highlight></codeline>
-<codeline lineno="248"><highlight class="comment"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Дефайны<sp/>для<sp/>основной<sp/>сети</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158" refid="consts_8hpp_1a53678aa3958110e34fce3501d7da1bdf" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>ANO<sp/>&quot;ano&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159" refid="consts_8hpp_1a861181f1d81b4ccb482b33c7bffad5d1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>GATEWAY<sp/>&quot;gateway&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160" refid="consts_8hpp_1a190d95586c2d20966655dbb2e51295d1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>DRAFT<sp/>&quot;draft&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161" refid="consts_8hpp_1a49f9e6e30c4b39068965aa387ae6bf1f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>MARKETPLACE<sp/>&quot;marketplace&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162" refid="consts_8hpp_1a37a9762fc7553d1d410dc6e5c9c61e76" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>SOVIET<sp/>&quot;soviet&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163" refid="consts_8hpp_1ae4acce2da4b2736a1fedfa921d84e32b" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>REGISTRATOR<sp/>&quot;registrator&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164" refid="consts_8hpp_1a21b97df85e65556468b28a576311271c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>SYSTEM<sp/>&quot;eosio&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165" refid="consts_8hpp_1a0d37aec7ee39964f2e44caa6ad8ef88e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FUND<sp/>&quot;fund&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="171" refid="group__public__consts_1ga1ff8113eaea18bd553df59b9ad7df01a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="group__public__consts_1ga1ff8113eaea18bd553df59b9ad7df01a" kindref="member">_provider</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;voskhod&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
+<codeline lineno="172" refid="group__public__consts_1ga42013fa54096a8d11445a6006eaa0771" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="group__public__consts_1ga42013fa54096a8d11445a6006eaa0771" kindref="member">_provider_chairman</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;ant&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174" refid="group__public__consts_1ga341b71e63284ca16c8b1561cb0cb0da4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="group__public__consts_1ga341b71e63284ca16c8b1561cb0cb0da4" kindref="member">_ano</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;ano&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
+<codeline lineno="175" refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;gateway&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
+<codeline lineno="176" refid="group__public__consts_1ga774dd561cf17ec65e59129b5ad8690d6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="group__public__consts_1ga774dd561cf17ec65e59129b5ad8690d6" kindref="member">_draft</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;draft&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
+<codeline lineno="177" refid="group__public__consts_1gafeb0e2ab01520072c8305917005018a1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="group__public__consts_1gafeb0e2ab01520072c8305917005018a1" kindref="member">_marketplace</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;marketplace&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
+<codeline lineno="178" refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;soviet&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
+<codeline lineno="179" refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;registrator&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
+<codeline lineno="180" refid="group__public__consts_1ga52724c95f23545d7efc4db16f3fe42ce" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="group__public__consts_1ga52724c95f23545d7efc4db16f3fe42ce" kindref="member">_system</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;eosio&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
+<codeline lineno="181" refid="group__public__consts_1ga4538cae0be703aafb0a4e4ec9d2e3b53" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="group__public__consts_1ga4538cae0be703aafb0a4e4ec9d2e3b53" kindref="member">_fund</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;fund&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
+<codeline lineno="182" refid="group__public__consts_1ga98383cb202d2d3d56f7796a53a7f3d03" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="group__public__consts_1ga98383cb202d2d3d56f7796a53a7f3d03" kindref="member">_power_account</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;eosio.power&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
+<codeline lineno="183" refid="group__public__consts_1gad32963d71641affbcefb02212f3166f3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="group__public__consts_1gad32963d71641affbcefb02212f3166f3" kindref="member">_saving_account</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;eosio.saving&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="185" refid="group__public__consts_1ga5a01bac354ffb617c620091722ac5469" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::vector&lt;name&gt;<sp/><ref refid="group__public__consts_1ga5a01bac354ffb617c620091722ac5469" kindref="member">contracts_whitelist</ref><sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;ano&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;gateway&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;draft&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;marketplace&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;soviet&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;registrator&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;eosio&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;fund&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;eosio.token&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;eosio.msig&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;eosio.wrap&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;eosio.power&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;eosio.saving&quot;</highlight><highlight class="normal">_n</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Добавьте<sp/>остальные<sp/>стандартные<sp/>или<sp/>пользовательские<sp/>контракты<sp/>по<sp/>необходимости</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="202" refid="group__public__consts_1gaf042516f92d25052ae67d9224b34bea6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::vector&lt;name&gt;<sp/><ref refid="group__public__consts_1gaf042516f92d25052ae67d9224b34bea6" kindref="member">token_whitelist</ref><sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;eosio&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;eosio.vpay&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;eosio.saving&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;eosio.bpay&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;eosio.saving&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;eosio.power&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;fund&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1ga1ff8113eaea18bd553df59b9ad7df01a" kindref="member">_provider</ref></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Добавьте<sp/>другие<sp/>аккаунты<sp/>в<sp/>список<sp/>по<sp/>мере<sp/>необходимости</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>};<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215" refid="group__public__consts_1ga6b01540b618a86e6bd5303db76e3b45f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::symbol<sp/><ref refid="group__public__consts_1ga6b01540b618a86e6bd5303db76e3b45f" kindref="member">_root_symbol</ref><sp/>=<sp/>eosio::symbol(eosio::symbol_code(</highlight><highlight class="stringliteral">&quot;AXON&quot;</highlight><highlight class="normal">),<sp/>4);<sp/></highlight></codeline>
+<codeline lineno="216" refid="group__public__consts_1ga5c15ddd21a87c0b286a24580936dc4b7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::symbol<sp/><ref refid="group__public__consts_1ga5c15ddd21a87c0b286a24580936dc4b7" kindref="member">_root_govern_symbol</ref><sp/>=<sp/>eosio::symbol(eosio::symbol_code(</highlight><highlight class="stringliteral">&quot;RUB&quot;</highlight><highlight class="normal">),<sp/>4);<sp/></highlight></codeline>
+<codeline lineno="217" refid="group__public__consts_1ga3a2b682d2d7616aee19abf3001792595" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>eosio::asset<sp/><ref refid="group__public__consts_1ga3a2b682d2d7616aee19abf3001792595" kindref="member">_provider_initial</ref><sp/>=<sp/>eosio::asset(1000000,<sp/><ref refid="group__public__consts_1ga5c15ddd21a87c0b286a24580936dc4b7" kindref="member">_root_govern_symbol</ref>);</highlight></codeline>
+<codeline lineno="218" refid="group__public__consts_1gacf903cac90cfb816da7c0498d6ba77db" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>eosio::asset<sp/><ref refid="group__public__consts_1gacf903cac90cfb816da7c0498d6ba77db" kindref="member">_provider_minimum</ref><sp/>=<sp/>eosio::asset(1000000,<sp/><ref refid="group__public__consts_1ga5c15ddd21a87c0b286a24580936dc4b7" kindref="member">_root_govern_symbol</ref>);</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="220" refid="group__public__consts_1gab17a40fe9229dfa6f28be4de7f739feb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>eosio::asset<sp/><ref refid="group__public__consts_1gab17a40fe9229dfa6f28be4de7f739feb" kindref="member">_provider_org_initial</ref><sp/>=<sp/>eosio::asset(10000000,<sp/><ref refid="group__public__consts_1ga5c15ddd21a87c0b286a24580936dc4b7" kindref="member">_root_govern_symbol</ref>);</highlight></codeline>
+<codeline lineno="221" refid="group__public__consts_1ga03d73e3110b452143134592d7af9b672" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>eosio::asset<sp/><ref refid="group__public__consts_1ga03d73e3110b452143134592d7af9b672" kindref="member">_provider_org_minimum</ref><sp/>=<sp/>eosio::asset(10000000,<sp/><ref refid="group__public__consts_1ga5c15ddd21a87c0b286a24580936dc4b7" kindref="member">_root_govern_symbol</ref>);</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight></codeline>
+<codeline lineno="223" refid="group__public__consts_1ga905130dd4c8fc18bfffe9eec68f9061c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/><ref refid="group__public__consts_1ga905130dd4c8fc18bfffe9eec68f9061c" kindref="member">_root_contract</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;eosio.token&quot;</highlight><highlight class="normal">_n;<sp/></highlight></codeline>
+<codeline lineno="224" refid="group__public__consts_1ga53c8b80330465342487f78d14fad4ce7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::symbol<sp/><ref refid="group__public__consts_1ga53c8b80330465342487f78d14fad4ce7" kindref="member">RAM_symbol</ref>{</highlight><highlight class="stringliteral">&quot;RAM&quot;</highlight><highlight class="normal">,<sp/>0};<sp/></highlight></codeline>
+<codeline lineno="225" refid="group__public__consts_1ga4977cb29c847a5a4fce4cce4b753c914" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::symbol<sp/><ref refid="group__public__consts_1ga4977cb29c847a5a4fce4cce4b753c914" kindref="member">_ramcore_symbol</ref><sp/>=<sp/>eosio::symbol(eosio::symbol_code(</highlight><highlight class="stringliteral">&quot;RAMCORE&quot;</highlight><highlight class="normal">),4);<sp/></highlight></codeline>
+<codeline lineno="226" refid="group__public__consts_1gae0aa0d721b6159491c68d947cd7dc8be" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group__public__consts_1gae0aa0d721b6159491c68d947cd7dc8be" kindref="member">_ram_price_per_byte</ref><sp/>=<sp/>1;<sp/></highlight></codeline>
+<codeline lineno="228" refid="group__public__consts_1gaf525e3bc464504ee975a366f5f1cc4fc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group__public__consts_1gaf525e3bc464504ee975a366f5f1cc4fc" kindref="member">_register_amount</ref><sp/>=<sp/>10000;<sp/></highlight></codeline>
+<codeline lineno="230" refid="group__public__consts_1ga3c1178761f963d8c1b074a29b7d7732d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group__public__consts_1ga3c1178761f963d8c1b074a29b7d7732d" kindref="member">_signature_expiration</ref><sp/>=<sp/>86400<sp/>*<sp/>365<sp/>*<sp/>2;</highlight></codeline>
+<codeline lineno="231" refid="group__public__consts_1ga7907328ea2e6a0c7528a5116b1b837c1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group__public__consts_1ga7907328ea2e6a0c7528a5116b1b837c1" kindref="member">_auction_name_length_limit</ref><sp/>=<sp/>12;</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight></codeline>
+<codeline lineno="233" refid="group__public__consts_1gaad53f3329a5e977fbcf8ebc0b9670d7d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group__public__consts_1gaad53f3329a5e977fbcf8ebc0b9670d7d" kindref="member">_deposit_expiration_seconds</ref><sp/>=<sp/>3600;</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="235" refid="group__public__consts_1ga37aa40ea0f7329fa18e7e9be9d1d52ba" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group__public__consts_1ga37aa40ea0f7329fa18e7e9be9d1d52ba" kindref="member">_producers_percent</ref><sp/>=<sp/>900000;<sp/></highlight><highlight class="comment">//<sp/>90%</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="236" refid="group__public__consts_1ga6d8fd359800ecc9d5a1e2adff5e55b29" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group__public__consts_1ga6d8fd359800ecc9d5a1e2adff5e55b29" kindref="member">_fund_percent</ref><sp/>=<sp/>100000;<sp/></highlight><highlight class="comment">//<sp/>10%</highlight></codeline>
+<codeline lineno="242"><highlight class="comment"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="common/consts.hpp"/>
   </compounddef>

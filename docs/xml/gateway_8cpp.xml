@@ -152,285 +152,333 @@
 <codeline lineno="4"><highlight class="normal"></highlight></codeline>
 <codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceeosio" kindref="compound">eosio</ref>;</highlight></codeline>
 <codeline lineno="6"><highlight class="normal"></highlight></codeline>
-<codeline lineno="7"><highlight class="normal"></highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1gaa2f4b2364f09b8728cbf12eb6e9b92f1" kindref="member">gateway::newdepositid</ref>(eosio::name<sp/>username,<sp/>uint64_t<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"><sp/><sp/>require_auth(<ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>);</highlight></codeline>
-<codeline lineno="17"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="18"><highlight class="normal"></highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classgateway_1a3cbc501eda8ea4d6bb061068141f28ba" kindref="member">gateway::newwithdrid</ref>(eosio::name<sp/>username,<sp/>uint64_t<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><sp/><sp/>require_auth(<ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>);</highlight></codeline>
-<codeline lineno="21"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight></codeline>
-<codeline lineno="46"><highlight class="normal">[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">gateway::deposit</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>username,<sp/>eosio::name<sp/>type,<sp/>eosio::asset<sp/>quantity)<sp/>{</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO<sp/>убрать<sp/>пользователя<sp/>здесь,<sp/>перевести<sp/>на<sp/>выдачу<sp/>разрешений<sp/>специальному<sp/>аккаунту<sp/>от<sp/>кооператива<sp/>для<sp/>обслуживания<sp/>депозитов.<sp/></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>@todo<sp/>добавить<sp/>специальное<sp/>разрешение</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Пользователь<sp/>сам<sp/>может<sp/>вызвать,<sp/>но<sp/>ордер<sp/>на<sp/>оплату<sp/>формируется<sp/>с<sp/>бэкенда<sp/>и<sp/>никаких<sp/>ссылок<sp/>здесь<sp/>в<sp/>процессе<sp/>не<sp/>фигурирует<sp/>-<sp/>только<sp/>статус,<sp/>который<sp/>может<sp/>быть<sp/>изменен<sp/>только<sp/>бэкендом.<sp/></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/>eosio::name<sp/>payer<sp/>=<sp/>has_auth(coopname)<sp/>?<sp/>coopname<sp/>:<sp/>username;</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/>eosio::check(has_auth(payer),<sp/></highlight><highlight class="stringliteral">&quot;Недостаточно<sp/>прав<sp/>доступа&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"></highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><ref refid="balances_8hpp_1a17b8b15997b4be7d66f17e253abd90b1" kindref="member">deposits_index</ref><sp/>deposits(<ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/>coopname.value);</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/>uint64_t<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/><ref refid="counts_8hpp_1aeb06beaf4402f0222167ef9d12eacd5c" kindref="member">get_global_id</ref>(<ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/></highlight><highlight class="stringliteral">&quot;deposits&quot;</highlight><highlight class="normal">_n);</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="structcooperative" kindref="compound">cooperative</ref><sp/>=<sp/><ref refid="accounts_8hpp_1a7a06d8140047dd1d128d2c7929c48b76" kindref="member">get_cooperative_or_fail</ref>(coopname);</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/>eosio::check(type<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;registration&quot;</highlight><highlight class="normal">_n<sp/>||<sp/>type<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;deposit&quot;</highlight><highlight class="normal">_n,<sp/></highlight><highlight class="stringliteral">&quot;Неверный<sp/>тип<sp/>заявки&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/>eosio::check(quantity.amount<sp/>&gt;<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;Сумма<sp/>ввода<sp/>должна<sp/>быть<sp/>положительной&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">[[eosio::action]]</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classgateway_1a303008649a1561d97bfcea3c08e0c32c" kindref="member">gateway::newdeposit</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>username,<sp/>uint64_t<sp/>deposit_id,<sp/>eosio::name<sp/>type,<sp/>eosio::asset<sp/>amount,<sp/>eosio::time_point_sec<sp/>deposited_at){</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/>require_auth(<ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal">[[eosio::action]]</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classgateway_1ac88905bbe15584d34b265a883fe4b195" kindref="member">gateway::newwithdraw</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>username,<sp/>uint64_t<sp/>withdraw_id,<sp/>eosio::name<sp/>type,<sp/>eosio::asset<sp/>amount){</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>require_auth(<ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1gaa2f4b2364f09b8728cbf12eb6e9b92f1" kindref="member">gateway::newdepositid</ref>(eosio::name<sp/>username,<sp/>uint64_t<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/>require_auth(<ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classgateway_1a3cbc501eda8ea4d6bb061068141f28ba" kindref="member">gateway::newwithdrid</ref>(eosio::name<sp/>username,<sp/>uint64_t<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>require_auth(<ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>gateway::newuser(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>username,<sp/>eosio::asset<sp/>initial,<sp/>eosio::asset<sp/>minimum,<sp/>eosio::time_point_sec<sp/>created_at,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>spread_initial)<sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><ref refid="accounts_8hpp_1a564bef852d34bf16d1689a78ebe895a5" kindref="member">check_auth_and_get_payer_or_fail</ref>({<ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/><ref refid="group__public__consts_1gae4d59ec28af0642e3072dd36dd0a537b" kindref="member">_registrator</ref>})</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>uint64_t<sp/>deposit_id<sp/>=<sp/>0;<sp/></highlight><highlight class="comment">//фактически<sp/>депозит<sp/>через<sp/>контракт<sp/>не<sp/>проводился</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>action(</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;newdeposit&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>std::make_tuple(coopname,<sp/>username,<sp/>deposit_id,<sp/></highlight><highlight class="stringliteral">&quot;registration&quot;</highlight><highlight class="normal">_n,<sp/>initial<sp/>+<sp/>minimum,<sp/>created_at)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>).send();</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>action(</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1ga4538cae0be703aafb0a4e4ec9d2e3b53" kindref="member">_fund</ref>,</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;addcirculate&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>std::make_tuple(coopname,<sp/>minimum)</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>).send();</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(spread_initial)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>action(</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1ga4538cae0be703aafb0a4e4ec9d2e3b53" kindref="member">_fund</ref>,</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;spreadamount&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::make_tuple(coopname,<sp/>initial)</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>).send();</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="62"><highlight class="normal"></highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(type<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;deposit&quot;</highlight><highlight class="normal">_n)<sp/>{</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="coops_8hpp_1adf0a04dfbe948cdf1bd01cf5b344af61" kindref="member">participants_index</ref><sp/><ref refid="structparticipants" kindref="compound">participants</ref>(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>coopname.value);</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>participant<sp/>=<sp/><ref refid="structparticipants" kindref="compound">participants</ref>.find(username.value);</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::check(participant<sp/>!=<sp/><ref refid="structparticipants" kindref="compound">participants</ref>.end(),<sp/></highlight><highlight class="stringliteral">&quot;Вы<sp/>не<sp/>являетесь<sp/>пайщиком<sp/>указанного<sp/>кооператива&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::check(participant<sp/>-&gt;<sp/>is_active(),<sp/></highlight><highlight class="stringliteral">&quot;Ваш<sp/>аккаунт<sp/>не<sp/>активен<sp/>в<sp/>указанном<sp/>кооперативе&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{<sp/></highlight><highlight class="comment">//registration</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::check(quantity<sp/>==<sp/><ref refid="structcooperative" kindref="compound">cooperative</ref>.<ref refid="structcooperative_1abfbc7ba6cae286087631a3f221a7b676" kindref="member">registration</ref><sp/>||<sp/>quantity<sp/>==<sp/><ref refid="structcooperative" kindref="compound">cooperative</ref>.<ref refid="structcooperative_1a9ed49665e29d8c8017b751b7e953b624" kindref="member">org_registration</ref>.value(),<sp/></highlight><highlight class="stringliteral">&quot;Сумма<sp/>минимального<sp/>взноса<sp/>не<sp/>соответствует<sp/>установленной<sp/>в<sp/>кооперативе&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"></highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/>deposits.emplace(payer,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;d)<sp/>{</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>d.id<sp/>=<sp/>id;</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>d.type<sp/>=<sp/>type;</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>d.username<sp/>=<sp/>username;</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>d.coopname<sp/>=<sp/>coopname;</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>d.quantity<sp/>=<sp/>quantity;</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>d.status<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;pending&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>d.expired_at<sp/>=<sp/>eosio::time_point_sec(eosio::current_time_point().sec_since_epoch()<sp/>+<sp/><ref refid="group__public__consts_1gaad53f3329a5e977fbcf8ebc0b9670d7d" kindref="member">_deposit_expiration_seconds</ref>);</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"></highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/>action(</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;newdepositid&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>std::make_tuple(username,<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/>).send();</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"></highlight></codeline>
-<codeline lineno="89"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"></highlight></codeline>
-<codeline lineno="107"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1ga59936ddb45db401976fd3d404b92caa7" kindref="member">gateway::dpcomplete</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>admin,<sp/>uint64_t<sp/>deposit_id,<sp/>std::string<sp/>memo)<sp/>{</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"></highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/>require_auth(admin);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal">[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">gateway::deposit</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>username,<sp/>eosio::name<sp/>type,<sp/>eosio::asset<sp/>quantity)<sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO<sp/>убрать<sp/>пользователя<sp/>здесь,<sp/>перевести<sp/>на<sp/>выдачу<sp/>разрешений<sp/>специальному<sp/>аккаунту<sp/>от<sp/>кооператива<sp/>для<sp/>обслуживания<sp/>депозитов.<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>@todo<sp/>добавить<sp/>специальное<sp/>разрешение</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Пользователь<sp/>сам<sp/>может<sp/>вызвать,<sp/>но<sp/>ордер<sp/>на<sp/>оплату<sp/>формируется<sp/>с<sp/>бэкенда<sp/>и<sp/>никаких<sp/>ссылок<sp/>здесь<sp/>в<sp/>процессе<sp/>не<sp/>фигурирует<sp/>-<sp/>только<sp/>статус,<sp/>который<sp/>может<sp/>быть<sp/>изменен<sp/>только<sp/>бэкендом.<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>eosio::name<sp/>payer<sp/>=<sp/>has_auth(coopname)<sp/>?<sp/>coopname<sp/>:<sp/>username;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/>eosio::check(has_auth(payer),<sp/></highlight><highlight class="stringliteral">&quot;Недостаточно<sp/>прав<sp/>доступа&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><ref refid="balances_8hpp_1a17b8b15997b4be7d66f17e253abd90b1" kindref="member">deposits_index</ref><sp/>deposits(<ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/>coopname.value);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>uint64_t<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/><ref refid="counts_8hpp_1aeb06beaf4402f0222167ef9d12eacd5c" kindref="member">get_global_id</ref>(<ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/></highlight><highlight class="stringliteral">&quot;deposits&quot;</highlight><highlight class="normal">_n);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="structcooperative" kindref="compound">cooperative</ref><sp/>=<sp/><ref refid="accounts_8hpp_1a7a06d8140047dd1d128d2c7929c48b76" kindref="member">get_cooperative_or_fail</ref>(coopname);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/>eosio::check(type<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;registration&quot;</highlight><highlight class="normal">_n<sp/>||<sp/>type<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;deposit&quot;</highlight><highlight class="normal">_n,<sp/></highlight><highlight class="stringliteral">&quot;Неверный<sp/>тип<sp/>заявки&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/>eosio::check(quantity.amount<sp/>&gt;<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;Сумма<sp/>ввода<sp/>должна<sp/>быть<sp/>положительной&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(type<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;deposit&quot;</highlight><highlight class="normal">_n)<sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="coops_8hpp_1a09d6b4f77289fbe1a4135c928e6745d7" kindref="member">participants_index</ref><sp/>participants(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>coopname.value);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="structparticipant" kindref="compound">participant</ref><sp/>=<sp/>participants.find(username.value);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::check(<ref refid="structparticipant" kindref="compound">participant</ref><sp/>!=<sp/>participants.end(),<sp/></highlight><highlight class="stringliteral">&quot;Вы<sp/>не<sp/>являетесь<sp/>пайщиком<sp/>указанного<sp/>кооператива&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::check(<ref refid="structparticipant" kindref="compound">participant</ref><sp/>-&gt;<sp/>is_active(),<sp/></highlight><highlight class="stringliteral">&quot;Ваш<sp/>аккаунт<sp/>не<sp/>активен<sp/>в<sp/>указанном<sp/>кооперативе&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{<sp/></highlight><highlight class="comment">//registration</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::check(quantity<sp/>==<sp/><ref refid="structcooperative" kindref="compound">cooperative</ref>.<ref refid="structcooperative_1abfbc7ba6cae286087631a3f221a7b676" kindref="member">registration</ref><sp/>||<sp/>quantity<sp/>==<sp/><ref refid="structcooperative" kindref="compound">cooperative</ref>.<ref refid="structcooperative_1a9ed49665e29d8c8017b751b7e953b624" kindref="member">org_registration</ref>.value(),<sp/></highlight><highlight class="stringliteral">&quot;Сумма<sp/>минимального<sp/>взноса<sp/>не<sp/>соответствует<sp/>установленной<sp/>в<sp/>кооперативе&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
 <codeline lineno="110"><highlight class="normal"></highlight></codeline>
-<codeline lineno="111"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(coopname<sp/>!=<sp/>admin){</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="admins_8hpp_1a8b2cff2f5076afcf685cdb60a6521702" kindref="member">check_auth_or_fail</ref>(coopname,<sp/>admin,<sp/></highlight><highlight class="stringliteral">&quot;dpcomplete&quot;</highlight><highlight class="normal">_n);</highlight></codeline>
-<codeline lineno="113"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
-<codeline lineno="114"><highlight class="normal"></highlight></codeline>
-<codeline lineno="115"><highlight class="normal"><sp/><sp/><ref refid="balances_8hpp_1a17b8b15997b4be7d66f17e253abd90b1" kindref="member">deposits_index</ref><sp/>deposits(<ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/>coopname.value);</highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref><sp/>=<sp/>deposits.find(deposit_id);</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"></highlight></codeline>
-<codeline lineno="118"><highlight class="normal"><sp/><sp/>eosio::check(<ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref><sp/>!=<sp/>deposits.end(),<sp/></highlight><highlight class="stringliteral">&quot;Объект<sp/>процессинга<sp/>не<sp/>найден&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="119"><highlight class="normal"><sp/><sp/>eosio::check(<ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref><sp/>-&gt;<sp/>coopname<sp/>==<sp/>coopname,<sp/></highlight><highlight class="stringliteral">&quot;Указан<sp/>не<sp/>верный<sp/>кооператив&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="120"><highlight class="normal"><sp/><sp/>eosio::check(<ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref><sp/>-&gt;<sp/>status<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;pending&quot;</highlight><highlight class="normal">_n,<sp/></highlight><highlight class="stringliteral">&quot;Статус<sp/>депозита<sp/>должен<sp/>быть<sp/>pending&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="121"><highlight class="normal"></highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="structcooperative" kindref="compound">cooperative</ref><sp/>=<sp/><ref refid="accounts_8hpp_1a7a06d8140047dd1d128d2c7929c48b76" kindref="member">get_cooperative_or_fail</ref>(coopname);<sp/><sp/></highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/><ref refid="structcooperative" kindref="compound">cooperative</ref>.<ref refid="structcooperative_1ade071f5cdf6c434868aa63a2467c7b10" kindref="member">check_symbol_or_fail</ref>(<ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref><sp/>-&gt;<sp/>quantity);</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"></highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/>deposits.modify(<ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref>,<sp/>admin,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;d){</highlight></codeline>
-<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>d.status<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;completed&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
-<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>d.expired_at<sp/>=<sp/>eosio::time_point_sec(eosio::current_time_point().sec_since_epoch()<sp/>+<sp/><ref refid="group__public__consts_1gaad53f3329a5e977fbcf8ebc0b9670d7d" kindref="member">_deposit_expiration_seconds</ref>);</highlight></codeline>
-<codeline lineno="128"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
-<codeline lineno="129"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref><sp/>-&gt;<sp/>type<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;deposit&quot;</highlight><highlight class="normal">_n)<sp/>{</highlight></codeline>
-<codeline lineno="131"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>action(</highlight></codeline>
-<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
-<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,</highlight></codeline>
-<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;addbalance&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::make_tuple(coopname,<sp/><ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref><sp/>-&gt;<sp/>username,<sp/><ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref><sp/>-&gt;<sp/>quantity)</highlight></codeline>
-<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>).send();</highlight></codeline>
-<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>action(</highlight></codeline>
-<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1ga4538cae0be703aafb0a4e4ec9d2e3b53" kindref="member">_fund</ref>,</highlight></codeline>
-<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;addcirculate&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::make_tuple(coopname,<sp/><ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref><sp/>-&gt;<sp/>quantity)</highlight></codeline>
-<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>).send();</highlight></codeline>
-<codeline lineno="145"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="146"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//TODO<sp/>spread<sp/>to<sp/>funds</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::asset<sp/>to_circulation<sp/>=<sp/><ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref><sp/>-&gt;<sp/>quantity<sp/>==<sp/><ref refid="structcooperative" kindref="compound">cooperative</ref>.<ref refid="structcooperative_1abfbc7ba6cae286087631a3f221a7b676" kindref="member">registration</ref><sp/>?<sp/><ref refid="structcooperative" kindref="compound">cooperative</ref>.<ref refid="structcooperative_1a447514af219d34d23db91a9e695ee548" kindref="member">minimum</ref><sp/>:<sp/><ref refid="structcooperative" kindref="compound">cooperative</ref>.<ref refid="structcooperative_1a70599503a9c4ff138df62996ac236660" kindref="member">org_minimum</ref>.value();</highlight></codeline>
-<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::asset<sp/>to_spread<sp/>=<sp/><ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref><sp/>-&gt;<sp/>quantity<sp/>==<sp/><ref refid="structcooperative" kindref="compound">cooperative</ref>.<ref refid="structcooperative_1abfbc7ba6cae286087631a3f221a7b676" kindref="member">registration</ref><sp/>?<sp/><ref refid="structcooperative" kindref="compound">cooperative</ref>.<ref refid="structcooperative_1ac30eaeb313177bfbf7ce04f4ff76e419" kindref="member">initial</ref><sp/>:<sp/><ref refid="structcooperative" kindref="compound">cooperative</ref>.<ref refid="structcooperative_1a5c5336993628f9656944345a5d490ed8" kindref="member">org_initial</ref>.value();</highlight></codeline>
-<codeline lineno="150"><highlight class="normal"></highlight></codeline>
-<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>action(</highlight></codeline>
-<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
-<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1ga4538cae0be703aafb0a4e4ec9d2e3b53" kindref="member">_fund</ref>,</highlight></codeline>
-<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;addcirculate&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::make_tuple(coopname,<sp/>to_circulation)</highlight></codeline>
-<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>).send();</highlight></codeline>
-<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>action(</highlight></codeline>
-<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
-<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1ga4538cae0be703aafb0a4e4ec9d2e3b53" kindref="member">_fund</ref>,</highlight></codeline>
-<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;spreadamount&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::make_tuple(coopname,<sp/>to_spread)</highlight></codeline>
-<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>).send();</highlight></codeline>
-<codeline lineno="164"><highlight class="normal"></highlight></codeline>
-<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>action(</highlight></codeline>
-<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
-<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,</highlight></codeline>
-<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;regpaid&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::make_tuple(coopname,<sp/><ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref><sp/>-&gt;<sp/>username)</highlight></codeline>
-<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>).send();</highlight></codeline>
-<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="172"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="173"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="174"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="175"><highlight class="normal"></highlight></codeline>
-<codeline lineno="191"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1ga8776a33709be83c15957bc8e366db71d" kindref="member">gateway::dpfail</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>admin,<sp/>uint64_t<sp/>deposit_id,<sp/>std::string<sp/>memo)<sp/>{</highlight></codeline>
-<codeline lineno="192"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="193"><highlight class="normal"><sp/><sp/>require_auth(admin);</highlight></codeline>
-<codeline lineno="194"><highlight class="normal"></highlight></codeline>
-<codeline lineno="195"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(coopname<sp/>!=<sp/>admin){</highlight></codeline>
-<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="admins_8hpp_1a8b2cff2f5076afcf685cdb60a6521702" kindref="member">check_auth_or_fail</ref>(coopname,<sp/>admin,<sp/></highlight><highlight class="stringliteral">&quot;dpcomplete&quot;</highlight><highlight class="normal">_n);</highlight></codeline>
-<codeline lineno="197"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
-<codeline lineno="198"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="199"><highlight class="normal"><sp/><sp/><ref refid="balances_8hpp_1a17b8b15997b4be7d66f17e253abd90b1" kindref="member">deposits_index</ref><sp/>deposits(<ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/>coopname.value);</highlight></codeline>
-<codeline lineno="200"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref><sp/>=<sp/>deposits.find(deposit_id);</highlight></codeline>
-<codeline lineno="201"><highlight class="normal"><sp/><sp/>eosio::check(<ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref><sp/>-&gt;<sp/>coopname<sp/>==<sp/>coopname,<sp/></highlight><highlight class="stringliteral">&quot;Указан<sp/>не<sp/>верный<sp/>кооператив&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="202"><highlight class="normal"><sp/></highlight></codeline>
-<codeline lineno="203"><highlight class="normal"><sp/><sp/>eosio::check(<ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref><sp/>!=<sp/>deposits.end(),<sp/></highlight><highlight class="stringliteral">&quot;Объект<sp/>процессинга<sp/>не<sp/>найден&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="204"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="205"><highlight class="normal"><sp/><sp/>deposits.modify(<ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref>,<sp/>admin,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;d){</highlight></codeline>
-<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>d.status<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;fail&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
-<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>d.expired_at<sp/>=<sp/>eosio::time_point_sec(eosio::current_time_point().sec_since_epoch()<sp/>+<sp/><ref refid="group__public__consts_1gaad53f3329a5e977fbcf8ebc0b9670d7d" kindref="member">_deposit_expiration_seconds</ref>);</highlight></codeline>
-<codeline lineno="208"><highlight class="normal"><sp/><sp/>});<sp/></highlight></codeline>
-<codeline lineno="209"><highlight class="normal"></highlight></codeline>
-<codeline lineno="210"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="211"><highlight class="normal"></highlight></codeline>
-<codeline lineno="212"><highlight class="normal"></highlight></codeline>
-<codeline lineno="231"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">gateway::withdraw</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>username,<sp/>eosio::asset<sp/>quantity,<sp/><ref refid="structdocument" kindref="compound">document</ref><sp/><ref refid="structdocument" kindref="compound">document</ref>,<sp/>std::string<sp/>bank_data_id,<sp/>std::string<sp/>memo){</highlight></codeline>
-<codeline lineno="232"><highlight class="normal"></highlight></codeline>
-<codeline lineno="233"><highlight class="normal"><sp/><sp/>require_auth(username);</highlight></codeline>
-<codeline lineno="234"><highlight class="normal"></highlight></codeline>
-<codeline lineno="235"><highlight class="normal"><sp/><sp/><ref refid="balances_8hpp_1a8689bd711e5cf08e0910f6bb2aaa96ba" kindref="member">withdraws_index</ref><sp/>withdraws(<ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/>coopname.value);</highlight></codeline>
-<codeline lineno="236"><highlight class="normal"></highlight></codeline>
-<codeline lineno="237"><highlight class="normal"><sp/><sp/>uint64_t<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/><ref refid="counts_8hpp_1aeb06beaf4402f0222167ef9d12eacd5c" kindref="member">get_global_id</ref>(<ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/></highlight><highlight class="stringliteral">&quot;withdraws&quot;</highlight><highlight class="normal">_n);</highlight></codeline>
-<codeline lineno="238"><highlight class="normal"></highlight></codeline>
-<codeline lineno="239"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="structcooperative" kindref="compound">cooperative</ref><sp/>=<sp/><ref refid="accounts_8hpp_1a7a06d8140047dd1d128d2c7929c48b76" kindref="member">get_cooperative_or_fail</ref>(coopname);</highlight></codeline>
-<codeline lineno="240"><highlight class="normal"><sp/><sp/><ref refid="structcooperative" kindref="compound">cooperative</ref>.<ref refid="structcooperative_1ade071f5cdf6c434868aa63a2467c7b10" kindref="member">check_symbol_or_fail</ref>(quantity);</highlight></codeline>
-<codeline lineno="241"><highlight class="normal"></highlight></codeline>
-<codeline lineno="242"><highlight class="normal"><sp/><sp/>eosio::check(quantity.amount<sp/>&gt;<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;Сумма<sp/>вывода<sp/>должна<sp/>быть<sp/>положительной&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/>deposits.emplace(payer,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;d)<sp/>{</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>d.id<sp/>=<sp/>id;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>d.type<sp/>=<sp/>type;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>d.username<sp/>=<sp/>username;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>d.coopname<sp/>=<sp/>coopname;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>d.quantity<sp/>=<sp/>quantity;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>d.status<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;pending&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>d.expired_at<sp/>=<sp/>eosio::time_point_sec(eosio::current_time_point().sec_since_epoch()<sp/>+<sp/><ref refid="group__public__consts_1gaad53f3329a5e977fbcf8ebc0b9670d7d" kindref="member">_deposit_expiration_seconds</ref>);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/>action(</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;newdepositid&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>std::make_tuple(username,<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/>).send();</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1ga59936ddb45db401976fd3d404b92caa7" kindref="member">gateway::dpcomplete</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>admin,<sp/>uint64_t<sp/>deposit_id,<sp/>std::string<sp/>memo)<sp/>{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/>require_auth(admin);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(coopname<sp/>!=<sp/>admin){</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="admins_8hpp_1a8b2cff2f5076afcf685cdb60a6521702" kindref="member">check_auth_or_fail</ref>(coopname,<sp/>admin,<sp/></highlight><highlight class="stringliteral">&quot;dpcomplete&quot;</highlight><highlight class="normal">_n);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><ref refid="balances_8hpp_1a17b8b15997b4be7d66f17e253abd90b1" kindref="member">deposits_index</ref><sp/>deposits(<ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/>coopname.value);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref><sp/>=<sp/>deposits.find(deposit_id);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/>eosio::check(<ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref><sp/>!=<sp/>deposits.end(),<sp/></highlight><highlight class="stringliteral">&quot;Объект<sp/>процессинга<sp/>не<sp/>найден&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/>eosio::check(<ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref><sp/>-&gt;<sp/>coopname<sp/>==<sp/>coopname,<sp/></highlight><highlight class="stringliteral">&quot;Указан<sp/>не<sp/>верный<sp/>кооператив&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/>eosio::check(<ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref><sp/>-&gt;<sp/>status<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;pending&quot;</highlight><highlight class="normal">_n,<sp/></highlight><highlight class="stringliteral">&quot;Статус<sp/>депозита<sp/>должен<sp/>быть<sp/>pending&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="structcooperative" kindref="compound">cooperative</ref><sp/>=<sp/><ref refid="accounts_8hpp_1a7a06d8140047dd1d128d2c7929c48b76" kindref="member">get_cooperative_or_fail</ref>(coopname);<sp/><sp/></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><ref refid="structcooperative" kindref="compound">cooperative</ref>.<ref refid="structcooperative_1ade071f5cdf6c434868aa63a2467c7b10" kindref="member">check_symbol_or_fail</ref>(<ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref><sp/>-&gt;<sp/>quantity);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/>deposits.modify(<ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref>,<sp/>admin,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;d){</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>d.status<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;completed&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>d.expired_at<sp/>=<sp/>eosio::time_point_sec(eosio::current_time_point().sec_since_epoch()<sp/>+<sp/><ref refid="group__public__consts_1gaad53f3329a5e977fbcf8ebc0b9670d7d" kindref="member">_deposit_expiration_seconds</ref>);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref><sp/>-&gt;<sp/>type<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;deposit&quot;</highlight><highlight class="normal">_n)<sp/>{</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>action(</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;newdeposit&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::make_tuple(coopname,<sp/>username,<sp/>deposit_id,<sp/><ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref>-&gt;type,<sp/><ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref><sp/>-&gt;<sp/>quantity,<sp/>eosio::current_time_point())</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>).send();</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>action(</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;addbalance&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::make_tuple(coopname,<sp/><ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref><sp/>-&gt;<sp/>username,<sp/><ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref><sp/>-&gt;<sp/>quantity)</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/>).send();</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>action(</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1ga4538cae0be703aafb0a4e4ec9d2e3b53" kindref="member">_fund</ref>,</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;addcirculate&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::make_tuple(coopname,<sp/><ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref><sp/>-&gt;<sp/>quantity)</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/>).send();</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//TODO<sp/>spread<sp/>to<sp/>funds</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::asset<sp/>to_circulation<sp/>=<sp/><ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref><sp/>-&gt;<sp/>quantity<sp/>==<sp/><ref refid="structcooperative" kindref="compound">cooperative</ref>.<ref refid="structcooperative_1abfbc7ba6cae286087631a3f221a7b676" kindref="member">registration</ref><sp/>?<sp/><ref refid="structcooperative" kindref="compound">cooperative</ref>.<ref refid="structcooperative_1a447514af219d34d23db91a9e695ee548" kindref="member">minimum</ref><sp/>:<sp/><ref refid="structcooperative" kindref="compound">cooperative</ref>.<ref refid="structcooperative_1a70599503a9c4ff138df62996ac236660" kindref="member">org_minimum</ref>.value();</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::asset<sp/>to_spread<sp/>=<sp/><ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref><sp/>-&gt;<sp/>quantity<sp/>==<sp/><ref refid="structcooperative" kindref="compound">cooperative</ref>.<ref refid="structcooperative_1abfbc7ba6cae286087631a3f221a7b676" kindref="member">registration</ref><sp/>?<sp/><ref refid="structcooperative" kindref="compound">cooperative</ref>.<ref refid="structcooperative_1ac30eaeb313177bfbf7ce04f4ff76e419" kindref="member">initial</ref><sp/>:<sp/><ref refid="structcooperative" kindref="compound">cooperative</ref>.<ref refid="structcooperative_1a5c5336993628f9656944345a5d490ed8" kindref="member">org_initial</ref>.value();</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>action(</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;newuser&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::make_tuple(coopname,<sp/><ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref>-&gt;username,<sp/>to_spread,<sp/>to_circulation,<sp/>eosio::current_time_point())</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>).send();</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/>action(</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;regpaid&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::make_tuple(coopname,<sp/><ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref><sp/>-&gt;<sp/>username)</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/>).send();</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="213"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1ga8776a33709be83c15957bc8e366db71d" kindref="member">gateway::dpfail</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>admin,<sp/>uint64_t<sp/>deposit_id,<sp/>std::string<sp/>memo)<sp/>{</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/>require_auth(admin);</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(coopname<sp/>!=<sp/>admin){</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="admins_8hpp_1a8b2cff2f5076afcf685cdb60a6521702" kindref="member">check_auth_or_fail</ref>(coopname,<sp/>admin,<sp/></highlight><highlight class="stringliteral">&quot;dpcomplete&quot;</highlight><highlight class="normal">_n);</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><ref refid="balances_8hpp_1a17b8b15997b4be7d66f17e253abd90b1" kindref="member">deposits_index</ref><sp/>deposits(<ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/>coopname.value);</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref><sp/>=<sp/>deposits.find(deposit_id);</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/>eosio::check(<ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref><sp/>-&gt;<sp/>coopname<sp/>==<sp/>coopname,<sp/></highlight><highlight class="stringliteral">&quot;Указан<sp/>не<sp/>верный<sp/>кооператив&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/>eosio::check(<ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref><sp/>!=<sp/>deposits.end(),<sp/></highlight><highlight class="stringliteral">&quot;Объект<sp/>процессинга<sp/>не<sp/>найден&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="243"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="244"><highlight class="normal"><sp/><sp/>withdraws.emplace(username,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;d){</highlight></codeline>
-<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/>d.id<sp/>=<sp/>id;</highlight></codeline>
-<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/>d.username<sp/>=<sp/>username;</highlight></codeline>
-<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/>d.coopname<sp/>=<sp/>coopname;</highlight></codeline>
-<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/>d.bank_data_id<sp/>=<sp/>bank_data_id;</highlight></codeline>
-<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/>d.document<sp/>=<sp/><ref refid="structdocument" kindref="compound">document</ref>;</highlight></codeline>
-<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/>d.quantity<sp/>=<sp/>quantity;</highlight></codeline>
-<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/>d.status<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;pending&quot;</highlight><highlight class="normal">_n;<sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/>d.created_at<sp/>=<sp/>eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());</highlight></codeline>
-<codeline lineno="253"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
-<codeline lineno="254"><highlight class="normal"></highlight></codeline>
-<codeline lineno="255"><highlight class="normal"></highlight></codeline>
-<codeline lineno="256"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//здесь<sp/>необходимо<sp/>запросить<sp/>авторизацию<sp/>совета<sp/>и<sp/>там<sp/>и<sp/>заблокировать<sp/>баланс<sp/>кошелька</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="257"><highlight class="normal"><sp/><sp/>action(</highlight></codeline>
-<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
-<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,</highlight></codeline>
-<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;withdraw&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/>std::make_tuple(coopname,<sp/>username,<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="262"><highlight class="normal"><sp/><sp/>).send();</highlight></codeline>
-<codeline lineno="263"><highlight class="normal"></highlight></codeline>
-<codeline lineno="264"><highlight class="normal"><sp/><sp/>action(</highlight></codeline>
-<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
-<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,</highlight></codeline>
-<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;blockbal&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/>std::make_tuple(coopname,<sp/>username,<sp/>quantity)</highlight></codeline>
-<codeline lineno="269"><highlight class="normal"><sp/><sp/>).send();</highlight></codeline>
-<codeline lineno="270"><highlight class="normal"></highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/>deposits.modify(<ref refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" kindref="member">deposit</ref>,<sp/>admin,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;d){</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/>d.status<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;fail&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/>d.expired_at<sp/>=<sp/>eosio::time_point_sec(eosio::current_time_point().sec_since_epoch()<sp/>+<sp/><ref refid="group__public__consts_1gaad53f3329a5e977fbcf8ebc0b9670d7d" kindref="member">_deposit_expiration_seconds</ref>);</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/>});<sp/></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight></codeline>
+<codeline lineno="270"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">gateway::withdraw</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>username,<sp/>eosio::asset<sp/>quantity,<sp/><ref refid="structdocument" kindref="compound">document</ref><sp/><ref refid="structdocument" kindref="compound">document</ref>,<sp/>std::string<sp/>bank_data_id,<sp/>std::string<sp/>memo){</highlight></codeline>
 <codeline lineno="271"><highlight class="normal"></highlight></codeline>
-<codeline lineno="272"><highlight class="normal"><sp/><sp/>action(</highlight></codeline>
-<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
-<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,</highlight></codeline>
-<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;newwithdrid&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/>std::make_tuple(username,<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="277"><highlight class="normal"><sp/><sp/>).send();</highlight></codeline>
-<codeline lineno="278"><highlight class="normal"></highlight></codeline>
-<codeline lineno="279"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/>require_auth(username);</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"></highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><ref refid="balances_8hpp_1a8689bd711e5cf08e0910f6bb2aaa96ba" kindref="member">withdraws_index</ref><sp/>withdraws(<ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/>coopname.value);</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"></highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/>uint64_t<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/><ref refid="counts_8hpp_1aeb06beaf4402f0222167ef9d12eacd5c" kindref="member">get_global_id</ref>(<ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/></highlight><highlight class="stringliteral">&quot;withdraws&quot;</highlight><highlight class="normal">_n);</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"></highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="structcooperative" kindref="compound">cooperative</ref><sp/>=<sp/><ref refid="accounts_8hpp_1a7a06d8140047dd1d128d2c7929c48b76" kindref="member">get_cooperative_or_fail</ref>(coopname);</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><ref refid="structcooperative" kindref="compound">cooperative</ref>.<ref refid="structcooperative_1ade071f5cdf6c434868aa63a2467c7b10" kindref="member">check_symbol_or_fail</ref>(quantity);</highlight></codeline>
 <codeline lineno="280"><highlight class="normal"></highlight></codeline>
-<codeline lineno="281"><highlight class="normal"></highlight></codeline>
-<codeline lineno="294"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classgateway_1a5b244fde939d3cf2aaa7c36f91c228cb" kindref="member">gateway::withdrawauth</ref>(eosio::name<sp/>coopname,<sp/>uint64_t<sp/>withdraw_id)<sp/>{</highlight></codeline>
-<codeline lineno="295"><highlight class="normal"></highlight></codeline>
-<codeline lineno="296"><highlight class="normal"><sp/><sp/>require_auth(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>);</highlight></codeline>
-<codeline lineno="297"><highlight class="normal"></highlight></codeline>
-<codeline lineno="298"><highlight class="normal"><sp/><sp/><ref refid="balances_8hpp_1a8689bd711e5cf08e0910f6bb2aaa96ba" kindref="member">withdraws_index</ref><sp/>withdraws(<ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/>coopname.value);</highlight></codeline>
-<codeline lineno="299"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="300"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref><sp/>=<sp/>withdraws.find(withdraw_id);</highlight></codeline>
-<codeline lineno="301"><highlight class="normal"><sp/><sp/>eosio::check(<ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref><sp/>!=<sp/>withdraws.end(),<sp/></highlight><highlight class="stringliteral">&quot;Объект<sp/>процессинга<sp/>не<sp/>найден&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="302"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="303"><highlight class="normal"><sp/><sp/>withdraws.modify(<ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref>,<sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;d){</highlight></codeline>
-<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/>d.status<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;authorized&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
-<codeline lineno="305"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
-<codeline lineno="306"><highlight class="normal"></highlight></codeline>
-<codeline lineno="307"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="308"><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/>eosio::check(quantity.amount<sp/>&gt;<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;Сумма<sp/>вывода<sp/>должна<sp/>быть<sp/>положительной&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/>withdraws.emplace(username,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;d){</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/>d.id<sp/>=<sp/>id;</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/>d.username<sp/>=<sp/>username;</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/>d.coopname<sp/>=<sp/>coopname;</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/>d.bank_data_id<sp/>=<sp/>bank_data_id;</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/>d.document<sp/>=<sp/><ref refid="structdocument" kindref="compound">document</ref>;</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/>d.quantity<sp/>=<sp/>quantity;</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/>d.status<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;pending&quot;</highlight><highlight class="normal">_n;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/>d.created_at<sp/>=<sp/>eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"></highlight></codeline>
+<codeline lineno="294"><highlight class="normal"></highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//здесь<sp/>необходимо<sp/>запросить<sp/>авторизацию<sp/>совета<sp/>и<sp/>там<sp/>и<sp/>заблокировать<sp/>баланс<sp/>кошелька</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/>action(</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;withdraw&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/>std::make_tuple(coopname,<sp/>username,<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/>).send();</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"></highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/>action(</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;blockbal&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/>std::make_tuple(coopname,<sp/>username,<sp/>quantity)</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/>).send();</highlight></codeline>
 <codeline lineno="309"><highlight class="normal"></highlight></codeline>
-<codeline lineno="323"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1ga2551c736852a98d33f2fcc9f569fe836" kindref="member">gateway::wthdcomplete</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>admin,<sp/>uint64_t<sp/>withdraw_id,<sp/>std::string<sp/>memo){</highlight></codeline>
-<codeline lineno="324"><highlight class="normal"></highlight></codeline>
-<codeline lineno="325"><highlight class="normal"><sp/><sp/>require_auth(admin);</highlight></codeline>
-<codeline lineno="326"><highlight class="normal"></highlight></codeline>
-<codeline lineno="327"><highlight class="normal"><sp/><sp/><ref refid="admins_8hpp_1a8b2cff2f5076afcf685cdb60a6521702" kindref="member">check_auth_or_fail</ref>(coopname,<sp/>admin,<sp/></highlight><highlight class="stringliteral">&quot;wthdcomplete&quot;</highlight><highlight class="normal">_n);</highlight></codeline>
-<codeline lineno="328"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="329"><highlight class="normal"><sp/><sp/><ref refid="balances_8hpp_1a8689bd711e5cf08e0910f6bb2aaa96ba" kindref="member">withdraws_index</ref><sp/>withdraws(<ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/>coopname.value);</highlight></codeline>
-<codeline lineno="330"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="331"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref><sp/>=<sp/>withdraws.find(withdraw_id);</highlight></codeline>
-<codeline lineno="332"><highlight class="normal"><sp/><sp/>eosio::check(<ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref><sp/>!=<sp/>withdraws.end(),<sp/></highlight><highlight class="stringliteral">&quot;Объект<sp/>процессинга<sp/>не<sp/>найден&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="333"><highlight class="normal"><sp/><sp/>eosio::check(<ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref><sp/>-&gt;<sp/>status<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;authorized&quot;</highlight><highlight class="normal">_n,<sp/></highlight><highlight class="stringliteral">&quot;Только<sp/>принятые<sp/>заявления<sp/>на<sp/>вывод<sp/>могут<sp/>быть<sp/>обработаны&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"></highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/>action(</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;newwithdrid&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/>std::make_tuple(username,<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/>).send();</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"></highlight></codeline>
+<codeline lineno="318"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"></highlight></codeline>
+<codeline lineno="320"><highlight class="normal"></highlight></codeline>
+<codeline lineno="333"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classgateway_1a5b244fde939d3cf2aaa7c36f91c228cb" kindref="member">gateway::withdrawauth</ref>(eosio::name<sp/>coopname,<sp/>uint64_t<sp/>withdraw_id)<sp/>{</highlight></codeline>
 <codeline lineno="334"><highlight class="normal"></highlight></codeline>
-<codeline lineno="335"><highlight class="normal"><sp/><sp/>withdraws.modify(<ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref>,<sp/>admin,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;d){</highlight></codeline>
-<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/>d.status<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;completed&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
-<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/>d.memo<sp/>=<sp/>memo;</highlight></codeline>
-<codeline lineno="338"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
-<codeline lineno="339"><highlight class="normal"></highlight></codeline>
-<codeline lineno="340"><highlight class="normal"><sp/><sp/>action(</highlight></codeline>
-<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
-<codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,</highlight></codeline>
-<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;unblockbal&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/>std::make_tuple(coopname,<sp/><ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref><sp/>-&gt;<sp/>username,<sp/><ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref><sp/>-&gt;<sp/>quantity)</highlight></codeline>
-<codeline lineno="345"><highlight class="normal"><sp/><sp/>).send();</highlight></codeline>
-<codeline lineno="346"><highlight class="normal"></highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/>require_auth(<ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>);</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"></highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><ref refid="balances_8hpp_1a8689bd711e5cf08e0910f6bb2aaa96ba" kindref="member">withdraws_index</ref><sp/>withdraws(<ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/>coopname.value);</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref><sp/>=<sp/>withdraws.find(withdraw_id);</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/>eosio::check(<ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref><sp/>!=<sp/>withdraws.end(),<sp/></highlight><highlight class="stringliteral">&quot;Объект<sp/>процессинга<sp/>не<sp/>найден&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/>withdraws.modify(<ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref>,<sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;d){</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/>d.status<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;authorized&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"></highlight></codeline>
+<codeline lineno="346"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="347"><highlight class="normal"></highlight></codeline>
-<codeline lineno="348"><highlight class="normal"><sp/><sp/>action(</highlight></codeline>
-<codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
-<codeline lineno="350"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,</highlight></codeline>
-<codeline lineno="351"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;subbalance&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/>std::make_tuple(coopname,<sp/><ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref><sp/>-&gt;<sp/>username,<sp/><ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref><sp/>-&gt;<sp/>quantity)</highlight></codeline>
-<codeline lineno="353"><highlight class="normal"><sp/><sp/>).send();</highlight></codeline>
-<codeline lineno="354"><highlight class="normal"></highlight></codeline>
-<codeline lineno="355"><highlight class="normal"><sp/><sp/>action(</highlight></codeline>
-<codeline lineno="356"><highlight class="normal"><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
-<codeline lineno="357"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1ga4538cae0be703aafb0a4e4ec9d2e3b53" kindref="member">_fund</ref>,</highlight></codeline>
-<codeline lineno="358"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;subcirculate&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="359"><highlight class="normal"><sp/><sp/><sp/><sp/>std::make_tuple(coopname,<sp/><ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref><sp/>-&gt;<sp/>quantity)</highlight></codeline>
-<codeline lineno="360"><highlight class="normal"><sp/><sp/>).send();</highlight></codeline>
-<codeline lineno="361"><highlight class="normal"></highlight></codeline>
-<codeline lineno="362"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"></highlight></codeline>
+<codeline lineno="362"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1ga2551c736852a98d33f2fcc9f569fe836" kindref="member">gateway::wthdcomplete</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>admin,<sp/>uint64_t<sp/>withdraw_id,<sp/>std::string<sp/>memo){</highlight></codeline>
 <codeline lineno="363"><highlight class="normal"></highlight></codeline>
-<codeline lineno="364"><highlight class="normal"></highlight></codeline>
-<codeline lineno="378"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1gac0eb7373a774cec08f2017a74522b2b2" kindref="member">gateway::wthdfail</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>admin,<sp/>uint64_t<sp/>withdraw_id,<sp/>std::string<sp/>memo)<sp/>{</highlight></codeline>
-<codeline lineno="379"><highlight class="normal"></highlight></codeline>
-<codeline lineno="380"><highlight class="normal"><sp/><sp/>require_auth(admin);</highlight></codeline>
-<codeline lineno="381"><highlight class="normal"></highlight></codeline>
-<codeline lineno="382"><highlight class="normal"><sp/><sp/><ref refid="admins_8hpp_1a8b2cff2f5076afcf685cdb60a6521702" kindref="member">check_auth_or_fail</ref>(coopname,<sp/>admin,<sp/></highlight><highlight class="stringliteral">&quot;wthdfail&quot;</highlight><highlight class="normal">_n);</highlight></codeline>
-<codeline lineno="383"><highlight class="normal"></highlight></codeline>
-<codeline lineno="384"><highlight class="normal"><sp/><sp/><ref refid="balances_8hpp_1a8689bd711e5cf08e0910f6bb2aaa96ba" kindref="member">withdraws_index</ref><sp/>withdraws(<ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/>coopname.value);</highlight></codeline>
-<codeline lineno="385"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref><sp/>=<sp/>withdraws.find(withdraw_id);</highlight></codeline>
-<codeline lineno="386"><highlight class="normal"><sp/><sp/>eosio::check(<ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref><sp/>!=<sp/>withdraws.end(),<sp/></highlight><highlight class="stringliteral">&quot;Объект<sp/>процессинга<sp/>не<sp/>найден&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="387"><highlight class="normal"><sp/><sp/>eosio::check(<ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref><sp/>-&gt;<sp/>status<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;pending&quot;</highlight><highlight class="normal">_n,<sp/></highlight><highlight class="stringliteral">&quot;Неверный<sp/>статус<sp/>для<sp/>провала&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="388"><highlight class="normal"></highlight></codeline>
-<codeline lineno="389"><highlight class="normal"><sp/><sp/>withdraws.modify(<ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref>,<sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;d){</highlight></codeline>
-<codeline lineno="390"><highlight class="normal"><sp/><sp/><sp/><sp/>d.status<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;failed&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
-<codeline lineno="391"><highlight class="normal"><sp/><sp/><sp/><sp/>d.memo<sp/>=<sp/>memo;</highlight></codeline>
-<codeline lineno="392"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="364"><highlight class="normal"><sp/><sp/>require_auth(admin);</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"></highlight></codeline>
+<codeline lineno="366"><highlight class="normal"><sp/><sp/><ref refid="admins_8hpp_1a8b2cff2f5076afcf685cdb60a6521702" kindref="member">check_auth_or_fail</ref>(coopname,<sp/>admin,<sp/></highlight><highlight class="stringliteral">&quot;wthdcomplete&quot;</highlight><highlight class="normal">_n);</highlight></codeline>
+<codeline lineno="367"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="368"><highlight class="normal"><sp/><sp/><ref refid="balances_8hpp_1a8689bd711e5cf08e0910f6bb2aaa96ba" kindref="member">withdraws_index</ref><sp/>withdraws(<ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/>coopname.value);</highlight></codeline>
+<codeline lineno="369"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="370"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref><sp/>=<sp/>withdraws.find(withdraw_id);</highlight></codeline>
+<codeline lineno="371"><highlight class="normal"><sp/><sp/>eosio::check(<ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref><sp/>!=<sp/>withdraws.end(),<sp/></highlight><highlight class="stringliteral">&quot;Объект<sp/>процессинга<sp/>не<sp/>найден&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="372"><highlight class="normal"><sp/><sp/>eosio::check(<ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref><sp/>-&gt;<sp/>status<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;authorized&quot;</highlight><highlight class="normal">_n,<sp/></highlight><highlight class="stringliteral">&quot;Только<sp/>принятые<sp/>заявления<sp/>на<sp/>вывод<sp/>могут<sp/>быть<sp/>обработаны&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="373"><highlight class="normal"></highlight></codeline>
+<codeline lineno="374"><highlight class="normal"><sp/><sp/>withdraws.modify(<ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref>,<sp/>admin,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;d){</highlight></codeline>
+<codeline lineno="375"><highlight class="normal"><sp/><sp/><sp/><sp/>d.status<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;completed&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
+<codeline lineno="376"><highlight class="normal"><sp/><sp/><sp/><sp/>d.memo<sp/>=<sp/>memo;</highlight></codeline>
+<codeline lineno="377"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="378"><highlight class="normal"></highlight></codeline>
+<codeline lineno="379"><highlight class="normal"><sp/><sp/>action(</highlight></codeline>
+<codeline lineno="380"><highlight class="normal"><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
+<codeline lineno="381"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,</highlight></codeline>
+<codeline lineno="382"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;unblockbal&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="383"><highlight class="normal"><sp/><sp/><sp/><sp/>std::make_tuple(coopname,<sp/><ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref><sp/>-&gt;<sp/>username,<sp/><ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref><sp/>-&gt;<sp/>quantity)</highlight></codeline>
+<codeline lineno="384"><highlight class="normal"><sp/><sp/>).send();</highlight></codeline>
+<codeline lineno="385"><highlight class="normal"></highlight></codeline>
+<codeline lineno="386"><highlight class="normal"></highlight></codeline>
+<codeline lineno="387"><highlight class="normal"><sp/><sp/>action(</highlight></codeline>
+<codeline lineno="388"><highlight class="normal"><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
+<codeline lineno="389"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,</highlight></codeline>
+<codeline lineno="390"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;subbalance&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="391"><highlight class="normal"><sp/><sp/><sp/><sp/>std::make_tuple(coopname,<sp/><ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref><sp/>-&gt;<sp/>username,<sp/><ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref><sp/>-&gt;<sp/>quantity)</highlight></codeline>
+<codeline lineno="392"><highlight class="normal"><sp/><sp/>).send();</highlight></codeline>
 <codeline lineno="393"><highlight class="normal"></highlight></codeline>
 <codeline lineno="394"><highlight class="normal"><sp/><sp/>action(</highlight></codeline>
 <codeline lineno="395"><highlight class="normal"><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
-<codeline lineno="396"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,</highlight></codeline>
-<codeline lineno="397"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;unblockbal&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
-<codeline lineno="398"><highlight class="normal"><sp/><sp/><sp/><sp/>std::make_tuple(coopname,<sp/><ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref><sp/>-&gt;<sp/>username,<sp/><ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref><sp/>-&gt;<sp/>quantity)</highlight></codeline>
+<codeline lineno="396"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1ga4538cae0be703aafb0a4e4ec9d2e3b53" kindref="member">_fund</ref>,</highlight></codeline>
+<codeline lineno="397"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;subcirculate&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="398"><highlight class="normal"><sp/><sp/><sp/><sp/>std::make_tuple(coopname,<sp/><ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref><sp/>-&gt;<sp/>quantity)</highlight></codeline>
 <codeline lineno="399"><highlight class="normal"><sp/><sp/>).send();</highlight></codeline>
 <codeline lineno="400"><highlight class="normal"></highlight></codeline>
-<codeline lineno="401"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="401"><highlight class="normal"></highlight></codeline>
+<codeline lineno="402"><highlight class="normal"><sp/><sp/>action(</highlight></codeline>
+<codeline lineno="403"><highlight class="normal"><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
+<codeline lineno="404"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,</highlight></codeline>
+<codeline lineno="405"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;newwithdraw&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="406"><highlight class="normal"><sp/><sp/><sp/><sp/>std::make_tuple(coopname,<sp/><ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref><sp/>-&gt;<sp/>username,<sp/><ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref><sp/>-&gt;<sp/>quantity)</highlight></codeline>
+<codeline lineno="407"><highlight class="normal"><sp/><sp/>).send();</highlight></codeline>
+<codeline lineno="408"><highlight class="normal"></highlight></codeline>
+<codeline lineno="409"><highlight class="normal"></highlight></codeline>
+<codeline lineno="410"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="411"><highlight class="normal"></highlight></codeline>
+<codeline lineno="412"><highlight class="normal"></highlight></codeline>
+<codeline lineno="426"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1gac0eb7373a774cec08f2017a74522b2b2" kindref="member">gateway::wthdfail</ref>(eosio::name<sp/>coopname,<sp/>eosio::name<sp/>admin,<sp/>uint64_t<sp/>withdraw_id,<sp/>std::string<sp/>memo)<sp/>{</highlight></codeline>
+<codeline lineno="427"><highlight class="normal"></highlight></codeline>
+<codeline lineno="428"><highlight class="normal"><sp/><sp/>require_auth(admin);</highlight></codeline>
+<codeline lineno="429"><highlight class="normal"></highlight></codeline>
+<codeline lineno="430"><highlight class="normal"><sp/><sp/><ref refid="admins_8hpp_1a8b2cff2f5076afcf685cdb60a6521702" kindref="member">check_auth_or_fail</ref>(coopname,<sp/>admin,<sp/></highlight><highlight class="stringliteral">&quot;wthdfail&quot;</highlight><highlight class="normal">_n);</highlight></codeline>
+<codeline lineno="431"><highlight class="normal"></highlight></codeline>
+<codeline lineno="432"><highlight class="normal"><sp/><sp/><ref refid="balances_8hpp_1a8689bd711e5cf08e0910f6bb2aaa96ba" kindref="member">withdraws_index</ref><sp/>withdraws(<ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/>coopname.value);</highlight></codeline>
+<codeline lineno="433"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref><sp/>=<sp/>withdraws.find(withdraw_id);</highlight></codeline>
+<codeline lineno="434"><highlight class="normal"><sp/><sp/>eosio::check(<ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref><sp/>!=<sp/>withdraws.end(),<sp/></highlight><highlight class="stringliteral">&quot;Объект<sp/>процессинга<sp/>не<sp/>найден&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="435"><highlight class="normal"><sp/><sp/>eosio::check(<ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref><sp/>-&gt;<sp/>status<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;pending&quot;</highlight><highlight class="normal">_n,<sp/></highlight><highlight class="stringliteral">&quot;Неверный<sp/>статус<sp/>для<sp/>провала&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="436"><highlight class="normal"></highlight></codeline>
+<codeline lineno="437"><highlight class="normal"><sp/><sp/>withdraws.modify(<ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref>,<sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/>[&amp;](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;d){</highlight></codeline>
+<codeline lineno="438"><highlight class="normal"><sp/><sp/><sp/><sp/>d.status<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;failed&quot;</highlight><highlight class="normal">_n;</highlight></codeline>
+<codeline lineno="439"><highlight class="normal"><sp/><sp/><sp/><sp/>d.memo<sp/>=<sp/>memo;</highlight></codeline>
+<codeline lineno="440"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="441"><highlight class="normal"></highlight></codeline>
+<codeline lineno="442"><highlight class="normal"><sp/><sp/>action(</highlight></codeline>
+<codeline lineno="443"><highlight class="normal"><sp/><sp/><sp/><sp/>permission_level{<sp/><ref refid="group__public__consts_1ga55ba70333702ff882cdb79c9c1fcb9e6" kindref="member">_gateway</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">_n},</highlight></codeline>
+<codeline lineno="444"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__public__consts_1gaf3f1171b99c198fbeb3ab6a3d8c091d9" kindref="member">_soviet</ref>,</highlight></codeline>
+<codeline lineno="445"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;unblockbal&quot;</highlight><highlight class="normal">_n,</highlight></codeline>
+<codeline lineno="446"><highlight class="normal"><sp/><sp/><sp/><sp/>std::make_tuple(coopname,<sp/><ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref><sp/>-&gt;<sp/>username,<sp/><ref refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" kindref="member">withdraw</ref><sp/>-&gt;<sp/>quantity)</highlight></codeline>
+<codeline lineno="447"><highlight class="normal"><sp/><sp/>).send();</highlight></codeline>
+<codeline lineno="448"><highlight class="normal"></highlight></codeline>
+<codeline lineno="449"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="gateway/gateway.cpp"/>
   </compounddef>

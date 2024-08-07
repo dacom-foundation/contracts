@@ -15,7 +15,7 @@
     <innerclass refid="structboard__member" prot="public">board_member</innerclass>
     <innerclass refid="structboards" prot="public">boards</innerclass>
     <innerclass refid="structstaff" prot="public">staff</innerclass>
-    <innerclass refid="structparticipants" prot="public">participants</innerclass>
+    <innerclass refid="structparticipant" prot="public">participant</innerclass>
     <innerclass refid="structdecision" prot="public">decision</innerclass>
     <innerclass refid="structaddress" prot="public">address</innerclass>
     <innerclass refid="structautomator" prot="public">automator</innerclass>
