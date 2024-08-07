@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['permissions_2ehpp_0',['permissions.hpp',['../permissions_8hpp.html',1,'']]],
-  ['powerup_2ecpp_1',['powerup.cpp',['../powerup_8cpp.html',1,'']]],
-  ['producer_5fpay_2ecpp_2',['producer_pay.cpp',['../producer__pay_8cpp.html',1,'']]],
-  ['programs_2ecpp_3',['programs.cpp',['../programs_8cpp.html',1,'']]],
-  ['programs_2ehpp_4',['programs.hpp',['../programs_8hpp.html',1,'']]]
+  ['rammarket_2ehpp_0',['rammarket.hpp',['../rammarket_8hpp.html',1,'']]],
+  ['readme_2emd_1',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
+  ['registrator_2ecpp_2',['registrator.cpp',['../registrator_2registrator_8cpp.html',1,'(Глобальное пространство имён)'],['../soviet_2src_2registrator_8cpp.html',1,'(Глобальное пространство имён)']]],
+  ['registrator_2ehpp_3',['registrator.hpp',['../registrator_8hpp.html',1,'']]]
 ];

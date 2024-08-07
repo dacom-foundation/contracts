@@ -42,9 +42,8 @@ public:
 
   [[eosio::action]] void init();
   [[eosio::action]] void fix();
-  [[eosio::action]] void login(std::string email);
   
-
+  
   [[eosio::action]] void updateaccnt(eosio::name username, eosio::name account_to_change, std::string meta);
   [[eosio::action]] void updatecoop(eosio::name coopname, eosio::name username, eosio::asset initial, eosio::asset minimum, eosio::asset org_initial, eosio::asset org_minimum, std::string announce, std::string description);
 
@@ -66,6 +65,10 @@ public:
   [[eosio::action]] void newaccount(
       eosio::name registrator, eosio::name coopname, eosio::name referer,
       eosio::name username, eosio::public_key public_key, std::string meta);
+
+  [[eosio::action]] void adduser(
+    eosio::name registrator, eosio::name coopname, eosio::name referer,
+    eosio::name username, eosio::name type, std::string meta);
 
   [[eosio::action]] void changekey(eosio::name coopname, eosio::name changer, eosio::name username, eosio::public_key public_key);
 

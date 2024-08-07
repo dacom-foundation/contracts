@@ -208,20 +208,20 @@ var group__public__tables =
       [ "updated_at", "structstaff.html#a2079dc310b3faf4112d9046e54a72ab7", null ],
       [ "username", "structstaff.html#aa67b206d474a4f87453bca87fda2f01b", null ]
     ] ],
-    [ "participants", "structparticipants.html", [
-      [ "by_created_at", "structparticipants.html#ab63c149354ae6df6a4a5de3948fdaf00", null ],
-      [ "bylastpay", "structparticipants.html#aa40e98abaf7212e03dd80e1f993d6c17", null ],
-      [ "is_active", "structparticipants.html#a755cb10cc54ed15fcf4849ace4c679ad", null ],
-      [ "primary_key", "structparticipants.html#a8623d16a26dea29aaf14d87f10ecf3c9", null ],
-      [ "created_at", "structparticipants.html#a23d435b17537bb122b11ede9692b605a", null ],
-      [ "has_vote", "structparticipants.html#a3b77b4b3083b75e0adf822241ae5fbfe", null ],
-      [ "is_initial", "structparticipants.html#a9172b4ea5fa9b858be1a2ca24d467c31", null ],
-      [ "is_minimum", "structparticipants.html#adb615a78b2bf2c4ea428289a6af5f64c", null ],
-      [ "last_min_pay", "structparticipants.html#acb3931363302e336cfb0c62e3a2d9abc", null ],
-      [ "last_update", "structparticipants.html#a4f914f47ab6ea9ff77135d13f71f361d", null ],
-      [ "status", "structparticipants.html#a3c39e76b933e59ec19db7205337b5a9a", null ],
-      [ "type", "structparticipants.html#a6ff4bb88ba64ac27e29914aac9c915ef", null ],
-      [ "username", "structparticipants.html#ae5560052371e0cc4d94f156f8d732fe1", null ]
+    [ "participant", "structparticipant.html", [
+      [ "by_created_at", "structparticipant.html#ae99592d91313f341e9fc51f7479aee0f", null ],
+      [ "bylastpay", "structparticipant.html#a10f27e0747dd58289afc982af0a2104a", null ],
+      [ "is_active", "structparticipant.html#afc41b4f39fe346424c690d4ab60098f8", null ],
+      [ "primary_key", "structparticipant.html#aa13dc96e742a24ebba6d316e1aa139a5", null ],
+      [ "created_at", "structparticipant.html#a8173e397d5ba9f0d7c19ab855a34305d", null ],
+      [ "has_vote", "structparticipant.html#abbb680aff322433d0b6309122a582f56", null ],
+      [ "is_initial", "structparticipant.html#acaeb624e998b463a8f67f58886bd7bc7", null ],
+      [ "is_minimum", "structparticipant.html#ac5b3b008af41e4d805982762a8c949cd", null ],
+      [ "last_min_pay", "structparticipant.html#ae79d22918b4383221bbd4b601daeeb65", null ],
+      [ "last_update", "structparticipant.html#abceceb99568caad0017e18ba9e9adeaa", null ],
+      [ "status", "structparticipant.html#a9855988bfe1c23094656925325665756", null ],
+      [ "type", "structparticipant.html#a4433399fbeb3e476c965473cde2a80bc", null ],
+      [ "username", "structparticipant.html#a376c595dbc685e77982b0e33cd2de52f", null ]
     ] ],
     [ "decision", "structdecision.html", [
       [ "by_secondary", "structdecision.html#a126af74e59573ce0c121023853d36696", null ],

@@ -12,9 +12,10 @@ var searchData=
   ['addpieces_9',['addpieces',['../group__public__actions.html#gac2a62dd532b9c0212270a2cbe5958b57',1,'marketplace']]],
   ['addprogbal_10',['addprogbal',['../classsoviet.html#a90e03b9865a377dd6299fcadc69ea1f8',1,'soviet']]],
   ['addstaff_11',['addstaff',['../group__public__actions.html#gaed705497ce78823553360af42f1e0dc6',1,'soviet']]],
-  ['adjust_5fresources_12',['adjust_resources',['../classeosiosystem_1_1system__contract.html#af207e91e13bb386b49b1e1c2ed0fb616',1,'eosiosystem::system_contract']]],
-  ['apply_13',['apply',['../classmarketplace.html#a4a1a5d78b2606e4883239fc79afdfb40',1,'marketplace::apply()'],['../classgateway.html#a69b49209b2cc17da42aa66890e2ca080',1,'gateway::apply()'],['../blockinfo__tester_8cpp.html#a979735e53c71ba52bb8515d2c4437059',1,'apply():&#160;blockinfo_tester.cpp']]],
-  ['approve_14',['approve',['../classeosio_1_1multisig.html#a5cccb8b23b9fffa1b27d443fad9ce3e9',1,'eosio::multisig']]],
-  ['authorize_15',['authorize',['../group__public__actions.html#ga006a09b0804cd50f3ec8aef8bd280fff',1,'marketplace::authorize()'],['../group__public__actions.html#ga3ca9fb1ee5a9584303c34e391af99e6c',1,'soviet::authorize(eosio::name coopname, eosio::name chairman, uint64_t decision_id, document document)']]],
-  ['automate_16',['automate',['../group__public__actions.html#gacd08501eb19d2733f9640cae3ae229f0',1,'soviet']]]
+  ['adduser_12',['adduser',['../group__public__actions.html#ga15f161632b4c17ae0a6112d973939a06',1,'registrator::adduser()'],['../group__public__actions.html#gaa26fcb81df8ce3c9a0ddabfb953dfec5',1,'soviet::adduser()']]],
+  ['adjust_5fresources_13',['adjust_resources',['../classeosiosystem_1_1system__contract.html#af207e91e13bb386b49b1e1c2ed0fb616',1,'eosiosystem::system_contract']]],
+  ['apply_14',['apply',['../classmarketplace.html#a4a1a5d78b2606e4883239fc79afdfb40',1,'marketplace::apply()'],['../classgateway.html#a69b49209b2cc17da42aa66890e2ca080',1,'gateway::apply()'],['../blockinfo__tester_8cpp.html#a979735e53c71ba52bb8515d2c4437059',1,'apply():&#160;blockinfo_tester.cpp']]],
+  ['approve_15',['approve',['../classeosio_1_1multisig.html#a5cccb8b23b9fffa1b27d443fad9ce3e9',1,'eosio::multisig']]],
+  ['authorize_16',['authorize',['../group__public__actions.html#ga006a09b0804cd50f3ec8aef8bd280fff',1,'marketplace::authorize()'],['../group__public__actions.html#ga3ca9fb1ee5a9584303c34e391af99e6c',1,'soviet::authorize(eosio::name coopname, eosio::name chairman, uint64_t decision_id, document document)']]],
+  ['automate_17',['automate',['../group__public__actions.html#gacd08501eb19d2733f9640cae3ae229f0',1,'soviet']]]
 ];

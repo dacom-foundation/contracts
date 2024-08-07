@@ -162,6 +162,40 @@
             ]
         },
         {
+            "name": "adduser",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "type",
+                    "type": "name"
+                },
+                {
+                    "name": "created_at",
+                    "type": "time_point_sec"
+                },
+                {
+                    "name": "initial",
+                    "type": "asset"
+                },
+                {
+                    "name": "minimum",
+                    "type": "asset"
+                },
+                {
+                    "name": "spread_initial",
+                    "type": "bool"
+                }
+            ]
+        },
+        {
             "name": "authorize",
             "base": "",
             "fields": [
@@ -1063,7 +1097,7 @@
             ]
         },
         {
-            "name": "participants",
+            "name": "participant",
             "base": "",
             "fields": [
                 {
@@ -1474,6 +1508,11 @@
             "ricardian_contract": ""
         },
         {
+            "name": "adduser",
+            "type": "adduser",
+            "ricardian_contract": ""
+        },
+        {
             "name": "authorize",
             "type": "authorize",
             "ricardian_contract": ""
@@ -1728,7 +1767,7 @@
         },
         {
             "name": "participants",
-            "type": "participants",
+            "type": "participant",
             "index_type": "i64",
             "key_names": [],
             "key_types": []

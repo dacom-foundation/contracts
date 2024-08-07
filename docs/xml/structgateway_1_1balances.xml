@@ -45,7 +45,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="gateway/gateway.hpp" line="75" column="3" bodyfile="gateway/gateway.hpp" bodystart="75" bodyend="75"/>
+    <location file="gateway/gateway.hpp" line="80" column="3" bodyfile="gateway/gateway.hpp" bodystart="80" bodyend="80"/>
     <listofallmembers>
       <member refid="structbalances__base_1af43d841c9f521f6fbbed7c943d4fd366" prot="public" virt="non-virtual"><scope>gateway::balances</scope><name>byconsym</name></member>
       <member refid="structbalances__base_1acebf235da280f8d16533b6913912da41" prot="public" virt="non-virtual"><scope>gateway::balances</scope><name>contract</name></member>

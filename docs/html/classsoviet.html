@@ -127,6 +127,9 @@ $(document).ready(function(){initNavTree('classsoviet.html',''); initResizable()
 <tr class="memitem:gadeadfe2269b80480012be4a05a5b08ab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__public__actions.html#gadeadfe2269b80480012be4a05a5b08ab">joincoop</a> (eosio::name coopname, eosio::name username, <a class="el" href="structdocument.html">document</a> <a class="el" href="structdocument.html">document</a>)</td></tr>
 <tr class="memdesc:gadeadfe2269b80480012be4a05a5b08ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Заявка на вступление в кооператив  <a href="group__public__actions.html#gadeadfe2269b80480012be4a05a5b08ab">Подробнее...</a><br /></td></tr>
 <tr class="separator:gadeadfe2269b80480012be4a05a5b08ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa26fcb81df8ce3c9a0ddabfb953dfec5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__public__actions.html#gaa26fcb81df8ce3c9a0ddabfb953dfec5">adduser</a> (eosio::name coopname, eosio::name username, eosio::name type)</td></tr>
+<tr class="memdesc:gaa26fcb81df8ce3c9a0ddabfb953dfec5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Добавление пайщика по API без процедуры подписания заявления на вступление. Действие добавляет действующего пайщика в систему, пропуская этап подписи заявления на вступление и оплату вступительного и минимального паевого взносов. Система позволяет установить дату регистрации участника, которая будет соответствовать дате уплаты им минимального и вступительного взносов. Если spread_initial установлен в false, то сумма вступительного взноса не распределяется среди фондов. Тогда система считает, что учет распределения вступительного взноса произошел за её пределами. Если spread_initial установлен в true, то сумма вступительного взноса распределяется по фондам согласно правилам распределения кооператива в контракте fund. Минимальный паевый взнос всегда добавляется в кошелёк пайщика и отмечается в статистике оборотного фонда кооператива.  <a href="group__public__actions.html#gaa26fcb81df8ce3c9a0ddabfb953dfec5">Подробнее...</a><br /></td></tr>
+<tr class="separator:gaa26fcb81df8ce3c9a0ddabfb953dfec5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gacd08501eb19d2733f9640cae3ae229f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__public__actions.html#gacd08501eb19d2733f9640cae3ae229f0">automate</a> (eosio::name coopname, uint64_t board_id, eosio::name member, eosio::name action_type, eosio::name provider, std::string encrypted_private_key)</td></tr>
 <tr class="memdesc:gacd08501eb19d2733f9640cae3ae229f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Автоматизация подписи на решениях  <a href="group__public__actions.html#gacd08501eb19d2733f9640cae3ae229f0">Подробнее...</a><br /></td></tr>
 <tr class="separator:gacd08501eb19d2733f9640cae3ae229f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1272,9 +1275,9 @@ $(document).ready(function(){initNavTree('classsoviet.html',''); initResizable()
 <li>soviet/src/<a class="el" href="chairman_8cpp.html">chairman.cpp</a></li>
 <li>soviet/src/<a class="el" href="contributions_8cpp.html">contributions.cpp</a></li>
 <li>soviet/src/<a class="el" href="fund_8cpp.html">fund.cpp</a></li>
-<li>soviet/src/<a class="el" href="joincoop_8cpp.html">joincoop.cpp</a></li>
 <li>soviet/src/<a class="el" href="soviet_2src_2marketplace_8cpp.html">marketplace.cpp</a></li>
 <li>soviet/src/<a class="el" href="programs_8cpp.html">programs.cpp</a></li>
+<li>soviet/src/<a class="el" href="soviet_2src_2registrator_8cpp.html">registrator.cpp</a></li>
 <li>soviet/src/<a class="el" href="soviet_2src_2voting_8cpp.html">voting.cpp</a></li>
 </ul>
 </div><!-- contents -->

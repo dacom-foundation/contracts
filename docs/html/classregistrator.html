@@ -140,11 +140,12 @@ $(document).ready(function(){initNavTree('classregistrator.html',''); initResiza
 <tr class="memitem:ga7f70d64012305e3dfca7990bffd3af82"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__public__actions.html#ga7f70d64012305e3dfca7990bffd3af82">newaccount</a> (eosio::name <a class="el" href="classregistrator.html">registrator</a>, eosio::name coopname, eosio::name referer, eosio::name username, eosio::public_key public_key, std::string meta)</td></tr>
 <tr class="memdesc:ga7f70d64012305e3dfca7990bffd3af82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Регистрирует новый аккаунт.  <a href="group__public__actions.html#ga7f70d64012305e3dfca7990bffd3af82">Подробнее...</a><br /></td></tr>
 <tr class="separator:ga7f70d64012305e3dfca7990bffd3af82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga68df314fe90a719f00f0931c097bc6c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__public__actions.html#ga68df314fe90a719f00f0931c097bc6c5">changekey</a> (eosio::name username, eosio::public_key public_key)</td></tr>
-<tr class="memdesc:ga68df314fe90a719f00f0931c097bc6c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Изменение ключа активной учетной записи  <a href="group__public__actions.html#ga68df314fe90a719f00f0931c097bc6c5">Подробнее...</a><br /></td></tr>
-<tr class="separator:ga68df314fe90a719f00f0931c097bc6c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23c67801d0d0f374ba1160537ba314fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregistrator.html#a23c67801d0d0f374ba1160537ba314fb">check</a> (checksum256 hash, public_key public_key, signature signature)</td></tr>
-<tr class="separator:a23c67801d0d0f374ba1160537ba314fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga15f161632b4c17ae0a6112d973939a06"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__public__actions.html#ga15f161632b4c17ae0a6112d973939a06">adduser</a> (eosio::name <a class="el" href="classregistrator.html">registrator</a>, eosio::name coopname, eosio::name referer, eosio::name username, eosio::name type, std::string meta)</td></tr>
+<tr class="memdesc:ga15f161632b4c17ae0a6112d973939a06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Регистрирует новый аккаунт.  <a href="group__public__actions.html#ga15f161632b4c17ae0a6112d973939a06">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga15f161632b4c17ae0a6112d973939a06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad5b90e66aba8c47ea6f8ec3424bf5ba0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__public__actions.html#gad5b90e66aba8c47ea6f8ec3424bf5ba0">changekey</a> (eosio::name coopname, eosio::name changer, eosio::name username, eosio::public_key public_key)</td></tr>
+<tr class="memdesc:gad5b90e66aba8c47ea6f8ec3424bf5ba0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Изменение ключа активной учетной записи  <a href="group__public__actions.html#gad5b90e66aba8c47ea6f8ec3424bf5ba0">Подробнее...</a><br /></td></tr>
+<tr class="separator:gad5b90e66aba8c47ea6f8ec3424bf5ba0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
 <div class="textblock"><p >Класс <code>registrator</code> служит воротами в блокчейн-систему для новых участников, позволяя регистрировать аккаунты, а также карточки физических и юридических лиц. Через данный контракт участники могут посылать заявления в совет кооперативов на вступление и получать подтверждения о принятии их заявлений. </p>
@@ -200,40 +201,6 @@ $(document).ready(function(){initNavTree('classregistrator.html',''); initResiza
 </div>
 </div>
 <h2 class="groupheader">Методы</h2>
-<a id="a23c67801d0d0f374ba1160537ba314fb" name="a23c67801d0d0f374ba1160537ba314fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a23c67801d0d0f374ba1160537ba314fb">&#9670;&nbsp;</a></span>check()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void registrator::check </td>
-          <td>(</td>
-          <td class="paramtype">checksum256&#160;</td>
-          <td class="paramname"><em>hash</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">public_key&#160;</td>
-          <td class="paramname"><em>public_key</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">signature&#160;</td>
-          <td class="paramname"><em>signature</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="aa66e22cb1d9e36f651aae7e88f27453e" name="aa66e22cb1d9e36f651aae7e88f27453e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa66e22cb1d9e36f651aae7e88f27453e">&#9670;&nbsp;</a></span>fix()</h2>
 
@@ -270,7 +237,7 @@ $(document).ready(function(){initNavTree('classregistrator.html',''); initResiza
 </div>
 <hr/>Объявления и описания членов классов находятся в файлах:<ul>
 <li>registrator/<a class="el" href="registrator_8hpp_source.html">registrator.hpp</a></li>
-<li>registrator/<a class="el" href="registrator_8cpp.html">registrator.cpp</a></li>
+<li>registrator/<a class="el" href="registrator_2registrator_8cpp.html">registrator.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

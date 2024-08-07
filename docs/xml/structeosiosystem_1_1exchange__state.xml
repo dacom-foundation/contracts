@@ -163,7 +163,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/exchange_state.hpp" line="32" column="13" bodyfile="system/contracts/eosio.system/src/exchange_state.cpp" bodystart="12" bodyend="18"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/exchange_state.hpp" line="32" column="13" bodyfile="system/contracts/eosio.system/src/exchange_state.cpp" bodystart="13" bodyend="19"/>
       </memberdef>
       <memberdef kind="function" id="structeosiosystem_1_1exchange__state_1a7056cfffba84abdf75b38f2d81d95ccd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>asset</type>
@@ -185,7 +185,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/exchange_state.hpp" line="33" column="13" bodyfile="system/contracts/eosio.system/src/exchange_state.cpp" bodystart="20" bodyend="26"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/exchange_state.hpp" line="33" column="13" bodyfile="system/contracts/eosio.system/src/exchange_state.cpp" bodystart="21" bodyend="27"/>
       </memberdef>
       <memberdef kind="function" id="structeosiosystem_1_1exchange__state_1aff0f484e4eac6b51e3b01839a884e12e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>asset</type>
@@ -207,7 +207,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/exchange_state.hpp" line="34" column="13" bodyfile="system/contracts/eosio.system/src/exchange_state.cpp" bodystart="28" bodyend="43"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/exchange_state.hpp" line="34" column="13" bodyfile="system/contracts/eosio.system/src/exchange_state.cpp" bodystart="29" bodyend="44"/>
       </memberdef>
       <memberdef kind="function" id="structeosiosystem_1_1exchange__state_1a048b1798df129a50aade23df905cd87b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>asset</type>
@@ -229,7 +229,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/exchange_state.hpp" line="35" column="13" bodyfile="system/contracts/eosio.system/src/exchange_state.cpp" bodystart="45" bodyend="47"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/exchange_state.hpp" line="35" column="13" bodyfile="system/contracts/eosio.system/src/exchange_state.cpp" bodystart="46" bodyend="48"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -257,7 +257,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/exchange_state.hpp" line="37" column="22" bodyfile="system/contracts/eosio.system/src/exchange_state.cpp" bodystart="49" bodyend="52"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/exchange_state.hpp" line="37" column="22" bodyfile="system/contracts/eosio.system/src/exchange_state.cpp" bodystart="50" bodyend="53"/>
       </memberdef>
       <memberdef kind="function" id="structeosiosystem_1_1exchange__state_1aab488cbf49b061bbb660f1bf5add2cf6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int64_t</type>
@@ -283,7 +283,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="system/contracts/eosio.system/include/eosio.system/exchange_state.hpp" line="40" column="22" bodyfile="system/contracts/eosio.system/src/exchange_state.cpp" bodystart="54" bodyend="57"/>
+        <location file="system/contracts/eosio.system/include/eosio.system/exchange_state.hpp" line="40" column="22" bodyfile="system/contracts/eosio.system/src/exchange_state.cpp" bodystart="55" bodyend="58"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

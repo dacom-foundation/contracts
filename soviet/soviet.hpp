@@ -61,6 +61,7 @@ public:
 
   //regaccount.cpp
   [[eosio::action]] void joincoop(eosio::name coopname, eosio::name username, document document);
+  [[eosio::action]] void adduser(eosio::name coopname, eosio::name username, eosio::name type, eosio::time_point_sec created_at, eosio::asset initial, eosio::asset minimum, bool spread_initial);
   
   static void joincoop_effect(eosio::name executer, eosio::name coopname, uint64_t decision_id, uint64_t batch_id);
 

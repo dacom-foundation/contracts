@@ -73,7 +73,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="gateway/gateway.hpp" line="51" column="9" bodyfile="gateway/gateway.cpp" bodystart="15" bodyend="17"/>
+        <location file="gateway/gateway.hpp" line="51" column="9" bodyfile="gateway/gateway.cpp" bodystart="24" bodyend="26"/>
       </memberdef>
       <memberdef kind="function" id="classgateway_1a3cbc501eda8ea4d6bb061068141f28ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -95,7 +95,79 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="gateway/gateway.hpp" line="52" column="9" bodyfile="gateway/gateway.cpp" bodystart="19" bodyend="21"/>
+        <location file="gateway/gateway.hpp" line="52" column="9" bodyfile="gateway/gateway.cpp" bodystart="28" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classgateway_1a303008649a1561d97bfcea3c08e0c32c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gateway::newdeposit</definition>
+        <argsstring>(eosio::name coopname, eosio::name username, uint64_t deposit_id, eosio::name type, eosio::asset amount, eosio::time_point_sec deposited_at)</argsstring>
+        <name>newdeposit</name>
+        <qualifiedname>gateway::newdeposit</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>deposit_id</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>eosio::asset</type>
+          <declname>amount</declname>
+        </param>
+        <param>
+          <type>eosio::time_point_sec</type>
+          <declname>deposited_at</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gateway/gateway.hpp" line="55" column="9" bodyfile="gateway/gateway.cpp" bodystart="8" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classgateway_1ac88905bbe15584d34b265a883fe4b195" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gateway::newwithdraw</definition>
+        <argsstring>(eosio::name coopname, eosio::name username, uint64_t withdraw_id, eosio::name type, eosio::asset amount)</argsstring>
+        <name>newwithdraw</name>
+        <qualifiedname>gateway::newwithdraw</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>withdraw_id</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>eosio::asset</type>
+          <declname>amount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="gateway/gateway.hpp" line="56" column="9" bodyfile="gateway/gateway.cpp" bodystart="13" bodyend="15"/>
       </memberdef>
       <memberdef kind="function" id="classgateway_1a69b49209b2cc17da42aa66890e2ca080" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -121,7 +193,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="gateway/gateway.hpp" line="54" column="8"/>
+        <location file="gateway/gateway.hpp" line="59" column="8"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -222,7 +294,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="gateway/gateway.hpp" line="56" column="9" bodyfile="gateway/gateway.cpp" bodystart="46" bodyend="89"/>
+        <location file="gateway/gateway.hpp" line="61" column="9" bodyfile="gateway/gateway.cpp" bodystart="85" bodyend="128"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga59936ddb45db401976fd3d404b92caa7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -275,7 +347,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="gateway/gateway.hpp" line="57" column="9" bodyfile="gateway/gateway.cpp" bodystart="107" bodyend="174"/>
+        <location file="gateway/gateway.hpp" line="62" column="9" bodyfile="gateway/gateway.cpp" bodystart="146" bodyend="213"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga8776a33709be83c15957bc8e366db71d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -328,7 +400,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="gateway/gateway.hpp" line="58" column="9" bodyfile="gateway/gateway.cpp" bodystart="191" bodyend="210"/>
+        <location file="gateway/gateway.hpp" line="63" column="9" bodyfile="gateway/gateway.cpp" bodystart="230" bodyend="249"/>
       </memberdef>
       <memberdef kind="function" id="classgateway_1a5b244fde939d3cf2aaa7c36f91c228cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -384,7 +456,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="gateway/gateway.hpp" line="60" column="9" bodyfile="gateway/gateway.cpp" bodystart="294" bodyend="307"/>
+        <location file="gateway/gateway.hpp" line="65" column="9" bodyfile="gateway/gateway.cpp" bodystart="333" bodyend="346"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -469,7 +541,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="gateway/gateway.hpp" line="62" column="9" bodyfile="gateway/gateway.cpp" bodystart="231" bodyend="279"/>
+        <location file="gateway/gateway.hpp" line="67" column="9" bodyfile="gateway/gateway.cpp" bodystart="270" bodyend="318"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga2551c736852a98d33f2fcc9f569fe836" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -521,7 +593,7 @@ cleos push action gateway wthdcomplete &apos;[&quot;12345&quot;, &quot;Успе�
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="gateway/gateway.hpp" line="63" column="9" bodyfile="gateway/gateway.cpp" bodystart="323" bodyend="362"/>
+        <location file="gateway/gateway.hpp" line="68" column="9" bodyfile="gateway/gateway.cpp" bodystart="362" bodyend="410"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gac0eb7373a774cec08f2017a74522b2b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -573,7 +645,7 @@ cleos push action gateway wthdfail &apos;[&quot;12345&quot;, &quot;Отмена 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="gateway/gateway.hpp" line="64" column="9" bodyfile="gateway/gateway.cpp" bodystart="378" bodyend="401"/>
+        <location file="gateway/gateway.hpp" line="69" column="9" bodyfile="gateway/gateway.cpp" bodystart="426" bodyend="449"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -621,14 +693,16 @@ cleos push action gateway wthdfail &apos;[&quot;12345&quot;, &quot;Отмена 
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="gateway/gateway.hpp" line="44" column="1" bodyfile="gateway/gateway.hpp" bodystart="44" bodyend="76"/>
+    <location file="gateway/gateway.hpp" line="44" column="1" bodyfile="gateway/gateway.hpp" bodystart="44" bodyend="81"/>
     <listofallmembers>
       <member refid="classgateway_1a69b49209b2cc17da42aa66890e2ca080" prot="public" virt="non-virtual"><scope>gateway</scope><name>apply</name></member>
       <member refid="group__public__actions_1ga9a60c56226fe40235a45373eac0fea9d" prot="public" virt="non-virtual"><scope>gateway</scope><name>deposit</name></member>
       <member refid="group__public__actions_1ga59936ddb45db401976fd3d404b92caa7" prot="public" virt="non-virtual"><scope>gateway</scope><name>dpcomplete</name></member>
       <member refid="group__public__actions_1ga8776a33709be83c15957bc8e366db71d" prot="public" virt="non-virtual"><scope>gateway</scope><name>dpfail</name></member>
       <member refid="classgateway_1a61f6973ac320eea0ad63680cfe3317ae" prot="public" virt="non-virtual"><scope>gateway</scope><name>gateway</name></member>
+      <member refid="classgateway_1a303008649a1561d97bfcea3c08e0c32c" prot="public" virt="non-virtual"><scope>gateway</scope><name>newdeposit</name></member>
       <member refid="group__public__actions_1gaa2f4b2364f09b8728cbf12eb6e9b92f1" prot="public" virt="non-virtual"><scope>gateway</scope><name>newdepositid</name></member>
+      <member refid="classgateway_1ac88905bbe15584d34b265a883fe4b195" prot="public" virt="non-virtual"><scope>gateway</scope><name>newwithdraw</name></member>
       <member refid="classgateway_1a3cbc501eda8ea4d6bb061068141f28ba" prot="public" virt="non-virtual"><scope>gateway</scope><name>newwithdrid</name></member>
       <member refid="group__public__actions_1ga5b0187a0110b5d1f1ca9296a4ed4156a" prot="public" virt="non-virtual"><scope>gateway</scope><name>withdraw</name></member>
       <member refid="classgateway_1a5b244fde939d3cf2aaa7c36f91c228cb" prot="public" virt="non-virtual"><scope>gateway</scope><name>withdrawauth</name></member>

@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="41" column="9" bodyfile="soviet/soviet.cpp" bodystart="36" bodyend="102"/>
+        <location file="soviet/soviet.hpp" line="41" column="9" bodyfile="soviet/soviet.cpp" bodystart="35" bodyend="101"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1a8013f13876ba1b7e40677cd1a72539a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="42" column="9" bodyfile="soviet/soviet.cpp" bodystart="20" bodyend="33"/>
+        <location file="soviet/soviet.hpp" line="42" column="9" bodyfile="soviet/soviet.cpp" bodystart="19" bodyend="32"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga2df3ffc1ac9da194963f3be0aadc4139" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -87,7 +87,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="45" column="9" bodyfile="soviet/soviet.cpp" bodystart="165" bodyend="183"/>
+        <location file="soviet/soviet.hpp" line="45" column="9" bodyfile="soviet/soviet.cpp" bodystart="164" bodyend="182"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1a75bfcecd10ad37dd53a733623ed0cbdb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -121,7 +121,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="50" column="9" bodyfile="soviet/soviet.cpp" bodystart="104" bodyend="110"/>
+        <location file="soviet/soviet.hpp" line="50" column="9" bodyfile="soviet/soviet.cpp" bodystart="103" bodyend="109"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1aa80fc272e5a034ce31c7077159273c32" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -155,7 +155,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="53" column="9" bodyfile="soviet/soviet.cpp" bodystart="112" bodyend="118"/>
+        <location file="soviet/soviet.hpp" line="53" column="9" bodyfile="soviet/soviet.cpp" bodystart="111" bodyend="117"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1af9362d3131fcfbcff448f77038ecf6b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -189,7 +189,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="54" column="9" bodyfile="soviet/soviet.cpp" bodystart="121" bodyend="127"/>
+        <location file="soviet/soviet.hpp" line="54" column="9" bodyfile="soviet/soviet.cpp" bodystart="120" bodyend="126"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1a5887bef257ef79352e5a2d093e076d67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -223,7 +223,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="55" column="9" bodyfile="soviet/soviet.cpp" bodystart="130" bodyend="136"/>
+        <location file="soviet/soviet.hpp" line="55" column="9" bodyfile="soviet/soviet.cpp" bodystart="129" bodyend="135"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1a5d6245a8abf1705be860dac5f9340573" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -249,7 +249,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="56" column="9" bodyfile="soviet/soviet.cpp" bodystart="139" bodyend="143"/>
+        <location file="soviet/soviet.hpp" line="56" column="9" bodyfile="soviet/soviet.cpp" bodystart="138" bodyend="142"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1a2ff1f3be14701afe025d92c6da3d1507" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -271,7 +271,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="57" column="9" bodyfile="soviet/soviet.cpp" bodystart="146" bodyend="150"/>
+        <location file="soviet/soviet.hpp" line="57" column="9" bodyfile="soviet/soviet.cpp" bodystart="145" bodyend="149"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gadeadfe2269b80480012be4a05a5b08ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -335,7 +335,93 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="63" column="9" bodyfile="soviet/src/joincoop.cpp" bodystart="47" bodyend="80"/>
+        <location file="soviet/soviet.hpp" line="63" column="9" bodyfile="soviet/src/registrator.cpp" bodystart="124" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1gaa26fcb81df8ce3c9a0ddabfb953dfec5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void soviet::adduser</definition>
+        <argsstring>(eosio::name coopname, eosio::name username, eosio::name type)</argsstring>
+        <name>adduser</name>
+        <qualifiedname>soviet::adduser</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>coopname</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>Добавление пайщика по API без процедуры подписания заявления на вступление. Действие добавляет действующего пайщика в систему, пропуская этап подписи заявления на вступление и оплату вступительного и минимального паевого взносов. Система позволяет установить дату регистрации участника, которая будет соответствовать дате уплаты им минимального и вступительного взносов. Если spread_initial установлен в false, то сумма вступительного взноса не распределяется среди фондов. Тогда система считает, что учет распределения вступительного взноса произошел за её пределами. Если spread_initial установлен в true, то сумма вступительного взноса распределяется по фондам согласно правилам распределения кооператива в контракте fund. Минимальный паевый взнос всегда добавляется в кошелёк пайщика и отмечается в статистике оборотного фонда кооператива. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">coopname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The coopname </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The username </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">created_at</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The created at </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">initial</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The initial </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">minimum</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The minimum </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">spread_initial</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The spread initial</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Добавляем в оборотный фонд минимальный паевый взнос и распределяем по всем прочим фондам значение вступительного взноса.</para>
+        </inbodydescription>
+        <location file="soviet/soviet.hpp" line="64" column="9" bodyfile="soviet/src/registrator.cpp" bodystart="34" bodyend="79"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gacd08501eb19d2733f9640cae3ae229f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -428,7 +514,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="68" column="9" bodyfile="soviet/src/automator.cpp" bodystart="26" bodyend="57"/>
+        <location file="soviet/soviet.hpp" line="69" column="9" bodyfile="soviet/src/automator.cpp" bodystart="26" bodyend="57"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gaa1c59a4f419370fbe9eeedde1b315ad7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -496,7 +582,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="69" column="9" bodyfile="soviet/src/automator.cpp" bodystart="72" bodyend="81"/>
+        <location file="soviet/soviet.hpp" line="70" column="9" bodyfile="soviet/src/automator.cpp" bodystart="72" bodyend="81"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga3ca9fb1ee5a9584303c34e391af99e6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -556,7 +642,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="73" column="9" bodyfile="soviet/src/chairman.cpp" bodystart="16" bodyend="43"/>
+        <location file="soviet/soviet.hpp" line="74" column="9" bodyfile="soviet/src/chairman.cpp" bodystart="16" bodyend="43"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga03967c07043b14f5239e50448362287a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -654,7 +740,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="74" column="9" bodyfile="soviet/src/chairman.cpp" bodystart="64" bodyend="156"/>
+        <location file="soviet/soviet.hpp" line="75" column="9" bodyfile="soviet/src/chairman.cpp" bodystart="64" bodyend="156"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga633d78f7717ca0b13d800f1af3b298d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -752,7 +838,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="75" column="9" bodyfile="soviet/src/chairman.cpp" bodystart="180" bodyend="224"/>
+        <location file="soviet/soviet.hpp" line="76" column="9" bodyfile="soviet/src/chairman.cpp" bodystart="180" bodyend="224"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gaed705497ce78823553360af42f1e0dc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -840,7 +926,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="78" column="9" bodyfile="soviet/src/admin.cpp" bodystart="19" bodyend="42"/>
+        <location file="soviet/soviet.hpp" line="79" column="9" bodyfile="soviet/src/admin.cpp" bodystart="19" bodyend="42"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gab2a5baad145e14f45937617b98d7c73c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -904,7 +990,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="79" column="9" bodyfile="soviet/src/admin.cpp" bodystart="58" bodyend="71"/>
+        <location file="soviet/soviet.hpp" line="80" column="9" bodyfile="soviet/src/admin.cpp" bodystart="58" bodyend="71"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gaff82a212963ad56c994fca0d30548802" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -980,7 +1066,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="80" column="9" bodyfile="soviet/src/admin.cpp" bodystart="88" bodyend="104"/>
+        <location file="soviet/soviet.hpp" line="81" column="9" bodyfile="soviet/src/admin.cpp" bodystart="88" bodyend="104"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga2c3e9ad00f9266432144774c17eb4b43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1044,7 +1130,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="81" column="9" bodyfile="soviet/src/admin.cpp" bodystart="120" bodyend="158"/>
+        <location file="soviet/soviet.hpp" line="82" column="9" bodyfile="soviet/src/admin.cpp" bodystart="120" bodyend="158"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gaddace7bdb215147f252a529422010022" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1104,7 +1190,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="83" column="9" bodyfile="soviet/src/joincoop.cpp" bodystart="17" bodyend="31"/>
+        <location file="soviet/soviet.hpp" line="84" column="9" bodyfile="soviet/src/registrator.cpp" bodystart="94" bodyend="108"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga544aed065e9bdae354fab6348fc2d660" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1160,7 +1246,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="88" column="9" bodyfile="soviet/src/voting.cpp" bodystart="43" bodyend="71"/>
+        <location file="soviet/soviet.hpp" line="89" column="9" bodyfile="soviet/src/voting.cpp" bodystart="43" bodyend="71"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1gae9017da5c4aea5f1fa86dc5b6f3ecf2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1216,7 +1302,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="89" column="9" bodyfile="soviet/src/voting.cpp" bodystart="85" bodyend="104"/>
+        <location file="soviet/soviet.hpp" line="90" column="9" bodyfile="soviet/src/voting.cpp" bodystart="85" bodyend="104"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga826e017b52f0b323a3339da457ecfa43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1272,7 +1358,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="90" column="9" bodyfile="soviet/src/voting.cpp" bodystart="118" bodyend="154"/>
+        <location file="soviet/soviet.hpp" line="91" column="9" bodyfile="soviet/src/voting.cpp" bodystart="118" bodyend="154"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga3666aba8b8d5a7b8ac50abdda8eb0438" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1356,7 +1442,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="93" column="9" bodyfile="soviet/src/marketplace.cpp" bodystart="74" bodyend="136"/>
+        <location file="soviet/soviet.hpp" line="94" column="9" bodyfile="soviet/src/marketplace.cpp" bodystart="74" bodyend="136"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1a955e0e3734f5d04715310aa967d099be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1378,7 +1464,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="94" column="9" bodyfile="soviet/src/marketplace.cpp" bodystart="6" bodyend="56"/>
+        <location file="soviet/soviet.hpp" line="95" column="9" bodyfile="soviet/src/marketplace.cpp" bodystart="6" bodyend="56"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga0c242b184398cfcccbe628d1d9400f76" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1542,7 +1628,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="99" column="9" bodyfile="soviet/src/programs.cpp" bodystart="26" bodyend="71"/>
+        <location file="soviet/soviet.hpp" line="100" column="9" bodyfile="soviet/src/programs.cpp" bodystart="26" bodyend="71"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga5630c673f95331a1796fda2dcc878803" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1694,7 +1780,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="100" column="9" bodyfile="soviet/src/programs.cpp" bodystart="96" bodyend="111"/>
+        <location file="soviet/soviet.hpp" line="101" column="9" bodyfile="soviet/src/programs.cpp" bodystart="96" bodyend="111"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga8c6922ba61c30a7c6409cb48e62e08b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1738,7 +1824,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="101" column="9" bodyfile="soviet/src/programs.cpp" bodystart="125" bodyend="136"/>
+        <location file="soviet/soviet.hpp" line="102" column="9" bodyfile="soviet/src/programs.cpp" bodystart="125" bodyend="136"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1a7089fa0bf46043a738f2080a110d6565" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1764,7 +1850,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="104" column="9" bodyfile="soviet/src/contributions.cpp" bodystart="173" bodyend="202"/>
+        <location file="soviet/soviet.hpp" line="105" column="9" bodyfile="soviet/src/contributions.cpp" bodystart="173" bodyend="202"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1aa5c5dfbe8b9210547f4fefc2f0276648" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1790,7 +1876,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="108" column="9" bodyfile="soviet/src/contributions.cpp" bodystart="3" bodyend="21"/>
+        <location file="soviet/soviet.hpp" line="109" column="9" bodyfile="soviet/src/contributions.cpp" bodystart="3" bodyend="21"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1adf1b3f69ebcb2cff6d0bce0862b47404" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1816,7 +1902,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="109" column="9" bodyfile="soviet/src/contributions.cpp" bodystart="23" bodyend="43"/>
+        <location file="soviet/soviet.hpp" line="110" column="9" bodyfile="soviet/src/contributions.cpp" bodystart="23" bodyend="43"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1a6ca3c6a47edfec5e63d90abbee746eee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1842,7 +1928,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="110" column="9" bodyfile="soviet/src/contributions.cpp" bodystart="47" bodyend="70"/>
+        <location file="soviet/soviet.hpp" line="111" column="9" bodyfile="soviet/src/contributions.cpp" bodystart="47" bodyend="70"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1a6a6f4fbdbddc4ee02db668e4b5e4fcf5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1868,7 +1954,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="111" column="9" bodyfile="soviet/src/contributions.cpp" bodystart="74" bodyend="97"/>
+        <location file="soviet/soviet.hpp" line="112" column="9" bodyfile="soviet/src/contributions.cpp" bodystart="74" bodyend="97"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1a90e03b9865a377dd6299fcadc69ea1f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1898,7 +1984,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="112" column="9" bodyfile="soviet/src/contributions.cpp" bodystart="101" bodyend="135"/>
+        <location file="soviet/soviet.hpp" line="113" column="9" bodyfile="soviet/src/contributions.cpp" bodystart="101" bodyend="135"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1a99d0b2ee673a5daf92b1e55027a0d4b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1928,7 +2014,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="113" column="9" bodyfile="soviet/src/contributions.cpp" bodystart="138" bodyend="170"/>
+        <location file="soviet/soviet.hpp" line="114" column="9" bodyfile="soviet/src/contributions.cpp" bodystart="138" bodyend="170"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1a74775bb15963afd3dec409c7a4df4b7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1958,7 +2044,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="114" column="8" bodyfile="soviet/src/contributions.cpp" bodystart="205" bodyend="238"/>
+        <location file="soviet/soviet.hpp" line="115" column="8" bodyfile="soviet/src/contributions.cpp" bodystart="205" bodyend="238"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1ab6d338d7362d3874d44277ec3e3a0aa0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1988,7 +2074,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="118" column="9" bodyfile="soviet/src/addresses.cpp" bodystart="4" bodyend="24"/>
+        <location file="soviet/soviet.hpp" line="119" column="9" bodyfile="soviet/src/addresses.cpp" bodystart="4" bodyend="24"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1ab294d7ecdfdb12636d28e7dc65524e68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2014,7 +2100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="119" column="9" bodyfile="soviet/src/addresses.cpp" bodystart="27" bodyend="39"/>
+        <location file="soviet/soviet.hpp" line="120" column="9" bodyfile="soviet/src/addresses.cpp" bodystart="27" bodyend="39"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1a7f4b8c38b31645b63c94b008ce2ffa06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2048,7 +2134,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="120" column="9" bodyfile="soviet/src/addresses.cpp" bodystart="42" bodyend="62"/>
+        <location file="soviet/soviet.hpp" line="121" column="9" bodyfile="soviet/src/addresses.cpp" bodystart="42" bodyend="62"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1aa0c0ef5a9d90ba1abaf43fb8682d1c92" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2090,7 +2176,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="124" column="9" bodyfile="soviet/src/branches.cpp" bodystart="3" bodyend="33"/>
+        <location file="soviet/soviet.hpp" line="125" column="9" bodyfile="soviet/src/branches.cpp" bodystart="3" bodyend="33"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1a7ba0657304ad6c112d247fa6f99d7d77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2132,7 +2218,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="125" column="9" bodyfile="soviet/src/branches.cpp" bodystart="39" bodyend="66"/>
+        <location file="soviet/soviet.hpp" line="126" column="9" bodyfile="soviet/src/branches.cpp" bodystart="39" bodyend="66"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1ae8bad3fd1e57dd415c7bc38d4b0f748b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2158,7 +2244,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="126" column="9" bodyfile="soviet/src/branches.cpp" bodystart="71" bodyend="80"/>
+        <location file="soviet/soviet.hpp" line="127" column="9" bodyfile="soviet/src/branches.cpp" bodystart="71" bodyend="80"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1addadc5c1117f1c87a20d3ce3ebc0a311" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2188,7 +2274,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="129" column="8" bodyfile="soviet/src/fund.cpp" bodystart="35" bodyend="70"/>
+        <location file="soviet/soviet.hpp" line="130" column="8" bodyfile="soviet/src/fund.cpp" bodystart="35" bodyend="70"/>
       </memberdef>
       <memberdef kind="function" id="group__public__actions_1ga46020951b62e043b52d7e7c6939684a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2225,7 +2311,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="130" column="9" bodyfile="soviet/src/fund.cpp" bodystart="9" bodyend="32"/>
+        <location file="soviet/soviet.hpp" line="131" column="9" bodyfile="soviet/src/fund.cpp" bodystart="9" bodyend="32"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -2257,7 +2343,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="65" column="15" bodyfile="soviet/src/joincoop.cpp" bodystart="83" bodyend="151"/>
+        <location file="soviet/soviet.hpp" line="66" column="15" bodyfile="soviet/src/registrator.cpp" bodystart="160" bodyend="221"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1abe351d4443e3fc5d242876592132f56a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2275,7 +2361,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="70" column="15" bodyfile="soviet/src/automator.cpp" bodystart="3" bodyend="8"/>
+        <location file="soviet/soviet.hpp" line="71" column="15" bodyfile="soviet/src/automator.cpp" bodystart="3" bodyend="8"/>
       </memberdef>
       <memberdef kind="function" id="classsoviet_1a23926d9a06011b3bb37fe74d820fd41f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2305,7 +2391,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="soviet/soviet.hpp" line="95" column="15" bodyfile="soviet/src/marketplace.cpp" bodystart="140" bodyend="178"/>
+        <location file="soviet/soviet.hpp" line="96" column="15" bodyfile="soviet/src/marketplace.cpp" bodystart="140" bodyend="178"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -2345,11 +2431,12 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="soviet/soviet.hpp" line="37" column="1" bodyfile="soviet/soviet.hpp" bodystart="37" bodyend="131"/>
+    <location file="soviet/soviet.hpp" line="37" column="1" bodyfile="soviet/soviet.hpp" bodystart="37" bodyend="132"/>
     <listofallmembers>
       <member refid="classsoviet_1aa5c5dfbe8b9210547f4fefc2f0276648" prot="public" virt="non-virtual"><scope>soviet</scope><name>addbalance</name></member>
       <member refid="classsoviet_1a90e03b9865a377dd6299fcadc69ea1f8" prot="public" virt="non-virtual"><scope>soviet</scope><name>addprogbal</name></member>
       <member refid="group__public__actions_1gaed705497ce78823553360af42f1e0dc6" prot="public" virt="non-virtual"><scope>soviet</scope><name>addstaff</name></member>
+      <member refid="group__public__actions_1gaa26fcb81df8ce3c9a0ddabfb953dfec5" prot="public" virt="non-virtual"><scope>soviet</scope><name>adduser</name></member>
       <member refid="group__public__actions_1ga3ca9fb1ee5a9584303c34e391af99e6c" prot="public" virt="non-virtual"><scope>soviet</scope><name>authorize</name></member>
       <member refid="group__public__actions_1gacd08501eb19d2733f9640cae3ae229f0" prot="public" virt="non-virtual"><scope>soviet</scope><name>automate</name></member>
       <member refid="classsoviet_1a6ca3c6a47edfec5e63d90abbee746eee" prot="public" virt="non-virtual"><scope>soviet</scope><name>blockbal</name></member>

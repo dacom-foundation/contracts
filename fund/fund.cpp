@@ -285,9 +285,8 @@ using namespace eosio;
     //паевый фонд
   [[eosio::action]] void fund::addcirculate(eosio::name coopname, eosio::asset quantity) /// < добавить сумму в паевый фонд
   {
-    //Только контракт шлюза может добавлять оборотные средства в фонд
-    require_auth(_gateway);
-    
+    eosio::name payer = check_auth_and_get_payer_or_fail({_gateway});
+
     auto cooperative = get_cooperative_or_fail(coopname);
 
     fundwallet_index fundwallet(_fund, coopname.value);
@@ -405,15 +404,14 @@ using namespace eosio;
     });
 
   };
-
   
   
   //метод распределения членской части взноса по фондам накопления с остатком в кошельке для распределения по фондам списания
   [[eosio::action]] void fund::spreadamount( eosio::name coopname, eosio::asset quantity) {
     /// < распределить членские взносы по фондам накопления, положив остаток в фондовый кошелёк для дальнейшего списания 
     //на входе мы получаем общую членскую часть
-    eosio::check(has_auth(_marketplace) || has_auth(_gateway), "Недостаточно прав доступа");
-    eosio::name payer = has_auth(_marketplace) ? _marketplace : _gateway;
+    
+    eosio::name payer = check_auth_and_get_payer_or_fail({_marketplace, _gateway, _soviet});
 
     fundwallet_index fundwallet(_fund, coopname.value);
     auto wal = fundwallet.find(0);

@@ -5,10 +5,6 @@
 //   assert_recover_key(hash, signature, public_key);
 // }
 
-//* Метод используется только для генерации транзакции БЕЗ вещания для осуществления логина в контроллерах */
-[[eosio::action]] void::registrator::login(std::string email) {
-
-}
 
 [[eosio::action]] void registrator::init()
 {
@@ -72,6 +68,98 @@
 
 };
 
+
+
+
+/**
+ * @brief Регистрирует новый аккаунт.
+ *
+ * Действие позволяет создать новый аккаунт. Новый аккаунт может быть создан только верифицированной организацией.
+ * @note Авторизация требуется от аккаунта: @p registrator
+ *
+ * @param registrator Аккаунт, который оплачивает создание нового аккаунта.
+ * @param referer Реферер, который представил нового пользователя.
+ * @param username Имя нового аккаунта (от 5 до 12 символов).
+ * @param public_key Открытый ключ нового аккаунта.
+ * @param meta Дополнительная мета-информация.
+ * 
+ * 
+ * Диаграмма процесса: 
+ * 1. registrator::adduser (
+ *  - добавляем аккаунт
+ *  2. soviet::adduser(
+ *    - добавляем пайщика
+ *    - добавляем кошелёк с минимальным взносом
+ *    3. gateway::adduser(
+ *    - устанавливаем дату вступления
+ *    - фиксируем принятый взнос в реестре взносов
+ *      4. fund::addcirculate (добавляем минимальный взнос)
+ *      5. ? fund::spreadamount (опционально распределяем вступительный взнос по фондам)
+ *    )
+ *  )
+ * )
+ * 
+ * @ingroup public_actions
+ */
+[[eosio::action]] void registrator::adduser(
+    eosio::name registrator, eosio::name coopname, eosio::name referer,
+    eosio::name username, eosio::name type , std::string meta)
+{
+
+  get_cooperative_or_fail(coopname);
+  check_auth_or_fail(coopname, registrator, "adduser"_n);
+
+  authority active_auth;
+  active_auth.threshold = 1; 
+
+  authority owner_auth;
+  owner_auth.threshold = 1;
+
+  // Устанавливаем разрешение eosio.prods@active для владельца
+  permission_level_weight eosio_prods_plw{{_registrator, "active"_n},1};
+  owner_auth.accounts.push_back(eosio_prods_plw);
+
+  // Добавьте пустые ключи в active_auth
+  active_auth.accounts.push_back(eosio_prods_plw);
+
+  // регистрируем аккаунт  
+  action(permission_level(_registrator, "active"_n), "eosio"_n, "createaccnt"_n,
+         std::tuple(coopname, username, owner_auth, active_auth))
+  .send();
+  
+  accounts_index accounts(_registrator, _registrator.value);
+  
+  auto card = accounts.find(username.value);
+
+  eosio::check(card == accounts.end(), "Аккаунт уже зарегистририван");
+
+  eosio::check(type == "individual"_n || type == "entrepreneur"_n || type == "organization"_n, "Неверный тип пользователя, допустимы только: individual, entrepreneur и organization.");
+  
+  std::vector<eosio::name> storages;
+  
+  storages.push_back(coopname);
+
+  accounts.emplace(registrator, [&](auto &n)
+    {
+      n.username = username;
+      n.status = "active"_n;
+      n.registrator = registrator;
+      n.referer = referer;
+      n.type = type;
+      n.storages = storages; 
+      n.registered_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+      n.meta = meta; 
+    });
+
+  action(permission_level{_registrator, "active"_n}, _soviet, "adduser"_n,
+     std::make_tuple(coopname, username, type))
+  .send();
+      
+}
+
+
+
+
 /**
  * @brief Регистрирует новый аккаунт.
  *
@@ -112,13 +200,8 @@
 
   owner_auth.accounts.push_back(eosio_prods_plw);
 
-  eosio::asset ram = asset(_ram_price_per_byte * _ram_bytes_for_new_account, _root_symbol);
-  eosio::asset cpu = asset(_stake_cpu_amount, _root_symbol);
-  eosio::asset net = asset(_stake_net_amount, _root_symbol);
-  eosio::asset total_pay = cpu + net + ram;
-
   action(permission_level(_registrator, "active"_n), "eosio"_n, "createaccnt"_n,
-         std::tuple(username, owner_auth, active_auth))
+         std::tuple(coopname, username, owner_auth, active_auth))
       .send();
 
   accounts_index accounts(_registrator, _registrator.value);

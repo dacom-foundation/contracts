@@ -138,6 +138,36 @@
             ]
         },
         {
+            "name": "newdeposit",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "deposit_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "type",
+                    "type": "name"
+                },
+                {
+                    "name": "amount",
+                    "type": "asset"
+                },
+                {
+                    "name": "deposited_at",
+                    "type": "time_point_sec"
+                }
+            ]
+        },
+        {
             "name": "newdepositid",
             "base": "",
             "fields": [
@@ -148,6 +178,62 @@
                 {
                     "name": "id",
                     "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "newuser",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "initial",
+                    "type": "asset"
+                },
+                {
+                    "name": "minimum",
+                    "type": "asset"
+                },
+                {
+                    "name": "created_at",
+                    "type": "time_point_sec"
+                },
+                {
+                    "name": "spread_initial",
+                    "type": "bool"
+                }
+            ]
+        },
+        {
+            "name": "newwithdraw",
+            "base": "",
+            "fields": [
+                {
+                    "name": "coopname",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "withdraw_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "type",
+                    "type": "name"
+                },
+                {
+                    "name": "amount",
+                    "type": "asset"
                 }
             ]
         },
@@ -363,8 +449,23 @@
             "ricardian_contract": ""
         },
         {
+            "name": "newdeposit",
+            "type": "newdeposit",
+            "ricardian_contract": ""
+        },
+        {
             "name": "newdepositid",
             "type": "newdepositid",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "newuser",
+            "type": "newuser",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "newwithdraw",
+            "type": "newwithdraw",
             "ricardian_contract": ""
         },
         {

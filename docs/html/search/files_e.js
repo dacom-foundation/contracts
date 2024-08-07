@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['utils_2ehpp_0',['utils.hpp',['../utils_8hpp.html',1,'']]]
+  ['voting_2ecpp_0',['voting.cpp',['../soviet_2src_2voting_8cpp.html',1,'(Глобальное пространство имён)'],['../system_2contracts_2eosio_8system_2src_2voting_8cpp.html',1,'(Глобальное пространство имён)']]]
 ];
