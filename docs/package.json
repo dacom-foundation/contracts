@@ -1,8 +1,0 @@
-{
-        "scripts": {
-	  "docs-publish": "gh-pages --nojekyll -d html --repo git@github.com:copenomics/doctrine.git -e contracts --add"	
-	}, 
-	"dependencies": {
-		"gh-pages": "^6.1.1"
-	}
-}
