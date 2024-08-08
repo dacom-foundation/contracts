@@ -404,6 +404,16 @@ using namespace eosio;
     });
 
   };
+
+  [[eosio::action]] void fund::addinitial(eosio::name coopname, eosio::name usernane, eosio::asset quantity) { 
+    eosio::name payer = check_auth_and_get_payer_or_fail({_gateway});
+
+    auto cooperative = get_cooperative_or_fail(coopname);
+
+    fundwallet_index fundwallet(_fund, coopname.value);
+    auto wal = fundwallet.find(0);
+
+  }
   
   
   //метод распределения членской части взноса по фондам накопления с остатком в кошельке для распределения по фондам списания
@@ -413,13 +423,13 @@ using namespace eosio;
     
     eosio::name payer = check_auth_and_get_payer_or_fail({_marketplace, _gateway, _soviet});
 
+    auto cooperative = get_cooperative_or_fail(coopname);
+
     fundwallet_index fundwallet(_fund, coopname.value);
     auto wal = fundwallet.find(0);
 
     eosio::check(wal != fundwallet.end(), "Фондовый кошелёк не найден");
     
-    auto cooperative = get_cooperative_or_fail(coopname);
-
     accfunds_index accfunds(_fund, coopname.value);
     eosio::asset total_accumulated = asset(0, cooperative.initial.symbol);
     
@@ -510,19 +520,18 @@ using namespace eosio;
   }
 
 
+  // [[eosio::action]] void fund::authorize(eosio::name coopname, eosio::name type, uint64_t withdraw_id) {
+  //   require_auth(_soviet);
 
-  [[eosio::action]] void fund::authorize(eosio::name coopname, eosio::name type, uint64_t withdraw_id) {
-    require_auth(_soviet);
+  //   fundwithdraws_index fundwithdraws(_fund, coopname.value);
+  //   auto withdraw = fundwithdraws.find(withdraw_id);
+  //   eosio::check(withdraw != fundwithdraws.end(), "Вывод не найден");
 
-    fundwithdraws_index fundwithdraws(_fund, coopname.value);
-    auto withdraw = fundwithdraws.find(withdraw_id);
-    eosio::check(withdraw != fundwithdraws.end(), "Вывод не найден");
+  //   fundwithdraws.modify(withdraw, _soviet, [&](auto &s) {
+  //     s.status = "authorized"_n;
+  //   });
 
-    fundwithdraws.modify(withdraw, _soviet, [&](auto &s) {
-      s.status = "authorized"_n;
-    });
-
-  };
+  // };
 
 
   [[eosio::action ]] void fund::complete(eosio::name coopname, eosio::name username, uint64_t withdraw_id){
