@@ -33,7 +33,7 @@ BOOST_AUTO_TEST_SUITE(fund_tests)
 BOOST_FIXTURE_TEST_CASE(config_tests, fund_tester) try {
       
   my_custom_method(); // Вызов вашего метода
-  BOOST_REQUIRE_EQUAL( true, 1 < 2 );
+  BOOST_REQUIRE_EQUAL( true, 1 < 3 );
       
 } FC_LOG_AND_RETHROW()
         
