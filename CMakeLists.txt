@@ -1,43 +1,55 @@
 cmake_minimum_required(VERSION 3.5)
-
 project(coopenomics)
 
-# Опции
-option(SYSTEM_CONFIGURABLE_WASM_LIMITS "Enables use of the host functions activated by the CONFIGURABLE_WASM_LIMITS protocol feature" ON)
-option(SYSTEM_BLOCKCHAIN_PARAMETERS "Enables use of the host functions activated by the BLOCKCHAIN_PARAMETERS protocol feature" ON)
-option(ENABLE_NATIVE_COMPILER "enable native builds with the CDT toolchain" ON)
+# Опции и флаги
+option(IS_TESTNET "Flag to indicate if it's testnet" OFF)
 
-set(CDT_DIR "/cdt/build/lib/cmake/cdt") # Укажите путь к CDT
-set(LEAP_DIR "/blockchain/build/lib/cmake/leap") # Укажите путь к Leap
+if(IS_TESTNET)
+    message(STATUS "TESTNET is ON")
+else()
+    message(STATUS "TESTNET is OFF")
+endif()
 
 include(ExternalProject)
 
+# Распечатываем начальное значение BUILD_TARGET
+message(STATUS "Initial BUILD_TARGET=${BUILD_TARGET}")
 
-ExternalProject_Add(
-   fund_project
-   SOURCE_DIR ${CMAKE_SOURCE_DIR}/fund
-   BINARY_DIR ${CMAKE_BINARY_DIR}/fund
-   CMAKE_ARGS -DCMAKE_TOOLCHAIN_FILE=/cdt/build/lib/cmake/cdt/CDTWasmToolchain.cmake
-   UPDATE_COMMAND ""
-   PATCH_COMMAND ""
-   TEST_COMMAND ""
-   INSTALL_COMMAND ""
-   BUILD_ALWAYS 1
-)
+# Макрос для сборки контрактов с диагностическими сообщениями
+macro(add_contract_build name)
+    string(STRIP "${BUILD_TARGET}" BUILD_TARGET_STRIPPED)
+    string(STRIP "${name}" NAME_STRIPPED)
 
-ExternalProject_Add(
-   hello_tests_project
-   SOURCE_DIR ${CMAKE_SOURCE_DIR}/fund/tests
-   BINARY_DIR ${CMAKE_BINARY_DIR}/fund/tests
-   CMAKE_ARGS -DCMAKE_TOOLCHAIN_FILE=/cdt/build/lib/cmake/cdt/CDTWasmToolchain.cmake
-   UPDATE_COMMAND ""
-   PATCH_COMMAND ""
-   TEST_COMMAND ""
-   INSTALL_COMMAND ""
-   BUILD_ALWAYS 1
-)
+    if(NOT BUILD_TARGET_STRIPPED OR BUILD_TARGET_STRIPPED STREQUAL NAME_STRIPPED)
+        message(STATUS "COMPILING ${name} CONTRACT")
+        ExternalProject_Add(
+            ${name}_contract
+            SOURCE_DIR ${CMAKE_SOURCE_DIR}/cpp/${name}
+            BINARY_DIR ${CMAKE_BINARY_DIR}/contracts/${name}
+            CMAKE_ARGS -DCMAKE_TOOLCHAIN_FILE=/cdt/build/lib/cmake/cdt/CDTWasmToolchain.cmake
+            UPDATE_COMMAND ""
+            PATCH_COMMAND ""
+            TEST_COMMAND ""
+            INSTALL_COMMAND ""
+            BUILD_ALWAYS 1
+        )
+    else()
+        message(STATUS "SKIPPING ${name} CONTRACT")
+    endif()
+endmacro()
 
-### add a new test
-include (CTest)
-enable_testing()
-add_test(hello_test ${CMAKE_BINARY_DIR}/fund/tests/fund_test)
+# Добавляем все контракты
+add_contract_build(fund)
+add_contract_build(draft)
+add_contract_build(soviet)
+add_contract_build(registrator)
+add_contract_build(gateway)
+add_contract_build(marketplace)
+add_contract_build(system)
+
+# Опции для тестов
+option(BUILD_TESTS "Build unit tests" OFF)
+
+if(BUILD_TESTS)
+    add_subdirectory(${CMAKE_SOURCE_DIR}/cpp/tests ${CMAKE_BINARY_DIR}/contracts/tests)
+endif()
