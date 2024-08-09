@@ -1,5 +1,4 @@
+# link-workspace-packages: true
 packages:
-  - docs/*
-  - cpp/*
-  - tests/*
-  - boot/*
+  - boot
+  - cpp
