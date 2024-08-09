@@ -1,1 +1,0 @@
-cd system/build && cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=ON -Dcdt_DIR="/cdt/build/lib/cmake/cdt" -Dleap_DIR="/blockchain/build/lib/cmake/leap" .. && make -j 2

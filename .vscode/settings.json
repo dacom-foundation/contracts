@@ -108,6 +108,7 @@
       "eosio.system.hpp": "c",
       "accounts.hpp": "c",
       "balances.hpp": "c",
-      "__verbose_abort": "c"
+      "__verbose_abort": "c",
+      "coopenomics_tester.hpp": "c"
     },
 }
