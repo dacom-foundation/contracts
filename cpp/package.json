@@ -2,5 +2,6 @@
   "name": "contracts",
   "version": "0.1.2",
   "description": "",
-  "private": false
+  "private": true,
+  "gitHead": "163a1087c134ef6b0cabf5d0345babbfdc78972b"
 }
