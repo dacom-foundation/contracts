@@ -11,9 +11,9 @@
   "sideEffects": false,
   "scripts": {
     "restart-node": "./scripts/purge_node.sh && ./scripts/launch_node.sh",
-    "setup-infra": "esno src/init/infra.ts",
     "setup-coop": "esno src/init/cooperative.ts",
-    "restart-all": "./scripts/purge_node.sh && ./scripts/launch_node.sh && esno src/init/infra.ts && esno src/init/cooperative.ts"
+    "start": "./scripts/restart.sh",
+    "boot": "./scripts/purge_node.sh && ./scripts/launch_node.sh && esno src/init/infra.ts && esno src/init/cooperative.ts"
   },
   "dependencies": {
     "axios": "^1.6.8",
