@@ -51,7 +51,7 @@ class Cooperative {
         initial: `500.0000 ${config.token.govern_symbol}`,
         minimum: `500.0000 ${config.token.govern_symbol}`,
         org_initial: `1000.0000 ${config.token.govern_symbol}`,
-        org_minimum: `1000.0000 ${config.token.govern_symbol}`
+        org_minimum: `1000.0000 ${config.token.govern_symbol}`,
       },
     })
 
@@ -91,38 +91,40 @@ class Cooperative {
   }
 }
 
-// инициализируем инстанс с ключами
-const blockchain = new Blockchain(config.network, config.private_keys)
-const cooperative = new Cooperative(blockchain)
+export async function startCoop() {
+  // инициализируем инстанс с ключами
+  const blockchain = new Blockchain(config.network, config.private_keys)
+  const cooperative = new Cooperative(blockchain)
 
-await blockchain.powerup({
-  payer: 'eosio',
-  receiver: config.provider,
-  days: config.powerup.days,
-  payment: `100.0000 ${config.token.symbol}`,
-  transfer: true,
-})
+  await blockchain.powerup({
+    payer: 'eosio',
+    receiver: config.provider,
+    days: config.powerup.days,
+    payment: `100.0000 ${config.token.symbol}`,
+    transfer: true,
+  })
 
-await blockchain.transfer({
-  from: 'eosio',
-  to: config.provider,
-  quantity: `100.0000 ${config.token.symbol}`,
-  memo: '',
-})
+  await blockchain.transfer({
+    from: 'eosio',
+    to: config.provider,
+    quantity: `100.0000 ${config.token.symbol}`,
+    memo: '',
+  })
 
-await cooperative.createCooperative()
+  await cooperative.createCooperative()
 
-// арендуем ресурсы провайдеру
-// регистрируем провайдера как кооператив
+  // арендуем ресурсы провайдеру
+  // регистрируем провайдера как кооператив
 
-// арендуем ресурсы аккаунтам
+  // арендуем ресурсы аккаунтам
 
-// другим скриптом:
-// - регистрируем все прочие аккаунты
-// - развернуть провайдера
-// - подключить кооператив
-// - выдаём кодовые разрешения
+  // другим скриптом:
+  // - регистрируем все прочие аккаунты
+  // - развернуть провайдера
+  // - подключить кооператив
+  // - выдаём кодовые разрешения
 
-// ______
-// другим скриптом:
-// - развернуть маркетплейс
+  // ______
+  // другим скриптом:
+  // - развернуть маркетплейс
+}

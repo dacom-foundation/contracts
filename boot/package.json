@@ -2,9 +2,9 @@
   "name": "boot",
   "type": "module",
   "version": "0.1.1",
+  "private": true,
   "packageManager": "pnpm@9.0.6",
   "description": "",
-  "private": true,
   "author": "Alex Ant <dacom.dark.sun@gmail.com>",
   "license": "",
   "keywords": [],
@@ -12,13 +12,19 @@
   "scripts": {
     "restart-node": "./scripts/purge_node.sh && ./scripts/launch_node.sh",
     "setup-coop": "esno src/init/cooperative.ts",
+    "boot": "esno src/docker/boot.ts",
+    "cli": "esno src/index.ts",
     "start": "./scripts/restart.sh",
-    "boot": "./scripts/purge_node.sh && ./scripts/launch_node.sh && esno src/init/infra.ts && esno src/init/cooperative.ts"
+    "stop": "./scripts/stop.sh",
+    "boot2": "./scripts/purge_node.sh && ./scripts/launch_node.sh && esno src/init/infra.ts && esno src/init/cooperative.ts"
   },
   "dependencies": {
     "axios": "^1.6.8",
+    "commander": "^12.1.0",
     "coopdoc-generator-ts": "^1.0.48",
     "cooptypes": "1.0.17-alpha.3",
+    "dockerode": "^4.0.2",
+    "dotenv": "^16.4.5",
     "eosjs": "^22.1.0",
     "eosjs-api": "^7.0.4",
     "eosjs-ecc": "^4.0.7"
@@ -27,6 +33,7 @@
     "@antfu/eslint-config": "^2.18.0",
     "@antfu/ni": "^0.21.12",
     "@antfu/utils": "^0.7.8",
+    "@types/dockerode": "^3.3.31",
     "@types/node": "^20.12.12",
     "bumpp": "^9.4.1",
     "eslint": "^9.2.0",

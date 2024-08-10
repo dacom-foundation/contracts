@@ -1,15 +1,23 @@
+/* eslint-disable node/prefer-global/process */
+import path from 'node:path'
+import { config } from 'dotenv'
+
+config()
+
 const network = {
   protocol: 'http',
   host: 'localhost',
   port: ':8888',
 }
 
-const SYMBOL = 'AXON'
+const SYMBOL = 'TAXON'
 const GOVERN_SYMBOL = 'TRUB'
 const provider = 'voskhod'
 const provider_chairman = 'ant'
-const public_key = 'EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV'
-const private_key = '5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3'
+
+const public_key = process.env.EOSIO_PUB_KEY
+
+const private_key = process.env.EOSIO_PRV_KEY
 
 export default {
   network,
@@ -100,57 +108,57 @@ export default {
   contracts: [
     {
       name: 'eosio.boot',
-      path: '/Users/darksun/dacom-code/foundation/contracts/system/build/contracts/eosio.boot',
+      path: path.resolve(process.cwd(), '../build/contracts/system/contracts/eosio.boot'),
       target: 'eosio',
     },
     {
       name: 'eosio.system',
-      path: '/Users/darksun/dacom-code/foundation/contracts/system/build/contracts/eosio.system',
+      path: path.resolve(process.cwd(), '../build/contracts/system/contracts/eosio.system'),
       target: 'eosio',
     },
     {
       name: 'eosio.token',
-      path: '/Users/darksun/dacom-code/foundation/contracts/system/build/contracts/eosio.token',
+      path: path.resolve(process.cwd(), '../build/contracts/system/contracts/eosio.token'),
       target: 'eosio.token',
     },
     {
       name: 'eosio.msig',
-      path: '/Users/darksun/dacom-code/foundation/contracts/system/build/contracts/eosio.msig',
+      path: path.resolve(process.cwd(), '../build/contracts/system/contracts/eosio.msig'),
       target: 'eosio.msig',
     },
     {
       name: 'eosio.wrap',
-      path: '/Users/darksun/dacom-code/foundation/contracts/system/build/contracts/eosio.wrap',
+      path: path.resolve(process.cwd(), '../build/contracts/system/contracts/eosio.wrap'),
       target: 'eosio.wrap',
     },
     {
       name: 'registrator',
-      path: '/Users/darksun/dacom-code/foundation/contracts/registrator',
+      path: path.resolve(process.cwd(), '../build/contracts/registrator'),
       target: 'registrator',
     },
     {
       name: 'soviet',
-      path: '/Users/darksun/dacom-code/foundation/contracts/soviet',
+      path: path.resolve(process.cwd(), '../build/contracts/soviet'),
       target: 'soviet',
     },
     {
       name: 'marketplace',
-      path: '/Users/darksun/dacom-code/foundation/contracts/marketplace',
+      path: path.resolve(process.cwd(), '../build/contracts/marketplace'),
       target: 'marketplace',
     },
     {
       name: 'draft',
-      path: '/Users/darksun/dacom-code/foundation/contracts/draft',
+      path: path.resolve(process.cwd(), '../build/contracts/draft'),
       target: 'draft',
     },
     {
       name: 'gateway',
-      path: '/Users/darksun/dacom-code/foundation/contracts/gateway',
+      path: path.resolve(process.cwd(), '../build/contracts/gateway'),
       target: 'gateway',
     },
     {
       name: 'fund',
-      path: '/Users/darksun/dacom-code/foundation/contracts/fund',
+      path: path.resolve(process.cwd(), '../build/contracts/fund'),
       target: 'fund',
     },
   ],

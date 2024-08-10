@@ -1,7 +1,5 @@
 #!/bin/sh
 
-source .env
-
 if [ ! -d $DATADIR ]; then
   mkdir -p $DATADIR;
 fi

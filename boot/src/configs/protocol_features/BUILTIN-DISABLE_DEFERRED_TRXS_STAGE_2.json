@@ -1,0 +1,13 @@
+{
+  "protocol_feature_type": "builtin",
+  "dependencies": [
+    "fce57d2331667353a0eac6b4209b67b843a7262a848af0a49a6e2fa9f6584eb4"
+  ],
+  "description_digest": "a857eeb932774c511a40efb30346ec01bfb7796916b54c3c69fe7e5fb70d5cba",
+  "subjective_restrictions": {
+    "earliest_allowed_activation_time": "1970-01-01T00:00:00.000",
+    "preactivation_required": true,
+    "enabled": true
+  },
+  "builtin_feature_codename": "DISABLE_DEFERRED_TRXS_STAGE_2"
+}

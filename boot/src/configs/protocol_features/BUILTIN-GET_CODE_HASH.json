@@ -1,0 +1,11 @@
+{
+  "protocol_feature_type": "builtin",
+  "dependencies": [],
+  "description_digest": "d2596697fed14a0840013647b99045022ae6a885089f35a7e78da7a43ad76ed4",
+  "subjective_restrictions": {
+    "earliest_allowed_activation_time": "1970-01-01T00:00:00.000",
+    "preactivation_required": true,
+    "enabled": true
+  },
+  "builtin_feature_codename": "GET_CODE_HASH"
+}
