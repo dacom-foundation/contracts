@@ -1,7 +1,7 @@
 {
   "name": "boot",
   "type": "module",
-  "version": "0.1.2-alpha.0",
+  "version": "0.1.2",
   "private": true,
   "packageManager": "pnpm@9.0.6",
   "description": "",
