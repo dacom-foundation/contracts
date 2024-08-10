@@ -1,15 +1,19 @@
 /* eslint-disable node/prefer-global/process */
 import path from 'node:path'
 import { Command } from 'commander'
+import { config } from 'dotenv'
 import { execCommand } from './docker/exec'
 import { stopContainerByName } from './docker/stop'
 import { runContainer } from './docker/run'
 import { boot } from './init/booter'
 import { sleep } from './utils'
 import { checkHealth } from './docker/health'
-import { clearDirectory } from './docker/purge'
+import { clearDirectory, deleteFile } from './docker/purge'
+
+config()
 
 const basePath = path.resolve(process.cwd(), '../blockchain-data')
+const keosdPath = path.resolve(process.cwd(), '../wallet-data/keosd.sock')
 
 const program = new Command()
 
@@ -31,11 +35,13 @@ program
 
 // Команда для запуска команды в контейнере
 program
-  .command('stop')
-  .description('Stop a Node container')
+  .command('unlock')
+  .description('Unlock a cleos wallet with a .env password')
+  .allowUnknownOption()
   .action(async () => {
     try {
-      await stopContainerByName('node')
+      await deleteFile(keosdPath)
+      await execCommand(['cleos', 'wallet', 'unlock', '--password', process.env.PASSWORD])
     }
     catch (error) {
       console.error('Command execution failed:', error)
@@ -64,6 +70,7 @@ program
     try {
       await stopContainerByName('node')
       await clearDirectory(basePath)
+      await sleep(5000)
       await runContainer()
       await checkHealth()
       await boot()

@@ -1,12 +1,9 @@
 import type { Container } from 'dockerode'
 import { findContainerByName } from './find'
+import { runContainer } from './run'
 
 export async function execCommand(command: string[]): Promise<string> {
-  const container = await findContainerByName('node')
-
-  if (!container) {
-    throw new Error('Container is not found')
-  }
+  const container = await runContainer(true)
 
   const exec = await container.exec({
     Cmd: command,
@@ -28,6 +25,7 @@ export async function execCommand(command: string[]): Promise<string> {
       })
 
       stream.on('end', () => {
+        console.log(output)
         resolve(output)
       })
 

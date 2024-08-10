@@ -21,3 +21,12 @@ export async function clearDirectory(dirPath: string): Promise<void> {
     console.error(`Error clearing directory ${dirPath}:`, err)
   }
 }
+
+export async function deleteFile(filePath: string): Promise<void> {
+  try {
+    await fs.unlink(filePath)
+  }
+  catch (err) {
+    console.error(`Error deleting file ${filePath}:`, err)
+  }
+}

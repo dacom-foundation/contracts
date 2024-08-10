@@ -9,7 +9,7 @@ config()
 
 const docker = new Docker()
 
-export async function runContainer(): Promise<Container> {
+export async function runContainer(once = false): Promise<Container> {
   const existingContainer = await findContainerByName('node')
 
   if (existingContainer) {
@@ -19,6 +19,7 @@ export async function runContainer(): Promise<Container> {
   const container = await docker.createContainer({
     Image: 'dicoop/blockchain:v5.1.0-dev',
     name: 'node',
+    Tty: !once,
     HostConfig: {
       PortBindings: {
         '8888/tcp': [{ HostPort: '8888' }],
@@ -48,16 +49,17 @@ export async function runContainer(): Promise<Container> {
 
   await container.start()
 
-  const stream = await container.logs({
-    follow: true,
-    stdout: true,
-    stderr: true,
-  })
+  if (!once) {
+    const stream = await container.logs({
+      follow: true,
+      stdout: true,
+      stderr: true,
+    })
 
-  // eslint-disable-next-line node/prefer-global/buffer
-  stream.on('data', (data: Buffer) => {
-    console.log(data.toString())
-  })
-
+    // eslint-disable-next-line node/prefer-global/buffer
+    stream.on('data', (data: Buffer) => {
+      console.log(data.toString())
+    })
+  }
   return container
 }
