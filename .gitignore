@@ -3,8 +3,6 @@ soviet/soviet.wasm
 registrator/registrator.abi
 registrator/registrator.wasm
 networks.sh
-system/build/*
-system/build
 ano/ano.wasm
 ano/ano.abi
 lib/
