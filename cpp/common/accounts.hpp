@@ -1,14 +1,14 @@
 #include <eosio/binary_extension.hpp>
 
 
-name check_auth_and_get_payer_or_fail(const std::vector<name>& payers) {
+eosio::name check_auth_and_get_payer_or_fail(const std::vector<eosio::name>& payers) {
     for (const auto& payer : payers) {
       if (has_auth(payer)) {
         return payer;
       }
     }
-    check(false, "Недостаточно прав доступа");
-    return name{}; // code will never reach here due to check
+    eosio::check(false, "Недостаточно прав доступа");
+    return eosio::name{}; // code will never reach here due to check
   }
 
 /**
@@ -57,7 +57,7 @@ struct [[eosio::table, eosio::contract(REGISTRATOR)]] account {
   eosio::name status; ///< Статус аккаунта
   std::string meta; ///< Дополнительная мета-информация о аккаунте.
   
-  std::vector<name> storages; ///< Хранилища персональных данных и идентификаторы данных в них.
+  std::vector<eosio::name> storages; ///< Хранилища персональных данных и идентификаторы данных в них.
   std::vector<verification> verifications; ///< Информация о верификации пользователя.
   
   eosio::time_point_sec registered_at; ///< Время регистрации аккаунта.

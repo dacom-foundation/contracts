@@ -6,13 +6,10 @@
 В качестве окружения используется контейнер операционной системы coopOS. Для запуска выполните команду из корня репозитория:
 
 ```
-docker run --rm -it --name cdt \
-  --volume ./:/project \
-  -w /project \
-  dicoop/blockchain:v5.1.0-dev /bin/bash
+pnpm run enter
 ```
 
-После запуска контейнера выполняйте команды компиляции внутри него. 
+После выполнения команды и входа в контейнер, выполняйте команды компиляции внутри него. 
 
 ## Компиляция
 Для компиляции выполните команду:
@@ -122,7 +119,7 @@ ctest --test-dir contracts/tests --output-on-failure
 Для выборочного указания тестового файла используйте из директории build:
 
 ```
-cmake -DBUILD_TARGET=fund -DBUILD_TESTS=ON -DTARGET=fund.tester.cpp ..
+cmake -DBUILD_TARGET=fund -DBUILD_TESTS=ON -DTEST_TARGET=fund.tester.cpp ..
 make
 ```
 
@@ -132,7 +129,7 @@ make
 ### Информативные тесты
 Для большей детализации тестового процесса добавьте флаг -DVERBOSE=ON при конфигурации сборки:
 ```
-cmake -DBUILD_TARGET=fund -DTARGET=fund.tester.cpp -DVERBOSE=ON ..
+cmake -DBUILD_TARGET=fund -DTEST_TARGET=fund.tester.cpp -DVERBOSE=ON ..
 make
 ```
 

@@ -859,7 +859,7 @@
             ]
         },
         {
-            "name": "fix",
+            "name": "migrate",
             "base": "",
             "fields": []
         },
@@ -1598,8 +1598,8 @@
             "ricardian_contract": ""
         },
         {
-            "name": "fix",
-            "type": "fix",
+            "name": "migrate",
+            "type": "migrate",
             "ricardian_contract": ""
         },
         {

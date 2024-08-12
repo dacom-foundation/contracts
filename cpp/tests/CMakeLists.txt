@@ -37,7 +37,7 @@ enable_testing()
 # Define the '--verbose' option
 option(VERBOSE "Enable verbose output for tests" OFF)
 
-if(NOT DEFINED TEST_TARGET)
+if(NOT DEFINED TEST_TARGET OR TEST_TARGET STREQUAL "")
   file(GLOB UNIT_TESTS "*.cpp" "*.hpp")
   message(STATUS "Building all test suites")
 else()

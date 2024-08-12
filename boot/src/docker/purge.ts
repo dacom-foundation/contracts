@@ -27,6 +27,6 @@ export async function deleteFile(filePath: string): Promise<void> {
     await fs.unlink(filePath)
   }
   catch (err) {
-    console.error(`Error deleting file ${filePath}:`, err)
+    // console.error(`Error deleting file ${filePath}:`, err)
   }
 }

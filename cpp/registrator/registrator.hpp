@@ -41,7 +41,7 @@ public:
       : eosio::contract(receiver, code, ds) {}
 
   [[eosio::action]] void init();
-  [[eosio::action]] void fix();
+  [[eosio::action]] void migrate();
   [[eosio::action]] void test();
   
   [[eosio::action]] void updateaccnt(eosio::name username, eosio::name account_to_change, std::string meta);
@@ -68,7 +68,8 @@ public:
 
   [[eosio::action]] void adduser(
     eosio::name registrator, eosio::name coopname, eosio::name referer,
-    eosio::name username, eosio::name type, std::string meta);
+    eosio::name username, eosio::name type , eosio::time_point_sec created_at, 
+    eosio::asset initial, eosio::asset minimum, bool spread_initial, std::string meta);
 
   [[eosio::action]] void changekey(eosio::name coopname, eosio::name changer, eosio::name username, eosio::public_key public_key);
 

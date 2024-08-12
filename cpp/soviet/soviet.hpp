@@ -39,7 +39,7 @@ public:
   using contract::contract;
 
   [[eosio::action]] void init();
-  [[eosio::action]] void fix();
+  [[eosio::action]] void migrate();
   
   //soviet.cpp
   [[eosio::action]] void exec(eosio::name executer, eosio::name coopname, uint64_t decision_id);

@@ -131,7 +131,10 @@ export default class Blockchain {
       console.log("on set: ", contract)
       const wasm_path = `${contract.path}/${contract.name}.wasm`
       const abi_path = `${contract.path}/${contract.name}.abi`
-
+      
+      console.log('wasm_path', wasm_path)
+      console.log('abi_path', abi_path)
+      
       const wasm = fs.readFileSync(wasm_path)
       const abi = fs.readFileSync(abi_path)
 

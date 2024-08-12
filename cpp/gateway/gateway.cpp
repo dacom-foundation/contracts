@@ -29,18 +29,18 @@ void gateway::newwithdrid(eosio::name username, uint64_t id) {
   require_auth(_gateway);
 };
 
-void gateway::newuser(eosio::name coopname, eosio::name username, eosio::asset initial, eosio::asset minimum, eosio::time_point_sec created_at, bool spread_initial) {
-  check_auth_and_get_payer_or_fail({_gateway, _registrator});
+void gateway::adduser(eosio::name coopname, eosio::name username, eosio::asset initial, eosio::asset minimum, eosio::time_point_sec created_at, bool spread_initial) {
+  check_auth_and_get_payer_or_fail({_soviet});
   
   uint64_t deposit_id = 0; //фактически депозит через контракт не проводился
-
+  
   action(
     permission_level{ _gateway, "active"_n},
     _gateway,
     "newdeposit"_n,
     std::make_tuple(coopname, username, deposit_id, "registration"_n, initial + minimum, created_at)
   ).send();
-
+  
   action(
     permission_level{ _gateway, "active"_n},
     _fund,
@@ -48,15 +48,16 @@ void gateway::newuser(eosio::name coopname, eosio::name username, eosio::asset i
     std::make_tuple(coopname, minimum)
   ).send();
   
-
-  if (spread_initial)
+  if (spread_initial){
+  
     action(
       permission_level{ _gateway, "active"_n},
       _fund,
-      "spreadamount"_n,
+      "addinitial"_n,
       std::make_tuple(coopname, initial)
     ).send();
-
+    
+  }
 
 }
 
@@ -197,8 +198,8 @@ void gateway::dpcomplete(eosio::name coopname, eosio::name admin, uint64_t depos
     action(
       permission_level{ _gateway, "active"_n},
       _gateway,
-      "newuser"_n,
-      std::make_tuple(coopname, deposit->username, to_spread, to_circulation, eosio::current_time_point())
+      "adduser"_n,
+      std::make_tuple(coopname, deposit->username, to_spread, to_circulation, eosio::current_time_point(), true)
     ).send();
 
     action(

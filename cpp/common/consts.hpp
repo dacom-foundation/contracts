@@ -134,7 +134,9 @@ static constexpr eosio::name _efund_withdraw_action = "subexp"_n;
       "eosio.ram"_n,
       "eosio.stake"_n,
       "fund"_n,
-      _provider
+      _provider,
+      "aaaaaaaaaaaa"_n,
+      "bbbbbbbbbbbb"_n,
       // Добавьте другие аккаунты в список по мере необходимости
     };    
 

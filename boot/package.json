@@ -8,15 +8,11 @@
   "author": "Alex Ant <dacom.dark.sun@gmail.com>",
   "license": "",
   "keywords": [],
-  "sideEffects": false,
   "scripts": {
-    "restart-node": "./scripts/purge_node.sh && ./scripts/launch_node.sh",
-    "setup-coop": "esno src/init/cooperative.ts",
     "boot": "esno src/docker/boot.ts",
     "cli": "esno src/index.ts",
     "start": "./scripts/restart.sh",
-    "stop": "./scripts/stop.sh",
-    "boot2": "./scripts/purge_node.sh && ./scripts/launch_node.sh && esno src/init/infra.ts && esno src/init/cooperative.ts"
+    "stop": "./scripts/stop.sh"
   },
   "dependencies": {
     "axios": "^1.6.8",

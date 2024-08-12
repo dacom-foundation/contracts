@@ -18,12 +18,10 @@ using namespace eosio;
  * @param[in]  spread_initial  The spread initial
  *
  */
-
-  
 void soviet::adduser(eosio::name coopname, eosio::name username, eosio::name type, eosio::time_point_sec created_at, eosio::asset initial, eosio::asset minimum, bool spread_initial) {
-
-  require_auth(_registrator);
-
+  
+  check_auth_and_get_payer_or_fail({_registrator});
+  
   auto cooperative = get_cooperative_or_fail(coopname);
 
   accounts_index accounts(_registrator, _registrator.value);
@@ -54,12 +52,12 @@ void soviet::adduser(eosio::name coopname, eosio::name username, eosio::name typ
     w.blocked = asset(0, cooperative.initial.symbol);
     w.minimum = minimum; 
   });
-
+  
   /**
    * Добавляем в оборотный фонд минимальный паевый взнос и распределяем по всем прочим фондам значение вступительного взноса.
    */
   action(
-    permission_level{ _gateway, "active"_n},
+    permission_level{ _soviet, "active"_n},
     _gateway,
     "adduser"_n,
     std::make_tuple(coopname, username, initial, minimum, created_at, spread_initial)

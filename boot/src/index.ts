@@ -9,6 +9,7 @@ import { boot } from './init/booter'
 import { sleep } from './utils'
 import { checkHealth } from './docker/health'
 import { clearDirectory, deleteFile } from './docker/purge'
+import { deployCommand } from './docker/deploy'
 
 config()
 
@@ -26,10 +27,45 @@ program
   .allowUnknownOption()
   .action(async (cmd: string[]) => {
     try {
+      console.log(cmd)
       await execCommand(['cleos', ...cmd])
     }
     catch (error) {
       console.error('Command execution failed:', error)
+    }
+  })
+
+// Команда для запуска команды в контейнере
+program
+  .command('deploy <contract_name>')
+  .description('Execute a deploy command in a Node container')
+  .option('-t, --target <target>', 'Specify the target')
+  .option('-n, --network <network>', 'Specify the network', 'local')
+  .allowUnknownOption()
+  .action(async (cmd: string, options: any) => {
+    try {
+      const { target, network } = options
+
+      await execCommand(['cleos', 'wallet', 'unlock', '--password', process.env.PASSWORD])
+      await deployCommand(cmd, target, network)
+    }
+    catch (error) {
+      console.error('Command execution failed:', error)
+    }
+  })
+
+// Команда для получения списка контейнеров
+program
+  .command('stop')
+  .description('Stop blockchain node as is')
+  .action(async () => {
+    try {
+      await stopContainerByName('node')
+
+      console.log('Container is stopped')
+    }
+    catch (error) {
+      console.error('Failed to list containers:', error)
     }
   })
 
@@ -40,7 +76,6 @@ program
   .allowUnknownOption()
   .action(async () => {
     try {
-      await deleteFile(keosdPath)
       await execCommand(['cleos', 'wallet', 'unlock', '--password', process.env.PASSWORD])
     }
     catch (error) {
@@ -54,6 +89,7 @@ program
   .description('Start blockchain node as is')
   .action(async () => {
     try {
+      await deleteFile(keosdPath)
       await runContainer()
       console.log('Container is started')
     }
@@ -68,6 +104,7 @@ program
   .description('Purge blockchain data and boot a Protocol')
   .action(async () => {
     try {
+      await deleteFile(keosdPath)
       await stopContainerByName('node')
       await clearDirectory(basePath)
       await sleep(5000)

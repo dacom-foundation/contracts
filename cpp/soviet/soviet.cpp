@@ -16,10 +16,10 @@
 
 using namespace eosio;
 
-[[eosio::action]] void soviet::fix() {
+[[eosio::action]] void soviet::migrate() {
 
   require_auth(_system);
-  print("on fix!!!");
+  print("on migrate!!!");
   addresses_index addresses(_soviet, _provider.value);
   address_data data;
 

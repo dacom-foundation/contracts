@@ -23,6 +23,22 @@ using mvo = fc::mutable_variant_object;
 #endif
 #endif
 
+
+static constexpr eosio::chain::name _provider = "voskhod"_n;
+static constexpr eosio::chain::name _provider_chairman = "ant"_n;
+
+static constexpr eosio::chain::name _ano = "ano"_n;
+static constexpr eosio::chain::name _gateway = "gateway"_n;
+static constexpr eosio::chain::name _draft = "draft"_n;
+static constexpr eosio::chain::name _marketplace = "marketplace"_n;
+static constexpr eosio::chain::name _soviet = "soviet"_n;
+static constexpr eosio::chain::name _registrator = "registrator"_n;
+static constexpr eosio::chain::name _system = "eosio"_n;
+static constexpr eosio::chain::name _fund = "fund"_n;
+static constexpr eosio::chain::name _power_account = "eosio.power"_n;
+static constexpr eosio::chain::name _saving_account = "eosio.saving"_n;
+
+
 namespace eosio_system {
 
 
@@ -36,36 +52,10 @@ public:
                "eosio.bpay"_n, "eosio.vpay"_n, "eosio.saving"_n, "eosio.names"_n, "eosio.rex"_n, 
                "eosio.power"_n, "soviet"_n, "registrator"_n, "gateway"_n, "fund"_n, "marketplace"_n, "draft"_n});
 
-      printf("\n");
-      printf("on basic");
-      ilog("ILOG!!!");
-      
-      // printf("after_receiver.cpu: %ld\n", after_receiver.cpu);
-      
       produce_blocks( 100 );
       
       set_code( "eosio.token"_n, contracts::token_wasm());
       set_abi( "eosio.token"_n, contracts::token_abi().data() );
-      
-      set_code("soviet"_n, contracts::soviet_wasm());
-      set_abi("soviet"_n, contracts::soviet_abi().data());
-
-      set_code("fund"_n, contracts::fund_wasm());
-      set_abi("fund"_n, contracts::fund_abi().data());
-
-      set_code("gateway"_n, contracts::gateway_wasm());
-      set_abi("gateway"_n, contracts::gateway_abi().data());
-
-      set_code("registrator"_n, contracts::registrator_wasm());
-      set_abi("registrator"_n, contracts::registrator_abi().data());
-
-      set_code("marketplace"_n, contracts::marketplace_wasm());
-      set_abi("marketplace"_n, contracts::marketplace_abi().data());
-
-      set_code("draft"_n, contracts::draft_wasm());
-      set_abi("draft"_n, contracts::draft_abi().data());
-      printf("on finish install");
-      
       
       {
          const auto& accnt = control->db().get<account_object,by_name>( "eosio.token"_n );
@@ -73,6 +63,69 @@ public:
          BOOST_REQUIRE_EQUAL(abi_serializer::to_abi(accnt.abi, abi), true);
          token_abi_ser.set_abi(abi, abi_serializer::create_yield_function(abi_serializer_max_time));
       }
+      
+      set_code("soviet"_n, contracts::soviet_wasm());
+      set_abi("soviet"_n, contracts::soviet_abi().data());
+      
+      {
+         const auto& accnt = control->db().get<account_object,by_name>( _soviet );
+         abi_def abi;
+         BOOST_REQUIRE_EQUAL(abi_serializer::to_abi(accnt.abi, abi), true);
+         soviet_abi_ser.set_abi(abi, abi_serializer::create_yield_function(abi_serializer_max_time));
+      }
+      
+      
+      set_code("fund"_n, contracts::fund_wasm());
+      set_abi("fund"_n, contracts::fund_abi().data());
+      
+      {
+         const auto& accnt = control->db().get<account_object,by_name>( _fund );
+         abi_def abi;
+         BOOST_REQUIRE_EQUAL(abi_serializer::to_abi(accnt.abi, abi), true);
+         fund_abi_ser.set_abi(abi, abi_serializer::create_yield_function(abi_serializer_max_time));
+      }
+      
+      set_code("gateway"_n, contracts::gateway_wasm());
+      set_abi("gateway"_n, contracts::gateway_abi().data());
+      
+      {
+         const auto& accnt = control->db().get<account_object,by_name>( _gateway );
+         abi_def abi;
+         BOOST_REQUIRE_EQUAL(abi_serializer::to_abi(accnt.abi, abi), true);
+         gateway_abi_ser.set_abi(abi, abi_serializer::create_yield_function(abi_serializer_max_time));
+      }
+      
+      
+      set_code("registrator"_n, contracts::registrator_wasm());
+      set_abi("registrator"_n, contracts::registrator_abi().data());
+      
+      {
+         const auto& accnt = control->db().get<account_object,by_name>( _registrator );
+         abi_def abi;
+         BOOST_REQUIRE_EQUAL(abi_serializer::to_abi(accnt.abi, abi), true);
+         registrator_abi_ser.set_abi(abi, abi_serializer::create_yield_function(abi_serializer_max_time));
+      }
+      
+      set_code("marketplace"_n, contracts::marketplace_wasm());
+      set_abi("marketplace"_n, contracts::marketplace_abi().data());
+      
+      {
+         const auto& accnt = control->db().get<account_object,by_name>( _marketplace );
+         abi_def abi;
+         BOOST_REQUIRE_EQUAL(abi_serializer::to_abi(accnt.abi, abi), true);
+         marketplace_abi_ser.set_abi(abi, abi_serializer::create_yield_function(abi_serializer_max_time));
+      }
+      
+      set_code("draft"_n, contracts::draft_wasm());
+      set_abi("draft"_n, contracts::draft_abi().data());
+      
+      {
+         const auto& accnt = control->db().get<account_object,by_name>( _draft );
+         abi_def abi;
+         BOOST_REQUIRE_EQUAL(abi_serializer::to_abi(accnt.abi, abi), true);
+         draft_abi_ser.set_abi(abi, abi_serializer::create_yield_function(abi_serializer_max_time));
+      }
+      
    }
 
    void create_core_token( symbol core_symbol = symbol{CORE_SYM} ) {
@@ -87,13 +140,12 @@ public:
       set_abi( config::system_account_name, contracts::system_abi().data() );
       
       if( call_init ) {
-        printf("on init");
          base_tester::push_action(config::system_account_name, "init"_n,
                                                config::system_account_name,  mutable_variant_object()
                                                ("version", 0)
                                                ("core", CORE_SYM_STR)
          );
-        printf("after init");
+        
       }
 
       {
@@ -129,15 +181,11 @@ public:
       
       basic_setup();
       if( l == setup_level::minimal ) return;
-      printf("on create token");
       create_core_token();
       if( l == setup_level::core_token ) return;
-      printf("after create token");
       deploy_system_contract();
       if( l == setup_level::deploy_system_contract ) return;
-      printf("on reploy");
       remaining_setup();
-      printf("after");
    }
 
    template<typename Lambda>
@@ -310,7 +358,7 @@ public:
 
          return base_tester::push_action( std::move(act), (auth ? signer : signer == "bob111111111"_n ? "alice1111111"_n : "bob111111111"_n).to_uint64_t() );
    }
-
+  
    action_result stake( const account_name& from, const account_name& to, const asset& net, const asset& cpu ) {
       return push_action( name(from), "delegatebw"_n, mvo()
                           ("from",     from)
@@ -1123,6 +1171,13 @@ public:
 
    abi_serializer abi_ser;
    abi_serializer token_abi_ser;
+   
+   abi_serializer soviet_abi_ser;
+   abi_serializer registrator_abi_ser;
+   abi_serializer draft_abi_ser;
+   abi_serializer fund_abi_ser;
+   abi_serializer gateway_abi_ser;
+   abi_serializer marketplace_abi_ser;
 };
 
 inline fc::mutable_variant_object voter( account_name acct ) {

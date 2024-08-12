@@ -49,7 +49,7 @@ struct powerup_tester : eosio_system_tester {
       powerup_config config;
 
       config.powerup_days    = 1;
-      config.min_powerup_fee = asset::from_string("1.0000 TST");
+      config.min_powerup_fee = asset::from_string("1.0000 TAXON");
 
       f(config);
       return config;
@@ -228,14 +228,14 @@ BOOST_FIXTURE_TEST_CASE(config_tests, powerup_tester) try {
    BOOST_REQUIRE_EQUAL(wasm_assert_msg("powerup_days must be > 0"),
                        configbw(make_config([&](auto& c) { c.powerup_days = 0; })));
    BOOST_REQUIRE_EQUAL(wasm_assert_msg("min_powerup_fee doesn't match core symbol"), configbw(make_config([&](auto& c) {
-                          c.min_powerup_fee = asset::from_string("1000000.000 TST");
+                          c.min_powerup_fee = asset::from_string("1000000.000 TAXON");
                        })));
    BOOST_REQUIRE_EQUAL(wasm_assert_msg("min_powerup_fee does not have a default value"),
                        configbw(make_config([&](auto& c) { c.min_powerup_fee = {}; })));
    BOOST_REQUIRE_EQUAL(wasm_assert_msg("min_powerup_fee must be positive"),
-                       configbw(make_config([&](auto& c) { c.min_powerup_fee = asset::from_string("0.0000 TST"); })));
+                       configbw(make_config([&](auto& c) { c.min_powerup_fee = asset::from_string("0.0000 TAXON"); })));
    BOOST_REQUIRE_EQUAL(wasm_assert_msg("min_powerup_fee must be positive"),
-                       configbw(make_config([&](auto& c) { c.min_powerup_fee = asset::from_string("-1.0000 TST"); })));
+                       configbw(make_config([&](auto& c) { c.min_powerup_fee = asset::from_string("-1.0000 TAXON"); })));
 
 } // config_tests
 FC_LOG_AND_RETHROW()
@@ -247,11 +247,11 @@ BOOST_AUTO_TEST_CASE(rent_tests) try {
       t.produce_block();
 
       BOOST_REQUIRE_EQUAL(t.wasm_assert_msg("powerup hasn't been initialized"), //
-                          t.powerup("bob111111111"_n, "alice1111111"_n, 1, asset::from_string("1.0000 TST")));
+                          t.powerup("bob111111111"_n, "alice1111111"_n, 1, asset::from_string("1.0000 TAXON")));
 
       BOOST_REQUIRE_EQUAL("", t.configbw(t.make_config([&](auto& config) {
          config.powerup_days    = 1;
-         config.min_powerup_fee = asset::from_string("1.0000 TST");
+         config.min_powerup_fee = asset::from_string("1.0000 TAXON");
       })));
       
       t.create_account_with_resources("aaaaaaaaaaaa"_n, config::system_account_name, core_sym::from_string("1.0000"), false, core_sym::from_string("10000.0000"), core_sym::from_string("10000.0000"));
@@ -263,7 +263,7 @@ BOOST_AUTO_TEST_CASE(rent_tests) try {
       int64_t before_before_cpu_utilization = t.get_state().cpu.utilization;
       
 
-      t.check_powerup("aaaaaaaaaaaa"_n, "aaaaaaaaaaaa"_n, 1, asset::from_string("1000.0000 TST"));
+      t.check_powerup("aaaaaaaaaaaa"_n, "aaaaaaaaaaaa"_n, 1, asset::from_string("1000.0000 TAXON"));
       
       {
 
@@ -335,14 +335,14 @@ BOOST_AUTO_TEST_CASE(debts_tests) try {
       t.produce_block();
 
       BOOST_REQUIRE_EQUAL(t.wasm_assert_msg("powerup hasn't been initialized"), //
-                          t.powerup("bob111111111"_n, "alice1111111"_n, 1, asset::from_string("1.0000 TST")));
+                          t.powerup("bob111111111"_n, "alice1111111"_n, 1, asset::from_string("1.0000 TAXON")));
 
       BOOST_REQUIRE_EQUAL("", t.configbw(t.make_config([&](auto& config) {
          config.powerup_days    = 1;
-         config.min_powerup_fee = asset::from_string("1.0000 TST");
+         config.min_powerup_fee = asset::from_string("1.0000 TAXON");
       })));
       
-      BOOST_REQUIRE_EQUAL("", t.init_emission(asset::from_string("1000.0000 TST"), 86400, 0.618));
+      BOOST_REQUIRE_EQUAL("", t.init_emission(asset::from_string("1000.0000 TAXON"), 86400, 0.618));
       
       int64_t before_before_net_utilization = t.get_state().net.utilization;
       int64_t before_before_ram_utilization = t.get_state().ram.utilization;
@@ -363,7 +363,7 @@ BOOST_AUTO_TEST_CASE(debts_tests) try {
         auto before_reserve  = t.get_account_info("eosio.power"_n);
         printf("\n");
         // арендуем ресурсы новому аккаунту
-        t.check_powerup("bbbbbbbbbbbb"_n, "bbbbbbbbbbbb"_n, 1, asset::from_string("1000.0000 TST"));
+        t.check_powerup("bbbbbbbbbbbb"_n, "bbbbbbbbbbbb"_n, 1, asset::from_string("1000.0000 TAXON"));
 
         // устанавливаем произвольный контракт
         t.set_code( "bbbbbbbbbbbb"_n, contracts::bios_wasm() );
@@ -407,7 +407,7 @@ BOOST_AUTO_TEST_CASE(debts_tests) try {
         BOOST_REQUIRE_EQUAL(after_cpu_utilization, before_cpu_utilization);
         
         // повторно арендуем ресурсы новому аккаунту
-        BOOST_REQUIRE_EQUAL("", t.powerup("bbbbbbbbbbbb"_n, "bbbbbbbbbbbb"_n, 1, asset::from_string("1000.0000 TST")));
+        BOOST_REQUIRE_EQUAL("", t.powerup("bbbbbbbbbbbb"_n, "bbbbbbbbbbbb"_n, 1, asset::from_string("1000.0000 TAXON")));
         t.produce_blocks();
 
         int64_t after_after_net_utilization = t.get_state().net.utilization;
@@ -424,7 +424,7 @@ BOOST_AUTO_TEST_CASE(debts_tests) try {
         BOOST_REQUIRE_EQUAL(after_after_payer.ram, middle_payer.ram);
         
         // повторно арендуем ресурсы новому аккаунту
-        BOOST_REQUIRE_EQUAL("", t.powerup("bbbbbbbbbbbb"_n, "bbbbbbbbbbbb"_n, 1, asset::from_string("1000.0000 TST")));
+        BOOST_REQUIRE_EQUAL("", t.powerup("bbbbbbbbbbbb"_n, "bbbbbbbbbbbb"_n, 1, asset::from_string("1000.0000 TAXON")));
 
         // пропускаем время
         t.produce_block(fc::days(31));
@@ -452,7 +452,7 @@ BOOST_AUTO_TEST_CASE(debts_tests) try {
         auto before_reserve  = t.get_account_info("eosio.power"_n);
         printf("\n");
         // арендуем ресурсы новому аккаунту
-        t.check_powerup("bbbbbbbbbbbb"_n, "bbbbbbbbbbbb"_n, 1, asset::from_string("100000.0000 TST"));
+        t.check_powerup("bbbbbbbbbbbb"_n, "bbbbbbbbbbbb"_n, 1, asset::from_string("100000.0000 TAXON"));
 
         // устанавливаем контракт (потяжелее)
         t.set_code( "bbbbbbbbbbbb"_n, contracts::system_wasm() );
@@ -496,7 +496,7 @@ BOOST_AUTO_TEST_CASE(debts_tests) try {
         BOOST_REQUIRE_EQUAL(after_cpu_utilization, before_cpu_utilization);
         
         // повторно арендуем ресурсы новому аккаунту
-        BOOST_REQUIRE_EQUAL("", t.powerup("bbbbbbbbbbbb"_n, "bbbbbbbbbbbb"_n, 1, asset::from_string("100000.0000 TST")));
+        BOOST_REQUIRE_EQUAL("", t.powerup("bbbbbbbbbbbb"_n, "bbbbbbbbbbbb"_n, 1, asset::from_string("100000.0000 TAXON")));
         t.produce_blocks();
 
         int64_t after_after_net_utilization = t.get_state().net.utilization;
@@ -513,7 +513,7 @@ BOOST_AUTO_TEST_CASE(debts_tests) try {
         BOOST_REQUIRE_EQUAL(after_after_payer.ram, middle_payer.ram);
         
         // повторно арендуем ресурсы новому аккаунту
-        BOOST_REQUIRE_EQUAL("", t.powerup("bbbbbbbbbbbb"_n, "bbbbbbbbbbbb"_n, 1, asset::from_string("100000.0000 TST")));
+        BOOST_REQUIRE_EQUAL("", t.powerup("bbbbbbbbbbbb"_n, "bbbbbbbbbbbb"_n, 1, asset::from_string("100000.0000 TAXON")));
 
         // пропускаем время
         t.produce_block(fc::days(31));
@@ -541,17 +541,17 @@ BOOST_AUTO_TEST_CASE(emission_tests) try {
 
       BOOST_REQUIRE_EQUAL("", t.configbw(t.make_config([&](auto& config) {
          config.powerup_days    = 1;
-         config.min_powerup_fee = asset::from_string("1.0000 TST");
+         config.min_powerup_fee = asset::from_string("1.0000 TAXON");
       })));
 
       
-      BOOST_REQUIRE_EQUAL(t.wasm_assert_msg("Стартовый объем токенов не может быть отрицательной"), t.init_emission(-asset::from_string("1000.0000 TST"), 86400, 0.618));
-      BOOST_REQUIRE_EQUAL(t.wasm_assert_msg("Продолжительность такта должна быть положительной"), t.init_emission(asset::from_string("1000.0000 TST"), 0, 0.618));
-      BOOST_REQUIRE_EQUAL(t.wasm_assert_msg("Продолжительность такта не может превышать 1 год"), t.init_emission(asset::from_string("1000.0000 TST"), 365 * 86400 + 1, 0.618));
-      BOOST_REQUIRE_EQUAL(t.wasm_assert_msg("Фактор эмиссии должен быть больше нуля и меньше или равен 1"), t.init_emission(asset::from_string("1000.0000 TST"), 86400, 2));
-      BOOST_REQUIRE_EQUAL(t.wasm_assert_msg("Фактор эмиссии должен быть больше нуля и меньше или равен 1"), t.init_emission(asset::from_string("1000.0000 TST"), 86400, 0));
+      BOOST_REQUIRE_EQUAL(t.wasm_assert_msg("Стартовый объем токенов не может быть отрицательной"), t.init_emission(-asset::from_string("1000.0000 TAXON"), 86400, 0.618));
+      BOOST_REQUIRE_EQUAL(t.wasm_assert_msg("Продолжительность такта должна быть положительной"), t.init_emission(asset::from_string("1000.0000 TAXON"), 0, 0.618));
+      BOOST_REQUIRE_EQUAL(t.wasm_assert_msg("Продолжительность такта не может превышать 1 год"), t.init_emission(asset::from_string("1000.0000 TAXON"), 365 * 86400 + 1, 0.618));
+      BOOST_REQUIRE_EQUAL(t.wasm_assert_msg("Фактор эмиссии должен быть больше нуля и меньше или равен 1"), t.init_emission(asset::from_string("1000.0000 TAXON"), 86400, 2));
+      BOOST_REQUIRE_EQUAL(t.wasm_assert_msg("Фактор эмиссии должен быть больше нуля и меньше или равен 1"), t.init_emission(asset::from_string("1000.0000 TAXON"), 86400, 0));
       
-      BOOST_REQUIRE_EQUAL("", t.init_emission(asset::from_string("1000.0000 TST"), 86400, 0.618));
+      BOOST_REQUIRE_EQUAL("", t.init_emission(asset::from_string("1000.0000 TAXON"), 86400, 0.618));
 
       BOOST_REQUIRE_EQUAL(1, t.get_emission_state()["tact_number"].as<uint64_t>());
       BOOST_REQUIRE_EQUAL(86400, t.get_emission_state()["tact_duration"].as<uint64_t>());
@@ -559,40 +559,40 @@ BOOST_AUTO_TEST_CASE(emission_tests) try {
       asset before_supply = t.get_token_supply();
       asset before_fund_balance = t.get_balance("eosio.saving"_n);
       
-      t.check_powerup("aaaaaaaaaaaa"_n, "aaaaaaaaaaaa"_n, 1, asset::from_string("500.0000 TST"));
+      t.check_powerup("aaaaaaaaaaaa"_n, "aaaaaaaaaaaa"_n, 1, asset::from_string("500.0000 TAXON"));
 
       // 10% от взноса из числа делегатских комиссий
-      BOOST_REQUIRE_EQUAL(t.get_balance("eosio.saving"_n), asset::from_string("50.0000 TST"));
+      BOOST_REQUIRE_EQUAL(t.get_balance("eosio.saving"_n), asset::from_string("50.0000 TAXON"));
 
       // количество токенов комиссий
-      BOOST_REQUIRE_EQUAL(asset::from_string("500.0000 TST"), t.get_emission_state()["tact_fees"].as<asset>());
+      BOOST_REQUIRE_EQUAL(asset::from_string("500.0000 TAXON"), t.get_emission_state()["tact_fees"].as<asset>());
       
       // общий оборот без изменений
-      BOOST_REQUIRE_EQUAL(asset::from_string("1000.0000 TST"), t.get_emission_state()["current_supply"].as<asset>());
+      BOOST_REQUIRE_EQUAL(asset::from_string("1000.0000 TAXON"), t.get_emission_state()["current_supply"].as<asset>());
       
-      t.check_powerup("aaaaaaaaaaaa"_n, "aaaaaaaaaaaa"_n, 1, asset::from_string("500.0000 TST"));
+      t.check_powerup("aaaaaaaaaaaa"_n, "aaaaaaaaaaaa"_n, 1, asset::from_string("500.0000 TAXON"));
 
       // проверяем что эмитировали 618 токенов и 100 попали в фонд от делегатов
-      BOOST_REQUIRE(near(t.get_balance("eosio.saving"_n).get_amount(), asset::from_string("718.0000 TST").get_amount(), 1));
+      BOOST_REQUIRE(near(t.get_balance("eosio.saving"_n).get_amount(), asset::from_string("718.0000 TAXON").get_amount(), 1));
 
       // общий объем токенов увеличился на 618 штук
       asset after_supply = t.get_token_supply();
-      BOOST_REQUIRE(near(after_supply.get_amount() - before_supply.get_amount(), asset::from_string("618.0000 TST").get_amount(), 1));
+      BOOST_REQUIRE(near(after_supply.get_amount() - before_supply.get_amount(), asset::from_string("618.0000 TAXON").get_amount(), 1));
 
 
       // арендуем ресурсов еще на 1000 токенов. 
-      t.check_powerup("aaaaaaaaaaaa"_n, "aaaaaaaaaaaa"_n, 1, asset::from_string("1000.0000 TST"));
+      t.check_powerup("aaaaaaaaaaaa"_n, "aaaaaaaaaaaa"_n, 1, asset::from_string("1000.0000 TAXON"));
 
       // общий оборот увеличился до 618 + 1618 + 1000
-      BOOST_REQUIRE(near(asset::from_string("3236.0000 TST").get_amount(), t.get_emission_state()["current_supply"].as<asset>().get_amount(), 1));
+      BOOST_REQUIRE(near(asset::from_string("3236.0000 TAXON").get_amount(), t.get_emission_state()["current_supply"].as<asset>().get_amount(), 1));
       
 
       // проверяем что всё что эмитировали еще 1618 токенов и 100 попали в фонд от делегатов
-      BOOST_REQUIRE(near(t.get_balance("eosio.saving"_n).get_amount(), (t.get_emission_state()["tact_emission"].as<asset>().get_amount() + asset::from_string("200.0000 TST").get_amount()), 1));
+      BOOST_REQUIRE(near(t.get_balance("eosio.saving"_n).get_amount(), (t.get_emission_state()["tact_emission"].as<asset>().get_amount() + asset::from_string("200.0000 TAXON").get_amount()), 1));
       
       // объем дополнительно выпущенных 2236 штук
       asset after_after_supply = t.get_token_supply();
-      BOOST_REQUIRE(near(after_after_supply.get_amount() - before_supply.get_amount(), asset::from_string("2236.0000 TST").get_amount(), 1));
+      BOOST_REQUIRE(near(after_after_supply.get_amount() - before_supply.get_amount(), asset::from_string("2236.0000 TAXON").get_amount(), 1));
 
       t.produce_block(fc::days(1) + fc::milliseconds(500));
 
@@ -602,13 +602,13 @@ BOOST_AUTO_TEST_CASE(emission_tests) try {
       BOOST_REQUIRE_EQUAL(2, t.get_emission_state()["tact_number"].as<uint64_t>());
       
       // эмиссия такта обнулиться
-      BOOST_REQUIRE_EQUAL(asset::from_string("0.0000 TST"), t.get_emission_state()["tact_emission"].as<asset>());
+      BOOST_REQUIRE_EQUAL(asset::from_string("0.0000 TAXON"), t.get_emission_state()["tact_emission"].as<asset>());
       
       // текущий оборот без изменений
-      BOOST_REQUIRE(near(asset::from_string("3236.0000 TST").get_amount(), t.get_emission_state()["current_supply"].as<asset>().get_amount(), 1));
+      BOOST_REQUIRE(near(asset::from_string("3236.0000 TAXON").get_amount(), t.get_emission_state()["current_supply"].as<asset>().get_amount(), 1));
 
       // стартовый порог эмиссии это 0.618 от общего супплая
-      BOOST_REQUIRE(near(asset::from_string("2000.0000 TST").get_amount(), t.get_emission_state()["emission_start"].as<asset>().get_amount(), 10));
+      BOOST_REQUIRE(near(asset::from_string("2000.0000 TAXON").get_amount(), t.get_emission_state()["emission_start"].as<asset>().get_amount(), 10));
 
       
    }

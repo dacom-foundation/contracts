@@ -66,7 +66,7 @@
 };
 
 
-[[eosio::action]] void registrator::fix() {
+[[eosio::action]] void registrator::migrate() {
   require_auth(_system);
 
 };
@@ -87,7 +87,7 @@
  * @param meta Дополнительная мета-информация.
  * 
  * 
- * Диаграмма процесса: 
+ * Диаграмма процесса и inline транзакций: 
  * 1. registrator::adduser (
  *  - добавляем аккаунт
  *  2. soviet::adduser(
@@ -97,7 +97,7 @@
  *    - устанавливаем дату вступления
  *    - фиксируем принятый взнос в реестре взносов
  *      4. fund::addcirculate (добавляем минимальный взнос)
- *      5. ? fund::spreadamount (опционально распределяем вступительный взнос по фондам)
+ *      5. fund::spreadamount? (опционально распределяем вступительный взнос по фондам)
  *    )
  *  )
  * )
@@ -106,12 +106,17 @@
  */
 [[eosio::action]] void registrator::adduser(
     eosio::name registrator, eosio::name coopname, eosio::name referer,
-    eosio::name username, eosio::name type , std::string meta)
+    eosio::name username, eosio::name type , eosio::time_point_sec created_at, 
+    eosio::asset initial, eosio::asset minimum, bool spread_initial, std::string meta)
 {
 
-  get_cooperative_or_fail(coopname);
+  auto cooperative = get_cooperative_or_fail(coopname);
   check_auth_or_fail(coopname, registrator, "adduser"_n);
-
+  
+  eosio::check(created_at.sec_since_epoch() <= eosio::current_time_point().sec_since_epoch(), "Дата created_at должна быть в прошлом" );
+  eosio::check(cooperative.initial.symbol == initial.symbol, "Неверный символ");
+  eosio::check(cooperative.initial.symbol == minimum.symbol, "Неверный символ");
+  
   authority active_auth;
   active_auth.threshold = 1; 
 
@@ -124,12 +129,12 @@
 
   // Добавьте пустые ключи в active_auth
   active_auth.accounts.push_back(eosio_prods_plw);
-
+  print("on !!!");
   // регистрируем аккаунт  
   action(permission_level(_registrator, "active"_n), "eosio"_n, "createaccnt"_n,
          std::tuple(coopname, username, owner_auth, active_auth))
   .send();
-  
+  print("oz !!!");
   accounts_index accounts(_registrator, _registrator.value);
   
   auto card = accounts.find(username.value);
@@ -153,9 +158,10 @@
       n.registered_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
       n.meta = meta; 
     });
-
+    
+  
   action(permission_level{_registrator, "active"_n}, _soviet, "adduser"_n,
-     std::make_tuple(coopname, username, type))
+     std::make_tuple(coopname, username, type, created_at, initial, minimum, spread_initial))
   .send();
       
 }

@@ -5,11 +5,10 @@ export interface Account {
 }
 
 export interface Network {
+  name: string
   protocol: string
   host: string
   port: string
-  registrator: string
-  coopBackend: string
 }
 
 export interface Contract {
