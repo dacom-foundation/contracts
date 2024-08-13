@@ -17,17 +17,7 @@
 using namespace eosio;
 
 [[eosio::action]] void soviet::migrate() {
-
-  require_auth(_system);
-  print("on migrate!!!");
-  addresses_index addresses(_soviet, _provider.value);
-  address_data data;
-
-  addresses.emplace(_system, [&](auto &a) {
-    a.id = 0;
-    a.coopname = _provider;
-    a.data = data;
-  });
+  require_auth(_soviet);
 
 };
 

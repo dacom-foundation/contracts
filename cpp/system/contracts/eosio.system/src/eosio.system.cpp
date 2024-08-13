@@ -522,6 +522,9 @@ void native::setabi( const name& acnt, const std::vector<char>& abi,
 
    }
 
+  void system_contract::migrate() {
+    require_auth(get_self());
+  }
 
    void system_contract::init( uint64_t version, const symbol& core ) {
       require_auth( get_self() );

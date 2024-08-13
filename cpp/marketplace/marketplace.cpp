@@ -14,3 +14,8 @@
 [[eosio::action]] void marketplace::newid(uint64_t id, eosio::name type) {
   require_auth(_marketplace);
 };
+
+
+[[eosio::action]] void marketplace::migrate(){
+  require_auth(_marketplace);
+}

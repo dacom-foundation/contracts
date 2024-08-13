@@ -5,6 +5,11 @@
 using namespace eosio;
 
 [[eosio::action]]
+void gateway::migrate(){
+  require_auth(_gateway);
+}
+
+[[eosio::action]]
 void gateway::newdeposit(eosio::name coopname, eosio::name username, uint64_t deposit_id, eosio::name type, eosio::asset amount, eosio::time_point_sec deposited_at){
   require_auth(_gateway);
 }

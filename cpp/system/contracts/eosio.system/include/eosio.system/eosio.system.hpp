@@ -465,6 +465,13 @@ namespace eosiosystem {
          [[eosio::action]]
          void init( uint64_t version, const symbol& core );
 
+        /**
+         * @brief Метод миграции вызывается после деплоя для внесения моментальных изменений
+         * 
+         */
+         [[eosio::action]]
+         void migrate( );
+
          /**
           * @brief      Метод обновления активного ключа пользователя кооперативами.
           *

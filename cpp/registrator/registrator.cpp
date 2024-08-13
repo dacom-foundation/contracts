@@ -5,8 +5,8 @@
 //   assert_recover_key(hash, signature, public_key);
 // }
 
-[[eosio::action]] void registrator::test() {
-  print(_root_symbol);
+[[eosio::action]] void registrator::migrate() {
+  require_auth(_registrator);
 }
 
 [[eosio::action]] void registrator::init()
@@ -64,14 +64,6 @@
   });
 
 };
-
-
-[[eosio::action]] void registrator::migrate() {
-  require_auth(_system);
-
-};
-
-
 
 
 /**

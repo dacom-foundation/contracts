@@ -6,6 +6,8 @@
 using namespace eosio;
 
 [[eosio::action]] void fund::migrate() {
+  require_auth(_fund);
+  
   counts_index counts(_fund, _provider.value);
   
   counts.emplace(_fund, [&](auto &row){
@@ -14,7 +16,7 @@ using namespace eosio;
   });
   
   coopwallet_index coopwallet(_fund, _provider.value);
-
+  
   // кошелёк кооператива
   coopwallet.emplace(_soviet, [&](auto &row) {
     row.id = 0;
@@ -32,6 +34,8 @@ using namespace eosio;
     row.accumulative_expense_account.available = asset(0, _root_govern_symbol);
     row.accumulative_expense_account.withdrawed = asset(0, _root_govern_symbol);
   });
+  
+  
 }
 
 /**

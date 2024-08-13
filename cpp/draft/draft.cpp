@@ -4,6 +4,11 @@
 #include <eosio/crypto.hpp>
 using namespace eosio;
 
+[[eosio::action]]
+void draft::migrate() {
+  require_auth(_draft);
+}
+
 void draft::createdraft(uint64_t registry_id, eosio::name lang, std::string title, 
                     std::string description, std::string context, std::string model, std::string translation_data) {
   
