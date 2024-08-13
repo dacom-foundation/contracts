@@ -18,7 +18,7 @@ using namespace eosio;
   coopwallet_index coopwallet(_fund, _provider.value);
   
   // кошелёк кооператива
-  coopwallet.emplace(_soviet, [&](auto &row) {
+  coopwallet.emplace(_fund, [&](auto &row) {
     row.id = 0;
     row.coopname = _provider;
 
