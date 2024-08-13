@@ -47,10 +47,12 @@ public:
   gateway(eosio::name receiver, eosio::name code,
       eosio::datastream<const char *> ds)
       : eosio::contract(receiver, code, ds) {}
-
+  
+  [[eosio::action]] void migrate();
+  
   [[eosio::action]] void newdepositid(eosio::name username, uint64_t id);
   [[eosio::action]] void newwithdrid(eosio::name username, uint64_t id);
-
+  
   [[eosio::action]] void adduser(eosio::name coopname, eosio::name username, eosio::asset initial, eosio::asset minimum, eosio::time_point_sec created_at, bool spread_initial);
 
   [[eosio::action]] void newdeposit(eosio::name coopname, eosio::name username, uint64_t deposit_id, eosio::name type, eosio::asset amount, eosio::time_point_sec deposited_at);
