@@ -42,7 +42,6 @@ public:
 
   [[eosio::action]] void init();
   [[eosio::action]] void migrate();
-  [[eosio::action]] void test();
   
   [[eosio::action]] void updateaccnt(eosio::name username, eosio::name account_to_change, std::string meta);
   [[eosio::action]] void updatecoop(eosio::name coopname, eosio::name username, eosio::asset initial, eosio::asset minimum, eosio::asset org_initial, eosio::asset org_minimum, std::string announce, std::string description);
