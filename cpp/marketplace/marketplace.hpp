@@ -39,7 +39,8 @@ public:
 
 
   void apply(uint64_t receiver, uint64_t code, uint64_t action);
-
+  [[eosio::action]] void migrate();
+  
   // ... определение методов контракта ...
   
   //marketplace.cpp
