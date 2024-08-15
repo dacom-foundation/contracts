@@ -8,34 +8,6 @@ using namespace eosio;
 [[eosio::action]] void fund::migrate() {
   require_auth(_fund);
   
-  counts_index counts(_fund, _provider.value);
-  
-  counts.emplace(_fund, [&](auto &row){
-    row.key = "funds"_n;
-    row.value = 5;
-  });
-  
-  coopwallet_index coopwallet(_fund, _provider.value);
-  
-  // кошелёк кооператива
-  coopwallet.emplace(_fund, [&](auto &row) {
-    row.id = 0;
-    row.coopname = _provider;
-
-    row.circulating_account.available = asset(0, _root_govern_symbol);
-    row.circulating_account.withdrawed = asset(0, _root_govern_symbol);
-
-    row.initial_account.available = asset(0, _root_govern_symbol);
-    row.initial_account.withdrawed = asset(0, _root_govern_symbol);
-
-    row.accumulative_account.available = asset(0, _root_govern_symbol);
-    row.accumulative_account.withdrawed = asset(0, _root_govern_symbol);
-
-    row.accumulative_expense_account.available = asset(0, _root_govern_symbol);
-    row.accumulative_expense_account.withdrawed = asset(0, _root_govern_symbol);
-  });
-  
-  
 }
 
 /**

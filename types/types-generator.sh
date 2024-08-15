@@ -9,16 +9,16 @@ declare -A contract_params_test=(
   #[ano]="anotest22222"
   [gateway]="gateway"
   [draft]="draft"
-#  [marketplace]="marketplace"
+  [marketplace]="marketplace"
   [soviet]="soviet"
   [registrator]="registrator"
-#  [fund]="fund"
+  [fund]="fund"
 )
 
 # Алиас для cleos через Docker
 alias cleos='docker exec -it node /usr/local/bin/cleos'
 
-rm -rf generated/*
+rm -rf ./generated/*
 
 # Генерация TypeScript типов из ABI для каждого контракта
 for contract in "${(@k)contract_params_test}"; do

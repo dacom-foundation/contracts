@@ -35,7 +35,7 @@ void gateway::newwithdrid(eosio::name username, uint64_t id) {
 };
 
 void gateway::adduser(eosio::name coopname, eosio::name username, eosio::asset initial, eosio::asset minimum, eosio::time_point_sec created_at, bool spread_initial) {
-  check_auth_and_get_payer_or_fail({_soviet});
+  check_auth_and_get_payer_or_fail({_soviet, _gateway});
   
   uint64_t deposit_id = 0; //фактически депозит через контракт не проводился
   
