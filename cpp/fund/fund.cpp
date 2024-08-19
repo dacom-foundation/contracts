@@ -41,88 +41,92 @@ using namespace eosio;
  * @param initial 
  */
 [[eosio::action]] void fund::init(eosio::name coopname, eosio::asset initial) {
-  require_auth(_soviet);
+  eosio::name payer = check_auth_and_get_payer_or_fail({_soviet, _registrator});
 
   coopwallet_index coopwallet(_fund, coopname.value);
 
   accfunds_index accfunds(_fund, coopname.value);
   expfunds_index expfunds(_fund, coopname.value);
+  
+  auto exist = coopwallet.find(0);
+  
+  if (exist == coopwallet.end()) {  
+    // кошелёк кооператива
+    coopwallet.emplace(payer, [&](auto &row) {
+      row.id = 0;
+      row.coopname = coopname;
 
-  // кошелёк кооператива
-  coopwallet.emplace(_soviet, [&](auto &row) {
-    row.id = 0;
-    row.coopname = coopname;
+      row.circulating_account.available = asset(0, initial.symbol);
+      row.circulating_account.withdrawed = asset(0, initial.symbol);
 
-    row.circulating_account.available = asset(0, initial.symbol);
-    row.circulating_account.withdrawed = asset(0, initial.symbol);
+      row.initial_account.available = asset(0, initial.symbol);
+      row.initial_account.withdrawed = asset(0, initial.symbol);
 
-    row.initial_account.available = asset(0, initial.symbol);
-    row.initial_account.withdrawed = asset(0, initial.symbol);
+      row.accumulative_account.available = asset(0, initial.symbol);
+      row.accumulative_account.withdrawed = asset(0, initial.symbol);
 
-    row.accumulative_account.available = asset(0, initial.symbol);
-    row.accumulative_account.withdrawed = asset(0, initial.symbol);
+      row.accumulative_expense_account.available = asset(0, initial.symbol);
+      row.accumulative_expense_account.withdrawed = asset(0, initial.symbol);
+    });
 
-    row.accumulative_expense_account.available = asset(0, initial.symbol);
-    row.accumulative_expense_account.withdrawed = asset(0, initial.symbol);
-  });
+    // неделимый
+    accfunds.emplace(payer, [&](auto &a) {
+      a.id = get_global_id_in_scope(_fund, coopname, "funds"_n);  // 1
+      a.coopname = coopname;
+      a.contract = ""_n;
+      a.name = "Неделимый фонд";
+      a.description = "";
+      a.percent = 1 * ONE_PERCENT;
+      a.available = asset(0, initial.symbol);
+      a.withdrawed = asset(0, initial.symbol);
+    });
 
-  // неделимый
-  accfunds.emplace(_soviet, [&](auto &a) {
-    a.id = get_global_id_in_scope(_fund, coopname, "funds"_n);  // 1
-    a.coopname = coopname;
-    a.contract = ""_n;
-    a.name = "Неделимый фонд";
-    a.description = "";
-    a.percent = 1 * ONE_PERCENT;
-    a.available = asset(0, initial.symbol);
-    a.withdrawed = asset(0, initial.symbol);
-  });
+    // резервный
+    accfunds.emplace(payer, [&](auto &a) {
+      a.id = get_global_id_in_scope(_fund, coopname, "funds"_n);  // 2
+      a.coopname = coopname;
+      a.contract = ""_n;
+      a.name = "Резервный фонд";
+      a.description = "";
+      a.percent = 15 * ONE_PERCENT;
+      a.available = asset(0, initial.symbol);
+      a.withdrawed = asset(0, initial.symbol);
+    });
 
-  // резервный
-  accfunds.emplace(_soviet, [&](auto &a) {
-    a.id = get_global_id_in_scope(_fund, coopname, "funds"_n);  // 2
-    a.coopname = coopname;
-    a.contract = ""_n;
-    a.name = "Резервный фонд";
-    a.description = "";
-    a.percent = 15 * ONE_PERCENT;
-    a.available = asset(0, initial.symbol);
-    a.withdrawed = asset(0, initial.symbol);
-  });
+    // развития
+    accfunds.emplace(payer, [&](auto &a) {
+      a.id = get_global_id_in_scope(_fund, coopname, "funds"_n);  // 3
+      a.coopname = coopname;
+      a.contract = ""_n;
+      a.name = "Фонд развития кооперации";
+      a.description = "";
+      a.percent = 5 * ONE_PERCENT;
+      a.available = asset(0, initial.symbol);
+      a.withdrawed = asset(0, initial.symbol);
+    });
 
-  // развития
-  accfunds.emplace(_soviet, [&](auto &a) {
-    a.id = get_global_id_in_scope(_fund, coopname, "funds"_n);  // 3
-    a.coopname = coopname;
-    a.contract = ""_n;
-    a.name = "Фонд развития кооперации";
-    a.description = "";
-    a.percent = 5 * ONE_PERCENT;
-    a.available = asset(0, initial.symbol);
-    a.withdrawed = asset(0, initial.symbol);
-  });
+    auto e_id = expfunds.available_primary_key();
 
-  auto e_id = expfunds.available_primary_key();
+    // хозяйственный
+    expfunds.emplace(payer, [&](auto &e) {
+      e.id = get_global_id_in_scope(_fund, coopname, "funds"_n);  // 4
+      e.coopname = coopname;
+      e.contract = ""_n;
+      e.name = "Хозяйственный фонд";
+      e.description = "";
+      e.expended = asset(0, initial.symbol);
+    });
 
-  // хозяйственный
-  expfunds.emplace(_soviet, [&](auto &e) {
-    e.id = get_global_id_in_scope(_fund, coopname, "funds"_n);  // 4
-    e.coopname = coopname;
-    e.contract = ""_n;
-    e.name = "Хозяйственный фонд";
-    e.description = "";
-    e.expended = asset(0, initial.symbol);
-  });
-
-  // взаимный
-  expfunds.emplace(_soviet, [&](auto &e) {
-    e.id = get_global_id_in_scope(_fund, coopname, "funds"_n);  // 5
-    e.coopname = coopname;
-    e.contract = ""_n;
-    e.name = "Фонд взаимного обеспечения";
-    e.description = "";
-    e.expended = asset(0, initial.symbol);
-  });
+    // взаимный
+    expfunds.emplace(payer, [&](auto &e) {
+      e.id = get_global_id_in_scope(_fund, coopname, "funds"_n);  // 5
+      e.coopname = coopname;
+      e.contract = ""_n;
+      e.name = "Фонд взаимного обеспечения";
+      e.description = "";
+      e.expended = asset(0, initial.symbol);
+    });
+  }
 }
 
 // атомарные транзакции фондового кошелька

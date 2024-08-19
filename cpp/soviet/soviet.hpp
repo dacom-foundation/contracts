@@ -72,8 +72,8 @@ public:
   
   //chairman.cpp
   [[eosio::action]] void authorize(eosio::name coopname, eosio::name chairman, uint64_t decision_id, document document);
-  [[eosio::action]] void createboard(eosio::name coopname, eosio::name chairman, eosio::name type, std::vector<board_member> members, std::string name, std::string description);
-  [[eosio::action]] void updateboard(eosio::name coopname, eosio::name chairman, uint64_t board_id, std::vector<board_member> members, std::string name, std::string description);
+  [[eosio::action]] void createboard(eosio::name coopname, eosio::name username, eosio::name type, std::vector<board_member> members, std::string name, std::string description);
+  [[eosio::action]] void updateboard(eosio::name coopname, eosio::name username, uint64_t board_id, std::vector<board_member> members, std::string name, std::string description);
   
   //admin.cpp
   [[eosio::action]] void addstaff(eosio::name coopname, eosio::name chairman, eosio::name username, std::vector<right> rights, std::string position_title);

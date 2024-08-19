@@ -178,7 +178,7 @@ struct [[eosio::table, eosio::contract(REGISTRATOR)]] cooperative {
   bool is_cooperative = false; ///< Флаг, указывающий, является ли организация кооперативом.
   
   bool is_branched = false; ///< Флаг, указывающий, перешел ли кооператив на собрания уполномоченных
-  bool is_enrolled = false; ///< Флаг, указывающий, подключил ли кооператив себе ПО
+  bool is_enrolled = false; ///< (LEGACY) Флаг, указывающий, подключил ли кооператив себе ПО
   
   eosio::name coop_type; ///< Тип некоммерческой организации (если это кооператив).
   
@@ -189,6 +189,10 @@ struct [[eosio::table, eosio::contract(REGISTRATOR)]] cooperative {
   eosio::binary_extension<eosio::asset> org_registration; ///< Регистрационный взнос юридического лица
   eosio::binary_extension<eosio::asset> org_initial;  ///< Вступительный членский взнос юридического лица
   eosio::binary_extension<eosio::asset> org_minimum; ///< Минимальный паевый взнос юридического лица
+  
+  eosio::binary_extension<eosio::name> status; ///< Статус процесса подключения
+  eosio::binary_extension<eosio::time_point_sec> created_at; ///< Дата поступления заявки на подключение (pending | ... | active | blocked)
+  
   
   /**
    * @brief Возвращает первичный ключ учетной записи организации.
@@ -205,7 +209,14 @@ struct [[eosio::table, eosio::contract(REGISTRATOR)]] cooperative {
   void check_symbol_or_fail(eosio::asset contribution) {
     eosio::check(initial.symbol == contribution.symbol && minimum.symbol == contribution.symbol, "Неверный контракт токена");
   }
+  
+  uint64_t by_status() const { 
+    return status.has_value() ? status.value().value : 0; 
+  }
 
+  uint64_t by_created() const { 
+    return created_at.has_value() ? created_at.value().sec_since_epoch() : 0; 
+  }
   /**
    * @brief Возвращает ключ по родительской организации.
    * @return uint64_t - ключ, равный значению имени родительской организации.
@@ -256,6 +267,10 @@ eosio::indexed_by<"byparent"_n, eosio::const_mem_fun<cooperative, uint64_t,
                                                        &cooperative::by_parent>>,
 eosio::indexed_by<"bycoopchilds"_n, eosio::const_mem_fun<cooperative, uint128_t, &cooperative::by_coop_childs>>,
 eosio::indexed_by<"bycooptype"_n, eosio::const_mem_fun<cooperative, uint64_t, &cooperative::bycooptype>>
+
+// eosio::indexed_by<"bystatus"_n, eosio::const_mem_fun<cooperative, uint64_t, &cooperative::by_status>>,
+// eosio::indexed_by<"bycreated"_n, eosio::const_mem_fun<cooperative, uint64_t, &cooperative::by_created>>
+
 > cooperatives_index;
 
 
@@ -264,7 +279,8 @@ cooperative get_cooperative_or_fail(eosio::name coopname) {
   auto org = coops.find(coopname.value);
   eosio::check(org != coops.end(), "Организация не найдена");
   eosio::check(org -> is_coop(), "Организация - не кооператив");
-
+  eosio::check(org -> status.value() == "active"_n, "Кооператив не активен");
+  
   return *org;
 };
 
