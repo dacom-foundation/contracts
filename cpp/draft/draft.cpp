@@ -9,12 +9,31 @@ void draft::migrate() {
   require_auth(_draft);
 }
 
-void draft::createdraft(uint64_t registry_id, eosio::name lang, std::string title, 
+void draft::newid(eosio::name scope, uint64_t id) { require_auth(_draft); };
+
+
+name get_payer_and_check_auth_in_scope(eosio::name scope, eosio::name username, eosio::name action){
+  eosio::name payer;
+  
+  if (scope == _draft) {
+    require_auth(_system);
+    payer = _system;
+  }
+  else {
+    get_cooperative_or_fail(scope);
+    check_auth_or_fail(scope, username, action);
+    payer = username;
+  };
+  
+  return payer;
+}
+
+void draft::createdraft(eosio::name scope, eosio::name username, uint64_t registry_id, eosio::name lang, std::string title, 
                     std::string description, std::string context, std::string model, std::string translation_data) {
   
-  require_auth(_system);
-
-  drafts_index drafts(_draft, _draft.value);
+  eosio::name payer = get_payer_and_check_auth_in_scope(scope, username, "createdraft"_n);
+    
+  drafts_index drafts(_draft, scope.value);
 
   // Проверка существующих записей с тем же registry_id
   auto drafts_index_by_id = drafts.template get_index<"byregistryid"_n>();
@@ -31,7 +50,7 @@ void draft::createdraft(uint64_t registry_id, eosio::name lang, std::string titl
   uint64_t draft_id = get_global_id(_draft, "draft"_n);
   uint64_t translation_id = get_global_id(_draft, "translation"_n);
 
-  drafts.emplace(_system, [&](auto &d) {
+  drafts.emplace(payer, [&](auto &d) {
     d.id = draft_id;
     d.registry_id = registry_id;
     d.version = new_version;
@@ -42,8 +61,8 @@ void draft::createdraft(uint64_t registry_id, eosio::name lang, std::string titl
     d.model = model;
   });
 
-  translations_index translations(_draft, _draft.value);
-  translations.emplace(_system, [&](auto &t) {
+  translations_index translations(_draft, scope.value);
+  translations.emplace(payer, [&](auto &t) {
     t.id = translation_id;
     t.draft_id = draft_id;
     t.lang = lang;
@@ -52,15 +71,15 @@ void draft::createdraft(uint64_t registry_id, eosio::name lang, std::string titl
 
   // Отправка действия для обновления идентификаторов
   action(permission_level{_draft, "active"_n}, _draft, "newid"_n,
-     std::make_tuple(draft_id))
+     std::make_tuple(scope, draft_id))
   .send();
 };
 
 
 
-void draft::deldraft(uint64_t draft_id) {
-  require_auth(_system);
-
+void draft::deldraft(eosio::name scope, eosio::name username, uint64_t draft_id) {
+  eosio::name payer = get_payer_and_check_auth_in_scope(scope, username, "deldraft"_n);
+  
   drafts_index drafts(_draft, _draft.value);
 
   auto draft = drafts.find(draft_id);
@@ -70,14 +89,14 @@ void draft::deldraft(uint64_t draft_id) {
 };
 
 
-void draft::createtrans(uint64_t draft_id, eosio::name lang, std::string data) {
-  require_auth(_system);
-
-  drafts_index drafts(_draft, _draft.value);
+void draft::createtrans(eosio::name scope, eosio::name username, uint64_t draft_id, eosio::name lang, std::string data) {
+  eosio::name payer = get_payer_and_check_auth_in_scope(scope, username, "createtrans"_n);
+  
+  drafts_index drafts(_draft, scope.value);
   auto draft = drafts.find(draft_id);
   eosio::check(draft != drafts.end(), "Документ не найден");
   
-  translations_index translations(_draft, _draft.value);
+  translations_index translations(_draft, scope.value);
   
   auto trans_index_by_draft_and_lang = translations.template get_index<"bydraftlang"_n>();
   
@@ -87,18 +106,16 @@ void draft::createtrans(uint64_t draft_id, eosio::name lang, std::string data) {
 
   uint64_t translation_id = get_global_id(_draft, "translation"_n);
 
-  translations.emplace(_system, [&](auto &d){
+  translations.emplace(payer, [&](auto &d){
     d.id = translation_id;
   }); 
 };
 
 
-void draft::newid(uint64_t id) { require_auth(_draft); };
-
-void draft::edittrans(uint64_t translate_id, std::string data) {
-  require_auth(_system);
-
-  translations_index translations(_draft, _draft.value);
+void draft::edittrans(eosio::name scope, eosio::name username, uint64_t translate_id, std::string data) {
+  eosio::name payer = get_payer_and_check_auth_in_scope(scope, username, "edittrans"_n);
+  
+  translations_index translations(_draft, scope.value);
   auto trans = translations.find(translate_id);
   eosio::check(trans != translations.end(), "Перевод не найден");
   
@@ -109,10 +126,10 @@ void draft::edittrans(uint64_t translate_id, std::string data) {
 };
 
 
-void draft::deltrans(uint64_t translate_id) {
-  require_auth(_system);
-
-  translations_index translations(_draft, _draft.value);
+void draft::deltrans(eosio::name scope, eosio::name username, uint64_t translate_id) {
+  eosio::name payer = get_payer_and_check_auth_in_scope(scope, username, "deltrans"_n);
+  
+  translations_index translations(_draft, scope.value);
   
   auto trans = translations.find(translate_id);
   eosio::check(trans != translations.end(), "Объект с переводом не найден");

@@ -3,7 +3,7 @@
 void check_auth_or_fail(eosio::name coopname, eosio::name admin, eosio::name action_name)
 {
   require_auth(admin);
-
+  
   if (coopname != admin)
   {
     auto board = get_board_by_type_or_fail(coopname, "soviet"_n);

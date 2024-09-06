@@ -13,6 +13,7 @@
 #include "src/addresses.cpp"
 #include "src/fund.cpp"
 #include "src/branches.cpp"
+#include "src/agreements.cpp"
 
 using namespace eosio;
 
@@ -80,7 +81,7 @@ using namespace eosio;
       a.coopname = _provider;
       a.data = data;
     });
-
+    
     action(
       permission_level{ _soviet, "active"_n},
       _fund,

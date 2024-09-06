@@ -7,17 +7,7 @@
 #include <eosio/asset.hpp>
 #include <eosio/singleton.hpp>
 
-#include "../common/consts.hpp"
-#include "../common/utils.hpp"
-#include "../common/drafts.hpp"
-#include "../common/balances.hpp"
-#include "../common/accounts.hpp"
-#include "../common/coops.hpp"
-#include "../common/changes.hpp"
-#include "../common/counts.hpp"
-#include "../common/admins.hpp"
-#include "../common/programs.hpp"
-#include "../common/funds.hpp"
+#include "../common/common.hpp"
 
 /**
  *  \ingroup public_contracts
@@ -97,10 +87,16 @@ public:
 
 
   //programs.cpp
-  [[eosio::action]] void createprog(eosio::name coopname, eosio::name chairman, std::string title, std::string announce, std::string description, std::string preview, std::string images, eosio::name calculation_type, eosio::asset fixed_membership_contribution, uint64_t membership_percent_fee);
-  [[eosio::action]] void editprog(eosio::name coopname, uint64_t id, std::string title, std::string announce, std::string description, std::string preview, std::string images);
-  [[eosio::action]] void disableprog(eosio::name coopname, uint64_t id);
-
+  [[eosio::action]] void createprog(eosio::name coopname, eosio::name username, eosio::name program_type, uint64_t draft_registry_id, std::string title, std::string announce, std::string description, std::string preview, std::string images, eosio::name calculation_type, eosio::asset fixed_membership_contribution, uint64_t membership_percent_fee, std::string meta);
+  [[eosio::action]] void editprog(eosio::name coopname, eosio::name username, uint64_t program_id, uint64_t draft_registry_id, std::string title, std::string announce, std::string description, std::string preview, std::string images, std::string meta);
+  [[eosio::action]] void disableprog(eosio::name coopname, uint64_t program_id);
+  
+  [[eosio::action]] void sndagreement(eosio::name coopname, eosio::name username, eosio::name agreement_type, uint64_t program_id, uint64_t draft_registry_id, document document);
+  
+  [[eosio::action]] void confirmagree(eosio::name coopname, eosio::name administrator, eosio::name username, uint64_t agreement_id);
+  [[eosio::action]] void declineagree(eosio::name coopname, eosio::name administrator, eosio::name username, uint64_t agreement_id, std::string comment);
+  
+  
   //decisions
   [[eosio::action]] void withdraw(eosio::name coopname, eosio::name username, uint64_t withdraw_id);
   
@@ -127,7 +123,7 @@ public:
   [[eosio::action]] void deletebranch(eosio::name coopname, eosio::name chairman, eosio::name braname);
 
   //fund.cpp
-  void subaccum_effect(eosio::name executer, eosio::name coopname, uint64_t decision_id, uint64_t secondary_id);
+  void subaccum_effect(eosio::name executer, eosio::name coopname, uint64_t decision_id, uint64_t program_id);
   [[eosio::action]] void fundwithdraw(eosio::name coopname, eosio::name username, eosio::name type, uint64_t withdraw_id, document document);
 };
   

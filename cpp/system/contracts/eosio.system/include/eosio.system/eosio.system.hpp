@@ -17,6 +17,7 @@
 #include <type_traits>
 #include "../../../../../common/consts.hpp"
 
+
 #define CHANNEL_RAM_AND_NAMEBID_FEES_TO_REX 0
 
 namespace eosiosystem {

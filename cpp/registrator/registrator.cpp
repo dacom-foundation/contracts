@@ -310,7 +310,9 @@
   accounts_index accounts(_registrator, _registrator.value);
   auto account = accounts.find(coopname.value);
   eosio::check(account != accounts.end(), "Участник не найден в картотеке аккаунтов");
-
+  
+  eosio::check(account -> type != ""_n, "Аккаунт не переведен в статус пользователя (reguser)");
+  
   eosio::check(account->type == "organization"_n, "Только организация может быть подключена к системе");
 
   cooperatives_index coops(_registrator, _registrator.value);
@@ -344,7 +346,7 @@
 
 
 [[eosio::action]] void registrator::stcoopstatus(eosio::name coopname, eosio::name username, eosio::name status) {
-    check_auth_or_fail(_provider, username, "stcoopstatus"_n); //ожидаем разрешений в области провайдера
+    check_auth_or_fail(_provider, username, "stcoopstatus"_n); //ожидаем разрешений от провайдера
     
     cooperatives_index coops(_registrator, _registrator.value);
     

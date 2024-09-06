@@ -97,41 +97,30 @@ void soviet::unblockbal(eosio::name coopname, eosio::name username, eosio::asset
 }
 
 
-
 void soviet::addprogbal(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity) {
   eosio::check(has_auth(_marketplace) || has_auth(_soviet), "Недостаточно прав доступа");
   eosio::name payer = has_auth(_marketplace) ? _marketplace : _soviet;
-  print("on add prog bal: ", program_id, quantity);
-
+  
   auto cooperative = get_cooperative_or_fail(coopname);  
   
   participants_index participants(_soviet, coopname.value);
   auto participant = participants.find(username.value);
 
   eosio::check(participant != participants.end(), "Вы не являетесь пайщиком указанного кооператива");
-  
+
   progwallets_index progwallets(_soviet, coopname.value);
 
   auto balances_by_username_and_program = progwallets.template get_index<"byuserprog"_n>();
   auto username_and_program_index = combine_ids(username.value, program_id);
   auto balance = balances_by_username_and_program.find(username_and_program_index);
   
-  if (balance == balances_by_username_and_program.end()) {
-    print("on emplace", coopname, username);
-    progwallets.emplace(payer, [&](auto &b) {
-      b.id = progwallets.available_primary_key();
-      b.available = quantity;
-      b.program_id = program_id;
-      b.coopname = coopname;
-      b.username = username;
-    });
-  } else {
-    print("on modify");
-    balances_by_username_and_program.modify(balance, payer, [&](auto &b) { 
-      b.available += quantity; 
-    });
+  eosio::check(balance != balances_by_username_and_program.end(), "Вы не являетесь участником указанной ЦПП");
 
-  };
+  balances_by_username_and_program.modify(balance, payer, [&](auto &b) { 
+    b.available += quantity; 
+  });
+  
+  
 }
 
 
@@ -156,17 +145,11 @@ void soviet::subprogbal(eosio::name coopname, eosio::name username, uint64_t pro
 
   eosio::check(balance ->available >= quantity, "Недостаточный баланс");
 
-  if (balance -> available > quantity) {
-    
-    balances_by_username_and_program.modify(balance, payer, [&](auto &b) { 
-      b.available -= quantity; 
-    });
+  balances_by_username_and_program.modify(balance, payer, [&](auto &b) { 
+    b.available -= quantity; 
+  });
 
-  } else {
-  
-    balances_by_username_and_program.erase(balance);
 
-  }
 }
 
 

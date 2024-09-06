@@ -41,6 +41,17 @@ typedef eosio::multi_index<
     "drafts"_n, onedraft,
     eosio::indexed_by<"byregistryid"_n, eosio::const_mem_fun<onedraft, uint64_t, &onedraft::by_registry_id>>>
     drafts_index;
+    
+    
+onedraft get_draft_by_registry_or_fail(eosio::name scope, uint64_t draft_registry_id) {
+  drafts_index drafts(_draft, scope.value);
+  auto drafts_index_by_registry = drafts.template get_index<"byregistryid"_n>();
+  auto draft = drafts_index_by_registry.find(draft_registry_id);
+  
+  eosio::check(draft != drafts_index_by_registry.end(), "Шаблон документа не найден");
+  
+  return *draft;
+}
 
 struct [[eosio::table, eosio::contract(DRAFT)]] translation
 {
@@ -62,3 +73,5 @@ typedef eosio::multi_index<
         "bydraftlang"_n,
         eosio::const_mem_fun<translation, uint128_t, &translation::by_draft_lang>>>
     translations_index;
+
+

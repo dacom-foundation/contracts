@@ -1,9 +1,5 @@
 #include <eosio.token/eosio.token.hpp>
-#include "../../../../common/consts.hpp"
-#include "../../../../common/utils.hpp"
-#include "../../../../common/drafts.hpp"
-#include "../../../../common/accounts.hpp"
-#include "../../../../common/coops.hpp"
+#include "../../../../common/common.hpp"
 
 namespace eosio {
 
@@ -28,18 +24,18 @@ void token::create( const name&   issuer,
 }
 
 void token::is_can_transfer(const name& from, const name& to) {
-  bool from_exist_in_provider = is_participant_exist(_provider, from);
-  bool to_exist_in_provider = is_participant_exist(_provider, to);
+  bool from_exist_in_provider = is_valid_participant_of_program_by_type(_provider, from, "wallet"_n);
+  bool to_exist_in_provider = is_valid_participant_of_program_by_type(_provider, to, "wallet"_n);
   
   if (!from_exist_in_provider && std::find(token_whitelist.begin(), token_whitelist.end(), from) == token_whitelist.end()) {
-      check(false, "Отправитель не является членом кооператива-провайдера");
+      check(false, "Отправитель не является участником целевой потребительской программы кошелька");
   }
   
   print("from: ", from);
   print("to: ", to);
   
   if (!to_exist_in_provider && std::find(token_whitelist.begin(), token_whitelist.end(), to) == token_whitelist.end()) {
-      check(false, "Получатель не является членом кооператива-провайдера");
+      check(false, "Получатель не является участником целевой потребительской программы кошелька");
   }
 }
 

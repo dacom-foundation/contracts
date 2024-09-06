@@ -1,5 +1,6 @@
 using namespace eosio;
-
+#include <eosio/eosio.hpp>
+#include <eosio/crypto.hpp>
 
 /**
 \ingroup public_actions
@@ -104,29 +105,6 @@ void soviet::createboard(eosio::name coopname, eosio::name username, eosio::name
     participants_index participants(_soviet, coopname.value);
     auto cooperative = get_cooperative_or_fail(coopname);
     
-    // auto participant = participants.find(chairman.value);
-    
-    // if (participant == participants.end())
-    //   participants.emplace(payer, [&](auto &m){
-    //     m.username = chairman;
-    //     m.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
-    //     m.last_update = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
-    //     m.last_min_pay = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
-    //     m.status = "accepted"_n;
-    //     m.is_initial = true;
-    //     m.is_minimum = true;
-    //     m.has_vote = true;    
-    //   });
-
-    // wallets_index wallets(_soviet, coopname.value);
-    // wallets.emplace(payer, [&](auto &w){
-    //   w.username = chairman;
-    //   w.coopname = coopname;
-    //   w.available = asset(0, cooperative.initial.symbol);
-    //   w.blocked = asset(0, cooperative.initial.symbol);
-    //   w.minimum = cooperative.minimum; 
-    // });
-
     addresses_index addresses(_soviet, coopname.value);
     address_data data;
 
@@ -135,6 +113,9 @@ void soviet::createboard(eosio::name coopname, eosio::name username, eosio::name
       a.coopname = coopname;
       a.data = data;
     });
+    
+    //TODO добавить сюда емплейс программы ЦПП кошелька
+    
 
   } else {
     
@@ -179,7 +160,7 @@ void soviet::createboard(eosio::name coopname, eosio::name username, eosio::name
 */
 void soviet::updateboard(eosio::name coopname, eosio::name username, uint64_t board_id, std::vector<board_member> members, std::string name, std::string description){
 
-  check_auth_or_fail(coopname, username, "createboard"_n);
+  check_auth_or_fail(coopname, username, "updateboard"_n);
   
   cooperatives_index coops(_registrator, _registrator.value);
   auto org = coops.find(coopname.value);

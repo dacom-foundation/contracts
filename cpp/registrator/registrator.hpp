@@ -6,15 +6,7 @@
 #include <eosio/system.hpp>
 #include <eosio/time.hpp>
 
-#include "../common/utils.hpp"
-#include "../common/consts.hpp"
-#include "../common/accounts.hpp"
-#include "../common/drafts.hpp"
-#include "../common/coops.hpp"
-#include "../common/permissions.hpp"
-#include "../common/rammarket.hpp"
-#include "../common/balances.hpp"
-#include "../common/admins.hpp"
+#include "../common/common.hpp"
 
 /**
  *  \ingroup public_contracts

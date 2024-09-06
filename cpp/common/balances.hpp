@@ -107,12 +107,14 @@ struct [[eosio::table, eosio::contract(SOVIET)]] progwallet {
   uint64_t id;
   eosio::name coopname;
   uint64_t program_id;
+  uint64_t agreement_id;
   eosio::name username;
   eosio::asset available;
   
   uint64_t primary_key() const { return id; } /*!< return id - primary_key */
   uint64_t by_username() const { return username.value; } /*!< username - secondary_key */
   uint64_t by_program() const { return program_id; } /*!< username - secondary_key */
+  uint64_t by_agreement() const { return agreement_id; } /*!< agreement_id - secondary_key */
 
   uint128_t by_username_and_program() const {
     return combine_ids(username.value, program_id);
@@ -122,17 +124,17 @@ struct [[eosio::table, eosio::contract(SOVIET)]] progwallet {
 typedef eosio::multi_index<"progwallets"_n, progwallet, 
   eosio::indexed_by<"byusername"_n, eosio::const_mem_fun<progwallet, uint64_t, &progwallet::by_username>>,
   eosio::indexed_by<"byprogram"_n, eosio::const_mem_fun<progwallet, uint64_t, &progwallet::by_program>>,
-  eosio::indexed_by<"byuserprog"_n, eosio::const_mem_fun<progwallet, uint128_t, &progwallet::by_username_and_program>>
+  eosio::indexed_by<"byuserprog"_n, eosio::const_mem_fun<progwallet, uint128_t, &progwallet::by_username_and_program>>,
+  eosio::indexed_by<"byagreement"_n, eosio::const_mem_fun<progwallet, uint64_t, &progwallet::by_agreement>>
 > progwallets_index; /*!< Тип мультииндекса для таблицы кошелька программ */
 
 
 
-void add_balance(eosio::name source, eosio::name username, eosio::asset quantity,
-                                  eosio::name contract) {
+
+void add_balance(eosio::name source, eosio::name username, eosio::asset quantity, eosio::name contract) {
   // Если баланс не найден, создаем новую запись.
   // В противном случае, увеличиваем существующий баланс.
 
-  
   eosio::check(username != ""_n, "В поле memo должен быть указан получатель баланса");
   balances_index balances(source, username.value);
 

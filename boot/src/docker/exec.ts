@@ -1,6 +1,6 @@
-import type { Container } from 'dockerode'
-import { findContainerByName } from './find'
-import { runContainer } from './run'
+import type { Container } from "dockerode"
+import { findContainerByName } from "./find"
+import { runContainer } from "./run"
 
 export async function execCommand(command: string[]): Promise<string> {
   const container = await runContainer(true)
@@ -17,19 +17,20 @@ export async function execCommand(command: string[]): Promise<string> {
         return reject(err)
       }
 
-      let output = ''
+      let output = ""
 
       // eslint-disable-next-line node/prefer-global/buffer
-      stream.on('data', (data: Buffer) => {
+      stream.on("data", (data: Buffer) => {
         output += data.toString()
       })
 
-      stream.on('end', () => {
+      stream.on("end", () => {
+        output = output.replace(/^\d+\s*/, "")
         console.log(output)
         resolve(output)
       })
 
-      stream.on('error', (err: any) => {
+      stream.on("error", (err: any) => {
         reject(err)
       })
     })

@@ -1,13 +1,15 @@
-import axios from 'axios'
-import { describe, expect, it } from 'vitest'
-import type { Account, Contract, Keys } from '../types'
-import config from '../configs'
-import Blockchain from '../blockchain'
-import { sleep } from '../utils'
+import axios from "axios"
+import { describe, expect, it } from "vitest"
+import type { Account, Contract, Keys } from "../types"
+import config, { GOVERN_SYMBOL } from "../configs"
+import Blockchain from "../blockchain"
+import { sleep } from "../utils"
 
-const test_hash = '157192b276da23cc84ab078fc8755c051c5f0430bf4802e55718221e6b76c777'
-const test_sign = 'SIG_K1_KmKWPBC8dZGGDGhbKEoZEzPr3h5crRrR2uLdGRF5DJbeibY1MY1bZ9sPwHsgmPfiGFv9psfoCVsXFh9TekcLuvaeuxRKA8'
-const test_pkey = 'EOS5JhMfxbsNebajHcTEK8yC9uNN9Dit9hEmzE8ri8yMhhzxrLg3J'
+const test_hash =
+  "157192b276da23cc84ab078fc8755c051c5f0430bf4802e55718221e6b76c777"
+const test_sign =
+  "SIG_K1_KmKWPBC8dZGGDGhbKEoZEzPr3h5crRrR2uLdGRF5DJbeibY1MY1bZ9sPwHsgmPfiGFv9psfoCVsXFh9TekcLuvaeuxRKA8"
+const test_pkey = "EOS5JhMfxbsNebajHcTEK8yC9uNN9Dit9hEmzE8ri8yMhhzxrLg3J"
 const test_meta = JSON.stringify({})
 
 const document = {
@@ -25,29 +27,40 @@ class Cooperative {
   }
 
   async createCooperative(username?: string, keys?: Keys) {
-    const account = await this.blockchain.generateKeypair(username, keys, 'Аккаунт кооператива')
-    console.log('Регистрируем аккаунт')
+    const account = await this.blockchain.generateKeypair(
+      username,
+      keys,
+      "Аккаунт кооператива"
+    )
+    console.log("Регистрируем аккаунт")
     await this.blockchain.registerAccount2({
       registrator: config.provider,
       coopname: config.provider,
-      referer: '',
+      referer: "",
       username: account.username,
       public_key: account.publicKey,
-      signature_hash: '',
-      meta: '',
+      meta: "",
     })
 
-    console.log('Переводим аккаунт в организации')
+    console.log("Регистрируем аккаунт как пользователя")
+
+    await this.blockchain.registerUser({
+      registrator: config.provider,
+      coopname: config.provider,
+      username: account.username,
+      type: "organization",
+    })
+
+    console.log("Переводим аккаунт в организации")
 
     await this.blockchain.registerOrganization({
       registrator: config.provider_chairman,
-      coopname: config.provider,
-      username: account.username,
+      coopname: account.username,
       params: {
         is_cooperative: true,
-        coop_type: 'conscoop',
-        announce: 'Тестовый кооператив',
-        description: 'Тестовое описание',
+        coop_type: "conscoop",
+        announce: "Тестовый кооператив",
+        description: "Тестовое описание",
         initial: `500.0000 ${config.token.govern_symbol}`,
         minimum: `500.0000 ${config.token.govern_symbol}`,
         org_initial: `1000.0000 ${config.token.govern_symbol}`,
@@ -55,7 +68,7 @@ class Cooperative {
       },
     })
 
-    console.log('Отправляем заявление на вступление')
+    console.log("Отправляем заявление на вступление")
 
     await this.blockchain.joinCoop({
       registrator: config.provider_chairman,
@@ -64,7 +77,7 @@ class Cooperative {
       document,
     })
 
-    console.log('Голосуем по решению в провайдере')
+    console.log("Голосуем по решению в провайдере")
 
     await this.blockchain.votefor({
       coopname: config.provider,
@@ -72,7 +85,7 @@ class Cooperative {
       decision_id: 1,
     })
 
-    console.log('Утверждаем решение в провайдере')
+    console.log("Утверждаем решение в провайдере")
 
     await this.blockchain.authorize({
       coopname: config.provider,
@@ -81,12 +94,32 @@ class Cooperative {
       document,
     })
 
-    console.log('Исполняем решение в провайдере')
+    console.log("Исполняем решение в провайдере")
 
     await this.blockchain.exec({
       executer: config.provider_chairman,
       coopname: config.provider,
       decision_id: 1,
+    })
+
+    await sleep(2000)
+
+    console.log("устанавливаем программу кошелька")
+
+    await this.blockchain.createProgram({
+      coopname: config.provider,
+      username: config.provider_chairman,
+      program_type: "wallet",
+      draft_registry_id: "1000",
+      title: 'Целевая потребительская программа "Цифровой Кошелёк"',
+      announce: "",
+      description: "",
+      preview: "",
+      images: "",
+      calculation_type: "free",
+      fixed_membership_contribution: `${Number(0).toFixed(4)} ${GOVERN_SYMBOL}`,
+      membership_percent_fee: "0",
+      meta: "",
     })
   }
 }
@@ -97,7 +130,7 @@ export async function startCoop() {
   const cooperative = new Cooperative(blockchain)
 
   await blockchain.powerup({
-    payer: 'eosio',
+    payer: "eosio",
     receiver: config.provider,
     days: config.powerup.days,
     payment: `100.0000 ${config.token.symbol}`,
@@ -105,10 +138,10 @@ export async function startCoop() {
   })
 
   await blockchain.transfer({
-    from: 'eosio',
+    from: "eosio",
     to: config.provider,
     quantity: `100.0000 ${config.token.symbol}`,
-    memo: '',
+    memo: "",
   })
 
   await cooperative.createCooperative()

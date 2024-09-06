@@ -206,14 +206,6 @@ typedef eosio::multi_index< "participants"_n, participant,
 > participants_index;
 
 
-participant get_participant_or_fail(eosio::name coopname, eosio::name username){
-  participants_index participants(_soviet, coopname.value);
-  auto participant = participants.find(username.value);
-  eosio::check(participant != participants.end(), "Пайщик не найден в кооперативе");
-
-  return *participant;
-}
-
 /**
  * @ingroup public_tables
  * @brief Структура, представляющая решения кооператива.
@@ -373,20 +365,6 @@ struct [[eosio::table, eosio::contract(SOVIET)]] address {
 typedef eosio::multi_index< "addresses"_n, address> addresses_index;
 
 
-
-bool is_participant_exist(eosio::name coopname, eosio::name username) {
-  participants_index participants(_soviet, coopname.value);
-  auto participant = participants.find(username.value);
-  accounts_index accounts(_registrator, _registrator.value);
-  auto account = accounts.find(username.value);
-  if (participant != participants.end() && account -> status == "active"_n && participant->status == "accepted"_n) {
-    return true;
-  }
-  
-  return false;
-}
-
-
 struct [[eosio::table, eosio::contract("SOVIET")]] branch {
   eosio::name username;
   std::string name;
@@ -430,7 +408,32 @@ branch get_branch_or_fail(eosio::name coopname, eosio::name braname) {
 
 
 
+bool is_valid_participant(eosio::name coopname, eosio::name username) {
+  participants_index participants(_soviet, coopname.value);
+  auto participant = participants.find(username.value);
+  accounts_index accounts(_registrator, _registrator.value);
+  auto account = accounts.find(username.value);
+  
+  if (
+    participant != participants.end() && 
+    account -> status == "active"_n && 
+    participant->status == "accepted"_n
+  ) 
+  {
+    return true;
+  }
+  
+  return false;
+}
 
+
+participant get_participant_or_fail(eosio::name coopname, eosio::name username){
+  participants_index participants(_soviet, coopname.value);
+  auto participant = participants.find(username.value);
+  eosio::check(participant != participants.end(), "Пайщик не найден в кооперативе");
+
+  return *participant;
+}
 
 
 

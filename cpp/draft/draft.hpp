@@ -6,10 +6,7 @@
 #include <eosio/system.hpp>
 #include <eosio/time.hpp>
 
-#include "../common/consts.hpp"
-#include "../common/utils.hpp"
-#include "../common/counts.hpp"
-#include "../common/drafts.hpp"
+#include "../common/common.hpp"
 
 class [[eosio::contract(DRAFT)]] draft : public eosio::contract {
 
@@ -22,18 +19,18 @@ public:
   
   [[eosio::action]] void migrate();
   
-  [[eosio::action]] void newid(uint64_t id);
+  [[eosio::action]] void newid(eosio::name scope, uint64_t id);
 
-  [[eosio::action]] void createdraft(uint64_t registry_id, eosio::name lang, std::string title, 
+  [[eosio::action]] void createdraft(eosio::name scope, eosio::name username, uint64_t registry_id, eosio::name lang, std::string title, 
       std::string description, std::string context, std::string model, std::string translation_data);
 
-  [[eosio::action]] void deldraft(uint64_t draft_id);
+  [[eosio::action]] void deldraft(eosio::name scope, eosio::name username, uint64_t draft_id);
 
-  [[eosio::action]] void createtrans(uint64_t draft_id, eosio::name lang, std::string data);
+  [[eosio::action]] void createtrans(eosio::name scope, eosio::name username, uint64_t draft_id, eosio::name lang, std::string data);
 
-  [[eosio::action]] void deltrans(uint64_t translate_id);
+  [[eosio::action]] void deltrans(eosio::name scope, eosio::name username, uint64_t translate_id);
 
-  [[eosio::action]] void edittrans(uint64_t translate_id, std::string data);
+  [[eosio::action]] void edittrans(eosio::name scope, eosio::name username, uint64_t translate_id, std::string data);
 
 
   struct [[eosio::table, eosio::contract(DRAFT)]] counts : counts_base {};
