@@ -773,7 +773,7 @@ export default class Blockchain {
             name: SovietContract.Actions.Boards.CreateBoard.actionName,
             authorization: [
               {
-                actor: params.chairman,
+                actor: params.username,
                 permission: "active",
               },
             ],
@@ -868,6 +868,38 @@ export default class Blockchain {
             authorization: [
               {
                 actor: params.username,
+                permission: "active",
+              },
+            ],
+            data: {
+              ...params,
+            },
+          },
+        ],
+      },
+      {
+        blocksBehind: 3,
+        expireSeconds: 30,
+      }
+    )
+
+    console.log("Программа установлена: ", params)
+  }
+
+  async makeCoagreement(
+    params: SovietContract.Actions.Agreements.MakeCoagreement.IMakeCoagreement
+  ) {
+    await this.update_pass_instance()
+
+    await this.api.transact(
+      {
+        actions: [
+          {
+            account: SovietContract.contractName.production,
+            name: SovietContract.Actions.Agreements.MakeCoagreement.actionName,
+            authorization: [
+              {
+                actor: params.administrator,
                 permission: "active",
               },
             ],

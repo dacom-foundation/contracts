@@ -1,9 +1,11 @@
 import axios from "axios"
 import { describe, expect, it } from "vitest"
+import { Registry } from "coopdoc-generator-ts"
+import { Cooperative as TCooperative } from "cooptypes"
 import type { Account, Contract, Keys } from "../types"
 import config, { GOVERN_SYMBOL } from "../configs"
 import Blockchain from "../blockchain"
-import { sleep } from "../utils"
+import { sendPostToCoopbackWithSecret, sleep } from "../utils"
 
 const test_hash =
   "157192b276da23cc84ab078fc8755c051c5f0430bf4802e55718221e6b76c777"
@@ -104,14 +106,44 @@ class Cooperative {
 
     await sleep(2000)
 
-    console.log("устанавливаем программу кошелька")
+    // const vars: TCooperative.Model.ICovars = {
+    //   coopname: 'voskhod',
+    //   full_abbr: 'потребительский кооператив',
+    //   full_abbr_genitive: 'потребительского кооператива',
+    //   full_abbr_dative: 'потребительскому кооперативу',
+    //   short_abbr: 'ПК',
+    //   website: 'coopenomics.world',
+    //   name: 'ВОСХОД',
+    //   confidential_link: 'coopenomics.world/privacy',
+    //   confidential_email: 'privacy@coopenomics.world',
+    //   contact_email: 'contact@coopenomics.world',
+    //   wallet_agreement: {
+    //     protocol_number: '10-04-2024',
+    //     protocol_day_month_year: '10 апреля 2024 г.',
+    //   },
+    //   signature_agreement: {
+    //     protocol_number: '11-04-2024',
+    //     protocol_day_month_year: '11 апреля 2024 г.',
+    //   },
+    //   privacy_agreement: {
+    //     protocol_number: '12-04-2024',
+    //     protocol_day_month_year: '12 апреля 2024 г.',
+    //   },
+    //   user_agreement: {
+    //     protocol_number: '13-04-2024',
+    //     protocol_day_month_year: '13 апреля 2024 г.',
+    //   },
+    // }
 
+    // console.log('устанавливаем переменные кооператива')
+    // await sendPostToCoopbackWithSecret('/v1/system/set-vars', vars)
+
+    console.log("создаём программу кошелька")
     await this.blockchain.createProgram({
       coopname: config.provider,
       username: config.provider_chairman,
-      program_type: "wallet",
-      draft_registry_id: "1000",
-      title: 'Целевая потребительская программа "Цифровой Кошелёк"',
+      draft_id: TCooperative.Registry.WalletAgreement.registry_id,
+      title: "Цифровой Кошелёк",
       announce: "",
       description: "",
       preview: "",
@@ -120,6 +152,46 @@ class Cooperative {
       fixed_membership_contribution: `${Number(0).toFixed(4)} ${GOVERN_SYMBOL}`,
       membership_percent_fee: "0",
       meta: "",
+    })
+
+    console.log("создаём кооперативное соглашение/положение по кошельку")
+    await this.blockchain.makeCoagreement({
+      coopname: config.provider,
+      administrator: config.provider_chairman,
+      type: "wallet",
+      draft_id: TCooperative.Registry.WalletAgreement.registry_id,
+      program_id: 1,
+    })
+
+    await this.blockchain.makeCoagreement({
+      coopname: config.provider,
+      administrator: config.provider_chairman,
+      type: "signature",
+      draft_id: TCooperative.Registry.RegulationElectronicSignature.registry_id,
+      program_id: 0,
+    })
+    await this.blockchain.makeCoagreement({
+      coopname: config.provider,
+      administrator: config.provider_chairman,
+      type: "user",
+      draft_id: TCooperative.Registry.UserAgreement.registry_id,
+      program_id: 0,
+    })
+
+    await this.blockchain.makeCoagreement({
+      coopname: config.provider,
+      administrator: config.provider_chairman,
+      type: "privacy",
+      draft_id: TCooperative.Registry.PrivacyPolicy.registry_id,
+      program_id: 0,
+    })
+
+    await this.blockchain.makeCoagreement({
+      coopname: config.provider,
+      administrator: config.provider_chairman,
+      type: "coopenomics",
+      draft_id: TCooperative.Registry.CoopenomicsAgreement.registry_id,
+      program_id: 0,
     })
   }
 }

@@ -24,9 +24,11 @@ public:
   [[eosio::action]] void createdraft(eosio::name scope, eosio::name username, uint64_t registry_id, eosio::name lang, std::string title, 
       std::string description, std::string context, std::string model, std::string translation_data);
 
-  [[eosio::action]] void deldraft(eosio::name scope, eosio::name username, uint64_t draft_id);
+  [[eosio::action]] void editdraft(eosio::name scope, eosio::name username, uint64_t registry_id, std::string title, std::string description, std::string context, std::string model);
+    
+  [[eosio::action]] void deldraft(eosio::name scope, eosio::name username, uint64_t registry_id);
 
-  [[eosio::action]] void createtrans(eosio::name scope, eosio::name username, uint64_t draft_id, eosio::name lang, std::string data);
+  [[eosio::action]] void createtrans(eosio::name scope, eosio::name username, uint64_t registry_id, eosio::name lang, std::string data);
 
   [[eosio::action]] void deltrans(eosio::name scope, eosio::name username, uint64_t translate_id);
 

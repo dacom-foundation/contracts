@@ -71,111 +71,16 @@ static constexpr eosio::name _efund_withdraw_action = "subexp"_n;
 #define HUNDR_PERCENTS 1000000
 #define ONE_PERCENT 10000
 
-// Определение флага IS_TESTNET
-#ifndef IS_TESTNET
-    #define TESTNET false
-    #pragma message("Compiling with IS_TESTNET set to false")
-#else
-    #define TESTNET true
-    #pragma message("Compiling with IS_TESTNET set to true")
-#endif
 
-#if TESTNET
-    // Дефайны для тестовой сети
-    #define ANO "ano"
-    #define GATEWAY "gateway"
-    #define DRAFT "draft"
-    #define MARKETPLACE "marketplace"
-    #define SOVIET "soviet"
-    #define REGISTRATOR "registrator"
-    #define SYSTEM "eosio"
-    #define FUND "fund"
-    
-
-    // Константы для тестовой сети
-    static constexpr eosio::name _provider = "voskhod"_n;
-    static constexpr eosio::name _provider_chairman = "ant"_n;
-
-    static constexpr eosio::name _ano = "ano"_n;
-    static constexpr eosio::name _gateway = "gateway"_n;
-    static constexpr eosio::name _draft = "draft"_n;
-    static constexpr eosio::name _marketplace = "marketplace"_n;
-    static constexpr eosio::name _soviet = "soviet"_n;
-    static constexpr eosio::name _registrator = "registrator"_n;
-    static constexpr eosio::name _system = "eosio"_n;
-    static constexpr eosio::name _fund = "fund"_n;
-    static constexpr eosio::name _power_account = "eosio.power"_n;
-    static constexpr eosio::name _saving_account = "eosio.saving"_n;
-    
-    static std::vector<name> contracts_whitelist = {
-        "ano"_n,
-        "gateway"_n,
-        "draft"_n,
-        "marketplace"_n,
-        "soviet"_n,
-        "registrator"_n,
-        "eosio"_n,
-        "fund"_n,
-        "eosio.token"_n,
-        "eosio.msig"_n,
-        "eosio.wrap"_n,
-        "eosio.power"_n,
-        "eosio.saving"_n,
-        // Добавьте остальные стандартные или пользовательские контракты по необходимости
-      };
-
-    static std::vector<name> token_whitelist = {
-      "eosio"_n,
-      "eosio.vpay"_n,
-      "eosio.saving"_n,
-      "eosio.bpay"_n,
-      "eosio.saving"_n,
-      "eosio.power"_n,
-      "eosio.ram"_n,
-      "eosio.stake"_n,
-      "fund"_n,
-      _provider,
-      "aaaaaaaaaaaa"_n,
-      "bbbbbbbbbbbb"_n,
-      // Добавьте другие аккаунты в список по мере необходимости
-    };    
-
-    static constexpr eosio::symbol _root_symbol = eosio::symbol(eosio::symbol_code("TAXON"), 4); /*!< системный токен */
-    static constexpr eosio::symbol _root_govern_symbol = eosio::symbol(eosio::symbol_code("TRUB"), 4); 
-    static const eosio::asset _provider_initial = eosio::asset(1000000, _root_govern_symbol);
-    static const eosio::asset _provider_minimum = eosio::asset(1000000, _root_govern_symbol);
-
-    static const eosio::asset _provider_org_initial = eosio::asset(10000000, _root_govern_symbol);
-    static const eosio::asset _provider_org_minimum = eosio::asset(10000000, _root_govern_symbol);
-
-    static constexpr eosio::name _root_contract = "eosio.token"_n; /*!< системный контракт */
-    static constexpr eosio::symbol RAM_symbol{"RAM", 0}; /*!< токен рынка оперативной памяти */
-    static constexpr eosio::symbol _ramcore_symbol = eosio::symbol(eosio::symbol_code("RAMCORE"),4); /*!< идентификационный токен рынка оперативной памяти */
-    static constexpr uint64_t _ram_price_per_byte = 1;  /*!< стоимость 1 байта в эпсилон AXON (0.0001) */
-    
-    static constexpr uint64_t _register_amount = 10000; /*!< стоимость регистрации нового аккаунта */ 
-
-    static constexpr uint64_t _signature_expiration = 86400 * 365 * 2;
-    static constexpr uint64_t _auction_name_length_limit = 12;
-    
-    static constexpr uint64_t _deposit_expiration_seconds = 3600;
-    
-    static constexpr uint64_t _producers_percent = 900000; // 90%
-    static constexpr uint64_t _fund_percent = 100000; // 10%
-    
-    
-    
-    
-#else
-    // Дефайны для основной сети
-    #define ANO "ano"
-    #define GATEWAY "gateway"
-    #define DRAFT "draft"
-    #define MARKETPLACE "marketplace"
-    #define SOVIET "soviet"
-    #define REGISTRATOR "registrator"
-    #define SYSTEM "eosio"
-    #define FUND "fund"
+// Дефайны для основной сети
+#define ANO "ano"
+#define GATEWAY "gateway"
+#define DRAFT "draft"
+#define MARKETPLACE "marketplace"
+#define SOVIET "soviet"
+#define REGISTRATOR "registrator"
+#define SYSTEM "eosio"
+#define FUND "fund"
     
 /**
 * @ingroup public_consts
@@ -253,5 +158,3 @@ static constexpr eosio::name _efund_withdraw_action = "subexp"_n;
 * @}
 */
 
-
-#endif

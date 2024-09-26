@@ -1,4 +1,36 @@
 /**
+ * @brief Метод создания кооперативного соглашения. Связывает шаблон и программу. 
+ * Таблица используется для хранения типов соглашений, по которым на фронте проверяется наличие подписанного соглашения по версиям.
+ * Отсутствие подписи последней версии соглашения не блокирует деятельность по контрактам. Полное отсутствие подписанных соглашений не допускает использование программы. 
+ * @param coopname 
+ * @param administrator 
+ * @param type 
+ * @param draft_id 
+ * @param program_id 
+ */
+[[eosio::action]] void soviet::makecoagreem(eosio::name coopname, eosio::name administrator, eosio::name type, uint64_t draft_id, uint64_t program_id){
+  check_auth_or_fail(coopname, administrator, "makecoagreem"_n);
+  
+  coagreements_index coagreements(_soviet, coopname.value);
+  auto exist = coagreements.find(type.value);
+  eosio::check(exist == coagreements.end(), "Соглашение указанного типа уже существует");
+  
+  auto draft = get_scoped_draft_by_registry_or_fail(_draft, draft_id);
+  
+  if (program_id > 0)
+    auto program = get_program_or_fail(coopname, program_id); 
+  
+  coagreements.emplace(_soviet, [&](auto &row){
+    row.type = type;
+    row.coopname = coopname;
+    row.program_id = program_id;
+    row.draft_id = draft_id;
+  });
+   
+};
+
+
+/**
  * @brief 
  1. Пользователь вызывает метод sndagreement и прекрепляет подписанное заявление
     Вызываем метод первичной фиксации документа в реестре newsubmitted
@@ -6,43 +38,47 @@
  3. При acceptjoin создаётся кошелек с документом и его подписанным хэшем
     Вызываем метод окончательной фиксации документа в реестре.
  */
-
-[[eosio::action]] void soviet::sndagreement(eosio::name coopname, eosio::name username, eosio::name agreement_type, uint64_t program_id, uint64_t draft_registry_id, document document) {
-  require_auth(username);
+[[eosio::action]] void soviet::sndagreement(eosio::name coopname, eosio::name administrator, eosio::name username, eosio::name agreement_type, document document) {
+  
+  eosio::check(has_auth(username) || has_auth(administrator), "Недостаточно прав доступа");
+  
+  auto coop = get_cooperative_or_fail(coopname);
+    
+  if (has_auth(administrator)) {
+    check_auth_or_fail(coopname, administrator, "createboard"_n);
+  }
   
   verify_document_or_fail(document);
   
-  eosio::check(agreement_type == "wallet"_n || agreement_type == ""_n, "Неверный тип соглашения");
+  auto coagreement = get_coagreement_or_fail(coopname, agreement_type);
   
   //получаем шаблон документа
-  auto draft = get_draft_by_registry_or_fail(coopname, draft_registry_id);
+  auto draft = get_scoped_draft_by_registry_or_fail(_draft, coagreement.draft_id);
   
   //извлекаем версию. считаем, что входящий документ текущей версии. 
   uint64_t version = draft.version;
   
   auto agreement_id = get_global_id_in_scope(_soviet, coopname, "agreements"_n);
+  
+  if (coagreement.program_id > 0) {
     
-  if (agreement_type == "wallet"_n) {
-    //TODO проверить программу на соответстетствие по указанному program_id  
-    eosio::check(program_id == 0, "Идентификатор программы должен быть указан для поиска программы");
-    auto program = get_program_or_fail(coopname, program_id);  
-    eosio::check(program.draft_registry_id == draft_registry_id, "Указан неверный идентификатор шаблона целевой программы");
+    auto program = get_program_or_fail(coopname, coagreement.program_id);  
+    eosio::check(program.draft_id == coagreement.draft_id, "Указан неверный идентификатор шаблона целевой программы");
     
     /**
-    * @brief Создаём кошелёк программы для пайщика
+    * @brief Создаём кошелёк программы для пайщика если его ещё нет
     */
+    
     progwallets_index progwallets(_soviet, coopname.value);
-    auto coop = get_cooperative_or_fail(coopname);
-
     auto wallets_by_username_and_program = progwallets.template get_index<"byuserprog"_n>();
-    auto username_and_program_index = combine_ids(username.value, program_id);
+    auto username_and_program_index = combine_ids(username.value, coagreement.program_id);
     auto wallet = wallets_by_username_and_program.find(username_and_program_index);
-
+  
     if (wallet == wallets_by_username_and_program.end()) {
       
       progwallets.emplace(_soviet, [&](auto &b) {
         b.id = progwallets.available_primary_key();
-        b.program_id = program_id;
+        b.program_id = coagreement.program_id;
         b.coopname = coopname;
         b.username = username;
         b.available = asset(0, coop.initial.symbol);      
@@ -50,11 +86,7 @@
       });      
     } 
     
-  } else if (agreement_type == ""_n){
-    eosio::check(program_id == 0, "Указание вторичного идентификатора не требуется для простых соглашений");
-  };
-  
-  
+  } 
   
   /**
    * @brief Здесь надо проверить соглашение по ключу регистра шаблона для пользователя. 
@@ -63,7 +95,7 @@
    */
   agreements_index agreements(_soviet, coopname.value);
   auto agreements_by_username_and_draft = agreements.template get_index<"byuserdraft"_n>();
-  auto index = combine_ids(username.value, draft_registry_id);
+  auto index = combine_ids(username.value, coagreement.draft_id);
 
   auto agreement = agreements_by_username_and_draft.find(index);
 
@@ -72,11 +104,11 @@
     agreements.emplace(_soviet, [&](auto &row){
       row.id = agreement_id;
       row.coopname = coopname;
-      row.status = "pending"_n;
+      row.status = ""_n;
       row.type = agreement_type;
       row.version = version;
-      row.draft_registry_id = draft_registry_id;
-      row.program_id = program_id;
+      row.draft_id = coagreement.draft_id;
+      row.program_id = coagreement.program_id;
       row.username = username;
       row.document = document;
       row.updated_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
@@ -85,9 +117,9 @@
     
     eosio::check(agreement -> status != "confirmed"_n, "Соглашение уже принято");
     
-    agreements_by_username_and_draft.modify(agreement, username, [&](auto &row){
-      row.status = "pending"_n;
-      row.program_id = program_id;
+    agreements_by_username_and_draft.modify(agreement, _soviet, [&](auto &row){
+      row.status = ""_n;
+      row.program_id = coagreement.program_id;
       row.version = version;
       row.document = document;
       row.updated_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
@@ -100,7 +132,7 @@
     permission_level{ _soviet, "active"_n},
     _soviet,
     "newsubmitted"_n,
-    std::make_tuple(coopname, username, agreement_type, 0, document)
+    std::make_tuple(coopname, username, agreement_type, uint64_t(0), document)
   ).send();
   
 };

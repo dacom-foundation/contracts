@@ -88,7 +88,7 @@ void gateway::adduser(eosio::name coopname, eosio::name username, eosio::asset i
  * cleos push action gateway dpcreate '["username", "coopaccount", 123, "registration", 456, "10.0000 SYS", "10.0000 EXT", "Депозит для программы X"]' -p username@active
  */
 
-[[eosio::action]] void gateway::deposit(eosio::name coopname, eosio::name username, eosio::name type, eosio::asset quantity) {
+[[eosio::action]] void gateway::deposit(eosio::name coopname, eosio::name username, uint64_t deposit_id, eosio::name type, eosio::asset quantity) {
   // TODO убрать пользователя здесь, перевести на выдачу разрешений специальному аккаунту от кооператива для обслуживания депозитов. 
   // @todo добавить специальное разрешение
   // Пользователь сам может вызвать, но ордер на оплату формируется с бэкенда и никаких ссылок здесь в процессе не фигурирует - только статус, который может быть изменен только бэкендом. 
@@ -98,8 +98,6 @@ void gateway::adduser(eosio::name coopname, eosio::name username, eosio::asset i
 
   deposits_index deposits(_gateway, coopname.value);
 
-  uint64_t id = get_global_id(_gateway, "deposits"_n);
-  
   auto cooperative = get_cooperative_or_fail(coopname);
   
   eosio::check(type == "registration"_n || type == "deposit"_n, "Неверный тип заявки");
@@ -115,7 +113,7 @@ void gateway::adduser(eosio::name coopname, eosio::name username, eosio::asset i
   }
 
   deposits.emplace(payer, [&](auto &d) {
-    d.id = id;
+    d.id = deposit_id;
     d.type = type;
     d.username = username;
     d.coopname = coopname;
@@ -123,13 +121,6 @@ void gateway::adduser(eosio::name coopname, eosio::name username, eosio::asset i
     d.status = "pending"_n;
     d.expired_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch() + _deposit_expiration_seconds);
   });
-
-  action(
-    permission_level{ _gateway, "active"_n},
-    _gateway,
-    "newdepositid"_n,
-    std::make_tuple(username, id)
-  ).send();
 
 }
 
@@ -252,6 +243,20 @@ void gateway::dpfail(eosio::name coopname, eosio::name admin, uint64_t deposit_i
     d.expired_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch() + _deposit_expiration_seconds);
   }); 
 
+}
+
+/**
+ * @brief Construct a new dprefund object
+ * 
+ * @param coopname 
+ * @param admin 
+ * @param deposit_id 
+ * @param memo 
+ */
+[[eosio::action]] dprefund(eosio::name coopname, eosio::name admin, uint64_t deposit_id, std::string memo) {
+  check_auth_or_fail(coopname, admin, "dpcomplete"_n);
+  
+  
 }
 
 

@@ -23,7 +23,6 @@ void verify_document_or_fail(const document &doc)
 
 struct [[eosio::table, eosio::contract(DRAFT)]] onedraft
 {
-  uint64_t id;
   uint64_t registry_id;
   uint64_t version;
   uint64_t default_translation_id;
@@ -32,23 +31,18 @@ struct [[eosio::table, eosio::contract(DRAFT)]] onedraft
   std::string context;
   std::string model;
 
-  uint64_t primary_key() const { return id; };
+  uint64_t primary_key() const { return registry_id; };
 
-  uint64_t by_registry_id() const { return registry_id; }
 };
 
-typedef eosio::multi_index<
-    "drafts"_n, onedraft,
-    eosio::indexed_by<"byregistryid"_n, eosio::const_mem_fun<onedraft, uint64_t, &onedraft::by_registry_id>>>
-    drafts_index;
+typedef eosio::multi_index<"drafts"_n, onedraft> drafts_index;
     
     
-onedraft get_draft_by_registry_or_fail(eosio::name scope, uint64_t draft_registry_id) {
+onedraft get_scoped_draft_by_registry_or_fail(eosio::name scope, uint64_t draft_id) {
   drafts_index drafts(_draft, scope.value);
-  auto drafts_index_by_registry = drafts.template get_index<"byregistryid"_n>();
-  auto draft = drafts_index_by_registry.find(draft_registry_id);
+  auto draft = drafts.find(draft_id);
   
-  eosio::check(draft != drafts_index_by_registry.end(), "Шаблон документа не найден");
+  eosio::check(draft != drafts.end(), "Шаблон документа не найден");
   
   return *draft;
 }

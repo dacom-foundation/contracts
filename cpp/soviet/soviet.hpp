@@ -87,12 +87,13 @@ public:
 
 
   //programs.cpp
-  [[eosio::action]] void createprog(eosio::name coopname, eosio::name username, eosio::name program_type, uint64_t draft_registry_id, std::string title, std::string announce, std::string description, std::string preview, std::string images, eosio::name calculation_type, eosio::asset fixed_membership_contribution, uint64_t membership_percent_fee, std::string meta);
-  [[eosio::action]] void editprog(eosio::name coopname, eosio::name username, uint64_t program_id, uint64_t draft_registry_id, std::string title, std::string announce, std::string description, std::string preview, std::string images, std::string meta);
+  [[eosio::action]] void createprog(eosio::name coopname, eosio::name username, uint64_t draft_id, std::string title, std::string announce, std::string description, std::string preview, std::string images, eosio::name calculation_type, eosio::asset fixed_membership_contribution, uint64_t membership_percent_fee, std::string meta);
+  [[eosio::action]] void editprog(eosio::name coopname, eosio::name username, uint64_t program_id, uint64_t draft_id, std::string title, std::string announce, std::string description, std::string preview, std::string images, std::string meta);
   [[eosio::action]] void disableprog(eosio::name coopname, uint64_t program_id);
   
-  [[eosio::action]] void sndagreement(eosio::name coopname, eosio::name username, eosio::name agreement_type, uint64_t program_id, uint64_t draft_registry_id, document document);
-  
+  //agreements.cpp
+  [[eosio::action]] void makecoagreem(eosio::name coopname, eosio::name administrator, eosio::name type, uint64_t draft_id, uint64_t program_id);
+  [[eosio::action]] void sndagreement(eosio::name coopname, eosio::name administrator, eosio::name username, eosio::name agreement_type, document document);
   [[eosio::action]] void confirmagree(eosio::name coopname, eosio::name administrator, eosio::name username, uint64_t agreement_id);
   [[eosio::action]] void declineagree(eosio::name coopname, eosio::name administrator, eosio::name username, uint64_t agreement_id, std::string comment);
   

@@ -18,6 +18,8 @@ void soviet::addbalance(eosio::name coopname, eosio::name username, eosio::asset
     w.available += quantity;
   });
 
+  //TODO addprogbal to wallet
+
 }
 
 void soviet::subbalance(eosio::name coopname, eosio::name username, eosio::asset quantity) {
@@ -39,6 +41,8 @@ void soviet::subbalance(eosio::name coopname, eosio::name username, eosio::asset
   wallets.modify(wallet, payer, [&](auto &w){
     w.available -= quantity;
   });
+  
+  //TODO subprogbal from wallet
   
 }
 

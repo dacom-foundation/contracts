@@ -2,10 +2,10 @@
 
 struct [[eosio::table, eosio::contract(SOVIET)]] program {
   uint64_t id;                 /*!< идентификатор обмена */
-  uint64_t draft_registry_id;         ///< Ссылка на шаблон условий
+  uint64_t draft_id;         ///< Ссылка на шаблон условий
+  eosio::name program_type;  /*!< тип кооперативной программы (wallet | market | ...) */
   
   eosio::name coopname;      /*!< имя аккаунта кооператива */
-  eosio::name program_type;  /*!< тип кооперативной программы (wallet | market | ...) */
   bool is_active;
   std::string title;
   std::string announce;
@@ -23,7 +23,7 @@ struct [[eosio::table, eosio::contract(SOVIET)]] program {
 
   uint64_t primary_key() const { return id; } /*!< return id - primary_key */
   uint64_t by_program_type() const { return program_type.value;} /*!< return program_type - secondary_key */
-  uint64_t by_draft() const {return draft_registry_id;};
+  uint64_t by_draft() const {return draft_id;};
 };
 
 typedef eosio::multi_index<"programs"_n, program,
@@ -77,7 +77,6 @@ bool is_valid_participant_of_program_by_type(eosio::name coopname, eosio::name u
   
     progwallets_index wallets(_soviet, coopname.value);
     
-    //TODO перейти на поиск
     auto wallet = wallets.find(exist -> id);
     
     if (wallet == wallets.end())

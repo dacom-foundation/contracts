@@ -124,6 +124,35 @@ program
     }
   })
 
+// Команда для получения списка контейнеров
+program
+  .command("clean-launch")
+  .description("Purge blockchain data and boot a Protocol")
+  .action(async () => {
+    try {
+      await deleteFile(keosdPath)
+      await stopContainerByName("node")
+      await clearDirectory(basePath)
+      await sleep(5000)
+      await runContainer()
+      await checkHealth()
+    } catch (error) {
+      console.error("Failed to boot:", error)
+    }
+  })
+
+// Команда для получения списка контейнеров
+program
+  .command("only-boot")
+  .description("Purge blockchain data and boot a Protocol")
+  .action(async () => {
+    try {
+      await boot()
+    } catch (error) {
+      console.error("Failed to boot:", error)
+    }
+  })
+
 program.parse(process.argv) // Пуск парсинга аргументов
 
 async function gracefulShutdown() {

@@ -23,21 +23,20 @@ using namespace eosio;
 *
 * @note Авторизация требуется от аккаунта: @p chairman
 */
-void soviet::createprog(eosio::name coopname, eosio::name username, eosio::name program_type, uint64_t draft_registry_id, std::string title, std::string announce, std::string description, std::string preview, std::string images, eosio::name calculation_type, eosio::asset fixed_membership_contribution, uint64_t membership_percent_fee, std::string meta) { 
+void soviet::createprog(eosio::name coopname, eosio::name username, uint64_t draft_id, std::string title, std::string announce, std::string description, std::string preview, std::string images, eosio::name calculation_type, eosio::asset fixed_membership_contribution, uint64_t membership_percent_fee, std::string meta) { 
   
   check_auth_or_fail(coopname, username, "createprog"_n);
   
   auto board = get_board_by_type_or_fail(coopname, "soviet"_n);
   
   auto cooperative = get_cooperative_or_fail(coopname);
-  auto draft = get_draft_by_registry_or_fail(coopname, draft_registry_id);
+  auto draft = get_scoped_draft_by_registry_or_fail(_draft, draft_id);
   
   programs_index programs(_soviet, coopname.value);
   
   auto program_id = get_global_id_in_scope(_soviet, coopname, "programs"_n);
 
   eosio::check(calculation_type == "free"_n || calculation_type == "absolute"_n || calculation_type == "relative"_n, "Неизвестный тип расчёта");
-  eosio::check(program_type == "wallet"_n || program_type == "market"_n, "Недопустимый тип программы");
   
   if (calculation_type == "absolute"_n) {
     eosio::check(membership_percent_fee == 0, "Процент членского взноса для независимого расчёта должен равняться нулю");
@@ -54,8 +53,7 @@ void soviet::createprog(eosio::name coopname, eosio::name username, eosio::name 
   programs.emplace(username, [&](auto &pr) {
     pr.id = program_id;
     pr.is_active = true;
-    pr.program_type = program_type;
-    pr.draft_registry_id = draft_registry_id;
+    pr.draft_id = draft_id;
     pr.coopname = coopname;
     pr.title = title;
     pr.announce = announce;
@@ -100,7 +98,7 @@ void soviet::createprog(eosio::name coopname, eosio::name username, eosio::name 
 *
 * @note Авторизация требуется от аккаунта: @p coopname
 */
-void soviet::editprog(eosio::name coopname, eosio::name username, uint64_t program_id, uint64_t draft_registry_id, std::string title, std::string announce, std::string description, std::string preview, std::string images, std::string meta) {
+void soviet::editprog(eosio::name coopname, eosio::name username, uint64_t program_id, uint64_t draft_id, std::string title, std::string announce, std::string description, std::string preview, std::string images, std::string meta) {
   check_auth_or_fail(coopname, username, "editprog"_n);
   
   programs_index programs(_soviet, coopname.value);
@@ -108,7 +106,7 @@ void soviet::editprog(eosio::name coopname, eosio::name username, uint64_t progr
   eosio::check(existing_program != programs.end(), "Программа не найдена.");
 
   programs.modify(existing_program, coopname, [&](auto& pr) {
-    pr.draft_registry_id = draft_registry_id;
+    pr.draft_id = draft_id;
     pr.title = title;
     pr.announce = announce;
     pr.description = description;

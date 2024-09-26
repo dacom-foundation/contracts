@@ -1,15 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 project(coopenomics)
 
-# Опции и флаги
-option(IS_TESTNET "Flag to indicate if it's testnet" OFF)
-
-if(IS_TESTNET)
-    message(STATUS "TESTNET is ON")
-else()
-    message(STATUS "TESTNET is OFF")
-endif()
-
 include(ExternalProject)
 
 # Распечатываем начальное значение BUILD_TARGET
