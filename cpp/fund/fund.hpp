@@ -50,7 +50,9 @@ class [[eosio::contract(FUND)]] fund : public eosio::contract {
       eosio::asset quantity);  /// < добавить сумму в паевый фонд
   [[eosio::action]] void subcirculate(
       eosio::name coopname,
-      eosio::asset quantity);  /// < списать сумму из паевого фонда
+      eosio::asset quantity,
+      bool skip_available_check = false
+      );  /// < списать сумму из паевого фонда
 
   // фонды накопления
   [[eosio::action]] void addaccum(eosio::name coopname, uint64_t fund_id,
@@ -67,6 +69,8 @@ class [[eosio::contract(FUND)]] fund : public eosio::contract {
   [[eosio::action]] void addinitial(eosio::name coopname,
                                         eosio::asset quantity);
   
+  [[eosio::action]] void subinitial(eosio::name coopname, eosio::asset quantity);
+                                          
   // метод распределения членской части взноса по фондам накопления с остатком в
   // кошельке для распределения по фондам списания
   [[eosio::action]] void spreadamount(

@@ -178,7 +178,7 @@ struct [[eosio::table, eosio::contract(REGISTRATOR)]] cooperative {
   bool is_cooperative = false; ///< Флаг, указывающий, является ли организация кооперативом.
   
   bool is_branched = false; ///< Флаг, указывающий, перешел ли кооператив на собрания уполномоченных
-  bool is_enrolled = false; ///< (LEGACY) Флаг, указывающий, подключил ли кооператив себе ПО
+  bool is_enrolled = false; ///< Флаг, указывающий, активен ли кооператив в системе
   
   eosio::name coop_type; ///< Тип некоммерческой организации (если это кооператив).
   

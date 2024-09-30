@@ -95,7 +95,8 @@ struct [[eosio::table, eosio::contract(SOVIET)]] onewallet {
   eosio::asset available;
   eosio::asset blocked;
   eosio::asset minimum;
-
+  eosio::binary_extension<eosio::asset> initial;
+  
   uint64_t primary_key() const { return username.value; } /*!< return username - primary_key */
   
 };

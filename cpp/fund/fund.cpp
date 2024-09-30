@@ -152,7 +152,9 @@ using namespace eosio;
 
 [[eosio::action]] void fund::subcirculate(
     eosio::name coopname,
-    eosio::asset quantity)  /// < списать сумму из паевого фонда
+    eosio::asset quantity,
+    bool skip_available_check
+    )  /// < списать сумму из паевого фонда
 {
   // Только контракт шлюза может списывать оборотные средства из фонда
   eosio::name payer = check_auth_and_get_payer_or_fail({_gateway});
@@ -164,9 +166,10 @@ using namespace eosio;
   auto wal = coopwallet.find(0);
 
   eosio::check(wal != coopwallet.end(), "Фондовый кошелёк не найден");
-
-  eosio::check(wal->circulating_account.available >= quantity,
-               "Недостаточно средств для списания на паевом счете кооператива");
+  
+  if (!skip_available_check)
+    eosio::check(wal->circulating_account.available >= quantity,
+                "Недостаточно средств для списания на паевом счете кооператива");
 
   coopwallet.modify(wal, payer, [&](auto &w) {
     w.circulating_account.available -= quantity;
@@ -289,6 +292,26 @@ using namespace eosio;
   
   coopwallet.modify(
       wal, payer, [&](auto &row) { row.initial_account.available += quantity; });
+}
+
+
+/**
+ * @brief Атомарный метод списания вступительного взноса. Используется только при отмене операции вступления.
+ * 
+ * @param coopname
+ * @param quantity 
+ */
+[[eosio::action]] void fund::subinitial(eosio::name coopname,
+                                        eosio::asset quantity) {
+  eosio::name payer = check_auth_and_get_payer_or_fail({_gateway});
+
+  auto cooperative = get_cooperative_or_fail(coopname);
+
+  coopwallet_index coopwallet(_fund, coopname.value);
+  auto wal = coopwallet.find(0);
+  
+  coopwallet.modify(
+      wal, payer, [&](auto &row) { row.initial_account.available -= quantity; });
 }
 
 // 

@@ -387,10 +387,6 @@ namespace eosiosystem {
 void system_contract::createaccnt(const name coopname, const name new_account_name, authority owner, authority active) {
   require_auth(_registrator);
   
-  print("here");
-
-  // TODO принять сюда имя аккаунта плательщика
-
   auto core_symbol = system_contract::get_core_symbol();
   eosio::asset register_amount = asset(_register_amount, core_symbol);
 

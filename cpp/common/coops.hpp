@@ -164,9 +164,9 @@ struct [[eosio::table, eosio::contract(SOVIET)]] participant {
 
   eosio::name status; //accepted | blocked
 
-  bool is_initial; ///< Флаг, указывающий, внесен ли регистрационный взнос.
-  bool is_minimum; ///< Флаг, указывающий, внесен ли минимальный паевый взнос.
-  bool has_vote; ///< Флаг, указывающий, имеет ли член право голоса.
+  bool is_initial; ///< LEGACY Флаг, указывающий, внесен ли регистрационный взнос.
+  bool is_minimum; ///< LEGACY Флаг, указывающий, внесен ли минимальный паевый взнос.
+  bool has_vote; ///< LEGACY Флаг, указывающий, имеет ли член право голоса.
   
   eosio::binary_extension<eosio::name> type; ///< individual | entrepreneur | organization
 
@@ -416,7 +416,6 @@ bool is_valid_participant(eosio::name coopname, eosio::name username) {
   
   if (
     participant != participants.end() && 
-    account -> status == "active"_n && 
     participant->status == "accepted"_n
   ) 
   {
@@ -431,7 +430,8 @@ participant get_participant_or_fail(eosio::name coopname, eosio::name username){
   participants_index participants(_soviet, coopname.value);
   auto participant = participants.find(username.value);
   eosio::check(participant != participants.end(), "Пайщик не найден в кооперативе");
-
+  eosio::check(participant -> status != "blocked"_n, "Пайщик заблокирован");
+  
   return *participant;
 }
 

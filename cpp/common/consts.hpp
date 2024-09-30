@@ -135,10 +135,10 @@ static constexpr eosio::name _efund_withdraw_action = "subexp"_n;
     static constexpr eosio::symbol _root_symbol = eosio::symbol(eosio::symbol_code("AXON"), 4); /*!< системный токен */
     static constexpr eosio::symbol _root_govern_symbol = eosio::symbol(eosio::symbol_code("RUB"), 4); 
     static const eosio::asset _provider_initial = eosio::asset(1000000, _root_govern_symbol);
-    static const eosio::asset _provider_minimum = eosio::asset(1000000, _root_govern_symbol);
+    static const eosio::asset _provider_minimum = eosio::asset(3000000, _root_govern_symbol);
     
     static const eosio::asset _provider_org_initial = eosio::asset(10000000, _root_govern_symbol);
-    static const eosio::asset _provider_org_minimum = eosio::asset(10000000, _root_govern_symbol);
+    static const eosio::asset _provider_org_minimum = eosio::asset(30000000, _root_govern_symbol);
 
     static constexpr eosio::name _root_contract = "eosio.token"_n; /*!< системный контракт */
     static constexpr eosio::symbol RAM_symbol{"RAM", 0}; /*!< токен рынка оперативной памяти */

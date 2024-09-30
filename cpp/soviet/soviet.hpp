@@ -46,8 +46,8 @@ public:
   [[eosio::action]] void newbatch(eosio::name coopname, eosio::name action, uint64_t batch_id);
   [[eosio::action]] void newprogram(eosio::name coopname, uint64_t program_id);
 
-  //___
-
+  //registrator.cpp
+  [[eosio::action]] void cancelreg(eosio::name coopname, eosio::name username, std::string message);
 
   //regaccount.cpp
   [[eosio::action]] void joincoop(eosio::name coopname, eosio::name username, document document);
@@ -104,7 +104,7 @@ public:
 
   //contributions.cpp
   [[eosio::action]] void addbalance(eosio::name coopname, eosio::name username, eosio::asset quantity);
-  [[eosio::action]] void subbalance(eosio::name coopname, eosio::name username, eosio::asset quantity);
+  [[eosio::action]] void subbalance(eosio::name coopname, eosio::name username, eosio::asset quantity, bool skip_available_check = false);
   [[eosio::action]] void blockbal(eosio::name coopname, eosio::name username, eosio::asset quantity);
   [[eosio::action]] void unblockbal(eosio::name coopname, eosio::name username, eosio::asset quantity);
   [[eosio::action]] void addprogbal(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity);
@@ -126,6 +126,11 @@ public:
   //fund.cpp
   void subaccum_effect(eosio::name executer, eosio::name coopname, uint64_t decision_id, uint64_t program_id);
   [[eosio::action]] void fundwithdraw(eosio::name coopname, eosio::name username, eosio::name type, uint64_t withdraw_id, document document);
+  
+  //participants.cpp
+  [[eosio::action]] void block(eosio::name coopname, eosio::name admin, eosio::name username, std::string message);
+  [[eosio::action]] void unblock(eosio::name coopname, eosio::name admin, eosio::name username, bool is_registration, std::string message);
+    
 };
   
 

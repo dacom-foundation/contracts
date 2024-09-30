@@ -394,15 +394,12 @@
   if (procedure == "online"_n)
   {
     accounts.modify(account, _provider, [&](auto &a)
-                    {
+    {
     
       for (const auto& ver : a.verifications) {
         eosio::check(ver.procedure == "online"_n, "Онлайн верификация уже проведена");
       }
       
-      // TODO активация/деактивация кооператива у провайдера по членскому взносу
-      a.status = "active"_n;
-
       verification new_verification {
         .verificator = _ano,
         .is_verified = true,
@@ -412,7 +409,9 @@
         .notice = ""
       };
 
-      a.verifications.push_back(new_verification); });
+      a.verifications.push_back(new_verification); 
+    
+    });
   }
   else
   {
@@ -567,11 +566,11 @@
 
   auto participant = get_participant_or_fail(coopname, username);
   eosio::check(participant.status == "accepted"_n, "Пайщик не активен в кооперативе");
-
+  
+  eosio::check(cooperative.status.value() == "active"_n, "Кооператив не активен и не может изменять ключи доступа");
+  
   auto coop_account = accounts.find(username.value);
   eosio::check(coop_account != accounts.end(), "Аккаунт кооператива не найден");
-
-  eosio::check(coop_account -> status == "active"_n, "Кооператив не активен и не может изменять ключи доступа");
   
   authority active_auth;
   active_auth.threshold = 1;
@@ -587,31 +586,3 @@
 
 }
 
-/**
-\ingroup public_actions
-\brief Подтверждение регистрации члена кооператива
-*
-* Этот метод позволяет подтвердить регистрацию пользователя (физического или юридического лица) в качестве члена кооператива.
-* Подтверждение может быть осуществлено только аккаунтом контракта совета кооператива после принятия соответствующего решения.
-*
-* @param coopname Имя кооператива
-* @param username Имя члена кооператива
-* @param position_title Название должности
-* @param position Код должности (например, chairman, director и др.)
-*
-* @note Авторизация требуется от аккаунта: @p _soviet
-*/
-[[eosio::action]] void registrator::confirmreg(eosio::name coopname, eosio::name username)
-{
-  require_auth(_soviet);
-  require_recipient(username);
-
-  accounts_index accounts(_registrator, _registrator.value);
-  auto account = accounts.find(username.value);
-
-  eosio::check(account != accounts.end(), "Аккаунт не найден в картотеке");
-
-  accounts.modify(account, _soviet, [&](auto &g){ 
-    g.status = "active"_n; 
-  });
-}

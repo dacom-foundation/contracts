@@ -53,7 +53,7 @@ void gateway::adduser(eosio::name coopname, eosio::name username, eosio::asset i
     std::make_tuple(coopname, minimum)
   ).send();
   
-  if (spread_initial){
+  if (spread_initial) {
   
     action(
       permission_level{ _gateway, "active"_n},
@@ -105,9 +105,7 @@ void gateway::adduser(eosio::name coopname, eosio::name username, eosio::asset i
 
   if (type == "deposit"_n) {
     participants_index participants(_soviet, coopname.value);
-    auto participant = participants.find(username.value);
-    eosio::check(participant != participants.end(), "Вы не являетесь пайщиком указанного кооператива");
-    eosio::check(participant -> is_active(), "Ваш аккаунт не активен в указанном кооперативе");
+    auto participant = get_participant_or_fail(coopname, username);
   } else { //registration
     eosio::check(quantity == cooperative.registration || quantity == cooperative.org_registration.value(), "Сумма минимального взноса не соответствует установленной в кооперативе");
   }
@@ -144,7 +142,7 @@ void gateway::dpcomplete(eosio::name coopname, eosio::name admin, uint64_t depos
 
   require_auth(admin);
 
-  if (coopname != admin){
+  if (coopname != admin) {
     check_auth_or_fail(coopname, admin, "dpcomplete"_n);
   };
 
@@ -165,6 +163,9 @@ void gateway::dpcomplete(eosio::name coopname, eosio::name admin, uint64_t depos
   
 
   if (deposit -> type == "deposit"_n) {
+    //проверяем пайщика на членство и активность
+    auto participant = get_participant_or_fail(coopname, deposit -> username);
+  
     action(
       permission_level{ _gateway, "active"_n},
       _gateway,
@@ -206,43 +207,6 @@ void gateway::dpcomplete(eosio::name coopname, eosio::name admin, uint64_t depos
     ).send();
     
   }
-  
-}
-
-/**
- * @brief Устанавливает статус депозита как "failed" в контракте `gateway`.
- *
- * @details Действие `dpfail` используется для обозначения неудачи в обработке депозита, устанавливая его статус в 'failed' и обновляя заметку.
- *
- * @note Требуется авторизация аккаунта контракта `_admin`.
- * @ingroup public_actions
- *
- * @param deposit_id Идентификатор депозита, статус которого обновляется.
- * @param memo Новая заметка, связанная с депозитом.
- *
- * Установка статуса депозита как 'failed' через cleos
- *
- * cleos push action gateway dpfail '[123, "Заметка к неудачному депозиту"]' -p gateway@active
- */
-void gateway::dpfail(eosio::name coopname, eosio::name admin, uint64_t deposit_id, std::string memo) {
-  
-  require_auth(admin);
-
-  if (coopname != admin){
-    check_auth_or_fail(coopname, admin, "dpcomplete"_n);
-  };
-  
-  deposits_index deposits(_gateway, coopname.value);
-  auto deposit = deposits.find(deposit_id);
-  eosio::check(deposit -> coopname == coopname, "Указан не верный кооператив");
- 
-  eosio::check(deposit != deposits.end(), "Объект процессинга не найден");
-  
-  deposits.modify(deposit, admin, [&](auto &d){
-    d.status = "fail"_n;
-    d.expired_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch() + _deposit_expiration_seconds);
-  }); 
-
 }
 
 /**
@@ -253,11 +217,66 @@ void gateway::dpfail(eosio::name coopname, eosio::name admin, uint64_t deposit_i
  * @param deposit_id 
  * @param memo 
  */
-[[eosio::action]] dprefund(eosio::name coopname, eosio::name admin, uint64_t deposit_id, std::string memo) {
+void gateway::dprefund(eosio::name coopname, eosio::name admin, uint64_t deposit_id, std::string memo) {
   check_auth_or_fail(coopname, admin, "dpcomplete"_n);
   
+  auto cooperative = get_cooperative_or_fail(coopname);  
   
-}
+  deposits_index deposits(_gateway, coopname.value);
+  auto deposit = deposits.find(deposit_id);
+  eosio::check(deposit != deposits.end(), "Объект процессинга не найден");
+  
+  eosio::check(deposit -> status == "completed"_n, "Только объекты платежа в статусе completed могут быть возвращены");
+  
+  if (deposit -> type == "deposit"_n) {
+    action(
+      permission_level{ _gateway, "active"_n},
+      _soviet,
+      "subbalance"_n,
+      std::make_tuple(coopname, deposit -> username, deposit -> quantity, true)
+    ).send();
+    
+    action(
+      permission_level{ _gateway, "active"_n},
+      _fund,
+      "subcirculate"_n,
+      std::make_tuple(coopname, deposit -> quantity, true)
+    ).send();
+  
+  } else {
+    // отправляем сигнал на отмену регистрации
+
+    eosio::asset minimum = deposit -> quantity == cooperative.registration ? cooperative.minimum : cooperative.org_minimum.value();
+    eosio::asset initial = deposit -> quantity == cooperative.registration ? cooperative.initial : cooperative.org_initial.value();
+
+    action(
+      permission_level{ _gateway, "active"_n},
+      _fund,
+      "subcirculate"_n,
+      std::make_tuple(coopname, minimum, true)
+    ).send();
+    
+    //вычесть вступительную сумму из фонда
+    action(
+      permission_level{ _gateway, "active"_n},
+      _fund,
+      "subinitial"_n,
+      std::make_tuple(coopname, initial)
+    ).send();
+    
+    action (
+      permission_level{ _gateway, "active"_n},
+      _soviet,
+      "cancelreg"_n,
+      std::make_tuple(coopname, deposit -> username, memo)
+    ).send();
+    
+  };
+  
+  //удаляем объект депозита
+  deposits.erase(deposit); 
+
+};
 
 
 /**
@@ -399,14 +418,14 @@ void gateway::wthdcomplete(eosio::name coopname, eosio::name admin, uint64_t wit
     permission_level{ _gateway, "active"_n},
     _soviet,
     "subbalance"_n,
-    std::make_tuple(coopname, withdraw -> username, withdraw -> quantity)
+    std::make_tuple(coopname, withdraw -> username, withdraw -> quantity, false)
   ).send();
 
   action(
     permission_level{ _gateway, "active"_n},
     _fund,
     "subcirculate"_n,
-    std::make_tuple(coopname, withdraw -> quantity)
+    std::make_tuple(coopname, withdraw -> quantity, false)
   ).send();
 
 

@@ -22,7 +22,7 @@ void soviet::addbalance(eosio::name coopname, eosio::name username, eosio::asset
 
 }
 
-void soviet::subbalance(eosio::name coopname, eosio::name username, eosio::asset quantity) {
+void soviet::subbalance(eosio::name coopname, eosio::name username, eosio::asset quantity, bool skip_available_check) {
   eosio::check(has_auth(_marketplace) || has_auth(_gateway) || has_auth(_soviet), "Недостаточно прав доступа");
   eosio::name payer = has_auth(_marketplace) ? _marketplace : _soviet;
 
@@ -36,13 +36,12 @@ void soviet::subbalance(eosio::name coopname, eosio::name username, eosio::asset
   wallets_index wallets(_soviet, coopname.value);
   auto wallet = wallets.find(username.value);
   
-  eosio::check(wallet -> available >= quantity, "Недостаточно средств на балансе");
+  if (!skip_available_check)
+    eosio::check(wallet -> available >= quantity, "Недостаточно средств на балансе");
 
   wallets.modify(wallet, payer, [&](auto &w){
     w.available -= quantity;
   });
-  
-  //TODO subprogbal from wallet
   
 }
 

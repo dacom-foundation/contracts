@@ -143,6 +143,39 @@ void soviet::joincoop(eosio::name coopname, eosio::name username, document docum
   
 };
 
+void soviet::cancelreg(eosio::name coopname, eosio::name username, std::string message){
+  require_auth(_gateway);
+
+  auto cooperative = get_cooperative_or_fail(coopname);
+  
+  participants_index participants(_soviet, coopname.value);
+  
+  auto participant = participants.find(username.value);
+  
+  /** 
+    Если отмена регистрации происходит до принятия решения советом - том отменять нам здесь нечего, 
+    и мы просто игнорируем код ниже. 
+  */
+  if (participant != participants.end()) {
+    
+    wallets_index wallets(_soviet, coopname.value);
+    auto wallet = wallets.find(username.value);
+    
+    //обнуляем кошелёк
+    wallets.modify(wallet, _soviet, [&](auto &w){
+      w.minimum = asset(0, wallet -> minimum.symbol);
+      w.initial = asset(0, wallet -> minimum.symbol);
+    });
+    
+    //TODO send block action here
+    action(
+      permission_level{ _soviet, "active"_n},
+      _soviet,
+      "block"_n,
+      std::make_tuple(coopname, coopname, username, message)
+    ).send();
+  }
+};
 
 void soviet::joincoop_effect(eosio::name executer, eosio::name coopname, uint64_t decision_id, uint64_t batch_id) { 
 
@@ -159,35 +192,33 @@ void soviet::joincoop_effect(eosio::name executer, eosio::name coopname, uint64_
   auto account = accounts.find(joincoop_action -> username.value);
   eosio::check(account != accounts.end(), "Аккаунт не найден");
   
-  participants.emplace(_soviet, [&](auto &m){
-    m.username = joincoop_action -> username;
-    m.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
-    m.last_update = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
-    m.last_min_pay = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
-    m.status = "accepted"_n;
-    m.is_initial = true;
-    m.is_minimum = true;
-    m.has_vote = true;    
-    m.type = account -> type;
-  });
+  auto participant = participants.find(joincoop_action ->username.value);
 
+  participants.emplace(_soviet, [&](auto &m){
+      m.username = joincoop_action -> username;
+      m.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+      m.last_min_pay = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+      m.status = "accepted"_n;
+      m.is_initial = true;
+      m.is_minimum = true;
+      m.has_vote = true;    
+      m.type = account -> type;
+    });  
+  
   wallets_index wallets(_soviet, coopname.value);
   eosio::asset minimum = account -> type == "organization"_n ? cooperative.org_minimum.value() : cooperative.minimum; 
-
+  eosio::asset initial = account -> type == "organization"_n ? cooperative.org_initial.value() : cooperative.initial;
+  
+  auto wallet = wallets.find(joincoop_action -> username.value);
+  
   wallets.emplace(_soviet, [&](auto &w){
     w.username = joincoop_action -> username;
     w.coopname = coopname;
     w.available = asset(0, cooperative.initial.symbol);
     w.blocked = asset(0, cooperative.initial.symbol);
     w.minimum = minimum;
+    w.initial = initial;
   });
-
-  action(
-      permission_level{ _soviet, "active"_n},
-      _registrator,
-      "confirmreg"_n,
-      std::make_tuple(coopname, joincoop_action -> username)
-  ).send();
   
   action(
       permission_level{ _soviet, "active"_n},

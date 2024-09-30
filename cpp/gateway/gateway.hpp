@@ -49,13 +49,11 @@ public:
   [[eosio::action]] void newdeposit(eosio::name coopname, eosio::name username, uint64_t deposit_id, eosio::name type, eosio::asset amount, eosio::time_point_sec deposited_at);
   [[eosio::action]] void newwithdraw(eosio::name coopname, eosio::name username, uint64_t withdraw_id, eosio::name type, eosio::asset amount);
 
-
   void apply(uint64_t receiver, uint64_t code, uint64_t action);
 
   [[eosio::action]] void deposit(eosio::name coopname, eosio::name username, uint64_t deposit_id, eosio::name type, eosio::asset quantity);
   [[eosio::action]] void dpcomplete(eosio::name coopname, eosio::name admin, uint64_t deposit_id, std::string memo);
-  [[eosio::action]] void dpfail(eosio::name coopname, eosio::name admin, uint64_t deposit_id, std::string memo);
-  [[eosio::action]] void dbrefund(eosio::name coopname, eosio::name admin, uint64_t deposit_id, std::string memo);
+  [[eosio::action]] void dprefund(eosio::name coopname, eosio::name admin, uint64_t deposit_id, std::string memo);
   
   [[eosio::action]] void withdrawauth(eosio::name coopname, uint64_t withdraw_id);
 
