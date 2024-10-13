@@ -114,8 +114,6 @@ void soviet::createboard(eosio::name coopname, eosio::name username, eosio::name
       a.data = data;
     });
     
-    //TODO добавить сюда емплейс программы ЦПП кошелька
-    
 
   } else {
     

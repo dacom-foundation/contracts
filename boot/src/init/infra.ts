@@ -1,10 +1,12 @@
 import axios from 'axios'
 import { Generator, Registry } from 'coopdoc-generator-ts'
-import { type Cooperative, DraftContract } from 'cooptypes'
+import type { Cooperative } from 'cooptypes'
+import { DraftContract } from 'cooptypes'
 import type { Account, Contract } from '../types'
 import config from '../configs'
 import Blockchain from '../blockchain'
 import { sleep } from '../utils'
+import { CooperativeClass } from './cooperative'
 
 export async function startInfra() {
   // инициализируем инстанс с ключами
@@ -184,4 +186,27 @@ export async function startInfra() {
 
   await generator.save('organization', organizationData)
   console.log('Провайдер добавлен: ', organizationData)
+
+  console.log('Создаём программы и соглашения')
+
+  const cooperative = new CooperativeClass(blockchain)
+  await cooperative.createProgramsAndAgreements(config.provider)
+
+  console.log(`Арендуем ресурсы провайдеру`)
+  await blockchain.powerup({
+    payer: 'eosio',
+    receiver: config.provider,
+    days: config.powerup.days,
+    payment: `100.0000 ${config.token.symbol}`,
+    transfer: true,
+  })
+
+  await blockchain.transfer({
+    from: 'eosio',
+    to: config.provider,
+    quantity: `100.0000 ${config.token.symbol}`,
+    memo: '',
+  })
+
+  console.log('Базовая установка завершена')
 }

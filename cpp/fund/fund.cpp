@@ -620,7 +620,7 @@ using namespace eosio;
     eosio::check(efund != expfunds.end(), "Фонд не найден");
   
     if (fund_id <= 5){
-      eosio::check(name == efund -> name, "Нельзя изменить имя обязательного фонда накопления");  
+      eosio::check(name == efund -> name, "Нельзя изменить имя обязательного фонда списания");  
       eosio::check(contract == ""_n, "Нельзя передать в управление обязательный фонд");
     }
 

@@ -20,7 +20,7 @@ using namespace eosio;
 
 [[eosio::action]] void soviet::migrate() {
   require_auth(_soviet);
-
+  
 };
 
 
@@ -93,15 +93,15 @@ using namespace eosio;
 }
 
 [[eosio::action]] void soviet::newsubmitted(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, document document) {
-  require_auth(_soviet);
-
+  check_auth_and_get_payer_or_fail({_registrator, _soviet});
+  
   require_recipient(coopname);
   require_recipient(username);
 
 };
 
 [[eosio::action]] void soviet::newresolved(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, document document) {
-  require_auth(_soviet);
+  check_auth_and_get_payer_or_fail({_registrator, _soviet});
 
   require_recipient(coopname);
   require_recipient(username);
@@ -111,7 +111,7 @@ using namespace eosio;
 
 [[eosio::action]] void soviet::newact(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, document document) {
   require_auth(_soviet);
-
+  
   require_recipient(coopname);
   require_recipient(username);
 

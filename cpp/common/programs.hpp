@@ -68,26 +68,32 @@ bool is_participant_of_cpp_by_program_id(eosio::name coopname, eosio::name usern
 
 bool is_valid_participant_of_program_by_type(eosio::name coopname, eosio::name username, eosio::name program_type) {
   programs_index programs(_soviet, coopname.value);
+  progwallets_index progwallets(_soviet, coopname.value);
   
-  auto programs_by_type_index = programs.template get_index<"programtype"_n>();
-  auto exist = programs_by_type_index.find(program_type.value);
+  coagreements_index coagreements(_soviet, coopname.value);
+  auto coagreement = coagreements.find(program_type.value);
   
-  if (exist == programs_by_type_index.end())
+  if (coagreement == coagreements.end())
     return false;
   
-    progwallets_index wallets(_soviet, coopname.value);
-    
-    auto wallet = wallets.find(exist -> id);
-    
-    if (wallet == wallets.end())
-      return false;
-    
-    //достать agreement и проверить статус 
-    agreements_index agreements(_soviet, coopname.value);
-    auto agreement = agreements.find(wallet -> agreement_id);
-    
-    if (agreement -> status == "declined"_n)
-      return false;
-    
+  auto exist = programs.find(coagreement -> program_id);
+  
+  if (exist == programs.end())
+    return false;
+  
+  auto wallets_by_username_and_program = progwallets.template get_index<"byuserprog"_n>();
+  auto username_and_program_index = combine_ids(username.value, exist -> id);
+  auto wallet = wallets_by_username_and_program.find(username_and_program_index);
+  
+  if (wallet == wallets_by_username_and_program.end())
+    return false;
+  
+  //достать agreement и проверить статус 
+  agreements_index agreements(_soviet, coopname.value);
+  auto agreement = agreements.find(wallet -> agreement_id);
+  
+  if (agreement -> status == "declined"_n)
+    return false;
+  
   return true;
 }

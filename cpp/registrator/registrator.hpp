@@ -45,7 +45,7 @@ public:
       eosio::name type
       );
 
-  [[eosio::action]] void regcoop(eosio::name registrator, eosio::name coopname, org_data params);
+  [[eosio::action]] void regcoop(eosio::name coopname, eosio::name username, org_data params, document document);
   [[eosio::action]] void delcoop(eosio::name registrator, eosio::name coopname);  
   [[eosio::action]] void stcoopstatus(eosio::name coopname, eosio::name username, eosio::name status);
   

@@ -35,7 +35,7 @@ export default class Blockchain {
     const endpoint = this.network.host
     const port = this.network.port
     const res = `${protocol}://${endpoint}${port}`
-
+    console.log(res)
     const rpc = new JsonRpc(res, { fetch })
 
     const signatureProvider = new JsSignatureProvider(this.privateKeys)
@@ -441,6 +441,39 @@ export default class Blockchain {
 
     console.log("Аренда ресурсов: ", params)
   }
+  
+  
+  async preInit(
+    params: RegistratorContract.Actions.SetCoopStatus.ISetCoopStatus
+  ) {
+    await this.update_pass_instance()
+    console.log(params)
+    await this.api.transact(
+      {
+        actions: [
+          {
+            account: RegistratorContract.contractName.production,
+            name: RegistratorContract.Actions.SetCoopStatus.actionName,
+            authorization: [
+              {
+                actor: config.provider,
+                permission: "active",
+              },
+            ],
+            data: {
+              ...params,
+            },
+          },
+        ],
+      },
+      {
+        blocksBehind: 3,
+        expireSeconds: 30,
+      }
+    )
+
+    console.log("Новый кооператив пре-иниализирован: ", params)
+  }
 
   //TODO change registerOrganization to registerCooperative
   async registerOrganization(
@@ -456,7 +489,7 @@ export default class Blockchain {
             name: RegistratorContract.Actions.RegisterCooperative.actionName,
             authorization: [
               {
-                actor: params.registrator,
+                actor: params.coopname,
                 permission: "active",
               },
             ],
@@ -473,6 +506,35 @@ export default class Blockchain {
     )
 
     console.log("Новая организация: ", params)
+  }
+  
+  
+  async sendAgreement(
+    data: SovietContract.Actions.Agreements.SendAgreement.ISendAgreement
+  ) {
+    console.log("data", data)
+    await this.api.transact(
+      {
+        actions: [
+          {
+            account: SovietContract.contractName.production,
+            name: SovietContract.Actions.Agreements.SendAgreement.actionName,
+            authorization: [
+              {
+                actor: data.administrator,
+                permission: 'active',
+              },
+            ],
+            data
+          },
+        ],
+      },
+      {
+        blocksBehind: 3,
+        expireSeconds: 30,
+      }
+    )
+
   }
 
   async registerAccount2(

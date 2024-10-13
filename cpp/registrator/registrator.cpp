@@ -273,9 +273,9 @@
 }
 
 
-[[eosio::action]] void registrator::delcoop(eosio::name registrator, eosio::name coopname)
+[[eosio::action]] void registrator::delcoop(eosio::name administrator, eosio::name coopname)
 {
-  check_auth_or_fail(_provider, registrator, "delcoop"_n);
+  check_auth_or_fail(_provider, administrator, "delcoop"_n);
 
   get_cooperative_or_fail(_provider);
   
@@ -298,12 +298,11 @@
 *
 * @note Авторизация требуется от одного из аккаунтов: @p coopname || username
 */
-[[eosio::action]] void registrator::regcoop(eosio::name registrator, eosio::name coopname, org_data params)
+[[eosio::action]] void registrator::regcoop(eosio::name coopname, eosio::name username, org_data params, document document)
 {
+  check_auth_or_fail(coopname, username, "regcoop"_n);
   
-  check_auth_or_fail(_provider, registrator, "regcoop"_n);
-  
-  eosio::name payer = registrator;
+  eosio::name payer = username;
 
   get_cooperative_or_fail(_provider);
 
@@ -335,18 +334,24 @@
       org.org_registration = params.org_initial + params.org_minimum;
       org.org_initial = params.org_initial;
       org.org_minimum = params.org_minimum; 
-      
       org.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
       org.status = "pending"_n;
-      
+      org.document = document;
     });
     
+    //newSubmitted
+    action(
+      permission_level{ _registrator, "active"_n},
+      _soviet,
+      "newsubmitted"_n,
+      std::make_tuple(_provider, coopname, "regcoop"_n, uint64_t(0), document)
+    ).send();
 }
 
 
 
-[[eosio::action]] void registrator::stcoopstatus(eosio::name coopname, eosio::name username, eosio::name status) {
-    check_auth_or_fail(_provider, username, "stcoopstatus"_n); //ожидаем разрешений от провайдера
+[[eosio::action]] void registrator::stcoopstatus(eosio::name coopname, eosio::name administrator, eosio::name status) {
+    check_auth_or_fail(_provider, administrator, "stcoopstatus"_n); //ожидаем разрешений от оператора
     
     cooperatives_index coops(_registrator, _registrator.value);
     
@@ -356,18 +361,27 @@
     
     eosio::check(coop != coops.end(), "Кооператив не найден");
     
-    coops.modify(coop, username, [&](auto &row){ //payer is coopname should be always
+    coops.modify(coop, administrator, [&](auto &row){ //payer is coopname should be always
       row.status = status;
     });
     
-    if (status == "active"_n)
+    if (status == "active"_n) {
       action(
         permission_level{ _registrator, "active"_n},
         _fund,
         "init"_n,
         std::make_tuple(coopname, coop -> initial)
       ).send();
-
+      
+      if (coop -> status.value() == "pending"_n) {
+        action(
+          permission_level{ _registrator, "active"_n},
+          _soviet,
+          "newresolved"_n,
+          std::make_tuple(_provider, coopname, "regcoop"_n, uint64_t(0), coop -> document.value())
+        ).send();
+      }
+    }
 }
 
 

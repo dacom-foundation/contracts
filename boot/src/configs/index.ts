@@ -12,6 +12,13 @@ const network = {
   port: ':8888',
 }
 
+// const network = {
+//   name: 'local',
+//   protocol: 'https',
+//   host: 'test.coopenomics.world:443/api',
+//   port: '',
+// }
+
 export const SYMBOL = 'AXON'
 export const GOVERN_SYMBOL = 'RUB'
 export const provider = 'voskhod'

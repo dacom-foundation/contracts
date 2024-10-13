@@ -128,12 +128,12 @@
   }
   
   
-  action(
-    permission_level{ _soviet, "active"_n},
-    _soviet,
-    "newsubmitted"_n,
-    std::make_tuple(coopname, username, agreement_type, uint64_t(0), document)
-  ).send();
+  // action(
+  //   permission_level{ _soviet, "active"_n},
+  //   _soviet,
+  //   "newsubmitted"_n,
+  //   std::make_tuple(coopname, username, agreement_type, uint64_t(0), document)
+  // ).send();
   
 };
 
@@ -155,12 +155,12 @@
     d.status = "confirmed"_n;
   });
   
-  action(
-    permission_level{ _soviet, "active"_n},
-    _soviet,
-    "newresolved"_n,
-    std::make_tuple(coopname, username, indoc -> type, 0, indoc -> document)
-  ).send();
+  // action(
+  //   permission_level{ _soviet, "active"_n},
+  //   _soviet,
+  //   "newresolved"_n,
+  //   std::make_tuple(coopname, username, indoc -> type, 0, indoc -> document)
+  // ).send();
   
 }
 
