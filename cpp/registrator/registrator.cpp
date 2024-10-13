@@ -361,10 +361,6 @@
     
     eosio::check(coop != coops.end(), "Кооператив не найден");
     
-    coops.modify(coop, administrator, [&](auto &row){ //payer is coopname should be always
-      row.status = status;
-    });
-    
     if (status == "active"_n) {
       action(
         permission_level{ _registrator, "active"_n},
@@ -382,6 +378,10 @@
         ).send();
       }
     }
+    
+    coops.modify(coop, administrator, [&](auto &row){ //payer is coopname should be always
+      row.status = status;
+    });
 }
 
 
