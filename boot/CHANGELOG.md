@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.7](https://github.com/coopenomics/contracts/compare/boot@0.1.7-alpha.0...boot@0.1.7) (2024-10-16)
+
+**Note:** Version bump only for package boot
+
+
+
+
+
 ## [0.1.6](https://github.com/coopenomics/contracts/compare/boot@0.1.5...boot@0.1.6) (2024-10-13)
 
 **Note:** Version bump only for package boot
