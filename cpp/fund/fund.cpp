@@ -515,7 +515,7 @@ using namespace eosio;
           "Сумма всех процентов превышает 100% (1 000 000)");
     id = get_global_id(_fund, "funds"_n);
     accfunds.emplace(username, [&](auto &a) {
-      a.id = get_global_id(_fund, "funds"_n);
+      a.id = get_global_id_in_scope(_fund, coopname, "funds"_n);
       a.coopname = coopname;
       a.contract = contract;
       a.name = name;
@@ -530,7 +530,7 @@ using namespace eosio;
         "Процент для фонда списания должен быть равен нулю (не используется)");
 
     expfunds_index expfunds(_fund, coopname.value);
-    id = get_global_id(_fund, "funds"_n);
+    id = get_global_id_in_scope(_fund, coopname, "funds"_n);
 
     expfunds.emplace(username, [&](auto &e) {
       e.id = id;

@@ -114,6 +114,61 @@ void soviet::createboard(eosio::name coopname, eosio::name username, eosio::name
       a.data = data;
     });
     
+    //создаём обязательные программы и соглашения
+    programs_index programs(_soviet, coopname.value);
+    auto program_id = get_global_id_in_scope(_soviet, coopname, "programs"_n);
+  
+    //создаём программу кошелька
+    programs.emplace(username, [&](auto &pr) {
+      pr.id = program_id;
+      pr.is_active = true;
+      pr.draft_id = 1;
+      pr.coopname = coopname;
+      pr.title = "Цифровой Кошелёк";
+      pr.announce = "";
+      pr.description = "";
+      pr.preview = "";
+      pr.images = "";
+      pr.calculation_type = "free"_n;
+      pr.fixed_membership_contribution = asset(0, org -> minimum.symbol);  
+      pr.membership_percent_fee = 0;
+      pr.meta = "";
+    });
+    
+    coagreements_index coagreements(_soviet, coopname.value);
+  
+    //создаём соглашение для программы кошелька    
+    coagreements.emplace(_soviet, [&](auto &row){
+      row.type = "wallet"_n;
+      row.coopname = coopname;
+      row.program_id = program_id;
+      row.draft_id = 1;
+    });
+    
+    //создаём соглашение для шаблона простой электронной подписи
+    coagreements.emplace(_soviet, [&](auto &row){
+      row.type = "signature"_n;
+      row.coopname = coopname;
+      row.program_id = 0;
+      row.draft_id = 2;
+    });
+
+    //создаём соглашение для шаблона пользовательского соглашения
+    coagreements.emplace(_soviet, [&](auto &row){
+      row.type = "user"_n;
+      row.coopname = coopname;
+      row.program_id = 0;
+      row.draft_id = 3;
+    });
+    
+    //создаём соглашение для шаблона политики конфиденциальности
+    coagreements.emplace(_soviet, [&](auto &row){
+      row.type = "privacy"_n;
+      row.coopname = coopname;
+      row.program_id = 0;
+      row.draft_id = 4;
+    });
+    
 
   } else {
     

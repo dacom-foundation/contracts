@@ -29,52 +29,52 @@ export class CooperativeClass {
   }
 
   async createProgramsAndAgreements(coopname: string) {
-    await this.blockchain.createProgram({
-      coopname,
-      username: coopname,
-      draft_id: TCooperative.Registry.WalletAgreement.registry_id,
-      title: 'Цифровой Кошелёк',
-      announce: '',
-      description: '',
-      preview: '',
-      images: '',
-      calculation_type: 'free',
-      fixed_membership_contribution: `${Number(0).toFixed(4)} ${GOVERN_SYMBOL}`,
-      membership_percent_fee: '0',
-      meta: '',
-    })
+    // await this.blockchain.createProgram({
+    //   coopname,
+    //   username: coopname,
+    //   draft_id: TCooperative.Registry.WalletAgreement.registry_id,
+    //   title: 'Цифровой Кошелёк',
+    //   announce: '',
+    //   description: '',
+    //   preview: '',
+    //   images: '',
+    //   calculation_type: 'free',
+    //   fixed_membership_contribution: `${Number(0).toFixed(4)} ${GOVERN_SYMBOL}`,
+    //   membership_percent_fee: '0',
+    //   meta: '',
+    // })
 
-    console.log('создаём кооперативное соглашение/положение по кошельку')
-    await this.blockchain.makeCoagreement({
-      coopname,
-      administrator: coopname,
-      type: 'wallet',
-      draft_id: TCooperative.Registry.WalletAgreement.registry_id,
-      program_id: 1,
-    })
+    // console.log('создаём кооперативное соглашение/положение по кошельку')
+    // await this.blockchain.makeCoagreement({
+    //   coopname,
+    //   administrator: coopname,
+    //   type: 'wallet',
+    //   draft_id: TCooperative.Registry.WalletAgreement.registry_id,
+    //   program_id: 1,
+    // })
 
-    await this.blockchain.makeCoagreement({
-      coopname,
-      administrator: coopname,
-      type: 'signature',
-      draft_id: TCooperative.Registry.RegulationElectronicSignature.registry_id,
-      program_id: 0,
-    })
-    await this.blockchain.makeCoagreement({
-      coopname,
-      administrator: coopname,
-      type: 'user',
-      draft_id: TCooperative.Registry.UserAgreement.registry_id,
-      program_id: 0,
-    })
+    // await this.blockchain.makeCoagreement({
+    //   coopname,
+    //   administrator: coopname,
+    //   type: 'signature',
+    //   draft_id: TCooperative.Registry.RegulationElectronicSignature.registry_id,
+    //   program_id: 0,
+    // })
+    // await this.blockchain.makeCoagreement({
+    //   coopname,
+    //   administrator: coopname,
+    //   type: 'user',
+    //   draft_id: TCooperative.Registry.UserAgreement.registry_id,
+    //   program_id: 0,
+    // })
 
-    await this.blockchain.makeCoagreement({
-      coopname,
-      administrator: coopname,
-      type: 'privacy',
-      draft_id: TCooperative.Registry.PrivacyPolicy.registry_id,
-      program_id: 0,
-    })
+    // await this.blockchain.makeCoagreement({
+    //   coopname,
+    //   administrator: coopname,
+    //   type: 'privacy',
+    //   draft_id: TCooperative.Registry.PrivacyPolicy.registry_id,
+    //   program_id: 0,
+    // })
 
     await this.blockchain.makeCoagreement({
       coopname,
