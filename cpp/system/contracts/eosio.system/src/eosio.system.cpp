@@ -521,15 +521,15 @@ void native::setabi( const name& acnt, const std::vector<char>& abi,
   void system_contract::migrate() {
     require_auth(get_self());
     
-    powerup_state_singleton state_sing{ get_self(), 0 };
-    auto                   state = state_sing.get_or_default();
-    auto                   core_symbol = get_core_symbol();
+    // powerup_state_singleton state_sing{ get_self(), 0 };
+    // auto                   state = state_sing.get_or_default();
+    // auto                   core_symbol = get_core_symbol();
     
-    adjust_resources(get_self(), _power_account, core_symbol, -state.net.weight, -state.cpu.weight, 0, true);
+    // adjust_resources(get_self(), _power_account, core_symbol, -state.net.weight, -state.cpu.weight, 0, true);
     
-    state.ram.utilization = 605000;
+    // state.ram.utilization = 605000;
     
-    state_sing.set(state, get_self());
+    // state_sing.set(state, get_self());
   };
 
    void system_contract::init( uint64_t version, const symbol& core ) {
