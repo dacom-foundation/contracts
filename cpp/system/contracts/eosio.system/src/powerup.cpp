@@ -128,15 +128,22 @@ void system_contract::cfgpowerup(powerup_config& args) {
    state.min_powerup_fee = *args.min_powerup_fee;
    
    auto current_supply = eosio::token::get_supply(token_account, core_symbol.code() );
+   bool first_launch = false;
+   
+   if (state.net.weight == 0 && state.cpu.weight == 0)
+    first_launch = true;
+  
    state.net.weight = current_supply.amount;
    state.cpu.weight = current_supply.amount;
    state.ram.weight = _gstate.max_ram_size;
-   state.ram.utilization = _gstate.max_ram_size - _gstate.free_ram();
+   state.ram.utilization = first_launch == false ? state.ram.utilization : _gstate.max_ram_size - _gstate.free_ram();
    auto free_ram = _gstate.free_ram();
    
    _gstate.total_ram_bytes_reserved = _gstate.max_ram_size;
-
-   adjust_resources(get_self(), _power_account, core_symbol, state.net.weight, state.cpu.weight, free_ram, true);
+  
+   if (first_launch)
+    adjust_resources(get_self(), _power_account, core_symbol, state.net.weight, state.cpu.weight, free_ram, true);
+   
    state_sing.set(state, get_self());
 }
 
