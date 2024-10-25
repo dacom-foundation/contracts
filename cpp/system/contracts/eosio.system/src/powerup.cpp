@@ -169,10 +169,6 @@ void system_contract::powerupexec(const name& user, uint16_t max) {
 void system_contract::powerup(const name& payer, const name& receiver, uint32_t days, const asset& payment, const bool transfer) {
   require_auth(payer);
 
-  if (transfer == true) {
-    check(has_auth(_registrator) || has_auth(get_self()), "Недостаточно прав доступа для перевода ресурсов");
-  };
-
   eosio::check(payment.amount > 0, "Payment must be positive");
   powerup_state_singleton state_sing{ get_self(), 0 };
   powerup_order_table orders{ get_self(), 0 };
@@ -182,6 +178,13 @@ void system_contract::powerup(const name& payer, const name& receiver, uint32_t 
   auto core_symbol = get_core_symbol();
   eosio::check(payment.symbol == core_symbol, "Payment doesn't match core symbol");
   eosio::check(days == state.powerup_days, "Days doesn't match configuration");
+
+  if (transfer == true) {
+    check(has_auth(_registrator) || has_auth(get_self()), "Недостаточно прав доступа для перевода ресурсов");
+  } else { //если transfer == true, то проверку на сумму не делаем, т.к. при регистрации сумма оплаты может быть меньше минимума.
+    eosio::check(payment >= state.min_powerup_fee, "Payment is below minimum");
+  }
+
 
   // Divide payment
   eosio::asset net_payment = payment / 4; // 25%
@@ -223,8 +226,6 @@ void system_contract::powerup(const name& payer, const name& receiver, uint32_t 
   process(cpu_frac, state.cpu);
   process(ram_frac, state.ram);
   
-  eosio::check(payment >= state.min_powerup_fee, "Payment is below minimum");
-
   state_sing.set(state, get_self());
 
   int64_t ram_after_pay_debt = update_ram_debt_table(payer, receiver, ram_frac); 
