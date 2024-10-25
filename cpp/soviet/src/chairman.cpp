@@ -63,8 +63,10 @@ void soviet::authorize(eosio::name coopname, eosio::name chairman, uint64_t deci
 * @note Авторизация требуется от аккаунта: @p username
 */
 void soviet::createboard(eosio::name coopname, eosio::name username, eosio::name type, std::vector<board_member> members, std::string name, std::string description){
-  check_auth_or_fail(coopname, username, "createboard"_n);
+  require_recipient(coopname);
   
+  check_auth_or_fail(coopname, username, "createboard"_n);
+
   eosio::name payer = username;
 
   cooperatives_index coops(_registrator, _registrator.value);
@@ -212,7 +214,8 @@ void soviet::createboard(eosio::name coopname, eosio::name username, eosio::name
 * @note Авторизация требуется от аккаунта: @p username
 */
 void soviet::updateboard(eosio::name coopname, eosio::name username, uint64_t board_id, std::vector<board_member> members, std::string name, std::string description){
-
+  require_recipient(coopname);
+  
   check_auth_or_fail(coopname, username, "updateboard"_n);
   
   cooperatives_index coops(_registrator, _registrator.value);
