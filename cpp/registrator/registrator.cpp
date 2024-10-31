@@ -600,3 +600,9 @@
 
 }
 
+
+[[eosio::action]] void registrator::confirmreg(eosio::name coopname, eosio::name username)
+{
+  require_auth(_soviet);
+  require_recipient(username);
+}

@@ -63,10 +63,7 @@ public:
     eosio::asset initial, eosio::asset minimum, bool spread_initial, std::string meta);
 
   [[eosio::action]] void changekey(eosio::name coopname, eosio::name changer, eosio::name username, eosio::public_key public_key);
+  
+  [[eosio::action]] void confirmreg(eosio::name coopname, eosio::name username);
 
-  // [[eosio::action]] void check(checksum256 hash, public_key public_key, signature signature);
-
-  struct [[eosio::table, eosio::contract(REGISTRATOR)]] balances : balances_base
-  {
-  };
 };
