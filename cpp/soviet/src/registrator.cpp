@@ -222,6 +222,13 @@ void soviet::joincoop_effect(eosio::name executer, eosio::name coopname, uint64_
   
   action(
       permission_level{ _soviet, "active"_n},
+      _registrator,
+      "confirmreg"_n,
+      std::make_tuple(coopname, joincoop_action -> username)
+  ).send();
+
+  action(
+      permission_level{ _soviet, "active"_n},
       _soviet,
       "newresolved"_n,
       std::make_tuple(coopname, joincoop_action -> username, _regaccount_action, decision_id, decision -> statement)
