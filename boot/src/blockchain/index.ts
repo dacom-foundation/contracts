@@ -58,6 +58,27 @@ export default class Blockchain {
     }
     return username
   }
+  
+  async getTableRows(
+    code: string,
+    scope: string,
+    table: string,
+    limit = 10,
+  ): Promise<any> {
+    try {
+      const result = await this.api.get_table_rows({
+        json: true,
+        code: code,
+        scope: scope,
+        table: table,
+        limit: limit,
+      });
+      return result.rows;
+    } catch (error) {
+      console.error('Error fetching table rows:', error);
+      throw error;
+    }
+  }
 
   async generateKeypair(username?: string, keys?: Keys, memo?: string) {
     let privateKey = ""

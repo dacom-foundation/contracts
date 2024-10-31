@@ -114,7 +114,6 @@ export class CooperativeClass {
     console.log('Переводим аккаунт в организации')
 
     await this.blockchain.registerOrganization({
-      registrator: config.provider_chairman,
       username: account.username,
       coopname: account.username,
       params: {

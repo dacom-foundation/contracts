@@ -17,14 +17,16 @@
   },
   "dependencies": {
     "axios": "^1.6.8",
+    "chai": "^5.1.2",
     "commander": "^12.1.0",
-    "coopdoc-generator-ts": "2.0.8",
-    "cooptypes": "2.0.8",
+    "coopdoc-generator-ts": "2.1.4",
+    "cooptypes": "2.1.4",
     "dockerode": "^4.0.2",
     "dotenv": "^16.4.5",
     "eosjs": "^22.1.0",
     "eosjs-api": "^7.0.4",
-    "eosjs-ecc": "^4.0.7"
+    "eosjs-ecc": "^4.0.7",
+    "mocha": "^10.7.3"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.18.0",

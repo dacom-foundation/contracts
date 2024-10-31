@@ -59,6 +59,7 @@ public:
   [[eosio::action]] void automate(eosio::name coopname, uint64_t board_id, eosio::name member, eosio::name action_type, eosio::name provider, std::string encrypted_private_key);
   [[eosio::action]] void disautomate(eosio::name coopname, uint64_t board_id, eosio::name member, uint64_t automation_id );
   static void is_valid_action_for_automation(eosio::name action_type);
+  static void make_base_coagreements(eosio::name coopname, eosio::symbol govern_symbol);
   
   //chairman.cpp
   [[eosio::action]] void authorize(eosio::name coopname, eosio::name chairman, uint64_t decision_id, document document);

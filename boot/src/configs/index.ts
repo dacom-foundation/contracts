@@ -47,7 +47,7 @@ export default {
     max_supply: `1000000000.0000 ${SYMBOL}`,
   },
   powerup: {
-    days: 30,
+    days: 1,
     min_powerup: `0.0001 ${SYMBOL}`,
   },
   allocations: [
@@ -102,6 +102,10 @@ export default {
     {
       name: 'fund',
       code_permissions_to: ['fund'],
+    },
+    {
+      name: 'contributor',
+      code_permissions_to: ['contributor'],
     },
     {
       name: provider_chairman,

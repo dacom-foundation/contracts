@@ -43,6 +43,64 @@ void soviet::authorize(eosio::name coopname, eosio::name chairman, uint64_t deci
 
 }
 
+//создаём обязательные программы и соглашения
+void soviet::make_base_coagreements( eosio::name coopname, eosio::symbol govern_symbol) {
+    coagreements_index coagreements(_soviet, coopname.value);
+    
+    programs_index programs(_soviet, coopname.value);
+    auto wallet_program_id = get_global_id_in_scope(_soviet, coopname, "programs"_n);
+  
+    //создаём программу кошелька
+    programs.emplace(_soviet, [&](auto &pr) {
+      pr.id = wallet_program_id;
+      pr.is_active = true;
+      pr.draft_id = 1;
+      pr.coopname = coopname;
+      pr.title = "Цифровой Кошелёк";
+      pr.announce = "";
+      pr.description = "";
+      pr.preview = "";
+      pr.images = "";
+      pr.calculation_type = "free"_n;
+      pr.fixed_membership_contribution = asset(0, govern_symbol);  
+      pr.membership_percent_fee = 0;
+      pr.meta = "";
+    });
+  
+    //создаём соглашение для программы кошелька    
+    coagreements.emplace(_soviet, [&](auto &row){
+      row.type = "wallet"_n;
+      row.coopname = coopname;
+      row.program_id = wallet_program_id;
+      row.draft_id = 1;
+    });
+    
+    //создаём соглашение для шаблона простой электронной подписи
+    coagreements.emplace(_soviet, [&](auto &row){
+      row.type = "signature"_n;
+      row.coopname = coopname;
+      row.program_id = 0;
+      row.draft_id = 2;
+    });
+
+    //создаём соглашение для шаблона пользовательского соглашения
+    coagreements.emplace(_soviet, [&](auto &row){
+      row.type = "user"_n;
+      row.coopname = coopname;
+      row.program_id = 0;
+      row.draft_id = 3;
+    });
+    
+    //создаём соглашение для шаблона политики конфиденциальности
+    coagreements.emplace(_soviet, [&](auto &row){
+      row.type = "privacy"_n;
+      row.coopname = coopname;
+      row.program_id = 0;
+      row.draft_id = 4;
+    });
+    
+}
+
 /**
 \ingroup public_actions
 \brief Создание нового совета кооператива
@@ -75,7 +133,8 @@ void soviet::createboard(eosio::name coopname, eosio::name username, eosio::name
   eosio::check(org -> is_coop(), "Организация - не кооператив");
     
   participants_index participants(_soviet, coopname.value);
-
+  auto cooperative = get_cooperative_or_fail(coopname);
+    
   if (type == "soviet"_n) {
     bool is_exist = check_for_exist_board_by_type(coopname, "soviet"_n);
     eosio::check(is_exist == false, "Совет кооператива уже создан");
@@ -103,10 +162,6 @@ void soviet::createboard(eosio::name coopname, eosio::name username, eosio::name
 
     eosio::check(has_chairman, "Председатель кооператива должен быть указан в членах совета");
 
-    //Добавляем председателя в пайщики кооператива автоматически
-    participants_index participants(_soviet, coopname.value);
-    auto cooperative = get_cooperative_or_fail(coopname);
-    
     addresses_index addresses(_soviet, coopname.value);
     address_data data;
 
@@ -116,61 +171,8 @@ void soviet::createboard(eosio::name coopname, eosio::name username, eosio::name
       a.data = data;
     });
     
-    //создаём обязательные программы и соглашения
-    programs_index programs(_soviet, coopname.value);
-    auto program_id = get_global_id_in_scope(_soviet, coopname, "programs"_n);
-  
-    //создаём программу кошелька
-    programs.emplace(username, [&](auto &pr) {
-      pr.id = program_id;
-      pr.is_active = true;
-      pr.draft_id = 1;
-      pr.coopname = coopname;
-      pr.title = "Цифровой Кошелёк";
-      pr.announce = "";
-      pr.description = "";
-      pr.preview = "";
-      pr.images = "";
-      pr.calculation_type = "free"_n;
-      pr.fixed_membership_contribution = asset(0, org -> minimum.symbol);  
-      pr.membership_percent_fee = 0;
-      pr.meta = "";
-    });
     
-    coagreements_index coagreements(_soviet, coopname.value);
-  
-    //создаём соглашение для программы кошелька    
-    coagreements.emplace(_soviet, [&](auto &row){
-      row.type = "wallet"_n;
-      row.coopname = coopname;
-      row.program_id = program_id;
-      row.draft_id = 1;
-    });
-    
-    //создаём соглашение для шаблона простой электронной подписи
-    coagreements.emplace(_soviet, [&](auto &row){
-      row.type = "signature"_n;
-      row.coopname = coopname;
-      row.program_id = 0;
-      row.draft_id = 2;
-    });
-
-    //создаём соглашение для шаблона пользовательского соглашения
-    coagreements.emplace(_soviet, [&](auto &row){
-      row.type = "user"_n;
-      row.coopname = coopname;
-      row.program_id = 0;
-      row.draft_id = 3;
-    });
-    
-    //создаём соглашение для шаблона политики конфиденциальности
-    coagreements.emplace(_soviet, [&](auto &row){
-      row.type = "privacy"_n;
-      row.coopname = coopname;
-      row.program_id = 0;
-      row.draft_id = 4;
-    });
-    
+    soviet::make_base_coagreements(coopname, cooperative.initial.symbol);
 
   } else {
     

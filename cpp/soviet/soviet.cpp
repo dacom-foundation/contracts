@@ -83,6 +83,10 @@ using namespace eosio;
       a.data = data;
     });
     
+    //создаём базовые кооперативые соглашения
+    soviet::make_base_coagreements(_provider, _root_govern_symbol);
+    
+    //инициализируем фонды
     action(
       permission_level{ _soviet, "active"_n},
       _fund,

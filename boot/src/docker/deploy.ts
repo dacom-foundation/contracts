@@ -12,7 +12,6 @@ export async function deployCommand(name: string, pre_target: string, pre_networ
   if (!network)
     throw new Error('Сеть не найдена')
 
-  console.log(name)
   const contract = contracts.find(el => el.name === name)
 
   if (!contract)

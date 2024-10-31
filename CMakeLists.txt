@@ -30,6 +30,7 @@ macro(add_contract_build name)
 endmacro()
 
 # Добавляем все контракты
+add_contract_build(contributor)
 add_contract_build(fund)
 add_contract_build(draft)
 add_contract_build(soviet)
