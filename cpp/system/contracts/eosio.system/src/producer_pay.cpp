@@ -32,9 +32,13 @@ namespace eosiosystem {
          _gstate.last_pervote_bucket_fill = current_time_point();
          _gstate.thresh_activated_stake_time = current_time_point();
       }
-
-      update_tact();
-
+      
+      auto state = emission_state_sing.get();
+      
+      state = update_tact(state);
+      
+      emission_state_sing.set(state, get_self());
+      
       /**
        * At startup the initial producer may not be one that is registered / elected
        * and therefore there may be no producer object for them.
