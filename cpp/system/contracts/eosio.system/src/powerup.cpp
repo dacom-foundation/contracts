@@ -316,29 +316,22 @@ void system_contract::initemission(eosio::asset init_supply, uint64_t tact_durat
   emission_state_sing.set(state, get_self());
 }
 
-void system_contract::update_tact() {
-  emission_state_singleton emission_state_sing{ get_self(), get_self().value};
+emission_state update_tact(emission_state state) {
+  time_point_sec now = eosio::current_time_point();
   
-  if (emission_state_sing.exists()) {
-  
-    auto state = emission_state_sing.get();
-    
-    time_point_sec now = eosio::current_time_point();
-    print("state.tact_close_at <= now: ", state.tact_close_at <= now);
-    if (state.tact_close_at <= now) {
-      print("on inside!?!?!");
-      state.tact_number += 1;
-      state.tact_open_at = eosio::current_time_point();
-      state.tact_close_at = eosio::time_point_sec(now.sec_since_epoch() + state.tact_duration);
+  if (state.tact_close_at <= now) {
+    state.tact_number += 1;
+    state.tact_open_at = eosio::current_time_point();
+    state.tact_close_at = eosio::time_point_sec(now.sec_since_epoch() + state.tact_duration);
 
-      // Сдвигаем границу начала эмиссии
-      state.emission_start = asset(uint64_t(double(state.current_supply.amount) / double(1 + state.emission_factor)), state.current_supply.symbol);
-      
-      state.tact_fees.amount = 0;
-      state.tact_emission.amount = 0;
-      emission_state_sing.set(state, get_self());
-    }
+    // Сдвигаем границу начала эмиссии
+    state.emission_start = asset(uint64_t(double(state.current_supply.amount) / double(1 + state.emission_factor)), state.current_supply.symbol);
+    
+    state.tact_fees.amount = 0;
+    state.tact_emission.amount = 0;
   }
+
+  return state;
 }
 
 void system_contract::fill_tact(eosio::name payer, eosio::asset payment) {
@@ -362,9 +355,9 @@ void system_contract::fill_tact(eosio::name payer, eosio::asset payment) {
     emission_state_singleton emission_state_sing{ get_self(), get_self().value};
     
     if (emission_state_sing.exists()) {
-      update_tact();
-
       auto state = emission_state_sing.get();
+      
+      state = update_tact(state);
       
       // Добавляем собранные комиссии к числу комиссий такта
       state.tact_fees += payment;
