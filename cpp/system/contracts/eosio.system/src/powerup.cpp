@@ -324,8 +324,9 @@ void system_contract::update_tact() {
     auto state = emission_state_sing.get();
     
     time_point_sec now = eosio::current_time_point();
-    
-    if (state.tact_open_at <= now && state.tact_close_at >= now) {
+    print("state.tact_close_at <= now: ", state.tact_close_at <= now);
+    if (state.tact_close_at <= now) {
+      print("on inside!?!?!");
       state.tact_number += 1;
       state.tact_open_at = eosio::current_time_point();
       state.tact_close_at = eosio::time_point_sec(now.sec_since_epoch() + state.tact_duration);
