@@ -977,7 +977,7 @@ namespace eosiosystem {
             time_point_sec now, symbol core_symbol, powerup_state& state,
             powerup_order_table& orders, uint32_t max_items, int64_t& net_delta_available,
             int64_t& cpu_delta_available, int64_t& ram_delta_available);
-         void update_tact();
+         emission_state update_tact(emission_state state);
          void change_weights(eosio::name payer, eosio::asset new_emission);
          // defined in block_info.cpp
          void add_to_blockinfo_table(const eosio::checksum256& previous_block_id, const eosio::block_timestamp timestamp) const;
