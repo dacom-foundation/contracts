@@ -23,7 +23,16 @@ namespace eosiosystem {
 
       // Add latest block information to blockinfo table.
       add_to_blockinfo_table(previous_block_id, timestamp);
-
+      
+      
+      // Обрабатывам изменение состояния окна эмиссии
+      emission_state_singleton emission_state_sing{ get_self(), get_self().value};
+      if (emission_state_sing.exists()) {
+        auto state = emission_state_sing.get();
+        state = update_tact(state);
+        emission_state_sing.set(state, get_self());  
+      };
+      
       /** until activation, no new rewards are paid */
       if( _gstate.thresh_activated_stake_time == time_point() )
          return;
@@ -32,15 +41,7 @@ namespace eosiosystem {
          _gstate.last_pervote_bucket_fill = current_time_point();
          _gstate.thresh_activated_stake_time = current_time_point();
       }
-      
-      emission_state_singleton emission_state_sing{ get_self(), get_self().value};
-  
-      auto state = emission_state_sing.get();
-      
-      state = update_tact(state);
-      
-      emission_state_sing.set(state, get_self());
-      
+            
       /**
        * At startup the initial producer may not be one that is registered / elected
        * and therefore there may be no producer object for them.
