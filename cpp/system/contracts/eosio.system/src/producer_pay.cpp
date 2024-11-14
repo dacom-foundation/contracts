@@ -33,6 +33,8 @@ namespace eosiosystem {
          _gstate.thresh_activated_stake_time = current_time_point();
       }
       
+      emission_state_singleton emission_state_sing{ get_self(), get_self().value};
+  
       auto state = emission_state_sing.get();
       
       state = update_tact(state);

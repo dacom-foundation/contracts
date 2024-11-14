@@ -316,7 +316,7 @@ void system_contract::initemission(eosio::asset init_supply, uint64_t tact_durat
   emission_state_sing.set(state, get_self());
 }
 
-emission_state update_tact(emission_state state) {
+emission_state system_contract::update_tact(emission_state state) {
   time_point_sec now = eosio::current_time_point();
   
   if (state.tact_close_at <= now) {
@@ -357,7 +357,7 @@ void system_contract::fill_tact(eosio::name payer, eosio::asset payment) {
     if (emission_state_sing.exists()) {
       auto state = emission_state_sing.get();
       
-      state = update_tact(state);
+      state = system_contract::update_tact(state);
       
       // Добавляем собранные комиссии к числу комиссий такта
       state.tact_fees += payment;
