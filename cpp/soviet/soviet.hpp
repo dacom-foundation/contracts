@@ -119,11 +119,6 @@ public:
   [[eosio::action]] void editaddress(eosio::name coopname, eosio::name chairman, eosio::name braname, uint64_t address_id, address_data data);
 
 
-  //branches.cpp
-  [[eosio::action]] void createbranch(eosio::name coopname, eosio::name chairman, eosio::name braname, std::string name, std::string description, eosio::name authorizer, std::vector<eosio::name> trusted);
-  [[eosio::action]] void editbranch(eosio::name coopname, eosio::name chairman, eosio::name braname, std::string name, std::string description, eosio::name authorizer, std::vector<eosio::name> trusted);
-  [[eosio::action]] void deletebranch(eosio::name coopname, eosio::name chairman, eosio::name braname);
-
   //fund.cpp
   void subaccum_effect(eosio::name executer, eosio::name coopname, uint64_t decision_id, uint64_t program_id);
   [[eosio::action]] void fundwithdraw(eosio::name coopname, eosio::name username, eosio::name type, uint64_t withdraw_id, document document);

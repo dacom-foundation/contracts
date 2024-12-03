@@ -400,7 +400,7 @@ void system_contract::createaccnt(const name coopname, const name new_account_na
   transfer_act.send( coopname, get_self(), register_amount, "Оплата регистрации аккаунта" );
 
 
-  /* эти пляски с внутренним вызовом newaccount необходимы потому что в протоколе EOSIO
+  /* эти движения с внутренним вызовом newaccount необходимы потому что в протоколе EOSIO
    * захардкодено требование наличия авторизации в первом параметре (creator) метода newaccount, а сам список параметров не изменяемый.
    * именно поэтому мы не можем сразу вызвать этот метод из контракта registrator, т.к.
    * нам необходимо разделить регистратора и сам кооператив для списания оплаты, 
@@ -520,7 +520,7 @@ void native::setabi( const name& acnt, const std::vector<char>& abi,
 
   void system_contract::migrate() {
     require_auth(get_self());
-    
+
     // powerup_state_singleton state_sing{ get_self(), 0 };
     // auto                   state = state_sing.get_or_default();
     // auto                   core_symbol = get_core_symbol();

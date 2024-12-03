@@ -12,7 +12,6 @@
 #include "src/contributions.cpp"
 #include "src/addresses.cpp"
 #include "src/fund.cpp"
-#include "src/branches.cpp"
 #include "src/agreements.cpp"
 #include "src/participants.cpp"
 

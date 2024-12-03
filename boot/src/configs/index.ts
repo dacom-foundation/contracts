@@ -88,6 +88,10 @@ export default {
       code_permissions_to: ['soviet'],
     },
     {
+      name: 'branch',
+      code_permissions_to: ['branch'],
+    },
+    {
       name: 'marketplace',
       code_permissions_to: ['marketplace'],
     },

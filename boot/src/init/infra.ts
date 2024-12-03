@@ -1,3 +1,4 @@
+import { randomUUID } from 'node:crypto'
 import axios from 'axios'
 import { Generator, Registry } from 'coopdoc-generator-ts'
 import type { Cooperative } from 'cooptypes'
@@ -146,7 +147,6 @@ export async function startInfra() {
   const organizationData: Cooperative.Users.IOrganizationData = {
     username: 'voskhod',
     type: 'coop',
-    is_cooperative: true,
     short_name: '"ПК Восход"',
     full_name: 'Потребительский Кооператив "ВОСХОД"',
     represented_by: {
@@ -158,6 +158,7 @@ export async function startInfra() {
     },
     country: 'Russia',
     city: 'Москва',
+    fact_address: '117593 г. Москва, муниципальный округ Ясенево, проезд Соловьиный, дом 1, помещение 1/1',
     full_address:
       '117593 г. Москва, муниципальный округ Ясенево, проезд Соловьиный, дом 1, помещение 1/1',
     email: 'copenomics@yandex.ru',
@@ -167,7 +168,22 @@ export async function startInfra() {
       ogrn: '1247700283346',
       kpp: '772801001',
     },
-    bank_account: {
+
+  }
+
+  const generator = new Generator()
+  // eslint-disable-next-line node/prefer-global/process
+  await generator.connect(process.env.MONGO_URI as string)
+
+  await generator.save('organization', organizationData)
+  console.log('Провайдер добавлен: ', organizationData)
+
+  await generator.save('paymentMethod', {
+    is_default: true,
+    method_id: randomUUID(),
+    method_type: 'bank_transfer',
+    username: 'voskhod',
+    data: {
       account_number: '40703810038000110117',
       currency: 'RUB',
       card_number: '',
@@ -178,14 +194,7 @@ export async function startInfra() {
         kpp: '773643001',
       },
     },
-  }
-
-  const generator = new Generator()
-  // eslint-disable-next-line node/prefer-global/process
-  await generator.connect(process.env.MONGO_URI as string)
-
-  await generator.save('organization', organizationData)
-  console.log('Провайдер добавлен: ', organizationData)
+  })
 
   console.log('Создаём программы и соглашения')
 

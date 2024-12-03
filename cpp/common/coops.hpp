@@ -1,8 +1,8 @@
 #pragma once
 /**
  * @ingroup public_tables
- * @brief Структура, представляющая членов доски.
- * @details Эта структура содержит информацию о членах доски, включая их уникальные имена, статус участия в голосовании,
+ * @brief Структура, представляющая членов совета (борда).
+ * @details Эта структура содержит информацию о членах борда, включая их уникальные имена, статус участия в голосовании,
  * название должности и позицию в доске.
  */
 struct board_member {
@@ -363,48 +363,6 @@ struct [[eosio::table, eosio::contract(SOVIET)]] address {
 
 
 typedef eosio::multi_index< "addresses"_n, address> addresses_index;
-
-
-struct [[eosio::table, eosio::contract("SOVIET")]] branch {
-  eosio::name username;
-  std::string name;
-  std::string description;
-
-  eosio::name authorizer;
-  std::vector<eosio::name> trusted;
-  
-
-  uint64_t primary_key() const { return username.value; }
-  uint64_t by_authorizer() const { return authorizer.value; }
-  
-  void add_account_to_trusted(const eosio::name& account) {
-    trusted.push_back(account);
-  }
-
-  void remove_account_from_trusted(const eosio::name& account) {
-    auto itr = std::remove(trusted.begin(), trusted.end(), account);
-    check(itr != trusted.end(), "Account not found in trusted list");
-    trusted.erase(itr, trusted.end());
-  }
-
-  bool is_account_in_trusted(const eosio::name& account) const {
-    return std::find(trusted.begin(), trusted.end(), account) != trusted.end();
-  }
-};
-
-typedef eosio::multi_index<"branches"_n, branch,
-  eosio::indexed_by<"byauthorizer"_n, eosio::const_mem_fun<branch, uint64_t, &branch::by_authorizer>>
-> branch_index;
-
-
-branch get_branch_or_fail(eosio::name coopname, eosio::name braname) {
-  branch_index branches(_soviet, coopname.value);
-  auto branch = branches.find(braname.value);
-
-  eosio::check(branch != branches.end(), "Кооперативный Участок не найден");
-  
-  return *branch;
-};
 
 
 

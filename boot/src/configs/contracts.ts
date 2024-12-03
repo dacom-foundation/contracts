@@ -51,6 +51,11 @@ export default [
     target: 'draft',
   },
   {
+    name: 'branch',
+    path: path.resolve(process.cwd(), '../build/contracts/branch'),
+    target: 'branch',
+  },
+  {
     name: 'gateway',
     path: path.resolve(process.cwd(), '../build/contracts/gateway'),
     target: 'gateway',

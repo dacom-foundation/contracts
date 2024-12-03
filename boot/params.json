@@ -1,7 +1,5 @@
 {
-  "initial_timestamp": "2024-06-19T06:00:00.000",
-  "initial_key": "EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
-  "initial_configuration": {
+  "params": {
     "max_block_net_usage": 1048576,
     "target_block_net_usage_pct": 1000,
     "max_transaction_net_usage": 1048575,
@@ -17,8 +15,7 @@
     "deferred_trx_expiration_window": 600,
     "max_transaction_delay": 3888000,
     "max_inline_action_size": 4096,
-    "max_inline_action_depth": 10,
-    "max_authority_depth": 6
-  },
-  "initial_chain_id": "0000000000000000000000000000000000000000000000000000000000000000"
+    "max_inline_action_depth": 20,
+    "max_authority_depth": 10
+  }
 }

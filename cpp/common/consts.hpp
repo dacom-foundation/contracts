@@ -81,6 +81,7 @@ static constexpr eosio::name _efund_withdraw_action = "subexp"_n;
 #define REGISTRATOR "registrator"
 #define SYSTEM "eosio"
 #define FUND "fund"
+#define BRANCH "branch"
     
 /**
 * @ingroup public_consts
@@ -97,6 +98,7 @@ static constexpr eosio::name _efund_withdraw_action = "subexp"_n;
     static constexpr eosio::name _registrator = "registrator"_n;
     static constexpr eosio::name _system = "eosio"_n;
     static constexpr eosio::name _fund = "fund"_n;
+    static constexpr eosio::name _branch = "branch"_n;
     static constexpr eosio::name _power_account = "eosio.power"_n;
     static constexpr eosio::name _saving_account = "eosio.saving"_n;
     
@@ -109,6 +111,7 @@ static constexpr eosio::name _efund_withdraw_action = "subexp"_n;
         "registrator"_n,
         "eosio"_n,
         "fund"_n,
+        "branch"_n,
         "contributor"_n,
         "eosio.token"_n,
         "eosio.msig"_n,

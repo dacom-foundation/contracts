@@ -65,5 +65,10 @@ public:
   [[eosio::action]] void changekey(eosio::name coopname, eosio::name changer, eosio::name username, eosio::public_key public_key);
   
   [[eosio::action]] void confirmreg(eosio::name coopname, eosio::name username);
-
+  
+  [[eosio::action]] void createbranch(eosio::name coopname, eosio::name braname);
+  
+  [[eosio::action]] void enabranches(eosio::name coopname);
+  [[eosio::action]] void disbranches(eosio::name coopname);
+  
 };

@@ -343,7 +343,7 @@ void system_contract::fill_tact(eosio::name payer, eosio::asset payment) {
     // Распределяем поступления
     eosio::asset producers_amount = payment * _producers_percent / HUNDR_PERCENTS;
     eosio::asset fund_amount = payment * _fund_percent / HUNDR_PERCENTS; 
-
+  
     // Передаем в фонд
     eosio::token::transfer_action transfer_act1{ token_account, { {payer, active_permission} } };
     transfer_act1.send( payer, _saving_account, fund_amount, "Передача токенов в фонд" );
