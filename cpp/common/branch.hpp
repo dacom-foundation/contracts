@@ -84,7 +84,7 @@ typedef eosio::multi_index<"branches"_n, coobranch,
 
 
 coobranch get_branch_or_fail(eosio::name coopname, eosio::name braname) {
-  branch_index branches(_soviet, coopname.value);
+  branch_index branches(_branch, coopname.value);
   auto branch = branches.find(braname.value);
 
   eosio::check(branch != branches.end(), "Кооперативный Участок не найден");

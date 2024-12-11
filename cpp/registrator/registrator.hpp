@@ -49,7 +49,7 @@ public:
   [[eosio::action]] void delcoop(eosio::name registrator, eosio::name coopname);  
   [[eosio::action]] void stcoopstatus(eosio::name coopname, eosio::name username, eosio::name status);
   
-  [[eosio::action]] void joincoop(eosio::name registrator, eosio::name coopname, eosio::name username, document document);
+  [[eosio::action]] void joincoop(eosio::name registrator, eosio::name coopname, eosio::name braname, eosio::name username, document document);
 
   [[eosio::action]] void verificate(eosio::name username, eosio::name procedure);
 

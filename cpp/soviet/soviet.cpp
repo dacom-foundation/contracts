@@ -18,9 +18,28 @@
 using namespace eosio;
 
 [[eosio::action]] void soviet::migrate() {
-  require_auth(_soviet);
-  
-};
+    require_auth(_soviet);
+
+    // Получаем индекс всех кооперативов
+    cooperatives_index cooperatives(_registrator, _registrator.value);
+
+    // Перебираем все кооперативы
+    for (auto coop = cooperatives.begin(); coop != cooperatives.end(); ++coop) {
+        // Получаем индекс участников конкретного кооператива
+        participants_index participants(_soviet, coop->username.value);
+
+        // Перебираем всех участников этого кооператива
+        for (auto it = participants.begin(); it != participants.end(); ++it) {
+            participants.modify(it, get_self(), [&](auto& row) {
+                // Если значение braname уже есть, оставляем его
+                if (!row.braname.has_value()) {
+                    row.braname = ""_n; // Устанавливаем пустое имя
+                }
+            });
+        }
+    }
+}
+
 
 
 [[eosio::action]] void soviet::init() {

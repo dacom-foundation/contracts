@@ -108,7 +108,7 @@ void soviet::regpaid(eosio::name coopname, eosio::name username){
 * 
 * @note Авторизация требуется от аккаунта: @p _registrator
 */
-void soviet::joincoop(eosio::name coopname, eosio::name username, document document) { 
+void soviet::joincoop(eosio::name coopname, eosio::name braname, eosio::name username, document document) { 
   require_auth(_registrator);
   
   joincoops_index joincoops(_soviet, coopname.value); 
@@ -118,6 +118,7 @@ void soviet::joincoop(eosio::name coopname, eosio::name username, document docum
   joincoops.emplace(_registrator, [&](auto &a){
     a.id = batch_id;
     a.username = username;
+    a.braname = braname;
     a.is_paid = false;
   });
   
@@ -134,6 +135,7 @@ void soviet::joincoop(eosio::name coopname, eosio::name username, document docum
     d.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
   });
   
+  // сохраняем документ во входящем реестре
   action(
     permission_level{ _soviet, "active"_n},
     _soviet,
@@ -203,6 +205,7 @@ void soviet::joincoop_effect(eosio::name executer, eosio::name coopname, uint64_
       m.is_minimum = true;
       m.has_vote = true;    
       m.type = account -> type;
+      m.braname = joincoop_action -> braname.has_value() ? joincoop_action -> braname.value() : ""_n;
     });  
   
   wallets_index wallets(_soviet, coopname.value);

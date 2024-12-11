@@ -8,13 +8,6 @@
 [[eosio::action]] void registrator::migrate() {
   require_auth(_registrator);
   
-  cooperatives_index coops(_registrator, _registrator.value);
-  auto coop = coops.find(_provider.value);
-  
-  coops.modify(coop, _registrator, [&](auto &row){
-    row.status = "active"_n;
-    row.created_at.emplace(eosio::time_point_sec(eosio::current_time_point().sec_since_epoch()));
-  });
 }
 
 
@@ -502,13 +495,16 @@
 *
 * @note Авторизация требуется от аккаунта: @p username
 */
-[[eosio::action]] void registrator::joincoop(eosio::name registrator, eosio::name coopname, eosio::name username, document document)
+[[eosio::action]] void registrator::joincoop(eosio::name registrator, eosio::name coopname, eosio::name braname, eosio::name username, document document)
 {
   check_auth_or_fail(coopname, registrator, "joincoop"_n);
   require_recipient(username);
   
   auto cooperative = get_cooperative_or_fail(coopname);
-
+  
+  // проверяем существование кооперативного участка
+  if (braname != ""_n) get_branch_or_fail(coopname, braname);
+  
   // Проверяем подпись документа
   verify_document_or_fail(document);
 
@@ -517,7 +513,7 @@
   eosio::check(participant == participants.end(), "Участник уже является членом кооператива");
 
   action(permission_level{_registrator, "active"_n}, _soviet, "joincoop"_n,
-         std::make_tuple(coopname, username, document))
+         std::make_tuple(coopname, braname, username, document))
       .send();
 };
 

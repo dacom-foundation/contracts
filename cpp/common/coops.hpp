@@ -169,6 +169,7 @@ struct [[eosio::table, eosio::contract(SOVIET)]] participant {
   bool has_vote; ///< LEGACY Флаг, указывающий, имеет ли член право голоса.
   
   eosio::binary_extension<eosio::name> type; ///< individual | entrepreneur | organization
+  eosio::binary_extension<eosio::name> braname; ///< имя кооперативного участка
 
   /**
    * @brief Возвращает первичный ключ учетной записи члена кооператива.
@@ -197,12 +198,17 @@ struct [[eosio::table, eosio::contract(SOVIET)]] participant {
   bool is_active() const {
     return status == "accepted"_n;
   }
+  
+  uint64_t by_braname() const {
+    return braname.has_value() ? braname -> value : 0; // Проверка на наличие значения
+  }
 
 };
 
 typedef eosio::multi_index< "participants"_n, participant,
   eosio::indexed_by<"bylastpay"_n, eosio::const_mem_fun<participant, uint64_t, &participant::bylastpay>>,
-  eosio::indexed_by<"createdat"_n, eosio::const_mem_fun<participant, uint64_t, &participant::by_created_at>>
+  eosio::indexed_by<"createdat"_n, eosio::const_mem_fun<participant, uint64_t, &participant::by_created_at>>,
+  eosio::indexed_by<"bybraname"_n, eosio::const_mem_fun<participant, uint64_t, &participant::by_braname>>
 > participants_index;
 
 

@@ -50,7 +50,7 @@ public:
   [[eosio::action]] void cancelreg(eosio::name coopname, eosio::name username, std::string message);
 
   //regaccount.cpp
-  [[eosio::action]] void joincoop(eosio::name coopname, eosio::name username, document document);
+  [[eosio::action]] void joincoop(eosio::name coopname, eosio::name braname, eosio::name username, document document);
   [[eosio::action]] void adduser(eosio::name coopname, eosio::name username, eosio::name type, eosio::time_point_sec created_at, eosio::asset initial, eosio::asset minimum, bool spread_initial);
   
   static void joincoop_effect(eosio::name executer, eosio::name coopname, uint64_t decision_id, uint64_t batch_id);
@@ -127,6 +127,9 @@ public:
   [[eosio::action]] void block(eosio::name coopname, eosio::name admin, eosio::name username, std::string message);
   [[eosio::action]] void unblock(eosio::name coopname, eosio::name admin, eosio::name username, bool is_registration, std::string message);
     
+  //branches.cpp
+  [[eosio::action]] void selectbranch(eosio::name coopname, eosio::name username, eosio::name braname, document document);
+    
 };
   
 
@@ -174,9 +177,10 @@ struct [[eosio::table, eosio::contract(SOVIET)]] automator {
     uint64_t id;
     eosio::name username;
     bool is_paid = false; 
-    
     std::string notice;
-
+    
+    eosio::binary_extension<eosio::name> braname;
+    
     uint64_t primary_key() const {
       return id;
     };
