@@ -208,7 +208,7 @@ struct [[eosio::table, eosio::contract(SOVIET)]] participant {
 typedef eosio::multi_index< "participants"_n, participant,
   eosio::indexed_by<"bylastpay"_n, eosio::const_mem_fun<participant, uint64_t, &participant::bylastpay>>,
   eosio::indexed_by<"createdat"_n, eosio::const_mem_fun<participant, uint64_t, &participant::by_created_at>>,
-  eosio::indexed_by<"bybraname"_n, eosio::const_mem_fun<participant, uint64_t, &participant::by_braname>>
+  eosio::indexed_by<"bybranch"_n, eosio::const_mem_fun<participant, uint64_t, &participant::by_braname>>
 > participants_index;
 
 

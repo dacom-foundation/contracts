@@ -18,7 +18,7 @@
 using namespace eosio;
 
 [[eosio::action]] void soviet::migrate() {
-    require_auth(_soviet);
+    require_auth(_soviet); // Проверяем авторизацию
 
     // Получаем индекс всех кооперативов
     cooperatives_index cooperatives(_registrator, _registrator.value);
@@ -28,17 +28,50 @@ using namespace eosio;
         // Получаем индекс участников конкретного кооператива
         participants_index participants(_soviet, coop->username.value);
 
-        // Перебираем всех участников этого кооператива
+        // Создаем временный список для хранения всех записей
+        std::vector<participant> temp_records;
+
+        // Сохраняем все записи
         for (auto it = participants.begin(); it != participants.end(); ++it) {
-            participants.modify(it, get_self(), [&](auto& row) {
-                // Если значение braname уже есть, оставляем его
-                if (!row.braname.has_value()) {
-                    row.braname = ""_n; // Устанавливаем пустое имя
+            temp_records.push_back(*it); // Копируем запись во временный список
+        }
+
+        // Удаляем все записи
+        for (auto it = participants.begin(); it != participants.end();) {
+            it = participants.erase(it); // Удаляем записи по одной
+        }
+
+        // Восстанавливаем записи с обновленными полями
+        for (auto& record : temp_records) {
+            participants.emplace(get_self(), [&](auto& row) {
+                row.username = record.username;
+                row.created_at = record.created_at;
+                row.last_update = record.last_update;
+                row.last_min_pay = record.last_min_pay;
+                row.status = record.status;
+
+                row.is_initial = record.is_initial;
+                row.is_minimum = record.is_minimum;
+                row.has_vote = record.has_vote;
+
+                // Устанавливаем поле type
+                if (record.type.has_value()) {
+                    row.type = record.type.value();
+                } else {
+                    row.type.reset(); // Оставляем поле пустым
+                }
+
+                // Устанавливаем поле braname
+                if (record.braname.has_value()) {
+                    row.braname = record.braname.value();
+                } else {
+                    row.braname = ""_n; // Задаем пустое значение для корректной инициализации
                 }
             });
         }
     }
 }
+
 
 
 

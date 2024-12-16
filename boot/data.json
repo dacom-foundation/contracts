@@ -1,0 +1,12 @@
+{
+  "coopname": "voskhod",
+  "username": "ant",
+  "braname": "tswjxfvycgdl",
+  "document": {
+    "hash": "E6C3DA27095DA0BA1AE2D2045F4B40D5A287600189D93621CCB67EDD9B9BF857",
+    "meta": "{\"block_num\":876463,\"braname\":\"zszlzmgmifvh\",\"coopname\":\"voskhod\",\"created_at\":\"16.12.2024 08:02\",\"generator\":\"coopjs\",\"lang\":\"ru\",\"links\":[],\"registry_id\":101,\"timezone\":\"Europe/Moscow\",\"title\":\"\u0417\u0430\u044f\u0432\u043b\u0435\u043d\u0438\u0435 \u043e \u0432\u044b\u0431\u043e\u0440\u0435 \u043a\u043e\u043e\u043f\u0435\u0440\u0430\u0442\u0438\u0432\u043d\u043e\u0433\u043e \u0443\u0447\u0430\u0441\u0442\u043a\u0430\",\"username\":\"ant\",\"version\":\"2.1.7\"}",
+    "public_key": "PUB_K1_6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5BoDq63",
+    "signature": "SIG_K1_K39WsT63WxtDKDNYStB9zHbLc5vG7Rwzi1GPa6xcHdnqUEivSHHmdMF3u55CLHceNDnU3jQhf9x3jfgAugbUCvhEJs4V9L"
+  }
+}
+

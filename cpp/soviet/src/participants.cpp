@@ -74,17 +74,16 @@ void soviet::unblock(eosio::name coopname, eosio::name admin, eosio::name userna
   require_auth(coopname);
   
   verify_document_or_fail(document);
-  
+  print(1, coopname, braname);
   get_branch_or_fail(coopname, braname);
   participants_index participants(_soviet, coopname.value);
   auto participant = participants.find(username.value);
-  
   eosio::check(participant != participants.end(), "Пайщик не найден");
   
   participants.modify(participant, coopname, [&](auto &row){
     row.braname = braname;
   });
-  
+    
   // отправляем документ во входящий реестр
   action(
     permission_level{ _soviet, "active"_n},
