@@ -67,6 +67,8 @@ static constexpr eosio::name _deposit_action = "deposit"_n;
 static constexpr eosio::name _withdraw_action = "withdraw"_n;
 static constexpr eosio::name _afund_withdraw_action = "subaccum"_n;
 static constexpr eosio::name _efund_withdraw_action = "subexp"_n;
+static constexpr eosio::name _free_decision_action = "freedecision"_n;
+
 
 #define HUNDR_PERCENTS 1000000
 #define ONE_PERCENT 10000
@@ -156,6 +158,8 @@ static constexpr eosio::name _efund_withdraw_action = "subexp"_n;
     static constexpr uint64_t _auction_name_length_limit = 12;
 
     static constexpr uint64_t _deposit_expiration_seconds = 3600;
+    
+    static constexpr uint64_t _decision_expiration = 3 * 86400;
     
     static constexpr uint64_t _producers_percent = 900000; // 90%
     static constexpr uint64_t _fund_percent = 100000; // 10%

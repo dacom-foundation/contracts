@@ -20,6 +20,7 @@ void soviet::fundwithdraw(eosio::name coopname, eosio::name username, eosio::nam
     d.batch_id = withdraw_id;
     d.statement = document;
     d.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+    d.expired_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch() + _decision_expiration);
   });
   
   action(

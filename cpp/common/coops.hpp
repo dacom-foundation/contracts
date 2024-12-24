@@ -237,6 +237,12 @@ struct [[eosio::table, eosio::contract(SOVIET)]] decision {
   document authorization; ///< Документ подписанного решения председателем
 
   eosio::time_point_sec created_at; ///< Время создания карточки решения.
+  
+  eosio::binary_extension<eosio::time_point_sec> expired_at; ///< Время до истечения
+  eosio::binary_extension<std::string> meta; ///< мета-данные
+
+  //TODO add expired_at and index
+  // eosio::time_point_sec expired_at; ///< Время создания карточки решения.
 
   /**
    * @brief Возвращает первичный ключ решения.

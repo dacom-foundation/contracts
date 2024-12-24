@@ -100,6 +100,8 @@ void soviet::change(eosio::name coopname, eosio::name parent_username, eosio::na
     d.coopname = coopname;
     d.username = product_contributor;  
     d.statement = change -> contribute_product_statement;
+    d.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+    d.expired_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch() + _decision_expiration);
   });
   
   decisions.emplace(_soviet, [&](auto &d){
@@ -109,6 +111,8 @@ void soviet::change(eosio::name coopname, eosio::name parent_username, eosio::na
     d.coopname = coopname;
     d.username = money_contributor;
     d.statement = change -> return_product_statement;
+    d.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
+    d.expired_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch() + _decision_expiration);
   });
 
   action(

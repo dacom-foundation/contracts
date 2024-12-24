@@ -136,6 +136,7 @@ export class CooperativeClass {
       coopname: config.provider,
       username: account.username,
       document,
+      braname: '',
     })
 
     console.log('Голосуем по решению в провайдере')
