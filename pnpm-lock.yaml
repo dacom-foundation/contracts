@@ -96,21 +96,6 @@ importers:
 
   cpp: {}
 
-  tests:
-    dependencies:
-      chai:
-        specifier: ^5.1.2
-        version: 5.1.2
-      dotenv:
-        specifier: ^16.4.5
-        version: 16.4.5
-      eosjs:
-        specifier: ^22.1.0
-        version: 22.1.0
-      mocha:
-        specifier: ^10.7.3
-        version: 10.7.3
-
 packages:
 
   '@ampproject/remapping@2.3.0':
