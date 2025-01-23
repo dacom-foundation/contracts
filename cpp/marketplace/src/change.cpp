@@ -134,7 +134,7 @@ void marketplace::create_parent(eosio::name type, const exchange_params& params)
 
   };
 
-  exchange.emplace(params.username, [&](auto &i) {
+  exchange.emplace(_marketplace, [&](auto &i) {
     i.id = id;
     i.type = type;
     i.program_id = params.program_id; 
@@ -212,8 +212,10 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
 
   if (program.calculation_type == "absolute"_n) {
     membership_fee = program.fixed_membership_contribution;
-  } else {
+  } else if (program.calculation_type == "relative"_n) {
     membership_fee = supplier_amount * HUNDR_PERCENTS / program.membership_percent_fee;
+  } else if (program.calculation_type == "free"_n) {
+    membership_fee = asset(0, _root_govern_symbol);
   };
   
   eosio::asset total_cost = params.unit_cost * params.pieces + membership_fee;
@@ -243,7 +245,7 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
 
   }
   
-  exchange.emplace(params.username, [&](auto &i) {
+  exchange.emplace(_marketplace, [&](auto &i) {
     i.id = id;
     i.parent_id = params.parent_id;
     i.parent_username = parent_change -> username;
@@ -321,13 +323,13 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
   // Проверяем подпись документа
   verify_document_or_fail(document);
 
-  exchange.modify(parent_change, username, [&](auto &i) {
+  exchange.modify(parent_change, _marketplace, [&](auto &i) {
     i.remain_units -= change -> remain_units;
     i.supplier_amount = (parent_change -> remain_units - change -> remain_units ) * parent_change -> unit_cost;
     i.blocked_units += change -> remain_units;
   });
 
-  exchange.modify(change, username, [&](auto &o){
+  exchange.modify(change, _marketplace, [&](auto &o){
     o.status = "accepted"_n;
     o.blocked_units += change -> remain_units;
     o.remain_units = 0;
@@ -369,7 +371,7 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
   // Проверяем подпись документа
   verify_document_or_fail(document);
 
-  exchange.modify(change, username, [&](auto &ch) {
+  exchange.modify(change, _marketplace, [&](auto &ch) {
     ch.supplied_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
     ch.status = "supplied1"_n;
     ch.product_contribution_act_validation = document;
@@ -402,7 +404,7 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
   verify_document_or_fail(document);
 
   //подписываем акт приёма-передачи кооперативу пайщиком
-  exchange.modify(change, username, [&](auto &ch) {
+  exchange.modify(change, _marketplace, [&](auto &ch) {
     ch.status = "supplied2"_n;
     ch.product_contribution_act = document;
   });
@@ -453,7 +455,7 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
 
   auto program = get_program_or_fail(coopname, change -> program_id);
 
-  exchange.modify(change, username, [&](auto &ch) {
+  exchange.modify(change, _marketplace, [&](auto &ch) {
     ch.status = "delivered"_n;
     ch.delivered_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
     ch.deadline_for_receipt = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch() + change -> product_lifecycle_secs / 4);
@@ -499,7 +501,7 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
   };
 
     //подписываем акт приёма-передачи кооперативу пайщиком
-  exchange.modify(change, username, [&](auto &ch){
+  exchange.modify(change, _marketplace, [&](auto &ch){
     ch.status = "recieved1"_n;
     ch.recieved_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
     ch.warranty_delay_until = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch() + change -> product_lifecycle_secs / 4);
@@ -527,7 +529,7 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
   // Проверяем подпись документа
   verify_document_or_fail(document);
 
-  exchange.modify(change, username, [&](auto &ch) {
+  exchange.modify(change, _marketplace, [&](auto &ch) {
     ch.status = "recieved2"_n;
     ch.product_recieve_act_validation = document;
   });
@@ -563,7 +565,7 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
 
   eosio::check(change -> status == "recieved2"_n, "Неверный статус для открытия спора");
   
-  exchange.modify(change, username, [&](auto &e){
+  exchange.modify(change, _marketplace, [&](auto &e){
     e.status = "disputed"_n;
     e.disputed_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
     e.warranty_return_id = change -> id;
@@ -578,7 +580,7 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
   verify_document_or_fail(document);
   
   //открытая заявка от заказчика на поставку имущества поставщику
-  exchange.emplace(username, [&](auto &i) {
+  exchange.emplace(_marketplace, [&](auto &i) {
     i.id = new_parent_id;
     i.type = "offer"_n;
     i.program_id = change -> program_id; 
@@ -613,7 +615,7 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
   ).send();
 
   //новая встречная заявка для будущего возврата поставщику
-  exchange.emplace(username, [&](auto &i) {
+  exchange.emplace(_marketplace, [&](auto &i) {
     i.id = new_id;
     i.parent_id = new_parent_id;
     i.type = "order"_n;
@@ -686,7 +688,7 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
   
   eosio::check(change -> warranty_delay_until.sec_since_epoch() < eosio::current_time_point().sec_since_epoch(), "Время гарантийной задержки еще не истекло");
 
-  exchange.modify(parent_change, username, [&](auto &i) {
+  exchange.modify(parent_change, _marketplace, [&](auto &i) {
     i.delivered_units += change -> blocked_units;
     i.blocked_units -= change -> blocked_units; 
     
@@ -695,7 +697,7 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
     }; 
   });
 
-  exchange.modify(change, username, [&](auto &o) {
+  exchange.modify(change, _marketplace, [&](auto &o) {
     o.status = "completed"_n;
     o.delivered_units += change -> blocked_units;
     o.blocked_units = 0;
@@ -787,7 +789,7 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
   eosio::check(change -> status == "published"_n, "Только заявка в статусе ожидания может быть отклонена");
 
 
-  exchange.modify(change, username, [&](auto &o){
+  exchange.modify(change, _marketplace, [&](auto &o){
     o.status = "declined"_n;
     o.declined_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
     o.meta = meta;
@@ -901,13 +903,13 @@ void marketplace::cancel_child(eosio::name coopname, eosio::name username, uint6
 
   if (change -> status == "authorized"_n) {
     //возвращаем единицы товара в родительскую заявку
-    exchange.modify(parent_change, username, [&](auto &e) {
+    exchange.modify(parent_change, _marketplace, [&](auto &e) {
       e.remain_units += change -> blocked_units;
       e.blocked_units -= change -> blocked_units;
       e.supplier_amount += change -> supplier_amount;
     });
 
-    exchange.modify(change, username, [&](auto &c){
+    exchange.modify(change, _marketplace, [&](auto &c){
       c.status = "canceled"_n;
       c.canceled_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
     });
@@ -916,7 +918,7 @@ void marketplace::cancel_child(eosio::name coopname, eosio::name username, uint6
     // exchange.erase(change);
   } else if (change -> status == "published"_n) {
 
-    exchange.modify(change, username, [&](auto &c){
+    exchange.modify(change, _marketplace, [&](auto &c){
       c.status = "canceled"_n;
       c.canceled_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
     });
@@ -958,7 +960,7 @@ void marketplace::cancel_child(eosio::name coopname, eosio::name username, uint6
   if (change -> data == data && change -> meta == meta) 
     status = change -> status;
 
-  exchange.modify(change, username, [&](auto &i) {
+  exchange.modify(change, _marketplace, [&](auto &i) {
     i.status = status;
     i.unit_cost = unit_cost;
     i.remain_units = remain_units;
@@ -990,7 +992,7 @@ void marketplace::cancel_child(eosio::name coopname, eosio::name username, uint6
   eosio::check(change -> username == username, "У вас нет прав на редактирование данной заявки");
   eosio::check(change -> parent_id == 0, "Нельзя отредактировать количество единиц во встречной заявке. Отмените её и пересоздайте");
 
-  exchange.modify(change, username, [&](auto &c){
+  exchange.modify(change, _marketplace, [&](auto &c){
     c.remain_units += new_pieces;
     c.supplier_amount = (change -> remain_units + new_pieces) * change -> unit_cost;
   });

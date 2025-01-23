@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { describe, expect, it } from 'vitest'
-import { Registry } from 'coopdoc-generator-ts'
+import { Registry } from '@coopenomics/factory'
 import { Cooperative as TCooperative } from 'cooptypes'
 import type { Account, Contract, Keys } from '../types'
 import config, { GOVERN_SYMBOL, SYMBOL } from '../configs'

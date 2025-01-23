@@ -14,6 +14,9 @@ importers:
 
   boot:
     dependencies:
+      '@coopenomics/factory':
+        specifier: link:/Users/darksun/dacom-code/foundation/monocoop/components/factory
+        version: link:../../monocoop/components/factory
       axios:
         specifier: ^1.6.8
         version: 1.7.7
@@ -23,9 +26,6 @@ importers:
       commander:
         specifier: ^12.1.0
         version: 12.1.0
-      coopdoc-generator-ts:
-        specifier: link:/Users/darksun/dacom-code/foundation/monocoop/components/coopdoc-generator-ts
-        version: link:../../monocoop/components/coopdoc-generator-ts
       cooptypes:
         specifier: link:/Users/darksun/dacom-code/foundation/monocoop/components/cooptypes
         version: link:../../monocoop/components/cooptypes

@@ -11,18 +11,14 @@
 * @note Авторизация требуется от аккаунта: @p username
 */
 [[eosio::action]] void marketplace::moderate(eosio::name coopname, eosio::name username, uint64_t exchange_id, uint64_t cancellation_fee) { 
-  require_auth(username);
+  check_auth_or_fail(coopname, username, "moderate"_n);
   
   requests_index exchange(_marketplace, coopname.value);
   
   auto change = exchange.find(exchange_id);
-  eosio::check(change != exchange.end(), "Ордер не найден");
+  eosio::check(change != exchange.end(), "Объявление не найдено");
 
   if (change -> status == "moderation"_n || change -> status == "prohibit"_n) {
-    staff_index staff(_soviet, coopname.value);
-    auto persona = staff.find(username.value);
-    eosio::check(persona != staff.end(), "Пользователь не является членом персонала");
-    eosio::check(persona -> has_right(_marketplace, "moderate"_n), "Недостаточно прав доступа");
     
     eosio::check(cancellation_fee >= 0 && cancellation_fee < 100, "Комиссия отмены должна быть от 0 до 100 процентов");
     eosio::asset cancellation_fee_amount = change -> total_cost * cancellation_fee / 100;
@@ -51,14 +47,11 @@
 */
 [[eosio::action]] void marketplace::prohibit(eosio::name coopname, eosio::name username, uint64_t exchange_id, std::string meta) { 
   require_auth(username);
+  check_auth_or_fail(coopname, username, "prohibit"_n);
   
   requests_index exchange(_marketplace, coopname.value);
   auto change = exchange.find(exchange_id);
-  eosio::check(change != exchange.end(), "Ордер не найден");
-
-  staff_index staff(_soviet, coopname.value);
-  auto persona = staff.find(username.value);
-  eosio::check(persona -> has_right(_marketplace, "prohibit"_n), "Недостаточно прав доступа");
+  eosio::check(change != exchange.end(), "Объявление не найдено");
 
   exchange.modify(change, username, [&](auto &o){
     o.status = "prohibit"_n;
@@ -84,7 +77,7 @@
   
   requests_index exchange(_marketplace, coopname.value);
   auto change = exchange.find(exchange_id);
-  eosio::check(change != exchange.end(), "Ордер не найден");
+  eosio::check(change != exchange.end(), "Объявление не найдено");
 
   staff_index staff(_soviet, coopname.value);
   auto persona = staff.find(username.value);
@@ -116,7 +109,7 @@
   staff_index staff(_soviet, coopname.value);
   auto persona = staff.find(username.value);
 
-  eosio::check(change != exchange.end(), "Ордер не найден");
+  eosio::check(change != exchange.end(), "Объявление не найдено");
   eosio::check(change->username == username || (persona != staff.end() && persona -> has_right(_marketplace, "unpublish"_n)), "У вас нет права на публикацию данной заявки");
   eosio::check(change->status == "unpublished"_n || change->status == "prohibit"_n, "Неверный статус для публикации");
 

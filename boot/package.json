@@ -16,10 +16,10 @@
     "stop": "./scripts/stop.sh"
   },
   "dependencies": {
+    "@coopenomics/factory": "link:/Users/darksun/dacom-code/foundation/monocoop/components/factory",
     "axios": "^1.6.8",
     "chai": "^5.1.2",
     "commander": "^12.1.0",
-    "coopdoc-generator-ts": "link:/Users/darksun/dacom-code/foundation/monocoop/components/coopdoc-generator-ts",
     "cooptypes": "link:/Users/darksun/dacom-code/foundation/monocoop/components/cooptypes",
     "dockerode": "^4.0.2",
     "dotenv": "^16.4.5",

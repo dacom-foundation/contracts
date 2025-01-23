@@ -34,6 +34,7 @@ public:
 
   [[eosio::action]] void edittrans(eosio::name scope, eosio::name username, uint64_t translate_id, std::string data);
 
+  [[eosio::action]] void upversion(eosio::name scope, eosio::name username, uint64_t registry_id);
 
   struct [[eosio::table, eosio::contract(DRAFT)]] counts : counts_base {};
 };

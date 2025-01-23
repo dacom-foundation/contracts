@@ -1,6 +1,6 @@
 import { randomUUID } from 'node:crypto'
 import axios from 'axios'
-import { Generator, Registry } from 'coopdoc-generator-ts'
+import { Generator, Registry } from '@coopenomics/factory'
 import type { Cooperative } from 'cooptypes'
 import { DraftContract } from 'cooptypes'
 import type { Account, Contract } from '../types'
