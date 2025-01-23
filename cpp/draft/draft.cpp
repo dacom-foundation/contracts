@@ -79,13 +79,11 @@ void draft::editdraft(eosio::name scope, eosio::name username, uint64_t registry
   eosio::check(exist != drafts.end(), "Шаблон не найден");
 
   drafts.modify(exist, payer, [&](auto &d){
-    d.version = exist -> version + 1;
     d.title = title;
     d.description = description;
     d.context = context;
     d.model = model;
   });
-
 }
 
 void draft::upversion(eosio::name scope, eosio::name username, uint64_t registry_id){
