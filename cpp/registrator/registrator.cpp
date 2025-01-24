@@ -561,10 +561,11 @@
 */
 [[eosio::action]] void registrator::updatecoop(eosio::name coopname, eosio::name username, eosio::asset initial, eosio::asset minimum, eosio::asset org_initial, eosio::asset org_minimum, std::string announce, std::string description)
 {
-  require_auth(username);
   
-  check_auth_or_fail(coopname, username, "updatecoop"_n);
-
+  if (!has_auth(_registrator)){
+    check_auth_or_fail(coopname, username, "updatecoop"_n);  
+  };
+  
   accounts_index accounts(_registrator, _registrator.value);
 
   auto account = accounts.find(username.value);
@@ -582,7 +583,7 @@
 
   eosio::check(initial.amount > 0 && org_initial.amount > 0 && minimum.amount > 0 && org_minimum.amount > 0, "Вступительный и минимальный паевые взносы должны быть положительными");
 
-  coops.modify(org, username, [&](auto &o){
+  coops.modify(org, coopname, [&](auto &o){
     o.initial = initial;
     o.minimum = minimum;
     o.registration = initial + minimum;
