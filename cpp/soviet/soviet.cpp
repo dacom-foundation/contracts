@@ -165,11 +165,24 @@ using namespace eosio;
 
 };
 
-[[eosio::action]] void soviet::newdeclined(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, document document) {
+[[eosio::action]] void soviet::newdeclined(eosio::name coopname, eosio::name username, document document) {
   check_auth_and_get_payer_or_fail({_registrator, _soviet});
 
   require_recipient(coopname);
   require_recipient(username);
+
+};
+
+
+[[eosio::action]] void soviet::declinedoc(eosio::name coopname, eosio::name username, document document) {
+  check_auth_or_fail(_soviet, coopname, username, "declinedoc"_n);
+
+  action(
+    permission_level{ _soviet, "active"_n},
+    _soviet,
+    "newdeclined"_n,
+    std::make_tuple(coopname, username, document)
+  ).send();
 
 };
 

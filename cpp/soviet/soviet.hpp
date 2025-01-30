@@ -45,6 +45,10 @@ public:
   [[eosio::action]] void newdecision(eosio::name coopname, eosio::name username,  eosio::name action, uint64_t decision_id, document document);
   [[eosio::action]] void newbatch(eosio::name coopname, eosio::name action, uint64_t batch_id);
   [[eosio::action]] void newprogram(eosio::name coopname, uint64_t program_id);
+  [[eosio::action]] void newdeclined(eosio::name coopname, eosio::name username, document document);
+
+  [[eosio::action]] void declinedoc(eosio::name coopname, eosio::name username, document document);
+
 
   //registrator.cpp
   [[eosio::action]] void cancelreg(eosio::name coopname, eosio::name username, std::string message);
