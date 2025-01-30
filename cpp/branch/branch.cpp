@@ -115,7 +115,7 @@ using namespace eosio;
   // отключаем участников кооператива от кооперативного участка
   action(
     permission_level{ _branch, "active"_n},
-    _branch,
+    _soviet,
     "deletebranch"_n,
     std::make_tuple(coopname, braname)
   ).send();

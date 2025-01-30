@@ -165,6 +165,14 @@ using namespace eosio;
 
 };
 
+[[eosio::action]] void soviet::newdeclined(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, document document) {
+  check_auth_and_get_payer_or_fail({_registrator, _soviet});
+
+  require_recipient(coopname);
+  require_recipient(username);
+
+};
+
 
 [[eosio::action]] void soviet::newact(eosio::name coopname, eosio::name username, eosio::name action, uint64_t decision_id, document document) {
   require_auth(_soviet);
