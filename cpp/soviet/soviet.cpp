@@ -15,6 +15,7 @@
 #include "src/agreements.cpp"
 #include "src/participants.cpp"
 #include "src/decisions.cpp"
+#include "src/branch.cpp"
 
 using namespace eosio;
 

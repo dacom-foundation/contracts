@@ -134,6 +134,8 @@ public:
   void freedecision_effect(eosio::name executer, eosio::name coopname, uint64_t decision_id);
   [[eosio::action]] void freedecision(eosio::name coopname, eosio::name username, document document, std::string meta);
 
+  //branch.cpp
+  [[eosio::action]] void deletebranch(eosio::name coopname, eosio::name braname);
 };
   
 

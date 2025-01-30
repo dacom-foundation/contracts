@@ -99,8 +99,6 @@ using namespace eosio;
 }
 
 
-
-
 [[eosio::action]] void branch::deletebranch(eosio::name coopname, eosio::name braname) {
   require_auth(coopname);
 
@@ -112,6 +110,14 @@ using namespace eosio;
   
   branches.erase(branch);
   
+  // отключаем участников кооператива от кооперативного участка
+  action(
+    permission_level{ _branch, "active"_n},
+    _branch,
+    "deletebranch"_n,
+    std::make_tuple(coopname, braname)
+  ).send();
+
   uint64_t new_count = sub_branch_count(coopname);
   
   if (coop.is_branched && new_count < 3) { //отключаем систему КУ, если их меньше 3
@@ -122,12 +128,4 @@ using namespace eosio;
         std::make_tuple(coopname)
       ).send();
   }
-  
 };
-
-
-
-
-
-
-
