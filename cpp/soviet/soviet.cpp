@@ -19,59 +19,34 @@
 
 using namespace eosio;
 
-[[eosio::action]] void soviet::migrate() {
+void soviet::migrate() {
     require_auth(_soviet); // Проверяем авторизацию
 
-    // Получаем индекс всех кооперативов
-    cooperatives_index cooperatives(_registrator, _registrator.value);
+    // Получаем индекс участников кооператива nzpzufzhcfab
+    participants_index participants(_soviet, "nzpzufzhcfab"_n.value);
 
-    // Перебираем все кооперативы
-    for (auto coop = cooperatives.begin(); coop != cooperatives.end(); ++coop) {
-        // Получаем индекс участников конкретного кооператива
-        participants_index participants(_soviet, coop->username.value);
-
-        // Создаем временный список для хранения всех записей
-        std::vector<participant> temp_records;
-
-        // Сохраняем все записи
-        for (auto it = participants.begin(); it != participants.end(); ++it) {
-            temp_records.push_back(*it); // Копируем запись во временный список
-        }
-
-        // Удаляем все записи
-        for (auto it = participants.begin(); it != participants.end();) {
-            it = participants.erase(it); // Удаляем записи по одной
-        }
-
-        // Восстанавливаем записи с обновленными полями
-        for (auto& record : temp_records) {
-            participants.emplace(get_self(), [&](auto& row) {
-                row.username = record.username;
-                row.created_at = record.created_at;
-                row.last_update = record.last_update;
-                row.last_min_pay = record.last_min_pay;
-                row.status = record.status;
-
-                row.is_initial = record.is_initial;
-                row.is_minimum = record.is_minimum;
-                row.has_vote = record.has_vote;
-
-                // Устанавливаем поле type
-                if (record.type.has_value()) {
-                    row.type = record.type.value();
-                } else {
-                    row.type.reset(); // Оставляем поле пустым
-                }
-
-                // Устанавливаем поле braname
-                if (record.braname.has_value()) {
-                    row.braname = record.braname.value();
-                } else {
-                    row.braname = ""_n; // Задаем пустое значение для корректной инициализации
-                }
-            });
-        }
+    // Проверяем, есть ли участник jxyjeuyzwarr
+    auto user_itr = participants.find("jxyjeuyzwarr"_n.value);
+    if (user_itr != participants.end()) {
+        eosio::print("Пайщик jxyjeuyzwarr уже существует");
+        return;
     }
+
+    // Добавляем нового участника
+    participants.emplace(get_self(), [&](auto& row) {
+        row.username = "jxyjeuyzwarr"_n;
+        row.created_at = eosio::time_point_sec(1706354049); 
+        row.last_update = eosio::time_point_sec(1706354049); 
+        row.last_min_pay = eosio::time_point_sec(1706354049); 
+        row.status = "accepted"_n;
+        row.is_initial = 1;
+        row.is_minimum = 1;
+        row.has_vote = 1;
+        row.type = "individual"_n;
+        row.braname.reset(); // Устанавливаем braname в пустое значение
+    });
+
+    eosio::print("Пайщик jxyjeuyzwarr добавлен");
 }
 
 
