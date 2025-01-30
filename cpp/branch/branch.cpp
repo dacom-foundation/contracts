@@ -15,7 +15,7 @@ using namespace eosio;
 
 
 [[eosio::action]] void branch::addtrusted(eosio::name coopname, eosio::name braname, eosio::name trusted) {
-    require_auth(coopname);
+    check_auth_or_fail(_branch, coopname, coopname, "addtrusted"_n);
 
     branch_index branches(_branch, coopname.value);
     auto branch = branches.find(braname.value);
@@ -33,7 +33,7 @@ using namespace eosio;
 }
 
 [[eosio::action]] void branch::deltrusted(eosio::name coopname, eosio::name braname, eosio::name trusted) {
-    require_auth(coopname);
+    check_auth_or_fail(_branch, coopname, coopname, "deltrusted"_n);
 
     branch_index branches(_branch, coopname.value);
     auto branch = branches.find(braname.value);
@@ -47,7 +47,8 @@ using namespace eosio;
 }
 
 [[eosio::action]] void branch::createbranch(eosio::name coopname, eosio::name braname, eosio::name trustee) {
-    require_auth(coopname);
+    check_auth_or_fail(_branch, coopname, coopname, "createbranch"_n);
+
     
     branch_index branches(_branch, coopname.value);
     auto coop = get_cooperative_or_fail(coopname);
@@ -83,7 +84,8 @@ using namespace eosio;
 }
 
 [[eosio::action]] void branch::editbranch(eosio::name coopname, eosio::name braname, eosio::name trustee) {
-    require_auth(coopname);
+    check_auth_or_fail(_branch, coopname, coopname, "editbranch"_n);
+
     
     branch_index branches(_branch, coopname.value);
     auto branch = branches.find(braname.value);
@@ -100,7 +102,7 @@ using namespace eosio;
 
 
 [[eosio::action]] void branch::deletebranch(eosio::name coopname, eosio::name braname) {
-  require_auth(coopname);
+  check_auth_or_fail(_branch, coopname, coopname, "deletebranch"_n);
 
   branch_index branches(_branch, coopname.value);
   auto branch = branches.find(braname.value);
