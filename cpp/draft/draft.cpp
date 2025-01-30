@@ -21,7 +21,7 @@ name get_payer_and_check_auth_in_scope(eosio::name scope, eosio::name username, 
   }
   else {
     get_cooperative_or_fail(scope);
-    check_auth_or_fail(scope, username, action);
+    check_auth_or_fail(_draft, scope, username, action);
     payer = username;
   };
   

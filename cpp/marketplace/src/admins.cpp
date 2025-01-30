@@ -11,7 +11,7 @@
 * @note Авторизация требуется от аккаунта: @p username
 */
 [[eosio::action]] void marketplace::moderate(eosio::name coopname, eosio::name username, uint64_t exchange_id, uint64_t cancellation_fee) { 
-  check_auth_or_fail(coopname, username, "moderate"_n);
+  check_auth_or_fail(_marketplace, coopname, username, "moderate"_n);
   
   requests_index exchange(_marketplace, coopname.value);
   
@@ -47,7 +47,7 @@
 */
 [[eosio::action]] void marketplace::prohibit(eosio::name coopname, eosio::name username, uint64_t exchange_id, std::string meta) { 
   require_auth(username);
-  check_auth_or_fail(coopname, username, "prohibit"_n);
+  check_auth_or_fail(_marketplace, coopname, username, "prohibit"_n);
   
   requests_index exchange(_marketplace, coopname.value);
   auto change = exchange.find(exchange_id);

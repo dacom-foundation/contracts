@@ -123,7 +123,7 @@ void soviet::make_base_coagreements( eosio::name coopname, eosio::symbol govern_
 void soviet::createboard(eosio::name coopname, eosio::name username, eosio::name type, std::vector<board_member> members, std::string name, std::string description){
   require_recipient(coopname);
   
-  check_auth_or_fail(coopname, username, "createboard"_n);
+  check_auth_or_fail(_soviet, coopname, username, "createboard"_n);
 
   eosio::name payer = username;
 
@@ -218,7 +218,7 @@ void soviet::createboard(eosio::name coopname, eosio::name username, eosio::name
 void soviet::updateboard(eosio::name coopname, eosio::name username, uint64_t board_id, std::vector<board_member> members, std::string name, std::string description){
   require_recipient(coopname);
   
-  check_auth_or_fail(coopname, username, "updateboard"_n);
+  check_auth_or_fail(_soviet, coopname, username, "updateboard"_n);
   
   cooperatives_index coops(_registrator, _registrator.value);
   auto org = coops.find(coopname.value);

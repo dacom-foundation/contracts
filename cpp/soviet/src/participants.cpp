@@ -5,7 +5,7 @@ void soviet::block(eosio::name coopname, eosio::name admin, eosio::name username
   
   //если администратор - проверяем дополнительно его права
   if (payer == admin)
-    check_auth_or_fail(coopname, admin, "block"_n);
+    check_auth_or_fail(_soviet, coopname, admin, "block"_n);
     
   participants_index participants(_soviet, coopname.value);
   auto participant = participants.find(username.value);
@@ -26,7 +26,7 @@ void soviet::unblock(eosio::name coopname, eosio::name admin, eosio::name userna
 
   //если администратор - проверяем дополнительно его права
   if (payer == admin)
-    check_auth_or_fail(coopname, admin, "unblock"_n);
+    check_auth_or_fail(_soviet, coopname, admin, "unblock"_n);
     
   participants_index participants(_soviet, coopname.value);
   auto participant = participants.find(username.value);

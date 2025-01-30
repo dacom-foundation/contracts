@@ -108,7 +108,7 @@
 {
 
   auto cooperative = get_cooperative_or_fail(coopname);
-  check_auth_or_fail(coopname, registrator, "adduser"_n);
+  check_auth_or_fail(_registrator, coopname, registrator, "adduser"_n);
   
   eosio::check(created_at.sec_since_epoch() <= eosio::current_time_point().sec_since_epoch(), "Дата created_at должна быть в прошлом" );
   eosio::check(cooperative.initial.symbol == initial.symbol, "Неверный символ");
@@ -233,7 +233,7 @@
   if (!has_auth(_provider))
   {
     get_cooperative_or_fail(coopname);
-    check_auth_or_fail(coopname, registrator, "newaccount"_n);
+    check_auth_or_fail(_registrator, coopname, registrator, "newaccount"_n);
   };
 
   authority active_auth;
@@ -289,7 +289,7 @@
 {
 
   auto cooperative = get_cooperative_or_fail(coopname);
-  check_auth_or_fail(coopname, registrator, "reguser"_n);
+  check_auth_or_fail(_registrator, coopname, registrator, "reguser"_n);
 
   eosio::name payer = registrator;
 
@@ -313,7 +313,7 @@
 
 [[eosio::action]] void registrator::delcoop(eosio::name administrator, eosio::name coopname)
 {
-  check_auth_or_fail(_provider, administrator, "delcoop"_n);
+  check_auth_or_fail(_registrator, _provider, administrator, "delcoop"_n);
 
   get_cooperative_or_fail(_provider);
   
@@ -338,7 +338,7 @@
 */
 [[eosio::action]] void registrator::regcoop(eosio::name coopname, eosio::name username, org_data params, document document)
 {
-  check_auth_or_fail(coopname, username, "regcoop"_n);
+  check_auth_or_fail(_registrator, coopname, username, "regcoop"_n);
   
   eosio::name payer = username;
 
@@ -389,7 +389,7 @@
 
 
 [[eosio::action]] void registrator::stcoopstatus(eosio::name coopname, eosio::name administrator, eosio::name status) {
-    check_auth_or_fail(_provider, administrator, "stcoopstatus"_n); //ожидаем разрешений от оператора
+    check_auth_or_fail(_registrator, _provider, administrator, "stcoopstatus"_n); //ожидаем разрешений от оператора
     
     cooperatives_index coops(_registrator, _registrator.value);
     
@@ -497,7 +497,7 @@
 */
 [[eosio::action]] void registrator::joincoop(eosio::name registrator, eosio::name coopname, eosio::name braname, eosio::name username, document document)
 {
-  check_auth_or_fail(coopname, registrator, "joincoop"_n);
+  check_auth_or_fail(_registrator, coopname, registrator, "joincoop"_n);
   require_recipient(username);
   
   auto cooperative = get_cooperative_or_fail(coopname);
@@ -534,7 +534,7 @@
   require_auth(username);
 
   if (account_to_change != username)
-    check_auth_or_fail(account_to_change, username, "updateaccnt"_n);
+    check_auth_or_fail(_registrator, account_to_change, username, "updateaccnt"_n);
   
   accounts_index accounts(_registrator, _registrator.value);
 
@@ -563,7 +563,7 @@
 {
   
   if (!has_auth(_provider)){
-    check_auth_or_fail(coopname, username, "updatecoop"_n);  
+    check_auth_or_fail(_registrator, coopname, username, "updatecoop"_n);  
   };
   
   accounts_index accounts(_registrator, _registrator.value);
@@ -616,7 +616,7 @@
   require_auth(changer);
 
   auto cooperative = get_cooperative_or_fail(coopname);
-  check_auth_or_fail(coopname, changer, "changekey"_n);
+  check_auth_or_fail(_registrator, coopname, changer, "changekey"_n);
   
   accounts_index accounts(_registrator, _registrator.value);
 

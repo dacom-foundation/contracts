@@ -1,9 +1,9 @@
 #pragma once
 
-void check_auth_or_fail(eosio::name coopname, eosio::name admin, eosio::name action_name)
+void check_auth_or_fail(eosio::name contract, eosio::name coopname, eosio::name admin, eosio::name action_name)
 {
-  // если подписывает ключ кооператива - разрешено всё.
-  if (has_auth(coopname))
+  // если подписывает ключ кооператива или контракт - разрешено всё.
+  if (has_auth(coopname) || has_auth(contract))
     return;
   
   // если нет подписи кооператива, то требуем подпись админа, кем бы он небыл

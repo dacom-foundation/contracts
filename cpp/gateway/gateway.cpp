@@ -143,7 +143,7 @@ void gateway::dpcomplete(eosio::name coopname, eosio::name admin, uint64_t depos
   require_auth(admin);
 
   if (coopname != admin) {
-    check_auth_or_fail(coopname, admin, "dpcomplete"_n);
+    check_auth_or_fail(_gateway, coopname, admin, "dpcomplete"_n);
   };
 
   deposits_index deposits(_gateway, coopname.value);
@@ -218,7 +218,7 @@ void gateway::dpcomplete(eosio::name coopname, eosio::name admin, uint64_t depos
  * @param memo 
  */
 void gateway::dprefund(eosio::name coopname, eosio::name admin, uint64_t deposit_id, std::string memo) {
-  check_auth_or_fail(coopname, admin, "dpcomplete"_n);
+  check_auth_or_fail(_gateway, coopname, admin, "dpcomplete"_n);
   
   auto cooperative = get_cooperative_or_fail(coopname);  
   
@@ -393,7 +393,7 @@ void gateway::wthdcomplete(eosio::name coopname, eosio::name admin, uint64_t wit
 
   require_auth(admin);
 
-  check_auth_or_fail(coopname, admin, "wthdcomplete"_n);
+  check_auth_or_fail(_gateway, coopname, admin, "wthdcomplete"_n);
   
   withdraws_index withdraws(_gateway, coopname.value);
   
@@ -457,7 +457,7 @@ void gateway::wthdfail(eosio::name coopname, eosio::name admin, uint64_t withdra
 
   require_auth(admin);
 
-  check_auth_or_fail(coopname, admin, "wthdfail"_n);
+  check_auth_or_fail(_gateway, coopname, admin, "wthdfail"_n);
 
   withdraws_index withdraws(_gateway, coopname.value);
   auto withdraw = withdraws.find(withdraw_id);

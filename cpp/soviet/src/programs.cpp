@@ -25,7 +25,7 @@ using namespace eosio;
 */
 void soviet::createprog(eosio::name coopname, eosio::name username, uint64_t draft_id, std::string title, std::string announce, std::string description, std::string preview, std::string images, eosio::name calculation_type, eosio::asset fixed_membership_contribution, uint64_t membership_percent_fee, std::string meta) { 
   
-  check_auth_or_fail(coopname, username, "createprog"_n);
+  check_auth_or_fail(_soviet, coopname, username, "createprog"_n);
   
   auto board = get_board_by_type_or_fail(coopname, "soviet"_n);
   
@@ -99,7 +99,7 @@ void soviet::createprog(eosio::name coopname, eosio::name username, uint64_t dra
 * @note Авторизация требуется от аккаунта: @p coopname
 */
 void soviet::editprog(eosio::name coopname, eosio::name username, uint64_t program_id, uint64_t draft_id, std::string title, std::string announce, std::string description, std::string preview, std::string images, std::string meta) {
-  check_auth_or_fail(coopname, username, "editprog"_n);
+  check_auth_or_fail(_soviet, coopname, username, "editprog"_n);
   
   programs_index programs(_soviet, coopname.value);
   auto existing_program = programs.find(program_id);

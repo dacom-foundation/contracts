@@ -9,7 +9,7 @@
  * @param program_id 
  */
 [[eosio::action]] void soviet::makecoagreem(eosio::name coopname, eosio::name administrator, eosio::name type, uint64_t draft_id, uint64_t program_id){
-  check_auth_or_fail(coopname, administrator, "makecoagreem"_n);
+  check_auth_or_fail(_soviet, coopname, administrator, "makecoagreem"_n);
   
   coagreements_index coagreements(_soviet, coopname.value);
   auto exist = coagreements.find(type.value);
@@ -45,7 +45,7 @@
   auto coop = get_cooperative_or_fail(coopname);
     
   if (has_auth(administrator)) {
-    check_auth_or_fail(coopname, administrator, "createboard"_n);
+    check_auth_or_fail(_soviet, coopname, administrator, "sndagreement"_n);
   }
   
   verify_document_or_fail(document);
@@ -139,7 +139,7 @@
 
 
 [[eosio::action]] void soviet::confirmagree(eosio::name coopname, eosio::name administrator, eosio::name username, uint64_t agreement_id) {
-  check_auth_or_fail(coopname, administrator, "confirmagree"_n);
+  check_auth_or_fail(_soviet, coopname, administrator, "confirmagree"_n);
   
   
   agreements_index agreements(_soviet, coopname.value);
@@ -165,7 +165,7 @@
 }
 
 [[eosio::action]] void soviet::declineagree(eosio::name coopname, eosio::name administrator, eosio::name username, uint64_t agreement_id, std::string comment){
-  check_auth_or_fail(coopname, administrator, "editprog"_n);
+  check_auth_or_fail(_soviet, coopname, administrator, "declineagree"_n);
   
   agreements_index agreements(_soviet, coopname.value);
   auto indoc = agreements.find(agreement_id);
