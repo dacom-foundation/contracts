@@ -24,7 +24,7 @@ uint64_t add_branch_count(eosio::name coopname){
   } else {
     new_count = st -> count + 1;
     stat.modify(st, coopname, [&](auto &s){
-      s.count += new_count;
+      s.count += 1;
     });
   };  
   

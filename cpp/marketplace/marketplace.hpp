@@ -67,7 +67,7 @@ public:
   [[eosio::action]] void cancel(eosio::name coopname, eosio::name username, uint64_t exchange_id);
   
   [[eosio::action]] void update(eosio::name coopname, eosio::name username, uint64_t exchange_id, uint64_t remain_units, eosio::asset unit_cost, std::string data, std::string meta);
-  [[eosio::action]] void addpieces(eosio::name coopname, eosio::name username, uint64_t exchange_id, uint64_t new_pieces);
+  [[eosio::action]] void addunits(eosio::name coopname, eosio::name username, uint64_t exchange_id, uint64_t units);
   
   //admins.cpp
   [[eosio::action]] void moderate(eosio::name coopname, eosio::name username, uint64_t exchange_id, uint64_t cancellation_fee);

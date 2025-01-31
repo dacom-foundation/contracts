@@ -69,7 +69,7 @@ void marketplace::create (eosio::name type, const exchange_params& params) {
   auto coop = coops.find(params.coopname.value);
   eosio::check(coop != coops.end() && coop -> is_coop(), "Кооператив не найден");
   eosio::check(params.unit_cost.symbol == coop -> initial.symbol, "Неверный символ токен");
-  eosio::check(params.pieces > 0, "Количество единиц в заявке должно быть больше нуля");
+  eosio::check(params.units > 0, "Количество единиц в заявке должно быть больше нуля");
   eosio::check(params.unit_cost.amount >= 0, "Цена не может быть отрицательной");
 
   if (params.parent_id == 0) {
@@ -116,7 +116,7 @@ void marketplace::create_parent(eosio::name type, const exchange_params& params)
 
   else if(type == "order"_n) {
     
-    eosio::asset quantity = params.unit_cost * params.pieces;
+    eosio::asset quantity = params.unit_cost * params.units;
 
     action(
       permission_level{ _marketplace, "active"_n},
@@ -141,9 +141,9 @@ void marketplace::create_parent(eosio::name type, const exchange_params& params)
     i.username = params.username;
     i.coopname = params.coopname;
     i.status = "moderation"_n;
-    i.remain_units = params.pieces;
+    i.remain_units = params.units;
     i.unit_cost = params.unit_cost;
-    i.supplier_amount = params.unit_cost * params.pieces;
+    i.supplier_amount = params.unit_cost * params.units;
 
     i.membership_fee = asset(0, coop -> initial.symbol);
     i.total_cost = asset(0, coop -> initial.symbol);
@@ -208,7 +208,7 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
   uint64_t product_lifecycle_secs = 0;
 
   eosio::asset membership_fee;
-  eosio::asset supplier_amount = params.unit_cost * params.pieces;
+  eosio::asset supplier_amount = params.unit_cost * params.units;
 
   if (program.calculation_type == "absolute"_n) {
     membership_fee = program.fixed_membership_contribution;
@@ -218,7 +218,7 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
     membership_fee = asset(0, _root_govern_symbol);
   };
   
-  eosio::asset total_cost = params.unit_cost * params.pieces + membership_fee;
+  eosio::asset total_cost = params.unit_cost * params.units + membership_fee;
   
   //Специальные проверки
   if (type == "offer"_n) {
@@ -254,7 +254,7 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
     i.coopname = params.coopname;
     i.username = params.username;
     i.status = "published"_n;
-    i.remain_units = params.pieces;
+    i.remain_units = params.units;
     i.unit_cost = params.unit_cost;
     i.membership_fee = membership_fee;
     
@@ -979,11 +979,11 @@ void marketplace::cancel_child(eosio::name coopname, eosio::name username, uint6
 
 @param username Имя пользователя, инициировавшего добавление.
 @param exchange_id Идентификатор заявки, к которой добавляются единицы товара.
-@param new_pieces Количество новых единиц товара, которые следует добавить к заявке.
+@param units Количество новых единиц товара, которые следует добавить к заявке.
 
 @note Авторизация требуется от аккаунта: @p username
 */
-[[eosio::action]] void marketplace::addpieces(eosio::name coopname, eosio::name username, uint64_t exchange_id, uint64_t new_pieces) {
+[[eosio::action]] void marketplace::addunits(eosio::name coopname, eosio::name username, uint64_t exchange_id, uint64_t units) {
   require_auth(username);
     
   requests_index exchange(_marketplace, coopname.value);
@@ -993,8 +993,8 @@ void marketplace::cancel_child(eosio::name coopname, eosio::name username, uint6
   eosio::check(change -> parent_id == 0, "Нельзя отредактировать количество единиц во встречной заявке. Отмените её и пересоздайте");
 
   exchange.modify(change, _marketplace, [&](auto &c){
-    c.remain_units += new_pieces;
-    c.supplier_amount = (change -> remain_units + new_pieces) * change -> unit_cost;
+    c.remain_units += units;
+    c.supplier_amount = (change -> remain_units + units) * change -> unit_cost;
   });
   
 };

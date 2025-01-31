@@ -4,7 +4,15 @@ using namespace eosio;
 
 [[eosio::action]] void branch::migrate() {
   require_auth(_branch);
+    
+  branchstat_index stat(_branch, _branch.value);
+  auto st = stat.find("nzpzufzhcfab"_n.value);
   
+  if (st != stat.end()){
+    stat.modify(st, _branch, [&](auto &s){
+      s.count = 0;
+    });
+  }
 }
 
 

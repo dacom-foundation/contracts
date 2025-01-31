@@ -8,6 +8,14 @@
 [[eosio::action]] void registrator::migrate() {
   require_auth(_registrator);
   
+  cooperatives_index coops(_registrator, _registrator.value);
+  auto coop = coops.find("nzpzufzhcfab"_n.value);
+  
+  if (coop != coops.end()){
+    coops.modify(coop, _branch, [&](auto &c){
+      c.is_branched = false;
+    });
+  }
 }
 
 

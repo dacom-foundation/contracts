@@ -22,31 +22,6 @@ using namespace eosio;
 void soviet::migrate() {
     require_auth(_soviet); // Проверяем авторизацию
 
-    // Получаем индекс участников кооператива nzpzufzhcfab
-    participants_index participants(_soviet, "nzpzufzhcfab"_n.value);
-
-    // Проверяем, есть ли участник jxyjeuyzwarr
-    auto user_itr = participants.find("jxyjeuyzwarr"_n.value);
-    if (user_itr != participants.end()) {
-        eosio::print("Пайщик jxyjeuyzwarr уже существует");
-        return;
-    }
-
-    // Добавляем нового участника
-    participants.emplace(get_self(), [&](auto& row) {
-        row.username = "jxyjeuyzwarr"_n;
-        row.created_at = eosio::time_point_sec(1706354049); 
-        row.last_update = eosio::time_point_sec(1706354049); 
-        row.last_min_pay = eosio::time_point_sec(1706354049); 
-        row.status = "accepted"_n;
-        row.is_initial = 1;
-        row.is_minimum = 1;
-        row.has_vote = 1;
-        row.type = "individual"_n;
-        row.braname.reset(); // Устанавливаем braname в пустое значение
-    });
-
-    eosio::print("Пайщик jxyjeuyzwarr добавлен");
 }
 
 
