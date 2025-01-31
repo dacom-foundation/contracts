@@ -12,7 +12,7 @@
   auto coop = coops.find("nzpzufzhcfab"_n.value);
   
   if (coop != coops.end()){
-    coops.modify(coop, _branch, [&](auto &c){
+    coops.modify(coop, _registrator, [&](auto &c){
       c.is_branched = false;
     });
   }
