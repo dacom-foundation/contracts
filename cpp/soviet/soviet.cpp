@@ -59,7 +59,7 @@ void soviet::migrate() {
         
         for (auto wallet_it = wallets.begin(); wallet_it != wallets.end(); ++wallet_it) {
           wallets.modify(wallet_it, _soviet, [&](auto &w){
-            w.initial = coop -> initial;
+            w.initial = coop_it -> initial;
           });
         };
         
