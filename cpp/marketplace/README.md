@@ -21,7 +21,6 @@
 - **Действия обмена**: `offer`, `order`, `complete`, `decline`, `accept`.
 - **Административные действия**: `moderate`, `prohibit`, `unpublish`, `publish`.
 - **Действия авторизации**: `authorize`.
-- **Действия управления балансом**: `add_balance`, `sub_balance`.
 - **Прочие действия**: `newid` (используется для возврата информации из контракта), `update`, `addpieces`.
 
 ## Использование

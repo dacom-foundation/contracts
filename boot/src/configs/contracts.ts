@@ -70,4 +70,9 @@ export default [
     path: path.resolve(process.cwd(), '../build/contracts/contributor'),
     target: 'contributor',
   },
+  {
+    name: 'capital',
+    path: path.resolve(process.cwd(), '../build/contracts/capital'),
+    target: 'capital',
+  },
 ]

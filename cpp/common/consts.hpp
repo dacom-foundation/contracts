@@ -68,6 +68,8 @@ static constexpr eosio::name _withdraw_action = "withdraw"_n;
 static constexpr eosio::name _afund_withdraw_action = "subaccum"_n;
 static constexpr eosio::name _efund_withdraw_action = "subexp"_n;
 static constexpr eosio::name _free_decision_action = "freedecision"_n;
+static constexpr eosio::name _contribute_action = "contribute"_n;
+static constexpr eosio::name _claim_action = "claim"_n;
 
 
 #define HUNDR_PERCENTS 1000000
@@ -84,14 +86,15 @@ static constexpr eosio::name _free_decision_action = "freedecision"_n;
 #define SYSTEM "eosio"
 #define FUND "fund"
 #define BRANCH "branch"
-    
+#define CAPITAL "capital"
 /**
 * @ingroup public_consts
 * @{ 
 */
     static constexpr eosio::name _provider = "voskhod"_n;
     static constexpr eosio::name _provider_chairman = "ant"_n;
-
+    
+    static constexpr eosio::name _capital = "capital"_n;
     static constexpr eosio::name _ano = "ano"_n;
     static constexpr eosio::name _gateway = "gateway"_n;
     static constexpr eosio::name _draft = "draft"_n;
@@ -104,6 +107,8 @@ static constexpr eosio::name _free_decision_action = "freedecision"_n;
     static constexpr eosio::name _power_account = "eosio.power"_n;
     static constexpr eosio::name _saving_account = "eosio.saving"_n;
     
+    
+    
     static std::vector<name> contracts_whitelist = {
         "ano"_n,
         "gateway"_n,
@@ -114,6 +119,7 @@ static constexpr eosio::name _free_decision_action = "freedecision"_n;
         "eosio"_n,
         "fund"_n,
         "branch"_n,
+        "capital"_n,
         "contributor"_n,
         "eosio.token"_n,
         "eosio.msig"_n,
@@ -133,6 +139,7 @@ static constexpr eosio::name _free_decision_action = "freedecision"_n;
         "eosio.ram"_n,
         "eosio.stake"_n,
         "fund"_n,
+        "capital"_n,
         "contributor"_n,
         _provider
         // Добавьте другие аккаунты в список по мере необходимости

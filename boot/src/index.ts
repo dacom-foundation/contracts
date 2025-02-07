@@ -123,6 +123,7 @@ program
       await runContainer()
       await checkHealth()
       await boot()
+      console.log('Boot process completed')
     }
     catch (error) {
       console.error('Failed to boot:', error)

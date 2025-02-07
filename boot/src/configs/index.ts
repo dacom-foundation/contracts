@@ -84,6 +84,10 @@ export default {
       code_permissions_to: ['registrator'],
     },
     {
+      name: 'capital',
+      code_permissions_to: ['capital'],
+    },
+    {
       name: 'soviet',
       code_permissions_to: ['soviet'],
     },

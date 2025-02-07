@@ -140,6 +140,12 @@ public:
 
   //branch.cpp
   [[eosio::action]] void deletebranch(eosio::name coopname, eosio::name braname);
+  
+  //capital.cpp
+  [[eosio::action]] void claim(eosio::name coopname, eosio::name username, uint64_t result_id, document statement, std::string meta);
+  [[eosio::action]] void contribute(eosio::name coopname, eosio::name username, uint64_t claim_id, document statement, std::string meta);
+  void contribute_or_generate_effect(eosio::name executer, eosio::name coopname, uint64_t decision_id);
+
 };
   
 

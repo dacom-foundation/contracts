@@ -1,11 +1,14 @@
 #pragma once
 
+// -----------------------------------------------------------------
+// Таблица программ
+// -----------------------------------------------------------------
 struct [[eosio::table, eosio::contract(SOVIET)]] program {
-  uint64_t id;                 /*!< идентификатор обмена */
-  uint64_t draft_id;         ///< Ссылка на шаблон условий
-  eosio::name program_type;  /*!< тип кооперативной программы (wallet | market | ...) */
+  uint64_t id;                             /*!< идентификатор обмена */
+  uint64_t draft_id;                       ///< Ссылка на шаблон условий
+  eosio::name program_type;                /*!< тип кооперативной программы (wallet | market | ...) */
   
-  eosio::name coopname;      /*!< имя аккаунта кооператива */
+  eosio::name coopname;                    /*!< имя аккаунта кооператива */
   bool is_active;
   std::string title;
   std::string announce;
@@ -14,24 +17,45 @@ struct [[eosio::table, eosio::contract(SOVIET)]] program {
   std::string images;
   std::string meta;
 
-  eosio::name calculation_type; /*!< тип настройки платежей по программе ( absolute | relative | free ) */
-  uint64_t membership_percent_fee; /*!< процент комиссии со взноса */
+  eosio::name calculation_type;            /*!< тип настройки платежей по программе ( absolute | relative | free ) */
+  uint64_t membership_percent_fee;         /*!< процент комиссии со взноса */
   eosio::asset fixed_membership_contribution;  /*!< Членский взнос */
   
-  eosio::time_point_sec start_at;  /*!< Время открытия */
-  eosio::time_point_sec expired_at;  /*!< Временное ограничение */
+  eosio::time_point_sec start_at;          /*!< Время открытия */
+  eosio::time_point_sec expired_at;        /*!< Временное ограничение */
+  
+  // Новое поле: агрегированный доступный баланс в виде binary_extension
+  eosio::binary_extension<eosio::asset> available;
+  eosio::binary_extension<eosio::asset> spended;
+  eosio::binary_extension<eosio::asset> blocked;
 
   uint64_t primary_key() const { return id; } /*!< return id - primary_key */
   uint64_t by_program_type() const { return program_type.value;} /*!< return program_type - secondary_key */
-  uint64_t by_draft() const {return draft_id;};
+  uint64_t by_draft() const { return draft_id; };
 };
 
-typedef eosio::multi_index<"programs"_n, program,
+typedef eosio::multi_index<
+  "programs"_n, 
+  program,
   eosio::indexed_by<"programtype"_n, eosio::const_mem_fun<program, uint64_t, &program::by_program_type>>,
-  eosio::indexed_by<"bydraft"_n, eosio::const_mem_fun<program, uint64_t, &program::by_draft>>
+  eosio::indexed_by<"bydraft"_n,     eosio::const_mem_fun<program, uint64_t, &program::by_draft>>
 > programs_index; /*!< Тип мультииндекса для таблицы целевых программ */
 
 
+std::optional<progwallet> get_program_wallet (eosio::name coopname, eosio::name username, uint64_t program_id) {
+  
+  progwallets_index progwallets(_soviet, coopname.value);
+
+  auto balances_by_username_and_program = progwallets.template get_index<"byuserprog"_n>();
+  auto username_and_program_index = combine_ids(username.value, program_id);
+  auto wallet = balances_by_username_and_program.find(username_and_program_index);
+  
+  if (wallet == balances_by_username_and_program.end()) {
+    return std::nullopt;
+  }
+
+  return *wallet;
+}
 
 program get_program_or_fail(eosio::name coopname, uint64_t program_id) {
   programs_index programs(_soviet, coopname.value);

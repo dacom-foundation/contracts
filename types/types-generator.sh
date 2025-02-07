@@ -14,6 +14,7 @@ declare -A contract_params_test=(
   [registrator]="registrator"
   [fund]="fund"
   [branch]="branch"
+  [capital]="capital"
 )
 
 # Алиас для cleos через Docker

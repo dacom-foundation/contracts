@@ -6,6 +6,13 @@ static uint128_t combine_ids(const uint64_t &x, const uint64_t &y) {
   return (uint128_t{x} << 64) | y;
 };
 
+static uint128_t combine_checksum_ids(const checksum256 &hash, eosio::name username) {
+    auto hash_bytes = hash.extract_as_byte_array();
+    uint64_t truncated_hash = *reinterpret_cast<const uint64_t*>(hash_bytes.data()); // Берем первые 8 байт
+    return combine_ids(truncated_hash, username.value);
+}
+
+
 std::string generate_random_name() {
   const char ALPHABET[] = "abcdefghijklmnopqrstuvwxyz";
   const int ALPHABET_SIZE = sizeof(ALPHABET) - 1;

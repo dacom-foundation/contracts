@@ -51,6 +51,7 @@ void soviet::adduser(eosio::name coopname, eosio::name username, eosio::name typ
     w.available = asset(0, cooperative.initial.symbol);
     w.blocked = asset(0, cooperative.initial.symbol);
     w.minimum = minimum; 
+    w.initial = initial;
   });
   
   /**

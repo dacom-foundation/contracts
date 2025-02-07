@@ -98,13 +98,8 @@ void contributor::withdraw1(name coopname, name username, asset amount) {
     gs.total_withdrawed += amount;
     update_global_state(gs);
 
-    // Transfer funds to participant
-    action(
-        permission_level{_self, "active"_n},
-        "eosio.token"_n,
-        "transfer"_n,
-        std::make_tuple(_self, username, amount, std::string("Withdrawal from intellectual contributions"))
-    ).send();
+    // TODO Create gateway withdraw payment
+    
 }
 
 void contributor::withdraw2(name coopname, name username, asset amount) {

@@ -63,6 +63,7 @@ void soviet::createprog(eosio::name coopname, eosio::name username, uint64_t dra
     pr.calculation_type = calculation_type;
     pr.fixed_membership_contribution = fixed_membership_contribution;  
     pr.membership_percent_fee = membership_percent_fee;
+    pr.available = eosio::asset(0, _root_govern_symbol);
     pr.meta = meta;
   });
 

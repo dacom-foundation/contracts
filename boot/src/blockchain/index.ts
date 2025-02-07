@@ -1,22 +1,21 @@
-import { TextDecoder, TextEncoder } from "node:util" // Add missing import
-import fs from "node:fs"
-import { JsSignatureProvider } from "eosjs/dist/eosjs-jssig"
-import { Api, JsonRpc } from "eosjs"
+import { TextDecoder, TextEncoder } from 'node:util' // Add missing import
+import fs from 'node:fs'
+import { JsSignatureProvider } from 'eosjs/dist/eosjs-jssig'
+import { Api, JsonRpc, Serialize } from 'eosjs'
 import {
   DraftContract,
   RegistratorContract,
   SovietContract,
   SystemContract,
   TokenContract,
-} from "cooptypes"
-import config from "../configs"
+} from 'cooptypes'
+// @ts-expect-error заменить на antelope
+import EosApi from 'eosjs-api'
+// @ts-expect-error заменить на antelope
+import ecc from 'eosjs-ecc'
+import config from '../configs'
 
-import EosApi from "eosjs-api"
-import ecc from "eosjs-ecc"
-
-import type { Contract, Feature, Keys, Network } from "../types"
-
-import { Serialize } from `eosjs`
+import type { Contract, Feature, Keys, Network } from '../types'
 
 export default class Blockchain {
   public signatureProvider: any
@@ -35,7 +34,7 @@ export default class Blockchain {
     const endpoint = this.network.host
     const port = this.network.port
     const res = `${protocol}://${endpoint}${port}`
-    console.log(res)
+
     const rpc = new JsonRpc(res, { fetch })
 
     const signatureProvider = new JsSignatureProvider(this.privateKeys)
@@ -50,46 +49,57 @@ export default class Blockchain {
   }
 
   generateRandomUsername(): string {
-    const characters = "abcdefghijklmnopqrstuvwxyz"
-    let username = ""
+    const characters = 'abcdefghijklmnopqrstuvwxyz'
+    let username = ''
     for (let i = 0; i < 12; i++) {
       const randomIndex = Math.floor(Math.random() * characters.length)
       username += characters[randomIndex]
     }
     return username
   }
-  
+
   async getTableRows(
     code: string,
     scope: string,
     table: string,
     limit = 10,
+    lower_bound?: string,
+    upper_bound?: string,
+    index_position?: number,
+    key_type: 'i64' | 'i128' | 'i256' | 'float64' | 'float128' | 'sha256' | 'ripemd160' = 'i64',
   ): Promise<any> {
     try {
-      const result = await this.api.get_table_rows({
+      const result = await this.api.read.getTableRows({
         json: true,
-        code: code,
-        scope: scope,
-        table: table,
-        limit: limit,
-      });
-      return result.rows;
-    } catch (error) {
-      console.error('Error fetching table rows:', error);
-      throw error;
+        code,
+        scope,
+        table,
+        limit,
+        lower_bound,
+        upper_bound,
+        index_position,
+        key_type,
+      })
+      return result.rows
+    }
+    catch (error) {
+      console.error('Error fetching table rows:', error)
+      throw error
     }
   }
 
   async generateKeypair(username?: string, keys?: Keys, memo?: string) {
-    let privateKey = ""
-    let publicKey = ""
+    let privateKey = ''
+    let publicKey = ''
 
-    if (!username) username = this.generateRandomUsername()
+    if (!username)
+      username = this.generateRandomUsername()
 
     if (keys) {
       privateKey = keys.privateKey
       publicKey = keys.publicKey
-    } else {
+    }
+    else {
       privateKey = await ecc.randomKey()
       publicKey = await ecc.privateToPublic(privateKey)
     }
@@ -100,10 +110,10 @@ export default class Blockchain {
 
     await this.update_pass_instance()
 
-    console.log("\tusername: ", username)
-    console.log("\tprivateKey: ", privateKey)
-    console.log("\tpublicKey: ", publicKey)
-    console.log("\tmemo: ", memo)
+    console.log('\tusername: ', username)
+    console.log('\tprivateKey: ', privateKey)
+    console.log('\tpublicKey: ', publicKey)
+    console.log('\tmemo: ', memo)
 
     return { username, privateKey, publicKey, memo }
   }
@@ -112,7 +122,7 @@ export default class Blockchain {
     creator: string,
     accountName: string,
     ownerPublicKey: string,
-    activePublicKey: string
+    activePublicKey: string,
   ) {
     try {
       await this.update_pass_instance()
@@ -120,12 +130,12 @@ export default class Blockchain {
         {
           actions: [
             {
-              account: "eosio",
-              name: "newaccount",
+              account: 'eosio',
+              name: 'newaccount',
               authorization: [
                 {
                   actor: creator,
-                  permission: "active",
+                  permission: 'active',
                 },
               ],
               data: {
@@ -160,23 +170,24 @@ export default class Blockchain {
         {
           blocksBehind: 3,
           expireSeconds: 30,
-        }
+        },
       )
       console.log(`Created account: ${accountName}`)
       return result
-    } catch (e) {
+    }
+    catch (e) {
       console.error(e)
     }
   }
 
   async setContract(contract: Contract) {
     try {
-      console.log("on set: ", contract)
+      console.log('on set: ', contract)
       const wasm_path = `${contract.path}/${contract.name}.wasm`
       const abi_path = `${contract.path}/${contract.name}.abi`
 
-      console.log("wasm_path", wasm_path)
-      console.log("abi_path", abi_path)
+      console.log('wasm_path', wasm_path)
+      console.log('abi_path', abi_path)
 
       const wasm = fs.readFileSync(wasm_path)
       const abi = fs.readFileSync(abi_path)
@@ -186,20 +197,21 @@ export default class Blockchain {
         textDecoder: this.api.textDecoder,
       })
 
-      const abiDefinitions = this.api.abiTypes.get("abi_def")
+      const abiDefinitions = this.api.abiTypes.get('abi_def')
 
-      let abiJSON = JSON.parse(abi) // Convert the abi buffer to a string before parsing it as JSON
+      let abiJSON = JSON.parse(abi.toString()) // Convert the abi buffer to a string before parsing it as JSON
 
       abiJSON = abiDefinitions.fields.reduce(
         (acc: { [x: string]: any }, { name: fieldName }: any) =>
           Object.assign(acc, { [fieldName]: acc[fieldName] || [] }),
-        abiJSON
+        abiJSON,
       )
       abiDefinitions.serialize(buffer, abiJSON)
 
+      // eslint-disable-next-line node/prefer-global/buffer
       const serializedAbiHexString = Buffer.from(
-        buffer.asUint8Array()
-      ).toString("hex")
+        buffer.asUint8Array(),
+      ).toString('hex')
 
       const data = {
         account: contract.target,
@@ -214,23 +226,23 @@ export default class Blockchain {
         {
           actions: [
             {
-              account: "eosio",
-              name: "setcode",
+              account: 'eosio',
+              name: 'setcode',
               authorization: [
                 {
                   actor: contract.target,
-                  permission: "active",
+                  permission: 'active',
                 },
               ],
               data,
             },
             {
-              account: "eosio",
-              name: "setabi",
+              account: 'eosio',
+              name: 'setabi',
               authorization: [
                 {
                   actor: contract.target,
-                  permission: "active",
+                  permission: 'active',
                 },
               ],
               data: {
@@ -243,10 +255,11 @@ export default class Blockchain {
         {
           blocksBehind: 3,
           expireSeconds: 30,
-        }
+        },
       )
-      console.log("contract setted: ", contract.target)
-    } catch (e) {
+      console.log('contract setted: ', contract.target)
+    }
+    catch (e) {
       console.log(e)
     }
   }
@@ -258,12 +271,12 @@ export default class Blockchain {
       {
         actions: [
           {
-            account: "eosio",
-            name: "activate",
+            account: 'eosio',
+            name: 'activate',
             authorization: [
               {
-                actor: "eosio",
-                permission: "active",
+                actor: 'eosio',
+                permission: 'active',
               },
             ],
             data: {
@@ -275,10 +288,10 @@ export default class Blockchain {
       {
         blocksBehind: 3,
         expireSeconds: 30,
-      }
+      },
     )
 
-    console.log("Фича активирована: ", feature.name)
+    console.log('Фича активирована: ', feature.name)
   }
 
   async createToken(params: TokenContract.Interfaces.ICreate) {
@@ -288,12 +301,12 @@ export default class Blockchain {
       {
         actions: [
           {
-            account: "eosio.token",
+            account: 'eosio.token',
             name: TokenContract.Actions.Create.actionName,
             authorization: [
               {
-                actor: "eosio.token",
-                permission: "active",
+                actor: 'eosio.token',
+                permission: 'active',
               },
             ],
             data: {
@@ -305,10 +318,10 @@ export default class Blockchain {
       {
         blocksBehind: 3,
         expireSeconds: 30,
-      }
+      },
     )
 
-    console.log("Токен создан: ", params)
+    console.log('Токен создан: ', params)
   }
 
   async issueToken(params: TokenContract.Interfaces.IIssue) {
@@ -318,12 +331,12 @@ export default class Blockchain {
       {
         actions: [
           {
-            account: "eosio.token",
+            account: 'eosio.token',
             name: TokenContract.Actions.Issue.actionName,
             authorization: [
               {
-                actor: "eosio",
-                permission: "active",
+                actor: 'eosio',
+                permission: 'active',
               },
             ],
             data: {
@@ -335,10 +348,10 @@ export default class Blockchain {
       {
         blocksBehind: 3,
         expireSeconds: 30,
-      }
+      },
     )
 
-    console.log("Токен выпущен: ", params)
+    console.log('Токен выпущен: ', params)
   }
 
   async initSystem(params: SystemContract.Actions.Init.IInit) {
@@ -352,8 +365,8 @@ export default class Blockchain {
             name: SystemContract.Actions.Init.actionName,
             authorization: [
               {
-                actor: "eosio",
-                permission: "active",
+                actor: 'eosio',
+                permission: 'active',
               },
             ],
             data: {
@@ -365,14 +378,14 @@ export default class Blockchain {
       {
         blocksBehind: 3,
         expireSeconds: 30,
-      }
+      },
     )
 
-    console.log("Системный контракт инициализирован", params)
+    console.log('Системный контракт инициализирован', params)
   }
 
   async initEmission(
-    params: SystemContract.Actions.InitEmission.IInitEmission
+    params: SystemContract.Actions.InitEmission.IInitEmission,
   ) {
     await this.update_pass_instance()
 
@@ -384,8 +397,8 @@ export default class Blockchain {
             name: SystemContract.Actions.InitEmission.actionName,
             authorization: [
               {
-                actor: "eosio",
-                permission: "active",
+                actor: 'eosio',
+                permission: 'active',
               },
             ],
             data: {
@@ -397,10 +410,10 @@ export default class Blockchain {
       {
         blocksBehind: 3,
         expireSeconds: 30,
-      }
+      },
     )
 
-    console.log("Эмиссия инициализирована", params)
+    console.log('Эмиссия инициализирована', params)
   }
 
   async initPowerup(params: SystemContract.Actions.InitPowerup.IInitPowerup) {
@@ -414,8 +427,8 @@ export default class Blockchain {
             name: SystemContract.Actions.InitPowerup.actionName,
             authorization: [
               {
-                actor: "eosio",
-                permission: "active",
+                actor: 'eosio',
+                permission: 'active',
               },
             ],
             data: {
@@ -427,10 +440,10 @@ export default class Blockchain {
       {
         blocksBehind: 3,
         expireSeconds: 30,
-      }
+      },
     )
 
-    console.log("Система аренды инициализирована", params)
+    console.log('Система аренды инициализирована', params)
   }
 
   async powerup(params: SystemContract.Actions.Powerup.IPowerup) {
@@ -445,7 +458,7 @@ export default class Blockchain {
             authorization: [
               {
                 actor: params.payer,
-                permission: "active",
+                permission: 'active',
               },
             ],
             data: {
@@ -457,15 +470,14 @@ export default class Blockchain {
       {
         blocksBehind: 3,
         expireSeconds: 30,
-      }
+      },
     )
 
-    console.log("Аренда ресурсов: ", params)
+    console.log('Аренда ресурсов: ', params)
   }
-  
-  
+
   async preInit(
-    params: RegistratorContract.Actions.SetCoopStatus.ISetCoopStatus
+    params: RegistratorContract.Actions.SetCoopStatus.ISetCoopStatus,
   ) {
     await this.update_pass_instance()
     console.log(params)
@@ -478,7 +490,7 @@ export default class Blockchain {
             authorization: [
               {
                 actor: config.provider,
-                permission: "active",
+                permission: 'active',
               },
             ],
             data: {
@@ -490,15 +502,15 @@ export default class Blockchain {
       {
         blocksBehind: 3,
         expireSeconds: 30,
-      }
+      },
     )
 
-    console.log("Новый кооператив пре-иниализирован: ", params)
+    console.log('Новый кооператив пре-иниализирован: ', params)
   }
 
-  //TODO change registerOrganization to registerCooperative
+  // TODO change registerOrganization to registerCooperative
   async registerOrganization(
-    params: RegistratorContract.Actions.RegisterCooperative.IRegisterCooperative
+    params: RegistratorContract.Actions.RegisterCooperative.IRegisterCooperative,
   ) {
     await this.update_pass_instance()
     console.log(params)
@@ -511,7 +523,7 @@ export default class Blockchain {
             authorization: [
               {
                 actor: params.coopname,
-                permission: "active",
+                permission: 'active',
               },
             ],
             data: {
@@ -523,17 +535,16 @@ export default class Blockchain {
       {
         blocksBehind: 3,
         expireSeconds: 30,
-      }
+      },
     )
 
-    console.log("Новая организация: ", params)
+    console.log('Новая организация: ', params)
   }
-  
-  
+
   async sendAgreement(
-    data: SovietContract.Actions.Agreements.SendAgreement.ISendAgreement
+    data: SovietContract.Actions.Agreements.SendAgreement.ISendAgreement,
   ) {
-    console.log("data", data)
+    console.log('data', data)
     await this.api.transact(
       {
         actions: [
@@ -546,20 +557,19 @@ export default class Blockchain {
                 permission: 'active',
               },
             ],
-            data
+            data,
           },
         ],
       },
       {
         blocksBehind: 3,
         expireSeconds: 30,
-      }
+      },
     )
-
   }
 
   async registerAccount2(
-    params: RegistratorContract.Actions.CreateAccount.ICreateAccount
+    params: RegistratorContract.Actions.CreateAccount.ICreateAccount,
   ) {
     await this.update_pass_instance()
 
@@ -572,7 +582,7 @@ export default class Blockchain {
             authorization: [
               {
                 actor: params.registrator,
-                permission: "active",
+                permission: 'active',
               },
             ],
             data: {
@@ -584,14 +594,14 @@ export default class Blockchain {
       {
         blocksBehind: 3,
         expireSeconds: 30,
-      }
+      },
     )
 
-    console.log("Новый аккаунт 2: ", params)
+    console.log('Новый аккаунт 2: ', params)
   }
 
   async registerUser(
-    params: RegistratorContract.Actions.RegisterUser.IRegistrerUser
+    params: RegistratorContract.Actions.RegisterUser.IRegistrerUser,
   ) {
     await this.update_pass_instance()
 
@@ -604,7 +614,7 @@ export default class Blockchain {
             authorization: [
               {
                 actor: params.registrator,
-                permission: "active",
+                permission: 'active',
               },
             ],
             data: {
@@ -616,16 +626,16 @@ export default class Blockchain {
       {
         blocksBehind: 3,
         expireSeconds: 30,
-      }
+      },
     )
 
-    console.log("Новый пользователь: ", params)
+    console.log('Новый пользователь: ', params)
   }
 
   async transfer(params: TokenContract.Actions.Transfer.ITransfer) {
     await this.update_pass_instance()
 
-    await this.api.transact(
+    const result = await this.api.transact(
       {
         actions: [
           {
@@ -634,7 +644,7 @@ export default class Blockchain {
             authorization: [
               {
                 actor: params.from,
-                permission: "active",
+                permission: 'active',
               },
             ],
             data: {
@@ -646,15 +656,16 @@ export default class Blockchain {
       {
         blocksBehind: 3,
         expireSeconds: 30,
-      }
+      },
     )
 
-    console.log("Перевод токенов: ", params)
+    console.log('Перевод токенов: ', params)
+    return result
   }
 
   async updateAccountPermissionsToCode(
     account_for_change: string,
-    account_for_set_code: string
+    account_for_set_code: string,
   ) {
     try {
       await this.update_pass_instance()
@@ -663,18 +674,18 @@ export default class Blockchain {
         {
           actions: [
             {
-              account: "eosio",
-              name: "updateauth",
+              account: 'eosio',
+              name: 'updateauth',
               authorization: [
                 {
                   actor: account_for_change,
-                  permission: "active",
+                  permission: 'active',
                 },
               ],
               data: {
                 account: account_for_change,
-                permission: "active",
-                parent: "owner",
+                permission: 'active',
+                parent: 'owner',
                 auth: {
                   threshold: 1,
                   keys: [
@@ -682,7 +693,7 @@ export default class Blockchain {
                       key:
                         this.new_accounts.find(
                           (account: any) =>
-                            account.username === account_for_change
+                            account.username === account_for_change,
                         )?.publicKey || config.default_public_key,
                       weight: 1,
                     },
@@ -691,7 +702,7 @@ export default class Blockchain {
                     {
                       permission: {
                         actor: account_for_set_code,
-                        permission: "eosio.code",
+                        permission: 'eosio.code',
                       },
                       weight: 1,
                     },
@@ -705,20 +716,21 @@ export default class Blockchain {
         {
           blocksBehind: 3,
           expireSeconds: 30,
-        }
+        },
       )
 
       console.log(
-        `Updated account permissions: ${account_for_change} -> ${account_for_set_code}`
+        `Updated account permissions: ${account_for_change} -> ${account_for_set_code}`,
       )
       return result
-    } catch (e) {
+    }
+    catch (e) {
       console.error(e)
     }
   }
 
   async votefor(
-    params: SovietContract.Actions.Decisions.VoteFor.IVoteForDecision
+    params: SovietContract.Actions.Decisions.VoteFor.IVoteForDecision,
   ) {
     await this.update_pass_instance()
 
@@ -731,7 +743,7 @@ export default class Blockchain {
             authorization: [
               {
                 actor: params.member,
-                permission: "active",
+                permission: 'active',
               },
             ],
             data: {
@@ -743,14 +755,14 @@ export default class Blockchain {
       {
         blocksBehind: 3,
         expireSeconds: 30,
-      }
+      },
     )
 
-    console.log("Голос за решение: ", params)
+    console.log('Голос за решение: ', params)
   }
 
   async authorize(
-    params: SovietContract.Actions.Decisions.Authorize.IAuthorize
+    params: SovietContract.Actions.Decisions.Authorize.IAuthorize,
   ) {
     await this.update_pass_instance()
 
@@ -763,7 +775,7 @@ export default class Blockchain {
             authorization: [
               {
                 actor: params.chairman,
-                permission: "active",
+                permission: 'active',
               },
             ],
             data: {
@@ -775,10 +787,10 @@ export default class Blockchain {
       {
         blocksBehind: 3,
         expireSeconds: 30,
-      }
+      },
     )
 
-    console.log("Решение утверждено: ", params)
+    console.log('Решение утверждено: ', params)
   }
 
   async exec(params: SovietContract.Actions.Decisions.Exec.IExec) {
@@ -793,7 +805,7 @@ export default class Blockchain {
             authorization: [
               {
                 actor: params.executer,
-                permission: "active",
+                permission: 'active',
               },
             ],
             data: {
@@ -805,14 +817,14 @@ export default class Blockchain {
       {
         blocksBehind: 3,
         expireSeconds: 30,
-      }
+      },
     )
 
-    console.log("Решение исполнено: ", params)
+    console.log('Решение исполнено: ', params)
   }
 
   async joinCoop(
-    params: RegistratorContract.Actions.JoinCooperative.IJoinCooperative
+    params: RegistratorContract.Actions.JoinCooperative.IJoinCooperative,
   ) {
     await this.update_pass_instance()
 
@@ -825,7 +837,7 @@ export default class Blockchain {
             authorization: [
               {
                 actor: params.registrator,
-                permission: "active",
+                permission: 'active',
               },
             ],
             data: {
@@ -837,14 +849,14 @@ export default class Blockchain {
       {
         blocksBehind: 3,
         expireSeconds: 30,
-      }
+      },
     )
 
-    console.log("Заявление на вступление отправлено в совет: ", params)
+    console.log('Заявление на вступление отправлено в совет: ', params)
   }
 
   async createBoard(
-    params: SovietContract.Actions.Boards.CreateBoard.ICreateboard
+    params: SovietContract.Actions.Boards.CreateBoard.ICreateboard,
   ) {
     await this.update_pass_instance()
 
@@ -857,7 +869,7 @@ export default class Blockchain {
             authorization: [
               {
                 actor: params.username,
-                permission: "active",
+                permission: 'active',
               },
             ],
             data: {
@@ -869,10 +881,10 @@ export default class Blockchain {
       {
         blocksBehind: 3,
         expireSeconds: 30,
-      }
+      },
     )
 
-    console.log("Совет создан: ", params)
+    console.log('Совет создан: ', params)
   }
 
   async createDraft(params: DraftContract.Actions.CreateDraft.ICreateDraft) {
@@ -887,7 +899,7 @@ export default class Blockchain {
             authorization: [
               {
                 actor: params.username,
-                permission: "active",
+                permission: 'active',
               },
             ],
             data: {
@@ -899,14 +911,14 @@ export default class Blockchain {
       {
         blocksBehind: 3,
         expireSeconds: 30,
-      }
+      },
     )
 
-    console.log("Шаблон создан: ", params)
+    console.log('Шаблон создан: ', params)
   }
 
   async createTranslation(
-    params: DraftContract.Actions.CreateTranslation.ICreateTranslation
+    params: DraftContract.Actions.CreateTranslation.ICreateTranslation,
   ) {
     await this.update_pass_instance()
 
@@ -918,8 +930,8 @@ export default class Blockchain {
             name: DraftContract.Actions.CreateTranslation.actionName,
             authorization: [
               {
-                actor: "eosio",
-                permission: "active",
+                actor: 'eosio',
+                permission: 'active',
               },
             ],
             data: {
@@ -931,17 +943,17 @@ export default class Blockchain {
       {
         blocksBehind: 3,
         expireSeconds: 30,
-      }
+      },
     )
 
-    console.log("Перевод создан: ", params)
+    console.log('Перевод создан: ', params)
   }
 
   async createProgram(
-    params: SovietContract.Actions.Programs.CreateProgram.ICreateProgram
+    params: SovietContract.Actions.Programs.CreateProgram.ICreateProgram,
   ) {
     await this.update_pass_instance()
-    console.log("params", params)
+    console.log('params', params)
     await this.api.transact(
       {
         actions: [
@@ -951,7 +963,7 @@ export default class Blockchain {
             authorization: [
               {
                 actor: params.username,
-                permission: "active",
+                permission: 'active',
               },
             ],
             data: {
@@ -963,14 +975,14 @@ export default class Blockchain {
       {
         blocksBehind: 3,
         expireSeconds: 30,
-      }
+      },
     )
 
-    console.log("Программа установлена: ", params)
+    console.log('Программа установлена: ', params)
   }
 
   async makeCoagreement(
-    params: SovietContract.Actions.Agreements.MakeCoagreement.IMakeCoagreement
+    params: SovietContract.Actions.Agreements.MakeCoagreement.IMakeCoagreement,
   ) {
     await this.update_pass_instance()
 
@@ -983,7 +995,7 @@ export default class Blockchain {
             authorization: [
               {
                 actor: params.administrator,
-                permission: "active",
+                permission: 'active',
               },
             ],
             data: {
@@ -995,9 +1007,9 @@ export default class Blockchain {
       {
         blocksBehind: 3,
         expireSeconds: 30,
-      }
+      },
     )
 
-    console.log("Программа установлена: ", params)
+    console.log('Программа установлена: ', params)
   }
 }

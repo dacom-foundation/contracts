@@ -16,13 +16,57 @@
 #include "src/participants.cpp"
 #include "src/decisions.cpp"
 #include "src/branch.cpp"
+#include "src/capital.cpp"
 
 using namespace eosio;
-
 void soviet::migrate() {
     require_auth(_soviet); // Проверяем авторизацию
 
+    cooperatives_index coops(_registrator, _registrator.value);
+
+    for (auto coop_it = coops.begin(); coop_it != coops.end(); ++coop_it) {
+        eosio::name coopname = coop_it->username;
+
+        // --- 1. Обновление available у программных кошельков пайщиков ---
+        participants_index participants(_soviet, coopname.value);
+        // progwallets_index progwallets(_soviet, coopname.value);
+
+        // for (auto part_it = participants.begin(); part_it != participants.end(); ++part_it) {
+        //     eosio::name username = part_it->username;
+
+        //     auto user_prog_wallets = progwallets.get_index<"byusername"_n>();
+        //     auto wallet_it = user_prog_wallets.lower_bound(username.value);
+
+        //     while (wallet_it != user_prog_wallets.end() && wallet_it->username == username) {
+        //         eosio::asset new_available;
+
+        //         if (wallet_it->available.symbol.raw() == 0) {
+        //             new_available = eosio::asset(0, _root_govern_symbol);
+        //         } else {
+        //             new_available = eosio::asset(wallet_it->available.amount, _root_govern_symbol);
+        //         }
+
+        //         user_prog_wallets.modify(wallet_it, _soviet, [&](auto &w) {
+        //             w.available = new_available;
+        //         });
+
+        //         ++wallet_it;
+        //     }
+        // }
+        // --- 2. Обновление available у всех программ кооператива ---
+        programs_index programs(_soviet, coopname.value);
+        for (auto prog_it = programs.begin(); prog_it != programs.end(); ++prog_it) {
+            if (!prog_it->available.has_value()) {
+                programs.modify(prog_it, _soviet, [&](auto &p) {
+                    p.available = eosio::asset(0, _root_govern_symbol);
+                    p.blocked = eosio::asset(0, _root_govern_symbol);
+                    p.spended = eosio::asset(0, _root_govern_symbol);
+                });
+            }
+        }
+    }
 }
+
 
 
 
@@ -200,5 +244,7 @@ void soviet::exec(eosio::name executer, eosio::name coopname, uint64_t decision_
     soviet::subaccum_effect(executer, coopname, decision->id, decision->batch_id);
   } else if (decision -> type == _free_decision_action) {
     soviet::freedecision_effect(executer, coopname, decision->id);
-  }
+  } else if (decision -> type == _contribute_action || decision -> type == _claim_action) {
+    soviet::contribute_or_generate_effect(executer, coopname, decision -> id);
+  };
 }
