@@ -72,9 +72,9 @@ static constexpr eosio::name _contribute_action = "contribute"_n;
 static constexpr eosio::name _claim_action = "claim"_n;
 
 //program_types
-static constexpr eosio::name _wallet = "wallet"_n;
-static constexpr eosio::name _cooplace = "cooplace"_n;
-static constexpr eosio::name _capital = "capital"_n;
+static constexpr eosio::name _wallet_program = "wallet"_n;
+static constexpr eosio::name _cooplace_program = "cooplace"_n;
+static constexpr eosio::name _capital_program = "capital"_n;
 
 #define HUNDR_PERCENTS 1000000
 #define ONE_PERCENT 10000

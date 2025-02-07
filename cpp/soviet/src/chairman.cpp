@@ -53,7 +53,7 @@ void soviet::make_base_coagreements( eosio::name coopname, eosio::symbol govern_
     //создаём программу кошелька
     programs.emplace(_soviet, [&](auto &pr) {
       pr.id = wallet_program_id;
-      pr.program_type = "wallet"_n;
+      pr.program_type = _wallet_program;
       pr.is_active = true;
       pr.draft_id = 1;
       pr.coopname = coopname;
