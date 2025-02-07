@@ -1,20 +1,3 @@
-// // фонд членских взносов
-struct [[eosio::table, eosio::contract(FUND)]] fundwallet {
-  uint64_t id = 0;  ///< только нулевой идентификатор
-  eosio::name coopname;  ///< идентификатор кооператива
-  eosio::asset circulating;  ///< индикаторный счет паевого фонда
-  eosio::asset
-      membership;  ///< индикаторный счет всех поступивших членских взносов
-  eosio::asset accumulated;  ///< собрано фонды накопления
-  eosio::asset withdrawed;  ///< индикаторный счет вывода из фондов накопления
-  eosio::asset available;  ///< доступно для списания в фондах
-  eosio::asset expended;  ///< всего списано через фонды
-
-  uint64_t primary_key() const { return id; }  ///< первичный ключ
-};
-
-typedef eosio::multi_index<"fundwallet"_n, fundwallet> fundwallet_index;
-
 struct simple_wallet {
   eosio::asset available;
   eosio::asset withdrawed;
