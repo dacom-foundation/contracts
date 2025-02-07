@@ -117,7 +117,7 @@ void soviet::unblockbal(eosio::name coopname, eosio::name username, eosio::asset
 
 
 void soviet::addprogbal(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity) {
-  eosio::check(has_auth(_marketplace) || has_auth(_soviet) || has_auth(_capital), "Недостаточно прав доступа");
+  eosio::check(has_auth(_marketplace) || has_auth(_soviet) || has_auth(_capital) || has_auth(_gateway), "Недостаточно прав доступа");
   eosio::name payer = has_auth(_marketplace) ? _marketplace : _soviet;
   
   auto cooperative = get_cooperative_or_fail(coopname);  
@@ -151,7 +151,7 @@ void soviet::addprogbal(eosio::name coopname, eosio::name username, uint64_t pro
 
 
 void soviet::subprogbal(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity) {
-  eosio::check(has_auth(_marketplace) || has_auth(_soviet) || has_auth(_capital), "Недостаточно прав доступа");
+  eosio::check(has_auth(_marketplace) || has_auth(_soviet) || has_auth(_capital) || has_auth(_gateway), "Недостаточно прав доступа");
   eosio::name payer = has_auth(_marketplace) ? _marketplace : _soviet;
 
   auto cooperative = get_cooperative_or_fail(coopname);  

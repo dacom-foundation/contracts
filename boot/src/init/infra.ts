@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Generator, Registry } from '@coopenomics/factory'
 import type { Cooperative } from 'cooptypes'
 import { DraftContract } from 'cooptypes'
+import mongoose from 'mongoose'
 import type { Account, Contract } from '../types'
 import config from '../configs'
 import Blockchain from '../blockchain'
@@ -150,9 +151,9 @@ export async function startInfra() {
     short_name: '"ПК Восход"',
     full_name: 'Потребительский Кооператив "ВОСХОД"',
     represented_by: {
-      first_name: 'Алексей',
-      last_name: 'Муравьев',
-      middle_name: 'Николаевич',
+      first_name: 'Иван',
+      last_name: 'Иванов',
+      middle_name: 'Иванович',
       position: 'Председатель',
       based_on: 'Решение общего собрания №1',
     },
@@ -194,6 +195,88 @@ export async function startInfra() {
         kpp: '773643001',
       },
     },
+  })
+
+  const userData: Cooperative.Users.IIndividualData = {
+    username: 'ant',
+    first_name: 'Иван',
+    last_name: 'Иванов',
+    middle_name: 'Иванович',
+    birthdate: '2023-04-01',
+    phone: '+71234567890',
+    email: 'ivanov@example.com',
+    full_address: 'Переулок Правды д. 1',
+    passport: {
+      series: 7122,
+      number: 112233,
+      issued_by: 'отделом УФМС по г. Москва',
+      issued_at: '22.04.2010',
+      code: '111-232',
+    },
+  }
+
+  await generator.save('individual', userData)
+
+  // добавляем переменные кооператива
+  const vars: Cooperative.Model.IVars = {
+    coopname: 'voskhod',
+    full_abbr: 'потребительский кооператив',
+    full_abbr_genitive: 'потребительского кооператива',
+    full_abbr_dative: 'потребительскому кооперативу',
+    short_abbr: 'ПК',
+    website: 'цифровой-кооператив.рф',
+    name: 'Восход',
+    confidential_link: 'coopenomics.world/privacy',
+    confidential_email: 'privacy@coopenomics.world',
+    contact_email: 'contact@coopenomics.world',
+    passport_request: 'no',
+    wallet_agreement: {
+      protocol_number: '10-04-2024',
+      protocol_day_month_year: '10 апреля 2024 г.',
+    },
+    signature_agreement: {
+      protocol_number: '10-04-2024',
+      protocol_day_month_year: '10 апреля 2024 г.',
+    },
+    privacy_agreement: {
+      protocol_number: '10-04-2024',
+      protocol_day_month_year: '10 апреля 2024 г.',
+    },
+    user_agreement: {
+      protocol_number: '10-04-2024',
+      protocol_day_month_year: '10 апреля 2024 г.',
+    },
+    participant_application: {
+      protocol_number: '10-04-2024',
+      protocol_day_month_year: '10 апреля 2024 г.',
+    },
+  }
+
+  await generator.save('vars', vars)
+
+  // eslint-disable-next-line node/prefer-global/process
+  await mongoose.connect(process.env.MONGO_URI as string)
+
+  // добавляем пользователя для подключений
+  await mongoose.connection.collection('users').insertOne({
+    email: 'ivanov@example.com',
+    username: 'ant',
+    type: 'individual',
+    role: 'chairman',
+    is_registered: true,
+  })
+
+  // имитируем установку
+  await mongoose.connection.collection('monos').insertOne({
+    coopname: 'voskhod',
+    status: 'active',
+  })
+
+  // сохраняем зашированный ключ в vault
+  await mongoose.connection.collection('vaults').insertOne({
+    username: 'voskhod',
+    permission: 'active',
+    wif: '9d6479a9d77ead53fb0e5e54b3608a95:2046ee3c1577d48aecbee49e8f25c4c2df37ab02f15d73d0d1b6352f53a4b774cb9e71b6028fd7caf64568e195c7878dfbb5d2bf10a3766d90ba9e92ea724428',
   })
 
   console.log('Создаём программы и соглашения')

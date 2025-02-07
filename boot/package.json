@@ -27,7 +27,8 @@
     "eosjs-api": "^7.0.4",
     "eosjs-ecc": "^4.0.7",
     "execa": "^9.5.2",
-    "mocha": "^10.7.3"
+    "mocha": "^10.7.3",
+    "mongoose": "^8.10.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.18.0",
