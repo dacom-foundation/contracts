@@ -56,13 +56,14 @@ void soviet::migrate() {
         // --- 2. Обновление available у всех программ кооператива ---
         programs_index programs(_soviet, coopname.value);
         for (auto prog_it = programs.begin(); prog_it != programs.end(); ++prog_it) {
-            if (!prog_it->available.has_value()) {
+            // if (!prog_it->available.has_value()) {
                 programs.modify(prog_it, _soviet, [&](auto &p) {
+                    p.program_type = "wallet"_n;
                     p.available = eosio::asset(0, _root_govern_symbol);
                     p.blocked = eosio::asset(0, _root_govern_symbol);
                     p.spended = eosio::asset(0, _root_govern_symbol);
                 });
-            }
+            // }
         }
     }
 }
