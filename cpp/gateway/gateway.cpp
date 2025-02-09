@@ -176,8 +176,8 @@ void gateway::dpcomplete(eosio::name coopname, eosio::name admin, uint64_t depos
     action(
       permission_level{ _gateway, "active"_n},
       _soviet,
-      "addbalance"_n,
-      std::make_tuple(coopname, deposit -> username, deposit -> quantity)
+      "addbal"_n,
+      std::make_tuple(coopname, deposit -> username, _wallet_program_id, deposit -> quantity)
     ).send();
     
     action(
@@ -232,8 +232,8 @@ void gateway::dprefund(eosio::name coopname, eosio::name admin, uint64_t deposit
     action(
       permission_level{ _gateway, "active"_n},
       _soviet,
-      "subbalance"_n,
-      std::make_tuple(coopname, deposit -> username, deposit -> quantity, true)
+      "subbal"_n,
+      std::make_tuple(coopname, deposit -> username, _wallet_program_id, deposit -> quantity, true)
     ).send();
     
     action(
@@ -334,7 +334,7 @@ void gateway::withdraw(eosio::name coopname, eosio::name username, eosio::asset 
     permission_level{ _gateway, "active"_n},
     _soviet,
     "blockbal"_n,
-    std::make_tuple(coopname, username, quantity)
+    std::make_tuple(coopname, username, _wallet_program_id, quantity)
   ).send();
 
 
@@ -410,15 +410,14 @@ void gateway::wthdcomplete(eosio::name coopname, eosio::name admin, uint64_t wit
     permission_level{ _gateway, "active"_n},
     _soviet,
     "unblockbal"_n,
-    std::make_tuple(coopname, withdraw -> username, withdraw -> quantity)
+    std::make_tuple(coopname, withdraw -> username, _wallet_program_id, withdraw -> quantity)
   ).send();
-
 
   action(
     permission_level{ _gateway, "active"_n},
     _soviet,
-    "subbalance"_n,
-    std::make_tuple(coopname, withdraw -> username, withdraw -> quantity, false)
+    "subbal"_n,
+    std::make_tuple(coopname, withdraw -> username, _wallet_program_id, withdraw -> quantity, false)
   ).send();
 
   action(
@@ -473,7 +472,7 @@ void gateway::wthdfail(eosio::name coopname, eosio::name admin, uint64_t withdra
     permission_level{ _gateway, "active"_n},
     _soviet,
     "unblockbal"_n,
-    std::make_tuple(coopname, withdraw -> username, withdraw -> quantity)
+    std::make_tuple(coopname, withdraw -> username, _wallet_program_id, withdraw -> quantity)
   ).send();
 
 }

@@ -83,6 +83,8 @@
         b.username = username;
         b.available = asset(0, coop.initial.symbol);      
         b.agreement_id = agreement_id;
+        b.blocked = asset(0, coop.initial.symbol); ///< недоступные средства паевого взноса
+        b.membership_contribution = asset(0, coop.initial.symbol); ///< внесенный членский взнос
       });      
     } 
     

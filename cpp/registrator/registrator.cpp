@@ -168,7 +168,7 @@
   action(permission_level{_registrator, "active"_n}, _soviet, "adduser"_n,
      std::make_tuple(coopname, username, type, created_at, initial, minimum, spread_initial))
   .send();
-      
+
 }
 
 

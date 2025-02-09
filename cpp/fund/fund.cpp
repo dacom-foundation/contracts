@@ -135,7 +135,7 @@ using namespace eosio;
     eosio::name coopname,
     eosio::asset quantity)  /// < добавить сумму в паевый фонд
 {
-  eosio::name payer = check_auth_and_get_payer_or_fail({_gateway});
+  eosio::name payer = check_auth_and_get_payer_or_fail({_gateway, _marketplace});
 
   auto cooperative = get_cooperative_or_fail(coopname);
 
@@ -156,8 +156,8 @@ using namespace eosio;
     bool skip_available_check
     )  /// < списать сумму из паевого фонда
 {
-  // Только контракт шлюза может списывать оборотные средства из фонда
-  eosio::name payer = check_auth_and_get_payer_or_fail({_gateway});
+  // Только контракт шлюза или маркетплейса может списывать оборотные средства из фонда
+  eosio::name payer = check_auth_and_get_payer_or_fail({_gateway, _marketplace});
 
   auto cooperative = get_cooperative_or_fail(coopname);
 

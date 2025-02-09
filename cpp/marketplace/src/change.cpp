@@ -121,14 +121,14 @@ void marketplace::create_parent(eosio::name type, const exchange_params& params)
     action(
       permission_level{ _marketplace, "active"_n},
       _soviet,
-      "blockbal"_n,
-      std::make_tuple(params.coopname, params.username, quantity)
+      "addbal"_n,
+      std::make_tuple(params.coopname, params.username, params.program_id, quantity)
     ).send();
 
     action(
       permission_level{ _marketplace, "active"_n},
       _soviet,
-      "addprogbal"_n,
+      "blockbal"_n,
       std::make_tuple(params.coopname, params.username, params.program_id, quantity)
     ).send();
 
@@ -229,20 +229,14 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
     //родительская заявка должна быть противоположного типа
     eosio::check(parent_change -> type == "offer"_n, "Неверный тип родительской заявки");
     
+    //Для блокировки средств необходимо их иметь на ЦПП, т.е. предварительно необходимо сконвертировать их с ЦПП кошелька
     action(
       permission_level{ _marketplace, "active"_n},
       _soviet,
       "blockbal"_n,
-      std::make_tuple(params.coopname, params.username, total_cost)
-    ).send();
-    
-    action(
-      permission_level{ _marketplace, "active"_n},
-      _soviet,
-      "addprogbal"_n,
       std::make_tuple(params.coopname, params.username, params.program_id, total_cost)
     ).send();
-
+    
   }
   
   exchange.emplace(_marketplace, [&](auto &i) {
@@ -398,7 +392,7 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
   auto soviet = get_board_by_type_or_fail(coopname, "soviet"_n);
   auto chairman = soviet.get_chairman();
     
-  eosio::check(change -> product_contributor == username, "Недостачно прав доступа для совершения поставки");
+  eosio::check(change -> product_contributor == username, "Недостаточно прав доступа для совершения поставки");
 
   // Проверяем подпись документа
   verify_document_or_fail(document);
@@ -412,24 +406,23 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
   action(
     permission_level{ _marketplace, "active"_n},
     _soviet,
-    "addbalance"_n,
-    std::make_tuple(coopname, change -> product_contributor, change -> supplier_amount)
+    "addbal"_n,
+    std::make_tuple(coopname, change -> product_contributor, change -> program_id, change -> supplier_amount)
   ).send();
-
 
   action(
     permission_level{ _marketplace, "active"_n},
     _soviet,
     "blockbal"_n,
-    std::make_tuple(coopname, change -> product_contributor, change -> supplier_amount)
+    std::make_tuple(coopname, change -> product_contributor, change -> program_id, change -> supplier_amount)
   ).send();
 
-
+  //увеличиваем паевой фонд
   action(
     permission_level{ _marketplace, "active"_n},
-    _soviet,
-    "addprogbal"_n,
-    std::make_tuple(coopname, change -> product_contributor, change -> program_id, change -> supplier_amount)
+    _fund,
+    "addcirculate"_n,
+    std::make_tuple(coopname, change -> total_cost)
   ).send();
 
 }
@@ -463,10 +456,6 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
 }
 
 
-
-
-
-
 /**
 \ingroup public_actions
 \brief Подпись акта получения имущества пайщиком
@@ -489,7 +478,6 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
   
   // Проверяем подпись документа
   verify_document_or_fail(document);
-
 
   if (change -> type == "order"_n) { //если указанная заявка - это заказ продукта
     //то получение продукта может осуществить только пользователь из username
@@ -541,6 +529,15 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
     std::make_tuple(coopname, exchange_id)
   ).send();
 
+  
+  //уменьшаем паевой фонд
+  action(
+    permission_level{ _marketplace, "active"_n},
+    _fund,
+    "subcirculate"_n,
+    std::make_tuple(coopname, change -> total_cost, false)
+  ).send();
+ 
 }
 
 
@@ -706,54 +703,48 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
 
   auto program = get_program_or_fail(coopname, change -> program_id);
   
-  //Заказчику уменьшаем баланс ЦПП не кошелька, разблокируем баланс ЦПП кошелька и списываем его  
-  action(
-    permission_level{ _marketplace, "active"_n},
-    _soviet,
-    "subprogbal"_n,
-    std::make_tuple(coopname, change -> money_contributor, change -> program_id, change -> total_cost)
-  ).send();
-  
+  //Заказчику разблокируем баланс ЦПП кооплекса и списываем его  
   action(
     permission_level{ _marketplace, "active"_n},
     _soviet,
     "unblockbal"_n,
-    std::make_tuple(coopname, change -> money_contributor, change -> total_cost)
+    std::make_tuple(coopname, change -> money_contributor, change -> program_id, change -> total_cost)
   ).send();
 
   action(
     permission_level{ _marketplace, "active"_n},
     _soviet,
-    "subbalance"_n,
-    std::make_tuple(coopname, change -> money_contributor, change -> total_cost, false)
+    "subbal"_n,
+    std::make_tuple(coopname, change -> money_contributor, change -> program_id, change -> total_cost, false)
   ).send();
-
-
-  //Поставщику уменьшаем баланс ЦПП не кошелька и разблокируем баланс ЦПП кошелька
+  
+  
+  //Поставщику разблокируем средства в программе кооплейса
   action(
     permission_level{ _marketplace, "active"_n},
     _soviet,
-    "subprogbal"_n,
+    "unblockbal"_n,
     std::make_tuple(coopname, change -> product_contributor, change -> program_id, change -> supplier_amount)
   ).send();
 
-  action(
-    permission_level{ _marketplace, "active"_n},
-    _soviet,
-    "unblockbal"_n,
-    std::make_tuple(coopname, change -> product_contributor, change -> supplier_amount)
-  ).send();
 
-
-  if (change -> membership_fee.amount > 0){
+  if (change -> membership_fee.amount > 0) {
+    //распределяем членские взносы по фондам
     action(
       permission_level{ _marketplace, "active"_n},
       _fund,
       "spreadamount"_n,
       std::make_tuple(coopname, change -> membership_fee)
     ).send();
+    
+    // отмечаем распределение членских взносов в программе и кошельке пользователя
+    action(
+      permission_level{ _marketplace, "active"_n},
+      _soviet,
+      "addmemberfee"_n,
+      std::make_tuple(coopname, change -> money_contributor, change -> program_id, change -> membership_fee)
+    ).send();     
   }
-
 }
 
 
@@ -800,17 +791,9 @@ void marketplace::create_child(eosio::name type, const exchange_params& params) 
     action(
       permission_level{ _marketplace, "active"_n},
       _soviet,
-      "subprogbal"_n,
+      "unblockbal"_n,
       std::make_tuple(coopname, change -> money_contributor, change -> program_id, change -> total_cost)
     ).send();
-
-    action(
-      permission_level{ _marketplace, "active"_n},
-      _soviet,
-      "unblockbal"_n,
-      std::make_tuple(coopname, change -> money_contributor, change -> total_cost)
-    ).send();
-
 
   }; 
   
@@ -883,20 +866,13 @@ void marketplace::cancel_child(eosio::name coopname, eosio::name username, uint6
   eosio::asset quantity = change -> unit_cost * change -> blocked_units;
 
   
-  // оповещаем совет об отмене
+  // оповещаем совет об отмене и разблокируем средства
   if (change -> type == "order"_n) {
     action(
       permission_level{ _marketplace, "active"_n},
       _soviet,
-      "subprogbal"_n,
-      std::make_tuple(coopname, change -> money_contributor, change -> program_id, change -> total_cost)
-    ).send();
-
-    action(
-      permission_level{ _marketplace, "active"_n},
-      _soviet,
       "unblockbal"_n,
-      std::make_tuple(coopname, change -> money_contributor, change -> total_cost)
+      std::make_tuple(coopname, change -> money_contributor, change -> program_id, change -> total_cost)
     ).send();
 
   };  

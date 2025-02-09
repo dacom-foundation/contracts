@@ -24,11 +24,15 @@ struct [[eosio::table, eosio::contract(SOVIET)]] program {
   eosio::time_point_sec start_at;          /*!< Время открытия */
   eosio::time_point_sec expired_at;        /*!< Временное ограничение */
   
-  // Новое поле: агрегированный доступный баланс в виде binary_extension
-  eosio::binary_extension<eosio::asset> available;
-  eosio::binary_extension<eosio::asset> spended;
-  eosio::binary_extension<eosio::asset> blocked;
+  eosio::binary_extension<eosio::asset> available; ///< доступные паевые взносы для расходов по ЦПП
+  eosio::binary_extension<eosio::asset> spended; ///< расходы из числа паевых взносов ЦПП
+  eosio::binary_extension<eosio::asset> blocked; ///< недоступные средства из числа паевых взносов для расходов по ЦПП
+  
+  eosio::binary_extension<bool> is_can_coop_spend_share_contributions; ///< может ли кооператив использовать паевые взносы программы на расходы
 
+  eosio::binary_extension<eosio::asset> share_contributions; ///< собранные паевые взносы 
+  eosio::binary_extension<eosio::asset> membership_contributions; ///< собранные членские взносы
+  
   uint64_t primary_key() const { return id; } /*!< return id - primary_key */
   uint64_t by_program_type() const { return program_type.value;} /*!< return program_type - secondary_key */
   uint64_t by_draft() const { return draft_id; };

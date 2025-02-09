@@ -27,7 +27,7 @@
 class [[eosio::contract(SOVIET)]] soviet : public eosio::contract {
 public:
   using contract::contract;
-
+  
   [[eosio::action]] void init();
   [[eosio::action]] void migrate();
   
@@ -92,7 +92,7 @@ public:
 
 
   //programs.cpp
-  [[eosio::action]] void createprog(eosio::name coopname, eosio::name username, uint64_t draft_id, std::string title, std::string announce, std::string description, std::string preview, std::string images, eosio::name calculation_type, eosio::asset fixed_membership_contribution, uint64_t membership_percent_fee, std::string meta);
+  [[eosio::action]] void createprog(eosio::name coopname, eosio::name username, uint64_t draft_id, std::string title, std::string announce, std::string description, std::string preview, std::string images, eosio::name calculation_type, eosio::asset fixed_membership_contribution, uint64_t membership_percent_fee, bool is_can_coop_spend_share_contributions, std::string meta);
   [[eosio::action]] void editprog(eosio::name coopname, eosio::name username, uint64_t program_id, uint64_t draft_id, std::string title, std::string announce, std::string description, std::string preview, std::string images, std::string meta);
   [[eosio::action]] void disableprog(eosio::name coopname, uint64_t program_id);
   
@@ -108,14 +108,18 @@ public:
   
 
   //contributions.cpp
-  [[eosio::action]] void addbalance(eosio::name coopname, eosio::name username, eosio::asset quantity);
-  [[eosio::action]] void subbalance(eosio::name coopname, eosio::name username, eosio::asset quantity, bool skip_available_check = false);
-  [[eosio::action]] void blockbal(eosio::name coopname, eosio::name username, eosio::asset quantity);
-  [[eosio::action]] void unblockbal(eosio::name coopname, eosio::name username, eosio::asset quantity);
-  [[eosio::action]] void addprogbal(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity);
-  [[eosio::action]] void subprogbal(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity);
+  // [[eosio::action]] void addbalance(eosio::name coopname, eosio::name username, eosio::asset quantity);
+  // [[eosio::action]] void subbalance(eosio::name coopname, eosio::name username, eosio::asset quantity, bool skip_available_check = false);
+  // [[eosio::action]] void addprogbal(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity);
+  // [[eosio::action]] void subprogbal(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity);
   void withdraw_effect(eosio::name executer, eosio::name coopname, uint64_t decision_id, uint64_t batch_id);
-
+  
+  [[eosio::action]] void addbal(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity);
+  [[eosio::action]] void subbal(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity, bool skip_available_check);
+  [[eosio::action]] void blockbal(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity);
+  [[eosio::action]] void unblockbal(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity);
+  [[eosio::action]] void addmemberfee(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity);
+  
 
   //addresses.cpp
   [[eosio::action]] void creaddress(eosio::name coopname, eosio::name chairman, eosio::name braname, address_data data);

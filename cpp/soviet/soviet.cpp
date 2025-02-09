@@ -29,51 +29,46 @@ void soviet::migrate() {
 
         // --- 1. Обновление available у программных кошельков пайщиков ---
         participants_index participants(_soviet, coopname.value);
-        // progwallets_index progwallets(_soviet, coopname.value);
+        progwallets_index progwallets(_soviet, coopname.value);
 
-        // for (auto part_it = participants.begin(); part_it != participants.end(); ++part_it) {
-        //     eosio::name username = part_it->username;
+        for (auto part_it = participants.begin(); part_it != participants.end(); ++part_it) {
+            eosio::name username = part_it->username;
 
-        //     auto user_prog_wallets = progwallets.get_index<"byusername"_n>();
-        //     auto wallet_it = user_prog_wallets.lower_bound(username.value);
+            auto user_prog_wallets = progwallets.get_index<"byusername"_n>();
+            auto wallet_it = user_prog_wallets.lower_bound(username.value);
 
-        //     while (wallet_it != user_prog_wallets.end() && wallet_it->username == username) {
-        //         eosio::asset new_available;
-
-        //         if (wallet_it->available.symbol.raw() == 0) {
-        //             new_available = eosio::asset(0, _root_govern_symbol);
-        //         } else {
-        //             new_available = eosio::asset(wallet_it->available.amount, _root_govern_symbol);
-        //         }
-
-        //         user_prog_wallets.modify(wallet_it, _soviet, [&](auto &w) {
-        //             w.available = new_available;
-        //         });
-
-        //         ++wallet_it;
-        //     }
-        // }
+            while (wallet_it != user_prog_wallets.end() && wallet_it->username == username) {
+              user_prog_wallets.modify(wallet_it, _soviet, [&](auto &w) {
+                  w.blocked = asset(0, _root_govern_symbol); ///< недоступные средства паевого взноса
+                  w.membership_contribution = asset(0, _root_govern_symbol); ///< внесенный членский взнос  
+                  // w.available = new_available;
+              });
+              ++wallet_it;
+            }
+        }
         // --- 2. Обновление available у всех программ кооператива ---
         
-        wallets_index wallets(_soviet, coopname.value);
+        // wallets_index wallets(_soviet, coopname.value);
         
-        for (auto wallet_it = wallets.begin(); wallet_it != wallets.end(); ++wallet_it) {
-          wallets.modify(wallet_it, _soviet, [&](auto &w){
-            w.initial = coop_it -> initial;
-          });
-        };
+        // for (auto wallet_it = wallets.begin(); wallet_it != wallets.end(); ++wallet_it) {
+        //   wallets.modify(wallet_it, _soviet, [&](auto &w){
+        //     w.initial = coop_it -> initial;
+        //   });
+        // };
         
-        // programs_index programs(_soviet, coopname.value);
-        // for (auto prog_it = programs.begin(); prog_it != programs.end(); ++prog_it) {
-            // if (!prog_it->available.has_value()) {
-                // programs.modify(prog_it, _soviet, [&](auto &p) {
-                //     p.program_type = "wallet"_n;
-                //     p.available = eosio::asset(0, _root_govern_symbol);
-                //     p.blocked = eosio::asset(0, _root_govern_symbol);
-                //     p.spended = eosio::asset(0, _root_govern_symbol);
-                // });
-            // }
-        // }
+        programs_index programs(_soviet, coopname.value);
+        for (auto prog_it = programs.begin(); prog_it != programs.end(); ++prog_it) {
+            if (!prog_it->share_contributions.has_value()) {
+                programs.modify(prog_it, _soviet, [&](auto &pr) {
+                    pr.is_can_coop_spend_share_contributions = false;
+                    pr.share_contributions = eosio::asset(0, _root_govern_symbol);
+                    pr.membership_contributions = eosio::asset(0, _root_govern_symbol);
+                    pr.spended = eosio::asset(0, _root_govern_symbol);
+                    pr.blocked = eosio::asset(0, _root_govern_symbol);
+                    
+                });
+            }
+        }
     }
 }
 

@@ -14,176 +14,155 @@ inline void set_prog_available(program &prog, const eosio::asset &newval) {
   prog.available = newval;  // достаточно прямого присвоения
 }
 
-
-void soviet::addbalance(eosio::name coopname, eosio::name username, eosio::asset quantity) {
-  eosio::check(has_auth(_marketplace) || has_auth(_gateway) || has_auth(_soviet), "Недостаточно прав доступа");
-  eosio::name payer = has_auth(_marketplace) ? _marketplace : _soviet;
-
+void soviet::addmemberfee(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity){
+  eosio::check(has_auth(_marketplace) || has_auth(_soviet), "Недостаточно прав доступа");
   auto cooperative = get_cooperative_or_fail(coopname);  
   
-  participants_index participants(_soviet, coopname.value);
-  auto participant = participants.find(username.value);
-
-  eosio::check(participant != participants.end(), "Вы не являетесь пайщиком указанного кооператива");
+  programs_index programs(_soviet, coopname.value);
+  auto prg = programs.find(program_id);
+  eosio::check(prg != programs.end(), "Программа с указанным program_id не найдена");
   
-  wallets_index wallets(_soviet, coopname.value);
-  auto wallet = wallets.find(username.value);
-
-  wallets.modify(wallet, _soviet, [&](auto &w){
-    w.available += quantity;
-  });
-
-  // Параллельно добавляем баланс в программу id=1
-  addprogbal(coopname, username, 1, quantity);
-}
-
-void soviet::subbalance(eosio::name coopname, eosio::name username, eosio::asset quantity, bool skip_available_check) {
-  eosio::check(has_auth(_marketplace) || has_auth(_gateway) || has_auth(_soviet), "Недостаточно прав доступа");
-  eosio::name payer = has_auth(_marketplace) ? _marketplace : _soviet;
-
-  auto cooperative = get_cooperative_or_fail(coopname);  
+  auto participant = get_participant_or_fail(coopname, username);
+  auto exist_wallet = get_user_program_wallet_or_fail(coopname, username, program_id);
   
-  participants_index participants(_soviet, coopname.value);
-  auto participant = participants.find(username.value);
-
-  eosio::check(participant != participants.end(), "Вы не являетесь пайщиком указанного кооператива");
-
-  wallets_index wallets(_soviet, coopname.value);
-  auto wallet = wallets.find(username.value);
-  
-  if (!skip_available_check)
-    eosio::check(wallet -> available >= quantity, "Недостаточно средств на балансе");
-
-  wallets.modify(wallet, payer, [&](auto &w){
-    w.available -= quantity;
-  });
-  
-  // Параллельно списываем из программы id=1
-  subprogbal(coopname, username, 1, quantity);
-}
-
-
-
-void soviet::blockbal(eosio::name coopname, eosio::name username, eosio::asset quantity) {
-  eosio::check(has_auth(_marketplace) || has_auth(_gateway) || has_auth(_soviet) || has_auth(_capital), "Недостаточно прав доступа");
-  eosio::name payer = has_auth(_marketplace) ? _marketplace : _soviet;
-
-  auto cooperative = get_cooperative_or_fail(coopname);  
-  cooperative.check_symbol_or_fail(quantity);
-
-  participants_index participants(_soviet, coopname.value);
-
-  auto participant = participants.find(username.value);
-  
-  eosio::check(participant != participants.end(), "Участник не найден");
-
-  wallets_index wallets(_soviet, coopname.value);
-  auto wallet = wallets.find(username.value);
-  
-  eosio::check(wallet -> available >= quantity, "Недостаточно средств на балансе");
-
-  wallets.modify(wallet, payer, [&](auto &w){
-    w.available -= quantity;
-    w.blocked += quantity;
-  });
-
-}
-
-
-
-void soviet::unblockbal(eosio::name coopname, eosio::name username, eosio::asset quantity) {
-  eosio::check(has_auth(_marketplace) || has_auth(_gateway) || has_auth(_soviet) || has_auth(_capital), "Недостаточно прав доступа");
-  eosio::name payer = has_auth(_marketplace) ? _marketplace : _soviet;
-
-  auto cooperative = get_cooperative_or_fail(coopname);  
-  cooperative.check_symbol_or_fail(quantity);
-  
-  participants_index participants(_soviet, coopname.value);
-
-  auto participant = participants.find(username.value);
-  eosio::check(participant != participants.end(), "Участник не найден");
-
-  wallets_index wallets(_soviet, coopname.value);
-  auto wallet = wallets.find(username.value);
-  
-  eosio::check(wallet -> blocked >= quantity, "Недостаточно средств в блокировке");
-
-  wallets.modify(wallet, payer, [&](auto &w){
-    w.available += quantity;
-    w.blocked -= quantity;
-  });
-
-}
-
-
-void soviet::addprogbal(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity) {
-  eosio::check(has_auth(_marketplace) || has_auth(_soviet) || has_auth(_capital) || has_auth(_gateway), "Недостаточно прав доступа");
-  eosio::name payer = has_auth(_marketplace) ? _marketplace : _soviet;
-  
-  auto cooperative = get_cooperative_or_fail(coopname);  
-  
-  participants_index participants(_soviet, coopname.value);
-  auto participant = participants.find(username.value);
-
-  eosio::check(participant != participants.end(), "Вы не являетесь пайщиком указанного кооператива");
-
   progwallets_index progwallets(_soviet, coopname.value);
-
-  auto balances_by_username_and_program = progwallets.template get_index<"byuserprog"_n>();
-  auto username_and_program_index = combine_ids(username.value, program_id);
-  auto balance = balances_by_username_and_program.find(username_and_program_index);
+  auto wallet = progwallets.find(exist_wallet.id);
   
-  eosio::check(balance != balances_by_username_and_program.end(), "Вы не являетесь участником указанной ЦПП");
+  progwallets.modify(wallet, _soviet, [&](auto &p) { 
+    p.membership_contribution = p.membership_contribution.value_or(asset(0, quantity.symbol)) + quantity;
+  });
+  
+  // Обновляем агрегированный баланс в самой программе (program_id)
+  programs.modify(prg, _soviet, [&](auto &p){
+    p.membership_contributions = p.membership_contributions.value_or(asset(0, quantity.symbol)) + quantity;
+  });
+}
 
-  balances_by_username_and_program.modify(balance, payer, [&](auto &b) { 
+
+void soviet::addbal(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity) {
+  eosio::check(has_auth(_marketplace) || has_auth(_soviet) || has_auth(_capital) || has_auth(_gateway), "Недостаточно прав доступа");
+  
+  programs_index programs(_soviet, coopname.value);
+  auto prg = programs.find(program_id);
+  eosio::check(prg != programs.end(), "Программа с указанным program_id не найдена");
+  
+  auto cooperative = get_cooperative_or_fail(coopname);  
+  auto participant = get_participant_or_fail(coopname, username);
+  auto exist_wallet = get_user_program_wallet_or_fail(coopname, username, program_id);
+  
+  progwallets_index progwallets(_soviet, coopname.value);
+  auto wallet = progwallets.find(exist_wallet.id);
+  
+  progwallets.modify(wallet, _soviet, [&](auto &b) { 
     b.available += quantity; 
   });
   
   // Обновляем агрегированный баланс в самой программе (program_id)
-  programs_index programs(_soviet, coopname.value);
-  auto prg = programs.find(program_id);
-  eosio::check(prg != programs.end(), "Программа с указанным program_id не найдена");
-  programs.modify(prg, payer, [&](auto &p){
-    auto curr = get_prog_available(p);
-    set_prog_available(p, curr + quantity);
+  programs.modify(prg, _soviet, [&](auto &p) {
+    p.available = p.available.value_or(asset(0, quantity.symbol)) + quantity;
+    p.share_contributions = p.share_contributions.value_or(asset(0, quantity.symbol)) + quantity;
   });
+  
+  
 }
 
 
-void soviet::subprogbal(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity) {
+void soviet::subbal(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity, bool skip_available_check) {
   eosio::check(has_auth(_marketplace) || has_auth(_soviet) || has_auth(_capital) || has_auth(_gateway), "Недостаточно прав доступа");
-  eosio::name payer = has_auth(_marketplace) ? _marketplace : _soviet;
-
+  
+  programs_index programs(_soviet, coopname.value);
+  auto prg = programs.find(program_id);
+  eosio::check(prg != programs.end(), "Программа с указанным program_id не найдена");
+    
   auto cooperative = get_cooperative_or_fail(coopname);  
+  auto participant = get_participant_or_fail(coopname, username);
   
-  participants_index participants(_soviet, coopname.value);
-  auto participant = participants.find(username.value);
-
-  eosio::check(participant != participants.end(), "Вы не являетесь пайщиком указанного кооператива");
-  
+  auto exist_wallet = get_user_program_wallet_or_fail(coopname, username, program_id);
   progwallets_index progwallets(_soviet, coopname.value);
+  auto wallet = progwallets.find(exist_wallet.id);
+  
+  //обход проверки положительности при списании по флагу (необходимо для refund при уходе в минус)
+  if (!skip_available_check)
+    eosio::check(wallet ->available >= quantity, "Недостаточный баланс");
 
-  auto balances_by_username_and_program = progwallets.template get_index<"byuserprog"_n>();
-  auto username_and_program_index = combine_ids(username.value, program_id);
-  auto balance = balances_by_username_and_program.find(username_and_program_index);
-
-  eosio::check(balance != balances_by_username_and_program.end(), "Баланс не найден");
-
-  eosio::check(balance ->available >= quantity, "Недостаточный баланс");
-
-  balances_by_username_and_program.modify(balance, payer, [&](auto &b) { 
+  progwallets.modify(wallet, _soviet, [&](auto &b) { 
     b.available -= quantity; 
   });
 
   // Уменьшаем агрегированный баланс в самой программе
+  programs.modify(prg, _soviet, [&](auto &p){
+    eosio::check(p.available.value() >= quantity, "В программе недостаточно доступных средств");
+    eosio::check(p.share_contributions.value() >= quantity, "В программе недостаточно средств");
+    
+    p.available = p.available.value_or(asset(0, quantity.symbol)) - quantity;
+    p.share_contributions = p.share_contributions.value_or(asset(0, quantity.symbol)) - quantity;
+  });
+}
+
+
+void soviet::blockbal(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity) {
+  eosio::check(has_auth(_marketplace) || has_auth(_gateway) || has_auth(_soviet) || has_auth(_capital), "Недостаточно прав доступа");
+  
+  auto cooperative = get_cooperative_or_fail(coopname);  
+  cooperative.check_symbol_or_fail(quantity);
+  
   programs_index programs(_soviet, coopname.value);
   auto prg = programs.find(program_id);
   eosio::check(prg != programs.end(), "Программа с указанным program_id не найдена");
-  programs.modify(prg, payer, [&](auto &p){
-    auto curr = get_prog_available(p);
-    eosio::check(curr >= quantity, "В программе недостаточно доступных средств");
-    set_prog_available(p, curr - quantity);
+  
+  auto participant = get_participant_or_fail(coopname, username);
+  
+  auto exist_wallet = get_user_program_wallet_or_fail(coopname, username, program_id);
+  progwallets_index progwallets(_soviet, coopname.value);
+  auto wallet = progwallets.find(exist_wallet.id);
+  
+  eosio::check(wallet -> available >= quantity, "Недостаточно средств на балансе для блокировки");
+
+  progwallets.modify(wallet, _soviet, [&](auto &w){
+    w.available -= quantity;
+    w.blocked = w.blocked.value_or(asset(0, quantity.symbol)) + quantity;
   });
+  
+  eosio::check(prg -> available.value() >= quantity, "Недостаточно средств на балансе программы");
+    
+  programs.modify(prg, _soviet, [&](auto &p){
+    p.available = p.available.value_or(asset(0, quantity.symbol)) - quantity;
+    p.blocked = p.blocked.value_or(asset(0, quantity.symbol)) + quantity;
+  });
+  
+}
+
+
+void soviet::unblockbal(eosio::name coopname, eosio::name username, uint64_t program_id, eosio::asset quantity) {
+  eosio::check(has_auth(_marketplace) || has_auth(_gateway) || has_auth(_soviet) || has_auth(_capital), "Недостаточно прав доступа");
+  eosio::name payer = has_auth(_marketplace) ? _marketplace : _soviet;
+
+  programs_index programs(_soviet, coopname.value);
+  auto prg = programs.find(program_id);
+  eosio::check(prg != programs.end(), "Программа с указанным program_id не найдена");
+  
+  auto cooperative = get_cooperative_or_fail(coopname);  
+  cooperative.check_symbol_or_fail(quantity);
+  
+  auto participant = get_participant_or_fail(coopname, username);
+  auto exist_wallet = get_user_program_wallet_or_fail(coopname, username, program_id);
+  progwallets_index progwallets(_soviet, coopname.value);
+  auto wallet = progwallets.find(exist_wallet.id);
+  
+  eosio::check(wallet -> blocked.value() >= quantity, "Недостаточно средств в блокировке для разблокировки");
+
+  progwallets.modify(wallet, _soviet, [&](auto &w){
+    w.available += quantity;
+    w.blocked = w.blocked.value_or(asset(0, quantity.symbol)) - quantity;
+  });
+  
+  //разблокируем средства в программе
+  eosio::check(prg -> blocked.value() >= quantity, "Недостаточно средств в блокировке программы");
+  programs.modify(prg, _soviet, [&](auto &p){
+    p.available = p.available.value_or(asset(0, quantity.symbol)) + quantity;
+    p.blocked = p.blocked.value_or(asset(0, quantity.symbol)) - quantity;
+  });
+  
 }
 
 

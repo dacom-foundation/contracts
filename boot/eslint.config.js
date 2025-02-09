@@ -9,7 +9,10 @@ export default antfu(
   },
   {
     rules: {
+      'no-unused-vars': 'warn',
+      'unused-imports/no-unused-vars': 'warn',
       'no-console': 'off',
+      'unicorn/prefer-number-properties': 'off',
       // overrides
     },
   },

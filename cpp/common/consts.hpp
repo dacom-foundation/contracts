@@ -76,6 +76,11 @@ static constexpr eosio::name _wallet_program = "wallet"_n;
 static constexpr eosio::name _cooplace_program = "cooplace"_n;
 static constexpr eosio::name _capital_program = "capital"_n;
 
+//program_ids
+static constexpr uint64_t _wallet_program_id = 1;
+static constexpr uint64_t _cooplace_program_id = 2;
+static constexpr uint64_t _capital_program_id = 3;
+
 #define HUNDR_PERCENTS 1000000
 #define ONE_PERCENT 10000
 

@@ -52,7 +52,7 @@ void soviet::unblock(eosio::name coopname, eosio::name admin, eosio::name userna
       w.initial = wallet -> initial.value() + initial;
     });
     
-    //вернуть мин паевый взнос в фонд
+    //добавить мин паевый взнос в паевой фонд
     action(
       permission_level{ _gateway, "active"_n},
       _fund,
@@ -60,7 +60,7 @@ void soviet::unblock(eosio::name coopname, eosio::name admin, eosio::name userna
       std::make_tuple(coopname, minimum)
     ).send();
     
-    //вернуть вступительный взнос в фонд
+    //добавить вступительный взнос в кошелёк вступительных взносов
     action(
       permission_level{ _gateway, "active"_n},
       _fund,

@@ -1,27 +1,19 @@
 #include <optional>
 
 void capital::add_capital_to_wallet(eosio::name coopname, eosio::name username, eosio::asset amount){
+  auto program = get_capital_program_or_fail(coopname);
   
   action(
     permission_level{ _capital, "active"_n},
     _soviet,
-    "addbalance"_n,
-    std::make_tuple(coopname, username, amount)
+    "addbal"_n,
+    std::make_tuple(coopname, username, program.id, amount)
   ).send();
 
   action(
     permission_level{ _capital, "active"_n},
     _soviet,
     "blockbal"_n,
-    std::make_tuple(coopname, username, amount)
-  ).send();
-
-  auto program = get_capital_program_or_fail(coopname);
-  
-  action(
-    permission_level{ _capital, "active"_n},
-    _soviet,
-    "addprogbal"_n,
     std::make_tuple(coopname, username, program.id, amount)
   ).send();
 

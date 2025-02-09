@@ -66,7 +66,14 @@ void soviet::make_base_coagreements( eosio::name coopname, eosio::symbol govern_
       pr.fixed_membership_contribution = asset(0, govern_symbol);  
       pr.membership_percent_fee = 0;
       pr.meta = "";
+      pr.is_can_coop_spend_share_contributions = false;
+      pr.share_contributions = eosio::asset(0, govern_symbol);
+      pr.membership_contributions = eosio::asset(0, govern_symbol);
+      
       pr.available = eosio::asset(0, govern_symbol);
+      pr.spended = eosio::asset(0, govern_symbol);
+      pr.blocked = eosio::asset(0, govern_symbol);
+      
     });
   
     //создаём соглашение для программы кошелька    
