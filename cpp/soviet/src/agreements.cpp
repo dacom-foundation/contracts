@@ -49,6 +49,9 @@
   }
   
   verify_document_or_fail(document);
+  print("coopname: ", coopname);
+  print("username: ", username);
+  
   auto participant = get_participant_or_fail(coopname, username);
   auto coagreement = get_coagreement_or_fail(coopname, agreement_type);
   
