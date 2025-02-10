@@ -49,10 +49,9 @@
   }
   
   verify_document_or_fail(document);
-  print("coopname: ", coopname);
-  print("username: ", username);
   
-  auto participant = get_participant_or_fail(coopname, username);
+  //TODO: здесь проверка ломает путь приёма пайщика, т.к. необходимо организовать отправку соглашений после приёма решений советом, а не в момент подтверждения оплаты, как сейчас, что невозможно исполнить, т.к. пайщика еще нет в таблице participants
+  // auto participant = get_participant_or_fail(coopname, username);
   auto coagreement = get_coagreement_or_fail(coopname, agreement_type);
   
   //получаем шаблон документа
