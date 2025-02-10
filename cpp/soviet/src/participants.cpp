@@ -31,26 +31,11 @@ void soviet::unblock(eosio::name coopname, eosio::name admin, eosio::name userna
   participants_index participants(_soviet, coopname.value);
   auto participant = participants.find(username.value);
   
-  participants.modify(participant, _soviet, [&](auto &row){
-      row.status = "accepted"_n;
-      row.is_initial = true;
-      row.is_minimum = true;
-      row.has_vote = true;    
-    });
-  
-  if (is_registration == true) {
-
-    wallets_index wallets(_soviet, coopname.value);
-    auto wallet = wallets.find(username.value);
-    eosio::check(wallet -> minimum.amount == 0 && wallet -> initial.value().amount == 0, "Пайщик уже совершил вступительный и минимальный паевый взносы");
-
-    eosio::asset minimum = participant -> type.value() == "organization"_n ? cooperative.org_minimum.value() : cooperative.minimum;
-    eosio::asset initial = participant -> type.value() == "organization"_n ? cooperative.org_initial.value() : cooperative.initial;
+  eosio::asset minimum = participant -> type.value() == "organization"_n ? cooperative.org_minimum.value() : cooperative.minimum;
+  eosio::asset initial = participant -> type.value() == "organization"_n ? cooperative.org_initial.value() : cooperative.initial;
     
-    wallets.modify(wallet, _soviet, [&](auto &w) {
-      w.minimum = wallet -> minimum + minimum;
-      w.initial = wallet -> initial.value() + initial;
-    });
+  if (is_registration == true) {
+    eosio::check(!participant -> is_minimum && !participant -> is_initial, "Пайщик уже совершил вступительный и минимальный паевый взносы");
     
     //добавить мин паевый взнос в паевой фонд
     action(
@@ -67,7 +52,17 @@ void soviet::unblock(eosio::name coopname, eosio::name admin, eosio::name userna
       "addinitial"_n,
       std::make_tuple(coopname, initial)
     ).send();      
-  };  
+  } 
+  
+  participants.modify(participant, _soviet, [&](auto &row){
+    row.status = "accepted"_n;
+    row.is_initial = true;
+    row.is_minimum = true;
+    row.has_vote = true; 
+    row.minimum_amount = minimum;
+    row.initial_amount = initial;   
+  });
+  
 };
 
 [[eosio::action]] void soviet::selectbranch(eosio::name coopname, eosio::name username, eosio::name braname, document document){

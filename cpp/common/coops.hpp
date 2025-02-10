@@ -164,13 +164,16 @@ struct [[eosio::table, eosio::contract(SOVIET)]] participant {
 
   eosio::name status; //accepted | blocked
 
-  bool is_initial; ///< LEGACY Флаг, указывающий, внесен ли регистрационный взнос.
-  bool is_minimum; ///< LEGACY Флаг, указывающий, внесен ли минимальный паевый взнос.
-  bool has_vote; ///< LEGACY Флаг, указывающий, имеет ли член право голоса.
+  bool is_initial = true; ///< флаг, указывающий, внесен ли регистрационный взнос.
+  bool is_minimum = true; ///< флаг, указывающий, внесен ли минимальный паевый взнос.
+  bool has_vote = true; ///< флаг, указывающий, имеет ли член право голоса.
   
   eosio::binary_extension<eosio::name> type; ///< individual | entrepreneur | organization
   eosio::binary_extension<eosio::name> braname; ///< имя кооперативного участка
 
+  eosio::binary_extension<eosio::asset> initial_amount; ///< внесенный вступительный взнос
+  eosio::binary_extension<eosio::asset> minimum_amount; ///< внесенный минимальный паевой взнос
+  
   /**
    * @brief Возвращает первичный ключ учетной записи члена кооператива.
    * @return uint64_t - первичный ключ, равный значению имени члена кооператива.

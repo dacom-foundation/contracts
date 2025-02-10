@@ -41,19 +41,10 @@ void soviet::adduser(eosio::name coopname, eosio::name username, eosio::name typ
     m.is_minimum = true;
     m.has_vote = true;    
     m.type = type;
+    m.minimum_amount = minimum; 
+    m.initial_amount = initial;
   });
 
-  wallets_index wallets(_soviet, coopname.value);
-
-  wallets.emplace(_soviet, [&](auto &w){
-    w.username = username;
-    w.coopname = coopname;
-    w.available = asset(0, cooperative.initial.symbol);
-    w.blocked = asset(0, cooperative.initial.symbol);
-    w.minimum = minimum; 
-    w.initial = initial;
-  });
-  
   /**
    * Добавляем в оборотный фонд минимальный паевый взнос и распределяем по всем прочим фондам значение вступительного взноса.
    */
@@ -162,13 +153,13 @@ void soviet::cancelreg(eosio::name coopname, eosio::name username, std::string m
   */
   if (participant != participants.end()) {
     
-    wallets_index wallets(_soviet, coopname.value);
-    auto wallet = wallets.find(username.value);
-    
     //обнуляем кошелёк
-    wallets.modify(wallet, _soviet, [&](auto &w){
-      w.minimum = asset(0, wallet -> minimum.symbol);
-      w.initial = asset(0, wallet -> minimum.symbol);
+    participants.modify(participant, _soviet, [&](auto &w){
+      w.minimum_amount = asset(0, participant -> minimum_amount -> symbol);
+      w.initial_amount = asset(0, participant -> initial_amount -> symbol);
+      w.has_vote = false;
+      w.is_initial = false;
+      w.is_minimum = false;
     });
     
     //TODO send block action here
@@ -197,7 +188,10 @@ void soviet::joincoop_effect(eosio::name executer, eosio::name coopname, uint64_
   eosio::check(account != accounts.end(), "Аккаунт не найден");
   
   auto participant = participants.find(joincoop_action ->username.value);
-
+  
+  eosio::asset minimum = account -> type == "organization"_n ? cooperative.org_minimum.value() : cooperative.minimum; 
+  eosio::asset initial = account -> type == "organization"_n ? cooperative.org_initial.value() : cooperative.initial;
+  
   participants.emplace(_soviet, [&](auto &m){
       m.username = joincoop_action -> username;
       m.created_at = eosio::time_point_sec(eosio::current_time_point().sec_since_epoch());
@@ -208,22 +202,10 @@ void soviet::joincoop_effect(eosio::name executer, eosio::name coopname, uint64_
       m.has_vote = true;    
       m.type = account -> type;
       m.braname = joincoop_action -> braname.has_value() ? joincoop_action -> braname.value() : ""_n;
+      
+      m.minimum_amount = minimum;
+      m.initial_amount = initial;
     });  
-  
-  wallets_index wallets(_soviet, coopname.value);
-  eosio::asset minimum = account -> type == "organization"_n ? cooperative.org_minimum.value() : cooperative.minimum; 
-  eosio::asset initial = account -> type == "organization"_n ? cooperative.org_initial.value() : cooperative.initial;
-  
-  auto wallet = wallets.find(joincoop_action -> username.value);
-  
-  wallets.emplace(_soviet, [&](auto &w){
-    w.username = joincoop_action -> username;
-    w.coopname = coopname;
-    w.available = asset(0, cooperative.initial.symbol);
-    w.blocked = asset(0, cooperative.initial.symbol);
-    w.minimum = minimum;
-    w.initial = initial;
-  });
   
   action(
       permission_level{ _soviet, "active"_n},

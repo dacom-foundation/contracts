@@ -218,7 +218,7 @@ void gateway::dpcomplete(eosio::name coopname, eosio::name admin, uint64_t depos
  * @param memo 
  */
 void gateway::dprefund(eosio::name coopname, eosio::name admin, uint64_t deposit_id, std::string memo) {
-  check_auth_or_fail(_gateway, coopname, admin, "dpcomplete"_n);
+  check_auth_or_fail(_gateway, coopname, admin, "dprefund"_n);
   
   auto cooperative = get_cooperative_or_fail(coopname);  
   

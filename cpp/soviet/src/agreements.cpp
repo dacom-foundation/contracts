@@ -49,7 +49,7 @@
   }
   
   verify_document_or_fail(document);
-  
+  auto participant = get_participant_or_fail(coopname, username);
   auto coagreement = get_coagreement_or_fail(coopname, agreement_type);
   
   //получаем шаблон документа
