@@ -71,8 +71,8 @@ void soviet::migrate() {
         auto program_it = programs.find(1);
         if (program_it != programs.end()) {
             programs.modify(program_it, _soviet, [&](auto &pr) {
-                pr.available = asset(0, _root_govern_symbol);
-                pr.blocked = total_available;
+                pr.available = total_available;
+                pr.blocked = asset(0, _root_govern_symbol);
                 pr.share_contributions = total_available;
             });
         }
